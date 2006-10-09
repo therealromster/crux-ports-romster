@@ -1,0 +1,73 @@
+# $Id: 
+# Description:	GCC compiler configured for MinGW32.
+# URL:		http://gcc.gnu.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	mingw32-binutils, nasm
+
+name=mingw32-gcc
+version=3.4.5
+PORT_DATE=20060117
+release=1
+PORT_TARGET=mingw32
+source=(http://optusnet.dl.sourceforge.net/sourceforge/mingw/gcc-{core,g++,g77,objc,java}-$version-$PORT_DATE-$release-src.tar.gz)
+
+build() {
+	install -d \
+		$SRC/build \
+		$PKG/usr/share/$PORT_TARGET/bin
+	
+	cd $SRC/build
+	
+	../gcc-$version-$PORT_DATE-$release/configure -v \
+		--prefix=/usr \
+		--program-prefix=$PORT_TARGET- \
+		--target=$PORT_TARGET \
+		--with-headers=/usr/share/$PORT_TARGET/include \
+		--without-x \
+		--disable-nls \
+		--disable-win32-registry \
+		--disable-shared \
+		--disable-java-awt \
+		--disable-libgcj-debug \
+		--with-gcc \
+		--with-gnu-ld \
+		--with-gnu-as \
+		--enable-threads \
+		--enable-languages=c \
+		--enable-sjlj-exceptions \
+		--enable-libgcj \
+		--enable-java-gc=boehm \
+		--enable-interpreter \
+		--enable-hash-synchronization \
+		--enable-libstdcxx-debug
+	
+	make CFLAGS="-O2" CXXFLAGS="-O2" GCJFLAGS="-O2" LDFLAGS="-s" DEBUG_FLAGS="-g0"
+	make DESTDIR=$PKG install
+
+	for i in `find $PKG | sed -e 's|$PKG|/|'`; do
+		if [ -e '$i' ] && [ ! -d '$i' ] ; then
+			rm $PKG/$i
+		fi
+	done
+
+	
+	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-cpp
+	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-g++
+	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/bin/$PORT_TARGET-g++
+	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/cpp
+	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/g++
+	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/c++
+	
+	ln -fs /usr/bin/$PORT_TARGET-gcc $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-gcc
+	ln -fs /usr/bin/$PORT_TARGET-gcc $PKG/usr/share/$PORT_TARGET/bin/gcc
+	ln -fs /usr/bin/$PORT_TARGET-gcc $PKG/usr/share/$PORT_TARGET/bin/cc
+	
+	rm -fr \
+		$PKG/usr/info \
+		$PKG/usr/lib/libiberty.a \
+		$PKG/usr/man/man7
+
+	chown -R root:root $PKG
+}
+       

@@ -1,0 +1,23 @@
+# $Id: 
+# Description:	GUI disk space viewer.
+# URL:			http://xdiskusage.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	x11, fltk
+
+# Recommended:	
+# Optional:	
+# Category:	utilites
+
+name=xdiskusage
+version=1.48
+release=1
+source=(http://xdiskusage.sourceforge.net/xdiskusage-$version.tgz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	install -D -s -m755 -oroot -groot xdiskusage $PKG/usr/bin/xdiskusage
+	install -D -m644 -oroot -groot xdiskusage.1 $PKG/usr/man/man1/xdiskusage.1
+}

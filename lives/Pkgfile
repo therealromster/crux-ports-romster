@@ -1,0 +1,28 @@
+# $Id:
+# Description:	LiVES is a Free, Open Source video editor and a VJ tool.
+# URL:			http://lives.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	win32-essential-codecs, mplayer, imagemagick, gtk, libjpeg, gdk-pixbuf, sox
+
+# Recommended:	python, libsdl, mencoder, libmjpeg-tools, libtheora, jack
+# Optional:		xmms, dvdrtools
+# Category:		Multimedia, Editor, Video
+
+name=lives
+version=0.9.6
+release=1
+source=(http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+	rm -fr $PKG/usr/{bin/lives,share/doc}
+	ln -sf /usr/bin/lives-exe $PKG/usr/bin/lives
+	chown -R root.root $PKG
+}

@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/webalizer.conf
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/webalizer
+lrwxrwxrwx	root/root	usr/bin/webazolver -> /usr/bin/webalizer
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/webalizer.1.gz

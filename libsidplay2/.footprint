@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/sidplay/
+-rw-r--r--	root/root	usr/include/sidplay/Buffer.h
+-rw-r--r--	root/root	usr/include/sidplay/SidTune.h
+-rw-r--r--	root/root	usr/include/sidplay/SmartPtr.h
+-rw-r--r--	root/root	usr/include/sidplay/c64env.h
+-rw-r--r--	root/root	usr/include/sidplay/component.h
+-rw-r--r--	root/root	usr/include/sidplay/event.h
+-rw-r--r--	root/root	usr/include/sidplay/sid2types.h
+-rw-r--r--	root/root	usr/include/sidplay/sidbuilder.h
+-rw-r--r--	root/root	usr/include/sidplay/sidconfig.h
+-rw-r--r--	root/root	usr/include/sidplay/sidendian.h
+-rw-r--r--	root/root	usr/include/sidplay/sidint.h
+-rw-r--r--	root/root	usr/include/sidplay/sidplay2.h
+-rw-r--r--	root/root	usr/include/sidplay/sidtypes.h
+-rw-r--r--	root/root	usr/include/sidplay/sidusage.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libsidplay2.a
+-rwxr-xr-x	root/root	usr/lib/libsidplay2.la
+lrwxrwxrwx	root/root	usr/lib/libsidplay2.so -> libsidplay2.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libsidplay2.so.1 -> libsidplay2.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libsidplay2.so.1.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libsidplay2.pc

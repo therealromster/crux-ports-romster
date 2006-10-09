@@ -1,0 +1,25 @@
+# $Id:
+# Description:	A professional audio and MIDI sequencer, score editor, and general-purpose music composition and editing environment (KDE).
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Diederick de Vries <diederick at diederickdevries dot net>
+# URL:			http://www.rosegardenmusic.com/
+# Depends on:	scons, dssi, liblrdf, kdelibs
+
+# Recommended:	lirc
+# Optional:		
+# Category:		audio, editor
+
+name=rosegarden
+version=1.4.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	export QTDIR=/usr/share/qt
+	scons configure prefix=/usr
+	scons && scons DESTDIR=$PKG install
+	rm -fr $PKG/usr/share/{doc,locale/{ca,cs,cy,de,en_GB,es,et,fi,fr,it,ja,nl,ru,sv,zh_CN}}
+	chown -R root:root $PKG
+}
+

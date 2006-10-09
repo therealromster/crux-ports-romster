@@ -1,0 +1,18 @@
+# $Id:
+# Description:	A lightweight GTK archive manager.
+# URL:			http://xarchiver.xfce.org/
+# Packager:		Mark Rosenstand, mark at borkware dot net
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>	
+# Depends on:	gtk
+
+name=xarchiver
+version=0.3.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+	cd Xarchiver-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/locale
+}

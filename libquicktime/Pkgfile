@@ -1,0 +1,29 @@
+# $Id: Pkgfile 1281 2006-10-04 16:01:08Z romster $
+# Description:	A library for reading and writing quicktime files
+# URL:			http://libquicktime.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Younes Hafri <ycrux@club-internet.fr>
+# Depends on:	mesa3d, faac, libdivx, libdv, libvorbis, lame, libjpeg, libpng, ffmpeg, gtk, alsa-lib
+
+# Recommended:	
+# Optional:		
+# Category:		library
+
+name=libquicktime
+version=0.9.10
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-gpl \
+		--disable-vorbistest \
+		--disable-gtktest
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

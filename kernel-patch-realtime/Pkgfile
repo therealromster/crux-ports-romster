@@ -1,0 +1,21 @@
+# $Id: 
+# Description:	Realtime Linux security kernel patch.
+# URL:			http://sourceforge.net/projects/realtime-lsm/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=kernel-patch-realtime
+version=0.8.7
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/rt-lsm-$version-kernel.patch.gz)
+
+build () {
+	export KERNEL_DIR=/usr/src/linux-$(uname -r)
+	gzip -d $SRC/rt-lsm-$version-kernel.patch.gz
+	install -D -m640 -groot -oroot $SRC/rt-lsm-$version-kernel.patch $PKG/usr/src/realtime-security-module.patch
+
+	#cd /usr/src/linux-$(uname -r)	
+	#patch -p0 -d /usr/src/linux-$(uname -r) -i /usr/src/realtime-security-module.patch
+	
+}

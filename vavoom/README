@@ -1,0 +1,33 @@
+# $Id:
+
+REQUIREMENTS:
+
+To play Vavoom you need the main wad file from one of the following games:
+
+    * Doom shareware
+    * Doom registered
+    * Ultimate Doom
+    * Doom II: Hell on Earth
+    * Doom II: TNT Evilution
+    * Doom II: The Plutonia experiment
+    * Heretic shareware
+    * Heretic registered
+    * Hexen
+    * Strife
+
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+POST-INSTALL:
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+If you have multiple IWADs, you can use command line params -doom, -doom2, -heretic or -hexen.
+
+Danny Rawlins <romster@shortcircuit.net.au>

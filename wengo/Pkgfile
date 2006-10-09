@@ -1,0 +1,23 @@
+# $Id:
+# Description:	WengoPhone, open development project, similar to skype.
+# URL:			http://wengo.com/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=wengo
+version=2.0beta-7267
+release=1
+source=(http://download.wengo.com/nightlybuilds/binary/NG/GNULinux/rc2/wengophone-ng-GNULinux-binary-7267.tar.bz2 \
+	wengo.sh)
+
+build() {
+	cd wengophone-ng-binary-latest
+	install -d $PKG/usr/share/$name
+	cp -r . $PKG/usr/share/$name/
+	cd $PKG/usr/share/$name/
+	find $PKG/usr/share/wengo/ -type f -exec chmod 644 {} \;
+	chmod 755 $PKG/usr/share/$name/wengophone.sh
+	chmod 755 $PKG/usr/share/$name/qtwengophone
+	install -D -m755 $SRC/wengo.sh $PKG/usr/bin/wengo
+}

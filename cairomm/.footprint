@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/cairomm-1.0/
+drwxr-xr-x	root/root	usr/include/cairomm-1.0/cairomm/
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/cairomm.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/context.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/enums.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/exception.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/fontface.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/fontoptions.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/path.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/pattern.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/refptr.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/scaledfont.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/surface.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/win32_surface.h
+-rw-r--r--	root/root	usr/include/cairomm-1.0/cairomm/xlib_surface.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libcairomm-1.0.a
+-rwxr-xr-x	root/root	usr/lib/libcairomm-1.0.la
+lrwxrwxrwx	root/root	usr/lib/libcairomm-1.0.so -> libcairomm-1.0.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libcairomm-1.0.so.1 -> libcairomm-1.0.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libcairomm-1.0.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/cairomm-1.0.pc

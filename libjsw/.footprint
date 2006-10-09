@@ -1,0 +1,24 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/jsw.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libjsw.so -> libjsw.so.1.5.6
+-rwxr-xr-x	root/root	usr/lib/libjsw.so.1.5.6
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/JSClose.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSDriverQueryVersion.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSDriverVersion.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSFreeAttributesList.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSGetAttributesList.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSGetAxisCoeff.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSGetAxisCoeffNZ.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSGetButtonState.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSInit.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSIntro.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSIsAxisAllocated.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSIsButtonAllocated.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSLoadCalibrationUNIX.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSLoadDeviceNamesUNIX.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSResetAllAxisTolorance.3.bz2.gz
+-rw-r--r--	root/root	usr/man/man3/JSUpdate.3.bz2.gz

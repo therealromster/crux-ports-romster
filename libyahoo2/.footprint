@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/yahoo2.h
+-rw-r--r--	root/root	usr/include/yahoo2_callbacks.h
+-rw-r--r--	root/root	usr/include/yahoo2_types.h
+-rw-r--r--	root/root	usr/include/yahoo_fn.h
+-rw-r--r--	root/root	usr/include/yahoo_httplib.h
+-rw-r--r--	root/root	usr/include/yahoo_list.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libyahoo2.a
+-rwxr-xr-x	root/root	usr/lib/libyahoo2.la
+lrwxrwxrwx	root/root	usr/lib/libyahoo2.so -> libyahoo2.so.9.0.0
+lrwxrwxrwx	root/root	usr/lib/libyahoo2.so.9 -> libyahoo2.so.9.0.0
+-rwxr-xr-x	root/root	usr/lib/libyahoo2.so.9.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libyahoo2.pc

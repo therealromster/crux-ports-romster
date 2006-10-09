@@ -1,0 +1,32 @@
+# $Id:
+# Description:	SQL for Shell Scripts.
+# URL:			http://www.edlsystems.com/shellsql/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Younes Hafri <ycrux@club-internet.fr>
+# Depends on:	
+
+# Recommended:	sqlite3, mysql
+# Optional:	unixodbc, freetds, postgresql
+# Category:	database, shell
+
+# Depends on note:	You need atleast one database installed to use this.
+
+name=shellsql
+version=0.7.6
+release=1
+source=(ftp://ftp.edlsystems.com/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	install -d $PKG/usr/bin
+	sed -i "s|BINDIR=/usr/bin|BINDIR=$PKG/usr/bin|" install.sh
+
+	PORT_CONFIG_ARGS="tools "
+	[ -n $(pkginfo -i|grep postgres) ] || PORT_CONFIG_ARGS+="postgres "
+	[ -n $(pkginfo -i|grep mysql) ] || PORT_CONFIG_ARGS+="mysql "
+	[ -n $(pkginfo -i|grep sqlite3) ] || PORT_CONFIG_ARGS+="sqlite3 "
+	[ -n $(pkginfo -i|grep odbc) ] || PORT_CONFIG_ARGS+="odbc "
+	
+	./install.sh $PORT_CONFIG_ARGS
+	chown -R root:root $PKG
+}

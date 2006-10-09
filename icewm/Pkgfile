@@ -1,0 +1,27 @@
+# $Id:
+# Description:	Window manager: speed, simplicity, and not getting in the user's way.
+# URL:			http://www.icewm.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Han Boetes <han@mijncomputer.nl>
+# Depends on:	imlib
+
+# Recommended:	
+# Optional:		
+# Category:		window manager
+
+name=icewm
+version=1.2.28
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

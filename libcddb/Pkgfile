@@ -1,0 +1,28 @@
+# $Id:
+# Description:	Library to access and submit data on a CDDB server.
+# URL:			http://libcddb.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Han Boetes, han at mijncomputer dot nl
+# Depends on:
+
+# Recommended:	libiconv, libcdio
+# Optional:	
+# Category:		library, cddb
+
+name=libcddb
+version=1.2.2
+release=1
+source=(http://dl.sourceforge.net/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--disable-static
+
+    make && make DESTDIR=$PKG install
+    chown -R root:root $PKG
+}
+

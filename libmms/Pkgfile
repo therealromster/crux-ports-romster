@@ -1,0 +1,23 @@
+# $Id: 
+# Description:	LibMMS aims to be common mms:// and mmsh:// (Microsoft streaming protocols) parsing library.
+# URL:			http://sourceforge.net/projects/libmms/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=libmms
+version=0.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make && make DESTDIR=$PKG install	
+	chown -R root:root $PKG
+}
+

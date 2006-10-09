@@ -1,0 +1,17 @@
+# $Id: 
+# Description:	Python bindings for the LZMA compression library.
+# URL:			http://www.joachim-bauch.de/projects/python/pylzma/
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	python
+
+name=pylzma
+version=0.3.0
+release=1
+source=(http://www.joachim-bauch.de/projects/python/$name/releases/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}

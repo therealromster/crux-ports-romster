@@ -1,0 +1,27 @@
+# $Id:
+# Description:	An implementation of the  Open Sound Control  protocol.
+# URL:			http://liblo.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Diederick de Vries <diederick at diederickdevries.net>
+# Depends on:	
+
+# Recommended:	
+# Optional:		
+# Category:		audio
+
+name=liblo
+version=0.23
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	
+	./configure \
+		--prefix=/usr \
+		--enable-ipv6
+	
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

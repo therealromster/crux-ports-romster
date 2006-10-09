@@ -1,0 +1,27 @@
+# $Id:
+# Description:	Cross-platform C++ GUI toolkit for Unix, Windows and Mac OS X.
+# Packager:		Ivan Lyanguzov, tzong at tzong dot spb dot ru
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# URL:			http://www.fltk.org
+# Depends on:	xorg
+
+name=fltk
+version=1.1.7
+release=1
+source=(http://ftp.easysw.com/pub/fltk/$version/fltk-$version-source.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-shared \
+		--enable-xft
+
+	make && make DESTDIR=$PKG install
+	install -d $PKG/usr/man/{man1,man3}
+	install -m644 $PKG/usr/share/man/man1/* -t $PKG/usr/man/man1/
+	install -m644 $PKG/usr/share/man/man3/* -t $PKG/usr/man/man3/
+	rm -fr $PKG/usr/share
+	chown -R root:root $PKG
+}

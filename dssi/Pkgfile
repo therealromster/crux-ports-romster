@@ -1,0 +1,24 @@
+# $Id:
+# Description:	An API for audio processing plugins, particularly useful for software synthesis plugins with user interfaces.
+# URL:			http://dssi.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Diederick de Vries <diederick at diederickdevries.net>
+# Depends on:	qt3, liblo, ladspa, jack, libsamplerate
+
+# Recommended:	
+# Optional:		
+# Category:		audio, api, ladspa
+
+name=dssi
+version=0.9.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	export QTDIR=/usr/share/qt
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

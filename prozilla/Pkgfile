@@ -1,0 +1,23 @@
+# $Id:	
+# Description:	Download accelerator.
+# URL:			http://prozilla.genesys.ro/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=prozilla
+version=2.0.4
+release=1
+source=(http://prozilla.genesys.ro/downloads/prozilla/tarballs/prozilla-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+			
+	install -D -m644 man/proz.1 $PKG/usr/man/man1/proz.1
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+KERNEL_DIR=/usr/src/linux-$(uname -r)
+#KERNEL_DIR=/usr/src/linux-2.6.7.11
+patch -p1 -d $KERNEL_DIR -i ../rt-lsm-kernel.patch
+echo "Done, now enable the realtime security module then compile and install, then reboot, then install 'realtime-lsm'."

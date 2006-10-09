@@ -1,0 +1,18 @@
+# $Id: 
+# Description:	Jam is a small open-source build tool that can be used as a replacement for Make.
+# URL:			http://freetype.sourceforge.net/jam/index.html
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=ftjam
+version=2.5.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/freetype/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root.root $PKG
+}

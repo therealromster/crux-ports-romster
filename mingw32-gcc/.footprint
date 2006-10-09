@@ -1,0 +1,79 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mingw32-cpp
+lrwxrwxrwx	root/root	usr/bin/mingw32-g++ -> /usr/bin/mingw32-cpp
+-rwxr-xr-x	root/root	usr/bin/mingw32-gcc
+-rwxr-xr-x	root/root	usr/bin/mingw32-gcc-3.4.5
+-rwxr-xr-x	root/root	usr/bin/mingw32-gccbug
+-rwxr-xr-x	root/root	usr/bin/mingw32-gcov
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gcc/
+drwxr-xr-x	root/root	usr/lib/gcc/mingw32/
+drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/crtbegin.o
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/crtend.o
+drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/include/
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/README
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/emmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/float.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/iso646.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/limits.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/mm_malloc.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/mmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/pmmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/stdarg.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/stdbool.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/stddef.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/syslimits.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/unwind.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/varargs.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/xmmintrin.h
+drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/gsyslimits.h
+drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/README
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/emmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/float.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/iso646.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/limits.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/mm_malloc.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/mmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/pmmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/stdarg.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/stdbool.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/stddef.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/unwind.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/varargs.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/xmmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/mkheaders.conf
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/libgcc.a
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/libgcov.a
+-rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/specs
+drwxr-xr-x	root/root	usr/libexec/
+drwxr-xr-x	root/root	usr/libexec/gcc/
+drwxr-xr-x	root/root	usr/libexec/gcc/mingw32/
+drwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/
+-rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/cc1
+-rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/collect2
+drwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/install-tools/
+-rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/install-tools/fixinc.sh
+-rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/install-tools/mkheaders
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mingw32-cpp.1.gz
+-rw-r--r--	root/root	usr/man/man1/mingw32-gcc.1.gz
+-rw-r--r--	root/root	usr/man/man1/mingw32-gcov.1.gz
+drwxr-xr-x	root/root	usr/mingw32/
+drwxr-xr-x	root/root	usr/mingw32/lib/
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/mingw32/
+drwxr-xr-x	root/root	usr/share/mingw32/bin/
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/c++ -> /usr/bin/mingw32-cpp
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/cc -> /usr/bin/mingw32-gcc
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/cpp -> /usr/bin/mingw32-cpp
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/g++ -> /usr/bin/mingw32-cpp
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/gcc -> /usr/bin/mingw32-gcc
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/mingw32-cpp -> /usr/bin/mingw32-cpp
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/mingw32-g++ -> /usr/bin/mingw32-cpp
+lrwxrwxrwx	root/root	usr/share/mingw32/bin/mingw32-gcc -> /usr/bin/mingw32-gcc

@@ -1,0 +1,28 @@
+# $Id:
+# Description:	International character encoding conversion to/from unicode. 
+# URL:			http://www.gnu.org/software/libiconv/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Younes Hafri <ycrux@club-internet.fr>
+# Depends on:	
+
+# Recommended:	
+# Optional:	
+# Category:		library
+
+name=libiconv
+version=1.11
+release=1
+source=(http://ftp.gnu.org/pub/gnu/libiconv/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	
+	./configure \
+		--prefix=/usr \
+		--disable-nls 
+
+	make && make prefix=$PKG/usr install
+	rm -fr $PKG/usr/share/doc
+	chown -R root:root $PKG
+}
+

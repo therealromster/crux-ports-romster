@@ -1,0 +1,19 @@
+# $Id:
+# Description:	Cube is an open source multiplayer and singleplayer first person 3d shooter game.
+# URL:			http://www.cubeengine.com
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Jose V Beneyto, <joberui@ei.upv.es>
+# Depends on:	x11, mesa3d, sdl_mixer, sdl_image
+
+name=cube
+version=2005_08_29
+release=1
+source=(http://dl.sourceforge.net/sourceforge/cube/cube_2005_08_29_unix.tar.gz \
+	$name.sh)
+
+build() {
+	install -d $PKG/usr/share/$name
+	cp -dpR $name/* $PKG/usr/share/$name/
+	install -D -m755 -groot -oroot $name.sh $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Created by Danny Rawlins, <romster at shortcircuit dot net dot au>
+
+GROUP=daemon
+USER=_yacy
+USER_COMMENT="Yacy Daemon"
+USER_HOME=/var/empty
+USER_SHELL=/bin/sh
+
+if [ $GROUP ]
+	then
+		if ! grep -qi $GROUP /etc/group
+			then
+				/usr/sbin/groupadd $GROUP
+				if [ $? -eq 0 ]
+					then
+						echo "Group: $GROUP added."
+				fi
+			else
+				echo "Group: $GROUP already exists! Skipping."
+		fi
+fi
+	
+if ! grep -qi $USER /etc/shadow
+	then
+		/usr/sbin/useradd -g $GROUP -c "$USER_COMMENT" -d $USER_HOME -s $USER_SHELL $USER
+		if [ $? -eq 0 ]
+			then
+				/usr/bin/passwd -l $USER
+				echo "User: $USER added."
+		fi
+		else
+			echo "User: $USER already exists! Skipping."
+fi
+

@@ -1,0 +1,108 @@
+# $Id: 
+# Description:	ViewPerf is an industry standard OpenGL graphics benchmark application.
+# URL:			http://sourceforge.net/projects/viewperf
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	x11
+
+# Recommended:	
+# Optional:	
+# Category:	benchmark, video, graphics, tests, performance
+
+name=viewperf
+version=81
+release=1
+source=(ftp://spec.ir.miami.edu/dist/gpc/opc/viewperf/unix/SPECViewperf$version.tar.gz)
+
+build () {
+	cd SPECViewperf$version/src
+	
+	chmod 644 -R $SRC
+
+	#Which operating system are you building for?
+	#1. Linux32
+	#2. Solaris-Sparc
+	#3. Linux64
+	#4. Solaris-x86
+	#5. Other (manual configuration)
+	PORT_OS=1
+
+	#Which compiler do you wish to use?
+	#default is: gcc
+	PORT_COMPILER=gcc
+
+	find $SRC/ -type f -regex ".*.bat$" -exec rm {} \;
+	find $SRC/ -type f -regex ".*.bat~$" -exec rm {} \;
+	find $SRC/ -type f -regex ".*.csh~$" -exec rm {} \;
+
+	find $SRC/ -type f -regex ".*.csh$" -exec export PORT_TMP_FILE_CSH={} \;
+
+	for i in $PORT_TMP_FILE_CSH ; do
+		$PORT_TMP_FILENAME=`$i | grep -E -o "^[a-zA-Z0-9]*"`
+		rename $i $PORT_TMP_FILENAME
+		sed -i "|#!/bin/csh|#!/bin/tcsh|" $i
+	done
+	unset PORT_TMP_FILE_CSH
+
+	printf "${PORT_OS}\n${PORT_COMPILER}\n" | sh $SRC/SPECViewperf$version/src/Configure --prefix=/usr
+	
+	#mv VP_OBJS.UNX.FUNC_CALLS Vp_objs.unx.func_calls
+
+	#install -d \
+	#	$PKG/usr/share/$name \
+	#	$PKG/{etc,usr/bin} \
+	#	$PKG/var/log/$name
+
+	cd ..
+
+	install -D -m644 $name.config $PKG/etc/$name.conf
+	ln -sf /usr/share/$name/$name.config $PKG/etc/$name.conf
+	#cp -R 
+	
+	install -d $PKG/usr/bin
+
+	# install exec and symlink
+	if [ $PORT_OS = 1 ]; then
+		install -D -m755 pngxor/Linux32/pngxor $PKG/usr/share/$name/pngxor
+		install -D -m755 vpost/Linux32/vpost $PKG/usr/share/$name/vpost
+		install -D -m755 $name/Linux32/$name $PKG/usr/share/$name/$name
+
+		ln -sf /usr/share/$name/pngxor $PKG/usr/bin/pngxor
+		ln -sf /usr/share/$name/vpost $PKG/usr/bin/vpost
+		ln -sf /usr/share/$name/$name $PKG/usr/bin/$name
+
+	elif [ $PORT_OS = 3 ]; then
+		install -D -m755 pngxor/Linux64/pngxor $PKG/usr/share/$name/pngxor
+		install -D -m755 vpost/Linux64/vpost $PKG/usr/share/$name/vpost
+		install -D -m755 $name/Linux64/$name $PKG/usr/share/$name/$name
+
+		ln -sf /usr/share/$name/pngxor $PKG/usr/bin/pngxor
+		ln -sf /usr/share/$name/vpost $PKG/usr/bin/vpost
+		ln -sf /usr/share/$name/$name $PKG/usr/bin/$name
+
+	else
+		echo "Error Unsupported."
+		exit 1;
+	fi
+
+	# install the tests
+	for i in 3dsmax-03 catia-01 ensight-02 light-07 maya-01 proe-03 sw-01 ugs-04; do
+		install -d $PKG/usr/share/$name/$i
+		install -t $PKG/usr/share/$name/$i $i/*
+		#install -D -m644 $i/* $PKG/usr/share/$name/$i
+	done
+
+	# install the result logs to there right location
+
+	install -d $PKG/var/log/viewperf/results
+	for i in results backup_results sum_results; do
+		#install -D -m644 $i $PKG/var/log/$name/$i
+		#mv $i/* $PKG/var/log/$name/$i
+
+		cp -R $i/* $PKG/var/log/$name/
+		ln -sf /var/log/$name/results/$i $PKG/usr/share/$name/$i
+	done
+
+	#make DESTDIR=$PKG install
+	chown -R root.root $PKG
+}

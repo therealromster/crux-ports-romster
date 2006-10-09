@@ -1,0 +1,28 @@
+# $Id:
+# Description:	RDF parser library.
+# URL:			http://librdf.org/raptor/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Diederick de Vries <diederick at diederickdevries dot net>
+# Depends on:	libxslt
+
+# Recommended:	
+# Optional:		
+# Category:		library
+
+name=librdf
+version=1.4.12
+release=1
+source=(http://download.librdf.org/source/raptor-$version.tar.gz)
+
+build() {
+	cd raptor-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make && make DESTDIR=$PKG install
+	rm -fr $PKG/usr/share/gtk-doc
+	chown -R root:root $PKG
+}
+

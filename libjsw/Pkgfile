@@ -1,0 +1,22 @@
+# $Id:
+# Description:	Joystick Wrapper library.
+# URL:			http://wolfpack.twu.net/libjsw/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Jose V Beneyto, <joberui at ei dot upv dot es>
+# Depends on:
+
+# Recommended:	
+# Optional:	
+# Category:	library, games
+
+name=libjsw
+version=1.5.6
+release=1
+source=(http://wolfpack.twu.net/users/wolfpack/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version/$name
+	make -f Makefile.Linux
+	make -f Makefile.Linux install PREFIX=$PKG/usr
+	chown -R root:root $PKG
+}

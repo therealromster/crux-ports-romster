@@ -1,0 +1,19 @@
+# $Id:
+# Description:	Circuit simulator based on Spice3f5, Cider1b1 and Xspice.
+# URL:			http://ngspice.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Aaron Marks <nymacro AT gmail DOT com>
+
+name=ng-spice
+version=rework-17
+release=1
+
+source=(http://dl.sourceforge.net/sourceforge/ngspice/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	rm -fr $PKG/usr/info
+	chown -R root:root $PKG
+}

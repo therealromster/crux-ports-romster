@@ -1,0 +1,24 @@
+# $Id:
+
+REQUIREMENTS:
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+POST-INSTALL:
+
+You have to manually add the following to:
+/usr/lib/openoffice/share/dict/ooo/dictionary.lst:
+
+DICT au AU en_AU
+HYPH au AU hyph_en_AU
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+Danny Rawlins, <romster@shortcircuit.net.au>
+	

@@ -1,0 +1,26 @@
+# $Id: 
+# Description:	Command line password recovery tool.
+# URL:			http://pdfcrack.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=pdfcrack
+version=0.7
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	#./configure --prefix=/usr
+	make
+
+	install -d $PKG/usr/include/$name
+	install -D pdfcrack $PKG/usr/bin/pdfcrack
+	#install pdfreader $PKG/usr/bin/
+	#install testreader $PKG/usr/bin/
+
+	install *.o $PKG/usr/include/$name/
+	#make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}

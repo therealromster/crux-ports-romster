@@ -1,0 +1,26 @@
+# $Id: 
+# Description:	SMTP filter that allows you to check for viruses using the ClamAV anti-virus.
+# URL:			http://memberwebs.com/nielsen/software/clamsmtp/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	clamav
+
+name=clamsmtp
+version=1.8
+release=1
+source=(http://memberwebs.com/nielsen/software/clamsmtp/clamsmtp-$version.tar.gz \
+	clamsmtpd.rc)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	install -D $SRC/clamsmtpd.rc $PKG/etc/rc.d/clamsmptd
+
+	# edit config to run as user 'clamav'
+	sed -i 's|#User: clamav|User: clamav|' $SRC/$name-$version/doc/clamsmtpd.conf
+
+	install -D doc/clamsmtpd.conf $PKG/etc/clamsmtpd.conf
+	chown -R root:root $PKG
+}
+

@@ -1,0 +1,23 @@
+# $Id:
+# Description:	Transparent SOCKS proxy library.
+# URL:			http://tsocks.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Aaron Marks <nymacro AT gmail DOT  com>
+
+# Recommended:	
+# Optional:	
+# Category:		library, proxy
+
+name=tsocks
+version=1.8beta5
+release=1
+source=(http://ftp1.sourceforge.net/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-1.8
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	mv $PKG/lib $PKG/usr
+	chown -R root:root $PKG
+}
+

@@ -1,0 +1,24 @@
+# $Id:
+
+REQUIREMENTS:
+
+PRECAUTION:
+
+If you edit the torrc file for extra logging, make sure you
+chmod 640 /var/log/tor/* files, for security reasons.
+
+PRE-INSTALL:
+
+Tor expects to have a user and group dedicated to it, a pre-install script has been added to the port which takes care of this.
+
+POST-INSTALL:
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+Please edit /etc/tor/torrc and add "tor" to the SERVICES array in /etc/rc.conf
+
+Danny Rawlins, <romster@shortcircuit.net.au>

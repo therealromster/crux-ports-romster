@@ -1,0 +1,23 @@
+# $Id:
+# Description:	An abstraction library that comes between applications and audio visualisation plugins.
+# URL:			http://localhost.nl/~synap/libvisual/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		sten, nick dot steeves at shaw dot ca
+# Depends on:	xorg
+
+name=libvisual
+version=0.4.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-debug
+
+	make && make DESTDIR=$PKG install
+	rm -fr $PKG/usr/share/{locale,doc}
+	chown -R root:root $PKG
+}

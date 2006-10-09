@@ -1,0 +1,36 @@
+# $Id:
+# Description:	GNU Java Compiler.
+# URL:			http://gcc.gnu.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Aaron Marks, <nymacro at gmail dot com>
+# Depends On:	tetex, texinfo
+
+# Recommended:	
+# Optional:	
+# Category:		compiler, java
+
+name=gcj
+version=4.1.1
+release=1
+
+source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-core-$version.tar.bz2 \
+	ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-java-$version.tar.bz2 \
+	ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-g++-$version.tar.bz2)
+
+build() {
+    cd build
+
+	../gcc-$version/configure \
+		--prefix=/usr \
+		--enable-languages=java \
+		--disable-nls
+
+    install -d {$PKG/usr,build/empty}
+    make && make prefix=$PKG/usr install
+
+    for i in `find $PKG | sed -e "s|$PKG|/|"`; do
+        if [ -e "$i" ] && [ ! -d "$i" ] ; then
+            rm $PKG/$i
+        fi
+    done
+}

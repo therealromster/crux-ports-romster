@@ -1,0 +1,29 @@
+# $Id:
+# Description:	QT app to control the JACK sound server daemon.
+# URL:			http://qjackctl.sf.net
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Han Boetes <han@mijncomputer.nl>
+# Depends on:	qt3, jack
+
+# Recommended:
+# Optional:		
+# Category:		audio
+
+name=qjackctl
+version=0.2.21
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	# this sould be in /etc/profile
+	if [ -z $QTDIR ]; then
+		export QTDIR=/usr/share/qt
+	fi
+
+	./configure	--prefix=/usr
+	make && make install DESTDIR=$PKG
+	chown -R root:root $PKG
+}
+

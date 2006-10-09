@@ -1,0 +1,23 @@
+# $Id: 
+# Description:	City Simulation Game.
+# URL:			http://lincity-ng.berlios.de/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	x11, sdl_mixer, sdl_ttf, sdl_gfx, physfs, ftjam
+
+# Recommended:	
+# Optional:	
+# Category:		games, games simulation, games strategy, entertainment
+
+name=lincity-ng
+version=1.0.3
+release=1
+source=(http://download.berlios.de/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	jam && jam DESTDIR=$PKG install
+	rm -fr $PKG/usr/share/doc
+	chown -R root:root $PKG
+}

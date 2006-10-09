@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# /etc/rc.d/clamsmtpd: start/stop clamsmptd daemon
+#
+
+RETVAL=0
+
+case $1 in
+start)
+	echo -n "Starting clamsmtpd..."
+	/usr/sbin/clamsmtpd -f /etc/clamsmtpd.conf -p /var/run/clamsmtpd.pid > /dev/null & RETVAL=$?
+	if [ $RETVAL = 0 ]; then
+		echo " done."
+	fi
+	;;
+stop)
+	echo -n "Shutting down clamsmtpd..."
+	killall -q /usr/sbin/clamsmtpd
+	RETVAL=$?
+	echo " done."
+	;;
+restart)
+	$0 stop
+	sleep 3
+	$0 start
+	RETVAL=$?
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	exit 1
+	;;
+esac
+
+exit $RETVAL
+
+# End of file

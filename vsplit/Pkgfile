@@ -1,0 +1,19 @@
+# $Id: 
+# Description:	vsplit splits concatenated (chained) Ogg Vorbis files to individual files.
+# URL:			http://historia-oud.et.tudelft.nl/~marcj/vsplit/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	libvorbis
+
+name=vsplit
+version=0.1.0
+release=1
+source=(http://historia-oud.et.tudelft.nl/~marcj/$name/$name-$version.tgz)
+
+build() {
+	cd $name-$version
+	make
+	mkdir -p $PKG/usr/{share/$name,bin}
+	install -m644 $name.c $PKG/usr/share/$name/
+	install -m755 $name $PKG/usr/bin/$name
+}

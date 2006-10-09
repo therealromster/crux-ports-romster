@@ -1,0 +1,17 @@
+# $Id:
+# Description:	OpenOffice.org spelling and hyphenation for en_AU locale 
+# URL:			http://lingucomponent.openoffice.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	openoffice
+
+name=openoffice-dict-en-au
+version=1
+release=1
+source=(http://ftp.services.openoffice.org/pub/OpenOffice.org/contrib/dictionaries/en_AU.zip \
+	http://ftp.services.openoffice.org/pub/OpenOffice.org/contrib/dictionaries/hyph_en_AU.zip)
+
+build() {
+	install -d $PKG/usr/lib/openoffice/share/dict/ooo
+	install -m644 -oroot -groot $SRC/{*.dic,*.aff} -t $PKG/usr/lib/openoffice/share/dict/ooo/
+}

@@ -1,0 +1,20 @@
+# $Id: 
+# Description:	Scientific computing with Python.
+# URL:			http://numeric.scipy.org/
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	python
+
+name=numpy
+version=1.0rc1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	python setup.py install --root=$PKG
+
+	rm -fr $PKG/usr/lib/python2.4/site-packages/numpy/{COMPATIBILITY,*.txt,doc,f2py/docs}
+
+	chown -R root:root $PKG
+}

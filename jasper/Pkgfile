@@ -1,0 +1,22 @@
+# $Id: 
+# Description:	Codec JPEG-2000 Part-1 standard.
+# URL:			http://www.ece.uvic.ca/~mdadams/jasper/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+# Recommended:	
+# Optional:	
+# Category:		codec, jpeg
+
+name=jasper
+version=1.701.0
+release=1
+source=(http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-$version.zip)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}

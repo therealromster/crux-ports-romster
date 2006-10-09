@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/tor
+drwxr-xr-x	_tor/daemon	etc/tor/
+-rw-r--r--	_tor/daemon	etc/tor/tor-tsocks.conf
+-rw-r--r--	_tor/daemon	etc/tor/torrc
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	_tor/daemon	usr/bin/tor
+-rwxr-xr-x	_tor/daemon	usr/bin/tor-resolve
+-rwxr-xr-x	_tor/daemon	usr/bin/torify
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/tor-resolve.1.gz
+-rw-r--r--	root/root	usr/man/man1/tor.1.gz
+-rw-r--r--	root/root	usr/man/man1/torify.1.gz
+drwxr-xr-x	root/root	usr/var/
+drwxr-xr-x	root/root	usr/var/lib/
+drwxr-xr-x	_tor/daemon	usr/var/lib/tor/
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/log/
+drwxr-xr-x	_tor/daemon	var/log/tor/
+-rw-r-----	_tor/daemon	var/log/tor/notices.log (EMPTY)

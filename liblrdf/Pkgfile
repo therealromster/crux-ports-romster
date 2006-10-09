@@ -1,0 +1,27 @@
+# $Id:
+# Description:	A lightweight RDF library with special support for LADSPA plugins.
+# URL:			http://sourceforge.net/projects/lrdf
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Diederick de Vries <diederick at diederickdevries dot net>
+# Depends on:	librdf
+
+# Recommended:	
+# Optional:		
+# Category:		audio, library, ladspa
+
+name=liblrdf
+version=0.4.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/lrdf/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

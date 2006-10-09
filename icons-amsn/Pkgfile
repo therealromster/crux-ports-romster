@@ -1,0 +1,35 @@
+# $Id: 
+# Description:	aMSN Icons Set.
+# URL:			http://www.kde-look.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:		
+
+name=icons-amsn
+version=42394
+release=1
+source=()
+#source=(http://www.lnxteam.com.ar/downloads/pub/pics/amsn/Icons/aMSN-[*])
+
+build() {
+	if [ ! -f $PKGMK_SOURCE_DIR/$name-$version.tar.bz2 ]; then
+		
+		wget \
+			--recursive --tries=3 --no-directories --level=1 \
+			--no-parent --accept .png \
+			--reject Emerald-Skin_chatWindow.png,Emerald-Skin_mainWindow.png,GuS-Desktop-UTN.png,aMSN-Icons-Set.* \
+			http://www.lnxteam.com.ar/downloads/pub/pics/amsn/Icons/ \
+			-P$SRC/$name-$version
+			
+		tar jcf $name-$version.tar.bz2 $name-$version
+		cp $name-$version.tar.bz2 $PKGMK_SOURCE_DIR/
+	else
+		cp $PKGMK_SOURCE_DIR/$name-$version.tar.bz2 .
+			tar xvf $name-$version.tar.bz2
+	fi
+
+	install -d $PKG/usr/share/icons/crystalsvg/64x64/apps
+	cp -r $SRC/$name-$version/* $PKG/usr/share/icons/crystalsvg/64x64/apps/
+	rm $PKG/usr/share/icons/crystalsvg/64x64/apps/robots.txt
+	chown -R root:root $PKG
+}

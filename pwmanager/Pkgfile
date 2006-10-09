@@ -1,0 +1,18 @@
+# $Id: 
+# Description:	Secure password manager.
+# URL:			http://passwordmanager.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	x11
+
+name=pwmanager
+version=1.2.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/passwordmanager/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}

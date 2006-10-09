@@ -1,0 +1,19 @@
+# $Id: 
+# Description:	FakeTime Preload Library, report faked system time to programs without having to change the system-wide time.
+# URL:			http://www.code-wizards.com/projects/libfaketime/index.html
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=libfaketime
+version=0.5
+release=1
+source=(http://www.code-wizards.com/projects/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	make
+	install -D $name.so.1 $PKG/usr/lib/$name.so.1
+	ln -sf $name.so.1 $PKG/usr/lib/$name.so
+	chown -R root:root $PKG
+}

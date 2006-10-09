@@ -1,0 +1,17 @@
+# $Id: 
+# Description:	Windows 32 DirectX.
+# URL:			http://www.libsdl.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=w32-directx
+version=2002-05-18
+release=1
+source=(http://www.libsdl.org/extras/win32/common/directx-devel.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/mingw32
+	cp -R $SRC/* $PKG/usr/share/mingw32/
+	chown -R root:root $PKG
+}
