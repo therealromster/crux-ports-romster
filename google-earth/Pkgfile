@@ -1,0 +1,58 @@
+# $Id:
+# Description:	An interface to access satellite images & maps of the Earth.
+# URL:			http://earth.google.com/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Jose V Beneyto, <joberui at ei dot upv dot es>
+# Depends on:	xorg, xorg-font-bitstream-vera
+
+# Recommended:	
+# Optional:		
+# Category:		maps, images, saterllite
+
+name=google-earth
+version=4.0
+release=2091beta
+source=(http://dl.google.com/earth/GE4/GoogleEarthLinux.bin \
+	$name.sh)
+
+build() {
+	chmod +x GoogleEarthLinux.bin
+	
+	./GoogleEarthLinux.bin \
+		--noexec \
+		--target $SRC
+	
+	install -d \
+		$PKG/usr/{bin,share/{icons,$name}} \
+		$PKG/etc/$name
+
+	tar -C $PKG/usr/share/$name -xvf $SRC/googleearth-linux-x86.tar
+	tar -C $PKG/usr/share/$name -xvf $SRC/googleearth-data.tar
+
+	# move configuration files to the rightful location
+	mv $PKG/usr/share/$name/{ImporterGlobalSettings,ImporterUISettings,PCOptimizations,drivers}.ini $PKG/etc/$name/
+	ln -fs /usr/share/google-earth/ImporterGlobalSettings.ini \
+		$PKG/etc/$name/ImporterGlobalSettings.ini
+	ln -fs /usr/share/google-earth/ImporterUISettings.ini \
+		$PKG/etc/$name/ImporterUISettings.ini
+	ln -fs /usr/share/google-earth/PCOptimizations.ini \
+		$PKG/etc/$name/PCOptimizations.ini
+	ln -fs /usr/share/google-earth/drivers.ini \
+		$PKG/etc/$name/drivers.ini
+
+	install -m755 $name.sh $PKG/usr/bin/$name
+	#install -m644 $SRC/README.linux $PKG/usr/share/$name/README
+
+	install -m644 $SRC/googleearth.xpm $PKG/usr/share/icons/$name.xpm
+
+	chmod -R 644 $PKG/usr/share/$name/{resources,res,xml,kvw}/*
+
+	rm -r \
+		$PKG/usr/share/$name/{lang,linux} \
+		$PKG/usr/share/$name/resources/*locale
+
+	#rm $PKG/usr/share/google-earth/README
+
+	chown -R root:root $PKG
+}
+
