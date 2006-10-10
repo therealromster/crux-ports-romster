@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/FreeImage.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libfreeimage-3.9.1.so
+-rw-r--r--	root/root	usr/lib/libfreeimage.a
+lrwxrwxrwx	root/root	usr/lib/libfreeimage.so.3 -> /usr/lib/libfreeimage-3.9.1.so
