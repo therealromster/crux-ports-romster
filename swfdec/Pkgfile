@@ -1,0 +1,29 @@
+# $Id:
+# Description:	Flash Rendering Library.
+# URL:			http://www.schleef.org/swfdec/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Stefan Lohmaier <noneus@noneus.de>
+# Depends on:	liboil, gdk-pixbuf, gimp, gstreamer-plugins-bad, cairo
+
+# Recommended:	
+# Optional:		
+# Category:		library, swf
+
+name=swfdec
+version=0.3.5
+release=1
+source=(http://www.schleef.org/swfdec/download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--disable-static \
+		--enable-pixbuf-loader
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

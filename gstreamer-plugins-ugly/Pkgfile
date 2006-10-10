@@ -10,7 +10,7 @@ version=0.10.3
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-$version.tar.gz)
 
-build () {
+build() {
 	cd gst-plugins-ugly-$version
 
 	./configure \
