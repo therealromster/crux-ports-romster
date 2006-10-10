@@ -6,11 +6,11 @@
 # Depends on:	python
 
 name=numpy
-version=1.0rc1
+version=1.0rc2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 	python setup.py install --root=$PKG
 
@@ -18,3 +18,4 @@ build () {
 
 	chown -R root:root $PKG
 }
+
