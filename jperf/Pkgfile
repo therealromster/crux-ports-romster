@@ -1,0 +1,28 @@
+# $Id:
+# Description:	Iperf GUI - Measure maximum net bandwidth.
+# URL:			http://dast.nlanr.net/projects/jperf/
+# Maintainer:	Danny Rawlins, <romste@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	ipref, jsdk
+
+name=jperf
+version=1.0
+release=1
+source=(http://dast.nlanr.net/projects/jperf/jperf-$version-source.tar.gz \
+	$name.sh)
+
+build() {
+	cd $name-$version/jsrc
+	make && cd ..
+	
+	install -D -m755 -oroot -groot $name.jar $PKG/usr/share/$name/$name.jar
+	install -D -m644 -oroot -groot jfreechart-0.9.6.jar $PKG/usr/lib/jfreechart-0.9.6.jar
+	install -D -m644 -oroot -groot jcommon-0.7.2.jar $PKG/usr/lib/jcommon-0.7.2.jar
+	install -D -m755 -oroot -groot $SRC/$name.sh $PKG/usr/bin/$name
+
+	ln -sf /usr/lib/jfreechart-0.9.6.jar $PKG/usr/lib/jfreechart-0.jar
+	ln -sf /usr/lib/jcommon-0.7.2.jar $PKG/usr/lib/jcommon-0.jar
+	ln -sf /usr/lib/jfreechart-0.jar $PKG/usr/lib/jfreechart.jar
+	ln -sf /usr/lib/jcommon-0.jar $PKG/usr/lib/jcommon.jar
+}
+

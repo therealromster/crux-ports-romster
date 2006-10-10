@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/jperf
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/jcommon-0.7.2.jar
+lrwxrwxrwx	root/root	usr/lib/jcommon-0.jar -> /usr/lib/jcommon-0.7.2.jar
+lrwxrwxrwx	root/root	usr/lib/jcommon.jar -> /usr/lib/jcommon-0.jar
+-rw-r--r--	root/root	usr/lib/jfreechart-0.9.6.jar
+lrwxrwxrwx	root/root	usr/lib/jfreechart-0.jar -> /usr/lib/jfreechart-0.9.6.jar
+lrwxrwxrwx	root/root	usr/lib/jfreechart.jar -> /usr/lib/jfreechart-0.jar
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/jperf/
+-rwxr-xr-x	root/root	usr/share/jperf/jperf.jar
