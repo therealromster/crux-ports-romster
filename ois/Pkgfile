@@ -1,0 +1,39 @@
+# $Id:
+# Description: Library for using all kinds of Input Devices.
+# Url:			http://sourceforge.net/projects/wgois
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		nacho
+# Depends on:	x11
+
+# Recommended:	
+# Optional:		
+# Category:		library
+
+name=ois
+version=0.7.2
+release=1
+source=(http://dl.sourceforge.net/wgois/$name-0-7-2.tar.gz)
+ 
+build() {
+	cd $name
+
+	# ./bootstrap
+	libtoolize --force
+	aclocal $ACLOCAL_FLAGS
+	autoheader
+	
+	automake \
+		--include-deps \
+		--add-missing \
+		--foreign 
+	
+	autoconf
+	
+	./configure \
+		--prefix=/usr \
+		--disable-ogre
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
