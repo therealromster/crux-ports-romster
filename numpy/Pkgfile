@@ -1,5 +1,5 @@
 # $Id: 
-# Description:	Scientific computing with Python.
+# Description:	Array processing for numbers, strings, records, and objects with Python.
 # URL:			http://numeric.scipy.org/
 # Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
@@ -12,9 +12,10 @@ source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
+
 	python setup.py install --root=$PKG
 
-	rm -fr $PKG/usr/lib/python2.4/site-packages/numpy/{COMPATIBILITY,*.txt,doc,f2py/docs}
+	rm -fr $PKG/usr/lib/python2.?/site-packages/numpy/{COMPATIBILITY,*.txt,doc,f2py/docs}
 
 	chown -R root:root $PKG
 }
