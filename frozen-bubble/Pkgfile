@@ -1,0 +1,32 @@
+# $Id: 
+# Description:	Shoot balls and get so many in a row to make them drop.
+# URL:			http://www.frozen-bubble.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	p5-sdl1-perl
+
+# Recommended:	
+# Optional:	
+# Category:		games, arcade
+
+name=frozen-bubble
+version=1.0.0
+release=1
+source=(http://zarb.org/~gc/fb/frozen-bubble-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	
+	sed -i \
+		-e "s|PREFIX = /usr/local|PREFIX = $PKG/usr|" \
+		-e 's|MANDIR = $(DATADIR)/man|MANDIR = $(PREFIX)/man|' Makefile
+
+	make && make DESTDIR=$PKG install
+
+	sed -i -e 's|$FPATH = '/home/romster/var/cwd/remote/projects/romster/frozen-bubble/work/pkg/usr/share/frozen-bubble';|$FPATH = '/usr/share/frozen-bubble';|' \
+		$PKG/usr/lib/perl5/site_perl/5.8.8/linux/fb_stuff.pm
+
+	rm $PKG/usr/lib/perl5/*/linux/perllocal.pod
+	chown -R root:root $PKG
+}
+

@@ -1,0 +1,21 @@
+# $Id:
+# Description:	SDL perl extension.
+# URL:			http://search.cpan.org/~dgoehrig/SDL_Perl-2.1.3/
+# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager:		Younes Hafri <ycrux@club-internet.fr>
+# Depends on:	sdl_image, sdl_net, sdl_gfx, sdl_mixer, sdl_ttf
+
+name=p5-sdl1-perl
+version=1.20.0
+# note do not edit to 1.20.3 as this will break frozen-bubble
+release=1
+source=(http://zarb.org/~gc/t/SDL_perl-1.20.0.tar.gz)
+
+build () {
+	cd SDL_perl-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	rm $PKG/usr/lib/perl5/*/linux/perllocal.pod
+	chown -R root:root $PKG
+}
+
