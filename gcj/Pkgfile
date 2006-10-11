@@ -6,31 +6,32 @@
 # Depends On:	tetex, texinfo
 
 # Recommended:	
-# Optional:	
+# Optional:		
 # Category:		compiler, java
 
 name=gcj
-version=4.1.1
+version=4.0.3
 release=1
-
-source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-core-$version.tar.bz2 \
-	ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-java-$version.tar.bz2 \
-	ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-g++-$version.tar.bz2)
+source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-{core,java,g++}-$version.tar.bz2)
 
 build() {
-    cd build
+	install -d build/empty
+	cd build
 
 	../gcc-$version/configure \
 		--prefix=/usr \
 		--enable-languages=java \
 		--disable-nls
 
-    install -d {$PKG/usr,build/empty}
-    make && make prefix=$PKG/usr install
+	make && make prefix=$PKG/usr install
+	
+	# remove files already on the system out of the port
+	for i in `find $PKG | sed -e "s|$PKG|/|"`; do
+		if [ -e "$i" ] && [ ! -d "$i" ] ; then
+			rm $PKG/$i
+		fi
+	done
 
-    for i in `find $PKG | sed -e "s|$PKG|/|"`; do
-        if [ -e "$i" ] && [ ! -d "$i" ] ; then
-            rm $PKG/$i
-        fi
-    done
+	chown -R root:root $PKG
 }
+
