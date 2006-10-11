@@ -1,0 +1,27 @@
+Dependencies:
+
+	x11			(required)
+	alsa-lib	(recommended)
+	libogg		(recommended)
+	libvorbis	(recommended)
+	libmad		(recommended)
+
+
+Extensions:
+
+	samba       (optional)
+	arts        (optional)
+	gnome-vfs   (optional)
+	esound      (optional)
+
+
+Codecs:
+
+	libdvdnav	(optional)
+	flac		(optional)
+	libsdl		(optional)
+	libmng		(optional)
+	liba52		(optional)
+	speex		(optional)
+	libtheora	(optional)
+	faad2		(optional)

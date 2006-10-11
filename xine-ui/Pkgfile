@@ -1,0 +1,23 @@
+# Description:	A free, GPL-licensed video player for UNIX-like systems.
+# URL:			http://xine.sourceforge.net
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		sten, nick dot steeves at shaw dot ca
+# Depends on:	xine-lib
+
+name=xine-ui
+version=0.99.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/xine/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+	rm -fr $PKG/usr/{man/{??,man1/aaxine*},share/doc}
+	chown -R root:root $PKG
+}
+
