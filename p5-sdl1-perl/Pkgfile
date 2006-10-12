@@ -15,7 +15,17 @@ build () {
 	cd SDL_perl-$version
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install
-	rm $PKG/usr/lib/perl5/*/linux/perllocal.pod
+
+	# Remove perlcrap
+	find $PKG \
+		-name '.packlist' -or \
+		-name '*.bs' -or \
+		-name 'autosplit.ix' -or \
+		-name 'perllocal.pod' | xargs rm
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -rf {} \;
+
 	chown -R root:root $PKG
 }
 
