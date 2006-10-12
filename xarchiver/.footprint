@@ -1,6 +1,9 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/xarchiver
+drwxr-xr-x	root/root	usr/libexec/
+drwxr-xr-x	root/root	usr/libexec/thunar-archive-plugin/
+-rwxr-xr-x	root/root	usr/libexec/thunar-archive-plugin/xarchiver.tap
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/xarchiver.desktop
@@ -9,6 +12,6 @@ drwxr-xr-x	root/root	usr/share/pixmaps/
 drwxr-xr-x	root/root	usr/share/xarchiver/
 drwxr-xr-x	root/root	usr/share/xarchiver/pixmaps/
 -rw-r--r--	root/root	usr/share/xarchiver/pixmaps/add.png
--rw-r--r--	root/root	usr/share/xarchiver/pixmaps/add_folder.png
+-rw-r--r--	root/root	usr/share/xarchiver/pixmaps/add_button.png
 -rw-r--r--	root/root	usr/share/xarchiver/pixmaps/extract.png
--rw-r--r--	root/root	usr/share/xarchiver/pixmaps/padlock.png
+-rw-r--r--	root/root	usr/share/xarchiver/pixmaps/extract_button.png

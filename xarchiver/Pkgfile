@@ -5,14 +5,19 @@
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>	
 # Depends on:	gtk
 
+# Recommended:	
+# Optional:		
+# Category:		archiver, 7z, zip, rar, tar, bzip2, gzip, arj, rpm
+
 name=xarchiver
-version=0.3.3
+version=0.4.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
 build() {
-	cd Xarchiver-$version
+	cd $name
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/locale
 }
+
