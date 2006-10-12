@@ -1,0 +1,28 @@
+# $Id:
+# Description:	Have the mascots of your favorite free softwares battle in the Wormux arena. Using dynamite, grenades, baseball bat and other items.
+# URL:			http://www.wormux.org/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Han Boetes <han@mijncomputer.nl>
+# Depends on:	libxml++, sdl_image, sdl_mixer, sdl_ttf, sdl_gfx
+
+# Recommended:	
+# Optional:		
+# Category:		games
+
+name=wormux
+version=0.7.4
+release=1
+source=(http://download.gna.org/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--disable-sdltest
+   
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
