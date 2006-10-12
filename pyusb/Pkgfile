@@ -10,7 +10,7 @@
 # Category:		python module, interface usb
 
 name=pyusb
-version=0.3.4
+version=0.3.5
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
@@ -20,3 +20,4 @@ build () {
 	python setup.py install --prefix=/usr --root=$PKG
 	chown -R root:root $PKG
 }
+
