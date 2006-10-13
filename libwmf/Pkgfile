@@ -6,8 +6,8 @@
 # Depends on:	libgd, freetype
 
 # Recommended:	
-# Optional:	
-# Category:	library
+# Optional:		
+# Category:		library
 
 name=libwmf
 version=0.2.8.4
@@ -16,8 +16,13 @@ source=(http://dl.sourceforge.net/sourceforge/wvware/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
 	make && make DESTDIR=$PKG install
 	rm -fr $PKG/usr/share/doc
 	chown -R root:root $PKG
 }
+
