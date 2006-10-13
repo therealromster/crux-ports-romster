@@ -3,7 +3,7 @@
 # URL:			http://gstreamer.freedesktop.org/modules/gst-plugins-bad.html
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:		Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	gstreamer-plugins-base, swfdec, wavpack, libdts, libxvid, libshout, libmms, libsdl, libmodplug, libmpcdec, mesa3d
+# Depends on:	gstreamer-plugins-base, libswfdec, wavpack, libdts, libxvid, libshout, libmms, libsdl, libmodplug, libmpcdec, mesa3d
 
 name=gstreamer-plugins-bad
 version=0.10.3
