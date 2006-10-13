@@ -9,13 +9,13 @@
 # Optional:		
 # Category:		library, swf
 
-name=swfdec
+name=libswfdec
 version=0.3.5
 release=1
-source=(http://www.schleef.org/swfdec/download/$name-$version.tar.gz)
+source=(http://www.schleef.org/swfdec/download/swfdec-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd swfdec-$version
 
 	./configure \
 		--prefix=/usr \
