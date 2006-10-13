@@ -24,6 +24,8 @@ build() {
 		--disable-nls
 
 	make && make prefix=$PKG/usr install
+
+	ln -fs /usr/libexec/gcc/i686-pc-linux-gnu/$version/jc1 $PKG/usr/bin/jc1
 	
 	# remove files already on the system out of the port
 	for i in `find $PKG | sed -e "s|$PKG|/|"`; do

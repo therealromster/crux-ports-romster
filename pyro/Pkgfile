@@ -7,7 +7,7 @@
 
 # Recommended:	pygtk
 # Optional:	
-# Category:	robotics, python programming language
+# Category:		robotics, python programming language
 
 
 name=pyro
@@ -15,7 +15,7 @@ version=3.6.1
 release=1
 source=(http://pyrorobotics.org/tars/pyro-$version.tgz)
 
-build () {
+build() {
 	mkdir -p $PKG/usr/{bin,include/python/}
 	cp -R $name $PKG/usr/include/python/
 	cd $PKG/usr/include/python/$name
@@ -40,3 +40,4 @@ build () {
 	# really make sure all files are owned by root! (paranoid :)
 	chown -R root:root $PKG
 }
+
