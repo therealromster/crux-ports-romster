@@ -6,17 +6,23 @@
 # Depends on:	
 
 # Recommended:	
-# Optional:	
-# Category:		codec, jpeg
+# Optional:		
+# Category:		library, codec, jpeg
 
-name=jasper
+name=libjasper
 version=1.701.0
 release=1
 source=(http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-$version.zip)
 
-build () {
-	cd $name-$version
-	./configure --prefix=/usr
+build() {
+	cd jasper-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-shared \
+		--disable-static
+
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
 }
+
