@@ -1,0 +1,20 @@
+# $Id:
+# Description:	Convert .ico to .png or .xpm formats.
+# URL:			http://www.mox.net
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:		Sven Dahl <dahl@c64.org>
+# Depends on:	libgd, libpng, libjpeg, freetype
+
+name=icoconvert
+version=1.1
+release=1
+source=(http://www.mox.net/downloads/$name-$version.tar.bz2)
+
+build() {
+	cd $name
+	rm $name
+	make
+	install -D -m755 -oroot -groot $name $PKG/usr/bin/$name
+	#cc $CFLAGS $LDFLAGS icoconvert.c -o $PKG/usr/bin/icoconvert -lgd
+}
+
