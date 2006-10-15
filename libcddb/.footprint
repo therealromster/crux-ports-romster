@@ -15,8 +15,8 @@ drwxr-xr-x	root/root	usr/include/cddb/
 -rw-r--r--	root/root	usr/include/cddb/version.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libcddb.la
-lrwxrwxrwx	root/root	usr/lib/libcddb.so -> libcddb.so.2.1.2
-lrwxrwxrwx	root/root	usr/lib/libcddb.so.2 -> libcddb.so.2.1.2
--rwxr-xr-x	root/root	usr/lib/libcddb.so.2.1.2
+lrwxrwxrwx	root/root	usr/lib/libcddb.so -> libcddb.so.2.2.3
+lrwxrwxrwx	root/root	usr/lib/libcddb.so.2 -> libcddb.so.2.2.3
+-rwxr-xr-x	root/root	usr/lib/libcddb.so.2.2.3
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libcddb.pc
