@@ -1,13 +1,13 @@
 # $Id:
-# Description: Creating loops, synthesizing and mixing sounds. 
-# URL:			http://lmms.sourceforge.net/
+# Description:	Creating loops, synthesizing and mixing sounds. 
+# URL:		http://lmms.sourceforge.net/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Jose V Beneyto, <joberui@ei.upv.es>
+# Packager:	Jose V Beneyto, <joberui@ei.upv.es>
 # Depends on:	qt3, sdl_sound, libsamplerate
 
 # Recommended:	jack, audacity-old-effects-vst
-# Optional:		libsndfile, libvorbis, flac
-# Category:		audio, audio midi, audio synthesizer, audio sampler
+# Optional:	libsndfile, libvorbis, flac
+# Category:	audio, audio midi, audio synthesizer, audio sampler
 
 name=lmms
 version=0.2.1
