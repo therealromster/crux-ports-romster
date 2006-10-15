@@ -3,10 +3,10 @@
 # URL:			http://beep-media-player.org/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:		Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	python, taglib, xine-lib, libglade, gamin, boost, gstreamer-plugins-good, gstreamer-plugins-ugly, gstreamer-plugins-bad, libglademm, cairomm, dbus, sqlite3
+# Depends on:	python, taglib, xine-lib, libglade, gamin, boost, gstreamer-plugins-good, gstreamer-plugins-ugly, gstreamer-plugins-bad, libglademm, cairomm, dbus, sqlite3, libmikmod
 
 # Recommended:	
-# Optional:		hal, gconf, startup-notification, smlib, taglib
+# Optional:		hal, gconf, startup-notification, smlib
 # Category:		audio, player
 
 name=bmpx
@@ -14,7 +14,7 @@ version=0.32.0
 release=1
 source=(http://files.beep-media-player.org/releases/0.30/bmpx-$version.tar.bz2)
 
-build () {
+build() {
 	cd $name-$version
 	GST_PLUGINS_BASE_LIBS=/usr/lib
 	
@@ -32,3 +32,4 @@ build () {
 
 	ln -fs /usr/bin/beep-media-player-2 $PKG/usr/bin/bmp2
 }
+

@@ -3,18 +3,18 @@
 # URL:			http://gstreamer.freedesktop.org/modules/gst-plugins-base.html
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:		Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	gstreamer, liboil, libtheora, cdparanoia
+# Depends on:	liboil, libtheora, cdparanoia
 
 # Recommended:	libvisual
 # Optional:	
-# Category:	audio
+# Category:		audio
 
 name=gstreamer-plugins-base
 version=0.10.10
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-$version.tar.gz)
 
-build () {
+build() {
 	cd gst-plugins-base-$version
 
 	./configure \
@@ -24,3 +24,4 @@ build () {
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
 }
+
