@@ -1,13 +1,13 @@
 # $Id:
 # Description:	GNU Java Compiler.
-# URL:			http://gcc.gnu.org/
+# URL:		http://gcc.gnu.org/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Aaron Marks, <nymacro at gmail dot com>
+# Packager:	Aaron Marks, <nymacro at gmail dot com>
 # Depends On:	tetex, texinfo
 
 # Recommended:	
-# Optional:		
-# Category:		compiler, java
+# Optional:	
+# Category:	compiler, java
 
 name=gcj
 version=4.0.3
@@ -20,8 +20,11 @@ build() {
 
 	../gcc-$version/configure \
 		--prefix=/usr \
-		--enable-languages=java \
-		--disable-nls
+		--enable-languages=c++,java \
+		--disable-nls \
+		--enable-shared \
+		--enable-threads \
+		--enable-version-specific-runtime-libs
 
 	make && make prefix=$PKG/usr install
 
