@@ -1,0 +1,17 @@
+# $Id:
+# Description:	Tool for updating or switching between versions of the Linux kernel source.
+# URL:		http://www.selenic.com/ketchup/wiki/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Jukka Heino, jukka dot heino at gmail dot com
+# Depends on:	python
+
+name=ketchup
+version=0.9.8
+release=1
+source=(http://www.selenic.com/$name/$name-$version.tar.bz2)
+
+build() {
+    install -D -m0755 $name $PKG/usr/bin/$name
+    install -D -m0644 $name.1 $PKG/usr/man/man1/$name.1
+}
+
