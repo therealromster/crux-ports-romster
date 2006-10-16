@@ -1,0 +1,21 @@
+# $Id:
+# Description:	Network bandwidth monitor.
+# URL:		http://people.suug.ch/~tgr/bmon/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Jukka Heino, jukka dot heino at gmail dot com
+# Depends on:	
+
+name=bmon
+version=2.1.0
+release=1
+source=(http://people.suug.ch/~tgr/$name/files/$name-$version.tar.gz \
+        bmon-2.1.0-gcc4.diff)
+
+build() {
+	cd $name-$version
+	patch -p1 -i $SRC/bmon-2.1.0-gcc4.diff
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
