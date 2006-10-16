@@ -1,0 +1,26 @@
+# $Id:
+# Description:	Reads your hdd temperature using S.M.A.R.T values.
+# URL:		http://www.guzu.net/linux/hddtemp.php
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	sten, nick dot steeves at shaw dot ca
+# Depends on:	gettext, libiconv
+
+name=hddtemp
+version=0.3-beta15
+release=1
+source=(http://www.guzu.net/{files/$name-$version.tar.bz2,linux/$name.db})
+
+build() {
+	cd $name-$version
+
+	./configure \
+		LDFLAGS='-liconv' \
+		--prefix=/usr \
+		--with-db-path=/usr/etc/$name.db \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+	install -D -m644 $SRC/$name.db $PKG/usr/etc/$name.db
+	chown -R root:root $PKG
+}
+
