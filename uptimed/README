@@ -1,0 +1,12 @@
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+
+Add the following lines to the bottom of /etc/rc:
+
+# Create uptimed bootid
+/usr/sbin/uptimed -b
+
+PRECAUTION

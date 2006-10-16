@@ -1,0 +1,28 @@
+# Description:	System uptime record daemon.
+# URL:		http://podgorny.cz/uptimed/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Jukka Heino, jukka dot heino at gmail dot com
+# Depends on:	
+
+name=uptimed
+version=0.3.8
+release=1
+source=(http://podgorny.cz/$name/releases/$name-$version.tar.bz2 \
+        $name.patch \
+        $name.rc)
+
+build() {
+	cd $name-$version
+	patch -p1 -i $SRC/$name.patch
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--disable-static
+
+	make && make DESTDIR=$PKG install
+	mv $PKG/etc/$name.conf-dist $PKG/etc/$name.conf
+	install -D -m755 $SRC/$name.rc $PKG/etc/rc.d/$name
+	chown -R root:root $PKG
+}
+

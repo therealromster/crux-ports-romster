@@ -1,0 +1,37 @@
+diff -Nru uptimed-0.3.7.orig/Makefile.am uptimed-0.3.7/Makefile.am
+--- uptimed-0.3.7.orig/Makefile.am	2004-06-18 18:26:39.000000000 +0300
++++ uptimed-0.3.7/Makefile.am	2006-02-17 18:11:34.000000000 +0200
+@@ -7,4 +7,4 @@
+ 	sample-cgi/uprecords.footer uptimed.spec depcomp
+ 
+ install-data-local:
+-	$(INSTALL) -d /var/spool/uptimed
++	$(INSTALL) -d $(DESTDIR)/var/spool/uptimed
+diff -Nru uptimed-0.3.7.orig/Makefile.in uptimed-0.3.7/Makefile.in
+--- uptimed-0.3.7.orig/Makefile.in	2004-06-20 13:45:54.000000000 +0300
++++ uptimed-0.3.7/Makefile.in	2006-02-17 18:11:18.000000000 +0200
+@@ -428,7 +428,7 @@
+ 
+ 
+ install-data-local:
+-	$(INSTALL) -d /var/spool/uptimed
++	$(INSTALL) -d $(DESTDIR)/var/spool/uptimed
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
+diff -Nru uptimed-0.3.7.orig/etc/uptimed.conf-dist uptimed-0.3.7/etc/uptimed.conf-dist
+--- uptimed-0.3.7.orig/etc/uptimed.conf-dist	2004-06-18 18:26:38.000000000 +0300
++++ uptimed-0.3.7/etc/uptimed.conf-dist	2006-02-17 18:11:18.000000000 +0200
+@@ -25,10 +25,10 @@
+ SEND_EMAIL=0
+ 
+ # We need a sendmail compatible mailer, though.
+-SENDMAIL=/usr/lib/sendmail -t
++SENDMAIL=/usr/sbin/sendmail -t
+ 
+ # Where to note our PID
+-PIDFILE=/var/run/uptimed
++PIDFILE=/var/run/uptimed.pid
+ 
+ # Milestones are configurable now.
+ # Syntax is pretty easy: MILESTONE=time:description
