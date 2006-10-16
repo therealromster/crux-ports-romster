@@ -1,0 +1,23 @@
+# $Id:
+# Description:	Unicode Bidirectional (BiDi) Algorithm.
+# URL:		http://fribidi.org/wiki/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	sten, nick dot steeves at shaw dot ca
+# Depends on:	
+
+name=fribidi
+version=0.10.7
+release=1
+source=(http://fribidi.org/download/fribidi-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
