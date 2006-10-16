@@ -1,0 +1,19 @@
+# $Id:
+# Description:	Simple command to split output into several parallel commands.
+# URL:		http://multipipe.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Jukka Heino, jukka dot heino at gmail dot com
+# Depends on:	
+
+name=multipipe
+version=1.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+
+build() {
+    cd $name-$version
+    sed -i "s/-g/$CFLAGS/g" Makefile
+    make
+    install -D -m0755 $name $PKG/usr/bin/$name
+}
+
