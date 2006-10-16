@@ -1,0 +1,18 @@
+# $Id:
+# Description:	Caching httpd/squid log resolver.
+# URL:		http://cocalores.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Jukka Heino, jukka dot heino at gmail dot com
+# Depends on:	
+
+name=cocalores
+version=1.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    install -D -m755 -oroot -groot $name $PKG/usr/bin/$name
+    install -D -m644 -oroot -groot $name.1 $PKG/usr/man/man1/$name.1
+}
+
