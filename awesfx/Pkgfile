@@ -1,0 +1,23 @@
+# $Id:
+# Description:	MIDI utilities for the AWE32/64, and Live! soundcards.
+# URL:		http://www.alsa-project.org/~iwai/awedrv.html
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	sten, nick dot steeves at shaw dot ca
+# Depends on:	alsa-lib
+
+name=awesfx
+version=0.5.0d
+release=1
+source=(http://www.alsa-project.org/~iwai/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

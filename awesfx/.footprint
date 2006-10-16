@@ -1,0 +1,27 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/asfxload
+-rwxr-xr-x	root/root	usr/bin/aweset
+-rwxr-xr-x	root/root	usr/bin/gusload
+-rwxr-xr-x	root/root	usr/bin/setfx
+-rwxr-xr-x	root/root	usr/bin/sf2text
+-rwxr-xr-x	root/root	usr/bin/sfxload
+-rwxr-xr-x	root/root	usr/bin/sfxtest
+-rwxr-xr-x	root/root	usr/bin/text2sf
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+lrwxrwxrwx	root/root	usr/man/man1/asfxload.1.gz -> sfxload.1.gz
+-rw-r--r--	root/root	usr/man/man1/sfxload.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/sounds/
+drwxr-xr-x	root/root	usr/share/sounds/sf2/
+-rw-r--r--	root/root	usr/share/sounds/sf2/README-bank
+-rw-r--r--	root/root	usr/share/sounds/sf2/ch12msup.bnk
+-rw-r--r--	root/root	usr/share/sounds/sf2/default-2m.bnk
+-rw-r--r--	root/root	usr/share/sounds/sf2/emu8m.bnk
+-rw-r--r--	root/root	usr/share/sounds/sf2/setfx-sample.cfg
+-rw-r--r--	root/root	usr/share/sounds/sf2/test.bnk
+-rw-r--r--	root/root	usr/share/sounds/sf2/xgdefault.bnk
+-rw-r--r--	root/root	usr/share/sounds/sf2/xgdrum.bnk
+-rw-r--r--	root/root	usr/share/sounds/sf2/xgmap.bnk
+-rw-r--r--	root/root	usr/share/sounds/sf2/xgsfx.bnk
