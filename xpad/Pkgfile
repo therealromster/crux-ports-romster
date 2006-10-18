@@ -1,0 +1,24 @@
+# $Id:
+# Description:	Xpad is a sticky note application that strives to be simple, fault-tolerant, and customizable.
+# URL:		http://xpad.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Jonathan Rajavuori <jonathanr@bluebottle.com>
+# Depends on:	gtk
+
+name=xpad
+version=2.12
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	
+	./configure \
+		--prefix=/usr \
+		--disable-gtktest
+	
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/locale
+	chown -R root:root $PKG
+}
+
