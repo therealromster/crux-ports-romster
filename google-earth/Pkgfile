@@ -1,13 +1,13 @@
 # $Id:
 # Description:	An interface to access satellite images & maps of the Earth.
-# URL:			http://earth.google.com/
+# URL:		http://earth.google.com/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Jose V Beneyto, <joberui at ei dot upv dot es>
+# Packager:	Jose V Beneyto, <joberui at ei dot upv dot es>
 # Depends on:	xorg, xorg-font-bitstream-vera
 
 # Recommended:	
 # Optional:		
-# Category:		maps, images, saterllite
+# Category:	maps, images, satellite
 
 name=google-earth
 version=4.0
@@ -41,17 +41,12 @@ build() {
 		$PKG/etc/$name/drivers.ini
 
 	install -m755 $name.sh $PKG/usr/bin/$name
-	#install -m644 $SRC/README.linux $PKG/usr/share/$name/README
-
 	install -m644 $SRC/googleearth.xpm $PKG/usr/share/icons/$name.xpm
-
 	chmod -R 644 $PKG/usr/share/$name/{resources,res,xml,kvw}/*
 
 	rm -r \
 		$PKG/usr/share/$name/{lang,linux} \
 		$PKG/usr/share/$name/resources/*locale
-
-	#rm $PKG/usr/share/google-earth/README
 
 	chown -R root:root $PKG
 }
