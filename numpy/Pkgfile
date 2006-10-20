@@ -1,12 +1,12 @@
 # $Id: 
 # Description:	Array processing for numbers, strings, records, and objects with Python.
-# URL:			http://numeric.scipy.org/
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# URL:		http://numeric.scipy.org/
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:	python
 
 name=numpy
-version=1.0rc2
+version=1.0rc3
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 

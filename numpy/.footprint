@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.5/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0rc2-py2.5.egg-info
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0rc3-py2.5.egg-info
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.pyc
@@ -65,6 +65,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/core/include/numpy/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/setup.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_defmatrix.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_errstate.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_ma.orig
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_ma.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_multiarray.py
@@ -313,6 +314,12 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/src/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/src/pyobj_to_string_len.c
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_derived_scalar.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_derived_scalar.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_module_module.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_module_module.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_module_scalar.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_module_scalar.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_scalar_function_in.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_scalar_function_in.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_scalar_in_out.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/test_scalar_in_out.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/wrapper_base.py
