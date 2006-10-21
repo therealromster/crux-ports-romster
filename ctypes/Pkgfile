@@ -1,12 +1,12 @@
-# $Id: Pkgfile 13 2006-10-11 08:11:11Z romster $
+# $Id: Pkgfile 57 2006-10-21 10:38:44Z romster $
 # Description:	Python library to create and manipulate C data types.
-# URL:			http://starship.python.net/crew/theller/ctypes/
+# URL:		http://starship.python.net/crew/theller/ctypes/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:	python
 
 name=ctypes
-version=1.0.0
+version=1.0.1
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
@@ -16,3 +16,4 @@ build() {
 	rm -fr $PKG/usr/lib/python2.4/site-packages/ctypes/test/
 	chown -R root:root $PKG
 }
+
