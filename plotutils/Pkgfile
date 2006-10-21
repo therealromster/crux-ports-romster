@@ -1,0 +1,41 @@
+# $Id: 
+# Description:	Contains programs for plotting scientific data and a device-independent function library "libplot" for exporting 2-D vector graphics in many raster and vector file formats.
+# URL:		http://www.gnu.org/software/plotutils/plotutils.html
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	libpng
+
+# Recommended:	
+# Optional:	
+# Category:	svg, library, plotting
+
+name=plotutils
+version=2.5
+release=1
+source=(ftp://mirrors.kernel.org/gnu/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-libplotter \
+		--enable-libxmi \
+		--disable-static
+		
+	make && make DESTDIR=$PKG install
+
+	# Remove un-needed files
+	rm -r $PKG/usr/info
+
+	find $PKG \
+		-name 'README' -or \
+		-name '*.doc' -or \
+		-name '*.txt' | xargs rm
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -r {} \;
+
+	chown -R root:root $PKG
+}
+
