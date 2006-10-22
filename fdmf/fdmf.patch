@@ -1,0 +1,13 @@
+--- fdmf~	2006-01-19 13:39:01.000000000 +1100
++++ fdmf	2006-10-22 12:45:10.000000000 +1000
+@@ -166,9 +166,7 @@
+ 
+ sub find_sr {
+ 	my $sr_path;
+-	$sr_path = dirname($0) . "/sonic_reducer"; # look in same dir as fdmf
+-	return $sr_path if -x $sr_path;
+-	$sr_path = getcwd() . "/sonic_reducer"; # look in the current directory
++	$sr_path = "/usr/lib/fdmf/sonic_reducer.so"; # look in library path
+ 	return $sr_path if -x $sr_path;
+ 	return 0; # we failed to find sonic_reducer	
+ }	

@@ -1,0 +1,38 @@
+# $Id: 
+# Description:	Find duplicate music files.
+# URL:		http://w140.com/audio/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	fftw, fftw3, mplayer, plotutils, p5-digest-md5
+
+# Recommended:	
+# Optional:	(mpg123, mpg321), ogg123
+# Category:	duplicate files, audio, utilities
+
+name=fdmf
+version=0.0.9q
+release=1
+source=(http://w140.com/audio/fdmf-$version.tar.gz\
+	$name.patch)
+
+build() {
+	cd $name-$version
+	patch -i $SRC/$name.patch # patch binarys for new library path
+	sed "s|CFLAGS =.*|$CFLAGS -W -Wall -Wstrict-prototypes|g" Makefile # use cflags from pkgmk.conf
+	make
+
+	# install binarys
+	install -d $PKG/usr/bin
+	install -m755 cleanup_dups fdmf fdmf_bench optparam -t $PKG/usr/bin/
+
+	# install headers
+	install -D -m644 common/common.h $PKG/usr/include/$name/common/common.h
+	install -m644 sonic_reducer.h vector_pairs.h -t $PKG/usr/include/$name/
+	
+	# install librarys
+	install -D -m644 sonic_reducer.o $PKG/usr/lib/$name/sonic_reducer.so
+	install -D -m644 vector_pairs.o $PKG/usr/lib/$name/vector_pairs.so
+	
+	chown -R root:root $PKG
+}
+

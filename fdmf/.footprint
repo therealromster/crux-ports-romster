@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cleanup_dups
+-rwxr-xr-x	root/root	usr/bin/fdmf
+-rwxr-xr-x	root/root	usr/bin/fdmf_bench
+-rwxr-xr-x	root/root	usr/bin/optparam
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/fdmf/
+drwxr-xr-x	root/root	usr/include/fdmf/common/
+-rw-r--r--	root/root	usr/include/fdmf/common/common.h
+-rw-r--r--	root/root	usr/include/fdmf/sonic_reducer.h
+-rw-r--r--	root/root	usr/include/fdmf/vector_pairs.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/fdmf/
+-rw-r--r--	root/root	usr/lib/fdmf/sonic_reducer.so
+-rw-r--r--	root/root	usr/lib/fdmf/vector_pairs.so
