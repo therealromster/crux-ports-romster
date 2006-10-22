@@ -1,0 +1,33 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/f90 -> gfortran
+lrwxrwxrwx	root/root	usr/bin/f95 -> gfortran
+-rwxr-xr-x	root/root	usr/bin/gfortran
+-rwxr-xr-x	root/root	usr/bin/i686-pc-linux-gnu-gfortran
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gcc/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/
+-rwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/f951
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/dbm/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/firefox/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/firefox/dbm/
+lrwxrwxrwx	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/python -> python2.5
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/python2.5/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/python2.5/pyro/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/include/python2.5/pyro/simulators/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/install-tools/
+-rwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/install-tools/fixinc.sh
+-rwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/install-tools/fixincl
+-rwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/install-tools/mkheaders
+-rw-r--r--	root/root	usr/lib/libgfortran.a
+-rwxr-xr-x	root/root	usr/lib/libgfortran.la
+lrwxrwxrwx	root/root	usr/lib/libgfortran.so -> libgfortran.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgfortran.so.0 -> libgfortran.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgfortran.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libgfortranbegin.a
+-rwxr-xr-x	root/root	usr/lib/libgfortranbegin.la
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/gfortran.1.gz
