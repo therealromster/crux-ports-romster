@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libshbuf/
+-rw-r--r--	root/root	usr/include/libshbuf/shbuf.h
+-rw-r--r--	root/root	usr/include/libshbuf/shbuferr.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libshbuf.la
+lrwxrwxrwx	root/root	usr/lib/libshbuf.so -> libshbuf.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libshbuf.so.0 -> libshbuf.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libshbuf.so.0.1.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/shbuf.pc

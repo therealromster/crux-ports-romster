@@ -1,0 +1,29 @@
+# $Id: 
+# Description:	Implements a new kind of IPC: the "shared buffer", a faster, more flexible replacement for standard Unix FIFOs.
+# URL:		http://0pointer.de/lennart/projects/libshbuf/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	python
+
+# Recommended:	
+# Optional:	
+# Category:	library
+
+name=libshbuf
+version=0.0.3
+release=1
+source=(http://0pointer.de/lennart/projects/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-lynx \
+		--disable-doxygen
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
