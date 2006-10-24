@@ -24,6 +24,11 @@ build() {
 
 	make && make prefix=$PKG/usr install
 	rm -r $PKG/usr/share/doc
+	
+	rm \
+		$PKG/usr/include/iconv.h \
+		$PKG/usr/bin/iconv
+
 	chown -R root:root $PKG
 }
 
