@@ -1,12 +1,12 @@
 # $Id: 
 # Description:	P2P application for web searching.
-# URL:			http://www.yacy.net/yacy/
+# URL:		http://www.yacy.net/yacy/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:	ant
 
 name=yacy
-version=v0.46_20060823_2442
+version=v0.48_20061010_2743
 release=1
 source=(http://www.yacy.net/yacy/release/yacy_$version.tar.gz \
 	$name-start.sh $name-stop.sh $name.rc)
@@ -15,12 +15,16 @@ build() {
 	cd $name
 	
 	# ant wont build with this.
-	install -d $SRC/yacy/libx
+	mkdir -p $SRC/yacy/libx
 
 	ant
 	# remove cruft
-	find $SRC/yacy -type f -name '*.bat' -or -name '*.txt'|xargs rm -rf {} \;
-	rm -fr build.xml build.properties source
+	find $SRC/yacy -type f \
+		-name '*.bat' -or \
+		-name '*.txt' | xargs rm -rf {} \;
+
+	rm -r source
+	rm build.xml	
 
 	# install
 	install -d $PKG/usr/share/yacy
@@ -33,3 +37,4 @@ build() {
 	install -D -m755 -oroot -groot $SRC/yacy-stop.sh $PKG/usr/sbin/yacy-stop
 	install -D -m755 -oroot -groot $SRC/yacy.rc $PKG/etc/rc.d/yacy
 }
+
