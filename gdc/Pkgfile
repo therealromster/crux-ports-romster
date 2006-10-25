@@ -1,0 +1,71 @@
+# $Id: 
+# Description:	GDC is a D language front end for the GNU Compiler Collection.
+# URL:		http://dgcc.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+# Recommended:	
+# Optional:	autogen
+# Category:	compiler, d
+
+name=gdc
+version=0.19
+local gcc_version=4.0.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/dgcc/gdc-$version-src.tar.bz2 \
+	ftp://ftp.gnu.org/pub/gnu/gcc/gcc-4.0.3/gcc-{core,g++}-$gcc_version.tar.bz2 \
+	gcc-$gcc_version-version.patch)
+
+build() {
+	patch -d gcc-$gcc_version -p1 -i $SRC/gcc-$gcc_version-version.patch
+	mkdir build
+	cd gcc-$gcc_version
+	mv $SRC/d $SRC/gcc-$gcc_version/gcc/d
+	./gcc/d/setup-gcc.sh
+	cd ../build
+	
+	../gcc-$gcc_version/configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--enable-languages=d \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--disable-nls \
+		--with-x=no
+
+	make
+	#make check
+	make DESTDIR=$PKG install
+
+	# remove un-needed files
+	find $PKG -name 'README' -exec rm {} \;
+
+	rm \
+		$PKG/usr/lib/libiberty.a \
+		$PKG/usr/bin/*-linux-gnu-*
+
+	rm -r \
+		$PKG/usr/info \
+		$PKG/usr/lib/gcc/*/$gcc_version/install-tools
+
+	# remove files already on the system out of the port
+	for i in `find $PKG | sed -e "s|$PKG|/|"`; do
+		if [ -e "$i" ] && [ ! -d "$i" ] ; then
+			rm $PKG/$i
+		fi
+	done
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -r {} \;
+
+	# remove build links from *.la files
+	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
+		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
+	done
+
+	chown -R root:root $PKG
+}
+
