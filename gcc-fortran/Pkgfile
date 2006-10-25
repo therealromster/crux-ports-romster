@@ -3,19 +3,19 @@
 # Description:	Fortran (f95) add-on for GNU GCC compiler.
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:	acrux, acrux at linuxmail dot org
-# Depends on:	libgmp, libmpfr
+# Depends on:	libmpfr
 
 name=gcc-fortran
 version=4.0.3
-release=1
+release=2
 source=(ftp://sources.redhat.com/pub/gcc/releases/gcc-$version/gcc-{core,fortran}-$version.tar.bz2 \
 	gcc-$version-version.patch)
 
 build() {
-    patch -d gcc-$version -p1 -i $SRC/gcc-$version-version.patch
-    cd gcc-$version 
-    install -d build
-    cd build
+	patch -d gcc-$version -p1 -i $SRC/gcc-$version-version.patch
+	cd gcc-$version 
+	mkdir build
+	cd build
 
 	../configure \
 		--prefix=/usr \
@@ -28,16 +28,25 @@ build() {
 		--disable-nls \
 		--with-x=no
 
-	make bootstrap
+	make
 	#make check
 	make DESTDIR=$PKG install
 
 	ln -s gfortran $PKG/usr/bin/f90
 	ln -s gfortran $PKG/usr/bin/f95
 
-	# remove files already on the system out of the port
-	rm -r $PKG/usr/info
+	# remove un-needed files
+	find $PKG -name 'README' -exec rm {} \;
 
+	rm \
+		$PKG/usr/lib/libiberty.a \
+		$PKG/usr/bin/*-linux-gnu-*
+
+	rm -r \
+		$PKG/usr/info \
+		$PKG/usr/lib/gcc/*/$version/install-tools
+
+	# remove files already on the system out of the port
 	for i in `find $PKG | sed -e "s|$PKG|/|"`; do
 		if [ -e "$i" ] && [ ! -d "$i" ] ; then
 			rm $PKG/$i
@@ -45,7 +54,12 @@ build() {
 	done
 
 	# Remove empty directories
-	find $PKG -depth -empty -exec rm -rf {} \;
+	find $PKG -depth -empty -exec rm -r {} \;
+
+	# remove build links from *.la files
+	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
+		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
+	done
 
 	chown -R root:root $PKG
 }
