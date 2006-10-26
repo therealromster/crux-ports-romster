@@ -1,0 +1,24 @@
+# $Id:
+# Description:	SGI Standard Template Library (STL).
+# URL:		http://www.sgi.com/tech/stl/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Aaron Marks <nymacro AT gmail DOT com>
+# Depends on:	
+
+# Recommended:	
+# Optional:	
+# Category:	library
+
+name=stl
+version=3.3
+release=1
+source=(http://www.sgi.com/tech/stl/stl.tar.gz)
+
+build() {
+	install -d $PKG/usr/include
+	mv * $PKG/usr/include/
+	cd $PKG/usr/include
+	chmod -R 644 *
+	chown -R root:root $PKG
+}
+
