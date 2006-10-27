@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.5/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0rc3-py2.5.egg-info
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0-py2.5.egg-info
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.pyc
@@ -74,6 +74,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_numerictypes.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_records.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_regression.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_reshape.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_scalarmath.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_umath.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_unicode.py
@@ -285,8 +286,12 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/block_statements.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/block_statements.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/doc.txt
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/expressions.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/expressions.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/parsefortran.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/parsefortran.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/pattern_tools.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/pattern_tools.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/readfortran.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/readfortran.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/sourceinfo.py
@@ -295,6 +300,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/splitline.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/statements.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/statements.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_expressions.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_expressions.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_parser.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_parser.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/typedecl_statements.py

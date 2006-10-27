@@ -6,17 +6,15 @@
 # Depends on:	python
 
 name=numpy
-version=1.0rc3
+version=1.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-
 	python setup.py install --root=$PKG
-
-	rm -fr $PKG/usr/lib/python2.?/site-packages/numpy/{COMPATIBILITY,*.txt,doc,f2py/docs}
-
+	rm $PKG/usr/lib/python2.?/site-packages/numpy/{COMPATIBILITY,*.txt}
+	rm -r $PKG/usr/lib/python2.?/site-packages/numpy/{doc,f2py/docs}
 	chown -R root:root $PKG
 }
 
