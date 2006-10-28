@@ -1,8 +1,8 @@
 # $Id: 
 # Description:	The goal of Kopete is to provide users with a single easy-to-use way to access all of their instant messaging systems.
-# URL:			http://kopete.kde.org/
+# URL:		http://kopete.kde.org/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:	kdelibs, jasper, openslp
 
 name=kopete
@@ -14,6 +14,7 @@ build() {
 	cd $name-$version
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install
-	rm -fr $PKG/usr/share/doc
+	rm -r $PKG/usr/share/doc
 	chown -R root:root $PKG
 }
+
