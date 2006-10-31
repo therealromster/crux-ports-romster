@@ -1,0 +1,39 @@
+# $Id:
+# Description:	A multi-platform game programming library for C/C++.
+# URL:		http://www.talula.demon.co.uk/allegro/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	sten, nick dot steeves at shaw dot ca
+# Depends on:	x11
+
+# Recommended:	
+# Optional:	alsa-lib, arts, esound
+# Category:	library
+
+# When doing make I set MAKEINFO to be 'true' because then
+# the program will run and think it's making info pages, while
+# it really just executes exit(0) (or something)
+
+
+name=allegro
+version=4.3.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/alleg/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	install -d $PKG/usr
+
+	./configure \
+		--prefix=/usr \
+		--enable-exclopts=i686
+
+	#make MAKEINFO="true" prefix="/usr" \
+	#	lib modules programs
+	
+	#make MAKEINFO="true" prefix="$PKG/usr" \
+	#	install-man install-headers install-programs install-lib
+	
+	make && make DESTDIR=$PKG install install-man
+	chown -R root:root $PKG
+}
+
