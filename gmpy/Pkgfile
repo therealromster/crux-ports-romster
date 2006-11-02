@@ -1,0 +1,23 @@
+# $Id:
+# Description:	Python modules providing multiprecision arithmetic functionality
+# URL:		http://gmpy.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Younes Hafri <ycrux@club-internet.fr>
+# Depends on:	python, libgmp
+
+name=gmpy
+version=1.01
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/$name/$name-sources-101.zip)
+
+
+build() {
+	install -d $PKG/usr
+	cd $name
+
+	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+	chown -R root:root $PKG
+}
+
