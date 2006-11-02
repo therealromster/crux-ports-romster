@@ -1,0 +1,18 @@
+# $Id:
+# Description:	Python interface to the OpenSSL library
+# URL:		http://pyopenssl.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Younes Hafri <ycrux@club-internet.fr>
+# Depends on:	python
+
+name=pyopenssl
+version=0.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/pyOpenSSL-$version.tar.gz)
+
+build() {
+	cd pyOpenSSL-$version
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}
+
