@@ -1,0 +1,19 @@
+# $Id: 
+# Description:	Slookup is a simple program to do parallelized DNS lookups in a convenient way.
+# URL:		http://he.fi/slookup/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	
+
+name=slookup
+version=1.2
+release=1
+source=(http://he.fi/slookup/slookup-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	sed -i -e "s|CFLAGS = .*|CFLAGS = $CFLAGS -Wall -Wstrict-prototypes -O3|g" Makefile
+	make
+	install -D -m755 -oroot -groot $name $PKG/usr/bin/$name
+}
+
