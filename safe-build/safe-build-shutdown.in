@@ -3,6 +3,6 @@
 umount /dev/pts
 umount /dev
 umount /proc
-echo exit
+exec exit
 
 # End of file.
