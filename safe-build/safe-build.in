@@ -14,7 +14,7 @@ setup_system() {
 	pushd /usr/ports/core
 
 	for p in "$SAFE_BUILD_TOOLCHAIN"; do
-		pushd "$p"
+		pushd $p
 		. Pkgfile
 
 		if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -31,7 +31,7 @@ setup_system() {
 
 		if [ $p != "$(echo "$SAFE_BUILD_TOOLCHAIN" | grep --only-matching $p)" ]; then
 
-			pushd "$p"
+			pushd $p
 			. Pkgfile
 
 			if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -49,7 +49,7 @@ setup_system() {
         pushd '/usr/ports/'
         for p in opt/*; do
 
-		    pushd "$p"
+		    pushd $p
 		    . Pkgfile
 
 		    if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -69,7 +69,7 @@ setup_system() {
 
 	    for p in "$SAFE_BUILD_ADDITIONAL_PORTS"; do
 
-	    	pushd "$p"
+	    	pushd $p
 	    	. Pkgfile
 
 	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -105,11 +105,11 @@ setup_image() {
     # install aditional ports
 	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
         echo 'Installing additional ports.'
-        pushd /usr/ports/
+        pushd '/usr/ports/'
 
 	    for p in "$SAFE_BUILD_ADDITIONAL_PORTS"; do
 
-	    	pushd "$p"
+	    	pushd $p
 	    	. Pkgfile
 
 	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
