@@ -3,3 +3,6 @@ drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/safe-build
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/safe-build/
+-rwxr-xr-x	root/root	usr/share/safe-build/safe-build-shutdown
