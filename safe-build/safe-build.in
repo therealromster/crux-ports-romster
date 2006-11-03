@@ -131,7 +131,7 @@ rest() {
 	# copy port settings
 	cp /etc/prt-get.conf "$SAFE_BUILD_DIR/etc/"
     # change path to point to chroot dir
-    sed -i -e 's|prtdir .*|prtdir "$SAFE_BUILD_DIR"|g' "$SAFE_BUILD_DIR/etc/prt-get.conf"
+    sed -i -e "s|prtdir .*|prtdir $SAFE_BUILD_DIR|g" "$SAFE_BUILD_DIR/etc/prt-get.conf"
 
 	# activate contrib ports and copy over existing repos
 	sed -i \
