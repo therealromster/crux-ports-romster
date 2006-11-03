@@ -1,7 +1,7 @@
 #!/bin/sh
 
-umount /var/tmp/crux-2.2/dev/dev/pts
-umount /var/tmp/crux-2.2/dev/dev
+umount /var/tmp/crux-2.2/dev/pts
+umount /var/tmp/crux-2.2/dev
 umount /var/tmp/crux-2.2/dev/proc
 exit
 
