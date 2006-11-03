@@ -11,11 +11,10 @@ setup_system() {
    	echo 'Seting up type: current system.'
    	echo 'Installing toolchain'
 	# install tool chain
-	cd /usr/ports/core
+	pushd /usr/ports/core
 
 	for p in "$SAFE_BUILD_TOOLCHAIN"; do
-
-		cd $p
+		pushd "$p"
 		. Pkgfile
 
 		if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -23,7 +22,7 @@ setup_system() {
 		fi
 
 		pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-		cd ..
+		popd
 	done
 
 	echo 'Installing Core ports.'
@@ -32,7 +31,7 @@ setup_system() {
 
 		if [ $p != "$(echo "$SAFE_BUILD_TOOLCHAIN" | grep --only-matching $p)" ]; then
 
-			cd $p
+			pushd "$p"
 			. Pkgfile
 
 			if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -40,17 +39,17 @@ setup_system() {
 			fi
 
 			pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-			cd ..
+			popd
 		fi
 
 	done
 
     if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
         echo 'Installing Opt ports.'
-        cd /usr/ports/
+        pushd '/usr/ports/'
         for p in opt/*; do
 
-		    cd $p
+		    pushd "$p"
 		    . Pkgfile
 
 		    if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -58,19 +57,19 @@ setup_system() {
 		    fi
 
 	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-		    cd ..
+		    popd
 	    done
     fi
-
+    popd
 
 	# install additional ports
 	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
         echo 'Installing additional ports.'
-        cd /usr/ports/
+        pushd '/usr/ports/'
 
 	    for p in "$SAFE_BUILD_ADDITIONAL_PORTS"; do
 
-	    	cd $p
+	    	pushd "$p"
 	    	. Pkgfile
 
 	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -78,16 +77,17 @@ setup_system() {
 	    	fi
 
 	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-	    	cd ..
+	    	popd
 
     	done
+        popd
     fi
 }
 
 setup_image() {
    	echo 'setting up type: CD image.'
 	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
-	cd "$SAFE_BUILD_CD_MOUNT/crux"
+	pushd "$SAFE_BUILD_CD_MOUNT/crux"
 
 	echo 'Installing Core ports'
 	for p in core/*; do
@@ -100,15 +100,16 @@ setup_image() {
     		pkgadd -r "$SAFE_BUILD_DIR" "$p"
     	done
     fi
+    popd
 
     # install aditional ports
 	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
         echo 'Installing additional ports.'
-        cd /usr/ports/
+        pushd /usr/ports/
 
 	    for p in "$SAFE_BUILD_ADDITIONAL_PORTS"; do
 
-	    	cd $p
+	    	pushd "$p"
 	    	. Pkgfile
 
 	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -116,9 +117,10 @@ setup_image() {
 	    	fi
 
 	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-	    	cd ..
+	    	popd
 
     	done
+        popd
     fi
 
 	umount "$SAFE_BUILD_CD_MOUNT"
@@ -159,10 +161,11 @@ rest() {
 	# copy over source files
 	#cp /usr/ports/distfiles/* $SAFE_BUILD_DIR/usr/ports/distfiles/
 
-	cd /usr/ports/distfiles
+	pushd /usr/ports/distfiles
 	for i in *; do
 		ln -s "$i" "$SAFE_BUILD_DIR/usr/ports/distfiles/"
 	done
+    popd
 
 	#cd /usr/ports/packages
 	#for i in $(ls --color=never); do
