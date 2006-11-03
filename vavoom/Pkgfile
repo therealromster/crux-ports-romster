@@ -1,22 +1,41 @@
 # $Id: 
 # Description:	Vavoom is a source port based on sources of Doom, Heretic, Hexen and a little bit from Quake.
-# URL:			http://www.vavoom-engine.com/
+# URL:		http://www.vavoom-engine.com/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	allegrogl, openal, libvorbis, libmad, libmikmod, flac
 
-# Recommended:	
+# Recommended:	upx
 # Optional:	
-# Category:		games, entertainment
+# Category:	games, entertainment
 
 name=vavoom
-version=1.21.2
+version=1.22
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
 build () {
 	cd $name-$version
-	./configure --prefix=/usr
+	LDFLAGS='-L/usr/include/c++/4.0.3/'
+
+	./configure \
+		--prefix=/usr \
+		--with-allegro \
+		--with-opengl \
+		--with-openal \
+		--with-vorbis \
+		--with-libmad \
+		--with-mikmod \
+		--with-flac
+
 	make && make DESTDIR=$PKG install
+
+	if [ -f /usr/bin/upx ]; then
+		find $PKG/usr/bin/ \
+			-name 'vavoom-dedicated.i686' -or \
+			-name 'vavoom.i686' | xargs upx
+	fi
+
 	chown -R root:root $PKG
 }
+
