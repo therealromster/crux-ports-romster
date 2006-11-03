@@ -7,7 +7,7 @@
 
 name=yacy
 version=v0.48_20061010_2743
-release=1
+release=2
 source=(http://www.yacy.net/yacy/release/yacy_$version.tar.gz \
 	$name-start.sh $name-stop.sh $name.rc)
 
