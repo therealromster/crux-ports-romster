@@ -4,6 +4,7 @@
 init() {
    	mkdir -p $SAFE_BUILD_DIR/var/lib/pkg
 	touch $SAFE_BUILD_DIR/var/lib/pkg/db
+    mkdir -p "$SAFE_BUILD_DIR/usr/ports/packages/"
 }
 
 setup_system() {
@@ -11,7 +12,7 @@ setup_system() {
    	echo 'Installing toolchain'
 	# install tool chain
 	cd '/usr/ports/core'
-
+    
 	for p in $SAFE_BUILD_TOOLCHAIN; do
 		cd $p
 		. Pkgfile
