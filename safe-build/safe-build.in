@@ -2,18 +2,17 @@
 # Script to test own ports under a fresh install chroot enviroment or using the official image.
 
 init() {
-   	echo 'Setting up environment.'
-	mkdir -p $SAFE_BUILD_DIR/var/lib/pkg
+   	mkdir -p $SAFE_BUILD_DIR/var/lib/pkg
 	touch $SAFE_BUILD_DIR/var/lib/pkg/db
 }
 
 setup_system() {
-   	echo 'Seting up type: current system.'
+   	echo 'Seting up environment type: current system.'
    	echo 'Installing toolchain'
 	# install tool chain
 	cd '/usr/ports/core'
 
-	for p in "$SAFE_BUILD_TOOLCHAIN"; do
+	for p in $SAFE_BUILD_TOOLCHAIN; do
 		cd $p
 		. Pkgfile
 
@@ -61,29 +60,11 @@ setup_system() {
 	    done
     fi
    
-	# install additional ports
-	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
-        echo 'Installing additional ports.'
-        cd '/usr/ports/'
-
-	    for p in "$SAFE_BUILD_ADDITIONAL_PORTS"; do
-
-	    	cd $p
-	    	. Pkgfile
-
-	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
-	    		pkgmk -f
-	    	fi
-
-	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-	    	cd ..
-
-    	done
-    fi
+    install_additional_ports
 }
 
 setup_image() {
-   	echo 'setting up type: CD image.'
+   	echo 'setting up environment type: CD image.'
 	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
 	cd "$SAFE_BUILD_CD_MOUNT/crux"
 
@@ -99,28 +80,34 @@ setup_image() {
     	done
     fi
     
-    # install aditional ports
+    install_additional_ports
+
+    umount "$SAFE_BUILD_CD_MOUNT"
+}
+
+install_additional_ports() {
 	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
         echo 'Installing additional ports.'
         cd '/usr/ports/'
 
 	    for p in $SAFE_BUILD_ADDITIONAL_PORTS; do
+	        if [ -f $p/Pkgfile ]; then
+                cd $p
+                . Pkgfile
 
-	    	cd $p
-	    	. Pkgfile
+	        	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+	        		pkgmk -f
+	        	fi
 
-	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
-	    		pkgmk -f
-	    	fi
-
-	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-	    	cd ..
-
+	        	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+	        	cd ..
+            else
+                echo "Warning $p/Pkgfile is missing, skiping."
+            fi
     	done
     fi
-
-    umount "$SAFE_BUILD_CD_MOUNT"
 }
+
 
 rest() {
 	# copy DNS settings
@@ -142,8 +129,8 @@ rest() {
 	fi
 
     echo 'Installing ports tree.'
-	cp /etc/ports/{*.httpup,*.rsync} $SAFE_BUILD_DIR/etc/ports/
-    cp -R /usr/ports/* "$SAFE_BUILD_DIR/"
+	cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
+    #cp -R /usr/ports/* "$SAFE_BUILD_DIR/"
 
 	cd '/usr/ports/'
 	for p in *; do
