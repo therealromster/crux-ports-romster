@@ -1,0 +1,261 @@
+#!/bin/sh
+# Script to test own ports under a fresh install chroot enviroment or using the official image.
+
+init() {
+   	echo 'Setting up environment'
+	mkdir -p $SAFE_BUILD_DIR/var/lib/pkg
+	touch $SAFE_BUILD_DIR/var/lib/pkg/db
+}
+
+setup_system() {
+   	echo 'Seting up type: current system.'
+   	echo 'Installing toolchain'
+	# install tool chain
+	cd /usr/ports/core
+
+	for p in "$SAFE_BUILD_TOOLCHAIN"; do
+
+		cd $p
+		. Pkgfile
+
+		if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+			pkgmk -f
+		fi
+
+		pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+		cd ..
+	done
+
+	echo 'Installing Core ports'
+	# install rest of core ports
+	for p in *; do
+
+		if [ $p != "$(echo "$SAFE_BUILD_TOOLCHAIN" | grep --only-matching $p)" ]; then
+
+			cd $p
+			. Pkgfile
+
+			if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+				pkgmk -f
+			fi
+
+			pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+			cd ..
+		fi
+
+	done
+
+    if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
+        echo 'Installing Opt ports.'
+        cd /usr/ports/
+        for p in opt/*; do
+
+		    cd $p
+		    . Pkgfile
+
+		    if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+		    	pkgmk -f
+		    fi
+
+	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+		    cd ..
+	    done
+    fi
+
+
+	# install additional ports
+	if [ $SAFE_BUILD_ADDITIONAL_PORTS ]; then
+        echo 'Installing additional ports.'
+        cd /usr/ports/
+
+	    for p in "$SAFE_BUILD_ADDITIONAL_PORTS"; do
+
+	    	cd $p
+	    	. Pkgfile
+
+	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+	    		pkgmk -f
+	    	fi
+
+	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+	    	cd ..
+
+    	done
+    fi
+}
+
+setup_image() {
+   	echo 'setting up type: CD image.'
+	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
+	cd "$SAFE_BUILD_CD_MOUNT/crux"
+
+	echo 'Installing Core ports'
+	for p in core/*; do
+		pkgadd -r "$SAFE_BUILD_DIR" "$p"
+	done
+
+    if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
+        echo 'Installing Opt ports'
+    	for p in opt/*; do
+    		pkgadd -r "$SAFE_BUILD_DIR" "$p"
+    	done
+    fi
+
+    # install aditional ports
+	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
+        echo 'Installing additional ports.'
+        cd /usr/ports/
+
+	    for p in "$SAFE_BUILD_ADDITIONAL_PORTS"; do
+
+	    	cd $p
+	    	. Pkgfile
+
+	    	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+	    		pkgmk -f
+	    	fi
+
+	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+	    	cd ..
+
+    	done
+    fi
+
+	umount "$SAFE_BUILD_CD_MOUNT"
+}
+
+rest() {
+	# copy DNS settings
+	cp /etc/resolv.conf "$SAFE_BUILD_DIR/etc/"
+
+	# copy port settings
+	cp /etc/prt-get.conf "$SAFE_BUILD_DIR/etc/"
+
+	# activate contrib ports and copy over existing repos
+	sed -i \
+		-e 's|# PKGMK_SOURCE_DIR="$PWD"|PKGMK_SOURCE_DIR="/usr/ports/distfiles"|' \
+		-e 's|# PKGMK_PACKAGE_DIR="$PWD"|PKGMK_PACKAGE_DIR="/usr/ports/packages"|' \
+			"$SAFE_BUILD_DIR/etc/pkgmk.conf"
+
+	mkdir -p $SAFE_BUILD_DIR/usr/ports/{distfiles,packages}
+
+	if [ -e "$SAFE_BUILD_DIR/etc/ports/contrib.rsync.inactive" ]; then
+		mv $SAFE_BUILD_DIR/etc/ports/contrib.rsync.inactive $SAFE_BUILD_DIR/etc/ports/contrib.rsync
+	fi
+
+	cp /etc/ports/{*.httpup,*.rsync} $SAFE_BUILD_DIR/etc/ports/
+
+#	echo 'Installing ports tree'
+#	cd /usr/ports/
+#	for i in $(ls --color=never); do
+#		if [ $i	!= distfiles ] && [ $i != packages ]; then
+#			cp -R "$i" "$SAFE_BUILD_DIR/usr/ports/"
+#		fi
+#	done
+
+	echo 'Symlinking source files'
+	# copy over source files
+	#cp /usr/ports/distfiles/* $SAFE_BUILD_DIR/usr/ports/distfiles/
+
+	cd /usr/ports/distfiles
+	for i in *; do
+		ln -s "$i" "$SAFE_BUILD_DIR/usr/ports/distfiles/"
+	done
+
+	#cd /usr/ports/packages
+	#for i in $(ls --color=never); do
+	#	ln -s "$i" "$SAFE_BUILD_DIR/usr/ports/packages/"
+	#done
+
+
+	# copy ports you want to test
+}
+
+start_chroot() {
+   	echo 'Activate chroot!'
+	cd "$SAFE_BUILD_DIR"
+	mount -t proc proc "$SAFE_BUILD_DIR/proc"
+	mount --bind /dev "$SAFE_BUILD_DIR/dev"
+	mount -t devpts devpts "$SAFE_BUILD_DIR/dev/pts"
+	chroot "$SAFE_BUILD_DIR" /bin/sh
+}
+
+print_help() {
+	echo "usage: ${SAFE_BUILD_COMMAND##*/} [options]"
+	echo "options:"
+	echo "  -i,   --image               use CRUX offical iso"
+	echo "  -s,   --system              use system ports"
+	echo "  -v,   --version             print version and exit "
+	echo "  -h,   --help                print help and exit"
+}
+
+parse_options() {
+	while [ "$1" ]; do
+		case "$1" in
+			-i|--image)
+				SAFE_BUILD_SETUP_IMAGE='yes' ;;
+			-s|--system)
+				SAFE_BUILD_SETUP_SYSTEM='yes' ;;
+			-v|--version)
+				echo "${SAFE_BUILD_COMMAND##*/} (chroot) $SAFE_BUILD_VERSION"
+				exit 0 ;;
+			-h|--help)
+				print_help
+				exit 0 ;;
+			*)
+				echo "${SAFE_BUILD_COMMAND##*/}: invalid option $1"
+				exit 1 ;;
+		esac
+		shift
+	done
+}
+
+main() {
+   	if [ ! "$@" ]; then
+		echo "chroot-build make a chrooted enviroment to test your own ports."
+		echo "Try chroot-build -h (or --help) for more information."
+		exit 1
+	fi
+
+	parse_options "$@"
+
+	if [ "$SAFE_BUILD_SETUP_IMAGE" = 'yes' ]; then
+	   	init
+		setup_image
+		rest
+		start_chroot
+	
+	elif [ "$SAFE_BUILD_SETUP_SYSTEM" = 'yes' ]; then
+	   	init
+		setup_system
+		rest
+		start_chroot
+	fi
+	
+	exit 0
+}
+
+#trap "interrupted" SIGHUP SIGINT SIGQUIT SIGTERM
+
+export LC_ALL='POSIX'
+
+readonly SAFE_BUILD_VERSION='#VERSION#'
+readonly SAFE_BUILD_COMMAND="$0"
+readonly SAFE_BUILD_ROOT="$PWD"
+readonly SAFE_BUILD_DIR='/var/tmp/crux-2.2'
+readonly SAFE_BUILD_TOOLCHAIN='binutils glibc gcc module-init-tools libstdc++-compat'
+
+[ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'
+[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/home/*/iso/crux-2.2'
+
+SAFE_BUILD_SETUP_SYSTEM='no'
+SAFE_BUILD_SETUP_IMAGE='no'
+SAFE_BUILD_OPT_PORTS='no'
+
+[ -f '/etc/safe-build.conf' ] && . /etc/safe-build.conf
+
+main "$@"
+
+# vim: expandtab:ts=4:sw=4
+
+# End of file.
