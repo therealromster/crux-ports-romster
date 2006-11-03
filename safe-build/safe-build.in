@@ -21,13 +21,13 @@ setup_system() {
 		fi
 
 		pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+        ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
 		cd ..
 	done
 
 	echo 'Installing Core ports.'
 	# install rest of core ports
 	for p in *; do
-
 		if [ $p != "$(echo "$SAFE_BUILD_TOOLCHAIN" | grep --only-matching $p)" ]; then
 
 			cd $p
@@ -38,16 +38,16 @@ setup_system() {
 			fi
 
 			pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+            ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
 			cd ..
 		fi
-
 	done
 
     if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
         echo 'Installing Opt ports.'
         cd '/usr/ports/'
-        for p in opt/*; do
 
+        for p in opt/*; do
 		    cd $p
 		    . Pkgfile
 
@@ -66,22 +66,27 @@ setup_system() {
 setup_image() {
    	echo 'setting up environment type: CD image.'
 	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
-	cd "$SAFE_BUILD_CD_MOUNT/crux"
-
+	
 	echo 'Installing Core ports'
-	for p in core/*; do
+    cd "$SAFE_BUILD_CD_MOUNT/crux"
+
+    for p in core/*; do
 		pkgadd -r "$SAFE_BUILD_DIR" "$p"
 	done
 
+    cp core/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+
     if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
         echo 'Installing Opt ports'
-    	for p in opt/*; do
+
+        for p in opt/*; do
     		pkgadd -r "$SAFE_BUILD_DIR" "$p"
     	done
-    fi
-    
-    install_additional_ports
 
+        cp opt/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+    fi
+
+    install_additional_ports
     umount "$SAFE_BUILD_CD_MOUNT"
 }
 
@@ -100,6 +105,7 @@ install_additional_ports() {
 	        	fi
 
 	        	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+                ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
 	        	cd ..
             else
                 echo "Warning $p/Pkgfile is missing, skiping."
@@ -139,14 +145,14 @@ rest() {
 		fi
 	done
     
-	echo 'Hardlinking source files.'
+	#echo 'Hardlinking source files.'
 	# copy over source files
 	#cp '/usr/ports/distfiles/*' "$SAFE_BUILD_DIR/usr/ports/distfiles/"
 
-	cd '/usr/ports/distfiles'
-	for d in *; do
-		ln $d "$SAFE_BUILD_DIR/usr/ports/distfiles/"
-	done
+	#cd '/usr/ports/distfiles'
+	#for d in *; do
+	#	ln $d "$SAFE_BUILD_DIR/usr/ports/distfiles/"
+	#done
     
 	#cd /usr/ports/packages
 	#for i in $(ls --color=never); do

@@ -3,5 +3,7 @@
 umount /dev/pts
 umount /dev
 umount /proc
+echo 'type exit, then remove the chrooted directory'
+echo 'ex. rm -r /var/tmp/crux-2.2/'
 
 # End of file.
