@@ -2,7 +2,7 @@
 
 umount /var/tmp/crux-2.2/dev/pts
 umount /var/tmp/crux-2.2/dev
-umount /var/tmp/crux-2.2/dev/proc
+umount /var/tmp/crux-2.2/proc
 exit
 
 # End of file.
