@@ -2,7 +2,7 @@
 # Script to test own ports under a fresh install chroot enviroment or using the official image.
 
 init() {
-   	echo 'Setting up environment'
+   	echo 'Setting up environment.'
 	mkdir -p $SAFE_BUILD_DIR/var/lib/pkg
 	touch $SAFE_BUILD_DIR/var/lib/pkg/db
 }
@@ -26,7 +26,7 @@ setup_system() {
 		cd ..
 	done
 
-	echo 'Installing Core ports'
+	echo 'Installing Core ports.'
 	# install rest of core ports
 	for p in *; do
 
@@ -212,8 +212,8 @@ parse_options() {
 
 main() {
    	if [ ! "$@" ]; then
-		echo "chroot-build make a chrooted enviroment to test your own ports."
-		echo "Try chroot-build -h (or --help) for more information."
+		echo "${SAFE_BUILD_COMMAND##*/} make a chrooted enviroment to test your own ports."
+		echo "Try ${SAFE_BUILD_COMMAND##*/} -h (or --help) for more information."
 		exit 1
 	fi
 
@@ -246,7 +246,7 @@ readonly SAFE_BUILD_DIR='/var/tmp/crux-2.2'
 readonly SAFE_BUILD_TOOLCHAIN='binutils glibc gcc module-init-tools libstdc++-compat'
 
 [ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'
-[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/home/*/iso/crux-2.2'
+[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/var/crux-2.2'
 
 SAFE_BUILD_SETUP_SYSTEM='no'
 SAFE_BUILD_SETUP_IMAGE='no'
