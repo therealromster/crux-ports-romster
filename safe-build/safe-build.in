@@ -4,13 +4,13 @@
 init() {
    	mkdir -p $SAFE_BUILD_DIR/var/lib/pkg
 	touch $SAFE_BUILD_DIR/var/lib/pkg/db
-    mkdir -p "$SAFE_BUILD_DIR/usr/ports/packages/"
+    mkdir -p $SAFE_BUILD_DIR/usr/ports/{distfiles,packages}
 }
 
 setup_system() {
    	echo 'Seting up environment type: current system.'
-   	echo 'Installing toolchain'
-	# install tool chain
+   	
+    echo -n 'Installing toolchain'
 	cd '/usr/ports/core'
     
 	for p in $SAFE_BUILD_TOOLCHAIN; do
@@ -23,11 +23,12 @@ setup_system() {
 
 		pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
         ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+        echo -n '.'
 		cd ..
 	done
+    echo ''
 
-	echo 'Installing Core ports.'
-	# install rest of core ports
+	echo -n 'Installing Core ports'
 	for p in *; do
 		if [ $p != "$(echo "$SAFE_BUILD_TOOLCHAIN" | grep --only-matching $p)" ]; then
 
@@ -40,12 +41,14 @@ setup_system() {
 
 			pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
             ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+            echo -n '.'
 			cd ..
 		fi
 	done
+    echo ''
 
     if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
-        echo 'Installing Opt ports.'
+        echo -n 'Installing Opt ports'
         cd '/usr/ports/'
 
         for p in opt/*; do
@@ -57,8 +60,11 @@ setup_system() {
 		    fi
 
 	    	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+            ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+            echo -n '.'
 		    cd ..
 	    done
+        echo ''
     fi
    
     install_additional_ports
@@ -68,21 +74,49 @@ setup_image() {
    	echo 'setting up environment type: CD image.'
 	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
 	
-	echo 'Installing Core ports'
+	echo -n 'Installing Core ports'
     cd "$SAFE_BUILD_CD_MOUNT/crux"
 
     for p in core/*; do
 		pkgadd -r "$SAFE_BUILD_DIR" "$p"
+        echo -n '.'
 	done
 
+    echo ''
     cp core/* "$SAFE_BUILD_DIR/usr/ports/packages/"
 
+#    echo -n 'Installing Core current source files'
+#    ports -u core > /dev/null
+#    echo -n '.'
+#    prt-get cache
+#    echo -n '.'
+#    cd /usr/ports/core
+
+#	for p in *; do
+#		if [ $p != "$(echo "$SAFE_BUILD_TOOLCHAIN" | grep --only-matching $p)" ]; then
+		
+#            cd $p
+#			. Pkgfile
+
+#            for file in ${source[@]}; do
+#                if [ -e "/usr/ports/distfiles/$file" ]; then
+#				    ln "/usr/ports/distfiles/$file" "$SAFE_BUILD_DIR/usr/ports/distfiles/"
+#		    	fi
+#            done
+#            echo -n '.'
+#            cd ..
+#		fi
+#	done
+#    echo ''
+    
     if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
-        echo 'Installing Opt ports'
+        echo -n 'Installing Opt ports'
 
         for p in opt/*; do
     		pkgadd -r "$SAFE_BUILD_DIR" "$p"
+            echo -n '.'
     	done
+        echo ''
 
         cp opt/* "$SAFE_BUILD_DIR/usr/ports/packages/"
     fi
@@ -93,7 +127,7 @@ setup_image() {
 
 install_additional_ports() {
 	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
-        echo 'Installing additional ports.'
+        echo -n 'Installing additional ports'
         cd '/usr/ports/'
 
 	    for p in $SAFE_BUILD_ADDITIONAL_PORTS; do
@@ -107,11 +141,14 @@ install_additional_ports() {
 
 	        	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
                 ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+                echo -n '.'
 	        	cd ..
             else
-                echo "Warning $p/Pkgfile is missing, skiping."
+                echo ''
+                echo -n "Warning $p/Pkgfile is missing, skiping."
             fi
     	done
+        echo ''
     fi
 }
 
@@ -129,38 +166,42 @@ rest() {
 		-e 's|# PKGMK_PACKAGE_DIR="$PWD"|PKGMK_PACKAGE_DIR="/usr/ports/packages"|' \
 			"$SAFE_BUILD_DIR/etc/pkgmk.conf"
 
-	mkdir -p $SAFE_BUILD_DIR/usr/ports/{distfiles,packages}
-
 	if [ -e "$SAFE_BUILD_DIR/etc/ports/contrib.rsync.inactive" ]; then
 		mv $SAFE_BUILD_DIR/etc/ports/contrib.rsync.inactive $SAFE_BUILD_DIR/etc/ports/contrib.rsync
 	fi
 
-    echo 'Installing ports tree.'
+    echo -n 'Installing ports tree'
 	cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
-    #cp -R /usr/ports/* "$SAFE_BUILD_DIR/"
-
+    echo -n '.'
+    
 	cd '/usr/ports/'
-	for p in *; do
-		if [ $p	!= distfiles ] && [ $p != packages ]; then
-			cp -R $p "$SAFE_BUILD_DIR/usr/ports/"
+    
+	for repo in *; do
+		if [ $repo	!= distfiles ] && [ $repo != packages ]; then
+            cp -R $repo "$SAFE_BUILD_DIR/usr/ports/"
+#            for port in $repo; do
+#                find "/usr/ports/$port/" -type f | xargs cp "$SAFE_BUILD_DIR/usr/ports/$port/"
+#                echo -n '.'
+#            done
+            echo -n '.'
 		fi
 	done
+    echo ''
     
-	#echo 'Hardlinking source files.'
-	# copy over source files
-	#cp '/usr/ports/distfiles/*' "$SAFE_BUILD_DIR/usr/ports/distfiles/"
+	echo -n 'Hardlinking source files'
+	cd '/usr/ports/distfiles'
 
-	#cd '/usr/ports/distfiles'
-	#for d in *; do
-	#	ln $d "$SAFE_BUILD_DIR/usr/ports/distfiles/"
-	#done
+    for d in *; do
+		ln $d "$SAFE_BUILD_DIR/usr/ports/distfiles/" 2> /dev/null # hide 'hard link not allowed for directory' messages
+        echo -n '.'
+	done
+
+    echo ''
     
 	#cd /usr/ports/packages
 	#for i in $(ls --color=never); do
 	#	ln -s "$i" "$SAFE_BUILD_DIR/usr/ports/packages/"
 	#done
-
-	# copy ports you want to test
 
     # install shutdown script
     cp /usr/share/safe-build/safe-build-shutdown "$SAFE_BUILD_DIR/usr/sbin/safe-build-shutdown"
