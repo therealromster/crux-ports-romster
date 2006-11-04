@@ -8,7 +8,10 @@ init() {
 }
 
 setup_system() {
-   	echo 'Seting up environment type: current system.'
+
+    init
+
+    echo 'Seting up environment type: current system.'
    	
     echo -n 'Installing toolchain'
 	cd '/usr/ports/core'
@@ -71,6 +74,9 @@ setup_system() {
 }
 
 setup_image() {
+
+    init
+
    	echo 'setting up environment type: CD image.'
 	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
 	
@@ -150,6 +156,8 @@ install_additional_ports() {
     	done
         echo ''
     fi
+
+    rest
 }
 
 
@@ -205,6 +213,8 @@ rest() {
 
     # install shutdown script
     cp /usr/share/safe-build/safe-build-shutdown "$SAFE_BUILD_DIR/usr/sbin/safe-build-shutdown"
+
+    start_chroot
 }
 
 start_chroot() {
@@ -221,7 +231,8 @@ print_help() {
 	echo "options:"
 	echo "  -i,   --image               use CRUX offical iso"
 	echo "  -s,   --system              use system ports"
-	echo "  -v,   --version             print version and exit "
+    echo "  -c    --chroot              chroot back into the directory"
+	echo "  -v,   --version             print version and exit"
 	echo "  -h,   --help                print help and exit"
 }
 
@@ -232,6 +243,8 @@ parse_options() {
 				SAFE_BUILD_SETUP_IMAGE='yes' ;;
 			-s|--system)
 				SAFE_BUILD_SETUP_SYSTEM='yes' ;;
+            -c|--chroot)
+                SAFE_BUILD_SETUP_CHROOT='yes' ;;
 			-v|--version)
 				echo "${SAFE_BUILD_COMMAND##*/} (chroot) $SAFE_BUILD_VERSION"
 				exit 0 ;;
@@ -256,17 +269,15 @@ main() {
 	parse_options "$@"
 
 	if [ "$SAFE_BUILD_SETUP_IMAGE" = 'yes' ]; then
-	   	init
-		setup_image
-		rest
-		start_chroot
+	   	setup_image
 	
 	elif [ "$SAFE_BUILD_SETUP_SYSTEM" = 'yes' ]; then
-	   	init
-		setup_system
-		rest
-		start_chroot
+	   	setup_system
 	fi
+
+    if [ "$SAFE_BUILD_SETUP_CHROOT" = 'yes' ]; then
+        start_chroot
+    fi
 	
 	exit 0
 }
@@ -275,7 +286,7 @@ main() {
 
 export LC_ALL='POSIX'
 
-readonly SAFE_BUILD_VERSION='#VERSION#'
+readonly SAFE_BUILD_VERSION='@VERSION@'
 readonly SAFE_BUILD_COMMAND="$0"
 readonly SAFE_BUILD_ROOT="$PWD"
 readonly SAFE_BUILD_DIR='/var/tmp/crux-2.2'
@@ -286,7 +297,9 @@ readonly SAFE_BUILD_TOOLCHAIN='binutils glibc gcc module-init-tools libstdc++-co
 
 SAFE_BUILD_SETUP_SYSTEM='no'
 SAFE_BUILD_SETUP_IMAGE='no'
+SAFE_BUILD_SETUP_CHROOT='no'
 SAFE_BUILD_OPT_PORTS='no'
+
 
 [ -f '/etc/safe-build.conf' ] && . /etc/safe-build.conf
 
