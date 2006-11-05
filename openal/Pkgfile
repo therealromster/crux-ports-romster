@@ -8,10 +8,10 @@
 name=openal
 version=r1415
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/$name-$version.tar.bz2)
+source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
 
 build() {
-	cd $name-$version
+	cd scm-$name-$version
 	./autogen.sh
 	./configure --prefix=/usr
 	sed -i -e 's|^DESTDIR.*|# &|' Makefile
