@@ -1,8 +1,12 @@
 # Description:	A free, GPL-licensed video player for UNIX-like systems.
-# URL:			http://xine.sourceforge.net
+# URL:		http://xine.sourceforge.net
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		sten, nick dot steeves at shaw dot ca
-# Depends on:	x11, libpng, alsa-lib, libdvdnav, libogg, libvorbis, esound, flac, libsdl, arts, libmng, libmad, liba52, samba, speex, libtheora, faad2
+# Packager:	sten, nick dot steeves at shaw dot ca
+# Depends on:	xorg, alsa-lib, libpng, libdvdnav, libogg, libvorbis, flac, libsdl, libmng, libmad, liba52, samba, speex, libtheora, faad2
+
+# Recommended:	
+# Optional:	esound, arts
+# Category:	library
 
 name=xine-lib
 version=1.1.2

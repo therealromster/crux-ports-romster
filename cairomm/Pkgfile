@@ -1,13 +1,13 @@
 # $Id: 
 # Description:	C++ wrapper for the cairo graphics library.
-# URL:			http://cairographics.org/cairomm/
+# URL:		http://cairographics.org/cairomm/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:	cairo
 
 # Recommended:	
 # Optional:	
-# Category:		wrapper, graphics, c++
+# Category:	wrapper, graphics, c++
 
 
 name=cairomm
@@ -25,3 +25,4 @@ build() {
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
 }
+
