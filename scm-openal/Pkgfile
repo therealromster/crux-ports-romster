@@ -1,0 +1,62 @@
+# $Id:
+# Description:	cross-platform 3D audio API (subversion).
+# URL:		http://openal.org/
+# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager:	Han Boetes <han@mijncomputer.nl>
+# Depends on:	alsa-lib, subversion
+
+local svn='http://www.openal.org/repos/openal/trunk/OpenAL-Sample'
+name=scm-openal
+version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
+release=1
+source=()
+
+#download_source() {
+#}
+
+build() {
+	### svn code
+	local VERSION VERSIONS RESULT PORT_OLD_VERSION PORT_VERSIONS
+
+	PORT_OLD_VERSION="$(find $PKGMK_SOURCE_DIR -name \"${name}-r*.tar.bz2\" -type f | sort | tail -n1 | sed -e 's|.*r\([0-9]*\).tar.bz2|\1|')"
+	PORT_VERSIONS="$(find $PKGMK_SOURCE_DIR -name \"${name}-r*.tar.bz2\" -type f | sort |sed -e 's|.*r\([0-9]*\).tar.bz2|\1|')"
+	mkdir "$name-$version"
+
+	if [ -f "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" ]; then
+		tar xvf "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" --strip-components=1 --directory="$SRC/$name-$version"
+		
+	else
+		if [ ! $PORT_OLD_VERSION ]; then
+			svn checkout -r "${version:1}" "$svn" "$name-$version"
+	
+		else
+			# TODO add backwards checking for nearist revision to use if there are newer ones in $PKGMK_SOURCE_DIR
+			if [ ! "${version:1}" = "$PORT_OLD_VERSION" ]; then
+				tar xvf "$PKGMK_SOURCE_DIR/$name-r$PORT_OLD_VERSION.tar.bz2" --strip-components=1 --directory="$SRC/$name-$version"		
+				cd "$name-$version"
+				svn up -r "${version:1}"
+				cd ..
+			else
+				tar xvf "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" --strip-components=1 --directory="$SRC/$name-$version"
+			
+			fi
+		fi
+	fi
+	
+	# If archive is not in $PKGMK_SOURCE_DIR compress and move there.
+	if [ ! -f "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" ]; then	
+		tar jcf "$name-$version.tar.bz2" "$name-$version"
+		mv "$name-$version.tar.bz2" "$PKGMK_SOURCE_DIR/"
+	fi
+
+	### end of svn code
+    
+	cd $name-$version
+	./autogen.sh
+	./configure --prefix=/usr
+	sed -i -e 's|^DESTDIR.*|# &|' Makefile
+	make && make install DESTDIR=$PKG
+	chown -R root:root $PKG
+
+	}
+

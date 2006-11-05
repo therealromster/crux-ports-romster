@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/openal-config
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/AL/
+-rw-r--r--	root/root	usr/include/AL/al.h
+-rw-r--r--	root/root	usr/include/AL/alc.h
+-rw-r--r--	root/root	usr/include/AL/alext.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libopenal.a
+-rwxr-xr-x	root/root	usr/lib/libopenal.la
+lrwxrwxrwx	root/root	usr/lib/libopenal.so -> libopenal.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libopenal.so.1 -> libopenal.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libopenal.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/openal.pc

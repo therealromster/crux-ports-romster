@@ -1,0 +1,21 @@
+# $Id:
+# Description:	Cross-platform 3D audio API (snapshot).
+# URL:		http://openal.org/
+# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager:	Han Boetes <han@mijncomputer.nl>
+# Depends on:	alsa-lib
+
+name=openal
+version=r1415
+release=1
+source=(http://romster.shortcircuit.net.au/crux/source/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./autogen.sh
+	./configure --prefix=/usr
+	sed -i -e 's|^DESTDIR.*|# &|' Makefile
+	make && make install DESTDIR=$PKG
+	chown -R root:root $PKG
+}
+
