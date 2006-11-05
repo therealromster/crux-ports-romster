@@ -12,11 +12,13 @@
 name=vavoom
 version=1.22
 release=1
+local upx=yes
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
-build () {
+build() {
 	cd $name-$version
-	LDFLAGS='-L/usr/include/c++/4.0.3/'
+	local version_gcc="$(gcc -v 2>&1 | grep version | sed 's/gcc version \([.0-9]*\) (CRUX)/\1/')"
+	LDFLAGS="-L/usr/include/c++/$version_gcc/"
 
 	./configure \
 		--prefix=/usr \
@@ -30,7 +32,7 @@ build () {
 
 	make && make DESTDIR=$PKG install
 
-	if [ -f /usr/bin/upx ]; then
+	if [ -f '/usr/bin/upx' ] && [ "$upx" = 'yes' ]; then
 		find $PKG/usr/bin/ \
 			-name 'vavoom-dedicated.i686' -or \
 			-name 'vavoom.i686' | xargs upx
