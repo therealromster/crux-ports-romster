@@ -1,18 +1,18 @@
 # $Id:
 # Description:	Library for loading and saving image formats.
-# Url:			http://freeimage.sourceforge.net/
+# Url:		http://freeimage.sourceforge.net/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		nacho
+# Packager:	nacho
 # Depends on:	
 
 # Recommended:	
-# Optional:		
-# Category:		library
+# Optional:	
+# Category:	library
 
 name=freeimage
-version=3.9.1
+version=3.9.2
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/FreeImage391.zip)
+source=(http://dl.sourceforge.net/sourceforge/$name/FreeImage${version//./}.zip)
  
 build() {
 	cd FreeImage
@@ -22,7 +22,7 @@ build() {
 		-e "s|INSTALLDIR = /usr/lib|INSTALLDIR = $PKG/usr/lib|" \
 		-e 's|ldconfig||' Makefile
 
-	sed -i -e "s|VER_MINOR = 9.0|VER_MINOR = 9.1|" Makefile.srcs
+	#sed -i -e "s|VER_MINOR = 9.0|VER_MINOR = 9.1|" Makefile.srcs
 
 	install -d $PKG/usr/lib
 	make && make install
