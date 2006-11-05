@@ -80,7 +80,9 @@ setup_image() {
    	echo 'setting up environment type: CD image.'
 	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
 	
-	echo -n 'Installing Core ports'
+    ###########################################################################
+
+	echo -n 'Installing core ports'
     cd "$SAFE_BUILD_CD_MOUNT/crux"
 
     for p in core/*; do
@@ -89,7 +91,79 @@ setup_image() {
 	done
 
     echo ''
-    cp core/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+
+    if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE" = 'yes' ]; then
+       echo -n 'Installing available upto date packages for core'
+       cd /usr/ports/core
+
+    	for p in *; do
+    		cd $p
+    		. Pkgfile
+
+    		cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+            echo -n '.'
+	    	cd ..
+    	done
+        echo ''
+    else
+        cd "$SAFE_BUILD_CD_MOUNT/crux"
+        cp core/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+    fi
+
+    ###########################################################################
+    
+    if [ "$SAFE_BUILD_CDIMAGE_PORTS_OPT" = 'yes' ]; then
+        echo -n 'Installing opt ports'
+        cd "$SAFE_BUILD_CD_MOUNT/crux"
+
+        for p in opt/*; do
+    		pkgadd -r "$SAFE_BUILD_DIR" "$p"
+            echo -n '.'
+    	done
+
+        echo ''
+        
+        if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_OPT" = 'yes' ]; then
+            echo -n 'Installing available upto date packages for opt'
+            cd /usr/ports
+
+            for p in opt/*; do
+		        cd $p
+		        . Pkgfile
+
+		        cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+                echo -n '.'
+		        cd ..
+	        done
+    
+            echo ''
+        else
+            cd "$SAFE_BUILD_CD_MOUNT/crux"
+            cp opt/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+        fi
+    fi
+
+    ###########################################################################
+
+    if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_INSTALL_XORG" = 'yes' ]; then
+       echo -n 'Installing available packages for xorg'
+       cd /usr/ports/xorg
+
+    	for p in *; do
+    		cd $p
+    		. Pkgfile
+
+    		cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+            echo -n '.'
+	    	cd ..
+    	done
+        echo ''
+    else
+        cd "$SAFE_BUILD_CD_MOUNT/crux"
+        #cp xorg/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+    fi
+
+    ###########################################################################
 
 #    echo -n 'Installing Core current source files'
 #    ports -u core > /dev/null
@@ -114,18 +188,7 @@ setup_image() {
 #		fi
 #	done
 #    echo ''
-    
-    if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
-        echo -n 'Installing Opt ports'
 
-        for p in opt/*; do
-    		pkgadd -r "$SAFE_BUILD_DIR" "$p"
-            echo -n '.'
-    	done
-        echo ''
-
-        cp opt/* "$SAFE_BUILD_DIR/usr/ports/packages/"
-    fi
 
     install_additional_ports
     umount "$SAFE_BUILD_CD_MOUNT"
@@ -182,6 +245,7 @@ rest() {
 	cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
     echo -n '.'
     
+    # copy files over so a 'ports -u' dosn't take so long to do
 	cd '/usr/ports/'
     
 	for repo in *; do
@@ -199,9 +263,11 @@ rest() {
 	echo -n 'Hardlinking source files'
 	cd '/usr/ports/distfiles'
 
-    for d in *; do
-		ln $d "$SAFE_BUILD_DIR/usr/ports/distfiles/" 2> /dev/null # hide 'hard link not allowed for directory' messages
-        echo -n '.'
+    for f in *; do
+        if [ -f $f ]; then
+            ln $f "$SAFE_BUILD_DIR/usr/ports/distfiles/"
+            echo -n '.'
+        fi
 	done
 
     echo ''
@@ -211,10 +277,11 @@ rest() {
 	#	ln -s "$i" "$SAFE_BUILD_DIR/usr/ports/packages/"
 	#done
 
-    # install shutdown script
-    cp /usr/share/safe-build/safe-build-shutdown "$SAFE_BUILD_DIR/usr/sbin/safe-build-shutdown"
+    # install script so chroot can be shutdown
+    cp "/usr/sbin/${SAFE_BUILD_COMMAND##*/}" "$SAFE_BUILD_DIR/usr/sbin/"
 
-    start_chroot
+    #start_chroot
+    restore_ports
 }
 
 start_chroot() {
@@ -226,12 +293,63 @@ start_chroot() {
 	chroot "$SAFE_BUILD_DIR" /bin/sh
 }
 
+shutdown_umount() {
+   umount /dev/pts
+   umount /dev
+   umount /proc
+   #echo "Run ${SAFE_BUILD_COMMAND##*/} -b to backup the newly created ports."
+   exit 0
+}
+
+backup_ports() {
+
+    shutdown_mount
+
+    local file
+
+    echo -n 'Backing up ports'
+    
+    for file in $SAFE_BUILD_DIR/usr/ports/packages/*; do
+    
+        if [ -f $file ]; then
+            ln "$SAFE_BUILD_DIR/usr/ports/packages$file" "/usr/share/safe-build/packages/"
+            echo -n '.'
+        fi
+
+    done
+    
+    echo ''
+}
+
+restore_ports() {
+
+    local file
+
+    echo -n 'Restoring backed up ports'
+
+    for file in /usr/ports/packages/*; do
+        
+        if [ ! -f $file ]; then
+            ln "/usr/share/safe-build/packages$file" "$SAFE_BUILD_DIR/usr/ports/packages/"
+            echo -n '.'
+        fi
+
+    done
+    
+    echo ''
+
+    start_chroot
+}
+
 print_help() {
 	echo "usage: ${SAFE_BUILD_COMMAND##*/} [options]"
 	echo "options:"
-	echo "  -i,   --image               use CRUX offical iso"
-	echo "  -s,   --system              use system ports"
+	#echo "  -b,   --backup              backup the newly built ports"
+    echo "  -i,   --image               use CRUX offical iso"
+    #echo "  -r,   --restore             restore backed up ports (reverse of -b)"
+	echo "  -s,   --system              use working system ports"
     echo "  -c    --chroot              chroot back into the directory"
+    echo "  -u    --umount              unmount the chroot (shutdown)"
 	echo "  -v,   --version             print version and exit"
 	echo "  -h,   --help                print help and exit"
 }
@@ -239,10 +357,16 @@ print_help() {
 parse_options() {
 	while [ "$1" ]; do
 		case "$1" in
+            -b|--backup)
+				SAFE_BUILD_BACKUP_PORTS='yes' ;;
+			-r|--restore)
+                SAFE_BUILD_RESTORE_PORTS='yes' ;;
 			-i|--image)
 				SAFE_BUILD_SETUP_IMAGE='yes' ;;
 			-s|--system)
 				SAFE_BUILD_SETUP_SYSTEM='yes' ;;
+			-u|--umount)
+				SAFE_BUILD_SHUTDOWN_SYSTEM='yes' ;;
             -c|--chroot)
                 SAFE_BUILD_SETUP_CHROOT='yes' ;;
 			-v|--version)
@@ -278,6 +402,19 @@ main() {
     if [ "$SAFE_BUILD_SETUP_CHROOT" = 'yes' ]; then
         start_chroot
     fi
+
+    if [ "$SAFE_BUILD_SHUTDOWN_SYSTEM" = 'yes' ]; then
+        shutdown_umount
+    fi
+
+    if [ "$SAFE_BUILD_BACKUP_PORTS" = 'yes' ]; then
+        #backup_ports
+        echo 'not implemented for argument, currently automated'
+    
+    elif [ "$SAFE_BUILD_RESTORE_PORTS" = 'yes' ]; then
+        #restore_ports
+        echo 'not implemented for argument, currently automated'
+    fi
 	
 	exit 0
 }
@@ -298,8 +435,14 @@ readonly SAFE_BUILD_TOOLCHAIN='binutils glibc gcc module-init-tools libstdc++-co
 SAFE_BUILD_SETUP_SYSTEM='no'
 SAFE_BUILD_SETUP_IMAGE='no'
 SAFE_BUILD_SETUP_CHROOT='no'
-SAFE_BUILD_OPT_PORTS='no'
+SAFE_BUILD_SHUTDOWN_SYSTEM='no'
+SAFE_BUILD_BACKUP_PORTS='no'
+SAFE_BUILD_RESTORE_PORTS='no'
 
+SAFE_BUILD_CDIMAGE_PORTS_OPT='no'
+SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE='no'
+SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_OPT='no'
+SAFE_BUILD_CDIMAGE_PACKAGES_INSTALL_XORG='no'
 
 [ -f '/etc/safe-build.conf' ] && . /etc/safe-build.conf
 

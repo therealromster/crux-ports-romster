@@ -6,9 +6,9 @@
 # Depends on:	
 
 name=safe-build
-version=0.0.0-alpha-21
+version=0.0.0-alpha-22
 release=1
-source=($name.in $name-shutdown.in $name.conf)
+source=($name.in $name.conf)
 
 build() {
 	#cd $name-$version
@@ -16,8 +16,8 @@ build() {
 	#make && make DESTDIR=$PKG install
 	#rm -r $PKG/usr/share/doc
 	sed -i -e "s|@VERSION@|$version|g" $name.in
+	install -d $PKG/usr/share/safe-build/packages
 	install -D -m755 $name.in $PKG/usr/sbin/$name
-	install -D -m755 $name-shutdown.in $PKG/usr/share/$name/$name-shutdown
 	install -D -m644 $name.conf $PKG/etc/$name.conf
 	chown -R root:root $PKG
 }
