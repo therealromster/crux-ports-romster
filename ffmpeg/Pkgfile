@@ -1,0 +1,41 @@
+# $Id:
+# Description:	Complete solution to record, convert and stream audio and video (snapshot).
+# URL:		http://ffmpeg.mplayerhq.hu/
+# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager:	sten, <nick dot steeves at shaw dot ca>
+# Depends on:	imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
+
+name=ffmpeg
+version=r6901
+release=1
+source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
+
+build() {
+	cd scm-$name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-mp3lame \
+		--enable-libogg \
+		--enable-vorbis \
+		--enable-faad \
+		--enable-faadbin \
+		--enable-faac \
+		--enable-xvid \
+		--enable-x264 \
+		--enable-a52 \
+		--enable-a52bin \
+		--enable-dts \
+		--enable-pp \
+		--disable-static \
+		--enable-shared \
+		--enable-pthreads \
+		--enable-swscaler \
+		--enable-gpl \
+		--disable-audio-oss \
+		--disable-audio-beos
+	
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

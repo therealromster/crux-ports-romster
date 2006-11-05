@@ -1,0 +1,78 @@
+# $Id:
+# Description:	Complete solution to record, convert and stream audio and video (subversion).
+# URL:		http://ffmpeg.mplayerhq.hu/
+# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager:	sten, <nick dot steeves at shaw dot ca>
+# Depends on:	subversion, imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
+
+local svn='svn://svn.mplayerhq.hu/ffmpeg/trunk'
+name=scm-ffmpeg
+version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
+release=1
+source=()
+
+build() {
+	### svn code
+	local VERSION VERSIONS RESULT PORT_OLD_VERSION PORT_VERSIONS
+
+	PORT_OLD_VERSION="$(find $PKGMK_SOURCE_DIR -name \"${name}-r*.tar.bz2\" -type f | sort | tail -n1 | sed -e 's|.*r\([0-9]*\).tar.bz2|\1|')"
+	PORT_VERSIONS="$(find $PKGMK_SOURCE_DIR -name \"${name}-r*.tar.bz2\" -type f | sort |sed -e 's|.*r\([0-9]*\).tar.bz2|\1|')"
+	mkdir "$name-$version"
+
+	if [ -f "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" ]; then
+		tar xvf "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" --strip-components=1 --directory="$SRC/$name-$version"
+		
+	else
+		if [ ! $PORT_OLD_VERSION ]; then
+			svn checkout -r "${version:1}" "$svn" "$name-$version"
+	
+		else
+			# TODO add backwards checking for nearist revision to use if there are newer ones in $PKGMK_SOURCE_DIR
+			if [ ! "${version:1}" = "$PORT_OLD_VERSION" ]; then
+				tar xvf "$PKGMK_SOURCE_DIR/$name-r$PORT_OLD_VERSION.tar.bz2" --strip-components=1 --directory="$SRC/$name-$version"		
+				cd "$name-$version"
+				svn up -r "${version:1}"
+				cd ..
+			else
+				tar xvf "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" --strip-components=1 --directory="$SRC/$name-$version"
+			
+			fi
+		fi
+	fi
+	
+	# If archive is not in $PKGMK_SOURCE_DIR compress and move there.
+	if [ ! -f "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" ]; then	
+		tar jcf "$name-$version.tar.bz2" "$name-$version"
+		mv "$name-$version.tar.bz2" "$PKGMK_SOURCE_DIR/"
+	fi
+
+	### end of svn code
+
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-mp3lame \
+		--enable-libogg \
+		--enable-vorbis \
+		--enable-faad \
+		--enable-faadbin \
+		--enable-faac \
+		--enable-xvid \
+		--enable-x264 \
+		--enable-a52 \
+		--enable-a52bin \
+		--enable-dts \
+		--enable-pp \
+		--disable-static \
+		--enable-shared \
+		--enable-pthreads \
+		--enable-swscaler \
+		--enable-gpl \
+		--disable-audio-oss \
+		--disable-audio-beos
+	
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

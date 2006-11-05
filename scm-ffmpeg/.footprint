@@ -1,0 +1,57 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ffmpeg
+-rwxr-xr-x	root/root	usr/bin/ffplay
+-rwxr-xr-x	root/root	usr/bin/ffserver
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/ffmpeg/
+-rw-r--r--	root/root	usr/include/ffmpeg/adler32.h
+-rw-r--r--	root/root	usr/include/ffmpeg/avcodec.h
+-rw-r--r--	root/root	usr/include/ffmpeg/avformat.h
+-rw-r--r--	root/root	usr/include/ffmpeg/avio.h
+-rw-r--r--	root/root	usr/include/ffmpeg/avutil.h
+-rw-r--r--	root/root	usr/include/ffmpeg/common.h
+-rw-r--r--	root/root	usr/include/ffmpeg/fifo.h
+-rw-r--r--	root/root	usr/include/ffmpeg/integer.h
+-rw-r--r--	root/root	usr/include/ffmpeg/intfloat_readwrite.h
+-rw-r--r--	root/root	usr/include/ffmpeg/log.h
+-rw-r--r--	root/root	usr/include/ffmpeg/mathematics.h
+-rw-r--r--	root/root	usr/include/ffmpeg/md5.h
+-rw-r--r--	root/root	usr/include/ffmpeg/opt.h
+-rw-r--r--	root/root	usr/include/ffmpeg/rational.h
+-rw-r--r--	root/root	usr/include/ffmpeg/rgb2rgb.h
+-rw-r--r--	root/root	usr/include/ffmpeg/rtp.h
+-rw-r--r--	root/root	usr/include/ffmpeg/rtsp.h
+-rw-r--r--	root/root	usr/include/ffmpeg/rtspcodes.h
+-rw-r--r--	root/root	usr/include/ffmpeg/swscale.h
+drwxr-xr-x	root/root	usr/include/postproc/
+-rw-r--r--	root/root	usr/include/postproc/postprocess.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libavcodec.so -> libavcodec.so.51.24.0
+lrwxrwxrwx	root/root	usr/lib/libavcodec.so.51 -> libavcodec.so.51.24.0
+-rwxr-xr-x	root/root	usr/lib/libavcodec.so.51.24.0
+lrwxrwxrwx	root/root	usr/lib/libavformat.so -> libavformat.so.51.6.0
+lrwxrwxrwx	root/root	usr/lib/libavformat.so.51 -> libavformat.so.51.6.0
+-rwxr-xr-x	root/root	usr/lib/libavformat.so.51.6.0
+lrwxrwxrwx	root/root	usr/lib/libavutil.so -> libavutil.so.49.0.2
+lrwxrwxrwx	root/root	usr/lib/libavutil.so.49 -> libavutil.so.49.0.2
+-rwxr-xr-x	root/root	usr/lib/libavutil.so.49.0.2
+lrwxrwxrwx	root/root	usr/lib/libpostproc.so -> libpostproc.so.51.24.0
+lrwxrwxrwx	root/root	usr/lib/libpostproc.so.51 -> libpostproc.so.51.24.0
+-rwxr-xr-x	root/root	usr/lib/libpostproc.so.51.24.0
+lrwxrwxrwx	root/root	usr/lib/libswscale.so -> libswscale.so.0.5.0
+lrwxrwxrwx	root/root	usr/lib/libswscale.so.0 -> libswscale.so.0.5.0
+-rwxr-xr-x	root/root	usr/lib/libswscale.so.0.5.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libavcodec.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libavformat.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libavutil.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libpostproc.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libswscale.pc
+drwxr-xr-x	root/root	usr/lib/vhook/
+-rwxr-xr-x	root/root	usr/lib/vhook/drawtext.so
+-rwxr-xr-x	root/root	usr/lib/vhook/fish.so
+-rwxr-xr-x	root/root	usr/lib/vhook/imlib2.so
+-rwxr-xr-x	root/root	usr/lib/vhook/null.so
+-rwxr-xr-x	root/root	usr/lib/vhook/ppm.so
+-rwxr-xr-x	root/root	usr/lib/vhook/watermark.so
