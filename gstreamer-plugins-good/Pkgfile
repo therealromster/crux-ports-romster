@@ -1,8 +1,8 @@
 # $Id:
 # Description:	A set of good-quality plugins for gstreamer under the LGPL.
-# URL:			http://gstreamer.freedesktop.org/modules/gst-plugins-good.html
+# URL:		http://gstreamer.freedesktop.org/modules/gst-plugins-good.html
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Matt Housh, <jaeger at morpheus dot net>
+# Packager:	Matt Housh, <jaeger at morpheus dot net>
 # Depends on:	gstreamer-plugins-base, flac
 
 name=gstreamer-plugins-good
@@ -10,7 +10,7 @@ version=0.10.4
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-$version.tar.gz)
 
-build () {
+build() {
 	cd gst-plugins-good-$version
 
 	./configure \
@@ -20,3 +20,4 @@ build () {
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
 }
+

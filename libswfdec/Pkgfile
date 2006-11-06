@@ -3,10 +3,10 @@
 # URL:		http://www.schleef.org/swfdec/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:	Stefan Lohmaier <noneus@noneus.de>
-# Depends on:	liboil, gdk-pixbuf, gstreamer-plugins-bad, cairo
+# Depends on:	libart, gdk-pixbuf
 
 # Recommended:	
-# Optional:		
+# Optional:	liboil, cairo, gstreamer-plugins-bad	
 # Category:	library, swf
 
 name=libswfdec

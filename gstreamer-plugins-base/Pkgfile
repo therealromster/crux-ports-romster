@@ -3,9 +3,9 @@
 # URL:		http://gstreamer.freedesktop.org/modules/gst-plugins-base.html
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:	Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	gstreamer, libxml2, liboil, libtheora, cdparanoia, pango
+# Depends on:	gstreamer, liboil, libtheora, cdparanoia, pango, libvisual
 
-# Recommended:	libvisual
+# Recommended:	
 # Optional:	
 # Category:	audio
 

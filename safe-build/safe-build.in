@@ -317,6 +317,16 @@ backup_ports() {
         fi
 
     done
+        
+    for file in $SAFE_BUILD_DIR/usr/ports/distfiles/*; do
+    
+    if [ ! -f "/usr/ports/distfiles$file" ]; then
+        ln "$SAFE_BUILD_DIR/usr/ports/distfiles$file" "/usr/ports/distfiles/"
+        echo -n '.'
+    fi
+
+    done
+
     
     echo ''
 }

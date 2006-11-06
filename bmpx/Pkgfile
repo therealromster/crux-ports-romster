@@ -1,9 +1,9 @@
 # $Id:
 # Description:	Next generation rewrite of BMP.
-# URL:			http://beep-media-player.org/
+# URL:		http://beep-media-player.org/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	python, taglib, xine-lib, libglade, gamin, boost, gstreamer-plugins-good, gstreamer-plugins-ugly, gstreamer-plugins-bad, libglademm, cairomm, dbus, sqlite3, libmikmod
+# Packager:	Matt Housh, <jaeger at morpheus dot net>
+# Depends on:	python, taglib, xine-lib, libglade, gamin, boost, gstreamer-plugins-base, gstreamer-plugins-good, gstreamer-plugins-ugly, gstreamer-plugins-bad, libglademm, cairomm, dbus, sqlite3, libmikmod
 
 # Recommended:	
 # Optional:		hal, gconf, startup-notification, smlib

@@ -1,9 +1,9 @@
 # $Id:
-# Description:	GStreamer is a library that allows the construction of graphs of media-handling components.
+# Description:	Gstreamer is a library that allows the construction of graphs of media-handling components.
 # URL:		http://gstreamer.freedesktop.org/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:	Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	
+# Depends on:	libxml2
 
 name=gstreamer
 version=0.10.10
@@ -18,9 +18,7 @@ build() {
 		--disable-nls \
 		--disable-gst-debug \
 		--disable-examples \
-		--disable-tests \
-		--with-gnu-ld \
-		--with-PACKAGE=flac
+		--disable-tests
 
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
