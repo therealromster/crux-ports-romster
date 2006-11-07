@@ -9,6 +9,7 @@
 
 svn='svn://svn.videolan.org/x264/trunk'
 name=scm-x264
+#version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 release=1
 source=()
