@@ -18,7 +18,7 @@ build() {
 		--disable-debug
 
 	make && make DESTDIR=$PKG install
-	rm -r $PKG/usr/share/{locale,doc}
+	rm -r $PKG/usr/share/locale
 	chown -R root:root $PKG
 }
 
