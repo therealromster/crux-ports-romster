@@ -1,4 +1,4 @@
-# $Id: Pkgfile 33 2006-10-15 12:00:24Z romster $ 
+# $Id: Pkgfile 124 2006-11-07 11:46:29Z romster $ 
 # Description:	Tor is a anonymous network and proxy.
 # URL:		http://tor.eff.org/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
@@ -10,7 +10,7 @@
 # Category:	security, anonymity, privacy, communication
 
 name=tor
-version=0.1.1.24
+version=0.1.1.25
 release=1
 source=(http://tor.eff.org/dist/$name-$version.tar.gz \
 	$name.rc)
