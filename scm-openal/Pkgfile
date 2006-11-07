@@ -5,7 +5,7 @@
 # Packager:	Han Boetes <han@mijncomputer.nl>
 # Depends on:	alsa-lib, subversion
 
-local svn='http://www.openal.org/repos/openal/trunk/OpenAL-Sample'
+svn='http://www.openal.org/repos/openal/trunk/OpenAL-Sample'
 name=scm-openal
 version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 release=1

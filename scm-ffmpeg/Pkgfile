@@ -5,7 +5,7 @@
 # Packager:	sten, <nick dot steeves at shaw dot ca>
 # Depends on:	subversion, imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
 
-local svn='svn://svn.mplayerhq.hu/ffmpeg/trunk'
+svn='svn://svn.mplayerhq.hu/ffmpeg/trunk'
 name=scm-ffmpeg
 version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 release=1

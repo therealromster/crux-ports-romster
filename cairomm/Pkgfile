@@ -5,7 +5,7 @@
 # Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:	cairo
 
-# Recommended:	
+# Recommended:	gimp
 # Optional:	
 # Category:	wrapper, graphics, c++
 
@@ -13,7 +13,7 @@
 name=cairomm
 version=1.2.2
 release=1
-source=(http://cairographics.org/releases/cairomm-$version.tar.gz)
+source=(http://cairographics.org/releases/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version

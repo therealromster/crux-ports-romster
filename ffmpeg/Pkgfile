@@ -6,7 +6,7 @@
 # Depends on:	imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
 
 name=ffmpeg
-version=r6901
+version=r6928
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
 
@@ -33,7 +33,8 @@ build() {
 		--enable-swscaler \
 		--enable-gpl \
 		--disable-audio-oss \
-		--disable-audio-beos
+		--disable-audio-beos \
+		--disable-debug
 	
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
