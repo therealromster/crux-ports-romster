@@ -5,9 +5,10 @@
 # Packager:	Han Boetes <han@mijncomputer.nl>
 # Depends on:	alsa-lib, subversion
 
+## There is a problem wtih prt-get so i comment out the version line that works fine with pkgmk
 svn='http://www.openal.org/repos/openal/trunk/OpenAL-Sample'
 name=scm-openal
-#version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
+##change_me_version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 release=1
 source=()

@@ -5,9 +5,10 @@
 # Packager:	sten, <nick dot steeves at shaw dot ca>
 # Depends on:	subversion, imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
 
+## There is a problem wtih prt-get so i comment out the version line that works fine with pkgmk
 svn='svn://svn.mplayerhq.hu/ffmpeg/trunk'
 name=scm-ffmpeg
-#version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
+#change_me_version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 release=1
 source=()

@@ -5,11 +5,12 @@
 # Packager:	Rouven Schuerch, rs at tegonal dot com
 # Depends on:	subversion
 
-## gpac
+## note to self need to look at port gpac
 
+## There is a problem wtih prt-get so i comment out the version line that works fine with pkgmk
 svn='svn://svn.videolan.org/x264/trunk'
 name=scm-x264
-#version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
+#change_me_version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 release=1
 source=()
