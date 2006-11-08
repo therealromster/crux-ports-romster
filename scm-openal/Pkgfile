@@ -5,10 +5,11 @@
 # Packager:	Han Boetes <han@mijncomputer.nl>
 # Depends on:	alsa-lib, subversion
 
-## There is a problem wtih prt-get so i comment out the version line that works fine with pkgmk
+## There is a problem wtih prt-get so i manually run scm-* ports with pkgmk
+## Note this will break prt-get cache, so add "rm -r /usr/ports/romster/scm-*" to stop this (after manually pkgmk'ing or make your own cron script
+
 svn='http://www.openal.org/repos/openal/trunk/OpenAL-Sample'
 name=scm-openal
-##change_me_version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 version=r$(svn info --revision 'HEAD' "$svn" | grep -e 'Revision: ' | sed 's/\Revision: \(.*\)/\1/')
 release=1
 source=()
