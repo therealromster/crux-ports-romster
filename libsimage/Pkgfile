@@ -1,0 +1,23 @@
+# $Id: 
+# Description:	
+# URL:		
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	libsndfile, libvorbis, libjpeg, libungif, libpng, x11
+
+# Recommended:	
+# Optional:	
+# Category:	library
+
+name=libsimage
+version=1.6.1
+release=1
+source=(ftp://ftp.coin3d.org/pub/coin/src/${name:3}-$version.tar.gz)
+
+build() {
+	cd ${name:3}-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
