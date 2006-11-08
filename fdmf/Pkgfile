@@ -1,16 +1,16 @@
 # $Id: 
-# Description:	Find duplicate music files.
+# Description:	Find Duplicate Music Files.
 # URL:		http://w140.com/audio/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	fftw, fftw3, mplayer, plotutils, p5-digest-md5
+# Depends on:	fftw, mplayer, plotutils, p5-digest-md5
 
 # Recommended:	
 # Optional:	(mpg123, mpg321), ogg123
 # Category:	duplicate files, audio, utilities
 
 name=fdmf
-version=0.0.9q
+version=0.0.9r
 release=1
 source=(http://w140.com/audio/fdmf-$version.tar.gz\
 	$name.patch)
