@@ -1,0 +1,27 @@
+# $Id: 
+# Description:	3D network display server which can be used as 3d desktop enviroment.
+# URL:		http://s3d.berlios.de/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:	libsimage, libsdl, glib
+
+# Recommended:	
+# Optional:	
+# Category:	window manager
+
+name=s3d
+version=0.1.1
+release=1
+source=(http://download.berlios.de/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
