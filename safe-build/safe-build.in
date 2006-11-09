@@ -325,8 +325,6 @@ shutdown_umount() {
 
 backup_ports() {
 
-    shutdown_mount
-
     local file
 
     echo -n 'Backing up ports'
@@ -351,6 +349,8 @@ backup_ports() {
 
     
     echo ''
+
+    shutdown_mount
 }
 
 restore_ports() {
@@ -359,7 +359,7 @@ restore_ports() {
 
     echo -n 'Restoring backed up ports'
 
-    for file in /usr/ports/packages/*; do
+    for file in /usr/share/safe-build/packages/*; do
         
         if [ ! -f $file ]; then
             ln "/usr/share/safe-build/packages$file" "$SAFE_BUILD_DIR/usr/ports/packages/"
