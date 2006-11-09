@@ -1,0 +1,24 @@
+# $Id:
+# Description:	Generic Cascading Style Sheet parsing and manipulation toolkit.
+# URL:		http://www.freespiders.org/projects/libcroco/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Matt Housh, jaeger at morpheus dot net
+# Depends on:	libxml2, pango
+
+# Recommended:	
+# Optional:	
+# Category:	library, css
+
+name=libcroco
+version=0.6.1
+release=1
+source=(http://download.gnome.org/sources/$name/${version::3}/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	ln -s libcroco-0.6.la $PKG/usr/lib/libcroco.la
+	chown -R root:root $PKG
+}
+
