@@ -12,7 +12,11 @@ source=(http://$name.linuxonly.nl/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--datarootdir=/usr
+
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
 }

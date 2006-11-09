@@ -19,6 +19,12 @@ build() {
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/doc
+
+	find $PKG \
+		-name 'README' -or \
+		-name 'LICENSE' -or \
+		-name 'COPYRIGHT' -or | xargs rm
+
 	chown -R root:root $PKG
 }
 

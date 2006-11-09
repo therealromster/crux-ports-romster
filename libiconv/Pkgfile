@@ -19,11 +19,12 @@ build() {
 	
 	./configure \
 		--prefix=/usr \
+		--datarootdir=$PKG/usr \
 		--disable-nls \
 		--disable-static
 
 	make && make prefix=$PKG/usr install
-	rm -r $PKG/usr/share/doc
+	rm -r $PKG/usr/doc
 	
 	rm \
 		$PKG/usr/include/iconv.h \

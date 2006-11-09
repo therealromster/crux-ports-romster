@@ -19,6 +19,8 @@ build() {
 	python setup.py build
 	python setup.py install --home=$PKG/usr
 
+	rm $PKG/usr/lib/python/twisted/python/zsh/README
+
 	chown -R root:root $PKG
 }
 

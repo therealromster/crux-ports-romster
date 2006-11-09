@@ -3,7 +3,7 @@
 # URL: http://librdf.org/raptor/
 # Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager: Diederick de Vries <diederick at diederickdevries dot net>
-# Depends on: libxslt
+# Depends on: libxslt, libxml2
 
 # Recommended:	
 # Optional:	
@@ -19,10 +19,11 @@ build() {
 
 	./configure \
 		--prefix=/usr \
+		--datarootdir=/usr \
 		--disable-static
 
 	make && make DESTDIR=$PKG install
-	rm -r $PKG/usr/share/gtk-doc
+	rm -r $PKG/usr/gtk-doc
 	chown -R root:root $PKG
 }
 

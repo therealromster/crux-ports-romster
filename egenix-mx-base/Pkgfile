@@ -13,5 +13,14 @@ source=(http://www.egenix.com/files/python/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 	python setup.py install --root=$PKG
+	
+	find $PKG \
+		-name 'README' -or \
+		-name 'LICENSE' -or \
+		-name 'COPYRIGHT' -or | xargs rm
+
+	#rm -r $PKG/usr/lib/python2.?/site-packages/mx/{doc,*/Doc}
+
 	chown -R root:root $PKG
 }
+

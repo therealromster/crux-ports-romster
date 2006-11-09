@@ -13,12 +13,11 @@ lrwxrwxrwx	root/root	usr/lib/libiconv.so -> libiconv.so.2.4.0
 lrwxrwxrwx	root/root	usr/lib/libiconv.so.2 -> libiconv.so.2.4.0
 -rw-r--r--	root/root	usr/lib/libiconv.so.2.4.0
 -rw-r--r--	root/root	usr/lib/preloadable_libiconv.so
-drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/man/
-drwxr-xr-x	root/root	usr/share/man/man1/
--rw-r--r--	root/root	usr/share/man/man1/iconv.1.gz
-drwxr-xr-x	root/root	usr/share/man/man3/
--rw-r--r--	root/root	usr/share/man/man3/iconv.3.gz
--rw-r--r--	root/root	usr/share/man/man3/iconv_close.3.gz
--rw-r--r--	root/root	usr/share/man/man3/iconv_open.3.gz
--rw-r--r--	root/root	usr/share/man/man3/iconvctl.3.gz
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/iconv.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/iconv.3.gz
+-rw-r--r--	root/root	usr/man/man3/iconv_close.3.gz
+-rw-r--r--	root/root	usr/man/man3/iconv_open.3.gz
+-rw-r--r--	root/root	usr/man/man3/iconvctl.3.gz

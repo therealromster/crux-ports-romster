@@ -7,7 +7,7 @@
 
 # Recommended:	
 # Optional:	
-# Category:		security, ssh
+# Category:	security, ssh
 
 name=denyhosts
 version=2.5
@@ -39,7 +39,7 @@ build() {
 	chmod 700 $PKG/usr/share/denyhosts/daemon-control
 	
 	ln -sf /usr/share/denyhosts/daemon-control $PKG/etc/rc.d/denyhosts
-
+	rm $PKG/usr/share/denyhosts/plugins/README.contrib
 	chown -R root:root $PKG
 }
 

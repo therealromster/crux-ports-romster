@@ -7,7 +7,7 @@
 
 # Recommended:	
 # Optional:		
-# Category:		archiver, 7z, zip, rar, tar, bzip2, gzip, arj, rpm
+# Category:	archiver, 7z, zip, rar, tar, bzip2, gzip, arj, rpm
 
 name=xarchiver
 version=0.4.0
@@ -18,6 +18,11 @@ build() {
 	cd $name
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install
-	rm -r $PKG/usr/share/locale
+	
+	rm -r \
+		$PKG/usr/share/locale \
+		$PKG/usr/libexec/
+
+	chown -R root:root $PKG
 }
 

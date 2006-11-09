@@ -14,7 +14,7 @@ build() {
 	cd $name-$version
 	python setup.py install --root=$PKG
 	rm $PKG/usr/lib/python2.?/site-packages/numpy/{COMPATIBILITY,*.txt}
-	rm -r $PKG/usr/lib/python2.?/site-packages/numpy/{doc,f2py/docs}
+	rm -r $PKG/usr/lib/python2.?/site-packages/numpy/{doc,f2py/{docs,lib/README.txt,lib/THANKS.txt,lib/DEV_README.txt}}
 	chown -R root:root $PKG
 }
 

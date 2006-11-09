@@ -18,6 +18,12 @@ build() {
 		--localstatedir=/var/lib/lbreakout2 \
 		--disable-nls
 
+	find $PKG \
+		-name 'README' -or \
+		-name 'LICENSE' -or \
+		-name 'COPYRIGHT' -or \
+		-name 'ABOUT' | xargs rm
+
 	make && make DESTDIR=$PKG install
 	rm -r $PKG/usr/doc
 	chown -R root:root $PKG

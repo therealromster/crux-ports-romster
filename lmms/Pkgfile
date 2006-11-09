@@ -18,17 +18,18 @@ source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2 \
 build() {
 	cd $name-$version
 
-	PORT_CONFIG_ARGS="--prefix=/usr --disable-nls "
+	PORT_CONFIG_ARGS="--prefix=/usr --mandir=/usr/man --disable-nls "
 	PORT_CONFIG_ARGS+="--enable-hqsinc --without-oss --without-sdlsound "
 
 	if [ -n $(pkginfo -i|grep -o audacity-old-effects-vst) ] && [ $(pkginfo -i|grep -o wine) ]; then PORT_CONFIG_ARGS+="--with-vst "; fi;
 	[ -n $(pkginfo -i|grep -o jack)  ] || PORT_CONFIG_ARGS+="--without-jack "
 	[ -n $(pkginfo -i|grep -o libsampletate)  ] || PORT_CONFIG_ARGS+="--without-libsrc "
 
-	./configure $PORT_CONFIG_ARGS 
+	./configure $PORT_CONFIG_ARGS
   	make && make DESTDIR=$PKG install
 	 
-  	find $PKG/usr/share/lmms/locale/ -type f -prune ! -name '*en.qm'|xargs rm -rf
+  	find $PKG/usr/share/lmms/locale/ -type f -prune ! -name '*en.qm' | xargs rm -fr
+
 	install -D -m644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
 	install -D -m644 $SRC/$name-32x32.png $PKG/usr/share/icons/crystalsvg/32x32/apps/$name.png
 	chown -R root:root $PKG

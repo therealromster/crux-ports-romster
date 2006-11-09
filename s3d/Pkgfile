@@ -22,6 +22,7 @@ build() {
 		--disable-static
 
 	make && make DESTDIR=$PKG install
+	rm $PKG/usr/share/s3d/objs/AUTHORS
 	chown -R root:root $PKG
 }
 

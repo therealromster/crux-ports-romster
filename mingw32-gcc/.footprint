@@ -14,7 +14,6 @@ drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/crtbegin.o
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/crtend.o
 drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/include/
--rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/README
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/emmintrin.h
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/float.h
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/include/iso646.h
@@ -32,7 +31,6 @@ drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/include/
 drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/gsyslimits.h
 drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/
--rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/README
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/emmintrin.h
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/float.h
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/iso646.h
@@ -50,15 +48,6 @@ drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/install-tools/include/
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/libgcc.a
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/libgcov.a
 -rw-r--r--	root/root	usr/lib/gcc/mingw32/3.4.5/specs
-drwxr-xr-x	root/root	usr/libexec/
-drwxr-xr-x	root/root	usr/libexec/gcc/
-drwxr-xr-x	root/root	usr/libexec/gcc/mingw32/
-drwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/
--rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/cc1
--rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/collect2
-drwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/install-tools/
--rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/install-tools/fixinc.sh
--rwxr-xr-x	root/root	usr/libexec/gcc/mingw32/3.4.5/install-tools/mkheaders
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/mingw32-cpp.1.gz

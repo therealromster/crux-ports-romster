@@ -10,8 +10,8 @@
 # Category:	maps, images, satellite
 
 name=google-earth
-version=4.0
-release=2091beta
+version=4.0-2091beta
+release=1
 source=(http://dl.google.com/earth/GE4/GoogleEarthLinux.bin \
 	$name.sh)
 

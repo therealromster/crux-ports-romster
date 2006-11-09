@@ -12,8 +12,8 @@ source=(http://emelfm2.net/rel/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	make PREFIX=/usr
-	make PREFIX=$PKG/usr install
+	make PREFIX=/usr MAN_DIR=$PKG/man/man1/
+	make PREFIX=$PKG/usr MAN_DIR=$PKG/man/man1/ install
 	rm -r $PKG/usr/share/doc
 	chown -R root:root $PKG
 }

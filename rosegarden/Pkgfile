@@ -19,7 +19,8 @@ build() {
 	export QTDIR=/usr/share/qt
 	scons configure prefix=/usr
 	scons && scons DESTDIR=$PKG install
-	rm -fr $PKG/usr/share/{doc,locale/{ca,cs,cy,de,en_GB,es,et,fi,fr,it,ja,nl,ru,sv,zh_CN}}
+	#rm -fr $PKG/usr/share/{doc,locale/{ca,cs,cy,de,en_GB,es,et,fi,fr,it,ja,nl,ru,sv,zh_CN}}
+	rm -r $PKG/usr/share/locale
 	chown -R root:root $PKG
 }
 

@@ -19,6 +19,7 @@ build() {
 	./configure \
 		--prefix=/usr \
 		--sysconfdir=/etc \
+		--datarootdir=/usr \
 		--disable-static
 
 	make && make DESTDIR=$PKG install

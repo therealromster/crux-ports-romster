@@ -36,6 +36,8 @@ build() {
 	# link to binarys
 	ln -sf usr/include/python/pyro/bin/ipyro $PKG/usr/bin/ipyro
 	ln -sf usr/include/python/pyro/bin/pyro $PKG/usr/bin/pyro
+
+	rm $PKG/usr/include/python/pyro/tools/{cluster,pilfonts}/README
 	
 	# really make sure all files are owned by root! (paranoid :)
 	chown -R root:root $PKG

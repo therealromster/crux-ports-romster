@@ -11,10 +11,9 @@ lrwxrwxrwx	root/root	usr/lib/libraptor.so.1 -> libraptor.so.1.1.0
 -rwxr-xr-x	root/root	usr/lib/libraptor.so.1.1.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/raptor.pc
-drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/man/
-drwxr-xr-x	root/root	usr/share/man/man1/
--rw-r--r--	root/root	usr/share/man/man1/rapper.1.gz
--rw-r--r--	root/root	usr/share/man/man1/raptor-config.1.gz
-drwxr-xr-x	root/root	usr/share/man/man3/
--rw-r--r--	root/root	usr/share/man/man3/libraptor.3.gz
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/rapper.1.gz
+-rw-r--r--	root/root	usr/man/man1/raptor-config.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/libraptor.3.gz

@@ -26,7 +26,10 @@ build() {
 	sed -i -e 's|$FPATH = '/home/romster/var/cwd/remote/projects/romster/frozen-bubble/work/pkg/usr/share/frozen-bubble';|$FPATH = '/usr/share/frozen-bubble';|' \
 		$PKG/usr/lib/perl5/site_perl/5.8.8/linux/fb_stuff.pm
 
-	rm $PKG/usr/lib/perl5/*/linux/perllocal.pod
+	rm \
+		$PKG/usr/lib/perl5/*/linux/perllocal.pod \
+		$PKGusr/lib/perl5/site_perl/*/linux/auto/fb_c_stuff/{fb_c_stuff.bs,.packlist}
+
 	chown -R root:root $PKG
 }
 

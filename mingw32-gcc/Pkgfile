@@ -66,7 +66,11 @@ build() {
 	rm -fr \
 		$PKG/usr/info \
 		$PKG/usr/lib/libiberty.a \
-		$PKG/usr/man/man7
+		$PKG/usr/man/man7 \
+		$PKG/usr/lib/gcc/mingw32/3.4.5/include/README \
+		$PKG/usr/lib/gcc/mingw32/3.4.5/install-tools/include/README \
+		$PKG/usr/libexec
+
 
 	chown -R root:root $PKG
 }

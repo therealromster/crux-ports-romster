@@ -18,6 +18,7 @@ build() {
 		--disable-static
 
 	make && make DESTDIR=$PKG install
+	rm $PKG/usr/share/sounds/sf2/README-bank
 	chown -R root:root $PKG
 }
 

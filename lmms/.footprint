@@ -50,6 +50,9 @@ lrwxrwxrwx	root/root	usr/lib/lmms/libvibedstrings.so.0 -> libvibedstrings.so.0.0
 -rwxr-xr-x	root/root	usr/lib/lmms/libvibedstrings.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/lmms/lvsl_server
 -rw-r--r--	root/root	usr/lib/lmms/lvsl_server.exe.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/lmms.1.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/lmms.desktop
@@ -844,6 +847,3 @@ drwxr-xr-x	root/root	usr/share/lmms/track_icons/
 -rw-r--r--	root/root	usr/share/lmms/track_icons/violin01.png
 -rw-r--r--	root/root	usr/share/lmms/track_icons/violin02.png
 -rw-r--r--	root/root	usr/share/lmms/track_icons/xylophone01.png
-drwxr-xr-x	root/root	usr/share/man/
-drwxr-xr-x	root/root	usr/share/man/man1/
--rw-r--r--	root/root	usr/share/man/man1/lmms.1.gz

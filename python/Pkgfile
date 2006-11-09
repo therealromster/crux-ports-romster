@@ -43,7 +43,8 @@ build() {
 
 	rm \
 		$PKG/usr/lib/python/{distutils,site-packages,test}/README \
-		$PKG/usr/lib/python/idlelib/{ChangeLog,{NEWS,README,TODO}.txt}
+		$PKG/usr/lib/python/idlelib/{ChangeLog,{NEWS,README,TODO}.txt} \
+		$PKG/usr/lib/python2.5/ctypes/macholib/README.ctypes
 
 	chown -R root:root $PKG
 }
