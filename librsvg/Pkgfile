@@ -1,0 +1,34 @@
+# $Id:
+# Description:	An SVG library based on libart.
+# URL:		http://librsvg.sourceforge.net/
+# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager:	Matt Housh, jaeger at morpheus dot net
+# Depends on:	glib, libgsf, libcroco, gtk, x11, gdk-pixbuf, cairo, libxml2, libart_lgpl
+
+# Recommended:	
+# Optional:	firefox, gnome-vfs
+# Category:	library
+
+name=librsvg
+version=2.16.1
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/${version::4}/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-gtk-theme \
+		--enable-pixbuf-loader \
+		--disable-gtk-doc \
+		--disable-gnome-vfs \
+		--with-svgz \
+		--with-croco \
+		--with-cairo
+
+	make && make DESTDIR=$PKG install
+	rm -rf $PKG/usr/{lib/mozilla,share/gtk-doc}
+	chown -R root:root $PKG
+}
+

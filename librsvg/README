@@ -1,0 +1,23 @@
+# $Id:
+
+REQUIREMENTS:
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+POST-INSTALL:
+
+	For this application to work properly with SVG-based themes, you must update 
+	your gdk-pixbuf.loaders.
+
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+	Remove the svg loaders from your gdk-pixbuf.loaders.
+
+NOTES:
+
+Danny Rawlins, <romster@shortcircuit.net.au>
