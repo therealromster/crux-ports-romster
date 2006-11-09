@@ -20,6 +20,7 @@ build() {
 	
 	./configure \
 		--prefix=/usr \
+		--libexecdir=/usr/lib \
 		--disable-nls \
 		--enable-python
 		
@@ -28,8 +29,7 @@ build() {
 	rm -fr \
 		$PKG/usr/share/{locale,bmpx/{data/GPL.txt,skins/default/README}} \
 		$PKG/usr/bin/bmp2
-		#$PKG/usr/libexec/beep-media-player-2-bin prtverify says libexec is bad yet it dosn't work without it..
-
+		
 	ln -fs /usr/bin/beep-media-player-2 $PKG/usr/bin/bmp2
 	chown -R root:root $PKG
 }

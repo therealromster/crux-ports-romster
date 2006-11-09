@@ -348,7 +348,6 @@ backup_ports() {
         fi
 
     done
-
     
     echo ''
 }
@@ -359,10 +358,11 @@ restore_ports() {
 
     echo -n 'Restoring backed up ports'
 
-    for file in /usr/share/safe-build/packages/*; do
+    cd /usr/share/safe-build/packages/
+    for file in *; do
         
-        if [ ! -f $file ]; then
-            ln "/usr/share/safe-build/packages$file" "$SAFE_BUILD_DIR/usr/ports/packages/"
+        if [ -f "/usr/share/safe-build/packages/$file" ]; then
+            ln "/usr/share/safe-build/packages/$file" "$SAFE_BUILD_DIR/usr/ports/packages/"
             echo -n '.'
         fi
 

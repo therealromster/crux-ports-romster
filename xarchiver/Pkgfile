@@ -16,13 +16,14 @@ source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
 build() {
 	cd $name
-	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	
-	rm -r \
-		$PKG/usr/share/locale \
-		$PKG/usr/libexec/
 
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/locale # why dosn't --disable-nls prevent these locale files? 
 	chown -R root:root $PKG
 }
 
