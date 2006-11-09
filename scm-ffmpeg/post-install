@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ -n "$(grep 'scm-ffmpeg: ffmpeg' '/var/lib/pkg/prt-get.aliases')" ]; then
-	sed -i '/scm-ffmpeg: ffmpeg/d' '/var/lib/pkg/prt-get.aliases'
-fi
-
-# End of file.

@@ -329,28 +329,28 @@ backup_ports() {
 
     echo -n 'Backing up ports'
     
-    for file in $SAFE_BUILD_DIR/usr/ports/packages/*; do
+    cd $SAFE_BUILD_DIR/usr/ports/packages
+    for file in *; do
     
-        if [ -f $file ]; then
-            ln "$SAFE_BUILD_DIR/usr/ports/packages$file" "/usr/share/safe-build/packages/"
+        if [ ! -f "/usr/share/safe-build/packages/$file" ]; then
+            ln "$SAFE_BUILD_DIR/usr/ports/packages/$file" "/usr/share/safe-build/packages/"
             echo -n '.'
         fi
 
     done
-        
-    for file in $SAFE_BUILD_DIR/usr/ports/distfiles/*; do
     
-    if [ ! -f "/usr/ports/distfiles$file" ]; then
-        ln "$SAFE_BUILD_DIR/usr/ports/distfiles$file" "/usr/ports/distfiles/"
-        echo -n '.'
-    fi
+    cd $SAFE_BUILD_DIR/usr/ports/distfiles
+    for file in *; do
+    
+        if [ ! -f "/usr/ports/distfiles/$file" ]; then
+            ln "$SAFE_BUILD_DIR/usr/ports/distfiles/$file" "/usr/ports/distfiles/"
+            echo -n '.'
+        fi
 
     done
 
     
     echo ''
-
-    shutdown_mount
 }
 
 restore_ports() {
@@ -376,7 +376,7 @@ restore_ports() {
 print_help() {
 	echo "usage: ${SAFE_BUILD_COMMAND##*/} [options]"
 	echo "options:"
-	#echo "  -b,   --backup              backup the newly built ports"
+	echo "  -b,   --backup              backup the newly built ports"
     echo "  -i,   --image               use CRUX offical iso"
     #echo "  -r,   --restore             restore backed up ports (reverse of -b)"
 	echo "  -s,   --system              use working system ports"
@@ -440,8 +440,8 @@ main() {
     fi
 
     if [ "$SAFE_BUILD_BACKUP_PORTS" = 'yes' ]; then
-        #backup_ports
-        echo 'not implemented for argument, currently automated'
+        backup_ports
+        #echo 'not implemented for argument, currently automated'
     
     elif [ "$SAFE_BUILD_RESTORE_PORTS" = 'yes' ]; then
         #restore_ports
@@ -458,7 +458,7 @@ export LC_ALL='POSIX'
 readonly SAFE_BUILD_VERSION='@VERSION@'
 readonly SAFE_BUILD_COMMAND="$0"
 readonly SAFE_BUILD_ROOT="$PWD"
-readonly SAFE_BUILD_DIR='/var/tmp/crux-2.2'
+readonly SAFE_BUILD_DIR='/var/tmp/safe-build'
 readonly SAFE_BUILD_TOOLCHAIN='binutils glibc gcc module-init-tools libstdc++-compat'
 
 [ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'

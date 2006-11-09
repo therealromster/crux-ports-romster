@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ ! -n "$(grep 'scm-x264: x264' '/var/lib/pkg/prt-get.aliases')" ]; then
-	echo scm-x264: x264 >> /var/lib/pkg/prt-get.aliases
-fi
-
-# End of file.
