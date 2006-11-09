@@ -3,16 +3,16 @@
 # URL:		http://beep-media-player.org/
 # Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager:	Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	python, taglib, xine-lib, libglade, gamin, boost, gstreamer-plugins-base, gstreamer-plugins-good, gstreamer-plugins-ugly, gstreamer-plugins-bad, libglademm, cairomm, dbus, sqlite3, libmikmod
+# Depends on:	python, taglib, xine-lib, libglade, gamin, boost, gstreamer-plugins-base, gstreamer-plugins-good, gstreamer-plugins-ugly, gstreamer-plugins-bad, libglademm, cairomm, dbus, sqlite3, libmikmod, librsvg
 
 # Recommended:	
-# Optional:		hal, gconf, startup-notification, smlib
-# Category:		audio, player
+# Optional:	hal, gconf, startup-notification, smlib
+# Category:	audio, player
 
 name=bmpx
-version=0.32.0
+version=0.34.0rc2
 release=1
-source=(http://files.beep-media-player.org/releases/0.30/bmpx-$version.tar.bz2)
+source=(http://files.beep-media-player.org/releases/${version::4}/bmpx-$version.tar.bz2)
 
 build() {
 	cd $name-$version
@@ -31,5 +31,6 @@ build() {
 		#$PKG/usr/libexec/beep-media-player-2-bin prtverify says libexec is bad yet it dosn't work without it..
 
 	ln -fs /usr/bin/beep-media-player-2 $PKG/usr/bin/bmp2
+	chown -R root:root $PKG
 }
 
