@@ -2,12 +2,17 @@
 # Script to test own ports under a fresh install chroot enviroment or using the official image.
 
 init() {
-   	mkdir -p $SAFE_BUILD_DIR/var/lib/pkg
-	touch $SAFE_BUILD_DIR/var/lib/pkg/db
-    mkdir -p $SAFE_BUILD_DIR/usr/ports/{distfiles,packages}
+
+   	mkdir -p \
+        $SAFE_BUILD_DIR/var/lib/pkg/rejected \
+        $SAFE_BUILD_DIR/usr/ports/{distfiles,packages}
+
+    touch $SAFE_BUILD_DIR/var/lib/pkg/db
 }
 
 setup_system() {
+
+    local p
 
     init
 
@@ -75,6 +80,8 @@ setup_system() {
 
 setup_image() {
 
+    local p
+
     init
 
    	echo 'setting up environment type: CD image.'
@@ -93,21 +100,26 @@ setup_image() {
     echo ''
 
     if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE" = 'yes' ]; then
-       echo -n 'Installing available upto date packages for core'
+       echo -n 'Updating available upto date packages for core'
        cd /usr/ports/core
 
     	for p in *; do
     		cd $p
-    		. Pkgfile
+            if [ -f Pkgfile ]; then
+                . Pkgfile
 
-    		cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
-            echo -n '.'
+                if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+    		        #cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+                    pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" 
+                    echo -n '.'
+                fi
+            fi
 	    	cd ..
     	done
         echo ''
     else
         cd "$SAFE_BUILD_CD_MOUNT/crux"
-        cp core/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+        #cp core/* "$SAFE_BUILD_DIR/usr/ports/packages/"
     fi
 
     ###########################################################################
@@ -129,17 +141,22 @@ setup_image() {
 
             for p in opt/*; do
 		        cd $p
-		        . Pkgfile
+                if [ -f Pkgfile ]; then
+		            . Pkgfile
 
-		        cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
-                echo -n '.'
+                    if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+		                #cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+                        pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+                        echo -n '.'
+                    fi
+                fi
 		        cd ..
-	        done
+            done
     
             echo ''
         else
             cd "$SAFE_BUILD_CD_MOUNT/crux"
-            cp opt/* "$SAFE_BUILD_DIR/usr/ports/packages/"
+            #cp opt/* "$SAFE_BUILD_DIR/usr/ports/packages/"
         fi
     fi
 
@@ -151,10 +168,15 @@ setup_image() {
 
     	for p in *; do
     		cd $p
-    		. Pkgfile
-
-    		cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
-            echo -n '.'
+            if [ -f Pkgfile ]; then
+                . Pkgfile
+                
+                if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+                    #cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+                    pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+                    echo -n '.'
+                fi
+            fi
 	    	cd ..
     	done
         echo ''
@@ -189,9 +211,9 @@ setup_image() {
 #	done
 #    echo ''
 
+    umount "$SAFE_BUILD_CD_MOUNT"
 
     install_additional_ports
-    umount "$SAFE_BUILD_CD_MOUNT"
 }
 
 install_additional_ports() {
