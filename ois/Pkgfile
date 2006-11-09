@@ -1,13 +1,13 @@
 # $Id:
 # Description: Library for using all kinds of Input Devices.
-# Url:			http://sourceforge.net/projects/wgois/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		nacho
-# Depends on:	x11
+# Url: http://sourceforge.net/projects/wgois/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: nacho
+# Depends on: x11
 
 # Recommended:	
-# Optional:		
-# Category:		library
+# Optional:	
+# Category:	library
 
 name=ois
 version=0.7.2

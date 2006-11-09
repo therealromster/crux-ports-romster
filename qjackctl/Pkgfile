@@ -1,13 +1,13 @@
 # $Id:
-# Description:	QT app to control the JACK sound server daemon.
-# URL:			http://qjackctl.sf.net
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Han Boetes <han@mijncomputer.nl>
-# Depends on:	qt3, jack
+# Description: QT app to control the JACK sound server daemon.
+# URL: http://qjackctl.sf.net
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on: qt3, jack
 
 # Recommended:
-# Optional:		
-# Category:		audio
+# Optional:	
+# Category:	audio
 
 name=qjackctl
 version=0.2.21

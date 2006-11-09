@@ -1,12 +1,12 @@
-# Description:	Linux Audio Developer's Simple Plugin API
-# URL:			http://www.ladspa.org/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Han Boetes <han@mijncomputer.nl>
-# Depends on:	
+# Description: Linux Audio Developer's Simple Plugin API
+# URL: http://www.ladspa.org/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on:
 
 # Recommended:	
-# Optional:		
-# Category:		audio
+# Optional:	
+# Category:	audio
 
 name=ladspa
 version=1.12

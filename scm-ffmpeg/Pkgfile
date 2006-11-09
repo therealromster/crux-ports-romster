@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Complete solution to record, convert and stream audio and video (subversion).
-# URL:		http://ffmpeg.mplayerhq.hu/
-# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
-# Packager:	sten, <nick dot steeves at shaw dot ca>
-# Depends on:	subversion, imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
+# Description: Complete solution to record, convert and stream audio and video (subversion).
+# URL: http://ffmpeg.mplayerhq.hu/
+# Maintainer: Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager: sten, <nick dot steeves at shaw dot ca>
+# Depends on: subversion, imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
 
 ## There is a problem wtih prt-get so i manually run scm-* ports with pkgmk
 ## Note this will break prt-get cache, so add "rm -r /usr/ports/romster/scm-*" to stop this (after manually pkgmk'ing or make your own cron script

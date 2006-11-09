@@ -1,13 +1,13 @@
 # $Id:
-# Description:	A professional audio and MIDI sequencer, score editor, and general-purpose music composition and editing environment (KDE).
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Diederick de Vries <diederick at diederickdevries dot net>
-# URL:			http://www.rosegardenmusic.com/
-# Depends on:	scons, dssi, liblrdf, kdelibs
+# Description: A professional audio and MIDI sequencer, score editor, and general-purpose music composition and editing environment (KDE).
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Diederick de Vries <diederick at diederickdevries dot net>
+# URL: http://www.rosegardenmusic.com/
+# Depends on: scons, dssi, liblrdf, kdelibs
 
 # Recommended:	lirc
-# Optional:		
-# Category:		audio, editor
+# Optional:	
+# Category:	audio, editor
 
 name=rosegarden
 version=1.4.0

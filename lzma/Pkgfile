@@ -1,20 +1,20 @@
 # $Id: 
-# Description:	LZMA Compression as used by 7-zip.
-# URL:			http://tukaani.org/lzma/
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
+# Description: LZMA Compression as used by 7-zip.
+# URL: http://tukaani.org/lzma/
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:
 
 # Recommended:	
 # Optional:	
-# Category:		compression, algorithm
+# Category:	compression, algorithm
 
 name=lzma
 version=4.32.0beta3
 release=1
 source=(http://tukaani.org/$name/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 
 	./configure \

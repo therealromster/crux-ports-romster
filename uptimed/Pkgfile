@@ -1,9 +1,9 @@
 # $Id:
-# Description:	System uptime record daemon.
-# URL:		http://podgorny.cz/uptimed/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Jukka Heino, jukka dot heino at gmail dot com
-# Depends on:	
+# Description: System uptime record daemon.
+# URL: http://podgorny.cz/uptimed/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Jukka Heino, jukka dot heino at gmail dot com
+# Depends on:
 
 name=uptimed
 version=0.3.8

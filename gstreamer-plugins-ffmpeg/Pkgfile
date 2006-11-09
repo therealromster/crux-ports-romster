@@ -1,9 +1,9 @@
 # $Id:
-# Description:	FFmpeg-based plug-ins for gstreamer.
-# URL:			http://gstreamer.freedesktop.org/modules/gst-ffmpeg.html
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	gstreamer-plugins-base, ffmpeg
+# Description: FFmpeg-based plug-ins for gstreamer.
+# URL: http://gstreamer.freedesktop.org/modules/gst-ffmpeg.html
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Matt Housh, <jaeger at morpheus dot net>
+# Depends on: gstreamer-plugins-base, ffmpeg
 
 name=gstreamer-plugins-ffmpeg
 version=0.10.1

@@ -1,13 +1,13 @@
 # $Id: 
-# Description:	Python Robotics.
-# URL:			http://pyrorobotics.org/
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	python, swig, pil, numeric
+# Description: Python Robotics.
+# URL: http://pyrorobotics.org/
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: python, swig, pil, numeric
 
 # Recommended:	pygtk
 # Optional:	
-# Category:		robotics, python programming language
+# Category:	robotics, python programming language
 
 
 name=pyro

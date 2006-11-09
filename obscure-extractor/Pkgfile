@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	Small Gtk program to extract files from (mostly) game archive formats.
-# URL:		http://sourceforge.net/projects/extractor-gtk
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	gtk
+# Description: Small Gtk program to extract files from (mostly) game archive formats.
+# URL: http://sourceforge.net/projects/extractor-gtk
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: gtk
 
 name=obscure-extractor
 version=0.2

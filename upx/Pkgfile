@@ -1,16 +1,16 @@
-# $Id: 
-# Description:	Ultimate Packer for eXecutables.
-# URL:			http://upx.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Younes Hafri <ycrux@club-internet.fr>
-# Depends on:	ucl, lzo
+# $Id:
+# Description:Ultimate Packer for eXecutables.
+# URL: http://upx.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ucl, lzo
 
 name=upx
 version=2.02
 release=1
 source=(http://upx.sourceforge.net/download/upx-$version-src.tar.gz)
 
-build () {
+build() {
 	cd $name-$version-src
 	(cd doc; make; cd ..)
 	(cd src; make; cd ..)

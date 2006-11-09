@@ -1,16 +1,16 @@
 # $Id: 
-# Description:	Yahoo! library.
-# URL:			http://gyachi.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	
+# Description: Yahoo! library.
+# URL: http://gyachi.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:
 
 name=libyahoo2
 version=0.7.5
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
-build () {
+build() {
 	cd $name-$version
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install

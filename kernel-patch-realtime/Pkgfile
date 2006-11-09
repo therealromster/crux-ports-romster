@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	Realtime Linux security kernel patch.
-# URL:			http://sourceforge.net/projects/realtime-lsm/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	
+# Description: Realtime Linux security kernel patch.
+# URL: http://sourceforge.net/projects/realtime-lsm/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:
 
 name=kernel-patch-realtime
 version=0.8.7

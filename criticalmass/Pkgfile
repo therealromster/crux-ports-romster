@@ -1,9 +1,9 @@
 # $Id:
-# Description:	An SDL/OpenGL space shoot'em up game.
-# URL:		http://criticalmass.sourceforge.net/critter.php
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Daniel Walpole, daniel at walpole dot id dot au
-# Depends on:	sdl_image, sdl_mixer, x11
+# Description: An SDL/OpenGL space shoot'em up game.
+# URL: http://criticalmass.sourceforge.net/critter.php
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Daniel Walpole, daniel at walpole dot id dot au
+# Depends on: sdl_image, sdl_mixer, x11
 
 name=criticalmass
 version=1.0.2

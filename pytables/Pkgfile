@@ -1,9 +1,9 @@
 # $Id: 
 # Description:	Hierarchical datasets designed to efficiently manage large data.
-# URL:			http://www.pytables.org/
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	hdf5, pyrex, numpy, numarray, bzip2
+# URL: http://www.pytables.org/
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: hdf5, pyrex, numpy, numarray, bzip2
 
 # Recommended:	ucl, lzo
 # Optional	
@@ -14,7 +14,7 @@ version=1.3.3
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 	python setup.py install --root=$PKG
 	chown -R root:root $PKG

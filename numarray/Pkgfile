@@ -1,16 +1,16 @@
 # $Id: 
-# Description:	Array manipulation and computational capabilities.
-# URL:			http://numeric.scipy.org/
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	python
+# Description: Array manipulation and computational capabilities.
+# URL: http://numeric.scipy.org/
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: python
 
 name=numarray
 version=1.5.2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/numpy/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 	python setup.py install --root=$PKG
 	chown -R root:root $PKG

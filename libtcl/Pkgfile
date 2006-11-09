@@ -1,20 +1,20 @@
 # $Id:
-# Description:	Tcl Standard Library
-# URL:			http://tcllib.sourceforge.net
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	tcl
+# Description: Tcl Standard Library
+# URL: http://tcllib.sourceforge.net
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: tcl
 
 # Recommended:	
-# Optional:		
-# Category:		library, tcl
+# Optional:	
+# Category:	library, tcl
 
 name=libtcl
 version=1.9
 release=1
 source=(http://dl.sourceforge.net/sourceforge/tcllib/tcllib-$version.tar.bz2)
 
-build () {
+build() {
 	cd tcllib-$version
 	./configure --prefix=/usr
 	make DESTDIR=$PKG install

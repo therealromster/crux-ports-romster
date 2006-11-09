@@ -1,9 +1,9 @@
 # $Id:
-# Description:	cross-platform 3D audio API (subversion).
-# URL:		http://openal.org/
-# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
-# Packager:	Han Boetes <han@mijncomputer.nl>
-# Depends on:	alsa-lib, subversion
+# Description: Cross-platform 3D audio API (subversion).
+# URL: http://openal.org/
+# Maintainer: Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on: alsa-lib, subversion
 
 ## There is a problem wtih prt-get so i manually run scm-* ports with pkgmk
 ## Note this will break prt-get cache, so add "rm -r /usr/ports/romster/scm-*" to stop this (after manually pkgmk'ing or make your own cron script

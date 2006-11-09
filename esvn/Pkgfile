@@ -1,13 +1,13 @@
 # $Id:
-# Description:	QT frontend to the Subversion version control system.
-# URL:			http://esvn.umputun.com/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Jürgen Daubert, juergen dot daubert at t-online dot de
-# Depends on:	qt3, subversion
+# Description: QT frontend to the Subversion version control system.
+# URL: http://esvn.umputun.com/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: qt3, subversion
 
 # Recommended:	
 # Optional:	
-# Category:		svn, cms, gui, frontend
+# Category:	svn, cms, gui, frontend
 
 name=esvn
 version=0.6.11

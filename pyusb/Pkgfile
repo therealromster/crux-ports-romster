@@ -1,20 +1,20 @@
 # $Id:
-# Description:	PyUSB is a native Python module written in C that provides USB access for it.
-# URL:			http://pyusb.berlios.de/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	python, libusb
+# Description: PyUSB is a native Python module written in C that provides USB access for it.
+# URL: http://pyusb.berlios.de/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: python, libusb
 
 # Recommended:	
 # Optional:	
-# Category:		python module, interface usb
+# Category:	python module, interface usb
 
 name=pyusb
 version=0.3.5
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 	python setup.py build
 	python setup.py install --prefix=/usr --root=$PKG

@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	Driver for the QuickCam Express and other QuickCam-related and QuickCam-compatible USB web cameras.
-# URL:		http://qce-ga.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	
+# Description: Driver for the QuickCam Express and other QuickCam-related and QuickCam-compatible USB web cameras.
+# URL: http://qce-ga.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:
 
 # Recommended:	
 # Optional:	
@@ -14,7 +14,7 @@ version=0.6.4
 release=1
 source=(http://dl.sourceforge.net/sourceforge/qce-ga/qc-usb-$version.tar.gz)
 
-build () {
+build() {
 	cd qc-usb-$version
 	make all
 

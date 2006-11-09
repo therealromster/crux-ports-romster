@@ -1,9 +1,9 @@
 # $Id:
-# Description:	SQL for Shell Scripts.
-# URL:			http://www.edlsystems.com/shellsql/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Younes Hafri <ycrux@club-internet.fr>
-# Depends on:	
+# Description: SQL for Shell Scripts.
+# URL: http://www.edlsystems.com/shellsql/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
 
 # Recommended:	sqlite3, mysql
 # Optional:	unixodbc, freetds, postgresql
@@ -16,7 +16,7 @@ version=0.7.6
 release=1
 source=(ftp://ftp.edlsystems.com/$name/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 	install -d $PKG/usr/bin
 	sed -i "s|BINDIR=/usr/bin|BINDIR=$PKG/usr/bin|" install.sh

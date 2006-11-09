@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Python interface to the OpenSSL library
-# URL:		http://pyopenssl.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Younes Hafri <ycrux@club-internet.fr>
-# Depends on:	python
+# Description: Python interface to the OpenSSL library
+# URL: http://pyopenssl.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
 
 name=pyopenssl
 version=0.6

@@ -1,9 +1,9 @@
 # $Id:
-# Description:	A popular Breakout clone for SDL.
-# URL:		http://lgames.sourceforge.net/index.php?project=LBreakout2
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Daniel Walpole, daniel at walpole dot id dot au
-# Depends on:	libpng, sdl_mixer, sdl_net, libiconv
+# Description: A popular Breakout clone for SDL.
+# URL: http://lgames.sourceforge.net/index.php?project=LBreakout2
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Daniel Walpole, daniel at walpole dot id dot au
+# Depends on: libpng, sdl_mixer, sdl_net, libiconv
 
 name=lbreakout2
 version=2.6beta-7

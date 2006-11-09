@@ -1,9 +1,9 @@
 # $Id:
-# Description:	OpenGL billard game for linux.
-# URL:		http://foobillard.sunsite.dk/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Daniel Walpole, daniel at walpole dot id dot au
-# Depends on:	libpng, libsdl, freetype, mesa3d
+# Description: OpenGL billard game for linux.
+# URL: http://foobillard.sunsite.dk/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Daniel Walpole, daniel at walpole dot id dot au
+# Depends on: libpng, libsdl, freetype, mesa3d
 
 name=foobillard
 version=3.0a

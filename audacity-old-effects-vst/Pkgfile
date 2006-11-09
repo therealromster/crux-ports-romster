@@ -1,9 +1,9 @@
-# $Id: 
-# Description:	Audacity old VST, for Steinberg-VST-SDK header-files.
-# URL:			http://audacity.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	wine
+# $Id:
+# Description: Audacity old VST, for Steinberg-VST-SDK header-files.
+# URL: http://audacity.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: wine
 
 name=audacity-old-effects-vst
 version=old

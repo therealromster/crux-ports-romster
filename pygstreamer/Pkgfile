@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	Python bindings for gstreamer.
-# URL:		http://kopete.kde.org/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	gstreamer-plugins-base, pygtk
+# Description: Python bindings for gstreamer.
+# URL: http://kopete.kde.org/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: gstreamer-plugins-base, pygtk
 
 name=pygstreamer
 version=0.10.5

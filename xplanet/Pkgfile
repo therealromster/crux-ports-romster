@@ -1,15 +1,14 @@
 # $Id: 
-# Description:	Renders an image of the earth into the X root window.
-# URL:			http://xplanet.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
+# Description: Renders an image of the earth into the X root window.
+# URL: http://xplanet.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: x11, freetype, libjpeg, libpng, libtiff
 
-# Depends on:	x11, freetype, libjpeg, libpng, libtiff
 # Recommended:	
 # Optional:	
-
-# Category:		background
-# Notes:			have to check spice, libgif and libpnm
+# Category:	background
+# Notes:	have to check spice, libgif and libpnm
 
 name=xplanet
 version=1.2.0

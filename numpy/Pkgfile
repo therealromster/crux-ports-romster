@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	Array processing for numbers, strings, records, and objects with Python.
-# URL:		http://numeric.scipy.org/
-# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	python
+# Description: Array processing for numbers, strings, records, and objects with Python.
+# URL: http://numeric.scipy.org/
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: python
 
 name=numpy
 version=1.0

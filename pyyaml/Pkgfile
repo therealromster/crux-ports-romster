@@ -1,13 +1,13 @@
 # $Id: 
-# Description:	YAML parser and emitter for the Python programming language.
-# URL:			http://pyyaml.org/wiki/PyYAML
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	python
+# Description: YAML parser and emitter for the Python programming language.
+# URL: http://pyyaml.org/wiki/PyYAML
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: python
 
 # Recommended:	
-# Optional:		
-# Category:		python, yaml
+# Optional:	
+# Category:	python, yaml
 
 name=pyyaml
 version=3.04

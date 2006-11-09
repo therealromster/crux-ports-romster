@@ -1,16 +1,16 @@
-# $Id: Pkgfile 13 2006-10-11 08:11:11Z romster $
-# Description:	Python-based Parsing at the Speed of C.
-# URL:			http://www.freenet.org.nz/python/pybison/
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	pyrex
+# $Id:
+# Description: Python-based Parsing at the Speed of C.
+# URL: http://www.freenet.org.nz/python/pybison/
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: pyrex
 
 name=pybison
 version=0.1.8
 release=1
 source=(http://www.freenet.org.nz/python/$name/$name-$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version
 	python setup.py install --root=$PKG
 	chown -R root:root $PKG

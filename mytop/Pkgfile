@@ -1,9 +1,9 @@
 # $Id:
-# Description:	A 'top' clone for MySQL.
-# URL:			http://jeremy.zawodny.com/mysql/mytop/
-# Maintainer:	Danny Rawlins, <romster at shortcircuit dot net dot au>
-# Packager:		Stoyan Zhekov <zhware@hotpop.com>
-# Depends on:	perl, p5-dbd-mysql, p5-term-readkey, p5-term-ansicolor
+# Description: A 'top' clone for MySQL.
+# URL: http://jeremy.zawodny.com/mysql/mytop/
+# Maintainer: Danny Rawlins, <romster at shortcircuit dot net dot au>
+# Packager: Stoyan Zhekov <zhware@hotpop.com>
+# Depends on: perl, p5-dbd-mysql, p5-term-readkey, p5-term-ansicolor
 
 name=mytop
 version=1.4

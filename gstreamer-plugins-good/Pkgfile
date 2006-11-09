@@ -1,9 +1,9 @@
 # $Id:
-# Description:	A set of good-quality plugins for gstreamer under the LGPL.
-# URL:		http://gstreamer.freedesktop.org/modules/gst-plugins-good.html
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	gstreamer-plugins-base, flac
+# Description: A set of good-quality plugins for gstreamer under the LGPL.
+# URL: http://gstreamer.freedesktop.org/modules/gst-plugins-good.html
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Matt Housh, <jaeger at morpheus dot net>
+# Depends on: gstreamer-plugins-base, flac
 
 name=gstreamer-plugins-good
 version=0.10.4

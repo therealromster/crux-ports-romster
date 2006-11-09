@@ -1,13 +1,13 @@
 # $Id: 
-# Description:	YAML 1.1 parser and emitter library.
-# URL:			http://pyyaml.org/wiki/LibYAML
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Mark Rosenstand, mark at borkware dot net
-# Depends on:	
+# Description: YAML 1.1 parser and emitter library.
+# URL: http://pyyaml.org/wiki/LibYAML
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on:
 
 # Recommended:	
-# Optional:		
-# Category:		library, yaml
+# Optional:	
+# Category:	library, yaml
 
 name=libyaml
 version=0.0.1

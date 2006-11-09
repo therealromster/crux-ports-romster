@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Iperf GUI - Measure maximum net bandwidth.
-# URL:			http://dast.nlanr.net/projects/jperf/
-# Maintainer:	Danny Rawlins, <romste@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	ipref, jsdk
+# Description: Iperf GUI - Measure maximum net bandwidth.
+# URL: http://dast.nlanr.net/projects/jperf/
+# Maintainer: Danny Rawlins, <romste@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: ipref, jsdk
 
 name=jperf
 version=1.0

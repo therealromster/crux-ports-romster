@@ -1,12 +1,12 @@
 # $Id:
-# Description:	An interface to access satellite images & maps of the Earth.
-# URL:		http://earth.google.com/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Jose V Beneyto, <joberui at ei dot upv dot es>
-# Depends on:	xorg, xorg-font-bitstream-vera
+# Description: An interface to access satellite images & maps of the Earth.
+# URL: http://earth.google.com/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Jose V Beneyto, <joberui at ei dot upv dot es>
+# Depends on: xorg, xorg-font-bitstream-vera
 
 # Recommended:	
-# Optional:		
+# Optional:	
 # Category:	maps, images, satellite
 
 name=google-earth

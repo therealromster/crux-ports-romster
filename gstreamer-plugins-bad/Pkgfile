@@ -1,9 +1,9 @@
 # $Id:
-# Description:	A set of plugins for gstreamer that may pose distribution problems.
-# URL:		http://gstreamer.freedesktop.org/modules/gst-plugins-bad.html
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Matt Housh, <jaeger at morpheus dot net>
-# Depends on:	gstreamer-plugins-base, wavpack, libdts, libxvid, libshout, libmms, libsdl, libmodplug, libmpcdec, mesa3d, libswfdec
+# Description: A set of plugins for gstreamer that may pose distribution problems.
+# URL: http://gstreamer.freedesktop.org/modules/gst-plugins-bad.html
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Matt Housh, <jaeger at morpheus dot net>
+# Depends on: gstreamer-plugins-base, wavpack, libdts, libxvid, libshout, libmms, libsdl, libmodplug, libmpcdec, mesa3d, libswfdec
 
 name=gstreamer-plugins-bad
 version=0.10.3

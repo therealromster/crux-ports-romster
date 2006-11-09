@@ -1,16 +1,16 @@
 # $Id: 
-# Description:	GtkGLExtmm is a C++ wrapper for GtkGLExt.
-# URL:			http://www.k-3d.org/gtkglext/Main_Page
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	gtkglext 
+# Description: GtkGLExtmm is a C++ wrapper for GtkGLExt.
+# URL: http://www.k-3d.org/gtkglext/Main_Page
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: gtkglext 
 
 name=gtkglextmm
 version=1.2.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/gtkglext/$name-$version.tar.bz2)
 
-build () {
+build() {
 	cd $name-$version
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install

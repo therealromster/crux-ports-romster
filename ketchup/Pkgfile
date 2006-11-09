@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Tool for updating or switching between versions of the Linux kernel source.
-# URL:		http://www.selenic.com/ketchup/wiki/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Jukka Heino, jukka dot heino at gmail dot com
-# Depends on:	python
+# Description: Tool for updating or switching between versions of the Linux kernel source.
+# URL: http://www.selenic.com/ketchup/wiki/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Jukka Heino, jukka dot heino at gmail dot com
+# Depends on: python
 
 name=ketchup
 version=0.9.8

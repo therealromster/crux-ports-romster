@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Unicode Bidirectional (BiDi) Algorithm.
-# URL:		http://fribidi.org/wiki/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	sten, nick dot steeves at shaw dot ca
-# Depends on:	
+# Description: Unicode Bidirectional (BiDi) Algorithm.
+# URL: http://fribidi.org/wiki/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on:
 
 name=fribidi
 version=0.10.7

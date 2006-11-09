@@ -1,16 +1,16 @@
 # $Id: 
-# Description:	Realtime Linux security module.
-# URL:			http://sourceforge.net/projects/realtime-lsm/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	kernel-patch-realtime
+# Description: Realtime Linux security module.
+# URL: http://sourceforge.net/projects/realtime-lsm/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: kernel-patch-realtime
 
 name=module-realtime
 version=0.8.7
 release=1
 source=(http://dl.sourceforge.net/sourceforge/realtime-lsm/realtime-lsm-$version.tar.gz)
 
-build () {
+build() {
 	cd realtime-lsm-$version
 	export KERNEL_DIR=/usr/src/linux-$(uname -r)
 	#export KERNEL_DIR=/usr/src/linux-2.6.18

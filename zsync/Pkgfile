@@ -1,8 +1,8 @@
 # $Id:
-# Description:	Optimized client-side rsync algorithm like rsync -z, that does not require a remote server application.
-# URL:			http://zsync.moria.org.uk/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Jose V Beneyto, <joberui at ei dot upv dot es>
+# Description: Optimized client-side rsync algorithm like rsync -z, that does not require a remote server application.
+# URL: http://zsync.moria.org.uk/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Jose V Beneyto, <joberui at ei dot upv dot es>
 # Depends on:
 
 # Recommended:	

@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	DNS Flood Detector.
-# URL:			http://www.adotout.com/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	libpcap
+# Description: DNS Flood Detector.
+# URL: http://www.adotout.com/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: libpcap
 
 name=dnsflood
 version=1.12

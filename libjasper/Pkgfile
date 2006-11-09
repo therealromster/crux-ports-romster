@@ -1,13 +1,13 @@
 # $Id: 
-# Description:	Codec JPEG-2000 Part-1 standard.
-# URL:			http://www.ece.uvic.ca/~mdadams/jasper/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	
+# Description: Codec JPEG-2000 Part-1 standard.
+# URL: http://www.ece.uvic.ca/~mdadams/jasper/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:
 
 # Recommended:	
-# Optional:		
-# Category:		library, codec, jpeg
+# Optional:	
+# Category:	library, codec, jpeg
 
 name=libjasper
 version=1.701.0

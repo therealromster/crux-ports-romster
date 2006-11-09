@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Convert .ico to .png or .xpm formats.
-# URL:			http://www.mox.net
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Sven Dahl <dahl@c64.org>
-# Depends on:	libgd, libpng, libjpeg, freetype
+# Description: Convert .ico to .png or .xpm formats.
+# URL: http://www.mox.net
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Sven Dahl <dahl@c64.org>
+# Depends on: libgd, libpng, libjpeg, freetype
 
 name=icoconvert
 version=1.1

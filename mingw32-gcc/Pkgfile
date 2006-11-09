@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	GCC compiler configured for MinGW32.
-# URL:		http://gcc.gnu.org/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	mingw32-binutils, nasm
+# Description: GCC compiler configured for MinGW32.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: mingw32-binutils, nasm
 
 name=mingw32-gcc
 version=3.4.5

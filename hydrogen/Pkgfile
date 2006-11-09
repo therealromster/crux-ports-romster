@@ -1,9 +1,9 @@
 # $Id:
-# Description:	An avdanced drum machine for GNU/Linux.
-# Url:			http://hydrogen.sf.net
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on:	qt3, libsndfile, liblrdf, flac, jack, alsalib
+# Description: An avdanced drum machine for GNU/Linux.
+# Url: http://hydrogen.sf.net
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
+# Depends on: qt3, libsndfile, liblrdf, flac, jack, alsalib
 
 name=hydrogen
 version=0.9.3

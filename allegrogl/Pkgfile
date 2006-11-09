@@ -1,9 +1,9 @@
 # $Id:
-# Description:	AllegroGL - A library to mix OpenGL graphics with Allegro routines.
-# URL:		http://allegrogl.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	mesa3d, allegro
+# Description: AllegroGL - A library to mix OpenGL graphics with Allegro routines.
+# URL: http://allegrogl.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: mesa3d, allegro
 
 # Recommended:	
 # Optional:	
@@ -20,4 +20,3 @@ build() {
 	make && make DESTDIR=$PKG install
 	chown -R root:root $PKG
 }
-

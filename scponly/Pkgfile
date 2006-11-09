@@ -1,9 +1,9 @@
 # $Id: 
-# Description:	SSH shell, read and write files without providing any execution priviledges.
-# URL:			http://www.sublimation.org/scponly/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	
+# Description: SSH shell, read and write files without providing any execution priviledges.
+# URL: http://www.sublimation.org/scponly/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on:
 
 name=scponly
 version=4.6

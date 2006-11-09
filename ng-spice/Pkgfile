@@ -1,8 +1,8 @@
 # $Id:
-# Description:	Circuit simulator based on Spice3f5, Cider1b1 and Xspice.
-# URL:			http://ngspice.sourceforge.net/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Aaron Marks <nymacro AT gmail DOT com>
+# Description: Circuit simulator based on Spice3f5, Cider1b1 and Xspice.
+# URL: http://ngspice.sourceforge.net/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Aaron Marks <nymacro AT gmail DOT com>
 
 name=ng-spice
 version=rework-17

@@ -1,8 +1,8 @@
 # $Id:
-# Description:	A multi-platform game programming library for C/C++.
-# URL:		http://www.talula.demon.co.uk/allegro/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	sten, nick dot steeves at shaw dot ca
+# Description: A multi-platform game programming library for C/C++.
+# URL: http://www.talula.demon.co.uk/allegro/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: sten, nick dot steeves at shaw dot ca
 # Depends on:	
 
 # Recommended:	
@@ -12,7 +12,6 @@
 # When doing make I set MAKEINFO to be 'true' because then
 # the program will run and think it's making info pages, while
 # it really just executes exit(0) (or something)
-
 
 name=allegro
 version=4.3.0
@@ -36,4 +35,3 @@ build() {
 	make && make DESTDIR=$PKG install install-man
 	chown -R root:root $PKG
 }
-

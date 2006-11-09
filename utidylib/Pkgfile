@@ -1,9 +1,9 @@
-# $Id: Pkgfile 13 2006-10-11 08:11:11Z romster $
-# Description:	TidyLib Python wrapper.
-# URL:			http://utidylib.berlios.de/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	ctypes, tidy
+# $Id:
+# Description: TidyLib Python wrapper.
+# URL: http://utidylib.berlios.de/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: ctypes, tidy
 
 name=utidylib
 version=0.2

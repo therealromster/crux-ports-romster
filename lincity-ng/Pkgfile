@@ -1,13 +1,13 @@
 # $Id: 
-# Description:	City Simulation Game.
-# URL:			http://lincity-ng.berlios.de/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:		Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	x11, sdl_mixer, sdl_ttf, sdl_gfx, physfs, ftjam
+# Description: City Simulation Game.
+# URL: http://lincity-ng.berlios.de/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Depends on: x11, sdl_mixer, sdl_ttf, sdl_gfx, physfs, ftjam
 
 # Recommended:	
 # Optional:	
-# Category:		games, games simulation, games strategy, entertainment
+# Category:	games, games simulation, games strategy, entertainment
 
 name=lincity-ng
 version=1.0.3

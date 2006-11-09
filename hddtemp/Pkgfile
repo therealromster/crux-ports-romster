@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Reads your hdd temperature using S.M.A.R.T values.
-# URL:		http://www.guzu.net/linux/hddtemp.php
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	sten, nick dot steeves at shaw dot ca
-# Depends on:	gettext, libiconv
+# Description: Reads your hdd temperature using S.M.A.R.T values.
+# URL: http://www.guzu.net/linux/hddtemp.php
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: gettext, libiconv
 
 name=hddtemp
 version=0.3-beta15

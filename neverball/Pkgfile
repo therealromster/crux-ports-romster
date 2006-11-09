@@ -1,9 +1,9 @@
 # $Id:
-# Description:	Tilt the floor to roll a ball through an obstacle course before time runs out.
-# URL:		http://icculus.org/neverball/
-# Maintainer:	Danny Rawlins, <romster@shortcircuit.net.au>
-# Packager:	Daniel Walpole, daniel at walpole dot id dot au
-# Depends on:	sdl_mixer, sdl_image, sdl_ttf
+# Description: Tilt the floor to roll a ball through an obstacle course before time runs out.
+# URL: http://icculus.org/neverball/
+# Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Daniel Walpole, daniel at walpole dot id dot au
+# Depends on: sdl_mixer, sdl_image, sdl_ttf
 
 name=neverball
 version=1.4.0
