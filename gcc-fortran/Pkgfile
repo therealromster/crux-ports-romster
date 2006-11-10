@@ -40,14 +40,16 @@ build() {
 
 	rm \
 		$PKG/usr/lib/libiberty.a \
-		$PKG/usr/bin/*-linux-gnu-*
+		$PKG/usr/bin/*-linux-gnu-* \
+		$PKG/usr/man/man1/{cpp,gcc,gcov}.1.gz
 
 	rm -r \
 		$PKG/usr/info \
-		$PKG/usr/lib/gcc/*/$version/install-tools
+		$PKG/usr/lib/gcc/*/$version/install-tools \
+		$PKG/usr/man/man7
 
 	# remove files already on the system out of the port
-	for i in `find $PKG | sed -e "s|$PKG|/|"`; do
+	for i in $(find $PKG | sed -e "s|$PKG|/|"); do
 		if [ -e "$i" ] && [ ! -d "$i" ] ; then
 			rm $PKG/$i
 		fi
