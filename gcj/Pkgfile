@@ -3,10 +3,10 @@
 # URL: http://gcc.gnu.org/
 # Maintainer: Danny Rawlins, <romster@shortcircuit.net.au>
 # Packager: Aaron Marks, <nymacro at gmail dot com>
-# Depends On: tetex, texinfo
+# Depends On: 
 
 # Recommended:	
-# Optional:	
+# Optional:	tetex, texinfo
 # Category:	compiler, java
 
 name=gcj
@@ -36,21 +36,23 @@ build() {
 	#make check
 	make prefix=$PKG/usr install
 
-	ln -fs /usr/libexec/gcc/i686-pc-linux-gnu/$version/jc1 $PKG/usr/bin/jc1
+	ln -s /usr/libexec/gcc/i686-pc-linux-gnu/$version/jc1 $PKG/usr/bin/jc1
 	
 	# remove un-needed files
 	find $PKG -name 'README' -exec rm {} \;
 
 	rm \
 		$PKG/usr/lib/libiberty.a \
-		$PKG/usr/bin/*-linux-gnu-*
+		$PKG/usr/bin/*-linux-gnu-* \
+		$PKG/usr/man/man1/{cpp,gcc,gcov}.1.gz
 
 	rm -r \
 		$PKG/usr/info \
-		$PKG/usr/lib/gcc/*/$version/install-tools
+		$PKG/usr/lib/gcc/*/$version/install-tools \
+		$PKG/usr/man/man7
 
 	# remove files already on the system out of the port
-	for i in `find $PKG | sed -e "s|$PKG|/|"`; do
+	for i in $(find $PKG | sed -e "s|$PKG|/|"); do
 		if [ -e "$i" ] && [ ! -d "$i" ] ; then
 			rm $PKG/$i
 		fi
