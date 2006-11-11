@@ -10,9 +10,10 @@ version=3.9
 release=1
 source=(http://dl.sourceforge.net/sourceforge/mingw/mingw-runtime-$version.tar.gz)
 
-build () {
+build() {
 	install -d $PKG/usr/share/mingw32
 	cp -r $SRC/* $PKG/usr/share/mingw32/
-	rm -fr $PKG/usr/share/mingw32/doc
+	rm -r $PKG/usr/share/mingw32/doc
 	chown -R root:root $PKG
 }
+

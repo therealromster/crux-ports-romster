@@ -50,7 +50,6 @@ build() {
 			rm $PKG/$i
 		fi
 	done
-
 	
 	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-cpp
 	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-g++
@@ -70,7 +69,6 @@ build() {
 		$PKG/usr/lib/gcc/mingw32/3.4.5/include/README \
 		$PKG/usr/lib/gcc/mingw32/3.4.5/install-tools/include/README \
 		$PKG/usr/libexec
-
 
 	chown -R root:root $PKG
 }

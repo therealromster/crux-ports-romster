@@ -101,7 +101,8 @@ setup_image() {
 
     if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE" = 'yes' ]; then
        echo -n 'Updating available upto date packages for core'
-       cd /usr/ports/core
+       #cd /usr/ports/core
+       cd "$SAFE_BUILD_DIR/usr/ports/packages"
 
     	for p in *; do
     		cd $p
@@ -137,7 +138,7 @@ setup_image() {
         
         if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_OPT" = 'yes' ]; then
             echo -n 'Installing available upto date packages for opt'
-            cd /usr/ports
+            cd '/usr/ports'
 
             for p in opt/*; do
 		        cd $p
@@ -164,7 +165,7 @@ setup_image() {
 
     if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_INSTALL_XORG" = 'yes' ]; then
        echo -n 'Installing available packages for xorg'
-       cd /usr/ports/xorg
+       cd '/usr/ports/xorg'
 
     	for p in *; do
     		cd $p
@@ -265,7 +266,10 @@ rest() {
 
     echo -n 'Installing ports tree'
 	cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
+    #cp /etc/ports/{core,opt,contrib,contrib-old,xorg}.rsync "$SAFE_BUILD_DIR/etc/ports/"
     echo -n '.'
+
+    
     
     # copy files over so a 'ports -u' dosn't take so long to do
 	cd '/usr/ports/'
@@ -294,7 +298,7 @@ rest() {
 
     echo ''
     
-	#cd /usr/ports/packages
+	#cd '/usr/ports/packages'
 	#for i in $(ls --color=never); do
 	#	ln -s "$i" "$SAFE_BUILD_DIR/usr/ports/packages/"
 	#done
@@ -329,7 +333,7 @@ backup_ports() {
 
     echo -n 'Backing up ports'
     
-    cd $SAFE_BUILD_DIR/usr/ports/packages
+    cd "$SAFE_BUILD_DIR/usr/ports/packages"
     for file in *; do
     
         if [ ! -f "/usr/share/safe-build/packages/$file" ]; then
@@ -339,7 +343,7 @@ backup_ports() {
 
     done
     
-    cd $SAFE_BUILD_DIR/usr/ports/distfiles
+    cd "$SAFE_BUILD_DIR/usr/ports/distfiles"
     for file in *; do
     
         if [ ! -f "/usr/ports/distfiles/$file" ]; then
@@ -358,7 +362,7 @@ restore_ports() {
 
     echo -n 'Restoring backed up ports'
 
-    cd /usr/share/safe-build/packages/
+    cd '/usr/share/safe-build/packages/'
     for file in *; do
         
         if [ -f "/usr/share/safe-build/packages/$file" ]; then

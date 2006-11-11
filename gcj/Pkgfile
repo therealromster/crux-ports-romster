@@ -43,12 +43,13 @@ build() {
 
 	rm \
 		$PKG/usr/lib/libiberty.a \
-		$PKG/usr/bin/*-linux-gnu-* \
-		$PKG/usr/man/man1/{cpp,gcc,gcov}.1.gz
-
+		$PKG/usr/bin/*-linux-gnu-*
 	rm -r \
 		$PKG/usr/info \
-		$PKG/usr/lib/gcc/*/$version/install-tools \
+		$PKG/usr/lib/gcc/*/$version/install-tools
+
+	rm -rf \
+		$PKG/usr/man/man1/{cpp,gcc,gcov}.1.gz \
 		$PKG/usr/man/man7
 
 	# remove files already on the system out of the port
