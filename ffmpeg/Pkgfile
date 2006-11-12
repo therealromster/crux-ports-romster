@@ -6,7 +6,7 @@
 # Depends on: imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
 
 name=ffmpeg
-version=r6928
+version=r6980
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
 

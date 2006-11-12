@@ -7,7 +7,7 @@
 
 name=openal
 version=r1415
-release=2
+release=1
 source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
 
 build() {
@@ -16,7 +16,6 @@ build() {
 	./configure --prefix=/usr
 	sed -i -e 's|^DESTDIR.*|# &|' Makefile
 	make && make install DESTDIR=$PKG
-	sed -i "s|-L$SRC[^ ]* ||g" $PKG/usr/lib/libopenal.la
 	chown -R root:root $PKG
 }
 
