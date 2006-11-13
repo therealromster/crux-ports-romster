@@ -1,0 +1,20 @@
+# $Id:
+# Description: A library for decoding various sound formats.
+# URL: http://www.icculus.org/SDL_sound/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Aaron Marks <nymacro AT gmail DOT com>
+# Depends on: libsdl, libmikmod, smpeg
+
+name=sdl_sound
+version=1.0.1
+release=1
+
+source=(http://www.icculus.org/SDL_sound/downloads/SDL_sound-$version.tar.gz)
+
+build() {
+	cd SDL_sound-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
