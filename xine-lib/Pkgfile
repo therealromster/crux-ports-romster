@@ -2,7 +2,7 @@
 # URL: http://xine.sourceforge.net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: xorg, alsa-lib, libpng, libdvdnav, libogg, libvorbis, flac, libsdl, libmng, libmad, liba52, speex, libtheora, faad2
+# Depends on: x11, alsa-lib, libpng, libdvdnav, libogg, libvorbis, flac, libsdl, libmng, libmad, liba52, speex, libtheora, faad2
 
 # Recommended:	
 # Optional:	esound, arts, samba
