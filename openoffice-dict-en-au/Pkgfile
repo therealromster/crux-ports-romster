@@ -14,4 +14,7 @@ source=(http://ftp.services.openoffice.org/pub/OpenOffice.org/contrib/dictionari
 build() {
 	install -d $PKG/usr/lib/openoffice/share/dict/ooo
 	install -m644 -oroot -groot $SRC/{*.dic,*.aff} -t $PKG/usr/lib/openoffice/share/dict/ooo/
+	rm $PKG/usr/lib/openoffice/share/dict/ooo/hyph_en_US.dic
+	chown -R root:root $PKG
 }
+
