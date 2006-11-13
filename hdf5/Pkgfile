@@ -1,0 +1,29 @@
+# Description: A general purpose library and file format for storing scientific data.
+# URL: http://hdf.ncsa.uiuc.edu/HDF5/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on:  
+
+name=hdf5
+version=1.6.5
+release=it1
+source=(ftp://ftp.ncsa.uiuc.edu/HDF/HDF5/current/src/$name-$version.tar.gz )
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=$PKG/usr \
+		--mandir=$PKG/man \
+		--with-gnu-ld \
+		--enable-threadsafe \
+		--with-ssl \
+		--with-pthread \
+		--enable-cxx \
+		--with-zlib
+	 
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/doc
+	chown -R root:root $PKG
+}
+
