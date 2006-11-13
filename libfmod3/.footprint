@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/fmod/
+-rw-r--r--	root/root	usr/include/fmod/fmod.h
+-rw-r--r--	root/root	usr/include/fmod/fmod_errors.h
+-rw-r--r--	root/root	usr/include/fmod/fmoddyn.h
+-rw-r--r--	root/root	usr/include/fmod/wincompat.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libfmod-3.75.so
+lrwxrwxrwx	root/root	usr/lib/libfmod.so -> /usr/lib/libfmod-3.75.so
