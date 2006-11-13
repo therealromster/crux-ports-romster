@@ -1,0 +1,19 @@
+# $Id:
+# Description: Sound sample rate conversion library.
+# URL: http://www.mega-nerd.com/SRC/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Martin Opel <mo@obbl-net.de>
+# Depends on: libsndfile
+
+name=libsamplerate
+version=0.1.2
+release=1
+source=(http://www.mega-nerd.com/SRC/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+
