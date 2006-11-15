@@ -10,7 +10,7 @@
 # Category:	audio, player
 
 name=bmpx
-version=0.34.0rc2
+version=0.34.0
 release=1
 source=(http://files.beep-media-player.org/releases/${version::4}/$name-$version.tar.bz2)
 

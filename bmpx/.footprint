@@ -9,6 +9,7 @@ lrwxrwxrwx	root/root	usr/bin/bmp2 -> /usr/bin/beep-media-player-2
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/bmp-2.0/
 drwxr-xr-x	root/root	usr/include/bmp-2.0/bmp/
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/bmp.h
 -rw-r--r--	root/root	usr/include/bmp-2.0/bmp/dbus.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/beep-media-player-2-bin
@@ -164,18 +165,8 @@ drwxr-xr-x	root/root	usr/share/bmpx/images/
 -rw-r--r--	root/root	usr/share/bmpx/images/audio-empty.png
 -rw-r--r--	root/root	usr/share/bmpx/images/audio-multiple.png
 -rw-r--r--	root/root	usr/share/bmpx/images/blue-speaker.png
-drwxr-xr-x	root/root	usr/share/bmpx/images/cdda/
--rw-r--r--	root/root	usr/share/bmpx/images/cdda/audiocd-big.png
--rw-r--r--	root/root	usr/share/bmpx/images/cdda/audiocd-unplayable.png
--rw-r--r--	root/root	usr/share/bmpx/images/cdda/header-logo-left.png
--rw-r--r--	root/root	usr/share/bmpx/images/cdda/header-logo-right.png
--rw-r--r--	root/root	usr/share/bmpx/images/cdda/header-logo-slice.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/collections/
 -rw-r--r--	root/root	usr/share/bmpx/images/collections/collection.png
-drwxr-xr-x	root/root	usr/share/bmpx/images/downloads/
--rw-r--r--	root/root	usr/share/bmpx/images/downloads/header-logo-left.png
--rw-r--r--	root/root	usr/share/bmpx/images/downloads/header-logo-right.png
--rw-r--r--	root/root	usr/share/bmpx/images/downloads/header-logo-slice.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/hal/
 -rw-r--r--	root/root	usr/share/bmpx/images/hal/dev-cdrom.png
 -rw-r--r--	root/root	usr/share/bmpx/images/hal/dev-volume-1394.png
@@ -275,10 +266,6 @@ drwxr-xr-x	root/root	usr/share/bmpx/images/stock/
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-tag_blue_delete.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/tag.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/xiph.png
-drwxr-xr-x	root/root	usr/share/bmpx/images/streams/
--rw-r--r--	root/root	usr/share/bmpx/images/streams/header-logo-left.png
--rw-r--r--	root/root	usr/share/bmpx/images/streams/header-logo-right.png
--rw-r--r--	root/root	usr/share/bmpx/images/streams/header-logo-slice.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/svg/
 -rw-r--r--	root/root	usr/share/bmpx/images/svg/button-background.svg
 -rw-r--r--	root/root	usr/share/bmpx/images/svg/button-glow-overlay.svg
