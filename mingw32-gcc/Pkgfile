@@ -14,7 +14,7 @@ source=(http://dl.sourceforge.net/sourceforge/mingw/gcc-{core,g++,g77,objc,java}
 build() {
 	install -d \
 		$SRC/build \
-		$PKG/usr/share/mingw32/bin
+		$PKG/usr/mingw32/bin
 	
 	cd $SRC/build
 	
@@ -51,16 +51,16 @@ build() {
 		fi
 	done
 	
-	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/mingw32-cpp
-	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/mingw32-g++
-	ln -fs /usr/bin/mingw32-cpp $PKG/usr/bin/mingw32-g++
-	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/cpp
-	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/g++
-	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/c++
+	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/mingw32-cpp
+	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/mingw32-g++
+	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/bin/mingw32-g++
+	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/cpp
+	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/g++
+	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/c++
 	
-	ln -fs /usr/bin/mingw32-gcc $PKG/usr/share/mingw32/bin/mingw32-gcc
-	ln -fs /usr/bin/mingw32-gcc $PKG/usr/share/mingw32/bin/gcc
-	ln -fs /usr/bin/mingw32-gcc $PKG/usr/share/mingw32/bin/cc
+	#ln -sf /usr/bin/mingw32-gcc $PKG/usr/mingw32/bin/mingw32-gcc
+	#ln -sf /usr/bin/mingw32-gcc $PKG/usr/mingw32/bin/gcc
+	#ln -sf /usr/bin/mingw32-gcc $PKG/usr/mingw32/bin/cc
 	
 	rm -fr \
 		$PKG/usr/info \

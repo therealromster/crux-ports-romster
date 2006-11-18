@@ -12,7 +12,7 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/mingw32-c++
 -rwxr-xr-x	root/root	usr/bin/mingw32-cpp
-lrwxrwxrwx	root/root	usr/bin/mingw32-g++ -> /usr/bin/mingw32-cpp
+-rwxr-xr-x	root/root	usr/bin/mingw32-g++
 -rwxr-xr-x	root/root	usr/bin/mingw32-gcc
 -rwxr-xr-x	root/root	usr/bin/mingw32-gcc-3.4.5
 -rwxr-xr-x	root/root	usr/bin/mingw32-gccbug
@@ -295,6 +295,10 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/mingw32-gcc.1.gz
 -rw-r--r--	root/root	usr/man/man1/mingw32-gcov.1.gz
 drwxr-xr-x	root/root	usr/mingw32/
+drwxr-xr-x	root/root	usr/mingw32/bin/
+-rwxr-xr-x	root/root	usr/mingw32/bin/c++
+-rwxr-xr-x	root/root	usr/mingw32/bin/g++
+-rwxr-xr-x	root/root	usr/mingw32/bin/gcc
 drwxr-xr-x	root/root	usr/mingw32/lib/
 drwxr-xr-x	root/root	usr/mingw32/lib/debug/
 -rw-r--r--	root/root	usr/mingw32/lib/debug/libstdc++.a
@@ -304,14 +308,3 @@ drwxr-xr-x	root/root	usr/mingw32/lib/debug/
 -rwxr-xr-x	root/root	usr/mingw32/lib/libstdc++.la
 -rw-r--r--	root/root	usr/mingw32/lib/libsupc++.a
 -rwxr-xr-x	root/root	usr/mingw32/lib/libsupc++.la
-drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/mingw32/
-drwxr-xr-x	root/root	usr/share/mingw32/bin/
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/c++ -> /usr/bin/mingw32-cpp
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/cc -> /usr/bin/mingw32-gcc
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/cpp -> /usr/bin/mingw32-cpp
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/g++ -> /usr/bin/mingw32-cpp
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/gcc -> /usr/bin/mingw32-gcc
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/mingw32-cpp -> /usr/bin/mingw32-cpp
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/mingw32-g++ -> /usr/bin/mingw32-cpp
-lrwxrwxrwx	root/root	usr/share/mingw32/bin/mingw32-gcc -> /usr/bin/mingw32-gcc
