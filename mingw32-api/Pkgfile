@@ -7,16 +7,13 @@
 
 name=mingw32-api
 version=3.2
-release=1
+release=2
 source=(http://dl.sourceforge.net/sourceforge/mingw/w32api-$version.tar.gz)
 
 build() {
-	install -d $PKG/usr/share/mingw32
-	cp -R $SRC/* $PKG/usr/share/mingw32/
-	
-	rm -fr \
-		$PKG/usr/share/mingw32/include/GL \
-		$PKG/usr/share/mingw32/lib/{libddraw.a,libdinput.a,libdplayx.a,libdsound.a,libdxguid.a}
-
-	chown -R root:root $PKG
+	install -d $PKG/usr/mingw32
+	cp -R $SRC/* $PKG/usr/mingw32/
+	rm -r $PKG/usr/mingw32/include/GL
+	rm $PKG/usr/mingw32/lib/{libddraw.a,libdinput.a,libdplayx.a,libdsound.a,libdxguid.a}
 }
+

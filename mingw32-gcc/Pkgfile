@@ -6,24 +6,24 @@
 # Depends on: mingw32-binutils, nasm
 
 name=mingw32-gcc
-version=3.4.5
-PORT_DATE=20060117
-release=1
+version=3.4.5-20060117
+release=2
 PORT_TARGET=mingw32
-source=(http://optusnet.dl.sourceforge.net/sourceforge/mingw/gcc-{core,g++,g77,objc,java}-$version-$PORT_DATE-$release-src.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/mingw/gcc-{core,g++,g77,objc,java}-$version-1-src.tar.gz)
 
 build() {
 	install -d \
 		$SRC/build \
-		$PKG/usr/share/$PORT_TARGET/bin
+		$PKG/usr/share/mingw32/bin
 	
 	cd $SRC/build
 	
-	../gcc-$version-$PORT_DATE-$release/configure -v \
+	../gcc-$version-1/configure -v \
 		--prefix=/usr \
-		--program-prefix=$PORT_TARGET- \
+		--libexecdir=/lib \
+		--program-prefix=mingw32- \
 		--target=$PORT_TARGET \
-		--with-headers=/usr/share/$PORT_TARGET/include \
+		--with-headers=/usr/mingw32/include \
 		--without-x \
 		--disable-nls \
 		--disable-win32-registry \
@@ -34,7 +34,7 @@ build() {
 		--with-gnu-ld \
 		--with-gnu-as \
 		--enable-threads \
-		--enable-languages=c \
+		--enable-languages=c,c++ \
 		--enable-sjlj-exceptions \
 		--enable-libgcj \
 		--enable-java-gc=boehm \
@@ -51,25 +51,23 @@ build() {
 		fi
 	done
 	
-	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-cpp
-	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-g++
-	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/bin/$PORT_TARGET-g++
-	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/cpp
-	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/g++
-	ln -fs /usr/bin/$PORT_TARGET-cpp $PKG/usr/share/$PORT_TARGET/bin/c++
+	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/mingw32-cpp
+	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/mingw32-g++
+	ln -fs /usr/bin/mingw32-cpp $PKG/usr/bin/mingw32-g++
+	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/cpp
+	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/g++
+	ln -fs /usr/bin/mingw32-cpp $PKG/usr/share/mingw32/bin/c++
 	
-	ln -fs /usr/bin/$PORT_TARGET-gcc $PKG/usr/share/$PORT_TARGET/bin/$PORT_TARGET-gcc
-	ln -fs /usr/bin/$PORT_TARGET-gcc $PKG/usr/share/$PORT_TARGET/bin/gcc
-	ln -fs /usr/bin/$PORT_TARGET-gcc $PKG/usr/share/$PORT_TARGET/bin/cc
+	ln -fs /usr/bin/mingw32-gcc $PKG/usr/share/mingw32/bin/mingw32-gcc
+	ln -fs /usr/bin/mingw32-gcc $PKG/usr/share/mingw32/bin/gcc
+	ln -fs /usr/bin/mingw32-gcc $PKG/usr/share/mingw32/bin/cc
 	
 	rm -fr \
 		$PKG/usr/info \
 		$PKG/usr/lib/libiberty.a \
 		$PKG/usr/man/man7 \
-		$PKG/usr/lib/gcc/mingw32/3.4.5/include/README \
-		$PKG/usr/lib/gcc/mingw32/3.4.5/install-tools/include/README \
+		$PKG/usr/lib/gcc/mingw32/*/include/README \
+		$PKG/usr/lib/gcc/mingw32/*/install-tools/include/README \
 		$PKG/usr/libexec
-
-	chown -R root:root $PKG
 }
        

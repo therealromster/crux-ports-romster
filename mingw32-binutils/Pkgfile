@@ -7,20 +7,16 @@
 
 name=mingw32-binutils
 version=2.17.50-20060824
-release=1
-PORT_TARGET=mingw32
-source=(http://dl.sourceforge.net/sourceforge/mingw/binutils-$version-$release-src.tar.gz)
+release=2
+source=(http://dl.sourceforge.net/sourceforge/mingw/binutils-$version-1-src.tar.gz)
 
 build() {
-	install -d \
-		$SRC/build \
-		"$PKG/usr/share/$PORT_TARGET/bin"
-
+	mkdir $SRC/build
 	cd $SRC/build
 
-	../binutils-$version-$release-src/configure \
+	../binutils-$version-1-src/configure \
 		--prefix=/usr \
-		--target="$PORT_TARGET" \
+		--target=mingw32 \
 		--disable-nls \
 		--disable-shared \
 		--with-gcc \
@@ -29,14 +25,8 @@ build() {
 		
 	make CFLAGS="-O2 -fno-exceptions" LDFLAGS="-s"
 	make DESTDIR=$PKG install
-	ln -fs "/usr/share/$PORT_TARGET/bin/objdump" "$PKG/usr/bin/$PORT_TARGET-objdump"
-
-	rm -fr \
-		$PKG/usr/info \
-		$PKG/usr/lib/libiberty.a \
-		"$PKG/usr/$PORT_TARGET/sys-include"
-
+	rm -r $PKG/usr/info
+	rm $PKG/usr/lib/libiberty.a
 	find $PKG/ -type f -regex '.dll$' -regex 'debug$' -exec strip {} \;
-	chown -R root:root $PKG
 }
 

@@ -7,11 +7,11 @@
 
 name=w32-directx
 version=2002-05-18
-release=1
+release=2
 source=(http://www.libsdl.org/extras/win32/common/directx-devel.tar.gz)
 
 build() {
-	install -d $PKG/usr/share/mingw32
-	cp -R $SRC/* $PKG/usr/share/mingw32/
-	chown -R root:root $PKG
+	install -d $PKG/usr/mingw32
+	cp -R $SRC/* $PKG/usr/mingw32/
 }
+
