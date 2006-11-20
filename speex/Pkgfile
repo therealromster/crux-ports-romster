@@ -6,15 +6,21 @@
 
 name=speex
 version=1.2beta1
-release=1
+release=2
 source=(http://downloads.us.xiph.org/releases/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man \
+		--disable-oggtest \
+		--enable-epic-48k
+
         make CFLAGS="$CFLAGS"
 	make prefix=$PKG/usr install
+	mv $PKG/usr/share/man $PKG/usr/ # Makefile ignores --mandir (1.2beta1) 
 	rm -r $PKG/usr/share/doc
-        chown -R root:root $PKG
 }
 

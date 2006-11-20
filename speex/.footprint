@@ -22,10 +22,10 @@ lrwxrwxrwx	root/root	usr/lib/libspeex.so.1 -> libspeex.so.1.4.0
 -rwxr-xr-x	root/root	usr/lib/libspeex.so.1.4.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/speex.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/speexdec.1.gz
+-rw-r--r--	root/root	usr/man/man1/speexenc.1.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/aclocal/
 -rw-r--r--	root/root	usr/share/aclocal/speex.m4
-drwxr-xr-x	root/root	usr/share/man/
-drwxr-xr-x	root/root	usr/share/man/man1/
--rw-r--r--	root/root	usr/share/man/man1/speexdec.1.gz
--rw-r--r--	root/root	usr/share/man/man1/speexenc.1.gz
