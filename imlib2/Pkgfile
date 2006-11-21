@@ -2,7 +2,7 @@
 # URL: http://www.enlightenment.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Han Boetes, han at mijncomputer dot nl
-# Depends on: x11, cvs, libungif
+# Depends on: cvs, x11, libjpeg, libpng, libtiff, libungif, libid3tag
 
 name=imlib2
 version=cvs
