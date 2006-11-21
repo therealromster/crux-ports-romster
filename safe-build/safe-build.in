@@ -102,20 +102,20 @@ setup_image() {
     if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE" = 'yes' ]; then
        echo -n 'Updating available upto date packages for core'
        #cd /usr/ports/core
-       cd "$SAFE_BUILD_DIR/usr/ports/packages"
+       cd '/usr/share/safe-build/packages'
 
     	for p in *; do
-    		cd $p
-            if [ -f Pkgfile ]; then
-                . Pkgfile
+    		#cd $p
+            #if [ -f Pkgfile ]; then
+            #    . Pkgfile
 
-                if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
-    		        #cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
-                    pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" 
-                    echo -n '.'
-                fi
+            if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
+    		    #cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+                pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/share/safe-build/packages/$p"
+                echo -n '.'
             fi
-	    	cd ..
+            #fi
+	    	#cd ..
     	done
         echo ''
     else
@@ -232,7 +232,7 @@ install_additional_ports() {
 	        	fi
 
 	        	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-                ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
+                #ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
                 echo -n '.'
 	        	cd ..
             else
@@ -265,16 +265,23 @@ rest() {
 	fi
 
     echo -n 'Installing ports tree'
-	cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
-    #cp /etc/ports/{core,opt,contrib,contrib-old,xorg}.rsync "$SAFE_BUILD_DIR/etc/ports/"
-    echo -n '.'
-
-    
+	#cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
+    cp /etc/ports/{core,opt,contrib,contrib-old,xorg}.rsync "$SAFE_BUILD_DIR/etc/ports/"
+    for p in $SAFE_BUILD_PORTS_TREE; do
+        if [ -f "/etc/ports/$P.sync" ] && [ ! -f "$SAFE_BUILD_DIR/etc/ports/$P.sync" ]; then
+           ln "/etc/ports/$P.sync" "$SAFE_BUILD_DIR/etc/ports/"
+           echo -n '.'
+        elif [ -f "/etc/ports/$P.httpup" ] && [ ! -f "$SAFE_BUILD_DIR/etc/ports/$P.httpup" ]; then
+            ln "/etc/ports/$P.httpup" "$SAFE_BUILD_DIR/etc/ports/"
+            echo -n '.'
+        fi
+    done    
     
     # copy files over so a 'ports -u' dosn't take so long to do
 	cd '/usr/ports/'
     
-	for repo in *; do
+	#for repo in *; do
+    for repo in $SAFE_BUILD_PORTS_TREE; do
 		if [ $repo	!= distfiles ] && [ $repo != packages ]; then
             cp -R $repo "$SAFE_BUILD_DIR/usr/ports/"
 #            for port in $repo; do
@@ -323,8 +330,7 @@ shutdown_umount() {
    umount /dev/pts
    umount /dev
    umount /proc
-   #echo "Run ${SAFE_BUILD_COMMAND##*/} -b to backup the newly created ports."
-   exit 0
+   rm "$SAFE_BUILD_DIR/dev/console"
 }
 
 backup_ports() {
@@ -465,9 +471,6 @@ readonly SAFE_BUILD_ROOT="$PWD"
 readonly SAFE_BUILD_DIR='/var/tmp/safe-build'
 readonly SAFE_BUILD_TOOLCHAIN='binutils glibc gcc module-init-tools libstdc++-compat'
 
-[ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'
-[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/var/crux-2.2'
-
 SAFE_BUILD_SETUP_SYSTEM='no'
 SAFE_BUILD_SETUP_IMAGE='no'
 SAFE_BUILD_SETUP_CHROOT='no'
@@ -481,6 +484,10 @@ SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_OPT='no'
 SAFE_BUILD_CDIMAGE_PACKAGES_INSTALL_XORG='no'
 
 [ -f '/etc/safe-build.conf' ] && . /etc/safe-build.conf
+
+[ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'
+[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/var/crux-2.2'
+[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_PORTS_TREE='core opt contrib'
 
 main "$@"
 
