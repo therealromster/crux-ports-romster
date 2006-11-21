@@ -1,0 +1,27 @@
+# Description: Powerful image loading and rendering library.
+# URL: http://www.enlightenment.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: x11, cvs, libungif
+
+name=imlib2
+version=cvs
+release=1
+source=()
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+
+	if cd e17/libs/$name ; then
+		cvs -z3 -q up -dAP
+	else
+		cvs -z3 -q -d :pserver:anonymous@anoncvs.enlightenment.org:/var/cvs/e co e17/libs/$name
+	fi
+
+	cp -r $PKGMK_SOURCE_DIR/e17/libs/$name $SRC
+	cd $SRC/$name
+
+	./autogen.sh --prefix=/usr
+	make && make DESTDIR=$PKG install
+}
+
