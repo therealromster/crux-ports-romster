@@ -1,4 +1,3 @@
-# $Id:
 # Description: Complete solution to record, convert and stream audio and video (snapshot).
 # URL: http://ffmpeg.mplayerhq.hu/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -6,7 +5,7 @@
 # Depends on: imlib2, lame, libogg, libsdl, libvorbis, libxvid, faac, x264
 
 name=ffmpeg
-version=r6980
+version=r7159
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
 

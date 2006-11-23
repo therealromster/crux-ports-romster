@@ -33,9 +33,9 @@ lrwxrwxrwx	root/root	usr/lib/libavcodec.so.51 -> libavcodec.so.51.25.0
 lrwxrwxrwx	root/root	usr/lib/libavformat.so -> libavformat.so.51.6.0
 lrwxrwxrwx	root/root	usr/lib/libavformat.so.51 -> libavformat.so.51.6.0
 -rwxr-xr-x	root/root	usr/lib/libavformat.so.51.6.0
-lrwxrwxrwx	root/root	usr/lib/libavutil.so -> libavutil.so.49.0.2
-lrwxrwxrwx	root/root	usr/lib/libavutil.so.49 -> libavutil.so.49.0.2
--rwxr-xr-x	root/root	usr/lib/libavutil.so.49.0.2
+lrwxrwxrwx	root/root	usr/lib/libavutil.so -> libavutil.so.49.1.0
+lrwxrwxrwx	root/root	usr/lib/libavutil.so.49 -> libavutil.so.49.1.0
+-rwxr-xr-x	root/root	usr/lib/libavutil.so.49.1.0
 lrwxrwxrwx	root/root	usr/lib/libpostproc.so -> libpostproc.so.51.25.0
 lrwxrwxrwx	root/root	usr/lib/libpostproc.so.51 -> libpostproc.so.51.25.0
 -rwxr-xr-x	root/root	usr/lib/libpostproc.so.51.25.0
