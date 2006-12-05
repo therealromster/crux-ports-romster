@@ -266,7 +266,7 @@ rest() {
 
     echo -n 'Installing ports tree'
 	#cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
-    cp /etc/ports/{core,opt,contrib,contrib-old,xorg}.rsync "$SAFE_BUILD_DIR/etc/ports/"
+    #cp /etc/ports/{core,opt,contrib,contrib-old,xorg}.rsync "$SAFE_BUILD_DIR/etc/ports/"
     for p in $SAFE_BUILD_PORTS_TREE; do
         if [ -f "/etc/ports/$P.sync" ] && [ ! -f "$SAFE_BUILD_DIR/etc/ports/$P.sync" ]; then
            ln "/etc/ports/$P.sync" "$SAFE_BUILD_DIR/etc/ports/"

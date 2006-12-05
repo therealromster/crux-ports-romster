@@ -1,0 +1,24 @@
+# Description: Multiple precision floating-point computation library with cumulative patches.
+# URL: http://www.mpfr.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: acrux, acrux at homelinux dot org
+# Depends on: libgmp
+
+name=libmpfr
+version=2.2.0-p16
+release=1
+source=(http://www.mpfr.org/mpfr-current/{mpfr-${version::5}.tar.bz2,patches})
+build() {
+	cd mpfr-${version::5}
+	patch -p1 -i $SRC/patches
+	autoreconf -i -f
+
+	./configure \
+		--prefix=/usr \
+		--enable-shared \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+

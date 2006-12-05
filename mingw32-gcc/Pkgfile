@@ -8,21 +8,17 @@
 name=mingw32-gcc
 version=3.4.5-20060117
 release=2
-PORT_TARGET=mingw32
 source=(http://dl.sourceforge.net/sourceforge/mingw/gcc-{core,g++,g77,objc,java}-$version-1-src.tar.gz)
 
 build() {
-	install -d \
-		$SRC/build \
-		$PKG/usr/mingw32/bin
-	
+	mkdir $SRC/build
 	cd $SRC/build
 	
 	../gcc-$version-1/configure -v \
 		--prefix=/usr \
-		--libexecdir=/lib \
+		--libexecdir=/usr/lib \
 		--program-prefix=mingw32- \
-		--target=$PORT_TARGET \
+		--target=mingw32 \
 		--with-headers=/usr/mingw32/include \
 		--without-x \
 		--disable-nls \
@@ -45,29 +41,14 @@ build() {
 	make CFLAGS="-O2" CXXFLAGS="-O2" GCJFLAGS="-O2" LDFLAGS="-s" DEBUG_FLAGS="-g0"
 	make DESTDIR=$PKG install
 
-	for i in `find $PKG | sed -e 's|$PKG|/|'`; do
-		if [ -e '$i' ] && [ ! -d '$i' ] ; then
-			rm $PKG/$i
-		fi
-	done
-	
-	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/mingw32-cpp
-	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/mingw32-g++
-	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/bin/mingw32-g++
-	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/cpp
-	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/g++
-	#ln -sf /usr/bin/mingw32-cpp $PKG/usr/mingw32/bin/c++
-	
-	#ln -sf /usr/bin/mingw32-gcc $PKG/usr/mingw32/bin/mingw32-gcc
-	#ln -sf /usr/bin/mingw32-gcc $PKG/usr/mingw32/bin/gcc
-	#ln -sf /usr/bin/mingw32-gcc $PKG/usr/mingw32/bin/cc
-	
-	rm -fr \
+	rm -r \
 		$PKG/usr/info \
-		$PKG/usr/lib/libiberty.a \
 		$PKG/usr/man/man7 \
+		$PKG/usr/lib/gcc/mingw32/*/install-tools		
+
+	rm \
 		$PKG/usr/lib/gcc/mingw32/*/include/README \
-		$PKG/usr/lib/gcc/mingw32/*/install-tools/include/README \
-		$PKG/usr/libexec
+		$PKG/usr/bin/mingw32-gcc-3.4.5 \
+		$PKG/usr/lib/libiberty.a
 }
        

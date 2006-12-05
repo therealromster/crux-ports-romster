@@ -7,7 +7,7 @@
 name=hdf5
 version=1.6.5
 release=it1
-source=(ftp://ftp.ncsa.uiuc.edu/HDF/HDF5/current/src/$name-$version.tar.gz )
+source=(ftp://ftp.ncsa.uiuc.edu/HDF/HDF5/current/src/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version

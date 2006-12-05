@@ -1,35 +1,30 @@
-# $Id: 
 # Description: Shoot balls and get so many in a row to make them drop.
 # URL: http://www.frozen-bubble.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on: p5-sdl1-perl
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: p5-sdl1-perl, sdl_pango
 
-# Recommended:	
-# Optional:	
-# Category:		games, arcade
+# Recommended: 
+# Optional: 
+# Category: games, arcade
 
 name=frozen-bubble
-version=1.0.0
+version=2.1.0
 release=1
-source=(http://zarb.org/~gc/fb/frozen-bubble-$version.tar.bz2)
+source=(http://www.frozen-bubble.org/data/frozen-bubble-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 	
 	sed -i \
-		-e "s|PREFIX = /usr/local|PREFIX = $PKG/usr|" \
-		-e 's|MANDIR = $(DATADIR)/man|MANDIR = $(PREFIX)/man|' Makefile
+		-e "s|PREFIX = .*|PREFIX = /usr|" \
+		-e 's|MANDIR = .*|MANDIR = $(PREFIX)/man|' settings.mk
 
 	make && make DESTDIR=$PKG install
-
-	sed -i -e 's|$FPATH = '/home/romster/var/cwd/remote/projects/romster/frozen-bubble/work/pkg/usr/share/frozen-bubble';|$FPATH = '/usr/share/frozen-bubble';|' \
-		$PKG/usr/lib/perl5/site_perl/5.8.8/linux/fb_stuff.pm
+	rm -r $PKG/usr/share/locale
 
 	rm \
 		$PKG/usr/lib/perl5/*/linux/perllocal.pod \
-		$PKGusr/lib/perl5/site_perl/*/linux/auto/fb_c_stuff/{fb_c_stuff.bs,.packlist}
-
-	chown -R root:root $PKG
+		$PKG/usr/lib/perl5/site_perl/*/linux/auto/fb_c_stuff/{fb_c_stuff.bs,.packlist}
 }
 
