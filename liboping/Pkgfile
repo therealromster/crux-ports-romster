@@ -1,0 +1,21 @@
+# Description: Ping multiple hosts in parallel using IPv4 or IPv6 transparently.
+# URL: http://verplant.org/liboping/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on:
+
+name=liboping
+version=0.3.4
+release=1
+source=(http://verplant.org/liboping/files/liboping-$version.tar.bz2)
+
+build() {
+	cd liboping-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static
+
+	make && make DESTDIR=$PKG install
+}

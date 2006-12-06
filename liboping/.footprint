@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/oping
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/oping.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/liboping.la
+lrwxrwxrwx	root/root	usr/lib/liboping.so -> liboping.so.0.0.3
+lrwxrwxrwx	root/root	usr/lib/liboping.so.0 -> liboping.so.0.0.3
+-rwxr-xr-x	root/root	usr/lib/liboping.so.0.0.3
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/liboping.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_construct.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_get_error.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_host_add.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_iterator_get.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_iterator_get_context.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_iterator_get_info.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_send.3.gz
+-rw-r--r--	root/root	usr/man/man3/ping_setopt.3.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/oping.8.gz
