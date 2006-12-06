@@ -2,7 +2,7 @@
 # URL: http://beep-media-player.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: python, taglib, xine-lib, libglade, gamin, boost, gstreamer-plugins-base, gstreamer-plugins-good, gstreamer-plugins-ugly, gstreamer-plugins-bad, libglademm, cairomm, sqlite3, libmikmod, librsvg, hal
+# Depends on: boost cairomm gamin gstreamer-plugins-bad gstreamer-plugins-good gstreamer-plugins-ugly hal libglade libglademm libmikmod librsvg sqlite3 taglib xine-lib
 
 # Recommended:	
 # Optional:	dbus, gconf, startup-notification, smlib

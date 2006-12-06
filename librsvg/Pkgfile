@@ -3,7 +3,7 @@
 # URL: http://librsvg.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: glib, libcroco, gtk, x11, gdk-pixbuf, cairo, libxml2, libart_lgpl
+# Depends on: gdk-pixbuf gtk libcroco
 
 # Recommended:	
 # Optional:	firefox, gnome-vfs, libgsf

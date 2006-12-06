@@ -4,7 +4,7 @@
 # Packager: Han Boetes, han at mijncomputer dot nl
 # Depends on: cvs, x11, libjpeg, libpng, libtiff, libungif, libid3tag
 
-name=imlib2
+name=scm-imlib2
 version=cvs
 release=1
 source=()

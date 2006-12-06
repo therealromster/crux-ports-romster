@@ -2,8 +2,8 @@
 # Description: Videotrans is a set of scripts that convert a movie file in any format that mplayer understands to a DVD-compatible VOB file.
 # URL: http://videotrans.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on: imagemagick, transcode, mjpegtools, ffmpeg, sox, multimux, mplayer, qt3, dvdauthor
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: dvdauthor multimux qt3 sox transcode
 
 # Recommended:	
 # Optional:	
@@ -20,6 +20,5 @@ build() {
 	cd $name-$version
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
 }
 
