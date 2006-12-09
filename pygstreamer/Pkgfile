@@ -1,12 +1,11 @@
-# $Id: 
 # Description: Python bindings for gstreamer.
 # URL: http://kopete.kde.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: gstreamer-plugins-base, pygtk
 
 name=pygstreamer
-version=0.10.5
+version=0.10.6
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-python/gst-python-$version.tar.bz2)
 
@@ -14,6 +13,5 @@ build() {
 	cd gst-python-$version
 	./configure --prefix=/usr
 	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
 }
 
