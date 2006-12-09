@@ -1,16 +1,11 @@
-# $Id: 
 # Description: Codec JPEG-2000 Part-1 standard.
 # URL: http://www.ece.uvic.ca/~mdadams/jasper/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:
-
-# Recommended:	
-# Optional:	
-# Category:	library, codec, jpeg
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: mesa3d, x11
 
 name=libjasper
-version=1.701.0
+version=1.900.0
 release=1
 source=(http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-$version.zip)
 
@@ -23,6 +18,5 @@ build() {
 		--disable-static
 
 	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
 }
 
