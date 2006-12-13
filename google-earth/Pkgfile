@@ -1,4 +1,3 @@
-# $Id:
 # Description: An interface to access satellite images & maps of the Earth.
 # URL: http://earth.google.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -10,7 +9,7 @@
 # Category:	maps, images, satellite
 
 name=google-earth
-version=4.0-2091beta
+version=4.0-2414
 release=1
 source=(http://dl.google.com/earth/GE4/GoogleEarthLinux.bin \
 	$name.sh)
@@ -42,7 +41,13 @@ build() {
 
 	install -m755 $name.sh $PKG/usr/bin/$name
 	install -m644 $SRC/googleearth.xpm $PKG/usr/share/icons/$name.xpm
-	chmod -R 644 $PKG/usr/share/$name/{resources,res,xml,kvw}/*
+	
+	#chmod -R 644 $PKG/usr/share/$name/{resources,res,xml,kvw}/*
+
+	chmod -R 644 $PKG/usr/share/$name/resources/*
+	chmod -R 644 $PKG/usr/share/$name/res/*
+	chmod -R 644 $PKG/usr/share/$name/xml/*
+	chmod -R 644 $PKG/usr/share/$name/kvw/*
 
 	rm -r \
 		$PKG/usr/share/$name/{lang,linux} \
