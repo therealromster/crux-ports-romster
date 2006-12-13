@@ -9,13 +9,45 @@ lrwxrwxrwx	root/root	usr/bin/bmp2 -> /usr/bin/beep-media-player-2
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/bmp-2.0/
 drwxr-xr-x	root/root	usr/include/bmp-2.0/bmp/
--rw-r--r--	root/root	usr/include/bmp-2.0/bmp/bmp.h
--rw-r--r--	root/root	usr/include/bmp-2.0/bmp/dbus.h
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/base_types.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/bmp.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/database_types.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/dbus.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/library_types.hh
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/beep-media-player-2-bin
 -rwxr-xr-x	root/root	usr/lib/beep-media-player-2-sentinel
 drwxr-xr-x	root/root	usr/lib/bmpx/
 drwxr-xr-x	root/root	usr/lib/bmpx/plugins/
+drwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_audible.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_audible.so -> libtaglib_plugin_audible.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_audible.so.0 -> libtaglib_plugin_audible.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_audible.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.so -> libtaglib_plugin_flac.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.so.0 -> libtaglib_plugin_flac.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mp3.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mp3.so -> libtaglib_plugin_mp3.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mp3.so.0 -> libtaglib_plugin_mp3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mp3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mpc.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mpc.so -> libtaglib_plugin_mpc.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mpc.so.0 -> libtaglib_plugin_mpc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mpc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.so -> libtaglib_plugin_ogg.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.so.0 -> libtaglib_plugin_ogg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_rmff.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_rmff.so -> libtaglib_plugin_rmff.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_rmff.so.0 -> libtaglib_plugin_rmff.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_rmff.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.so -> libtaglib_plugin_wma.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.so.0 -> libtaglib_plugin_wma.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.so.0.0.0
 drwxr-xr-x	root/root	usr/lib/bmpx/plugins/vfs/
 drwxr-xr-x	root/root	usr/lib/bmpx/plugins/vfs/container/
 -rwxr-xr-x	root/root	usr/lib/bmpx/plugins/vfs/container/libcontainer_folder.la
@@ -73,6 +105,7 @@ drwxr-xr-x	root/root	usr/share/bmpx/glade/
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-gsterror.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-lastfm-recommend.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-lyrics.glade
+-rw-r--r--	root/root	usr/share/bmpx/glade/dialog-progress.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/library-ui-create-collection.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/library-ui-modify-import.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/library-ui-relocate-album.glade
