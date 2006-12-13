@@ -18,14 +18,12 @@ build() {
 	
 	# Remove perlcrap
 	find $PKG \
-		-name '.packlist' -or \
-		-name '*.bs' -or \
-		-name 'autosplit.ix' -or \
-		-name 'perllocal.pod' | xargs rm
+		-name '.packlist' -delete -or \
+		-name '*.bs' -delete -or \
+		-name 'autosplit.ix' -delete -or \
+		-name 'perllocal.pod' -delete
 
 	# Remove empty directories
 	find $PKG -depth -empty -exec rm -rf {} \;
-
-	chown -R root:root $PKG
 }
 

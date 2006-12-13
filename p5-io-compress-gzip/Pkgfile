@@ -1,25 +1,22 @@
-# $Id:
-# Description: Digest MD5 interface for Perl.
-# URL: http://search.cpan.org/author/GAAS/
+# Description: IO::Compress::Zlib - Write gzip files/buffers.
+# URL: http://search.cpan.org/~pmqs/IO-Compress-Zlib-2.001/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Younes Hafri <ycrux@club-internet.fr>
-# Depends on:
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
 
-# Recommended:	
-# Optional:		
-# Category:	perl module
 
-name=p5-digest-md5
-version=2.36
+name=p5-io-compress-gzip
+version=2.001
 release=1
-source=(http://www.cpan.org/modules/by-module/Digest/Digest-MD5-2.36.tar.gz)
+source=(http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/IO-Compress-Zlib-$version.tar.gz)
 
 build() {
-	cd Digest-MD5-$version
+	cd IO-Compress-Zlib-$version
+		
 	perl Makefile.PL
 	make OPTIMIZE="$CFLAGS"
 	make DESTDIR=$PKG install
-	
+
 	# Remove perlcrap
 	find $PKG \
 		-name '.packlist' -delete -or \
@@ -29,7 +26,5 @@ build() {
 
 	# Remove empty directories
 	find $PKG -depth -empty -exec rm -rf {} \;
-
-	chown -R root:root $PKG
 }
 
