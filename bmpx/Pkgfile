@@ -9,7 +9,7 @@
 # Category:	audio, player
 
 name=bmpx
-version=0.36.0
+version=0.36.1
 release=1
 source=(http://files.beep-media-player.org/releases/${version::4}/$name-$version.tar.bz2)
 
@@ -21,7 +21,9 @@ build() {
 		--prefix=/usr \
 		--libexecdir=/usr/lib \
 		--disable-nls \
-		--enable-python
+		--enable-python \
+		--enable-mp4v2 \
+		--enable-modplug
 		
 	make && make DESTDIR=$PKG install
 
