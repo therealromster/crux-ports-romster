@@ -1,0 +1,17 @@
+# Description: 
+# URL: http://www.mavetju.org/unix/general.php
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=dnstracer
+version=1.8
+release=1
+source=(http://www.mavetju.org/download/dnstracer-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+}
+
