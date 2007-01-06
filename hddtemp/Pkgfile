@@ -3,7 +3,7 @@
 # URL: http://www.guzu.net/linux/hddtemp.php
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: gettext, libiconv
+# Depends on: gettext
 
 name=hddtemp
 version=0.3-beta15
