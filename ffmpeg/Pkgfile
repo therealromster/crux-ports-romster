@@ -5,7 +5,7 @@
 # Depends on: faac imlib2 lame libsdl libvorbis libxvid x264
 
 name=ffmpeg
-version=r7159
+version=r7409
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
 
