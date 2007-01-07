@@ -1,0 +1,25 @@
+# Description: Emulates the C64, the C128, the VIC20, almost all PET models, the PLUS4 and the CBM-II (aka C610).
+# URL: http://www.viceteam.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg
+
+name=vice
+version=1.20
+release=1
+source=(http://www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+
+	rm -r \
+		$PKG/usr/lib/vice/doc \
+		$PKG/usr/info
+}
+
