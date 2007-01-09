@@ -1,4 +1,3 @@
-# $Id:
 # Description: Window manager: speed, simplicity, and not getting in the user's way.
 # URL: http://www.icewm.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -10,18 +9,18 @@
 # Category:		window manager
 
 name=icewm
-version=1.2.28
+version=1.2.30
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/icewm/icewm-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd icewm-$version
 
 	./configure \
 		--prefix=/usr \
 		--disable-nls
 
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
 
