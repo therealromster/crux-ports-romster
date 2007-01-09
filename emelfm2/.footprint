@@ -21,6 +21,7 @@ drwxr-xr-x	root/root	usr/lib/emelfm2/plugins/
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_rename_ext.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_sort_by_ext.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_times.so
+-rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_track.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_unpack.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_upgrade.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_view.so
@@ -71,6 +72,7 @@ drwxr-xr-x	root/root	usr/share/pixmaps/emelfm2/
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_pack_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_rename_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_timeset_48.png
+-rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_track_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_unpack_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/ps_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/save_selection_48.png

@@ -1,4 +1,3 @@
-# $Id:
 # Description: A lightweight gtk file manager that implements the two-pane design.
 # URL: http://www.emelfm2.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -6,15 +5,14 @@
 # Depends on: gtk
 
 name=emelfm2
-version=0.2
+version=0.3.1
 release=1
-source=(http://emelfm2.net/rel/$name-$version.tar.gz)
+source=(http://emelfm2.net/rel/emelfm2-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd emelfm2-$version
 	make PREFIX=/usr MAN_DIR=$PKG/man/man1/
 	make PREFIX=$PKG/usr MAN_DIR=$PKG/man/man1/ install
 	rm -r $PKG/usr/share/doc
-	chown -R root:root $PKG
 }
 
