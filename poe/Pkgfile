@@ -1,0 +1,22 @@
+# Description: Event-driven networking and multitasking framework for Perl.
+# URL: http://search.cpan.org/~rcaputo/POE/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: p5-event, p5-compress-zlib
+
+name=poe
+version=0.9917
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RC/RCAPUTO/POE-$version.tar.gz)
+
+build() {
+	cd POE-$version
+	perl Makefile.PL --default
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	find $PKG -type f \
+		-name 'perllocal.pod' -delete -or \
+		-name '.packlist' -delete
+}
+
