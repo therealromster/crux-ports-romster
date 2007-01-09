@@ -1,23 +1,25 @@
-# $Id: 
 # Description: Cross platform access to statistics about the system, CPU usage, memory utilisation, disk usage, process counts, network traffic, disk I/O, and more.
 # URL: http://www.i-scream.org/libstatgrab/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:	
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
 
 # Recommended:	
 # Optional:	
 # Category:	library
 
 name=libstatgrab
-version=0.13
+version=0.14
 release=1
-source=(ftp://ftp.i-scream.org/pub/i-scream/$name/$name-$version.tar.gz)
+source=(ftp://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-$version.tar.gz)
 
 build() {
-	cd $name-$version
-	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	cd libstatgrab-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+	make
+	make DESTDIR=$PKG install
 }
 
