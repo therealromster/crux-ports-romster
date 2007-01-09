@@ -21,6 +21,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/mcs
 -rwxr-xr-x	root/root	usr/bin/mjs
 -rwxr-xr-x	root/root	usr/bin/mkbundle
+-rwxr-xr-x	root/root	usr/bin/mkbundle2
 -rwxr-xr-x	root/root	usr/bin/mono
 -rwxr-xr-x	root/root	usr/bin/mono-find-provides
 -rwxr-xr-x	root/root	usr/bin/mono-find-requires
@@ -78,6 +79,7 @@ drwxr-xr-x	root/root	usr/include/mono/io-layer/
 -rw-r--r--	root/root	usr/include/mono/io-layer/events.h
 -rw-r--r--	root/root	usr/include/mono/io-layer/handles.h
 -rw-r--r--	root/root	usr/include/mono/io-layer/io-layer.h
+-rw-r--r--	root/root	usr/include/mono/io-layer/io-portability.h
 -rw-r--r--	root/root	usr/include/mono/io-layer/io.h
 -rw-r--r--	root/root	usr/include/mono/io-layer/macros.h
 -rw-r--r--	root/root	usr/include/mono/io-layer/mono-mutex.h
@@ -338,7 +340,7 @@ lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Runtime.Remoting.dll -> ../gac/Syst
 lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Runtime.Serialization.Formatters.Soap.dll -> ../gac/System.Runtime.Serialization.Formatters.Soap/2.0.0.0__b03f5f7f11d50a3a/System.Runtime.Serialization.Formatters.Soap.dll
 lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Security.dll -> ../gac/System.Security/2.0.0.0__b03f5f7f11d50a3a/System.Security.dll
 lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.ServiceProcess.dll -> ../gac/System.ServiceProcess/2.0.0.0__b03f5f7f11d50a3a/System.ServiceProcess.dll
-lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Transactions.dll -> ../gac/System.Transactions/2.0.0.0__b03f5f7f11d50a3a/System.Transactions.dll
+lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Transactions.dll -> ../gac/System.Transactions/2.0.0.0__b77a5c561934e089/System.Transactions.dll
 lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Web.Services.dll -> ../gac/System.Web.Services/2.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll
 lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Web.dll -> ../gac/System.Web/2.0.0.0__b03f5f7f11d50a3a/System.Web.dll
 lrwxrwxrwx	root/root	usr/lib/mono/2.0/System.Windows.Forms.dll -> ../gac/System.Windows.Forms/2.0.0.0__b77a5c561934e089/System.Windows.Forms.dll
@@ -350,6 +352,8 @@ lrwxrwxrwx	root/root	usr/lib/mono/2.0/cscompmgd.dll -> ../gac/cscompmgd/8.0.0.0_
 -rwxr-xr-x	root/root	usr/lib/mono/2.0/gmcs.exe.mdb
 -rwxr-xr-x	root/root	usr/lib/mono/2.0/ilasm.exe
 -rwxr-xr-x	root/root	usr/lib/mono/2.0/ilasm.exe.mdb
+-rwxr-xr-x	root/root	usr/lib/mono/2.0/mkbundle.exe
+-rwxr-xr-x	root/root	usr/lib/mono/2.0/mkbundle.exe.mdb
 -rwxr-xr-x	root/root	usr/lib/mono/2.0/mono-api-info.exe
 -rwxr-xr-x	root/root	usr/lib/mono/2.0/mono-service.exe
 -rwxr-xr-x	root/root	usr/lib/mono/2.0/mono-service.exe.mdb
@@ -711,9 +715,9 @@ drwxr-xr-x	root/root	usr/lib/mono/gac/System.ServiceProcess/2.0.0.0__b03f5f7f11d
 -rwxr-xr-x	root/root	usr/lib/mono/gac/System.ServiceProcess/2.0.0.0__b03f5f7f11d50a3a/System.ServiceProcess.dll
 -rw-r--r--	root/root	usr/lib/mono/gac/System.ServiceProcess/2.0.0.0__b03f5f7f11d50a3a/System.ServiceProcess.dll.mdb
 drwxr-xr-x	root/root	usr/lib/mono/gac/System.Transactions/
-drwxr-xr-x	root/root	usr/lib/mono/gac/System.Transactions/2.0.0.0__b03f5f7f11d50a3a/
--rwxr-xr-x	root/root	usr/lib/mono/gac/System.Transactions/2.0.0.0__b03f5f7f11d50a3a/System.Transactions.dll
--rw-r--r--	root/root	usr/lib/mono/gac/System.Transactions/2.0.0.0__b03f5f7f11d50a3a/System.Transactions.dll.mdb
+drwxr-xr-x	root/root	usr/lib/mono/gac/System.Transactions/2.0.0.0__b77a5c561934e089/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/System.Transactions/2.0.0.0__b77a5c561934e089/System.Transactions.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/System.Transactions/2.0.0.0__b77a5c561934e089/System.Transactions.dll.mdb
 drwxr-xr-x	root/root	usr/lib/mono/gac/System.Web.Services/
 drwxr-xr-x	root/root	usr/lib/mono/gac/System.Web.Services/1.0.5000.0__b03f5f7f11d50a3a/
 -rwxr-xr-x	root/root	usr/lib/mono/gac/System.Web.Services/1.0.5000.0__b03f5f7f11d50a3a/System.Web.Services.dll

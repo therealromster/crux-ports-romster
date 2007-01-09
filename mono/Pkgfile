@@ -1,21 +1,21 @@
-# $Id:
 # Description: A .NET framework and C# compiler.
 # URL: http://www.mono-project.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Aaron Marks <nymacro AT gmail DOT com>
+# Packager: Aaron Marks, nymacro at gmail dot com
 # Depends on: glib
 
 name=mono
-version=1.1.17.2
+version=1.2
 release=1
 
-source=(http://go-mono.com/sources/$name/$name-$version.tar.gz)
+source=(http://go-mono.com/sources/mono/mono-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
+		--mandir=/usr/man \
 		--disable-static \
 		--with-static_mono=no \
 		--with-ikvm-native=yes \
@@ -26,7 +26,5 @@ build() {
 	rm -r \
 		$PKG/usr/share/jay \
 		$PKG/usr/share/{man,libgc-mono}
-		
-	chown -R root:root $PKG
 }
 
