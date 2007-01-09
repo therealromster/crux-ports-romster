@@ -12,11 +12,13 @@ source=(http://www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice
 build() {
 	cd $name-$version
 
-	./configure \
-		--prefix=/usr \
-		--disable-nls
+	CFLAGS="${CFLAGS//-O?/-O3}" CXXFLAGS="${CXXFLAGS//-O?/-O3}" \
+		./configure \
+			--prefix=/usr \
+			--disable-nls
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 
 	rm -r \
 		$PKG/usr/lib/vice/doc \
