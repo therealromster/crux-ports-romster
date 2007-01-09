@@ -4,7 +4,7 @@
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: mesa3d, x11
 
-name=libjasper
+name=jasper
 version=1.900.0
 release=1
 source=(http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-$version.zip)
@@ -17,6 +17,7 @@ build() {
 		--enable-shared \
 		--disable-static
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 }
 
