@@ -15,10 +15,9 @@ drwxr-xr-x	root/root	usr/include/OIS/
 -rw-r--r--	root/root	usr/include/OIS/OISObject.h
 -rw-r--r--	root/root	usr/include/OIS/OISPrereqs.h
 drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libOIS-1.0.0.so
 -rw-r--r--	root/root	usr/lib/libOIS.a
 -rwxr-xr-x	root/root	usr/lib/libOIS.la
-lrwxrwxrwx	root/root	usr/lib/libOIS.so -> libOIS.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libOIS.so.0 -> libOIS.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libOIS.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libOIS.so -> libOIS-1.0.0.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/OIS.pc

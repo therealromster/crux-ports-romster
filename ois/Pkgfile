@@ -1,4 +1,3 @@
-# $Id:
 # Description: Library for using all kinds of Input Devices.
 # URL: http://sourceforge.net/projects/wgois/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -10,12 +9,12 @@
 # Category:	library
 
 name=ois
-version=0.7.2
+version=1.0RC1
 release=1
-source=(http://dl.sourceforge.net/wgois/$name-0-7-2.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/wgois/ois-$version.tar.gz)
  
 build() {
-	cd $name
+	cd ois-$version
 
 	# ./bootstrap
 	libtoolize --force
@@ -29,11 +28,12 @@ build() {
 	
 	autoconf
 	
-	./configure \
-		--prefix=/usr \
-		--disable-ogre
+	MAKEFLAGS=-j1 CC=gcc CXX=g++ \
+		./configure \
+			--prefix=/usr \
+			--disable-ogre
 
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
 
