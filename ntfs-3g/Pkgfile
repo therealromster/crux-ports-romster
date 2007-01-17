@@ -1,0 +1,18 @@
+# Description: Freely available NTFS driver with read and write support.
+# URL: http://www.ntfs-3g.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: fuse
+
+name=ntfs-3g
+version=0.20070116-BETA
+release=1
+source=(http://www.ntfs-3g.org/ntfs-3g-$version.tgz)
+
+build() {
+	cd ntfs-3g-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
