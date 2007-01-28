@@ -5,7 +5,7 @@
 # Depends on: mesa3d, x11
 
 name=jasper
-version=1.900.0
+version=1.900.1
 release=1
 source=(http://www.ece.uvic.ca/~mdadams/jasper/software/jasper-$version.zip)
 
