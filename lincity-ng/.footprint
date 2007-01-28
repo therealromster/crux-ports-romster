@@ -9,7 +9,6 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/
 drwxr-xr-x	root/root	usr/share/lincity-ng/fonts/
 -rw-r--r--	root/root	usr/share/lincity-ng/fonts/fixed.ttf
 -rw-r--r--	root/root	usr/share/lincity-ng/fonts/sans.ttf
--rw-r--r--	root/root	usr/share/lincity-ng/fonts/serif.ttf
 drwxr-xr-x	root/root	usr/share/lincity-ng/gui/
 -rw-r--r--	root/root	usr/share/lincity-ng/gui/allgone.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/gui/app.xml
@@ -74,6 +73,10 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/gui/
 -rw-r--r--	root/root	usr/share/lincity-ng/gui/universityup.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/gui/windmillup.xml
 drwxr-xr-x	root/root	usr/share/lincity-ng/help/
+drwxr-xr-x	root/root	usr/share/lincity-ng/help/cs/
+-rw-r--r--	root/root	usr/share/lincity-ng/help/cs/help.xml
+-rw-r--r--	root/root	usr/share/lincity-ng/help/cs/index.xml
+-rw-r--r--	root/root	usr/share/lincity-ng/help/cs/keys.xml
 drwxr-xr-x	root/root	usr/share/lincity-ng/help/de/
 -rw-r--r--	root/root	usr/share/lincity-ng/help/de/help.xml
 drwxr-xr-x	root/root	usr/share/lincity-ng/help/en/
@@ -236,6 +239,7 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/help/nl/
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/health.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/help.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/housing.xml
+-rw-r--r--	root/root	usr/share/lincity-ng/help/nl/index.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/industryh.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/industryl.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/jobs.xml
@@ -266,6 +270,7 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/help/nl/
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/powerline.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/powerscoal.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/powerssolar.xml
+-rw-r--r--	root/root	usr/share/lincity-ng/help/nl/query.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/rail.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/recycle.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/residential.xml
@@ -273,6 +278,7 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/help/nl/
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/road.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/rocket.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/school.xml
+-rw-r--r--	root/root	usr/share/lincity-ng/help/nl/slow.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/steel.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/substation.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/nl/sustain.xml
@@ -614,13 +620,12 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/images/tiles/
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune1.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune10.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune11.png
--rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune12.png
--rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune13.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune2.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune3.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune4.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune5.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune6.png
+-rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune7.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune8.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/commune9.png
 -rw-r--r--	root/root	usr/share/lincity-ng/images/tiles/cricket1.png
@@ -861,21 +866,28 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/images/tiles/
 -rw-r--r--	root/root	usr/share/lincity-ng/lincityconfig.xml
 drwxr-xr-x	root/root	usr/share/lincity-ng/locale/
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/ca.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/cs.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/de.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/es.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/fr.po
 drwxr-xr-x	root/root	usr/share/lincity-ng/locale/gui/
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/ca.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/cs.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/de.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/es.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/fr.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/messages.pot
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/nl.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/pl.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/sv.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/messages.pot
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/nl.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/pl.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/sv.po
 drwxr-xr-x	root/root	usr/share/lincity-ng/music/
 -rw-r--r--	root/root	usr/share/lincity-ng/music/01 - pronobozo - lincity.ogg
 -rw-r--r--	root/root	usr/share/lincity-ng/music/02 - Robert van Herk - City Blues.ogg
+-rw-r--r--	root/root	usr/share/lincity-ng/music/03 - Robert van Herk - Architectural Contemplations.ogg
 drwxr-xr-x	root/root	usr/share/lincity-ng/opening/
 -rw-r--r--	root/root	usr/share/lincity-ng/opening/Beach.scn
 -rw-r--r--	root/root	usr/share/lincity-ng/opening/bad_times.scn
