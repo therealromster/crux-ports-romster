@@ -1,0 +1,25 @@
+# Description: compression program that can achieve very high compression ratios and speed when used with large files.
+# URL: 
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: lzo
+
+name=lrzip
+version=0.18
+release=1
+source=(http://ck.kolivas.org/apps/lrzip/lrzip-$version.tar.bz2)
+
+build() {
+	cd lrzip-$version
+
+	CFLAGS="-O3 -mtune=$(uname -p) -fomit-frame-pointer" \
+		CXXFLAGS="-O3 -mtune=$(uname -p) -fomit-frame-pointer" \
+			./configure --prefix=/usr
+
+	# fix man path as --datarootdir and --mandir don't work on configure
+	sed -i -e 's|INSTALL_MAN=.*|INSTALL_MAN=$(prefix)/man|' Makefile
+
+	make
+	make DESTDIR=$PKG install
+}
+
