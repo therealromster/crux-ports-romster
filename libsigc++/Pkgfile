@@ -1,0 +1,19 @@
+# Description: A callback framework for C++.
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Han Boetes, han mijncomputer dot nl
+# URL: http://libsigc.sourceforge.net
+# Depends on:
+
+name=libsigc++
+version=2.0.17
+release=1
+source=(ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/${version%.*}/libsigc++-$version.tar.bz2)
+
+build() {
+	cd libsigc++-$version
+	./configure --prefix=/usr
+	make
+	make install DESTDIR=$PKG
+	rm -r $PKG/usr/share
+}
+
