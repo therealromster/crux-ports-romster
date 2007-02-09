@@ -1,16 +1,18 @@
 # Description: Locale::gettext - Interface to C library functions for internatialization.
 # URL: http://search.cpan.org/~pvandry/gettext-1.05/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: bashy, ronny kornexl at online de
 # Depends on: 
 
 
 name=p5-locale-gettext
 version=1.05
-release=1
-source=(http://search.cpan.org/src/PVANDRY/gettext-$version/{Makefile.PL,gettext.pm})
+release=2
+source=(http://www.perl.com/CPAN/authors/id/PVANDRY/gettext-$version.tar.gz)
 
 build() {
+	cd gettext-$version
+
 	perl Makefile.PL
 	make OPTIMIZE="$CFLAGS"
 	make DESTDIR=$PKG install
