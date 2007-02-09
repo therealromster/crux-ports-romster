@@ -2,7 +2,7 @@
 # URL: http://www.frozen-bubble.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: p5-sdl1-perl, sdl_pango
+# Depends on: p5-sdl1-perl, sdl_pango, p5-locale-gettext
 
 # Recommended: 
 # Optional: 
@@ -10,7 +10,7 @@
 
 name=frozen-bubble
 version=2.1.0
-release=1
+release=2
 source=(http://www.frozen-bubble.org/data/frozen-bubble-$version.tar.bz2)
 
 build() {
@@ -20,11 +20,18 @@ build() {
 		-e "s|PREFIX = .*|PREFIX = /usr|" \
 		-e 's|MANDIR = .*|MANDIR = $(PREFIX)/man|' settings.mk
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/locale
 
-	rm \
-		$PKG/usr/lib/perl5/*/linux/perllocal.pod \
-		$PKG/usr/lib/perl5/site_perl/*/linux/auto/fb_c_stuff/{fb_c_stuff.bs,.packlist}
+	# Remove perlcrap
+	find $PKG \
+		-name '.packlist' -delete -or \
+		-name '*.bs' -delete -or \
+		-name 'autosplit.ix' -delete -or \
+		-name 'perllocal.pod' -delete
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -rf {} \;
 }
 
