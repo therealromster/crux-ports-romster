@@ -1,0 +1,33 @@
+# Description: ActionCube is a total conversion of Wouter van Oortmerssen´s FPS called Cube.
+# URL: http://action.cubers.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: x11, mesa3d, sdl_mixer, sdl_image
+
+name=action-cube
+version=0.92
+release=1
+source=(http://dl.sourceforge.net/sourceforge/actiongame/ActionCube_v$version.tar.bz2 \
+	actioncube.{desktop,png})
+
+build() {
+	cd ActionCube/source/src
+
+	sed -i -e 's|config/|/usr/share/actioncube/config/|g' {main,server,serverbrowser,world,worldio}.cpp
+	sed -i -e 's|packages|/usr/share/actioncube/packages|g' md{2,3}.h
+	sed -i -e 's|bot/|/usr/share/actioncube/bot/|g' bot/botmanager.cpp
+
+	for i in {command,main,menus,renderextras,rendergl,rendermodel,renderparticles,rendertext,sound,worldio}.cpp; do
+		sed -i -e 's|packages|/usr/share/actioncube/packages|g' $i
+	done
+
+	make
+	strip ac_{client,server}
+	install -d $PKG/usr/{bin,share/actioncube/packages}
+	install -m755 ac_client $PKG/usr/bin/actioncube
+	install -m755 ac_server $PKG/usr/bin/actioncube-server
+	install -D -m644 $SRC/actioncube.desktop $PKG/usr/share/applications/actioncube.desktop
+	install -D -m644 $SRC/actioncube.png $PKG/usr/share/pixmaps/actioncube.png
+	cp -r ../../config ../../packages ../../bot $PKG/usr/share/actioncube
+}
+
