@@ -1,4 +1,4 @@
 #!/bin/sh
 cd /usr/share/wengo/
-./wengophone.sh
+LD_LIBRARY_PATH=. ./wengophone.sh
 

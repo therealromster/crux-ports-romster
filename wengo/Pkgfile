@@ -7,7 +7,7 @@
 name=wengo
 version=2.1beta-9722
 release=1
-source=(http://download.wengo.com/nightlybuilds/binary/NG/GNULinux/2.1/wengophone-ng-GNULinux-binary-${version##*-}.tar.bz2 \
+source=(http://download.wengo.com/nightlybuilds/binary/NG/GNULinux/${version%beta*}/wengophone-ng-GNULinux-binary-${version##*-}.tar.bz2 \
 	wengo.sh)
 
 build() {
