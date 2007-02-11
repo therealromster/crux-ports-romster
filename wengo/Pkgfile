@@ -5,19 +5,18 @@
 # Depends on:
 
 name=wengo
-version=2.0beta-7267
+version=2.1beta-9722
 release=1
-source=(http://download.wengo.com/nightlybuilds/binary/NG/GNULinux/rc2/wengophone-ng-GNULinux-binary-${version##*-}.tar.bz2 \
+source=(http://download.wengo.com/nightlybuilds/binary/NG/GNULinux/2.1/wengophone-ng-GNULinux-binary-${version##*-}.tar.bz2 \
 	wengo.sh)
 
 build() {
 	cd wengophone-ng-binary-latest
-	install -d $PKG/usr/share/$name
-	cp -r . $PKG/usr/share/$name/
-	cd $PKG/usr/share/$name/
+	install -d $PKG/usr/share/wengo
+	cp -r . $PKG/usr/share/wengo/
+	cd $PKG/usr/share/wengo/
 	find $PKG/usr/share/wengo/ -type f -exec chmod 644 {} \;
-	chmod 755 $PKG/usr/share/$name/wengophone.sh
-	chmod 755 $PKG/usr/share/$name/qtwengophone
+	chmod 755 $PKG/usr/share/wengo/{wengophone.sh,qtwengophone}
 	install -D -m755 $SRC/wengo.sh $PKG/usr/bin/wengo
 }
 
