@@ -39,6 +39,8 @@ drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/toggle-mini
 -rw-r--r--	root/root	etc/privoxy/templates/untrusted
 -rw-r--r--	root/root	etc/privoxy/user.action
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/privoxy
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/

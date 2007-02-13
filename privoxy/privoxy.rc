@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# /etc/rc.d/privoxy: start/stop privoxy daemon
+#
+
+case $1 in
+start)
+        /usr/sbin/privoxy /etc/privoxy/config
+        ;;
+stop)
+        killall -q /usr/sbin/privoxy
+        ;;
+restart)
+        $0 stop
+        $0 start
+        ;;
+*)
+        echo "usage: $0 [start|stop|restart]"
+        ;;
+esac
+
+# End of file
