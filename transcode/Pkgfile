@@ -1,0 +1,89 @@
+# Description: Command line utilities for transcoding various media formats.
+# URL: http://www.transcoding.org/cgi-bin/transcode
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Martin Opel, mo at obbl-net dot de
+# Depends on: cvs, ffmpeg, glib, libogg, libvorbis, libxvid, mjpegtools, liba52, libdv, libavifile, lame, toolame, libdvdread, libxml2, libdivx, libfame, mplayer, freetype, libjpeg-mmx, imagemagick, mpeg2dec, freetype, libtheora
+
+name=transcode
+version=cvs-$(date '+%Y%m%d')
+release=1
+source=()
+#source=(http://www.kraymer.mynetcologne.de/$name-$version.tar.gz \
+#	http://dl.sourceforge.net/subtitleripper/subtitleripper-0.3-4.tgz)
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+
+	cvs -z3 -d :pserver:cvs@cvs.exit1.org:/cvstc login
+
+	if cd $name; then
+        	cvs -z3 update -dP
+    	else
+		cvs -z3 -d :pserver:cvs@cvs.exit1.org:/cvstc co -r HEAD transcode
+    	fi
+	
+	cp -r $PKGMK_SOURCE_DIR/$name $SRC
+	
+	cd $SRC/transcode
+
+	autoreconf -i -f
+
+	./configure \
+		--prefix=/usr \
+		--disable-v4l \
+		--enable-avifile \
+		--enable-ogg \
+		--enable-vorbis \
+		--enable-libdv \
+		--enable-a52 \
+		--enable-libxml2 \
+		--enable-mjpegtools \
+		--enable-libfame \
+		--enable-imagemagick \
+		--enable-netstream \
+		--enable-libavcodec \
+		--enable-freetype2 \
+		--enable-libpostproc \
+		--with-libpostproc-includes=/usr/include/postproc \
+		--enable-theora
+			
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+
+build-old() {
+	cd $name-$version
+	CPPFLAGS="-I/usr/include/ffmpeg" ./configure \
+		--prefix=/usr \
+		--with-libavcodec-includes=/usr/include/ffmpeg \
+		--with-libavcodec-libs=/usr/lib \
+		--disable-v4l \
+		--enable-avifile \
+		--enable-ogg \
+		--enable-vorbis \
+		--enable-libdv \
+		--enable-a52 \
+		--enable-libxml2 \
+		--enable-mjpegtools \
+		--enable-libfame \
+		--enable-imagemagick \
+		--enable-netstream \
+		--enable-libavcodec \
+		--enable-freetype2 \
+		--enable-libpostproc \
+		--with-libpostproc-includes=/usr/include/postproc \
+		--enable-theora
+			
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+
+	# Subtitle support (Han Boetes)
+	cd contrib/subrip
+	cp ../../../subtitleripper/* .
+	sed -i 's|.*ppm.*||i' Makefile
+	make clean all
+	install -D srttool subtitle2pgm subtitle2vobsub $PKG/usr/bin
+}
+
