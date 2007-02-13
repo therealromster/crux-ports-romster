@@ -1,4 +1,4 @@
-# Description: Shoot balls and get so many in a row to make them drop.
+# Description: Shoot balls and get 3 of the same colour in a group to make them drop.
 # URL: http://www.frozen-bubble.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -10,8 +10,9 @@
 
 name=frozen-bubble
 version=2.1.0
-release=2
-source=(http://www.frozen-bubble.org/data/frozen-bubble-$version.tar.bz2)
+release=3
+source=(http://www.frozen-bubble.org/data/frozen-bubble-$version.tar.bz2 \
+	frozen-bubble.desktop)
 
 build() {
 	cd $name-$version
@@ -23,6 +24,9 @@ build() {
 	make
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/locale
+	install -d $PKG/usr/share/pixmaps
+	install -m644 icons/* $PKG/usr/share/pixmaps
+	install -D -m644 $SRC/frozen-bubble.desktop $PKG/usr/share/applications/frozen-bubble.desktop
 
 	# Remove perlcrap
 	find $PKG \

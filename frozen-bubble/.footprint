@@ -22,6 +22,8 @@ drwxr-xr-x	root/root	usr/man/man6/
 -rwxr-xr-x	root/root	usr/man/man6/frozen-bubble-editor.6.gz
 -rwxr-xr-x	root/root	usr/man/man6/frozen-bubble.6.gz
 drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/frozen-bubble.desktop
 drwxr-xr-x	root/root	usr/share/frozen-bubble/
 drwxr-xr-x	root/root	usr/share/frozen-bubble/data/
 -rw-r--r--	root/root	usr/share/frozen-bubble/data/demo1.bz2
@@ -3251,3 +3253,8 @@ drwxr-xr-x	root/root	usr/share/frozen-bubble/snd/
 -rw-r--r--	root/root	usr/share/frozen-bubble/snd/snore.ogg
 -rw-r--r--	root/root	usr/share/frozen-bubble/snd/stick.ogg
 -rw-r--r--	root/root	usr/share/frozen-bubble/snd/typewriter.ogg
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/frozen-bubble-icon-16x16.png
+-rw-r--r--	root/root	usr/share/pixmaps/frozen-bubble-icon-32x32.png
+-rw-r--r--	root/root	usr/share/pixmaps/frozen-bubble-icon-48x48.png
+-rw-r--r--	root/root	usr/share/pixmaps/frozen-bubble-icon-64x64.png

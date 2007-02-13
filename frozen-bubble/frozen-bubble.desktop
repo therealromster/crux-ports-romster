@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Encoding=UTF-8
+Name=frozen-bubble
+GenericName=Arcade Puzzle Game
+Comment=Shoot balls and get 3 of the same colour in a group to make them drop.
+Icon=frozen-bubble-icon-64x64
+Exec=frozen-bubble
+Terminal=false
+StartupNotify=false
+Categories=Application;Game;Puzzle;Arcade;
