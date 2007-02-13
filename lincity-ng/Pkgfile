@@ -10,7 +10,7 @@
 
 name=lincity-ng
 version=1.1.0rc2
-release=1
+release=2
 source=(http://download.berlios.de/lincity-ng/lincity-ng-$version.tar.bz2)
 
 build() {
@@ -19,5 +19,6 @@ build() {
 	jam
 	jam DESTDIR=$PKG install
 	rm -r $PKG/usr/share/doc
+	find $PKG/usr/share/lincity-ng/help/* ! -wholename "*help/en*" -delete
 }
 
