@@ -1,0 +1,27 @@
+# Description: Embeddable library implementation of Scheme.
+# URL: http://www.gnu.org/software/guile/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: libgmp
+
+name=guile
+version=1.8.1
+release=2
+source=(http://ftp.gnu.org/gnu/guile/guile-$version.tar.gz \
+	http://lilypond.org/vc/gub.darcs/patches/guile-1.8-rational.patch)
+
+build() {
+	cd guile-$version
+	patch -p0 -i $SRC/guile-1.8-rational.patch
+
+	./configure \
+		--prefix=/usr \
+		--with-threads \
+		--with-modules \
+		--enable-deprecation=no
+
+    make
+    make DESTDIR=$PKG install
+    rm -r $PKG/usr/share/info
+}
+
