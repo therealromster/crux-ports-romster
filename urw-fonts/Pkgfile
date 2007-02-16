@@ -1,0 +1,16 @@
+# Description: Free good quality fonts gpl'd by URW++.
+# URL: http://www.urwpp.de/english/home.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Seba Zwierzchowski, forum atheidi dot linuxpl dot com
+# Depends on: xorg fontconfig
+
+name=urw-fonts
+version=1.0.7pre41
+release=1
+source=(ftp://ftp.gnome.ru/fonts/urw/release/urw-fonts-$version.tar.bz2)
+
+build () {
+	install -d $PKG/usr/lib/X11/fonts/TTF
+	install -m644 *.afm *.pfb $PKG/usr/lib/X11/fonts/TTF/
+}
+
