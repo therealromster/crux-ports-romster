@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gf2pbm
+-rwxr-xr-x	root/root	usr/bin/mftrace
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mftrace.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/mftrace/
+-rw-r--r--	root/root	usr/share/mftrace/afm.py
+-rw-r--r--	root/root	usr/share/mftrace/afm.pyc
+-rw-r--r--	root/root	usr/share/mftrace/tfm.py
+-rw-r--r--	root/root	usr/share/mftrace/tfm.pyc
