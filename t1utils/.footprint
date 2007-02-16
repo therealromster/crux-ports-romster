@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/t1ascii
+-rwxr-xr-x	root/root	usr/bin/t1asm
+-rwxr-xr-x	root/root	usr/bin/t1binary
+-rwxr-xr-x	root/root	usr/bin/t1disasm
+-rwxr-xr-x	root/root	usr/bin/t1mac
+-rwxr-xr-x	root/root	usr/bin/t1unmac
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/t1ascii.1.gz
+-rw-r--r--	root/root	usr/man/man1/t1asm.1.gz
+-rw-r--r--	root/root	usr/man/man1/t1binary.1.gz
+-rw-r--r--	root/root	usr/man/man1/t1disasm.1.gz
+-rw-r--r--	root/root	usr/man/man1/t1mac.1.gz
+-rw-r--r--	root/root	usr/man/man1/t1unmac.1.gz

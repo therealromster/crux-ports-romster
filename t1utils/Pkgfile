@@ -1,0 +1,22 @@
+# Description: Command-line tools for dealing with Type 1 fonts.
+# URL: http://www.lcdf.org/~eddietwo/type/#t1utils
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Han Boetes, han at mijncomputer dor nl
+# Depends on:  
+
+name=t1utils
+version=1.32
+release=1
+source=(http://www.lcdf.org/~eddietwo/type/t1utils-$version.tar.gz)
+
+build() {
+	cd t1utils-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+    make
+    make DESTDIR=$PKG install
+}
+
