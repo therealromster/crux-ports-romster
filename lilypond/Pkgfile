@@ -1,0 +1,27 @@
+# Description: Formats sheet music.
+# URL: http://lilypond.org/web/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg fontforge guile freetype fontconfig pango python ghostscript urw-fonts
+# Optional: texinfo
+
+name=lilypond
+version=2.11.18
+release=1
+source=(http://lilypond.org/download/sources/v${version%.*}/lilypond-$version.tar.gz)
+
+build() {
+	cd lilypond-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r \
+		$PKG/usr/info \
+		$PKG/usr/share/locale
+}
+
