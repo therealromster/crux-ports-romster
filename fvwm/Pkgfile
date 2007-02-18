@@ -1,0 +1,24 @@
+# Description: Extremely powerful ICCCM-compliant multiple virtual desktop window manager.
+# URL: http://www.fvwm.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Evgeny Kozhemyakin, evg at net21 dot ru
+# Depends on: imlib2
+
+name=fvwm
+version=2.4.20
+release=1
+source=(ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-$version.tar.bz2)
+
+build() {
+	cd fvwm-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--libexecdir=/usr/lib \
+		--disable-gtk
+
+    make
+    make DESTDIR=$PKG install
+}
+
