@@ -1,0 +1,27 @@
+# Description: FVWM precreated themes.
+# URL: http://www.fvwm.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: fvwm xorg xorg-xmessage
+
+name=fvwm-themes
+version=0.6.2
+release=1
+source=(http://dl.sourceforge.net/fvwm-themes/fvwm-themes-$version.tar.bz2 \
+	fvwm-themes-$version-install.patch)
+
+build() {
+	cd fvwm-themes-$version
+
+	./configure \
+		--prefix=/usr \
+		--x-includes=/usr/include/xorg \
+		--x-libraries=/usr/lib/X11
+
+	patch -i $SRC/fvwm-themes-$version-install.patch
+	make
+	make DESTDIR=$PKG install
+	find $PKG/usr/share/fvwm/locale/* ! -wholename "*locale/en*" -delete
+	find $PKG/usr/share/fvwm/themes -name 'README' -delete
+}
+

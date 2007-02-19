@@ -1,0 +1,14 @@
+#! /bin/sh
+
+#reset
+fvwm-themes-config --site --reset
+
+#build menus (optional)
+fvwm-themes-menuapp --site --build-menus --remove-popup
+
+#install gnome images (optional)
+#fvwm-themes-images --ft-install --gnome
+
+#install kde images (optional)
+#fvwm-themes-images --ft-install --kde2
+
