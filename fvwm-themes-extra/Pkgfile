@@ -1,0 +1,17 @@
+# Description: FVWM precreated themes - extra.
+# URL: http://www.fvwm.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: fvwm-themes
+
+name=fvwm-themes-extra
+version=0.6.2
+release=1
+source=(http://prdownloads.sourceforge.net/fvwm-themes/fvwm-themes-extra-$version.tar.bz2)
+
+build() {
+	install -d $PKG/usr/share/fvwm/themes
+	prefix=$PKG/usr fvwm-themes-config --site --install $PKGMK_SOURCE_DIR/fvwm-themes-extra-$version.tar.bz2
+	find $PKG/usr/share/fvwm/themes -name 'README' -delete
+}
+
