@@ -1,0 +1,20 @@
+# Description: Annihilate the other tanks to earn money, then spend it on bigger and better shields and weapons to wipe out the opposition.
+# URL: http://atanks.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: allegro
+
+name=atanks
+version=2.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/atanks/atanks-$version.tar.gz \
+	atanks.sh)
+
+build() {
+	cd atanks
+	(cd src; make)
+	install -D -m755 atanks $PKG/usr/share/atanks/atanks
+	install -m644 *.dat *.txt $PKG/usr/share/atanks/
+	install -D -m755 $SRC/atanks.sh $PKG/usr/bin/atanks
+}
+
