@@ -1,0 +1,18 @@
+# Description: Is a tool for testing software. It runs the target program repeatedly and provides random data streams to applications in a number of ways and then reports whether the program can be made to crash.
+# URL: http://fuzz.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=fuzz
+version=0.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/fuzz/fuzz-$version.tar.gz)
+
+build() {
+	cd fuzz-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
