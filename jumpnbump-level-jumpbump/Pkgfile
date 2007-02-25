@@ -1,0 +1,16 @@
+# Description: jumpbump level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-jumpbump
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/jumpbump.dat.bz2)
+
+build() {
+	bunzip2 jumpbump.dat.bz2
+	install -D -m644 $SRC/jumpbump.dat $PKG/usr/share/jumpnbump/jumpbump.dat
+}
+

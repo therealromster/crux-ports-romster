@@ -1,0 +1,16 @@
+# Description: bubble level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-bubble
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/bubble.dat.bz2)
+
+build() {
+	bunzip2 bubble.dat.bz2
+	install -D -m644 $SRC/bubble.dat $PKG/usr/share/jumpnbump/bubble.dat
+}
+

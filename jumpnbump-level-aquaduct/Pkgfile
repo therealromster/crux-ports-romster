@@ -1,0 +1,16 @@
+# Description: aquaduct level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-aquaduct
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/aquaduct.dat.bz2)
+
+build() {
+	bunzip2 aquaduct.dat.bz2
+	install -D -m644 $SRC/aquaduct.dat $PKG/usr/share/jumpnbump/aquaduct.dat
+}
+

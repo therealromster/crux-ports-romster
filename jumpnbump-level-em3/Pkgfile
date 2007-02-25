@@ -1,0 +1,16 @@
+# Description: em3 level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-em3
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/em3.dat.bz2)
+
+build() {
+	bunzip2 em3.dat.bz2
+	install -D -m644 $SRC/em3.dat $PKG/usr/share/jumpnbump/em3.dat
+}
+

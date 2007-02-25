@@ -1,0 +1,16 @@
+# Description: bald2 level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-bald2
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/bald2.dat.bz2)
+
+build() {
+	bunzip2 bald2.dat.bz2
+	install -D -m644 $SRC/bald2.dat $PKG/usr/share/jumpnbump/bald2.dat
+}
+

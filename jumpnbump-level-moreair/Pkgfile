@@ -1,0 +1,16 @@
+# Description: moreair level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-moreair
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/moreair.dat.bz2)
+
+build() {
+	bunzip2 moreair.dat.bz2
+	install -D -m644 $SRC/moreair.dat $PKG/usr/share/jumpnbump/moreair.dat
+}
+

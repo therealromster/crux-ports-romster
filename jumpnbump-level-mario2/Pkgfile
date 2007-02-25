@@ -1,0 +1,16 @@
+# Description: mario2 level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-mario2
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/mario2.dat.bz2)
+
+build() {
+	bunzip2 mario2.dat.bz2
+	install -D -m644 $SRC/mario2.dat $PKG/usr/share/jumpnbump/mario2.dat
+}
+

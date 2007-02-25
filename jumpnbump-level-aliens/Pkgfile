@@ -1,0 +1,16 @@
+# Description: aliens level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-aliens
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/aliens.dat.bz2)
+
+build() {
+	bunzip2 aliens.dat.bz2
+	install -D -m644 $SRC/aliens.dat $PKG/usr/share/jumpnbump/aliens.dat
+}
+

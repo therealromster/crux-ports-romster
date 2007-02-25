@@ -1,0 +1,16 @@
+# Description: dk level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-dk
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/dk.dat.bz2)
+
+build() {
+	bunzip2 dk.dat.bz2
+	install -D -m644 $SRC/dk.dat $PKG/usr/share/jumpnbump/dk.dat
+}
+

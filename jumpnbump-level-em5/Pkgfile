@@ -1,0 +1,16 @@
+# Description: em5 level for jumpnbump.
+# URL: http://www.jumpbump.mine.nu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: jumpnbump
+
+name=jumpnbump-level-em5
+version=1
+release=1
+source=(http://www.jumpbump.mine.nu/levels.bz2/em5.dat.bz2)
+
+build() {
+	bunzip2 em5.dat.bz2
+	install -D -m644 $SRC/em5.dat $PKG/usr/share/jumpnbump/em5.dat
+}
+
