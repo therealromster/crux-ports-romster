@@ -1,0 +1,25 @@
+# Description: Is a generic and open source machine emulator and virtualizer.
+# URL: http://fabrice.bellard.free.fr/qemu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Antonio SJ Musumeci
+# Depends on: libsdl gcc34
+
+name=qemu
+version=0.9.0
+release=1
+source=(http://fabrice.bellard.free.fr/qemu/qemu-$version.tar.gz \
+	70-kqemu.rules)
+
+build() {
+	unset CFLAGS
+	cd qemu-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-alsa
+
+	make
+	make DESTDIR=$PKG install
+	install -D -m644 $SRC/70-kqemu.rules $PKG/etc/udev/rules.d/70-kqemu.rules
+}
+
