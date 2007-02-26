@@ -1,0 +1,25 @@
+# Description: Cross platform audio library and toolset.
+# URL: http://www.fmod.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on:   
+
+name=libfmod4
+version=4.06.11
+release=1
+source=(http://www.fmod.org/files/fmodapi${version//./}linux.tar.gz)
+
+build() {
+	cd fmodapi${version//./}linux
+	
+	sed -i \
+		-e "s|^DESTLIBDIR =.*|DESTLIBDIR = $PKG/usr/lib|" \
+		-e "s|^DESTHDRDIR =.*|DESTHDRDIR = $PKG/usr/include/fmodex|" \
+		-e 's|ln -s ${DESTLIBDIR}/libfmodex.so.${VERSION} ${DESTLIBDIR}/libfmodex.so|ln -fs /usr/lib/libfmodex.so.${VERSION} ${DESTLIBDIR}/libfmodex.so|' \
+		-e 's|ln -s ${DESTLIBDIR}/libfmodexp.so.${VERSION} ${DESTLIBDIR}/libfmodexp.so|ln -fs /usr/lib/libfmodexp.so.${VERSION} ${DESTLIBDIR}/libfmodexp.so|' \
+		-e '/^	ldconfig.*$/d' Makefile
+
+	install -d $PKG/usr/{lib,include/fmodex}
+	make install
+}	
+

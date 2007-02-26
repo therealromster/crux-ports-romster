@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/fmodex/
+-r--r--r--	root/root	usr/include/fmodex/fmod.h
+-r--r--r--	root/root	usr/include/fmodex/fmod.hpp
+-r--r--r--	root/root	usr/include/fmodex/fmod_codec.h
+-r--r--r--	root/root	usr/include/fmodex/fmod_dsp.h
+-r--r--r--	root/root	usr/include/fmodex/fmod_errors.h
+-r--r--r--	root/root	usr/include/fmodex/fmod_output.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libfmodex.so -> /usr/lib/libfmodex.so.4.06.11
+-rwxr-xr-x	root/root	usr/lib/libfmodex.so.4.06.11
+lrwxrwxrwx	root/root	usr/lib/libfmodexp.so -> /usr/lib/libfmodexp.so.4.06.11
+-rwxr-xr-x	root/root	usr/lib/libfmodexp.so.4.06.11
