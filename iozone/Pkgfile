@@ -9,7 +9,7 @@
 # Category:	filesystem
 
 name=iozone
-version=3.279
+version=3.283
 release=1
 source=(http://www.iozone.org/src/current/iozone${version/./_}.tar)
 
