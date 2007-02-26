@@ -1,4 +1,3 @@
-# $Id:
 # Description: Library for loading and saving image formats.
 # URL: http://freeimage.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -10,24 +9,21 @@
 # Category:	library
 
 name=freeimage
-version=3.9.2
+version=3.9.3
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/FreeImage${version//./}.zip)
+source=(http://dl.sourceforge.net/sourceforge/freeimage/FreeImage${version//./}.zip)
  
 build() {
 	cd FreeImage
 
 	sed -i \
-		-e "s|COMPILERFLAGS = -O3|COMPILERFLAGS = $CFLAGS|" \
-		-e "s|INSTALLDIR = /usr/lib|INSTALLDIR = $PKG/usr/lib|" \
-		-e 's|ldconfig||' Makefile
-
-	#sed -i -e "s|VER_MINOR = 9.0|VER_MINOR = 9.1|" Makefile.srcs
+		-e "s|^INSTALLDIR =.*|INSTALLDIR = $PKG/usr/lib|" \
+		-e '/^	ldconfig/d' Makefile.gnu
 
 	install -d $PKG/usr/lib
-	make && make install
+	make
+	make install
 	install -D -m644 Dist/FreeImage.h $PKG/usr/include/FreeImage.h
-	ln -fs /usr/lib/libfreeimage-$version.so $PKG/usr/lib/libfreeimage.so.3
-	chown -R root:root $PKG
+	ln -fs /usr/lib/libfreeimage-$version.so $PKG/usr/lib/libfreeimage.so
 }
 
