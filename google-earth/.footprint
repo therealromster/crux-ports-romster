@@ -194,6 +194,8 @@ drw-r--r--	root/root	usr/share/google-earth/res/paddle/
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/blu-square.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/blu-stars-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/blu-stars.png
+-rw-r--r--	root/root	usr/share/google-earth/res/paddle/go-lv.png
+-rw-r--r--	root/root	usr/share/google-earth/res/paddle/go.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/grn-blank-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/grn-blank.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/grn-circle-lv.png
@@ -204,6 +206,8 @@ drw-r--r--	root/root	usr/share/google-earth/res/paddle/
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/grn-square.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/grn-stars-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/grn-stars.png
+-rw-r--r--	root/root	usr/share/google-earth/res/paddle/pause-lv.png
+-rw-r--r--	root/root	usr/share/google-earth/res/paddle/pause.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/purple-circle-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/purple-circle.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/purple-diamond-lv.png
@@ -220,6 +224,9 @@ drw-r--r--	root/root	usr/share/google-earth/res/paddle/
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/red-square.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/red-stars-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/red-stars.png
+-rw-r--r--	root/root	usr/share/google-earth/res/paddle/route.png
+-rw-r--r--	root/root	usr/share/google-earth/res/paddle/stop-lv.png
+-rw-r--r--	root/root	usr/share/google-earth/res/paddle/stop.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/wht-blank-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/wht-blank.png
 -rw-r--r--	root/root	usr/share/google-earth/res/paddle/wht-circle-lv.png
@@ -1092,6 +1099,14 @@ drw-r--r--	root/root	usr/share/google-earth/res/pal5/
 -rw-r--r--	root/root	usr/share/google-earth/res/palette-3.png
 -rw-r--r--	root/root	usr/share/google-earth/res/palette-4.png
 -rw-r--r--	root/root	usr/share/google-earth/res/palette-5.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress0.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress1.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress2.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress3.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress4.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress5.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress6.png
+-rw-r--r--	root/root	usr/share/google-earth/res/progress7.png
 drw-r--r--	root/root	usr/share/google-earth/res/pushpin/
 -rw-r--r--	root/root	usr/share/google-earth/res/pushpin/blue-pushpin.png
 -rw-r--r--	root/root	usr/share/google-earth/res/pushpin/grn-pushpin.png
@@ -1476,6 +1491,8 @@ drwxr-xr-x	root/root	usr/share/google-earth/resources/
 -rw-r--r--	root/root	usr/share/google-earth/resources/geforce_cursor.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/geforce_cursor_32.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/gmail.png
+-rw-r--r--	root/root	usr/share/google-earth/resources/go-lv.png
+-rw-r--r--	root/root	usr/share/google-earth/resources/go.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/go_off.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/go_on.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/google_earth_splash.jpg
@@ -1793,6 +1810,8 @@ drwxr-xr-x	root/root	usr/share/google-earth/resources/
 -rw-r--r--	root/root	usr/share/google-earth/resources/joystickon_right.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/joystickon_rightdown.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/joystickon_up.png
+-rw-r--r--	root/root	usr/share/google-earth/resources/keyholelogo-sm.png
+-rw-r--r--	root/root	usr/share/google-earth/resources/keyholelogo.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/large_traffic_count_16.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/layers_16.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/left.png
@@ -1923,6 +1942,7 @@ drwxr-xr-x	root/root	usr/share/google-earth/resources/
 -rw-r--r--	root/root	usr/share/google-earth/resources/path-pl.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/path.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/pause-dis.png
+-rw-r--r--	root/root	usr/share/google-earth/resources/pause-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/pause.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/pause_click.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/pause_glow.png
@@ -2040,6 +2060,7 @@ drwxr-xr-x	root/root	usr/share/google-earth/resources/
 -rw-r--r--	root/root	usr/share/google-earth/resources/rotright_glow_1.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/rotright_off.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/rotright_off_1.png
+-rw-r--r--	root/root	usr/share/google-earth/resources/route.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/ruler-gr.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/ruler-md.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/ruler-mo.png
@@ -2100,6 +2121,7 @@ drwxr-xr-x	root/root	usr/share/google-earth/resources/
 -rw-r--r--	root/root	usr/share/google-earth/resources/star.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/statue_of_liberty_mask.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/stop-dis.png
+-rw-r--r--	root/root	usr/share/google-earth/resources/stop-lv.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/stop.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/stop_click.png
 -rw-r--r--	root/root	usr/share/google-earth/resources/stop_glow.png

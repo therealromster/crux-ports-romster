@@ -1,7 +1,7 @@
 # Description: An interface to access satellite images & maps of the Earth.
 # URL: http://earth.google.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Jose V Beneyto, <joberui at ei dot upv dot es>
+# Packager: Jose V Beneyto, joberui at ei dot upv dot es
 # Depends on: xorg, xorg-font-bitstream-vera
 
 # Recommended:	
@@ -9,10 +9,10 @@
 # Category:	maps, images, satellite
 
 name=google-earth
-version=4.0-2414
+version=4.0-2735
 release=1
 source=(http://dl.google.com/earth/GE4/GoogleEarthLinux.bin \
-	$name.sh)
+	google-earth.sh)
 
 build() {
 	chmod +x GoogleEarthLinux.bin
@@ -22,37 +22,37 @@ build() {
 		--target $SRC
 	
 	install -d \
-		$PKG/usr/{bin,share/{icons,$name}} \
-		$PKG/etc/$name
+		$PKG/usr/{bin,share/{icons,google-earth}} \
+		$PKG/etc/google-earth
 
-	tar -C $PKG/usr/share/$name -xvf $SRC/googleearth-linux-x86.tar
-	tar -C $PKG/usr/share/$name -xvf $SRC/googleearth-data.tar
+	tar -C $PKG/usr/share/google-earth -xvf $SRC/googleearth-linux-x86.tar
+	tar -C $PKG/usr/share/google-earth -xvf $SRC/googleearth-data.tar
 
 	# move configuration files to the rightful location
-	mv $PKG/usr/share/$name/{ImporterGlobalSettings,ImporterUISettings,PCOptimizations,drivers}.ini $PKG/etc/$name/
+	mv $PKG/usr/share/google-earth/{ImporterGlobalSettings,ImporterUISettings,PCOptimizations,drivers}.ini $PKG/etc/google-earth/
 	ln -fs /usr/share/google-earth/ImporterGlobalSettings.ini \
-		$PKG/etc/$name/ImporterGlobalSettings.ini
+		$PKG/etc/google-earth/ImporterGlobalSettings.ini
 	ln -fs /usr/share/google-earth/ImporterUISettings.ini \
-		$PKG/etc/$name/ImporterUISettings.ini
+		$PKG/etc/google-earth/ImporterUISettings.ini
 	ln -fs /usr/share/google-earth/PCOptimizations.ini \
-		$PKG/etc/$name/PCOptimizations.ini
+		$PKG/etc/google-earth/PCOptimizations.ini
 	ln -fs /usr/share/google-earth/drivers.ini \
-		$PKG/etc/$name/drivers.ini
+		$PKG/etc/google-earth/drivers.ini
 
-	install -m755 $name.sh $PKG/usr/bin/$name
-	install -m644 $SRC/googleearth.xpm $PKG/usr/share/icons/$name.xpm
+	install -m755 google-earth.sh $PKG/usr/bin/google-earth
+	install -m644 $SRC/googleearth.xpm $PKG/usr/share/icons/google-earth.xpm
 	
-	#chmod -R 644 $PKG/usr/share/$name/{resources,res,xml,kvw}/*
+	#chmod -R 644 $PKG/usr/share/google-earth/{resources,res,xml,kvw}/*
 
-	chmod -R 644 $PKG/usr/share/$name/resources/*
-	chmod -R 644 $PKG/usr/share/$name/res/*
-	chmod -R 644 $PKG/usr/share/$name/xml/*
-	chmod -R 644 $PKG/usr/share/$name/kvw/*
+	chmod -R 644 $PKG/usr/share/google-earth/resources/*
+	chmod -R 644 $PKG/usr/share/google-earth/res/*
+	chmod -R 644 $PKG/usr/share/google-earth/xml/*
+	chmod -R 644 $PKG/usr/share/google-earth/kvw/*
 
 	rm -r \
-		$PKG/usr/share/$name/{lang,linux} \
-		$PKG/usr/share/$name/resources/*locale
+		$PKG/usr/share/google-earth/{lang,linux} \
+		$PKG/usr/share/google-earth/resources/*locale
 
-	chown -R root:root $PKG
+	#chown -R root:root $PKG
 }
 
