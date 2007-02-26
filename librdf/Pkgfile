@@ -1,16 +1,15 @@
-# $Id:
 # Description: RDF parser library.
 # URL: http://librdf.org/raptor/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Diederick de Vries <diederick at diederickdevries dot net>
-# Depends on: libxslt, libxml2
+# Packager: Diederick de Vries, diederick at diederickdevries dot net
+# Depends on: libxslt libxml2
 
 # Recommended:	
 # Optional:	
 # Category:	library
 
 name=librdf
-version=1.4.13
+version=1.4.14
 release=1
 source=(http://download.librdf.org/source/raptor-$version.tar.gz)
 
@@ -22,8 +21,8 @@ build() {
 		--datarootdir=/usr \
 		--disable-static
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 	rm -r $PKG/usr/gtk-doc
-	chown -R root:root $PKG
 }
 
