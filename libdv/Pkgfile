@@ -1,0 +1,18 @@
+# Description: Software codec for DV video
+# URL: http://libdv.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Hannes Mayer, kontakt at ecarux dot de
+# Depends on: gtk1 libsdl popt
+
+name=libdv
+version=1.0.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/libdv/libdv-$version.tar.gz)
+
+build() {
+	cd libdv-$version
+	./configure --prefix=/usr --enable-sdl
+	make
+	make DESTDIR=$PKG install
+}
+
