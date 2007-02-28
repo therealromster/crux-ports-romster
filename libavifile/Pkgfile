@@ -1,0 +1,26 @@
+# Description: Linux avi libary and utils (video stuff)
+# URL: http://avifile.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Martin Opel, mo at obbl-net dot de
+# Depends on: libsdl liba52 libxvid libmad lame libdivx freetype libvorbis
+
+name=libavifile
+version=0.7.45
+release=1
+source=(http://dl.sourceforge.net/sourceforge/avifile/avifile-${version%.*}-$version.tar.bz2)
+
+build() {
+	cd avifile-${version%.*}-$version
+
+	./configure \
+		--prefix=/usr \
+                --without-qt \
+                --disable-xvidtest \
+                --disable-xvid
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/avifile-0.7/doc
+}
+
