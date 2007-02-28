@@ -1,17 +1,16 @@
-# $Id:
 # Description: An avdanced drum machine for GNU/Linux.
 # URL: http://hydrogen.sf.net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: qt3, libsndfile, liblrdf, flac, jack, alsalib
+# Depends on: qt3 libsndfile liblrdf flac jack alsa-lib
 
 name=hydrogen
 version=0.9.3
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/hydrogen/hydrogen-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd hydrogen-$version
 
 	export QTDIR=/usr/share/qt
 
@@ -21,9 +20,9 @@ build() {
 		--prefix=/usr \
 		--disable-oss-support
 
-	make && make DESTDIR=$PKG install
-	rm -fr $PKG/usr/share/$name/data/i18n
-	rm -fr $PKG/usr/share/$name/data/doc/manual*
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/hydrogen/data/i18n
+	rm $PKG/usr/share/hydrogen/data/doc/manual*
 }
 
