@@ -1,0 +1,29 @@
+# Description: Gnu Emule client.
+# URL: http://www.xmule.ws/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on: wxgtk libcrypto++
+
+name=xmule
+version=1.13.7-rc1
+release=1
+source=(http://www.xmule.ws/files/releases/xmule-$version.tar.bz2)
+
+build() {
+	if [ $(pkginfo -i |egrep -q libcrypto++) ]; then
+		echo 'Install libcrypto++, prt-get depinst libcrypto++.'
+		exit 1
+	fi
+
+	cd xmule-${version%-*}
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--enable-optimize
+
+	make
+	make prefix=$PKG/usr install
+	rm -r $PKG/usr/share/locale
+}
+
