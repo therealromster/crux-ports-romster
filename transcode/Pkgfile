@@ -2,7 +2,7 @@
 # URL: http://www.transcoding.org/cgi-bin/transcode
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: cvs, ffmpeg, glib, libogg, libvorbis, libxvid, mjpegtools, liba52, libdv, libavifile, lame, toolame, libdvdread, libxml2, libdivx, libfame, mplayer, freetype, libjpeg-mmx, imagemagick, mpeg2dec, freetype, libtheora
+# Depends on: cvs, ffmpeg, glib, libogg, libvorbis, libxvid, mjpegtools, liba52, libdv, libavifile, lame, libdvdread, libxml2, libdivx, libfame, mplayer, freetype, imagemagick, mpeg2dec, freetype, libtheora
 
 name=transcode
 version=cvs-$(date '+%Y%m%d')
