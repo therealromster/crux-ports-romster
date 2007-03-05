@@ -2,39 +2,47 @@
 # URL: http://ffmpeg.mplayerhq.hu/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: faac imlib2 lame libsdl libvorbis libxvid x264
+# Depends on: imlib2 lame libogg libsdl libvorbis libxvid faac x264 libdts libtheora
 
 name=ffmpeg
-version=r7409
+version=r8260
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
+source=(http://romster.shortcircuit.net.au/crux/source/scm-ffmpeg-$version.tar.bz2)
 
 build() {
-	cd scm-$name-$version
+	cd scm-ffmpeg-$version
+
+	unset CFLAGS CXXFLAGS
 
 	./configure \
 		--prefix=/usr \
-		--enable-mp3lame \
+		--enable-libdts \
+		--enable-liba52 \
+		--enable-liba52bin \
+		--enable-libdts \
+		--enable-libfaac \
+		--enable-libfaad \
+		--enable-libfaadbin \
+		--enable-libmp3lame \
 		--enable-libogg \
-		--enable-vorbis \
-		--enable-faad \
-		--enable-faadbin \
-		--enable-faac \
-		--enable-xvid \
+		--enable-libtheora \
+		--enable-libvorbis \
 		--enable-x264 \
-		--enable-a52 \
-		--enable-a52bin \
-		--enable-dts \
+		--enable-xvid \
 		--enable-pp \
 		--disable-static \
 		--enable-shared \
 		--enable-pthreads \
+		--enable-x11grab \
 		--enable-swscaler \
 		--enable-gpl \
 		--disable-audio-oss \
 		--disable-audio-beos \
-		--disable-debug
+		--disable-debug \
+		--arch=$(uname -m) \
+		--cpu=$(uname -p)
 	
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 }
 
