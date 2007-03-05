@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# /etc/rc.d/yacy: start/stop yacy daemon
+#
+
+# User settings here
+DAEMON=yacy
+RUN_AS_USER=_yacy
+
+# If you have to edit this section for this or any other 
+# port useage let me know, with a patch or added lines, 
+# or simplely e-mail me the altered file and I'll include the changes.
+
+RETVAL=0
+
+case $1 in
+	start)
+		echo -n "Starting $DAEMON..."
+		su $RUN_AS_USER -c /usr/sbin/$DAEMON-start > /dev/null 2>&1 /dev/null & RETVAL=$?
+		echo " done."
+		;;
+	stop)
+		echo -n "Shutting down $DAEMON..."
+		su $RUN_AS_USER -c /usr/sbin/$DAEMON-stop > /dev/null 2>&1 /dev/null & RETVAL=$?
+		echo " done."
+		;;
+	restart)
+		$0 stop
+		sleep 20
+		$0 start
+		RETVAL=$?
+		;;
+	*)
+		echo "usage: $0 [start|stop|restart]"
+		exit 1
+		;;
+esac
+
+exit $RETVAL
+
+# End of file

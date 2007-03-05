@@ -1,0 +1,43 @@
+# Description: Shoot balls and get 3 of the same colour in a group to make them drop.
+# URL: http://www.frozen-bubble.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: p5-sdl1-perl sdl_pango p5-locale-gettext
+
+name=frozen-bubble
+version=2.1.0
+release=4
+source=(http://www.frozen-bubble.org/data/frozen-bubble-$version.tar.bz2 \
+	frozen-bubble.desktop)
+
+build() {
+	cd $name-$version
+	
+	sed -i \
+		-e "s|PREFIX = .*|PREFIX = /usr|" \
+		-e 's|MANDIR = .*|MANDIR = $(PREFIX)/man|' settings.mk
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/locale
+
+	# install icons
+	install -D -m644 icons/frozen-bubble-icon-16x16.png $PKG/usr/share/icons/hicolor/16x16/apps/frozen-bubble.png
+	install -D -m644 icons/frozen-bubble-icon-32x32.png $PKG/usr/share/icons/hicolor/32x32/apps/frozen-bubble.png
+	install -D -m644 icons/frozen-bubble-icon-48x48.png $PKG/usr/share/icons/hicolor/48x48/apps/frozen-bubble.png
+	install -D -m644 icons/frozen-bubble-icon-64x64.png $PKG/usr/share/icons/hicolor/64x64/apps/frozen-bubble.png
+
+	# install menu entry
+	install -D -m644 $SRC/frozen-bubble.desktop $PKG/usr/share/applications/frozen-bubble.desktop
+
+	# Remove perlcrap
+	find $PKG \
+		-name '.packlist' -delete -or \
+		-name '*.bs' -delete -or \
+		-name 'autosplit.ix' -delete -or \
+		-name 'perllocal.pod' -delete
+
+	# Remove empty directories
+	find $PKG -depth -empty -delete
+}
+

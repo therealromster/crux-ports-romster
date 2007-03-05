@@ -1,0 +1,17 @@
+# Description: Audio conversion tools, (c) copyright Lance Norskog.
+# URL: http://sox.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Martin Opel, mo at obbl-net dot de
+# Depends on: libvorbis libmad lame alsa-lib
+
+name=sox
+version=12.18.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/sox/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make prefix=$PKG/usr install install-lib
+}
+

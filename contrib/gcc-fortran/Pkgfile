@@ -1,0 +1,66 @@
+# URL: http://gcc.gnu.org/fortran
+# Description: Fortran (f95) add-on for GNU GCC compiler.
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on: libmpfr
+
+name=gcc-fortran
+version=4.0.3
+release=3
+source=(ftp://sources.redhat.com/pub/gcc/releases/gcc-$version/gcc-{core,fortran}-$version.tar.bz2 \
+	gcc-fortran-$version-version.patch)
+
+build() {
+	patch -d gcc-$version -p1 -i $SRC/gcc-fortran-$version-version.patch
+	cd gcc-$version
+	mkdir build
+	cd build
+
+	../configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--enable-languages=f95 \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--disable-nls \
+		--with-x=no
+
+	make
+	#make check
+	make DESTDIR=$PKG install
+
+	ln -s gfortran $PKG/usr/bin/f90
+	ln -s gfortran $PKG/usr/bin/f95
+
+	# remove un-needed files
+	find $PKG -name 'README' -exec rm {} \;
+
+	rm \
+		$PKG/usr/lib/libiberty.a \
+		$PKG/usr/bin/*-linux-gnu-* \
+		$PKG/usr/man/man1/{cpp,gcc,gcov}.1
+
+	rm -r \
+		$PKG/usr/info \
+		$PKG/usr/man/man7 \
+		$PKG/usr/lib/gcc/*/$version/install-tools \
+		$PKG/usr/lib/gcc/*/$version/include		
+
+	# remove files already on the system out of the port
+	for i in $(find $PKG | sed -e "s|$PKG|/|"); do
+		if [ -e "$i" ] && [ ! -d "$i" ] ; then
+			rm $PKG/$i
+		fi
+	done
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -r {} \;
+
+	# remove build paths from *.la files
+	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
+		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
+	done
+}
+

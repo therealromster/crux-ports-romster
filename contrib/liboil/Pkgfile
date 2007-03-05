@@ -1,0 +1,18 @@
+# Description: A library of simple functions optimized for various CPUs.
+# URL: http://liboil.freedesktop.org/wiki/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on:
+
+name=liboil
+version=0.3.10
+release=1
+source=(http://liboil.freedesktop.org/download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+

@@ -1,0 +1,34 @@
+
+README for nvidia legacy 1.0-7184-1
+
+
+**** NOTE for nvidia with udev ****
+
+If using udev, add your user to the "video" group to be able to
+use the nvidia devices required for 3d to function properly.
+
+
+POST-INSTALL
+
+Use contrib/gl-select-x11r7 from ports to select the correct gl/glx
+libraries and extensions like so:
+
+	# gl-select nvidia
+
+
+POST-REMOVE
+
+Use contrib/gl-select-x11r7 from ports to revert to the x11r7 gl/glx
+libraries and extensions like so:
+
+	# gl-select xorg
+
+
+When UPGRADING/DOWNGRADING the nvidia port (where the version changes),
+use gl-select to revert to xorg and then re-select nvidia in order to
+refresh the libGLcore and libGL symlinks, like so:
+
+	# prt-get update nvidia-x11r7-legacy
+	# gl-select xorg; gl-select nvidia
+
+

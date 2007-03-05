@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dtsdec
+-rwxr-xr-x	root/root	usr/bin/extract_dts
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/dts.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libdts.a
+-rw-r--r--	root/root	usr/lib/libdts_pic.a
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libdts.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dtsdec.1.gz
+-rw-r--r--	root/root	usr/man/man1/extract_dts.1.gz

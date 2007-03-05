@@ -1,0 +1,73 @@
+# Description: GDC is a D language front end for the GNU Compiler Collection.
+# URL: http://dgcc.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on:
+
+name=gdc
+version=0.22
+gcc_version=4.0.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/dgcc/gdc-$version-src.tar.bz2 \
+	ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$gcc_version/gcc-{core,g++}-$gcc_version.tar.bz2 \
+	gcc-$gcc_version-latentbug-addrefvars.patch \
+	gcc-$gcc_version-nocheck-fixincludes.patch \
+	gcc-$gcc_version-version.patch \
+	gcc-$gcc_version-fixinc.patch)
+
+build() {
+	patch -d gcc-$gcc_version -p1 -i $SRC/gcc-$gcc_version-latentbug-addrefvars.patch
+	patch -d gcc-$gcc_version -p1 -i $SRC/gcc-$gcc_version-nocheck-fixincludes.patch
+	patch -d gcc-$gcc_version -p1 -i $SRC/gcc-$gcc_version-version.patch
+	patch -d gcc-$gcc_version -p1 -i $SRC/gcc-$gcc_version-fixinc.patch
+
+	mkdir build
+	cd gcc-$gcc_version
+	mv $SRC/d $SRC/gcc-$gcc_version/gcc/d
+	./gcc/d/setup-gcc.sh
+	cd ../build
+	
+	../gcc-$gcc_version/configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--enable-languages=d \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--disable-nls \
+		--with-x=no
+
+	make
+	#make check
+	make DESTDIR=$PKG install
+
+	# remove un-needed files
+	find $PKG -name 'README' -exec rm {} \;
+
+	rm \
+		$PKG/usr/lib/libiberty.a \
+		$PKG/usr/bin/*-linux-gnu-* \
+		$PKG/usr/man/man1/{cpp,gcc,gcov}.1
+		
+	rm -r \
+		$PKG/usr/info \
+		$PKG/usr/lib/gcc/*/$gcc_version/install-tools \
+		$PKG/usr/man/man7
+
+	# remove files already on the system out of the port
+	for i in $(find $PKG | sed -e "s|$PKG|/|"); do
+		if [ -e "$i" ] && [ ! -d "$i" ] ; then
+			rm $PKG/$i
+		fi
+	done
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -r {} \;
+
+	# remove build paths from *.la files
+	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
+		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
+	done
+}
+

@@ -1,0 +1,31 @@
+# Description: MinGW32 binutils.
+# URL: http://www.mingw.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: texinfo, mingw32-runtime
+
+name=mingw32-binutils
+version=2.17.50-20060824
+release=2
+source=(http://dl.sourceforge.net/sourceforge/mingw/binutils-$version-1-src.tar.gz)
+
+build() {
+	mkdir $SRC/build
+	cd $SRC/build
+
+	../binutils-$version-1-src/configure \
+		--prefix=/usr \
+		--target=mingw32 \
+		--disable-nls \
+		--disable-shared \
+		--with-gcc \
+		--with-gnu-as \
+		--with-gnu-ld
+		
+	make CFLAGS="-O2 -fno-exceptions" LDFLAGS="-s"
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/info
+	rm $PKG/usr/lib/libiberty.a
+	find $PKG/ -type f -regex '.dll$' -regex 'debug$' -exec strip {} \;
+}
+

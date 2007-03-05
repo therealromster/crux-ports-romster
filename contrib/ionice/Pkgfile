@@ -1,0 +1,20 @@
+# Description: Nice levels for input and output (Disks).
+# URL: http://freshmeat.net/projects/util-linux/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=ionice
+version=2.13-pre7
+release=1
+source=(ftp://ftp.kernel.org/pub/linux/utils/util-linux/testing/util-linux-$version.tar.bz2)
+
+build() {
+	cd util-linux-$version
+	./configure
+	cd schedutils
+	make
+	install -D -m755 ionice $PKG/usr/sbin/ionice
+	install -D -m644 ionice.1 $PKG/usr/man/man1/ionice.1
+}
+

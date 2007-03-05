@@ -1,0 +1,25 @@
+diff -Nru gcc-4.0.3-old/gcc/tree-dfa.c gcc-4.0.3/gcc/tree-dfa.c
+--- gcc-4.0.3-old/gcc/tree-dfa.c	2006-03-14 03:13:30.000000000 +0100
++++ gcc-4.0.3/gcc/tree-dfa.c	2006-03-14 03:16:56.000000000 +0100
+@@ -898,10 +898,18 @@
+       if (is_global_var (var))
+ 	mark_call_clobbered (var);
+ 
++
+       /* Scan DECL_INITIAL for pointer variables as they may contain
+-	 address arithmetic referencing the address of other
+-	 variables.  */
+-      if (DECL_INITIAL (var))
++         address arithmetic referencing the address of other
++         variables.  */
++      if (DECL_INITIAL (var)
++      /* Initializers of external variables are not useful to the
++         optimizers.  */
++        && !DECL_EXTERNAL (var)
++        /* It's not necessary to walk the initial value of non-constant
++           variables because it cannot be propagated by the
++           optimizers.  */
++        && (TREE_CONSTANT (var) || TREE_READONLY (var)))
+       	walk_tree (&DECL_INITIAL (var), find_vars_r, walk_state, 0);
+     }
+ }

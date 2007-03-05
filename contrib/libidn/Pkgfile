@@ -1,0 +1,24 @@
+# Description: Provides support for IETF Internationalized Domain Names (IDN).
+# URL: http://www.gnu.org/software/libidn/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Daniel Mueller, daniel at danm dot de
+# Depends on:
+
+name=libidn
+version=0.6.9
+release=1
+source=(ftp://alpha.gnu.org/pub/gnu/libidn/libidn-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-csharp=mono \
+		--disable-nls
+
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/info
+}
+

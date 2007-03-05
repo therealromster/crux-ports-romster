@@ -1,0 +1,43 @@
+--- daemon-control-dist~	2006-04-22 09:04:43.000000000 +1000
++++ daemon-control-dist	2007-01-03 01:47:12.000000000 +1100
+@@ -11,9 +11,9 @@
+ #### Edit these to suit your configuration ####
+ ###############################################
+ 
+-DENYHOSTS_BIN   = "/usr/bin/denyhosts.py"
+-DENYHOSTS_LOCK  = "/var/lock/subsys/denyhosts"
+-DENYHOSTS_CFG   = "/usr/share/denyhosts/denyhosts.cfg"
++DENYHOSTS_BIN   = "/usr/bin/denyhosts"
++DENYHOSTS_LOCK  = "/var/run/denyhosts.pid"
++DENYHOSTS_CFG   = "/etc/denyhosts/denyhosts.conf"
+ 
+ PYTHON_BIN      = "/usr/bin/env python"
+ 
+--- denyhosts.cfg-dist~	2006-08-21 00:09:57.000000000 +1000
++++ denyhosts.cfg-dist	2007-01-03 01:44:25.000000000 +1100
+@@ -8,8 +8,11 @@
+ # The file to process can be overridden with the --file command line
+ # argument
+ #
++# CRUX
++SECURE_LOG = /var/log/auth
++#
+ # Redhat or Fedora Core:
+-SECURE_LOG = /var/log/secure
++#SECURE_LOG = /var/log/secure
+ #
+ # Mandrake, FreeBSD or OpenBSD: 
+ #SECURE_LOG = /var/log/auth.log
+@@ -191,8 +194,11 @@
+ # and deleted upon exit.  This ensures that only one instance is
+ # running at a time.
+ #
++# CRUX
++LOCK_FILE = /var/run/denyhosts.pid
++#
+ # Redhat/Fedora:
+-LOCK_FILE = /var/lock/subsys/denyhosts
++#LOCK_FILE = /var/lock/subsys/denyhosts
+ #
+ # Debian
+ #LOCK_FILE = /var/run/denyhosts.pid

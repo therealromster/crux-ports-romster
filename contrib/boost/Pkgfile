@@ -1,0 +1,34 @@
+# Description: Free peer-reviewed portable C++ source libraries.
+# URL: http://www.boost.org
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: python
+
+name=boost
+version=1.33.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/${name}_${version//./_}.tar.bz2)
+
+build() {
+    cd ${name}_${version//./_}
+    cd tools/build/jam_src
+    ./build.sh gcc
+    cd -
+	
+    export PYTHON_LIB_PATH="/usr/lib/python" PYTHON_INCLUDES="/usr/include/python"
+    ./tools/build/jam_src/bin.linuxx86/bjam \
+        "-sTOOLS=gcc" --prefix=/usr --with-python-root=/usr
+
+    ./tools/build/jam_src/bin.linuxx86/bjam \
+        "-sTOOLS=gcc" --prefix=$PKG/usr --with-python-root=/usr install
+
+    mv $PKG/usr/include/boost-${version//./_}/boost $PKG/usr/include
+    rm -fr $PKG/usr/include/boost-${version//./_}
+    
+    cd $PKG/usr/lib
+    for l in *gcc-mt.so; do
+        fileName=`basename $l -gcc-mt.so`
+        ln -s $fileName-gcc-mt.so $fileName.so
+    done
+}
+

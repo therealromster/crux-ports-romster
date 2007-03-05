@@ -1,0 +1,50 @@
+# Description: nVIDIA Linux Display Driver
+# URL: http://www.nvidia.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: xorg
+
+# Nice to have: gl-select-x11r7
+
+name=nvidia-x11r7-legacy
+version=1.0-7184
+release=1
+source=(http://download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg1.run \
+	nvidia-makefile.patch)
+
+build() {
+	sh NVIDIA-Linux-x86-$version-pkg1.run --extract-only
+	cd NVIDIA-Linux-x86-$version-pkg1
+
+	# patch Makefile.kbuild for normal users and no load during build
+	patch -p0 -i $SRC/nvidia-makefile.patch usr/src/nv/Makefile.kbuild
+
+	# create directories the Makefile expects
+	mkdir -p $PKG/usr/lib \
+		$PKG/usr/lib/xorg/modules/drivers \
+		$PKG/usr/lib/xorg/modules/extensions \
+		$PKG/usr/bin $PKG/usr/man/man1
+
+	# install libraries
+	cp -a usr/X11R6/lib/* $PKG/usr/lib/xorg/
+	cp -a usr/lib/* $PKG/usr/lib/
+	sed -i -e 's|__LIBGL_PATH__|/usr/lib|' $PKG/usr/lib/libGL.la
+
+	# copy includes
+	mkdir -p $PKG/usr/include/nvidia
+	cp -r usr/include/GL $PKG/usr/include/nvidia/
+
+	# install xconfig/settings programs and manpages
+	install -m 0755 usr/bin/nvidia-settings $PKG/usr/bin/
+	install -m 0644 usr/share/man/man1/nvidia-installer.1.gz \
+		$PKG/usr/man/man1/
+
+	# build the module
+	cd usr/src/nv
+	ln -s Makefile{.kbuild,}
+	IGNORE_CC_MISMATCH=1 make module
+
+	# install it
+	install -m 0644 -D nvidia.ko \
+		$PKG/lib/modules/`uname -r`/kernel/drivers/video/nvidia.ko
+}

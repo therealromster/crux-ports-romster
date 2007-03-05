@@ -1,0 +1,27 @@
+# $Id:
+
+REQUIREMENTS:
+
+PRECAUTION:
+
+	Remove gcj before updating it! or you'll be missing files,
+	 as the current Pkgfile removes conflicting files from gcc
+	 etc, and if gcj is installed, it'll remove them files
+	 from the gcj port.
+
+PRE-INSTALL:
+
+POST-INSTALL:
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+	Tetex is a huge download ~157MB expect to be waiting a
+	 while to have gcj!
+
+	Also expect a long compile time too
+
+Danny Rawlins, <romster@shortcircuit.net.au>

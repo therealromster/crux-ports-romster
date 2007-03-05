@@ -1,0 +1,18 @@
+# Description: MinGW - Windows 32 API.
+# URL: http://www.mingw.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: w32-opengl, w32-directx
+
+name=mingw32-api
+version=3.8
+release=1
+source=(http://dl.sourceforge.net/sourceforge/mingw/w32api-$version.tar.gz)
+
+build() {
+	install -d $PKG/usr/mingw32
+	cp -R $SRC/* $PKG/usr/mingw32/
+	rm -r $PKG/usr/mingw32/include/GL
+	rm $PKG/usr/mingw32/lib/{libddraw.a,libdinput.a,libdplayx.a,libdsound.a,libdxguid.a}
+}
+

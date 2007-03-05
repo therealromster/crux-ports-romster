@@ -1,0 +1,56 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/rrdcgi
+-rwxr-xr-x	root/root	usr/bin/rrdtool
+-rwxr-xr-x	root/root	usr/bin/rrdupdate
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/rrd.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/librrd.a
+-rwxr-xr-x	root/root	usr/lib/librrd.la
+lrwxrwxrwx	root/root	usr/lib/librrd.so -> librrd.so.2.0.8
+lrwxrwxrwx	root/root	usr/lib/librrd.so.2 -> librrd.so.2.0.8
+-rwxr-xr-x	root/root	usr/lib/librrd.so.2.0.8
+-rw-r--r--	root/root	usr/lib/librrd_th.a
+-rwxr-xr-x	root/root	usr/lib/librrd_th.la
+lrwxrwxrwx	root/root	usr/lib/librrd_th.so -> librrd_th.so.2.0.8
+lrwxrwxrwx	root/root	usr/lib/librrd_th.so.2 -> librrd_th.so.2.0.8
+-rwxr-xr-x	root/root	usr/lib/librrd_th.so.2.0.8
+drwxr-xr-x	root/root	usr/lib/python2.4/
+drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/
+-rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/rrdtoolmodule.so
+drwxr-xr-x	root/root	usr/lib/rrdtool/
+-rwxr-xr-x	root/root	usr/lib/rrdtool/ifOctets.tcl
+-rw-r--r--	root/root	usr/lib/rrdtool/pkgIndex.tcl
+-rwxr-xr-x	root/root	usr/lib/tclrrd1.2.15.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/bin_dec_hex.1.gz
+-rw-r--r--	root/root	usr/man/man1/cdeftutorial.1.gz
+-rw-r--r--	root/root	usr/man/man1/rpntutorial.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrd-beginners.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdbuild.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdcgi.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdcreate.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrddump.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdfetch.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdfirst.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdgraph.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdgraph_data.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdgraph_examples.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdgraph_graph.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdgraph_rpn.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdinfo.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdlast.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdresize.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdrestore.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdthreads.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdtool.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdtune.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdtutorial.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdupdate.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdxport.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/rrdtool/
+drwxr-xr-x	root/root	usr/share/rrdtool/fonts/
+-rw-r--r--	root/root	usr/share/rrdtool/fonts/DejaVuSansMono-Roman.ttf

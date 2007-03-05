@@ -1,0 +1,37 @@
+# Description: DenyHosts is a script intended to be run by Linux system administrators to help thwart ssh server attacks.
+# URL: http://denyhosts.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: python
+
+name=denyhosts
+version=2.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/DenyHosts-$version.tar.gz \
+	$name-$version-config.patch)
+
+build() {
+	cd DenyHosts-$version
+	patch -p0 -i $SRC/$name-$version-config.patch
+	python setup.py install --root=$PKG
+	
+	rm $PKG/usr/share/denyhosts/*.txt
+	
+	install -d \
+		$PKG/etc/ \
+		$PKG/etc/{denyhosts,rc.d} \
+		$PKG/var/log
+	
+	mv $PKG/usr/share/denyhosts/denyhosts.cfg-dist \
+		$PKG/etc/denyhosts/denyhosts.conf
+	
+	mv $PKG/usr/share/denyhosts/daemon-control-dist \
+		$PKG/usr/share/denyhosts/daemon-control
+	
+	chmod 700 $PKG/usr/share/denyhosts/daemon-control
+	
+	ln -s /usr/share/denyhosts/daemon-control $PKG/etc/rc.d/denyhosts
+	rm $PKG/usr/share/denyhosts/plugins/README.contrib
+	mv $PKG/usr/bin/denyhosts.py $PKG/usr/bin/denyhosts
+}
+

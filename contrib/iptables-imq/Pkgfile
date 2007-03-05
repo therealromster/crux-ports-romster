@@ -1,0 +1,27 @@
+# Description: Intermediate Queueing Device, Iptables filter.
+# URL: http://www.linuximq.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: iproute2
+
+name=iptables-imq
+version=1.3.7-2.6.17
+patch=1.3.0-imq1
+release=1
+source=(ftp://ftp.netfilter.org/pub/iptables/iptables-${version%%-*}.tar.bz2 \
+	http://www.linuximq.net/patchs/linux-${version##*-}-${patch##*-}.diff \
+	http://www.linuximq.net/patchs/iptables-$patch.diff)
+
+build() {
+	cd iptables-${version%%-*}
+	sed -i "s|iptables-1.3.3|iptables-${version%%-*}|" $SRC/iptables-$patch.diff 
+	patch -p0 -i $SRC/iptables-$patch.diff
+	chmod +x userspace/extensions/.IMQ-test*
+	
+	cp $SRC/iptables-${version%%-*}/userspace/extensions/* $SRC/iptables-${version%%-*}/extensions/
+	cp userspace/extensions/.IMQ-test userspace/extensions/.IMQ-test6 $SRC/iptables-${version%%-*}/extensions/
+	
+	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr all
+	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr DESTDIR=$PKG install install-devel
+}
+

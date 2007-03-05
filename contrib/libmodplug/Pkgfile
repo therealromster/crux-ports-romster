@@ -1,0 +1,17 @@
+# Description: Library for playing module music.
+# URL: http://modplug-xmms.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jukka Heino, vector at pp dot nic dot fi 
+# Depends on:
+
+name=libmodplug
+version=0.8.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/modplug-xmms/libmodplug-$version.tar.gz)
+
+build() {
+	cd libmodplug-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install 
+}
+

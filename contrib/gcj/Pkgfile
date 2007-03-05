@@ -1,0 +1,65 @@
+# Description: GNU Java Compiler.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Aaron Marks, nymacro at gmail dot com
+# Depends On: 
+
+name=gcj
+version=4.0.3
+release=1
+source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-{core,g++,java}-$version.tar.bz2 \
+	$name-$version-version.patch)
+
+build() {
+	patch -d gcc-$version -p1 -i $SRC/$name-$version-version.patch
+	mkdir -p build/empty
+	cd build
+
+	../gcc-$version/configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--enable-languages=java \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--disable-nls \
+		--with-x=no \
+		--enable-version-specific-runtime-libs
+
+	make
+	#make check
+	make prefix=$PKG/usr install
+
+	ln -s /usr/libexec/gcc/i686-pc-linux-gnu/$version/jc1 $PKG/usr/bin/jc1
+	
+	# remove un-needed files
+	find $PKG -name 'README' -exec rm {} \;
+
+	rm \
+		$PKG/usr/lib/libiberty.a \
+		$PKG/usr/bin/*-linux-gnu-*
+	rm -r \
+		$PKG/usr/info \
+		$PKG/usr/lib/gcc/*/$version/install-tools
+
+	rm -fr \
+		$PKG/usr/man/man1/{cpp,gcc,gcov}.1.gz \
+		$PKG/usr/man/man7
+
+	# remove files already on the system out of the port
+	for i in $(find $PKG | sed -e "s|$PKG|/|"); do
+		if [ -e "$i" ] && [ ! -d "$i" ] ; then
+			rm $PKG/$i
+		fi
+	done
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -r {} \;
+
+	# remove build links from *.la files
+	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
+		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
+	done
+}
+

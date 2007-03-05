@@ -1,0 +1,23 @@
+# Description: A CD Burning tool for KDE.
+# URL: http://k3b.plainblack.com
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, cdparanoia, cdrdao, taglib, flac, normalize, dvd+rw-tools, ffmpeg
+
+name=k3b
+version=0.12.17
+release=1
+source=(http://dl.sourceforge.net/sourceforge/k3b/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+        	--disable-debug \
+		--with-k3bsetup=no
+	
+	make && make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+}
+

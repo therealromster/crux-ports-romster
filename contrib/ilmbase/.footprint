@@ -1,0 +1,65 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/OpenEXR/
+-rw-r--r--	root/root	usr/include/OpenEXR/Iex.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IexBaseExc.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IexErrnoExc.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IexMacros.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IexMathExc.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IexThrowErrnoExc.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IlmBaseConfig.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IlmThread.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IlmThreadMutex.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IlmThreadPool.h
+-rw-r--r--	root/root	usr/include/OpenEXR/IlmThreadSemaphore.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathBox.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathBoxAlgo.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathColor.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathColorAlgo.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathEuler.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathExc.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathFrame.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathFrustum.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathFun.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathGL.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathGLU.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathHalfLimits.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathInt64.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathInterval.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathLimits.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathLine.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathLineAlgo.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathMath.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathMatrix.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathMatrixAlgo.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathPlane.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathPlatform.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathQuat.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathRandom.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathRoots.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathShear.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathSphere.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathVec.h
+-rw-r--r--	root/root	usr/include/OpenEXR/ImathVecAlgo.h
+-rw-r--r--	root/root	usr/include/OpenEXR/half.h
+-rw-r--r--	root/root	usr/include/OpenEXR/halfFunction.h
+-rw-r--r--	root/root	usr/include/OpenEXR/halfLimits.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libHalf.la
+lrwxrwxrwx	root/root	usr/lib/libHalf.so -> libHalf.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libHalf.so.0 -> libHalf.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libHalf.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libIex.la
+lrwxrwxrwx	root/root	usr/lib/libIex.so -> libIex.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libIex.so.0 -> libIex.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libIex.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libIlmThread.la
+lrwxrwxrwx	root/root	usr/lib/libIlmThread.so -> libIlmThread.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libIlmThread.so.0 -> libIlmThread.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libIlmThread.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libImath.la
+lrwxrwxrwx	root/root	usr/lib/libImath.so -> libImath.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libImath.so.0 -> libImath.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libImath.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/IlmBase.pc

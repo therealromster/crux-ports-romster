@@ -1,0 +1,18 @@
+# Description: Renders an image of the earth into the X root window.
+# URL: http://xplanet.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: libtiff, x11
+
+name=xplanet
+version=1.2.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	find $PKG -name "README" -type f -exec rm {} \;
+}
+

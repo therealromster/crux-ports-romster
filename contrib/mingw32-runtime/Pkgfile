@@ -1,0 +1,17 @@
+# Description: MinGW32 runtime.
+# URL: http://www.mingw.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: mingw32-api
+
+name=mingw32-runtime
+version=3.11
+release=1
+source=(http://dl.sourceforge.net/sourceforge/mingw/mingw-runtime-$version.tar.gz)
+
+build() {
+	install -d $PKG/usr/mingw32
+	cp -r $SRC/* $PKG/usr/mingw32/
+	rm -r $PKG/usr/mingw32/doc
+}
+

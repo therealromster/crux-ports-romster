@@ -1,0 +1,54 @@
+# Description: GCC compiler configured for MinGW32.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: mingw32-binutils, nasm
+
+name=mingw32-gcc
+version=3.4.5-20060117
+release=2
+source=(http://dl.sourceforge.net/sourceforge/mingw/gcc-{core,g++,g77,objc,java}-$version-1-src.tar.gz)
+
+build() {
+	mkdir $SRC/build
+	cd $SRC/build
+	
+	../gcc-$version-1/configure -v \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--program-prefix=mingw32- \
+		--target=mingw32 \
+		--with-headers=/usr/mingw32/include \
+		--without-x \
+		--disable-nls \
+		--disable-win32-registry \
+		--disable-shared \
+		--disable-java-awt \
+		--disable-libgcj-debug \
+		--with-gcc \
+		--with-gnu-ld \
+		--with-gnu-as \
+		--enable-threads \
+		--enable-languages=c,c++ \
+		--enable-libgcj \
+		--enable-java-gc=boehm \
+		--enable-interpreter \
+		--enable-hash-synchronization \
+		--enable-libstdcxx-debug
+
+		#--enable-sjlj-exceptions only needed for gcc3
+	
+	make CFLAGS="-O2" CXXFLAGS="-O2" GCJFLAGS="-O2" LDFLAGS="-s" DEBUG_FLAGS="-g0"
+	make DESTDIR=$PKG install
+
+	rm -r \
+		$PKG/usr/info \
+		$PKG/usr/man/man7 \
+		$PKG/usr/lib/gcc/mingw32/*/install-tools		
+
+	rm \
+		$PKG/usr/lib/gcc/mingw32/*/include/README \
+		$PKG/usr/bin/mingw32-gcc-3.4.5 \
+		$PKG/usr/lib/libiberty.a
+}
+       

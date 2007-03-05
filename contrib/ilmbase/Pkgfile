@@ -1,0 +1,21 @@
+# Description: High dynamic-range (HDR) image file base package.
+# URL: http://www.openexr.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on:
+
+name=ilmbase
+version=0.9.0
+release=1
+source=(http://download.savannah.nongnu.org/releases/openexr/ilmbase-$version.tar.gz)
+
+build() {
+	cd ilmbase-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+	make
+	make DESTDIR=$PKG install
+}
+

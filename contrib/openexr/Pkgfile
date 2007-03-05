@@ -1,0 +1,21 @@
+# Description: High dynamic-range (HDR) image file format library.
+# URL: http://www.openexr.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jose V Beneyto, joberui at ei dot upv dot es
+# Depends on: ilmbase
+
+name=openexr
+version=1.5.0
+release=1
+source=(http://download.savannah.nongnu.org/releases/openexr/openexr-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure \
+		--prefix=/usr \
+		--disable-static
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+}
+

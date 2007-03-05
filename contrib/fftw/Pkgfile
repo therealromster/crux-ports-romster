@@ -1,0 +1,66 @@
+# Description: C subroutine library for computing discrete Fourier transform.
+# URL: http://www.fftw.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on: gcc-fortran
+
+name=fftw
+version=3.1.2
+release=2
+source=(http://www.fftw.org/fftw-$version.tar.gz)
+
+build() {
+	cd fftw-$version
+	
+	export CFLAGS="-O3 -mtune=$(uname -p) -pipe -fomit-frame-pointer"
+	export CXXFLAGS="-O3 -mtune=$(uname -p) -pipe -fomit-frame-pointer"
+	export FFLAGS="-O3 -mtune=$(uname -p) -pipe -fomit-frame-pointer"
+
+	local Configure='
+--prefix=/usr
+--mandir=/usr/man
+--enable-threads
+--enable-type-prefix
+--with-gnu-ld
+--disable-nls
+--enable-shared'	
+
+	## compiling long double precision library
+	./configure \
+		$Configure \
+		--enable-long-double \
+#		--enable-k7
+#		--enable-sse
+#		--enable-sse2
+#		--enable-altivec
+
+    	make
+	make DESTDIR=$PKG install
+	make clean
+
+	## compiling single precision library
+	./configure \
+		$Configure \
+		--enable-single \
+#		--enable-k7
+#		--enable-sse
+#		--enable-sse2
+#		--enable-altivec
+
+    	make
+	make DESTDIR=$PKG install
+	make clean
+
+	## compiling double precision library
+	./configure \
+		$Configure \
+#		--enable-k7
+#		--enable-sse
+#		--enable-sse2
+#		--enable-altivec
+
+    	make
+	make DESTDIR=$PKG install
+    	rm -r $PKG/usr/share
+}
+
