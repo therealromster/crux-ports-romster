@@ -2,7 +2,7 @@
 # URL: http://ffmpeg.mplayerhq.hu/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: imlib2 lame libogg libsdl libvorbis libxvid faac x264 libdts libtheora
+# Depends on: faac imlib2 lame libdts libsdl libtheora libxvid x264
 
 name=ffmpeg
 version=r8260
