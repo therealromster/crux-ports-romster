@@ -1,0 +1,103 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/icewm/
+drwxr-xr-x	root/root	usr/share/icewm/themes/
+drwxr-xr-x	root/root	usr/share/icewm/themes/berryxp/
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/background.jpg
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/buttonA.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/buttonI.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/closeA.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/closeI.xpm -> ./closeA.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/closeO.xpm
+drwxr-xr-x	root/root	usr/share/icewm/themes/berryxp/cursors/
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/default.theme
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeAB.xpm -> ./frameAB.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeABL.xpm -> ./frameABL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeABR.xpm -> ./frameABR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeAL.xpm -> ./frameAL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeAR.xpm -> ./frameAR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeAT.xpm -> ./frameAT.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeATL.xpm -> ./frameATL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeATR.xpm -> ./frameATR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeIB.xpm -> ./frameAB.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeIBL.xpm -> ./frameABL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeIBR.xpm -> ./frameABR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeIL.xpm -> ./frameAL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeIR.xpm -> ./frameAR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeIT.xpm -> ./frameAT.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeITL.xpm -> ./frameATL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/dframeITR.xpm -> ./frameATR.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/dialogbg.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameAB.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameABL.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameABR.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameAL.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameAR.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameAT.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameATL.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/frameATR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameIB.xpm -> ./frameAB.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameIBL.xpm -> ./frameABL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameIBR.xpm -> ./frameABR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameIL.xpm -> ./frameAL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameIR.xpm -> ./frameAR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameIT.xpm -> ./frameAT.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameITL.xpm -> ./frameATL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/frameITR.xpm -> ./frameATR.xpm
+drwxr-xr-x	root/root	usr/share/icewm/themes/berryxp/icons/
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/app_16x16.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/app_32x32.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/cd_mount.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/cd_unmount.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/firefox.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/folder_16x16.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/thunderbird.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/xkill_16x16.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/xterm_16x16.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/icons/xterm_32x32.xpm
+drwxr-xr-x	root/root	usr/share/icewm/themes/berryxp/ledclock/
+drwxr-xr-x	root/root	usr/share/icewm/themes/berryxp/mailbox/
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/mailbox/errmail.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/mailbox/mail.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/mailbox/newmail.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/mailbox/nomail.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/mailbox/unreadmail.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/maximizeA.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/maximizeI.xpm -> ./maximizeA.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/maximizeO.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/menuButtonA.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/menuButtonI.xpm -> ./menuButtonA.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/menuButtonO.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/menubg.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/menusel.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/minimizeA.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/minimizeI.xpm -> ./minimizeA.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/minimizeO.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/restoreA.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/restoreI.xpm -> ./restoreA.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/restoreO.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/switchbg.xpm
+drwxr-xr-x	root/root	usr/share/icewm/themes/berryxp/taskbar/
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/icewm.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/taskbarbg.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/taskbuttonactive.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/taskbuttonbg.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/taskbar/taskbuttonminimized.xpm -> ./taskbuttonbg.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/toolbuttonbg.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/windows.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/workspacebuttonactive.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/taskbar/workspacebuttonbg.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/titleAB.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/titleAL.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/titleAM.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/titleAP.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/titleAR.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/titleAS.xpm
+-rw-r--r--	root/root	usr/share/icewm/themes/berryxp/titleAT.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/titleIB.xpm -> ./titleAB.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/titleIL.xpm -> ./titleAL.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/titleIM.xpm -> ./titleAM.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/titleIP.xpm -> ./titleAP.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/titleIR.xpm -> ./titleAR.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/titleIS.xpm -> ./titleAS.xpm
+lrwxrwxrwx	root/root	usr/share/icewm/themes/berryxp/titleIT.xpm -> ./titleAT.xpm

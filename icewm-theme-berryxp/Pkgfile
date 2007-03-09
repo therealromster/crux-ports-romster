@@ -1,0 +1,21 @@
+# Description: BerryXp is a port of the BerryXP them from the program StyleXP.
+# URL: http://icewm2.wz.cz/themes.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: icewm
+
+name=icewm-theme-berryxp
+version=1.3
+release=1
+source=(http://icewm2.wz.cz/themes/BerryXP-1.2.14-double-$version.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/icewm/themes/berryxp
+
+	cp -dpR BerryXP-1.2.14-double-$version/* \
+		$PKG/usr/share/icewm/themes/berryxp
+	
+	find $PKG/ -type f -exec chmod 644 {} \;
+	chmod 755 $PKG/usr/share/icewm/themes/berryxp/{icons,taskbar}
+}
+
