@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.5/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0-py2.5.egg-info
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0.1-py2.5.egg-info
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.pyc
@@ -274,6 +274,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/main.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/main.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/Fortran2003.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/Fortran2003.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/__init__.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/api.py
@@ -283,8 +285,6 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/block_statements.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/block_statements.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/doc.txt
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/expressions.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/expressions.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/parsefortran.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/parsefortran.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/pattern_tools.py
@@ -297,8 +297,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/splitline.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/statements.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/statements.pyc
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_expressions.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_expressions.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_Fortran2003.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_Fortran2003.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_parser.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/test_parser.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/f2py/lib/parser/typedecl_statements.py
@@ -350,6 +350,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/fft/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/fft/setup.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/fft/setup.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/fft/tests/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/fft/tests/test_fftpack.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/fft/tests/test_helper.py
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/lib/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/__init__.py
