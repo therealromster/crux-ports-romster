@@ -1,0 +1,22 @@
+# Description: BlueCrux is inspired by the Sawfish Crux theme. It is partially based on the Eazel-blue IceWM theme's pixmaps.
+# URL: http://themes.freshmeat.net/projects/bluecrux/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: icewm
+
+name=icewm-theme-bluecrux
+version=1.1
+release=1
+source=(http://themes.freshmeat.net/redir/bluecrux/30224/url_tgz/bluecrux-default-$version.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/icewm/themes/bluecrux
+
+	cp -dpR blueCrux/* \
+		$PKG/usr/share/icewm/themes/bluecrux
+	
+	find $PKG/ -type f -exec chmod 644 {} \;
+	chmod 755 $PKG/usr/share/icewm/themes/bluecrux/taskbar
+	rm $PKG/usr/share/icewm/themes/bluecrux/README
+}
+
