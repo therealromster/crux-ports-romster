@@ -1,0 +1,19 @@
+# Description: Is a tool that enables bash dynamic-like shared libraries. Actually its a tool for managing bash scripts that contain functions you may want to use in various scripts.
+# URL: http://sourceforge.net/projects/libbash/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=libbash
+version=0.9.10a
+release=1
+source=(http://dl.sourceforge.net/sourceforge/libbash/libbash-$version.tar.bz2)
+
+build() {
+	cd libbash-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+}
+
