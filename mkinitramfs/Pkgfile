@@ -7,7 +7,7 @@
 name=mkinitramfs
 version=0.9.9
 release=1
-source=(http://optusnet.dl.sourceforge.net/sourceforge/mkinitramfs/mkinitramfs-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/mkinitramfs/mkinitramfs-$version.tar.bz2)
 
 build() {
 	cd mkinitramfs-$version
