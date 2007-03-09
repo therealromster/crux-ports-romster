@@ -1,0 +1,18 @@
+# Description: Qt3 Bindings for D-Bus.
+# URL: http://www.freedesktop.org/wiki/Software_2fDBusBindings
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: dbus
+
+name=dbus-qt3
+version=0.6
+release=1
+source=(http://people.freedesktop.org/~krake/dbus-1-qt3/dbus-1-qt3-$version.tar.gz)
+
+build() {
+	cd dbus-1-qt3-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
