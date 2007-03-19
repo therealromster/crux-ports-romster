@@ -1,11 +1,11 @@
-# Description: a BitTorrent program for KDE
+# Description: A BitTorrent program for KDE.
 # URL: http://ktorrent.pwsp.net/
-# Maintainer: 
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
 # Depends on: kdebase
 
 name=ktorrent
-version=2.1
+version=2.1.2
 release=1
 source=(http://ktorrent.pwsp.net/downloads/$version/ktorrent-$version.tar.gz)
 
