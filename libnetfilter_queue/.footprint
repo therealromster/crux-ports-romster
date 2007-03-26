@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libnetfilter_queue/
+-rw-r--r--	root/root	usr/include/libnetfilter_queue/libipq.h
+-rw-r--r--	root/root	usr/include/libnetfilter_queue/libnetfilter_queue.h
+-rw-r--r--	root/root	usr/include/libnetfilter_queue/linux_nfnetlink_queue.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libnetfilter_queue.a
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_queue.la
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_queue.so -> libnetfilter_queue.so.1.1.0
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_queue.so.1 -> libnetfilter_queue.so.1.1.0
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_queue.so.1.1.0
+-rw-r--r--	root/root	usr/lib/libnetfilter_queue_libipq.a
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_queue_libipq.la
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_queue_libipq.so -> libnetfilter_queue_libipq.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_queue_libipq.so.1 -> libnetfilter_queue_libipq.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_queue_libipq.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libnetfilter_queue.pc

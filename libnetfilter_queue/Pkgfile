@@ -1,0 +1,18 @@
+# Description: API for packets queued by the kernel packet filter
+# URL: http://www.tw.netfilter.org/projects/libnetfilter_queue/index.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Nathan Pardoe, lithium at poolofrandomness dot com
+# Depends on: libnfnetlink
+
+name=libnetfilter_queue
+version=0.0.13
+release=1
+source=(http://www.tw.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-$version.tar.bz2)
+
+build () {
+    cd libnetfilter_queue-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}
+
