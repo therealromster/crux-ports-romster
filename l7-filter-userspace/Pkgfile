@@ -1,0 +1,19 @@
+# Description:	Packet classifier, regular expression matching on application layer data to determine what protocol is being used, pached iptables.
+# URL:		http://l7-filter.sourceforge.net/
+# Maintainer:	Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager:	Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on:	l7-protocols libnetfilter_conntrack libnetfilter_queue
+
+name=l7-filter-userspace
+version=0.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/l7-filter/l7-filter-userspace-v$version.tar.gz)
+
+build() {
+	cd l7-filter-userspace-v$version
+	./configure
+	sed -i -e 's|MANDIR=${PREFIX}/share/man/man1/|MANDIR=${PREFIX}/man/man1/|' Makefile
+	make PREFIX=/usr
+	make PREFIX=$PKG/usr install
+}
+
