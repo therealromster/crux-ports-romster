@@ -1,0 +1,34 @@
+# Description: Rules for L7 Filter.
+# URL: http://l7-filter.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on:
+
+name=l7-protocols
+version=2007-01-14
+release=1
+source=(http://dl.sourceforge.net/sourceforge/l7-filter/l7-protocols-$version.tar.gz)
+
+build() {
+	cd l7-protocols-$version
+	make PREFIX=$PKG/usr install
+
+	find $PKG \
+		-name CHANGELOG -delete -or \
+		-name HOWTO -delete -or \
+		-name LICENSE -delete -or \
+		-name Makefile -delete -or \
+		-name README -delete -or \
+		-name WANTED -delete
+
+	rm -r $PKG/usr/etc/l7-protocols/example_traffic
+
+	rm \
+		$PKG/usr/etc/l7-protocols/testing/{l7-parse-patterns.cpp,test_speed-userspace.cpp,doallspeeds.sh,l7-parse-patterns.h,test_speed-kernel.c,match-kernel.c} \
+		$PKG/usr/etc/l7-protocols/groups.sh \
+		$PKG/usr/etc/l7-protocols/testing/{randchars.c,timeit.sh,randprintable.c,test_match.sh} \
+		$PKG/usr/etc/l7-protocols/testing/regexp/{regsub.c,regmagic.h,regerror.c,regexp.c,regexp.h}
+
+	find $PKG -depth -empty -exec rm -rf {} \;
+}
+
