@@ -14,6 +14,7 @@ lrwxrwxrwx	root/root	usr/bin/lives -> /usr/bin/lives-exe
 -rwxr-xr-x	root/root	usr/bin/mng_encoder.py
 -rwxr-xr-x	root/root	usr/bin/mpeg_encoder.py
 -rwxr-xr-x	root/root	usr/bin/ogm_encoder.py
+-rwxr-xr-x	root/root	usr/bin/sendOSC
 -rwxr-xr-x	root/root	usr/bin/smogrify
 -rwxr-xr-x	root/root	usr/bin/theora_encoder.py
 drwxr-xr-x	root/root	usr/share/
@@ -104,6 +105,8 @@ drwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/rippleTV.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/rotozoom.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/simple_blend.wo
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/slide_over.wo
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/targetted_zoom.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/textfun.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/vertigo.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/warpTV.wo
