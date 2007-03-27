@@ -5,12 +5,12 @@
 # Depends on: faac imlib2 lame libdts libsdl libtheora libxvid x264
 
 name=ffmpeg
-version=r8260
+version=r8534
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/scm-ffmpeg-$version.tar.bz2)
+source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.bz2)
 
 build() {
-	cd scm-ffmpeg-$version
+	cd ffmpeg
 
 	unset CFLAGS CXXFLAGS
 

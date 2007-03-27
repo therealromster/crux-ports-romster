@@ -10,6 +10,7 @@ drwxr-xr-x	root/root	usr/include/ffmpeg/
 -rw-r--r--	root/root	usr/include/ffmpeg/avformat.h
 -rw-r--r--	root/root	usr/include/ffmpeg/avio.h
 -rw-r--r--	root/root	usr/include/ffmpeg/avutil.h
+-rw-r--r--	root/root	usr/include/ffmpeg/base64.h
 -rw-r--r--	root/root	usr/include/ffmpeg/common.h
 -rw-r--r--	root/root	usr/include/ffmpeg/fifo.h
 -rw-r--r--	root/root	usr/include/ffmpeg/integer.h
@@ -18,6 +19,7 @@ drwxr-xr-x	root/root	usr/include/ffmpeg/
 -rw-r--r--	root/root	usr/include/ffmpeg/lzo.h
 -rw-r--r--	root/root	usr/include/ffmpeg/mathematics.h
 -rw-r--r--	root/root	usr/include/ffmpeg/md5.h
+-rw-r--r--	root/root	usr/include/ffmpeg/mem.h
 -rw-r--r--	root/root	usr/include/ffmpeg/opt.h
 -rw-r--r--	root/root	usr/include/ffmpeg/random.h
 -rw-r--r--	root/root	usr/include/ffmpeg/rational.h
@@ -29,15 +31,15 @@ drwxr-xr-x	root/root	usr/include/ffmpeg/
 drwxr-xr-x	root/root	usr/include/postproc/
 -rw-r--r--	root/root	usr/include/postproc/postprocess.h
 drwxr-xr-x	root/root	usr/lib/
-lrwxrwxrwx	root/root	usr/lib/libavcodec.so -> libavcodec.so.51.38.0
-lrwxrwxrwx	root/root	usr/lib/libavcodec.so.51 -> libavcodec.so.51.38.0
--rwxr-xr-x	root/root	usr/lib/libavcodec.so.51.38.0
-lrwxrwxrwx	root/root	usr/lib/libavformat.so -> libavformat.so.51.10.0
-lrwxrwxrwx	root/root	usr/lib/libavformat.so.51 -> libavformat.so.51.10.0
--rwxr-xr-x	root/root	usr/lib/libavformat.so.51.10.0
-lrwxrwxrwx	root/root	usr/lib/libavutil.so -> libavutil.so.49.3.0
-lrwxrwxrwx	root/root	usr/lib/libavutil.so.49 -> libavutil.so.49.3.0
--rwxr-xr-x	root/root	usr/lib/libavutil.so.49.3.0
+lrwxrwxrwx	root/root	usr/lib/libavcodec.so -> libavcodec.so.51.40.2
+lrwxrwxrwx	root/root	usr/lib/libavcodec.so.51 -> libavcodec.so.51.40.2
+-rwxr-xr-x	root/root	usr/lib/libavcodec.so.51.40.2
+lrwxrwxrwx	root/root	usr/lib/libavformat.so -> libavformat.so.51.11.0
+lrwxrwxrwx	root/root	usr/lib/libavformat.so.51 -> libavformat.so.51.11.0
+-rwxr-xr-x	root/root	usr/lib/libavformat.so.51.11.0
+lrwxrwxrwx	root/root	usr/lib/libavutil.so -> libavutil.so.49.4.0
+lrwxrwxrwx	root/root	usr/lib/libavutil.so.49 -> libavutil.so.49.4.0
+-rwxr-xr-x	root/root	usr/lib/libavutil.so.49.4.0
 lrwxrwxrwx	root/root	usr/lib/libpostproc.so -> libpostproc.so.51.1.0
 lrwxrwxrwx	root/root	usr/lib/libpostproc.so.51 -> libpostproc.so.51.1.0
 -rwxr-xr-x	root/root	usr/lib/libpostproc.so.51.1.0
