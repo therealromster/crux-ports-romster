@@ -9,7 +9,7 @@
 # Category:	library
 
 name=librdf
-version=1.4.14
+version=1.4.15
 release=1
 source=(http://download.librdf.org/source/raptor-$version.tar.gz)
 
