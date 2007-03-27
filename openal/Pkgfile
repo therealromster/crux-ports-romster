@@ -1,21 +1,25 @@
-# $Id:
 # Description: Cross-platform 3D audio API (snapshot).
 # URL: http://openal.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Han Boetes <han@mijncomputer.nl>
-# Depends on: alsa-lib
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: alsa-lib libvorbis libsdl
 
 name=openal
-version=r1415
+version=r1426
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/scm-$name-$version.tar.bz2)
+source=(http://romster.shortcircuit.net.au/crux/source/openal-snapshot-$version.tar.bz2)
 
 build() {
-	cd scm-$name-$version
-	./autogen.sh
-	./configure --prefix=/usr
-	sed -i -e 's|^DESTDIR.*|# &|' Makefile
-	make && make install DESTDIR=$PKG
-	chown -R root:root $PKG
+	cd openal
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-oss \
+		--with-gnu-ld
+
+	#sed -i -e 's|^DESTDIR.*|# &|' Makefile
+	make
+	make DESTDIR=$PKG install
 }
 
