@@ -1,0 +1,19 @@
+# Description: Recover lost partitions. 
+# URL: http://www.cgsecurity.org/wiki/TestDisk
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Hannes Mayer, kontakt at ecarux dot de
+# Depends on: ntfsprogs
+
+name=testdisk
+version=6.6
+release=1
+source=(http://www.cgsecurity.org/testdisk-$version.tar.bz2)
+
+build() {
+	cd testdisk-$version
+	./configure --prefix=/usr 
+        make 
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+
