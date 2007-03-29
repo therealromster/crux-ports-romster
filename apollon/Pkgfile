@@ -1,0 +1,24 @@
+# Description: A KDE giFT client.
+# URL: http://apollon.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs gift-openft gift-gnutella gift-fasttrack gift-ares
+
+name=apollon
+version=1.0.2.1
+release=2
+source=(http://dl.sourceforge.net/sourceforge/apollon/apollon-$version.tar.bz2)
+
+build() {
+	cd apollon-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-debug
+
+	make
+	make DESTDIR=$PKG install
+	find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+		! -wholename "*locale/en*" -delete
+}
+
