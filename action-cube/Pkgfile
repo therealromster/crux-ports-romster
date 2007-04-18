@@ -2,7 +2,7 @@
 # URL: http://action.cubers.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: x11, mesa3d, sdl_mixer, sdl_image
+# Depends on: xorg sdl_mixer sdl_image enet
 
 name=action-cube
 version=0.92

@@ -1,8 +1,8 @@
 # Description: An avdanced drum machine for GNU/Linux.
-# URL: http://hydrogen.sf.net
+# URL: http://www.hydrogen-music.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: qt3 libsndfile liblrdf flac jack alsa-lib
+# Depends on: qt3 libsndfile liblrdf flac jack-audio-connection-kit alsa-lib
 
 name=hydrogen
 version=0.9.3

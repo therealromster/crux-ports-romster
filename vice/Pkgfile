@@ -5,12 +5,12 @@
 # Depends on: xorg
 
 name=vice
-version=1.20
+version=1.21
 release=1
 source=(http://www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd vice-$version
 
 	CFLAGS="${CFLAGS//-O?/-O3}" CXXFLAGS="${CXXFLAGS//-O?/-O3}" \
 		./configure \
@@ -20,8 +20,7 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	rm -r \
-		$PKG/usr/lib/vice/doc \
-		$PKG/usr/info
+	rm -r $PKG/usr/lib/vice/doc
+	rm -rf $PKG/usr/info
 }
 

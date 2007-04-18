@@ -1,4 +1,3 @@
-# $Id: 
 # Description: Vavoom is a source port based on sources of Doom, Heretic, Hexen and a little bit from Quake.
 # URL: http://www.vavoom-engine.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -13,10 +12,10 @@ name=vavoom
 version=1.22
 release=1
 local upx=yes
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/vavoom/vavoom-$version.tar.bz2)
 
 build() {
-	cd $name-$version
+	cd vavoom-$version
 	local version_gcc="$(gcc -v 2>&1 | grep version | sed 's/gcc version \([.0-9]*\) (CRUX)/\1/')"
 	LDFLAGS="-L/usr/include/c++/$version_gcc/"
 
@@ -30,14 +29,13 @@ build() {
 		--with-mikmod \
 		--with-flac
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 
 	if [ -f '/usr/bin/upx' ] && [ "$upx" = 'yes' ]; then
 		find $PKG/usr/bin/ \
 			-name 'vavoom-dedicated.i686' -or \
 			-name 'vavoom.i686' | xargs upx
 	fi
-
-	chown -R root:root $PKG
 }
 

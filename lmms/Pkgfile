@@ -3,20 +3,20 @@
 # URL: http://lmms.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jose V Beneyto, <joberui@ei.upv.es>
-# Depends on: x11, qt3, sdl_sound, libsamplerate, audacity-old-effects-vst, jack, flac, libvorbis, ladspa
+# Depends on: xorg qt3 sdl_sound libsamplerate audacity-old-effects-vst jack-audio-connection-kit flac libvorbis ladspa
 
-# Recommended:	jack, audacity-old-effects-vst
-# Optional:	libsndfile, libvorbis, flac
-# Category:	audio, audio midi, audio synthesizer, audio sampler
+# Recommended:	audacity-old-effects-vst
+# Optional:	libsndfile libvorbis flac
+# Category:	audio audio:midi audio:synthesizer audio:sampler
 
 name=lmms
 version=0.2.1
 release=2
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2 \
-	$name-32x32.png $name.desktop)
+source=(http://dl.sourceforge.net/sourceforge/lmms/lmms-$version.tar.bz2 \
+	lmms-32x32.png lmms.desktop)
 
 build() {
-	cd $name-$version
+	cd lmms-$version
 
 	./configure \
 		LDFLAGS="$LDFLAGS -L/usr/lib" \
@@ -29,13 +29,13 @@ build() {
 		--without-oss \
 		--without-sdlsound
 
-  	make && make DESTDIR=$PKG install
+  	make
+	make DESTDIR=$PKG install
 	 
   	#find $PKG/usr/share/lmms/locale/ -type f -prune ! -name '*en.qm' | xargs rm -fr
   	rm -r $PKG/usr/share/lmms/locale
 
-	install -D -m644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
-	install -D -m644 $SRC/$name-32x32.png $PKG/usr/share/icons/crystalsvg/32x32/apps/$name.png
-	chown -R root:root $PKG
+	install -D -m644 $SRC/lmms.desktop $PKG/usr/share/applications/lmms.desktop
+	install -D -m644 $SRC/lmms-32x32.png $PKG/usr/share/icons/crystalsvg/32x32/apps/lmms.png
 }
 

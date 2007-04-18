@@ -1,12 +1,12 @@
 # Description: IO::Compress::Zlib - Write gzip files/buffers.
-# URL: http://search.cpan.org/~pmqs/IO-Compress-Zlib-2.001/
+# URL: http://search.cpan.org/~pmqs/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: 
 
 
-name=p5-io-compress-gzip
-version=2.001
+name=p5-io-compress-zlib
+version=2.004
 release=1
 source=(http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/IO-Compress-Zlib-$version.tar.gz)
 
@@ -19,12 +19,12 @@ build() {
 
 	# Remove perlcrap
 	find $PKG \
-		-name '.packlist' -delete -or \
-		-name '*.bs' -delete -or \
-		-name 'autosplit.ix' -delete -or \
-		-name 'perllocal.pod' -delete
+		\( -name '.packlist' -or \
+		-name '*.bs' -or \
+		-name 'autosplit.ix' -or \
+		-name 'perllocal.pod' \) -delete
 
 	# Remove empty directories
-	find $PKG -depth -empty -exec rm -rf {} \;
+	find $PKG -depth -empty -delete
 }
 

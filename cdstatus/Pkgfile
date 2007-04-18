@@ -1,18 +1,18 @@
-# $Id: 
 # Description: Tool for diagnosing cdrom drive and cd problems, is also a cd ripper that can read every frame of the cd, one frame at a time.
 # URL: http://cdstatus.sourceforge.net/
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
 name=cdstatus
 version=0.96.05
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/cdstatus/cdstatus-$version.tar.bz2)
 
-build () {
-	cd $name-$version
+build() {
+	cd cdstatus-$version
 	./configure --prefix=/usr
-	make && make prefix=$PKG/usr install
-	chown -R root:root $PKG
+	make
+	make prefix=$PKG/usr install
 }
+

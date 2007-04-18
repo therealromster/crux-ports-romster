@@ -1,9 +1,8 @@
-# $Id: 
 # Description: Python Robotics.
 # URL: http://pyrorobotics.org/
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: python, swig, pil, numeric
+# Depends on: python swig pil numeric
 
 # Recommended:	pygtk
 # Optional:	
@@ -16,30 +15,26 @@ release=1
 source=(http://pyrorobotics.org/tars/pyro-$version.tgz)
 
 build() {
-	mkdir -p $PKG/usr/{bin,include/python/}
+	install -d $PKG/usr/{bin,include/python/}
 	cp -R $name $PKG/usr/include/python/
-	cd $PKG/usr/include/python/$name
+	cd $PKG/usr/include/python/pyro
 	
 	# bypass the configuration questions as there set below.
-	touch $PKG/usr/include/python/$name/Makefile.cfg
+	touch $PKG/usr/include/python/pyro/Makefile.cfg
 	
 	# set the options
 	PYTHON_BIN=/usr/bin/python \
 	PYTHON_INCLUDE=-I/usr/include/python \
-	X11_DIR=/usr/X11R6 \
+	X11_DIR=/usr/lib \
 	CONFIGDIRS="vision/cvision camera/v4l camera/fake brain/psom brain/psom/csom_src/som_pak-dev simulators/khepera" \
-	make # make and install
+	make -j1 # make and install
 	
 	# remove cruft
 	rm {.#Makefile.1.37,Makefile,Makefile.*,README}
+	rm $PKG/usr/include/python/pyro/tools/{cluster,pilfonts}/README
 
 	# link to binarys
 	ln -sf usr/include/python/pyro/bin/ipyro $PKG/usr/bin/ipyro
 	ln -sf usr/include/python/pyro/bin/pyro $PKG/usr/bin/pyro
-
-	rm $PKG/usr/include/python/pyro/tools/{cluster,pilfonts}/README
-	
-	# really make sure all files are owned by root! (paranoid :)
-	chown -R root:root $PKG
 }
 

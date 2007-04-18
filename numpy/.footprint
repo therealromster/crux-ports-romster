@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.5/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0.1-py2.5.egg-info
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy-1.0.2-py2.5.egg-info
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/__config__.pyc
@@ -66,15 +66,12 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/core/include/numpy/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_defmatrix.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_errstate.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_ma.orig
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_ma.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_multiarray.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_numeric.orig
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_numeric.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_numerictypes.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_records.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_regression.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_reshape.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_scalarmath.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_umath.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/core/tests/test_unicode.py
@@ -183,7 +180,6 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/distutils/fcompiler/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/distutils/misc_util.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/distutils/setup.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/distutils/setup.pyc
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/distutils/site.cfg
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/distutils/system_info.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/distutils/system_info.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/distutils/tests/
@@ -380,14 +376,12 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/lib/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/shape_base.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_arraysetops.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_function_base.orig
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_function_base.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_getlimits.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_index_tricks.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_polynomial.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_shape_base.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_twodim_base.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_type_check.orig
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_type_check.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/tests/test_ufunclike.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/lib/twodim_base.py
@@ -470,6 +464,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/alter_code2.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/array_printer.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/array_printer.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/arrayfns.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/arrayfns.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/compat.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/compat.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/numpy/oldnumeric/fft.py

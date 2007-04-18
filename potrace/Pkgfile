@@ -1,11 +1,11 @@
 # Description: Transforming bitmaps into vector graphics.
 # URL: http://potrace.sourceforge.net
-# Maintainer:  Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Simone Rota, sip at varlock dot com
 # Depends on: 
 
 name=potrace
-version=1.7
+version=1.8
 release=1
 source=(http://potrace.sourceforge.net/download/potrace-$version.tar.gz)
 

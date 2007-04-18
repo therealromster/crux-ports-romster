@@ -2,10 +2,10 @@
 # URL: http://ffmpeg.mplayerhq.hu/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: faac imlib2 lame libdts libsdl libtheora libxvid x264
+# Depends on: liba52 faac imlib2 lame libsdl libtheora libxvid x264
 
 name=ffmpeg
-version=r8534
+version=r8712
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.bz2)
 
@@ -16,10 +16,8 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--enable-libdts \
 		--enable-liba52 \
 		--enable-liba52bin \
-		--enable-libdts \
 		--enable-libfaac \
 		--enable-libfaad \
 		--enable-libfaadbin \
@@ -43,6 +41,7 @@ build() {
 		--cpu=$(uname -p)
 	
 	make
-	make DESTDIR=$PKG install
+	make -C doc ffmpeg.1 ffserver.1 ffplay.1
+	make DESTDIR=$PKG install install-man
 }
 

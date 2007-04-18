@@ -1,17 +1,18 @@
-# $Id: 
 # Description: Multipexes up to 8 mono channels into a multi channel wave file.
 # URL: http://www.ibiblio.org/pub/linux/apps/video/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
 name=multimux
-version=0.2.4
+version=0.2.5
 release=1
 source=(http://www.ibiblio.org/pub/linux/apps/video/multimux-$version.tgz)
 
-build () {
-	cd $name-$version
+build() {
+	cd multimux-$version
 	make
-	install -D -m755 -groot -oroot $name $PKG/usr/bin/$name
+	install -D -m755 multimux $PKG/usr/bin/multimux
+	install -D -m644 multimux.h $PKG/include/multimux.h
 }
+

@@ -1,4 +1,4 @@
-# Description: Linux avi libary and utils (video stuff)
+# Description: Linux avi library and utils (video stuff).
 # URL: http://avifile.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
@@ -20,7 +20,6 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-
-	rm -r $PKG/usr/share/avifile-0.7/doc
+	rm -r $PKG/usr/share/avifile-${version%.*}/doc
 }
 

@@ -85,7 +85,12 @@ setup_image() {
     init
 
    	echo 'setting up environment type: CD image.'
-	mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
+    if [ -f "$SAFE_BUILD_CD_IMAGE.iso" ]; then
+        mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
+    else
+        echo "Can not find $SAFE_BUILD_CD_IMAGE.iso"
+        exit 1
+    fi
 	
     ###########################################################################
 
@@ -339,24 +344,22 @@ backup_ports() {
 
     echo -n 'Backing up ports'
     
+    # backup built packages
     cd "$SAFE_BUILD_DIR/usr/ports/packages"
     for file in *; do
-    
         if [ ! -f "/usr/share/safe-build/packages/$file" ]; then
             ln "$SAFE_BUILD_DIR/usr/ports/packages/$file" "/usr/share/safe-build/packages/"
             echo -n '.'
         fi
-
     done
-    
+
+    # hardlink downloaded source files    
     cd "$SAFE_BUILD_DIR/usr/ports/distfiles"
     for file in *; do
-    
         if [ ! -f "/usr/ports/distfiles/$file" ]; then
             ln "$SAFE_BUILD_DIR/usr/ports/distfiles/$file" "/usr/ports/distfiles/"
             echo -n '.'
         fi
-
     done
     
     echo ''
@@ -486,8 +489,8 @@ SAFE_BUILD_CDIMAGE_PACKAGES_INSTALL_XORG='no'
 [ -f '/etc/safe-build.conf' ] && . /etc/safe-build.conf
 
 [ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'
-[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/var/crux-2.2'
-[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_PORTS_TREE='core opt contrib'
+[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/var/crux-2.3'
+[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_PORTS_TREE='core opt contrib xorg'
 
 main "$@"
 

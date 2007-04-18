@@ -1,12 +1,11 @@
-# $Id:
 # Description: Wrapper for chroot, to build ports in a safe environment on CRUX.
 # URL: http://romster.shortcircuit.net.au/crux/projects/build-safe/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
 name=safe-build
-version=0.0.0-alpha-29
+version=0.0.0-alpha-31
 release=1
 source=($name.in $name.conf)
 
@@ -19,6 +18,5 @@ build() {
 	install -d $PKG/usr/share/safe-build/packages
 	install -D -m755 $name.in $PKG/usr/sbin/$name
 	install -D -m644 $name.conf $PKG/etc/$name.conf
-	chown -R root:root $PKG
 }
 

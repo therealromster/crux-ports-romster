@@ -1,8 +1,7 @@
-# $Id:
 # Description: SQL for Shell Scripts.
 # URL: http://www.edlsystems.com/shellsql/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri, ycrux at club-internet dot fr
 # Depends on:
 
 # Recommended:	sqlite3, mysql
@@ -12,12 +11,12 @@
 # Depends on note:	You need atleast one database installed to use this.
 
 name=shellsql
-version=0.7.6
+version=0.7.7
 release=1
 source=(ftp://ftp.edlsystems.com/$name/$name-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd shellsql-$version
 	install -d $PKG/usr/bin
 	sed -i "s|BINDIR=/usr/bin|BINDIR=$PKG/usr/bin|" install.sh
 
@@ -28,5 +27,5 @@ build() {
 	[ -n $(pkginfo -i|grep odbc) ] || PORT_CONFIG_ARGS+="odbc "
 	
 	./install.sh $PORT_CONFIG_ARGS
-	chown -R root:root $PKG
 }
+

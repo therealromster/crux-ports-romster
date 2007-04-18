@@ -5,7 +5,7 @@
 # Depends on:   
 
 name=libfmod4
-version=4.06.11
+version=4.06.14
 release=1
 source=(http://www.fmod.org/files/fmodapi${version//./}linux.tar.gz)
 

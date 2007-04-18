@@ -1,23 +1,22 @@
-# $Id: 
 # Description: Checkmate is a set of programs which scan MP3 files for errors.
 # URL: http://checkmate.linuxonly.nl/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
 name=checkmate
 version=0.15
 release=1
-source=(http://$name.linuxonly.nl/$name-$version.tar.gz)
+source=(http://checkmate.linuxonly.nl/checkmate-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd checkmate-$version
 
 	./configure \
 		--prefix=/usr \
 		--datarootdir=/usr
 
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
 

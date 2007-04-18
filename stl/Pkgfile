@@ -16,6 +16,9 @@ source=(http://www.sgi.com/tech/stl/stl.tar.gz)
 
 build() {
 	install -d $PKG/usr/include
+	#sed -i \
+	#	-e 's|^#include <new.h>$|#include </c++/4.1.2/backward/new.h>|' \
+	#	-e 's|^#include <iostream.h>$|#include </c++/4.1.2/backward/iostream.h>|' stl_algobase.h
 	mv * $PKG/usr/include/
 	cd $PKG/usr/include
 	chmod -R 644 *

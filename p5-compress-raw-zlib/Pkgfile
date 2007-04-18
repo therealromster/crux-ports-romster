@@ -1,12 +1,12 @@
 # Description: Compress::Raw::Zlib - Low-Level Interface to zlib compression library.
-# URL: http://search.cpan.org/~pmqs/Compress-Raw-Zlib-2.001/
+# URL: http://search.cpan.org/~pmqs/Compress-Raw-Zlib-2.004/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: 
 
 
 name=p5-compress-raw-zlib
-version=2.001
+version=2.004
 release=1
 source=(http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/Compress-Raw-Zlib-$version.tar.gz)
 
@@ -19,12 +19,12 @@ build() {
 
 	# Remove perlcrap
 	find $PKG \
-		-name '.packlist' -delete -or \
-		-name '*.bs' -delete -or \
-		-name 'autosplit.ix' -delete -or \
-		-name 'perllocal.pod' -delete
+		\( -name '.packlist' -or \
+		-name '*.bs' -or \
+		-name 'autosplit.ix' -or \
+		-name 'perllocal.pod' \) -delete
 
 	# Remove empty directories
-	find $PKG -depth -empty -exec rm -rf {} \;
+	find $PKG -depth -empty -delete
 }
 

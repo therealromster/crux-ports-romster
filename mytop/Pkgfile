@@ -1,31 +1,28 @@
-# $Id:
 # Description: A 'top' clone for MySQL.
 # URL: http://jeremy.zawodny.com/mysql/mytop/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Stoyan Zhekov <zhware@hotpop.com>
-# Depends on: perl, p5-dbd-mysql, p5-term-readkey, p5-term-ansicolor
+# Packager: Stoyan Zhekov, zhware at hotpop dot com
+# Depends on: perl p5-dbd-mysql p5-term-readkey p5-term-ansicolor
 
 name=mytop
-version=1.4
+version=1.6
 release=1
-source=(http://jeremy.zawodny.com/mysql/$name/$name-$version.tar.gz)
+source=(http://jeremy.zawodny.com/mysql/mytop/mytop-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd mytop-$version
 	perl Makefile.PL
 	make OPTIMIZE="$CFLAGS"
 	make DESTDIR=$PKG install
 
 	# Remove perlcrap
 	find $PKG \
-		-name '.packlist' -or \
+		\( -name '.packlist' -or \
 		-name '*.bs' -or \
 		-name 'autosplit.ix' -or \
-		-name 'perllocal.pod' | xargs rm
+		-name 'perllocal.pod' \) -delete
 
 	# Remove empty directories
-	find $PKG -depth -empty -exec rm -rf {} \;
-
-	chown -R root:root $PKG
+	find $PKG -depth -empty -delete
 }
 

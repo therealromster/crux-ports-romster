@@ -111,6 +111,7 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/help/en/
 -rw-r--r--	root/root	usr/share/lincity-ng/help/en/msb-pol.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/en/msb-power.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/en/msb-starve.xml
+-rw-r--r--	root/root	usr/share/lincity-ng/help/en/msb-transport.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/en/msb-ub40.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/en/ore.xml
 -rw-r--r--	root/root	usr/share/lincity-ng/help/en/oremine.xml
@@ -661,13 +662,13 @@ drwxr-xr-x	root/root	usr/share/lincity-ng/locale/gui/
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/de.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/es.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/fr.po
--rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/messages.pot
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/nl.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/pl.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/pt.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/gui/sv.po
--rw-r--r--	root/root	usr/share/lincity-ng/locale/messages.pot
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/nl.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/pl.po
+-rw-r--r--	root/root	usr/share/lincity-ng/locale/pt.po
 -rw-r--r--	root/root	usr/share/lincity-ng/locale/sv.po
 drwxr-xr-x	root/root	usr/share/lincity-ng/music/
 -rw-r--r--	root/root	usr/share/lincity-ng/music/01 - pronobozo - lincity.ogg

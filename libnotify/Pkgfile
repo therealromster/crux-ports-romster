@@ -1,17 +1,21 @@
 # Description: Libary for Galago.
 # URL: http://galago-project.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: dbus-glib
 
 name=libnotify
-version=0.4.3
+version=0.4.4
 release=1
 source=(http://galago-project.org/files/releases/source/libnotify/libnotify-$version.tar.gz)
 
 build() {
-	cd $name-$version
-	./configure --prefix=/usr
+	cd libnotify-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
 	make
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/gtk-doc

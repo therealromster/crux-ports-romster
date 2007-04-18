@@ -2,10 +2,10 @@
 # URL: http://search.cpan.org/~rcaputo/POE/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: p5-event, p5-compress-zlib
+# Depends on: p5-event p5-compress-raw-zlib
 
 name=poe
-version=0.9917
+version=0.9989
 release=1
 source=(http://search.cpan.org/CPAN/authors/id/R/RC/RCAPUTO/POE-$version.tar.gz)
 
@@ -16,7 +16,7 @@ build() {
 	make DESTDIR=$PKG install
 
 	find $PKG -type f \
-		-name 'perllocal.pod' -delete -or \
-		-name '.packlist' -delete
+		\( -name 'perllocal.pod' -or \
+		-name '.packlist' \) -delete
 }
 

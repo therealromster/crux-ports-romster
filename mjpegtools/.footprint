@@ -26,7 +26,6 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/png2yuv
 -rwxr-xr-x	root/root	usr/bin/pnmtoy4m
 -rwxr-xr-x	root/root	usr/bin/ppmtoy4m
--rwxr-xr-x	root/root	usr/bin/qttoy4m
 -rwxr-xr-x	root/root	usr/bin/testrec
 -rwxr-xr-x	root/root	usr/bin/transist.flt
 -rwxr-xr-x	root/root	usr/bin/y4mblack
@@ -40,7 +39,6 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/y4mstabilizer
 -rwxr-xr-x	root/root	usr/bin/y4mtopnm
 -rwxr-xr-x	root/root	usr/bin/y4mtoppm
--rwxr-xr-x	root/root	usr/bin/y4mtoqt
 -rwxr-xr-x	root/root	usr/bin/y4mtoyuv
 -rwxr-xr-x	root/root	usr/bin/y4munsharp
 -rwxr-xr-x	root/root	usr/bin/ypipe
@@ -75,11 +73,13 @@ drwxr-xr-x	root/root	usr/include/mjpegtools/mpeg2enc/
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/elemstrmwriter.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/encoderparams.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/encodertypes.h
+-rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/imageplanes.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/macroblock.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/mpeg2coder.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/mpeg2encoder.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/mpeg2encoptions.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/mpeg2encparams.h
+-rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/mpeg2syntaxcodes.h
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/ontheflyratectl.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/pass1ratectl.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/pass2ratectl.hh
@@ -115,37 +115,30 @@ drwxr-xr-x	root/root	usr/include/mjpegtools/mplex/
 drwxr-xr-x	root/root	usr/lib/
 lrwxrwxrwx	root/root	usr/lib/liblavfile-1.9.so.0 -> liblavfile-1.9.so.0.1.1
 -rwxr-xr-x	root/root	usr/lib/liblavfile-1.9.so.0.1.1
--rw-r--r--	root/root	usr/lib/liblavfile.a
 -rwxr-xr-x	root/root	usr/lib/liblavfile.la
 lrwxrwxrwx	root/root	usr/lib/liblavfile.so -> liblavfile-1.9.so.0.1.1
 lrwxrwxrwx	root/root	usr/lib/liblavjpeg-1.9.so.0 -> liblavjpeg-1.9.so.0.1.1
 -rwxr-xr-x	root/root	usr/lib/liblavjpeg-1.9.so.0.1.1
--rw-r--r--	root/root	usr/lib/liblavjpeg.a
 -rwxr-xr-x	root/root	usr/lib/liblavjpeg.la
 lrwxrwxrwx	root/root	usr/lib/liblavjpeg.so -> liblavjpeg-1.9.so.0.1.1
 lrwxrwxrwx	root/root	usr/lib/liblavplay-1.9.so.0 -> liblavplay-1.9.so.0.1.1
 -rwxr-xr-x	root/root	usr/lib/liblavplay-1.9.so.0.1.1
--rw-r--r--	root/root	usr/lib/liblavplay.a
 -rwxr-xr-x	root/root	usr/lib/liblavplay.la
 lrwxrwxrwx	root/root	usr/lib/liblavplay.so -> liblavplay-1.9.so.0.1.1
 lrwxrwxrwx	root/root	usr/lib/liblavrec-1.9.so.0 -> liblavrec-1.9.so.0.1.1
 -rwxr-xr-x	root/root	usr/lib/liblavrec-1.9.so.0.1.1
--rw-r--r--	root/root	usr/lib/liblavrec.a
 -rwxr-xr-x	root/root	usr/lib/liblavrec.la
 lrwxrwxrwx	root/root	usr/lib/liblavrec.so -> liblavrec-1.9.so.0.1.1
 lrwxrwxrwx	root/root	usr/lib/libmjpegutils-1.9.so.0 -> libmjpegutils-1.9.so.0.1.1
 -rwxr-xr-x	root/root	usr/lib/libmjpegutils-1.9.so.0.1.1
--rw-r--r--	root/root	usr/lib/libmjpegutils.a
 -rwxr-xr-x	root/root	usr/lib/libmjpegutils.la
 lrwxrwxrwx	root/root	usr/lib/libmjpegutils.so -> libmjpegutils-1.9.so.0.1.1
 lrwxrwxrwx	root/root	usr/lib/libmpeg2encpp-1.9.so.0 -> libmpeg2encpp-1.9.so.0.1.1
 -rwxr-xr-x	root/root	usr/lib/libmpeg2encpp-1.9.so.0.1.1
--rw-r--r--	root/root	usr/lib/libmpeg2encpp.a
 -rwxr-xr-x	root/root	usr/lib/libmpeg2encpp.la
 lrwxrwxrwx	root/root	usr/lib/libmpeg2encpp.so -> libmpeg2encpp-1.9.so.0.1.1
 lrwxrwxrwx	root/root	usr/lib/libmplex2-1.9.so.0 -> libmplex2-1.9.so.0.1.1
 -rwxr-xr-x	root/root	usr/lib/libmplex2-1.9.so.0.1.1
--rw-r--r--	root/root	usr/lib/libmplex2.a
 -rwxr-xr-x	root/root	usr/lib/libmplex2.la
 lrwxrwxrwx	root/root	usr/lib/libmplex2.so -> libmplex2-1.9.so.0.1.1
 drwxr-xr-x	root/root	usr/lib/pkgconfig/

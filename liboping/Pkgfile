@@ -5,7 +5,7 @@
 # Depends on:
 
 name=liboping
-version=0.3.4
+version=0.3.5
 release=1
 source=(http://verplant.org/liboping/files/liboping-$version.tar.bz2)
 
@@ -17,5 +17,6 @@ build() {
 		--mandir=/usr/man \
 		--disable-static
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 }

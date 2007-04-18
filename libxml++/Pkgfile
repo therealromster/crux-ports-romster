@@ -2,10 +2,10 @@
 # URL:         http://libxmlplusplus.sourceforge.net/
 # Maintainer:  Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager:    Han Boetes, han at mijncomputer dot nl
-# Depends on:  glibmm, libxml2
+# Depends on:  glibmm libxml2
 
 name=libxml++
-version=2.17.2
+version=2.18.0
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/libxml++/${version%.*}/libxml++-$version.tar.bz2)
 
@@ -14,7 +14,8 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--disable-nls
+		--disable-nls \
+		--disable-static
 
 	make
 	make DESTDIR=$PKG install
