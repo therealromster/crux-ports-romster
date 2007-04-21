@@ -16,9 +16,11 @@ build() {
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--libexecdir=/usr/lib \
-		--disable-gtk
+		--disable-gtk \
+		--disable-nls
 
-    make
-    make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
+	
 }
 
