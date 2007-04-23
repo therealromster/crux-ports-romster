@@ -240,6 +240,16 @@ drwxr-xr-x	root/root	usr/include/c++/3.4.6/i686-pc-linux-gnu/bits/stdc++.h.gch/
 -rw-r--r--	root/root	usr/include/c++/3.4.6/valarray
 -rw-r--r--	root/root	usr/include/c++/3.4.6/vector
 drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ccache/
+lrwxrwxrwx	root/root	usr/lib/ccache/c++-3.4 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/cc-3.4 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/g++-3.4 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/gcc-3.4 -> ../../bin/ccache
+drwxr-xr-x	root/root	usr/lib/distcc/
+lrwxrwxrwx	root/root	usr/lib/distcc/c++-3.4 -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/cc-3.4 -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/g++-3.4 -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/gcc-3.4 -> ../../bin/distcc
 drwxr-xr-x	root/root	usr/lib/gcc/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/
@@ -254,13 +264,11 @@ drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/crtendS.o
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.0.3/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.0.3/etc/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.0.3/etc/c/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.0.3/etc/c/zlib/
--rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.0.3/etc/c/zlib/zutil.h
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/dbm/
--rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/dbm/ncompat.h
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/c/
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/c/zlib/
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/c/zlib/zutil.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/emmintrin.h
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/firefox/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/firefox/dbm/
