@@ -1,0 +1,24 @@
+# Description: A powerful open source sequencer engine written in C++.
+# URL: http://tse3.sourceforge.net/
+# Maintainer:  Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Diederick de Vries, diederick at diederickdevries dot net
+# Depends on: gcc34
+
+name=tse3
+version=0.3.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/tse3/tse3-$version.tar.gz)
+
+build() {
+	export CC='gcc-3.4' CXX='g++-3.4'
+	cd tse3-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make -j1
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/doc
+}
+
