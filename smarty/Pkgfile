@@ -1,0 +1,17 @@
+# Description: Template engine for PHP.
+# URL: http://smarty.php.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=smarty
+version=2.6.18
+release=1
+source=(http://smarty.php.net/do_download.php?download_file=Smarty-$version.tar.gz)
+
+build() {
+	cd Smarty-$version
+	install -d $PKG/usr/lib/php/Smarty
+	cp -r libs/* $PKG/usr/lib/php/Smarty
+}
+
