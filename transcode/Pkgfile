@@ -5,7 +5,7 @@
 # Depends on: ffmpeg glib imagemagick libavifile libdv libdvdread libfame mjpegtools mpeg2dec mplayer
 
 name=transcode
-version=20070327
+version=20070429
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/transcode-snapshot-$version.tar.bz2 \
 	http://dl.sourceforge.net/subtitleripper/subtitleripper-0.3-4.tgz)
