@@ -1,0 +1,24 @@
+diff -Nru ctypes-1.0.1.orig/setup.py ctypes-1.0.1/setup.py
+--- ctypes-1.0.1.orig/setup.py	2007-03-16 20:45:46.000000000 +1000
++++ ctypes-1.0.1/setup.py	2007-03-16 20:58:08.000000000 +1000
+@@ -15,15 +15,16 @@
+ 
+ ################################################################
+ 
+-##from ez_setup import use_setuptools
+-##use_setuptools()
+-
+ import os, sys
+ 
+ if sys.version_info < (2, 3):
+     raise Exception, "ctypes %s requires Python 2.3 or better" % __version__
+ 
+-from distutils.core import setup, Extension, Command
++try:
++    from setuptools import setup, Extension, Command
++except ImportError:
++    from distutils.core import setup, Extension, Command
++
+ import distutils.core
+ from distutils.errors import DistutilsOptionError
+ from distutils.command import build_py, build_ext, clean
