@@ -1,0 +1,18 @@
+# Description: Pause determines the location of silences in a audio file for use in fragmentation of large recordings.
+# URL: http://billposer.org/Software/pause.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: libsndfile
+
+name=pause
+version=2.4
+release=1
+source=(http://billposer.org/Software/Downloads/pause-$version.tgz)
+
+build() {
+	cd pause-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
