@@ -1,0 +1,24 @@
+# Description: A sound toolkit for Tcl/Tk.
+# URL: http://www.speech.kth.se/snack/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Vincenzo Colosimo, vico at bicisport dot de
+# Depends on: tk alsa-lib
+
+name=snack
+version=2.2.10
+release=1
+source=(http://www.speech.kth.se/snack/dist/snack$version.tar.gz)
+
+build() {
+	cd snack$version/unix
+
+	./configure \
+		--prefix=/usr \
+		--libdir=/usr/lib \
+		--enable-alsa \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}
+
