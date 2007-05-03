@@ -5,7 +5,7 @@
 # Depends on: liba52 faac imlib2 lame libsdl libtheora libxvid x264
 
 name=ffmpeg
-version=r8855
+version=r8878
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.bz2)
 
