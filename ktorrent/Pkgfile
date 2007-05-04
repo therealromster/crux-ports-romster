@@ -5,7 +5,7 @@
 # Depends on: kdebase
 
 name=ktorrent
-version=2.1.2
+version=2.1.4
 release=1
 source=(http://ktorrent.pwsp.net/downloads/$version/ktorrent-$version.tar.gz)
 
