@@ -1,0 +1,16 @@
+# Description: The pyparsing module is an alternative approach to creating and executing simple grammars, vs. the traditional lex/yacc approach, or the use of regular expressions.
+# URL: http://pyparsing.wikispaces.com/
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: python
+
+name=pyparsing
+version=1.4.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/pyparsing/pyparsing-$version.tar.gz)
+
+build() {
+	cd pyparsing-$version
+	python setup.py install --root=$PKG
+}
+
