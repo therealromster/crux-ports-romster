@@ -1,19 +1,20 @@
-# $Id:
-# Description: OpenGL billard game for linux.
+# Description: OpenGL billard game.
 # URL: http://foobillard.sunsite.dk/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: libpng, libsdl, freetype, mesa3d
+# Depends on: libpng libsdl freetype mesa3d
 
 name=foobillard
 version=3.0a
-release=1
-source=(http://foobillard.sunsite.dk/dnl/$name-$version.tar.gz)
+release=2
+source=(http://foobillard.sunsite.dk/dnl/foobillard-$version.tar.gz \
+	foobillard-ttf-3.0a.patch)
 
 build() {
-	cd $name-$version
+	cd foobillard-$version
+	patch -p1 -i $SRC/foobillard-ttf-3.0a.patch
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
 
