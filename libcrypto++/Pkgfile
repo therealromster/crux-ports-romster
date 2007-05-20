@@ -5,24 +5,24 @@
 # Depends on:  gcc34
 
 name=libcrypto++
-version=5.4
+version=5.2.1
 release=1
 source=(http://www.cryptopp.com/cryptopp${version//./}.zip \
-	crypto-5.2.1.patch.gz)
+	crypto-$version.patch.gz)
 
 build() {
-	#zcat crypto-5.2.1.patch.gz | patch
+	zcat crypto-$version.patch.gz |patch
 	chmod 755 configure
-	#CC=gcc-3.4 CXX=g++-3.4 ./configure --prefix=/usr
+	CC=gcc-3.4 CXX=g++-3.4 ./configure --prefix=/usr
 
 	# Don't optimize with -O2, it BREAKS the lib: running 'cryptest v' fails
-	make CXXFLAGS="-O0 -msse2 -DNDEBUG -pipe"
+	make CXXFLAGS="-O0 -DNDEBUG -pipe"
 	install -d tmp
 	cp -a *.dat TestVectors/* tmp
 
 	(
 		cd tmp
-		#../cryptest v
+		../cryptest v
 	)
 
 	rm -r tmp
