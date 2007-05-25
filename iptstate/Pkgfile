@@ -1,0 +1,18 @@
+# Description: A top-like interface to your netfilter connection-tracking table.
+# URL: http://www.phildev.net/iptstate/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: ncurses libnetfilter_conntrack
+
+name=iptstate
+version=2.2.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/iptstate/iptstate-$version.tar.bz2)
+
+build() {
+	cd iptstate-$version
+	sed -i '/^MAN/s/share//' Makefile
+	make
+	make PREFIX=$PKG install
+}
+
