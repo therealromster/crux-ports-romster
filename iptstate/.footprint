@@ -1,5 +1,6 @@
-drwxr-xr-x	root/root	man/
-drwxr-xr-x	root/root	man/man8/
--r--r--r--	root/root	man/man8/iptstate.8.gz
-drwxr-xr-x	root/root	sbin/
--rwxr-xr-x	root/root	sbin/iptstate
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-r--r--r--	root/root	usr/man/man8/iptstate.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/iptstate

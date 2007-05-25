@@ -1,0 +1,22 @@
+--- iptstate-2.2.1/Makefile-orig	2007-05-25 23:50:11.000000000 +1000
++++ iptstate-2.2.1/Makefile	2007-05-25 23:51:52.000000000 +1000
+@@ -12,7 +12,7 @@
+ SBIN?=$(PREFIX)/sbin
+ INSTALL?=/usr/bin/install
+ STRIP?=/usr/bin/strip
+-MAN?=$(PREFIX)/share/man
++MAN?=$(PREFIX)/man
+ 
+ ### ADVANCED USERS AND PACKAGERS MIGHT WANT TO CHANGE THIS
+ 
+@@ -63,8 +63,8 @@
+ 
+ 
+ install:
+-	$(INSTALL) -D --mode=755 iptstate $(SBIN)/iptstate
+-	$(INSTALL) -D --mode=444 iptstate.8 $(MAN)/man8/iptstate.8
++	$(INSTALL) -D --mode=755 iptstate $(DESTDIR)$(SBIN)/iptstate
++	$(INSTALL) -D --mode=444 iptstate.8 $(DESTDIR)$(MAN)/man8/iptstate.8
+ 
+ 
+ clean:

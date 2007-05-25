@@ -7,12 +7,13 @@
 name=iptstate
 version=2.2.1
 release=1
-source=(http://dl.sourceforge.net/sourceforge/iptstate/iptstate-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/iptstate/iptstate-$version.tar.bz2 \
+	iptstate-$version-install.patch)
 
 build() {
 	cd iptstate-$version
-	sed -i '/^MAN/s/share//' Makefile
+	patch -p1 -i $SRC/iptstate-$version-install.patch
 	make
-	make PREFIX=$PKG install
+	make DESTDIR=$PKG install
 }
 
