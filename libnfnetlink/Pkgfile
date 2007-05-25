@@ -5,9 +5,9 @@
 # Depends on: 
 
 name=libnfnetlink
-version=0.0.16
+version=0.0.25
 release=1
-source=(http://www.tw.netfilter.org/projects/libnfnetlink/files/libnfnetlink-$version.tar.bz2)
+source=(http://www.netfilter.org/projects/libnfnetlink/files/libnfnetlink-$version.tar.bz2)
 
 build() {
 	cd libnfnetlink-$version
