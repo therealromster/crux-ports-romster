@@ -1,0 +1,16 @@
+# Description: A Python module which makes the automated generation of XML, XHTML or HTML documents easy.
+# URL: http://www.librelogiciel.com/software/jaxml/action_Presentation
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: python
+
+name=jaxml
+version=3.01
+release=1
+source=(http://www.librelogiciel.com/software/jaxml/tarballs/jaxml-$version.tar.gz)
+
+build() {
+	cd jaxml-$version
+	python setup.py install --root=$PKG
+}
+
