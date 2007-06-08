@@ -1,0 +1,19 @@
+# Description: (G)TK (A)Larm (C)lock, daemon application which is used to splash alarm messages on your desktop or run a command at any given time.
+# URL: http://gac.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: pygtk gnome-python-extras
+
+name=gac
+version=0.7
+release=1
+source=(http://dl.sourceforge.net/sourceforge/gac/gac-$version.tgz)
+
+build() {
+	cd gac-$version
+	sed -i -e "s|/usr/local/|$PKG/usr/|" setup
+	install -d $PKG/usr/bin $PKG/usr/share/locale
+	python setup install --root=$PKG
+	rm -r $PKG/usr/share/{docs,locale}
+}
+
