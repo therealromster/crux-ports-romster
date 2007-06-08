@@ -1,0 +1,22 @@
+# Description: SMB for FUSE is a network neighborhood (Samba shares) filesystem.
+# URL: http://www.ricardis.tudelft.nl/~vincent/fusesmb/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager:  Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: fuse samba
+
+name=fusesmb
+version=0.8.6
+release=1
+source=(http://www.ricardis.tudelft.nl/~vincent/fusesmb/download/fusesmb-$version.tar.gz)
+
+build() {
+	cd fusesmb-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
+
