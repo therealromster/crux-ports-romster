@@ -1,0 +1,11 @@
+[Desktop Entry]
+Comment=View images
+Exec=/usr/bin/mirage
+GenericName=Image Viewer
+Icon=/usr/share/pixmaps/mirage.png
+Name=Mirage
+Path=
+StartupNotify=true
+Terminal=0
+TerminalOptions=
+Type=Application
