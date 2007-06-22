@@ -1,0 +1,18 @@
+# Description: A fast and simple GTK+ image viewer.
+# URL: http://mirageiv.berlios.de/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: pygtk
+
+name=mirage
+version=0.8.3
+release=1
+source=(http://download.berlios.de/mirageiv/mirage-$version.tar.bz2)
+
+build() {
+	cd mirage-$version
+	python setup.py install --root=$PKG
+	rm $PKG/usr/share/mirage/{README,COPYING,CHANGELOG,TODO,TRANSLATORS}
+	rm -r $PKG/usr/share/locale
+}
+
