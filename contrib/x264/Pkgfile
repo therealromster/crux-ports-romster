@@ -1,0 +1,23 @@
+# Description: x264 is a free library for encoding H264/AVC video streams (snapshot).
+# URL: http://developers.videolan.org/x264.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Rouven Schuerch, rs at tegonal dot com
+# Depends on:	
+
+name=x264
+version=r654
+release=1
+source=(http://romster.shortcircuit.net.au/crux/source/x264-snapshot-$version.tar.bz2)
+
+build() {
+	cd x264
+	sed -i -e 's|^    CFLAGS="-O4 -ffast-math $CFLAGS"$|    CFLAGS="$CFLAGS -O3 -ffast-math"|' configure
+	./configure \
+		--prefix=/usr \
+		--enable-pthread \
+		--enable-shared
+
+	make
+	make DESTDIR=$PKG install
+}
+
