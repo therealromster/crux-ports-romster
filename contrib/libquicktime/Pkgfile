@@ -1,0 +1,28 @@
+# Description: A library for reading and writing quicktime files.
+# URL: http://libquicktime.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on: xorg-libxaw mesa3d faac libdivx libdv libvorbis lame libjpeg libpng ffmpeg gtk alsa-lib x264
+
+# Recommended:	
+# Optional:	
+# Category:	library
+
+name=libquicktime
+version=1.0.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/libquicktime/libquicktime-$version.tar.gz)
+
+build() {
+	cd libquicktime-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-gpl \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}
+
