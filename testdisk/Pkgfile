@@ -5,14 +5,14 @@
 # Depends on: ntfsprogs
 
 name=testdisk
-version=6.6
+version=6.7
 release=1
 source=(http://www.cgsecurity.org/testdisk-$version.tar.bz2)
 
 build() {
 	cd testdisk-$version
 	./configure --prefix=/usr 
-        make 
+	make 
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share
 }
