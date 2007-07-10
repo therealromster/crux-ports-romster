@@ -1,0 +1,105 @@
+# Description: Text to speech engine.
+# URL: http://www.cstr.ed.ac.uk/projects/festival/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Brian Miculcy, morlenxus at gmx dot net
+# Depends on:
+
+name=festival
+version=1.96
+release=1
+
+#source=( \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/$name-$version-beta.tar.gz
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festlex_CMU.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festlex_OALD.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festlex_POSLEX.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_don.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_ellpc11k.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_kallpc16k.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_kedlpc16k.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_rablpc16k.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_us1.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_us2.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/$name/$version/festvox_us3.tar.gz \
+#http://www.cstr.ed.ac.uk/downloads/festival/1.95/speech_tools-1.2.95-beta.tar.gz)
+
+#source=(http://www.festvox.org/packed/festival/latest/{festival-$version-beta,festlex_{CMU,OALD,POSLEX},festvox_{don,ellpc11k,{k{al,ed},rab}lpc16k,us{1,2,3}},speech_tools-1.2.${version##*.}-beta}.tar.gz)
+
+source=(http://www.festvox.org/packed/festival/latest/{festival-$version-beta,festlex_{CMU,OALD,POSLEX},festvox_{ellpc11k,{k{al,ed},rab}lpc16k,us{1,2,3}},speech_tools-1.2.${version##*.}-beta}.tar.gz)
+
+build() {
+	
+	#export CC="3.4.4-gcc"
+	#export CXX="3.4.4-g++"
+	
+	# create directory hierarchies
+	install -d \
+		$PKG/usr/{bin,lib,man/man1} \
+		$PKG/usr/include/{festival,EST} \
+		$PKG/usr/share/{festival,speech_tools}
+	
+	# configure & compile speech_tools
+	cd speech_tools
+	
+	./configure --prefix=/usr		
+	make -j1
+
+	# install speech_tools
+	mkdir -p $PKG/usr/share/speech_tools/{bin,siod,stats/wagon}
+	mkdir -p $PKG/usr/share/speech_tools/grammar/{scfg,wfst}
+	cp -a include/* $PKG/usr/include/EST
+	cp -a config $PKG/usr/share/speech_tools
+	install siod/siod.mak $PKG/usr/share/speech_tools/siod
+	install lib/siod/*.scm $PKG/usr/share/speech_tools/siod
+	install stats/ols.mak $PKG/usr/share/speech_tools/stats
+	install stats/wagon/wagon.mak $PKG/usr/share/speech_tools/stats/wagon
+	install grammar/scfg/scfg.mak $PKG/usr/share/speech_tools/grammar/scfg
+	install grammar/wfst/wfst.mak $PKG/usr/share/speech_tools/grammar/wfst
+	install -m755 lib/lib* $PKG/usr/lib
+	install `find bin -type f -perm +1` $PKG/usr/share/speech_tools/bin
+
+	for file in `find $PKG/usr/include/EST -type f`; do
+		sed -i -e 's/\"\(.*h\)\"/\<EST\/\1\>/g' $file
+	done
+
+	sed -i -e 's/\<EST\//&rxp\//g' $PKG/usr/include/EST/rxp/rxp.h 
+
+	cd $PKG/usr/include
+	for file in EST/rxp/*; do
+		ln -s $file .
+	done
+
+	(cd $PKG/usr/share/speech_tools; ln -s ../../include/EST include)
+
+	# configure & compile festival
+	cd $SRC/festival
+	
+	./configure --prefix=/usr
+	make -j1
+
+	# install festival
+	install -m755 bin/festival_server* bin/text2wave $PKG/usr/bin/
+	install -m755 src/main/{festival,festival_client} $PKG/usr/bin/
+	install -m755 src/lib/libFestival.a $PKG/usr/lib/
+	install -m644 src/include/*.h $PKG/usr/include/festival/
+	install -m644 doc/*.1 $PKG/usr/man/man1/
+	cp -r lib config examples $PKG/usr/share/festival/
+	mv -f $PKG/usr/share/festival/lib/etc/unknown_Linux/audsp $PKG/usr/bin/
+	(cd $PKG/usr/share/festival; ln -s ../../bin .)
+	
+	find $PKG/usr/share/festival -name 'Makefile' -delete
+	find $PKG/usr/include -name 'Makefile' -delete
+	
+	rm -fr \
+		$PKG/usr/share/festival/lib/etc \
+		$PKG/usr/include/EST/win32
+
+	sed -i -e 's,/projects/festival/lib,/usr/share/festival,g' $PKG/usr/share/festival/lib/lexicons.scm
+	
+	for file in $PKG/usr/bin/{festival_server,festival_server_control,text2wave}; do
+		sed -i -e "s|$SRC|/usr/share|g" $file
+	done
+
+	chown -R root:root $PKG
+}
+
