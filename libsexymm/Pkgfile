@@ -1,0 +1,25 @@
+# Description: A C++ wrapper for libsexy.
+# URL: http://www.chipx86.com/wiki/Libsexy
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Antonio SJ Musumeci, bile at landofbile dot com
+# Depends on: gtkmm libsexy
+
+name=libsexymm
+version=0.1.9
+release=1
+source=(http://releases.chipx86.com/libsexy/libsexymm/libsexymm-$version.tar.gz)
+
+build() {
+	cd libsexymm-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--with-gnu-ld
+
+	make
+	make DESTDIR=$PKG install
+	mv $PKG/usr/include/libsexymm/libsexymm/* $PKG/usr/include/libsexymm
+	rm -r $PKG/usr/include/libsexymm/libsexymm
+}
+

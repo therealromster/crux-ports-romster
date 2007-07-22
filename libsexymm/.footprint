@@ -1,0 +1,30 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libsexymm/
+-rw-r--r--	root/root	usr/include/libsexymm/icon-entry.h
+-rw-r--r--	root/root	usr/include/libsexymm/libsexymm.h
+drwxr-xr-x	root/root	usr/include/libsexymm/private/
+-rw-r--r--	root/root	usr/include/libsexymm/private/icon-entry_p.h
+-rw-r--r--	root/root	usr/include/libsexymm/private/spell-entry_p.h
+-rw-r--r--	root/root	usr/include/libsexymm/private/tooltip_p.h
+-rw-r--r--	root/root	usr/include/libsexymm/private/tree-view_p.h
+-rw-r--r--	root/root	usr/include/libsexymm/private/url-label_p.h
+-rw-r--r--	root/root	usr/include/libsexymm/spell-entry.h
+-rw-r--r--	root/root	usr/include/libsexymm/tooltip.h
+-rw-r--r--	root/root	usr/include/libsexymm/tree-view.h
+-rw-r--r--	root/root	usr/include/libsexymm/url-label.h
+-rw-r--r--	root/root	usr/include/libsexymm/wrap_init.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libsexymm.la
+lrwxrwxrwx	root/root	usr/lib/libsexymm.so -> libsexymm.so.2.0.1
+lrwxrwxrwx	root/root	usr/lib/libsexymm.so.2 -> libsexymm.so.2.0.1
+-rwxr-xr-x	root/root	usr/lib/libsexymm.so.2.0.1
+drwxr-xr-x	root/root	usr/lib/libsexymm/
+drwxr-xr-x	root/root	usr/lib/libsexymm/include/
+-rw-r--r--	root/root	usr/lib/libsexymm/include/libsexymmconfig.h
+drwxr-xr-x	root/root	usr/lib/libsexymm/proc/
+drwxr-xr-x	root/root	usr/lib/libsexymm/proc/m4/
+-rw-r--r--	root/root	usr/lib/libsexymm/proc/m4/convert.m4
+-rw-r--r--	root/root	usr/lib/libsexymm/proc/m4/convert_libsexymm.m4
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libsexymm.pc
