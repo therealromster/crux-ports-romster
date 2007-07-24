@@ -5,7 +5,7 @@
 # Depends on: kdebase
 
 name=ktorrent
-version=2.1.4
+version=2.2.1
 release=1
 source=(http://ktorrent.pwsp.net/downloads/$version/ktorrent-$version.tar.gz)
 
@@ -14,7 +14,9 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-        	--disable-debug
+		--disable-debug \
+		--disable-dependency-tracking \
+		--enable-final
 
 	make
 	make DESTDIR=$PKG install

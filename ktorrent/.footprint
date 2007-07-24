@@ -23,13 +23,15 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/ktschedulerplugin.so
 -rwxr-xr-x	root/root	usr/lib/kde3/ktsearchplugin.la
 -rwxr-xr-x	root/root	usr/lib/kde3/ktsearchplugin.so
+-rwxr-xr-x	root/root	usr/lib/kde3/ktstatsplugin.la
+-rwxr-xr-x	root/root	usr/lib/kde3/ktstatsplugin.so
 -rwxr-xr-x	root/root	usr/lib/kde3/ktupnpplugin.la
 -rwxr-xr-x	root/root	usr/lib/kde3/ktupnpplugin.so
 -rwxr-xr-x	root/root	usr/lib/kde3/ktwebinterfaceplugin.la
 -rwxr-xr-x	root/root	usr/lib/kde3/ktwebinterfaceplugin.so
--rwxr-xr-x	root/root	usr/lib/libktorrent-2.1.4.so
+-rwxr-xr-x	root/root	usr/lib/libktorrent-2.2.1.so
 -rwxr-xr-x	root/root	usr/lib/libktorrent.la
-lrwxrwxrwx	root/root	usr/lib/libktorrent.so -> libktorrent-2.1.4.so
+lrwxrwxrwx	root/root	usr/lib/libktorrent.so -> libktorrent-2.2.1.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 drwxr-xr-x	root/root	usr/share/applications/kde/
@@ -383,6 +385,7 @@ drwxr-xr-x	root/root	usr/share/config.kcfg/
 -rw-r--r--	root/root	usr/share/config.kcfg/ktscanfolderplugin.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/ktschedulerplugin.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/ktsearchplugin.kcfg
+-rw-r--r--	root/root	usr/share/config.kcfg/ktstatsplugin.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/ktupnpplugin.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/ktwebinterfaceplugin.kcfg
 drwxr-xr-x	root/root	usr/share/icons/
@@ -435,6 +438,7 @@ drwxr-xr-x	root/root	usr/share/services/
 -rw-r--r--	root/root	usr/share/services/ktscanfolderplugin.desktop
 -rw-r--r--	root/root	usr/share/services/ktschedulerplugin.desktop
 -rw-r--r--	root/root	usr/share/services/ktsearchplugin.desktop
+-rw-r--r--	root/root	usr/share/services/ktstatsplugin.desktop
 -rw-r--r--	root/root	usr/share/services/ktupnpplugin.desktop
 -rw-r--r--	root/root	usr/share/services/ktwebinterfaceplugin.desktop
 -rw-r--r--	root/root	usr/share/services/ktzeroconfplugin.desktop
