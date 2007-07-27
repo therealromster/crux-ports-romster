@@ -1,0 +1,18 @@
+# Description: A tool that parses Squid access log file and generates a report of the most visited sites.
+# URL: http://www.stefanopassiglia.com/misc.htm
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on:
+
+name=squidsites
+version=1.01
+release=1
+source=(http://www.stefanopassiglia.com/downloads/squidsites-$version.tar.gz)
+
+build() {
+	cd src
+	sed -i -e "/^CCFLAGS=/s/-g -Wall/-Wall $CFLAGS/" Makefile
+	make
+	install -D -m755 squidsites $PKG/usr/bin/squidsites
+}
+
