@@ -1,21 +1,16 @@
 Using squidsites:
 
-squidsites is extremely simple to use.
 Example:
 
-  squidsites < /usr/local/squid/logs/access.log
+Generate a report on console, sorting sites by hit count.
+  squidsites < /var/log/squid/access.log
 
-will generate a report on console, sorting sites by hit count.
+Generate a report on console, sorting sites by bytes count.
+  squidsites -b < /var/log/squid/access.log
 
-  squidsites -b < /usr/local/squid/logs/access.log
+Generate a report on file report.txt, sorting sites by bytes count.
+  squidsites -b < /var/log/squid/access.log > report.txt
 
-will generate a report on console, sorting sites by bytes count.
-
-  squidsites -b < /usr/local/squid/logs/access.log > report.txt
-
-will generate a report on file report.txt, sorting sites by bytes count.
 You can also use squidsites as a filter:
-
-  cat /usr/local/squid/logs/access.log | squidsites > report.txt
-
+  cat /var/log/squid/access.log | squidsites > report.txt
 
