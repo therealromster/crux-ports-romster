@@ -1,0 +1,19 @@
+# Description: Scans a block device for file types it knows how to recover and calls an external program to extract them.
+# URL: http://jbj.rapanden.dk/magicrescue/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: pearl
+
+name=magicrescue
+version=1.1.4
+release=1
+source=(http://jbj.rapanden.dk/magicrescue/release/magicrescue-$version.tar.gz)
+
+build() {
+	cd magicrescue-$version
+	./configure --prefix=/usr
+	make
+	install -d $PKG/usr
+	make PREFIX=$PKG/usr install
+}
+
