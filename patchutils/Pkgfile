@@ -1,0 +1,18 @@
+# Description: A collection of programs that operate on patch files.
+# URL: http://cyberelk.net/tim/software/patchutils/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on:
+
+name=patchutils
+version=0.2.31
+release=1
+source=(http://cyberelk.net/tim/data/patchutils/stable/patchutils-$version.tar.bz2)
+
+build() {
+	cd patchutils-$version
+	./configure --prefix=/usr
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+}
+
