@@ -1,0 +1,26 @@
+# Description: ClanLib is a cross platform C++ toolkit library.
+# URL: http://clanlib.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Tim Biermann, tim_biermann at web dot de
+# Depends on: zlib libjpeg libpng libmikmod libogg libvorbis
+
+name=clanlib
+version=0.8.0
+release=1
+source=(http://www.clanlib.org/download/releases-${version%.*}/ClanLib-$version.tgz)
+
+build() {
+	cd ClanLib-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-docs \
+		--enable-dyn \
+		--enable-getaddr
+
+	make
+	make DESTDIR=$PKG install
+	ln -sf ClanLib-${version%.*}/ClanLib $PKG/usr/include/ClanLib
+}
+
