@@ -7,12 +7,14 @@
 name=squidsites
 version=1.01
 release=1
-source=(http://www.stefanopassiglia.com/downloads/squidsites-$version.tar.gz)
+source=(http://www.stefanopassiglia.com/downloads/squidsites-$version.tar.gz \
+	squidsites.1)
 
 build() {
 	cd src
 	sed -i -e "/^CCFLAGS=/s/-g -Wall/-Wall $CFLAGS/" Makefile
 	make
 	install -D -m755 squidsites $PKG/usr/bin/squidsites
+	install -D -m644 $SRC/squidsites.1 $PKG/usr/man/man1/squidsites.1
 }
 

@@ -1,0 +1,44 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH SQUIDSITES 1 "August 09, 2007"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+squidsites \- software to parse Squid access log file
+.SH SYNOPSIS
+.B squidsites
+.RB "[ \-\fBb\fP ] [ < \fIlog_file\fP ] [ > \fIoutput_file\fP ]"
+.br
+.SH DESCRIPTION
+.PP
+.\" TeX users may be more comfortable with the \fB<whatever>\fP and
+.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
+.\" respectively.
+.B SQUIDSITES
+is a tool written in C that parses Squid access log file (useally /var/log/squid/access.log) and generates a report of the most visited sites, sorting by hit count or by bytes count.
+
+.SH OPTIONS
+.IP "\fIlog_file\fP
+Generate a report on console, sorting sites by hit count.
+.IP "\fB\-b, \fP \fIlog_file\fP
+Generate a report on console, sorting sites by bytes count.
+.IP "cat \fI/var/log/squid/access.log\fP | squidsites > \fIreport.txt\fP
+You can also use squidsites as a filter.
+.SH SEE ALSO
+.BR http://www.stefanopassiglia.com/misc.htm
+.SH AUTHOR
+squidsites was written by Stefano Passiglia.
+.PP
+This manual page was written by Danny Rawlins <romster@shortcircuit.net.au>
