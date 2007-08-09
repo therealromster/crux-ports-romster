@@ -1,0 +1,22 @@
+# Description: Python language bindings for the wxWindows toolkit.
+# URL: http://www.wxpython.org/
+# Packager: sten, nick dot steeves at shaw dot ca
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: python wxgtk
+
+name=wxpython
+version=2.8.4.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/wxpython/wxPython-src-$version.tar.bz2)
+
+build() {
+	cd wxPython-src-$version/wxPython
+	install -d $PKG/usr
+
+	python setup.py \
+		WXPORT=gtk2 \
+		UNICODE=1 \
+		BUILD_GLCANVAS=0 \
+		build install --prefix=$PKG/usr
+}
+
