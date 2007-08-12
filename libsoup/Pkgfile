@@ -1,0 +1,27 @@
+# Description: HTTP library implementation in C.
+# URL: http://svn.gnome.org/viewcvs/libsoup/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: glib gnutls
+
+name=libsoup
+version=2.2.100
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/libsoup/${version%.*}/libsoup-$version.tar.bz2)
+
+build() {
+	cd libsoup-$version
+
+	# remove gtk-doc
+	sed -i -e "/^SUBDIRS = /s/docs//" Makefile.in
+
+	./configure \
+		--prefix=/usr \
+		--enable-debug=no \
+		--disable-dependency-tracking \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+}
+
