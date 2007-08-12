@@ -2,14 +2,14 @@
 # URL: http://beep-media-player.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: boost cairomm gamin gst-plugins-bad gst-plugins-good gst-plugins-ugly hal libglade libglademm libmikmod librsvg libsexymm sqlite3 taglib xine-lib startup-notification
+# Depends on: boost cairomm gamin gst-plugins-bad gst-plugins-good gst-plugins-ugly hal libglade libglademm libmikmod librsvg libsexymm libsoup sqlite3 taglib xine-lib startup-notification
 
 # Recommended:	
 # Optional:	dbus, gconf, startup-notification, smlib
 # Category:	audio, player
 
 name=bmpx
-version=0.40.0RC2
+version=0.40.0
 release=1
 source=(http://files.beep-media-player.org/releases/${version::4}/bmpx-$version.tar.bz2)
 
@@ -21,6 +21,7 @@ build() {
 		--prefix=/usr \
 		--libexecdir=/usr/lib \
 		--mandir=/usr/man \
+		--disable-dependency-tracking \
 		--disable-nls \
 		--enable-python \
 		--enable-mp4v2 \
@@ -30,10 +31,7 @@ build() {
 	make DESTDIR=$PKG install
 
 	rm -r $PKG/usr/share/locale
-		
-	rm \
-		$PKG/usr/bin/bmp2 \
-		$PKG/usr/share/bmpx/data/GPL.txt
+	rm $PKG/usr/bin/bmp2
 		
 	ln -sf /usr/bin/beep-media-player-2 $PKG/usr/bin/bmp2
 }
