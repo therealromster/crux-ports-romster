@@ -1,0 +1,28 @@
+# Description: The Gnome Structured File Library.
+# URL: http://freshmeat.net/projects/libgsf/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: glib libxml2 python
+
+name=libgsf
+version=1.14.5
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/libgsf/${version%.*}/libgsf-$version.tar.bz2)
+
+build() {
+	cd libgsf-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking \
+		--disable-static \
+		--without-gnome \
+		--with-python \
+		--with-bz2
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+
