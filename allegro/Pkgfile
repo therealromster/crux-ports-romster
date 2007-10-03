@@ -9,7 +9,7 @@
 # it really just executes exit(0) (or something)
 
 name=allegro
-version=4.3.0
+version=4.3.1
 release=1
 source=(http://dl.sourceforge.net/sourceforge/alleg/allegro-$version.tar.gz)
 
@@ -29,7 +29,7 @@ build() {
 	#make MAKEINFO="true" prefix="$PKG/usr" \
 	#	install-man install-headers install-programs install-lib
 	
-	make MAKEFLAGS='-j1'
+	make -j1
 	make DESTDIR=$PKG install install-man
 }
 
