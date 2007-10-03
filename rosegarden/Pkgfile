@@ -3,6 +3,7 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Diederick de Vries, diederick at diederickdevries dot net
 # Depends on: xorg cmake dssi liblrdf kdelibs fftw
+# Nice To Have: upx
 
 # Recommended:	lirc
 # Optional:	
@@ -20,5 +21,22 @@ build() {
 	make DESTDIR=$PKG install
 	find $PKG/usr/share/doc/HTML/* ! -wholename "*HTML/en*" -delete
 	rm -r $PKG/usr/share/locale
+
+	# compress binary files if upx is installed to save disk space
+	if pkginfo -i |grep '^upx ' > /dev/null; then
+		(
+			cd $PKG/usr/bin
+			local files="$(ls --color=none |xargs)"
+
+			# don't try to compress non-binary files
+			for file in $files; do
+				if ! file -i $file |grep 'application/x-executable' > /dev/null; then
+					local files="$(echo $files |sed -e "s/$file//")"
+				fi
+			done
+			
+			upx -9 $files
+		)
+	fi
 }
 
