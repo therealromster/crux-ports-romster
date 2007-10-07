@@ -13,6 +13,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/vice/
 drwxr-xr-x	root/root	usr/lib/vice/C128/
+-rw-r--r--	root/root	usr/lib/vice/C128/ROdflt.vkm
 -rw-r--r--	root/root	usr/lib/vice/C128/amiga_pos.vkm
 -rw-r--r--	root/root	usr/lib/vice/C128/amiga_sym.vkm
 -rw-r--r--	root/root	usr/lib/vice/C128/basic64
@@ -42,6 +43,8 @@ drwxr-xr-x	root/root	usr/lib/vice/C128/
 -rw-r--r--	root/root	usr/lib/vice/C128/kernalno
 -rw-r--r--	root/root	usr/lib/vice/C128/kernalse
 -rw-r--r--	root/root	usr/lib/vice/C128/os2.vkm
+-rw-r--r--	root/root	usr/lib/vice/C128/osx_pos.vkm
+-rw-r--r--	root/root	usr/lib/vice/C128/osx_sym.vkm
 -rw-r--r--	root/root	usr/lib/vice/C128/pc64.vpl
 -rw-r--r--	root/root	usr/lib/vice/C128/vdc_deft.vpl
 -rw-r--r--	root/root	usr/lib/vice/C128/vice.vpl
@@ -50,6 +53,7 @@ drwxr-xr-x	root/root	usr/lib/vice/C128/
 -rw-r--r--	root/root	usr/lib/vice/C128/x11_pos.vkm
 -rw-r--r--	root/root	usr/lib/vice/C128/x11_sym.vkm
 drwxr-xr-x	root/root	usr/lib/vice/C64/
+-rw-r--r--	root/root	usr/lib/vice/C64/ROdflt.vkm
 -rw-r--r--	root/root	usr/lib/vice/C64/amiga_pos.vkm
 -rw-r--r--	root/root	usr/lib/vice/C64/amiga_sym.vkm
 -rw-r--r--	root/root	usr/lib/vice/C64/basic
@@ -69,6 +73,8 @@ drwxr-xr-x	root/root	usr/lib/vice/C64/
 -rw-r--r--	root/root	usr/lib/vice/C64/kernal
 -rw-r--r--	root/root	usr/lib/vice/C64/os2.vkm
 -rw-r--r--	root/root	usr/lib/vice/C64/os2_sym.vkm
+-rw-r--r--	root/root	usr/lib/vice/C64/osx_pos.vkm
+-rw-r--r--	root/root	usr/lib/vice/C64/osx_sym.vkm
 -rw-r--r--	root/root	usr/lib/vice/C64/pc64.vpl
 -rw-r--r--	root/root	usr/lib/vice/C64/vice.vpl
 -rw-r--r--	root/root	usr/lib/vice/C64/win_pos.vkm
@@ -77,6 +83,7 @@ drwxr-xr-x	root/root	usr/lib/vice/C64/
 -rw-r--r--	root/root	usr/lib/vice/C64/x11_pos.vkm
 -rw-r--r--	root/root	usr/lib/vice/C64/x11_sym.vkm
 drwxr-xr-x	root/root	usr/lib/vice/CBM-II/
+-rw-r--r--	root/root	usr/lib/vice/CBM-II/ROdflt.vkm
 -rw-r--r--	root/root	usr/lib/vice/CBM-II/amber.vpl
 -rw-r--r--	root/root	usr/lib/vice/CBM-II/amiga_bukp.vkm
 -rw-r--r--	root/root	usr/lib/vice/CBM-II/amiga_buks.vkm
@@ -124,6 +131,8 @@ drwxr-xr-x	root/root	usr/lib/vice/DRIVES/
 -rw-r--r--	root/root	usr/lib/vice/DRIVES/dos3040
 -rw-r--r--	root/root	usr/lib/vice/DRIVES/dos4040
 drwxr-xr-x	root/root	usr/lib/vice/PET/
+-rw-r--r--	root/root	usr/lib/vice/PET/RObusi.vkm
+-rw-r--r--	root/root	usr/lib/vice/PET/ROgrph.vkm
 -rw-r--r--	root/root	usr/lib/vice/PET/amber.vpl
 -rw-r--r--	root/root	usr/lib/vice/PET/amiga_bgrs.vkm
 -rw-r--r--	root/root	usr/lib/vice/PET/amiga_buks.vkm
@@ -164,6 +173,7 @@ drwxr-xr-x	root/root	usr/lib/vice/PET/
 drwxr-xr-x	root/root	usr/lib/vice/PLUS4/
 -rw-r--r--	root/root	usr/lib/vice/PLUS4/3plus1hi
 -rw-r--r--	root/root	usr/lib/vice/PLUS4/3plus1lo
+-rw-r--r--	root/root	usr/lib/vice/PLUS4/ROdflt.vkm
 -rw-r--r--	root/root	usr/lib/vice/PLUS4/amiga_pos.vkm
 -rw-r--r--	root/root	usr/lib/vice/PLUS4/amiga_sym.vkm
 -rw-r--r--	root/root	usr/lib/vice/PLUS4/basic
@@ -187,6 +197,7 @@ drwxr-xr-x	root/root	usr/lib/vice/PRINTER/
 -rw-r--r--	root/root	usr/lib/vice/PRINTER/mps803.vpl
 -rw-r--r--	root/root	usr/lib/vice/PRINTER/nl10-cbm
 drwxr-xr-x	root/root	usr/lib/vice/VIC20/
+-rw-r--r--	root/root	usr/lib/vice/VIC20/ROdflt.vkm
 -rw-r--r--	root/root	usr/lib/vice/VIC20/amiga_pos.vkm
 -rw-r--r--	root/root	usr/lib/vice/VIC20/amiga_sym.vkm
 -rw-r--r--	root/root	usr/lib/vice/VIC20/basic

@@ -5,7 +5,7 @@
 # Depends on: mesa3d allegro
 
 name=allegrogl
-version=0.4.0
+version=0.4.2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/allegrogl/alleggl-$version.tar.bz2)
 

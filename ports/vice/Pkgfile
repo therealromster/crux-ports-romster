@@ -3,9 +3,10 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: xorg
+# Nice To Have: upx
 
 name=vice
-version=1.21
+version=1.22
 release=1
 source=(http://www.zimmers.net/anonftp/pub/cbm/crossplatform/emulators/VICE/vice-$version.tar.gz)
 
@@ -22,5 +23,22 @@ build() {
 
 	rm -r $PKG/usr/lib/vice/doc
 	rm -rf $PKG/usr/info
+
+	# compress binary files if upx is installed to save disk space
+	if pkginfo -i |grep '^upx ' > /dev/null; then
+		(
+			cd $PKG/usr/bin
+			local files="$(ls --color=none |xargs) "
+
+			# remove shell scripts as these freeze upx
+			for file in $files; do
+				if file -i $file |grep 'application/x-shellscript' > /dev/null; then
+					local files="$(echo $files |sed -e "s/$file //")"
+				fi
+			done
+			
+			upx -9 $files
+		)
+	fi
 }
 

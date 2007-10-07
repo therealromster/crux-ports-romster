@@ -53,7 +53,13 @@ drwxr-xr-x	root/root	usr/include/allegro/inline/
 -rw-r--r--	root/root	usr/include/allegro/inline/system.inl
 drwxr-xr-x	root/root	usr/include/allegro/internal/
 -rw-r--r--	root/root	usr/include/allegro/internal/aintern.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern2.h
+-rw-r--r--	root/root	usr/include/allegro/internal/aintern_dtor.h
+-rw-r--r--	root/root	usr/include/allegro/internal/aintern_events.h
+-rw-r--r--	root/root	usr/include/allegro/internal/aintern_joystick.h
+-rw-r--r--	root/root	usr/include/allegro/internal/aintern_keyboard.h
+-rw-r--r--	root/root	usr/include/allegro/internal/aintern_mouse.h
+-rw-r--r--	root/root	usr/include/allegro/internal/aintern_thread.h
+-rw-r--r--	root/root	usr/include/allegro/internal/aintern_vector.h
 -rw-r--r--	root/root	usr/include/allegro/internal/aintvga.h
 -rw-r--r--	root/root	usr/include/allegro/internal/alconfig.h
 -rw-r--r--	root/root	usr/include/allegro/joystick.h
@@ -111,17 +117,16 @@ drwxr-xr-x	root/root	usr/include/allegro/platform/
 -rw-r--r--	root/root	usr/include/xalleg.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/allegro/
-drwxr-xr-x	root/root	usr/lib/allegro/4.3.0/
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.0/alleg-alsadigi.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.0/alleg-alsamidi.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.0/alleg-dga2.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.0/alleg-esddigi.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.0/alleg-fbcon.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.0/alleg-jackdigi.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.0/alleg-vga.so
--rw-r--r--	root/root	usr/lib/allegro/4.3.0/modules.lst
--rwxr-xr-x	root/root	usr/lib/liballeg-4.3.0.so
-lrwxrwxrwx	root/root	usr/lib/liballeg.so.4.3 -> liballeg-4.3.0.so
+drwxr-xr-x	root/root	usr/lib/allegro/4.3.1/
+-rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-alsadigi.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-alsamidi.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-dga2.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-fbcon.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-jackdigi.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-vga.so
+-rw-r--r--	root/root	usr/lib/allegro/4.3.1/modules.lst
+-rwxr-xr-x	root/root	usr/lib/liballeg-4.3.1.so
+lrwxrwxrwx	root/root	usr/lib/liballeg.so.4.3 -> liballeg-4.3.1.so
 -rw-r--r--	root/root	usr/lib/liballeg_unsharable.a
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man3/
@@ -380,6 +385,7 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/exmem.3.gz
 -rw-r--r--	root/root	usr/man/man3/exmidi.3.gz
 -rw-r--r--	root/root	usr/man/man3/exmouse.3.gz
+-rw-r--r--	root/root	usr/man/man3/exnew_events.3.gz
 -rw-r--r--	root/root	usr/man/man3/exnewapi.3.gz
 -rw-r--r--	root/root	usr/man/man3/expackf.3.gz
 -rw-r--r--	root/root	usr/man/man3/expal.3.gz
@@ -453,6 +459,7 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/floodfill.3.gz
 -rw-r--r--	root/root	usr/man/man3/flush_config_file.3.gz
 -rw-r--r--	root/root	usr/man/man3/font.3.gz
+-rw-r--r--	root/root	usr/man/man3/font_has_alpha.3.gz
 -rw-r--r--	root/root	usr/man/man3/for_each_file_ex.3.gz
 -rw-r--r--	root/root	usr/man/man3/free_audio_stream_buffer.3.gz
 -rw-r--r--	root/root	usr/man/man3/free_config_entries.3.gz
@@ -614,6 +621,7 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/is_screen_bitmap.3.gz
 -rw-r--r--	root/root	usr/man/man3/is_sub_bitmap.3.gz
 -rw-r--r--	root/root	usr/man/man3/is_system_bitmap.3.gz
+-rw-r--r--	root/root	usr/man/man3/is_trans_font.3.gz
 -rw-r--r--	root/root	usr/man/man3/is_video_bitmap.3.gz
 -rw-r--r--	root/root	usr/man/man3/is_windowed_mode.3.gz
 -rw-r--r--	root/root	usr/man/man3/itofix.3.gz

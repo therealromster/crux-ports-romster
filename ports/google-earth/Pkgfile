@@ -1,0 +1,74 @@
+# Description: An interface to access satellite images & maps of the Earth.
+# URL: http://earth.google.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jose V Beneyto, joberui at ei dot upv dot es
+# Depends on: xorg, xorg-font-bitstream-vera
+
+# Recommended:	
+# Optional:	
+# Category:	maps, images, satellite
+
+name=google-earth
+version=4.1.7076.4458
+release=1
+source=(http://dl.google.com/earth/client/current/GoogleEarthLinux.bin \
+	google-earth.sh)
+
+build() {
+	# hard link file
+	#if [ -f $PKGMK_SOURCE_DIR/GoogleEarthLinux-$version.bin ]; then
+		#ln $PKGMK_SOURCE_DIR/GoogleEarthLinux.bin $PKGMK_SOURCE_DIR/GoogleEarthLinux-$version.bin
+	#fi
+
+	# remove old version
+	if [ -f .md5sum ]; then
+		local md5sum=$(grep GoogleEarthLinux.bin .md5sum |awk '{print $1}')
+		if [ ! md5sum $PKGMK_SOURCE_DIR/GoogleEarthLinux.bin |awk '{print $1}' = "$md5sum" ]; then
+			rm $PKGMK_SOURCE_DIR/GoogleEarthLinux.bin
+		fi
+	fi
+
+	chmod 750 GoogleEarthLinux.bin
+	
+	./GoogleEarthLinux.bin \
+		--noexec \
+		--target $SRC
+	
+	install -d \
+		$PKG/usr/{bin,share/{icons,google-earth}} \
+		$PKG/etc/google-earth
+
+	tar -C $PKG/usr/share/google-earth -xpf $SRC/googleearth-linux-x86.tar
+	tar -C $PKG/usr/share/google-earth -xpf $SRC/googleearth-data.tar
+
+	# move configuration files to the rightful location
+	mv $PKG/usr/share/google-earth/{ImporterGlobalSettings,ImporterUISettings,PCOptimizations,drivers}.ini $PKG/etc/google-earth/
+	ln -fs /usr/share/google-earth/ImporterGlobalSettings.ini $PKG/etc/google-earth/ImporterGlobalSettings.ini
+	ln -fs /usr/share/google-earth/ImporterUISettings.ini $PKG/etc/google-earth/ImporterUISettings.ini
+	ln -fs /usr/share/google-earth/PCOptimizations.ini $PKG/etc/google-earth/PCOptimizations.ini
+	ln -fs /usr/share/google-earth/drivers.ini $PKG/etc/google-earth/drivers.ini
+
+	install -m755 google-earth.sh $PKG/usr/bin/google-earth
+	install -m644 $SRC/googleearth.xpm $PKG/usr/share/icons/google-earth.xpm
+
+	find $PKG/ -name '*.png' -exec chmod 644 {} \;
+	
+	#chmod -R 644 $PKG/usr/share/google-earth/{resources,res,xml,kvw}/*
+
+#	(
+#		cd $PKG/usr/share/google-earth/
+#		find $PKG/ -type -f -exec chmod 644 {} \;
+#	)
+
+	#chmod -R 644 $PKG/usr/share/google-earth/resources/*
+	#chmod -R 644 $PKG/usr/share/google-earth/res/*
+	#chmod -R 644 $PKG/usr/share/google-earth/xml/*
+	#chmod -R 644 $PKG/usr/share/google-earth/kvw/*
+
+	rm -r \
+		$PKG/usr/share/google-earth/{lang,linux} \
+		$PKG/usr/share/google-earth/resources/*locale
+
+	#chown -R root:root $PKG
+}
+
