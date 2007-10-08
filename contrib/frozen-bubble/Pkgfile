@@ -11,7 +11,7 @@ source=(http://www.frozen-bubble.org/data/frozen-bubble-$version.tar.bz2 \
 	frozen-bubble.desktop)
 
 build() {
-	cd $name-$version
+	cd frozen-bubble-$version
 	
 	sed -i \
 		-e "s|PREFIX = .*|PREFIX = /usr|" \

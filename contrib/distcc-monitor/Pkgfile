@@ -1,0 +1,27 @@
+# Description: A graphical monitor for distcc.
+# URL: http://distcc.samba.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Johannes Winkelmann, jw at tks6 dot net
+# Depends on: distcc gtk
+
+
+name=distcc-monitor
+version=2.18.3
+release=1
+source=(http://distcc.samba.org/ftp/distcc/distcc-$version.tar.bz2)
+
+build() {
+	cd distcc-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--with-gtk
+
+	make distccmon-gnome
+	make distccmon-gnome DESTDIR=$PKG install
+
+	rm -r $PKG/usr/{share/doc/,man,bin/distcc{,d,mon-text}}
+	rm $PKG/usr/share/distcc/distccmon-gnome.desktop
+}
+

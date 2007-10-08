@@ -1,0 +1,21 @@
+# Description: Logitech QuickCam USB camera driver.
+# URL: http://qce-ga.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on:
+
+name=qc-usb
+version=0.6.5-$(uname -r)
+release=1
+source=(http://dl.sourceforge.net/sourceforge/qce-ga/qc-usb-${version%-*}.tar.gz)
+
+build() {
+	cd qc-usb-${version%-*}
+	make all LINUX_DIR=/usr/src/linux-$(uname -r)
+	make install PREFIX=$PKG/usr MODULE_DIR=$PKG/lib/modules/$(uname -r)
+
+	# silly Makefile install the *.ko module not the *.o module!
+	install -c -D -m644 quickcam.ko $PKG/lib/modules/$(uname -r)/misc/quickcam.ko
+	rm $PKG/lib/modules/$PORT_KERNEL_VERSION/misc/quickcam.o
+}
+

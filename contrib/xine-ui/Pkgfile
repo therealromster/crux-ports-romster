@@ -5,18 +5,19 @@
 # Depends on: xine-lib
 
 name=xine-ui
-version=0.99.4
+version=0.99.5
 release=1
-source=(http://dl.sourceforge.net/sourceforge/xine/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/xine/xine-ui-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd xine-ui-$version
 
 	./configure \
 		--prefix=/usr \
 		--disable-nls
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 	rm -fr $PKG/usr/{man/{??,man1/aaxine*},share/doc}
 }
 

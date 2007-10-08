@@ -1,0 +1,22 @@
+# Description: Library for encoding MPEG content.
+# URL: http://fame.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Martin Opel, mo at obbl-net dot de
+# Depends on: 
+
+name=libfame
+version=0.9.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/fame/libfame-$version.tar.gz)
+
+build() {
+	cd libfame-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+}
+

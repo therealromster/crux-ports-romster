@@ -1,0 +1,22 @@
+# Description: Tilt the floor to roll a ball through an obstacle course.
+# URL: http://icculus.org/neverball/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on: sdl_image sdl_mixer sdl_ttf
+
+name=neverball
+version=1.4.0
+release=1
+source=(http://icculus.org/neverball/neverball-$version.tar.gz)
+
+build() {
+	cd neverball-$version
+	sed -i '/CONFIG_DATA/s|\./data|/usr/share/neverball|g' share/config.h
+	make
+	install -d $PKG/usr/{bin,share/icons}
+	cp neverball neverputt $PKG/usr/bin
+	find data icon -type f -exec chmod -v 644 {} \;
+	cp -r icon $PKG/usr/share/icons/neverball
+	cp -r data $PKG/usr/share/neverball
+}
+

@@ -1,19 +1,24 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/libst-config
--rwxr-xr-x	root/root	usr/bin/play
-lrwxrwxrwx	root/root	usr/bin/rec -> play
+lrwxrwxrwx	root/root	usr/bin/play -> sox
+lrwxrwxrwx	root/root	usr/bin/rec -> sox
 -rwxr-xr-x	root/root	usr/bin/sox
--rwxr-xr-x	root/root	usr/bin/soxmix
+lrwxrwxrwx	root/root	usr/bin/soxmix -> /usr/bin/sox
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/st.h
 -rw-r--r--	root/root	usr/include/ststdint.h
 drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/libst.a
+-rwxr-xr-x	root/root	usr/lib/libst.la
+lrwxrwxrwx	root/root	usr/lib/libst.so -> libst.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libst.so.0 -> libst.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libst.so.0.0.0
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
+lrwxrwxrwx	root/root	usr/man/man1/play.1.gz -> sox.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/rec.1.gz -> sox.1.gz
 -rw-r--r--	root/root	usr/man/man1/sox.1.gz
--rw-r--r--	root/root	usr/man/man1/soxexam.1.gz
-lrwxrwxrwx	root/root	usr/man/man1/soxmix.1.gz -> sox.1.gz
 drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/libst.3.gz
+drwxr-xr-x	root/root	usr/man/man7/
+-rw-r--r--	root/root	usr/man/man7/soxexam.7.gz

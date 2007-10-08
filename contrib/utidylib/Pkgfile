@@ -2,12 +2,12 @@
 # URL: http://utidylib.berlios.de/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: ctypes, tidy
+# Depends on: python tidy
 
 name=utidylib
 version=0.2
 release=1
-source=(http://download.berlios.de/$name/uTidylib-$version.zip)
+source=(http://download.berlios.de/utidylib/uTidylib-$version.zip)
 
 build() {
 	cd uTidylib-$version

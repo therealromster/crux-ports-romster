@@ -2,21 +2,22 @@
 # URL: http://localhost.nl/~synap/libvisual/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: x11
+# Depends on: xorg
 
 name=libvisual
 version=0.4.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/libvisual/libvisual-$version.tar.bz2)
 
 build() {
-	cd $name-$version
+	cd libvisual-$version
 
 	./configure \
 		--prefix=/usr \
 		--disable-debug
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/locale
 }
 

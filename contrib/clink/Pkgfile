@@ -1,4 +1,4 @@
-# Description: Compacts directories by replacing duplicate files by symbolic links.
+# Description: Compacts directories by replacing duplicate files by symbolic links and placing the origional files in ./common-files
 # URL: http://free-electrons.com/community/tools/utils/clink/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -7,9 +7,9 @@
 name=clink
 version=1.1.1
 release=1
-source=(http://free-electrons.com/pub/utils/$name/$name-$version)
+source=(http://free-electrons.com/pub/utils/clink/clink-$version)
 
 build() {
-	install -D -m755 -oroot -groot $name-$version $PKG/usr/bin/$name
+	install -D -m755 clink-$version $PKG/usr/bin/clink
 }
 

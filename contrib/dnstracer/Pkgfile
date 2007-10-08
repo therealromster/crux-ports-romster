@@ -1,5 +1,5 @@
 # Description: Dnstracer determines where a given Domain Name Server (DNS) gets its information from.
-# URL: http://www.mavetju.org/unix/general.php
+# URL: http://www.mavetju.org/unix/dnstracer.php
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: 
@@ -10,8 +10,9 @@ release=1
 source=(http://www.mavetju.org/download/dnstracer-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd dnstracer-$version
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 }
 

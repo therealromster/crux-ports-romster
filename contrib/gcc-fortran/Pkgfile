@@ -2,21 +2,26 @@
 # Description: Fortran (f95) add-on for GNU GCC compiler.
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: acrux, acrux at linuxmail dot org
-# Depends on: libmpfr
+# Depends on: mpfr
 
 name=gcc-fortran
-version=4.0.3
+version=4.1.2
 release=3
 source=(ftp://sources.redhat.com/pub/gcc/releases/gcc-$version/gcc-{core,fortran}-$version.tar.bz2 \
-	gcc-fortran-$version-version.patch)
+	gcc-fortran-$version-nocheck-fixincludes.patch \
+	gcc-fortran-$version-fixinc.patch)
 
 build() {
-	patch -d gcc-$version -p1 -i $SRC/gcc-fortran-$version-version.patch
-	cd gcc-$version
+	patch -d gcc-$version -p1 -i $SRC/gcc-fortran-$version-nocheck-fixincludes.patch
+	patch -d gcc-$version -p1 -i $SRC/gcc-fortran-$version-fixinc.patch
+
+	sed -i -e 's|VERSUFFIX ""|VERSUFFIX " (CRUX)"|' \
+		gcc-$version/gcc/version.c
+
 	mkdir build
 	cd build
 
-	../configure \
+	../gcc-$version/configure \
 		--prefix=/usr \
 		--libexecdir=/usr/lib \
 		--enable-languages=f95 \
@@ -27,15 +32,15 @@ build() {
 		--disable-nls \
 		--with-x=no
 
-	make
-	#make check
+	make bootstrap
+	make check
 	make DESTDIR=$PKG install
 
-	ln -s gfortran $PKG/usr/bin/f90
-	ln -s gfortran $PKG/usr/bin/f95
+	ln -fs gfortran $PKG/usr/bin/f90
+	ln -fs gfortran $PKG/usr/bin/f95
 
 	# remove un-needed files
-	find $PKG -name 'README' -exec rm {} \;
+	find $PKG -name 'README' -delete
 
 	rm \
 		$PKG/usr/lib/libiberty.a \
@@ -62,5 +67,21 @@ build() {
 	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
 		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
 	done
+
+	# install distcc symlinks if distcc is installed
+	if pkginfo -i |grep '^distcc '; then
+		install -d $PKG/usr/lib/distcc
+		for c in f90 f95 gfortran; do
+			cd $PKG/usr/lib/distcc && ln -s ../../bin/distcc $c
+		done
+	fi
+
+	# install ccache symlinks if ccache is installed
+	if pkginfo -i |grep '^ccache '; then
+		install -d $PKG/usr/lib/ccache
+		for c in f90 f95 gfortran; do
+			cd $PKG/usr/lib/ccache && ln -s ../../bin/ccache $c
+		done
+	fi
 }
 

@@ -5,7 +5,7 @@
 # Depends on: mingw32-api
 
 name=mingw32-runtime
-version=3.11
+version=3.12
 release=1
 source=(http://dl.sourceforge.net/sourceforge/mingw/mingw-runtime-$version.tar.gz)
 

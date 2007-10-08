@@ -1,6 +1,4 @@
 drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/oil-bugreport
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/liboil-0.3/
 drwxr-xr-x	root/root	usr/include/liboil-0.3/liboil/
@@ -20,7 +18,6 @@ drwxr-xr-x	root/root	usr/include/liboil-0.3/liboil/
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboiltest.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboiltypes.h
 drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/liboil-0.3.a
 -rwxr-xr-x	root/root	usr/lib/liboil-0.3.la
 lrwxrwxrwx	root/root	usr/lib/liboil-0.3.so -> liboil-0.3.so.0.1.0
 lrwxrwxrwx	root/root	usr/lib/liboil-0.3.so.0 -> liboil-0.3.so.0.1.0

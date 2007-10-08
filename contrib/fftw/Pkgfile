@@ -2,7 +2,8 @@
 # URL: http://www.fftw.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: acrux, acrux at linuxmail dot org
-# Depends on: gcc-fortran
+# Depends on: 
+# Nice To Have: gcc-fortran
 
 name=fftw
 version=3.1.2

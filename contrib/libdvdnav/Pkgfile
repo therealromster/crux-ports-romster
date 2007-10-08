@@ -1,18 +1,19 @@
-# Description: DVD Navigation library needed by the xine-dvdnav plugin.
+# Description: DVD Navigation library.
 # URL: http://dvd.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: libdvdcss, libdvdread
+# Depends on: libdvdcss libdvdread
 
 name=libdvdnav
 version=20050211
 release=1
-source=(http://downloads.videolan.org/pub/videolan/vlc/0.8.5/contrib/$name-$version.tar.bz2)
+source=(http://downloads.videolan.org/pub/videolan/vlc/0.8.5/contrib/libdvdnav-$version.tar.bz2)
 
 build() {
-	cd $name-$version
+	cd libdvdnav-$version
 	rm -r missing
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 }
 

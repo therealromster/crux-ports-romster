@@ -4,15 +4,23 @@ lrwxrwxrwx	root/root	usr/bin/f90 -> gfortran
 lrwxrwxrwx	root/root	usr/bin/f95 -> gfortran
 -rwxr-xr-x	root/root	usr/bin/gfortran
 drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ccache/
+lrwxrwxrwx	root/root	usr/lib/ccache/f90 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/f95 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/gfortran -> ../../bin/ccache
+drwxr-xr-x	root/root	usr/lib/distcc/
+lrwxrwxrwx	root/root	usr/lib/distcc/f90 -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/f95 -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/gfortran -> ../../bin/distcc
 drwxr-xr-x	root/root	usr/lib/gcc/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/
--rwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.0.3/f951
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.1.2/
+-rwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.1.2/f951
 -rw-r--r--	root/root	usr/lib/libgfortran.a
 -rwxr-xr-x	root/root	usr/lib/libgfortran.la
-lrwxrwxrwx	root/root	usr/lib/libgfortran.so -> libgfortran.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libgfortran.so.0 -> libgfortran.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libgfortran.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgfortran.so -> libgfortran.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libgfortran.so.1 -> libgfortran.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libgfortran.so.1.0.0
 -rw-r--r--	root/root	usr/lib/libgfortranbegin.a
 -rwxr-xr-x	root/root	usr/lib/libgfortranbegin.la
 drwxr-xr-x	root/root	usr/man/

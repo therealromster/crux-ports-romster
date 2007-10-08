@@ -5,30 +5,39 @@
 # Depends on: python
 
 name=boost
-version=1.33.1
+version=1.34.1
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/${name}_${version//./_}.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/boost/boost_${version//./_}.tar.bz2)
 
 build() {
-    cd ${name}_${version//./_}
-    cd tools/build/jam_src
-    ./build.sh gcc
-    cd -
-	
-    export PYTHON_LIB_PATH="/usr/lib/python" PYTHON_INCLUDES="/usr/include/python"
-    ./tools/build/jam_src/bin.linuxx86/bjam \
-        "-sTOOLS=gcc" --prefix=/usr --with-python-root=/usr
+	cd boost_${version//./_}
 
-    ./tools/build/jam_src/bin.linuxx86/bjam \
-        "-sTOOLS=gcc" --prefix=$PKG/usr --with-python-root=/usr install
+	local bindir='bin.linuxx86'
+	local gccversion="$(pkginfo -i |grep '^gcc ' |awk '{print $2}' |sed -e "s/\([.0-9]*\)-[0-9]*/\1/")"
+	export CFLAGS="$CFLAGS -fno-strict-aliasing"
 
-    mv $PKG/usr/include/boost-${version//./_}/boost $PKG/usr/include
-    rm -fr $PKG/usr/include/boost-${version//./_}
-    
-    cd $PKG/usr/lib
-    for l in *gcc-mt.so; do
-        fileName=`basename $l -gcc-mt.so`
-        ln -s $fileName-gcc-mt.so $fileName.so
-    done
+	(
+		cd tools/jam/src
+		./build.sh gcc
+		install -D -m755 $bindir/bjam $PKG/usr/bin/bjam
+	)
+
+	(
+		cd tools/bcp
+		../jam/src/$bindir/bjam --toolset=gcc debug-symbols=off
+		install -D -m755 ../../bin.v2/tools/bcp/gcc-$gccversion/release/link-static/bcp $PKG/usr/bin/bcp
+	)
+
+	./tools/jam/src/$bindir/bjam \
+		release debug-symbols=off threading=single,multi \
+		runtime-link=shared link=shared,static \
+		--prefix=$PKG/usr \
+		--toolset=gcc \
+		--layout=system \
+		install
+
+	cd libs/python/pyste/install
+	python setup.py install --root=$PKG
+	mv $PKG/usr/bin/pyste.py $PKG/usr/bin/pyste
 }
 

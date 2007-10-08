@@ -1,4 +1,4 @@
-# Description: library for communicating with an icecast server
+# Description: Library for communicating with an icecast server.
 # URL: http://www.icecast.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Han Boetes, han at mijncomputer dot nl
@@ -7,15 +7,17 @@
 name=libshout
 version=2.2.2
 release=1
-source=(http://downloads.us.xiph.org/releases/libshout/$name-$version.tar.gz)
+source=(http://downloads.us.xiph.org/releases/libshout/libshout-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd libshout-$version
 
 	./configure \
 		--prefix=/usr \
 		--disable-nls
-	make && make install DESTDIR=$PKG
+
+	make
+	make install DESTDIR=$PKG
 	rm -r $PKG/usr/share/doc/
 }
 

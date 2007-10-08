@@ -7,10 +7,10 @@
 name=numarray
 version=1.5.2
 release=1
-source=(http://dl.sourceforge.net/sourceforge/numpy/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/numpy/numarray-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd numarray-$version
 	python setup.py install --root=$PKG
 }
 

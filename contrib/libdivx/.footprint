@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/divx/
+drwxr-xr-x	root/root	usr/include/divx/common/
+-rw-r--r--	root/root	usr/include/divx/common/DivXPortable.h
+-rw-r--r--	root/root	usr/include/divx/common/FormatInfo.h
+-rw-r--r--	root/root	usr/include/divx/common/FourCC.h
+-rw-r--r--	root/root	usr/include/divx/common/FourCCs.h
+drwxr-xr-x	root/root	usr/include/divx/decoder/
+-rw-r--r--	root/root	usr/include/divx/decoder/LibQDec.h
+drwxr-xr-x	root/root	usr/include/divx/encoder/
+-rw-r--r--	root/root	usr/include/divx/encoder/Cli.h
+-rw-r--r--	root/root	usr/include/divx/encoder/DivXException.h
+-rw-r--r--	root/root	usr/include/divx/encoder/EncoderCallback.h
+-rw-r--r--	root/root	usr/include/divx/encoder/EncoderInterface.h
+-rw-r--r--	root/root	usr/include/divx/encoder/FeedbackInterface.h
+-rw-r--r--	root/root	usr/include/divx/encoder/FrameInput.h
+-rw-r--r--	root/root	usr/include/divx/encoder/FrameOutput.h
+-rw-r--r--	root/root	usr/include/divx/encoder/FrameResult.h
+-rw-r--r--	root/root	usr/include/divx/encoder/Settings.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libdivx.so
+lrwxrwxrwx	root/root	usr/lib/libdivx.so.0 -> /usr/lib/libdivx.so

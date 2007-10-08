@@ -2,10 +2,10 @@
 # URL: http://www.transcoding.org/cgi-bin/transcode
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: ffmpeg glib imagemagick libavifile libdv libdvdread libfame mjpegtools mpeg2dec mplayer
+# Depends on: imagemagick avifile libdvdread libfame lzo mjpegtools mpeg2dec mplayer xorg-libxaw xorg-libxpm xorg-libxv
 
 name=transcode
-version=20070429
+version=20070625
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/transcode-snapshot-$version.tar.bz2 \
 	http://dl.sourceforge.net/subtitleripper/subtitleripper-0.3-4.tgz)
@@ -15,23 +15,25 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--disable-v4l \
+		--disable-experimental \
+		--enable-alsa \
 		--enable-avifile \
 		--enable-ogg \
 		--enable-vorbis \
 		--enable-libdv \
+		--enable-libquicktime \
+		--enable-lzo \
 		--enable-a52 \
+		--enable-faac \
 		--enable-libxml2 \
 		--enable-mjpegtools \
 		--enable-libfame \
 		--enable-imagemagick \
 		--enable-netstream \
-		--enable-libavcodec \
 		--enable-freetype2 \
 		--enable-libpostproc \
-		--with-libpostproc-includes=/usr/include/postproc \
 		--enable-theora
-			
+
 	make
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share

@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/preload.conf
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/preload
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/preload.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/preload
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/lib/
+drwxr-xr-x	root/root	var/lib/preload/
+-rw-r-----	root/root	var/lib/preload/preload.state (EMPTY)
+drwxr-xr-x	root/root	var/log/
+-rw-r--r--	root/root	var/log/preload.log (EMPTY)

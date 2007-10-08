@@ -1,0 +1,36 @@
+# Description: A GUI toolkit for TCL.
+# URL: http://tcl.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Sven Dahl, dahl at c64 dot org
+# Depends on: xorg tcl
+
+name=tk
+version=8.4.14
+release=1
+source=(http://dl.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz)
+
+build() {
+	cd tk$version/unix/
+
+	./configure \
+		--prefix=/usr \
+		--enable-gcc \
+		--enable-shared \
+		--enable-xft
+
+	make
+	make install MKLINKS_FLAGS="-s" INSTALL_ROOT=$PKG
+
+	cp ../generic/*.h $PKG/usr/include/
+	cp tkUnixPort.h $PKG/usr/include/tkPort.h
+	cp tkUnixDefault.h $PKG/usr/include/tkDefault.h
+	cp tkUnixInt.h $PKG/usr/include/tkInt.h
+
+	sed -i "s|-L$SRC/tk$version/unix|-L/usr/lib|" $PKG/usr/lib/tkConfig.sh
+
+	rm -rf $PKG/usr/lib/tk8.5/demos
+	ln -sf wish8.4 $PKG/usr/bin/wish
+	chmod -R u+w,go-w $PKG
+	find $PKG/usr/man -type f -print0 | xargs -0 chmod a-x
+}
+

@@ -7,8 +7,8 @@
 name=denyhosts
 version=2.6
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/DenyHosts-$version.tar.gz \
-	$name-$version-config.patch)
+source=(http://dl.sourceforge.net/sourceforge/denyhosts/DenyHosts-$version.tar.gz \
+	denyhosts-$version-config.patch)
 
 build() {
 	cd DenyHosts-$version

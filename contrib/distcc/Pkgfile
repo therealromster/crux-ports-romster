@@ -1,0 +1,42 @@
+# Description: A tool to distribute compilations.
+# URL: http://distcc.samba.org
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Johannes Winkelmann, jw at tks6 dot net
+# Depends on: popt
+
+name=distcc
+version=2.18.3
+release=3
+source=(http://distcc.samba.org/ftp/distcc/distcc-$version.tar.bz2 \
+	distccd) 
+
+build() {
+	cd distcc-$version
+
+	sed -i \
+		-e "s|^sysconfdir='\${prefix}/etc'$|sysconfdir='/etc'|" \
+		-e "s|^localstatedir='\${prefix}/var'$|localstatedir='/var'|" \
+		configure
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--without-gnome \
+		--without-gtk
+
+	make
+	make prefix=$PKG/usr install
+
+	install -d $PKG/usr/lib/distcc
+	for c in cc c++ gcc g++; do
+		cd $PKG/usr/lib/distcc && ln -s ../../bin/distcc $c
+	done
+
+	mkdir -p $PKG/etc/rc.d
+	install -m755 $SRC/distccd $PKG/etc/rc.d/distccd
+    
+	rm -rf $PKG/usr/share/doc
+	rm -rf $PKG/usr/info
+	rm -r $PKG/usr/share
+}
+

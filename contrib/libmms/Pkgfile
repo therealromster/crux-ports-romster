@@ -7,15 +7,16 @@
 name=libmms
 version=0.3
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/libmms/libmms-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd libmms-$version
 
 	./configure \
 		--prefix=/usr \
 		--disable-static
 
-	make && make DESTDIR=$PKG install	
+	make
+	make DESTDIR=$PKG install	
 }
 

@@ -5,22 +5,21 @@
 # Depends on: libogg
 
 name=speex
-version=1.2beta1
-release=2
+version=1.2beta2
+release=1
 source=(http://downloads.us.xiph.org/releases/speex/speex-$version.tar.gz)
 
 build() {
 	cd speex-$version
-
+	find $SRC -type f -exec sed -i -e 's|/share/man|/man|g' {} \; 
+	
 	./configure \
 		--prefix=/usr \
-		--mandir=$PKG/usr/man \
-		--disable-oggtest \
+		--disable-static \
 		--enable-epic-48k
 
-        make CFLAGS="$CFLAGS"
+	sed -i -e "/^SUBDIRS = /s/doc //" Makefile
+	make
 	make prefix=$PKG/usr install
-	mv $PKG/usr/share/man $PKG/usr/ # Makefile ignores --mandir (1.2beta1) 
-	rm -r $PKG/usr/share/doc
 }
 

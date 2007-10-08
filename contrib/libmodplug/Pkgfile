@@ -12,6 +12,7 @@ source=(http://dl.sourceforge.net/sourceforge/modplug-xmms/libmodplug-$version.t
 build() {
 	cd libmodplug-$version
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install 
+	make
+	make DESTDIR=$PKG install 
 }
 

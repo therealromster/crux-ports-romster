@@ -7,16 +7,17 @@
 name=libcgi
 version=1.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/libcgi/libcgi-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd libcgi-$version
 	install -d $PKG/usr/lib $PKG/usr/include
 
 	./configure \
 		--prefix=/usr \
 		--disable-nls
 
-	make && make prefix=$PKG/usr install
+	make
+	make prefix=$PKG/usr install
 }
 

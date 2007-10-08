@@ -5,19 +5,21 @@
 # Depends on: libevent
 
 name=tor
-version=0.1.1.26
+version=0.1.2.17
 release=1
-source=(http://tor.eff.org/dist/$name-$version.tar.gz \
-	$name.rc)
+source=(http://tor.eff.org/dist/tor-$version.tar.gz \
+	tor.rc)
 
 build() {
-	cd $name-$version
+	cd tor-$version
 
 	./configure \
 		--prefix=/usr \
-		--sysconfdir=/etc
+		--sysconfdir=/etc \
+		--mandir=/usr/man
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 	
 	install -d \
 		$PKG/etc/rc.d \

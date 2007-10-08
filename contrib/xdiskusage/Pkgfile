@@ -10,7 +10,7 @@ release=1
 source=(http://xdiskusage.sourceforge.net/xdiskusage-$version.tgz)
 
 build() {
-	cd $name-$version
+	cd xdiskusage-$version
 	./configure --prefix=/usr
 	make
 	install -D -s -m755 -oroot -groot xdiskusage $PKG/usr/bin/xdiskusage

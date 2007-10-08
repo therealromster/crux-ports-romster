@@ -1,0 +1,73 @@
+# Description: The GNU Compiler Collection.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Antonio SJ Musumeci
+# Depends on: 
+
+name=gcc34
+version=3.4.6
+release=1
+source=(ftp://sources.redhat.com/pub/gcc/releases/gcc-$version/gcc-$version.tar.bz2 \
+	gcc-$version-linkonce.patch \
+	gcc-$version-unlink-if-ordinary.patch \
+	gcc-$version-visibility.patch)
+
+build() {
+	local SUFFIX=-${version%.*}
+	patch -d gcc-$version -p1 -i $SRC/gcc-$version-linkonce.patch
+	patch -d gcc-$version -p1 -i $SRC/gcc-$version-unlink-if-ordinary.patch
+	patch -d gcc-$version -p1 -i $SRC/gcc-$version-visibility.patch
+
+	mkdir build
+	cd build
+
+	../gcc-$version/configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--program-suffix=$SUFFIX \
+		--enable-languages=c,c++,objc \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--disable-nls \
+		--with-x=no
+
+	make bootstrap
+	make check
+	make DESTDIR=$PKG install
+
+	install -d $PKG/lib
+	ln -sf ../usr/bin/cpp${SUFFIX} $PKG/lib/cpp${SUFFIX}
+	ln -sf gcc${SUFFIX} $PKG/usr/bin/cc${SUFFIX}
+	ln -sf g++${SUFFIX} $PKG/usr/bin/c++${SUFFIX}
+
+	rm -r \
+		$PKG/usr/man \
+		$PKG/usr/lib/lib{stdc++,supc++,gcc_s,objc}.* \
+		$PKG/usr/lib/gcc/*/$version/install-tools
+
+	rm -rf $PKG/usr/info
+
+	rm \
+		$PKG/usr/lib/libiberty.a \
+		$PKG/usr/bin/*-linux-gnu-* \
+		$PKG/usr/lib/gcc/*/$version/include/README
+
+	# install distcc symlinks if distcc is installed
+	if pkginfo -i |grep '^distcc '; then
+		install -d $PKG/usr/lib/distcc
+		for c in cc${SUFFIX} c++${SUFFIX} gcc${SUFFIX} g++${SUFFIX}; do
+			cd $PKG/usr/lib/distcc && ln -s ../../bin/distcc $c
+		done
+	fi
+
+	# install ccache symlinks if ccache is installed
+	if pkginfo -i |grep '^ccache '; then
+		install -d $PKG/usr/lib/ccache
+		for c in cc${SUFFIX} c++${SUFFIX} gcc${SUFFIX} g++${SUFFIX}; do
+			cd $PKG/usr/lib/ccache && ln -s ../../bin/ccache $c
+		done
+	fi
+}
+

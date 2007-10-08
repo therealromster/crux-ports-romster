@@ -1,0 +1,35 @@
+# Description: A screen saver and locker daemon for xorg.
+# URL: http://www.jwz.org/xscreensaver/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
+# Depends on: bc libglade netpbm fortune gdk-pixbuf
+
+name=xscreensaver
+version=5.03
+release=1
+source=(http://www.jwz.org/xscreensaver/xscreensaver-$version.tar.gz)
+
+build() {
+	cd xscreensaver-$version
+
+	exp="s/USE_NLS=yes/USE_NLS=no/; s/ENABLE_NLS 1/ENABLE_NLS 0/"
+	sed -i "$exp" configure
+
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--mandir=/usr/man \
+		--enable-locking \
+		--with-pixbuf \
+		--with-jpeg \
+		--with-xshm-ext \
+		--without-motif \
+		--without-gnome \
+		--without-gle \
+		--without-setuid-hacks
+
+	make
+	make install_prefix=$PKG AD_DIR=/etc/X11/app-defaults install
+	rm $PKG/usr/share/xscreensaver/config/README
+}
+

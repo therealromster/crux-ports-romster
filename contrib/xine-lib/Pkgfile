@@ -2,25 +2,31 @@
 # URL: http://xine.sourceforge.net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: faad2, flac, gdk-pixbuf, liba52, libdvdnav, libmad, libmng, libsdl, speex, libtheora, wavpack, libmpcdec
+# Depends on: xorg-libxvmc faad2 flac gdk-pixbuf libmad libmng libsdl speex libtheora wavpack libmpcdec vcdimager ffmpeg
 
 name=xine-lib
-version=1.1.4
-release=1
+version=1.1.7
+release=2
 source=(http://dl.sourceforge.net/sourceforge/xine/xine-lib-$version.tar.bz2)
 
 build() {
-	unset CFLAGS CXXFLAGS
 	cd xine-lib-$version
 	
 	./configure \
+		CFLAGS='' \
+		CXXFLAGS='' \
 		--prefix=/usr \
-		--disable-nls \
 		--mandir=/usr/man \
+		--disable-nls \
+		--disable-oss \
 		--enable-antialiasing \
+		--enable-ipv6 \
+		--enable-modplug \
 		--with-libflac \
+		--with-wavpack \
 		--with-external-libmpcdec \
-		--enable-ipv6
+		--with-external-libmad \
+		--with-external-ffmpeg
 
 	make
 	make DESTDIR=$PKG install

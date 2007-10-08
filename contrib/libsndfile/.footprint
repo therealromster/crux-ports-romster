@@ -1,0 +1,21 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/sndfile-convert
+-rwxr-xr-x	root/root	usr/bin/sndfile-info
+-rwxr-xr-x	root/root	usr/bin/sndfile-play
+-rwxr-xr-x	root/root	usr/bin/sndfile-regtest
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/sndfile.h
+-rw-r--r--	root/root	usr/include/sndfile.hh
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libsndfile.la
+lrwxrwxrwx	root/root	usr/lib/libsndfile.so -> libsndfile.so.1.0.18
+lrwxrwxrwx	root/root	usr/lib/libsndfile.so.1 -> libsndfile.so.1.0.18
+-rwxr-xr-x	root/root	usr/lib/libsndfile.so.1.0.18
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/sndfile.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/sndfile-convert.1.gz
+-rw-r--r--	root/root	usr/man/man1/sndfile-info.1.gz
+-rw-r--r--	root/root	usr/man/man1/sndfile-play.1.gz

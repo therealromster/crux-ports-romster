@@ -5,15 +5,18 @@
 # Depends on: ilmbase
 
 name=openexr
-version=1.5.0
+version=1.6.0
 release=1
 source=(http://download.savannah.nongnu.org/releases/openexr/openexr-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd openexr-$version
+
 	./configure \
 		--prefix=/usr \
-		--disable-static
+		--disable-static \
+		--disable-dependency-tracking
+
 	make
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/doc

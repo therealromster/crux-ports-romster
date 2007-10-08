@@ -7,12 +7,12 @@
 name=libfaketime
 version=0.5
 release=1
-source=(http://www.code-wizards.com/projects/$name/$name-$version.tar.gz)
+source=(http://www.code-wizards.com/projects/libfaketime/libfaketime-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd libfaketime-$version
 	make
-	install -D $name.so.1 $PKG/usr/lib/$name.so.1
-	ln -sf $name.so.1 $PKG/usr/lib/$name.so
+	install -D libfaketime.so.1 $PKG/usr/lib/libfaketime.so.1
+	ln -sf libfaketime.so.1 $PKG/usr/lib/libfaketime.so
 }
 

@@ -1,0 +1,22 @@
+REQUIREMENTS:
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+USB and Video4Linux must be in the kernel, and modprobed if built as modules, also the kernel source must be present in:
+"/usr/src/linux-VERSION" VERSION being what "uname -r" returns.
+
+POST-INSTALL:
+
+Add "/sbin/modprobe quickcam" to /etc/rc.modules
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+I find setting $MODPROBE=/sbin/modprobe easier, then use:
+
+$MODPROBE quickcam

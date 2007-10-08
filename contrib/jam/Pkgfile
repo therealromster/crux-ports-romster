@@ -1,0 +1,17 @@
+# Description: Software build tool.
+# URL: http://www.perforce.com/jam/jam.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on: 
+
+name=jam
+version=2.5
+release=1
+source=(ftp://ftp.perforce.com/pub/jam/jam-$version.zip)
+
+build() {
+	make
+	./jam0 -sBINDIR=$PKG/usr/bin -sOPTIM="$CFLAGS" install
+	chmod -v +r $PKG/usr/bin/jam
+}
+

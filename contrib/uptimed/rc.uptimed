@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# /etc/rc.d/uptimed: start/stop uptime record tracking daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/uptimed -b
+	/usr/sbin/uptimed
+	;;
+stop)
+	test -s /var/run/uptimed.pid && kill `cat /var/run/uptimed.pid`
+	;;
+restart)
+	$0 stop
+	sleep 1
+	/usr/sbin/uptimed
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]" >&2
+	;;
+esac

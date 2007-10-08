@@ -21,6 +21,7 @@ drwxr-xr-x	root/root	usr/mingw32/include/
 -rw-r--r--	root/root	usr/mingw32/include/gmon.h
 -rw-r--r--	root/root	usr/mingw32/include/inttypes.h
 -rw-r--r--	root/root	usr/mingw32/include/io.h
+-rw-r--r--	root/root	usr/mingw32/include/libgen.h
 -rw-r--r--	root/root	usr/mingw32/include/limits.h
 -rw-r--r--	root/root	usr/mingw32/include/locale.h
 -rw-r--r--	root/root	usr/mingw32/include/malloc.h
@@ -91,3 +92,7 @@ drwxr-xr-x	root/root	usr/mingw32/lib/
 -rw-r--r--	root/root	usr/mingw32/lib/libmsvcrt.a
 -rw-r--r--	root/root	usr/mingw32/lib/libmsvcrtd.a
 -rw-r--r--	root/root	usr/mingw32/lib/txtmode.o
+drwxr-xr-x	root/root	usr/mingw32/man/
+drwxr-xr-x	root/root	usr/mingw32/man/man3/
+-rw-r--r--	root/root	usr/mingw32/man/man3/basename.3.gz
+-rw-r--r--	root/root	usr/mingw32/man/man3/dirname.3.gz

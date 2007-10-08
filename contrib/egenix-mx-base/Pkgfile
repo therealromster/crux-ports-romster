@@ -1,21 +1,19 @@
 # Description: Collection of professional quality Python software tools.
-# URL: http://www.egenix.com/files/python/
+# URL: http://www.egenix.com/products/python/mxBase/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: python
 
 name=egenix-mx-base
-version=2.0.6
+version=3.0.0
 release=1
-source=(http://www.egenix.com/files/python/$name-$version.tar.gz)
+source=(http://downloads.egenix.com/python/egenix-mx-base-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd egenix-mx-base-$version
 	python setup.py install --root=$PKG
 	
-	find $PKG \
-		-name 'README' -or \
-		-name 'LICENSE' -or \
-		-name 'COPYRIGHT' -or | xargs rm
+	find $PKG -type d -name 'Doc' |xargs rm -rf '{}' \;
+	find $PKG \( -name 'README' -or -name 'LICENSE' -or -name 'COPYRIGHT' \) -delete
 }
 

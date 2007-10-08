@@ -2,16 +2,23 @@
 # URL: http://sox.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: libvorbis libmad lame alsa-lib
-
+# Depends on: libvorbis libmad lame alsa-lib libsndfile flac libsamplerate
+#12.18.2
 name=sox
-version=12.18.2
+version=13.0.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/sox/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/sox/sox-$version.tar.gz)
 
 build() {
-	cd $name-$version
-	./configure --prefix=/usr
-	make && make prefix=$PKG/usr install install-lib
+	cd sox-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--with-gnu-ld
+		
+	make
+	make prefix=$PKG/usr install
+	ln -fs /usr/bin/sox $PKG/usr/bin/soxmix
 }
 

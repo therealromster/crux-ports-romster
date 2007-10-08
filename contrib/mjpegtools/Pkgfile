@@ -1,0 +1,26 @@
+# Description: Tools for recording, editing, playing and encoding mpeg video.
+# URL: http://mjpeg.sourceforge.net
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: bashy, ronny kornexl at online de
+# Depends on: libquicktime xorg
+
+name=mjpegtools
+version=1.9.0rc2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/mjpeg/mjpegtools-$version.tar.gz)
+
+build() {
+	cd mjpegtools-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--enable-compile-warnings \
+		--enable-simd-accel \
+		--disable-assert
+
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/info
+}
+

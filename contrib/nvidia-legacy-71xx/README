@@ -1,0 +1,67 @@
+REQUIREMENTS:
+
+Add your users to the "video" group to be able to use the nvidia
+devices required for 3d to function properly.
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+POST-INSTALL
+
+Use opt/gl-select from ports to select the correct gl/glx libraries 
+and extensions like so:
+
+   # gl-select nvidia
+
+PRE-REMOVE:
+
+POST-REMOVE
+
+Use opt/gl-select from ports to revert to the xorg gl/glx
+libraries and extensions like so:
+
+   # gl-select xorg
+
+
+When UPGRADING/DOWNGRADING the nvidia port (where the version changes),
+use gl-select to revert to xorg and then re-select nvidia in order to
+refresh the libGLcore and libGL symlinks, like so:
+
+   # prt-get update nvidia-legacy-71xx
+   # gl-select xorg
+   # gl-select nvidia
+
+NOTES:
+
+The following GPUs are no longer supported in the regular NVIDIA
+Unified UNIX Graphics Driver. Instead, these GPUs will continue to be
+supported through special "Legacy GPU" drivers that will be updated 
+periodically to add support for new versions of Linux system 
+components (e.g., new Linux kernels, new versions of the X server, 
+etc).
+
+There are presently two Legacy GPU driver series. The 1.0-71xx series
+supports TNT, TNT2, GeForce 256, and GeForce2 GPUs. The 1.0-96xx 
+series supports GeForce2 MX, GeForce3, GeForce4, and Quadro4 GPUs. 
+For a complete list of the GPUs supported in each of the Legacy GPU 
+driver series, see the lists below.
+
+The 1.0-71xx driver supports the following set of GPUs:
+NVIDIA chip name                 Device PCI ID
+RIVA TNT                         0x0020
+RIVA TNT2/TNT2 Pro               0x0028
+RIVA TNT2 Ultra                  0x0029
+Vanta/Vanta LT                   0x002C
+RIVA TNT2 Model 64/Model 64 Pros 0x002D
+Aladdin TNT2                     0x00A0
+GeForce 256                      0x0100
+GeForce DDR                      0x0101
+Quadro                           0x0103
+GeForce2 GTS/GeForce2 Pro        0x0150
+GeForce2 Ti                      0x0151
+GeForce2 Ultra                   0x0152
+Quadro2 Pro                      0x0153
+
+Referenced from: http://www.nvidia.com/object/IO_32667.html
+

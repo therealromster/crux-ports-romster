@@ -5,7 +5,7 @@
 # Depends on: nasm
 
 name=libmpcdec
-version=1.2.4
+version=1.2.6
 release=1
 source=(http://files.musepack.net/source/libmpcdec-$version.tar.bz2)
 
@@ -16,6 +16,7 @@ build() {
 		--prefix=/usr \
 		--disable-static
 
-	make && make install DESTDIR=$PKG
+	make
+	make DESTDIR=$PKG install
 }
 

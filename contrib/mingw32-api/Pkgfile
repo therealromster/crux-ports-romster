@@ -5,7 +5,7 @@
 # Depends on: w32-opengl, w32-directx
 
 name=mingw32-api
-version=3.8
+version=3.9
 release=1
 source=(http://dl.sourceforge.net/sourceforge/mingw/w32api-$version.tar.gz)
 

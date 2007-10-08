@@ -2,9 +2,10 @@
 # URL: http://www.monkey.org/~provos/libevent/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Robert McMeekin, rrm3 at rrm3 dot org
+# Depends on:
 
 name=libevent
-version=1.3a
+version=1.3e
 release=1
 source=(http://www.monkey.org/~provos/libevent-$version.tar.gz)
 
@@ -18,5 +19,13 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
+
+	# no .py extensions in /usr/bin its declared on the first line of
+	# the file
+	if [ -f $PKG/usr/bin/event_rpcgen.py ]; then
+		mv $PKG/usr/bin/event_rpcgen.py $PKG/usr/bin/event_rpcgen
+	fi
+
+	sed -i -e '/_NAME = /s/"event_rpcgen.py"/"event_rpcgen"/' $PKG/usr/bin/event_rpcgen
 }
 

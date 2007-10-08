@@ -5,13 +5,10 @@
 # Depends on: ant
 
 name=yacy
-version=0.50_20061223_3132
+version=0.55_20071004_4145
 release=1
-source=(http://www.yacy.net/yacy/release/yacy_v$version.tar.gz \
-	http://www.yacy.net/superseed.txt \
-	$name-start.sh $name-stop.sh $name.rc)
-
-mirror=(http://download.berlios.de/yacy/yacy_v$version.tar.gz)
+source=(http://www.yacy.net/release/yacy_v$version.tar.gz \
+	yacy-start.sh yacy-stop.sh yacy.rc)
 
 build() {
 	cd yacy
@@ -42,14 +39,14 @@ build() {
 		htroot/.nbattrs
 
 	# install
-	install -D $SRC/superseed.txt $PKG/usr/share/yacy/superseed.txt
+	install -d $PKG/usr/share/yacy
 	cp -R * $PKG/usr/share/yacy/
 
 	# add some protection by limitng what and who can access the p2p files.
 	chown -R _yacy:daemon $PKG/usr/share/yacy
 	
-	install -D -m755 -oroot -groot $SRC/yacy-start.sh $PKG/usr/sbin/yacy-start
-	install -D -m755 -oroot -groot $SRC/yacy-stop.sh $PKG/usr/sbin/yacy-stop
-	install -D -m755 -oroot -groot $SRC/yacy.rc $PKG/etc/rc.d/yacy
+	install -D -m 0755 $SRC/yacy-start.sh $PKG/usr/sbin/yacy-start
+	install -D -m 0755 $SRC/yacy-stop.sh $PKG/usr/sbin/yacy-stop
+	install -D -m 0755 $SRC/yacy.rc $PKG/etc/rc.d/yacy
 }
 

@@ -237,6 +237,20 @@ drwxr-xr-x	root/root	usr/include/c++/3.4.5/mingw32/bits/stdc++.h.gch/
 -rw-r--r--	root/root	usr/include/c++/3.4.5/valarray
 -rw-r--r--	root/root	usr/include/c++/3.4.5/vector
 drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ccache/
+lrwxrwxrwx	root/root	usr/lib/ccache/mingw32-c++ -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/mingw32-cpp -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/mingw32-g++ -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/mingw32-gcc -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/mingw32-gccbug -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/mingw32-gcov -> ../../bin/ccache
+drwxr-xr-x	root/root	usr/lib/distcc/
+lrwxrwxrwx	root/root	usr/lib/distcc/mingw32-c++ -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/mingw32-cpp -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/mingw32-g++ -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/mingw32-gcc -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/mingw32-gccbug -> ../../bin/distcc
+lrwxrwxrwx	root/root	usr/lib/distcc/mingw32-gcov -> ../../bin/distcc
 drwxr-xr-x	root/root	usr/lib/gcc/
 drwxr-xr-x	root/root	usr/lib/gcc/mingw32/
 drwxr-xr-x	root/root	usr/lib/gcc/mingw32/3.4.5/

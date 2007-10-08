@@ -1,0 +1,24 @@
+# Description: Jack Audio Connection Kit.
+# URL: http://jackaudio.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
+# Depends on: alsa-lib libsndfile
+
+name=jack-audio-connection-kit
+version=0.103.0
+release=1
+source=(http://dl.sf.net/jackit/jack-audio-connection-kit-$version.tar.gz)
+
+build(){
+	cd jack-audio-connection-kit-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-portaudio
+
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share
+}
+

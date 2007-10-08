@@ -1,0 +1,26 @@
+# Description: Library for manipulating sound files.
+# URL: http://www.mega-nerd.com/libsndfile
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
+# Depends on: flac sqlite3 alsa-lib
+
+name=libsndfile
+version=1.0.18pre17
+release=1
+source=(http://www.mega-nerd.com/tmp/libsndfile-$version.tar.gz)
+
+build() {
+	cd libsndfile-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	
+	rm -r $PKG/usr/share
+}
+

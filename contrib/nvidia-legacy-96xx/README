@@ -1,0 +1,98 @@
+REQUIREMENTS:
+
+Add your users to the "video" group to be able to use the nvidia
+devices required for 3d to function properly.
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+POST-INSTALL
+
+Use opt/gl-select from ports to select the correct gl/glx libraries 
+and extensions like so:
+
+   # gl-select nvidia
+
+PRE-REMOVE:
+
+POST-REMOVE
+
+Use opt/gl-select from ports to revert to the xorg gl/glx
+libraries and extensions like so:
+
+   # gl-select xorg
+
+
+When UPGRADING/DOWNGRADING the nvidia port (where the version changes),
+use gl-select to revert to xorg and then re-select nvidia in order to
+refresh the libGLcore and libGL symlinks, like so:
+
+   # prt-get update nvidia-legacy-96xx
+   # gl-select xorg
+   # gl-select nvidia
+
+NOTES:
+
+The following GPUs are no longer supported in the regular NVIDIA
+Unified UNIX Graphics Driver. Instead, these GPUs will continue to be
+supported through special "Legacy GPU" drivers that will be updated 
+periodically to add support for new versions of Linux system 
+components (e.g., new Linux kernels, new versions of the X server, 
+etc).
+
+There are presently two Legacy GPU driver series. The 1.0-71xx series
+supports TNT, TNT2, GeForce 256, and GeForce2 GPUs. The 1.0-96xx 
+series supports GeForce2 MX, GeForce3, GeForce4, and Quadro4 GPUs. 
+For a complete list of the GPUs supported in each of the Legacy GPU 
+driver series, see the lists below.
+
+The 1.0-96xx driver supports the following set of GPUs:
+NVIDIA chip name              Device PCI ID
+GeForce2 MX/MX 400            0x0110
+GeForce2 MX 100/200           0x0111
+GeForce2 Go                   0x0112
+Quadro2 MXR/EX/Go             0x0113
+GeForce4 MX 460               0x0170
+GeForce4 MX 440               0x0171
+GeForce4 MX 420               0x0172
+GeForce4 MX 440-SE            0x0173
+GeForce4 440 Go               0x0174
+GeForce4 420 Go               0x0175
+GeForce4 420 Go 32M           0x0176
+GeForce4 460 Go               0x0177
+Quadro4 550 XGL               0x0178
+GeForce4 440 Go 64M           0x0179
+Quadro NVS                    0x017A
+Quadro4 500 GoGL              0x017C
+GeForce4 410 Go 16M           0x017D
+GeForce4 MX 440 with AGP8X    0x0181
+GeForce4 MX 440SE with AGP8X  0x0182
+GeForce4 MX 420 with AGP8X    0x0183
+GeForce4 MX 4000              0x0185
+Quadro4 580 XGL               0x0188
+Quadro NVS 280 SD             0x018A
+Quadro4 380 XGL               0x018B
+Quadro NVS 50 PCI             0x018C
+GeForce2 Integrated GPU       0x01A0
+GeForce4 MX Integrated GPU    0x01F0
+GeForce3                      0x0200
+GeForce3 Ti 200               0x0201
+GeForce3 Ti 500               0x0202
+Quadro DCC                    0x0203
+GeForce4 Ti 4600              0x0250
+GeForce4 Ti 4400              0x0251
+GeForce4 Ti 4200              0x0253
+Quadro4 900 XGL               0x0258
+Quadro4 750 XGL               0x0259
+Quadro4 700 XGL               0x025B
+GeForce4 Ti 4800              0x0280
+GeForce4 Ti 4200 with AGP8X   0x0281
+GeForce4 Ti 4800 SE           0x0282
+GeForce4 4200 Go              0x0286
+Quadro4 980 XGL               0x0288
+Quadro4 780 XGL               0x0289
+Quadro4 700 GoGL              0x028C
+
+Referenced from: http://www.nvidia.com/object/IO_32667.html
+

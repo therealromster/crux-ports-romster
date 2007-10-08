@@ -1,0 +1,54 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gift-setup
+-rwxr-xr-x	root/root	usr/bin/giftd
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libgift/
+-rw-r--r--	root/root	usr/include/libgift/array.h
+-rw-r--r--	root/root	usr/include/libgift/conf.h
+-rw-r--r--	root/root	usr/include/libgift/dataset.h
+-rw-r--r--	root/root	usr/include/libgift/event.h
+-rw-r--r--	root/root	usr/include/libgift/fdbuf.h
+-rw-r--r--	root/root	usr/include/libgift/file.h
+-rw-r--r--	root/root	usr/include/libgift/giftconfig.h
+-rw-r--r--	root/root	usr/include/libgift/interface.h
+-rw-r--r--	root/root	usr/include/libgift/libgift.h
+-rw-r--r--	root/root	usr/include/libgift/list.h
+-rw-r--r--	root/root	usr/include/libgift/list_lock.h
+-rw-r--r--	root/root	usr/include/libgift/log.h
+-rw-r--r--	root/root	usr/include/libgift/memory.h
+-rw-r--r--	root/root	usr/include/libgift/mime.h
+-rw-r--r--	root/root	usr/include/libgift/network.h
+-rw-r--r--	root/root	usr/include/libgift/parse.h
+-rw-r--r--	root/root	usr/include/libgift/platform.h
+drwxr-xr-x	root/root	usr/include/libgift/proto/
+-rw-r--r--	root/root	usr/include/libgift/proto/if_event_api.h
+-rw-r--r--	root/root	usr/include/libgift/proto/protocol.h
+-rw-r--r--	root/root	usr/include/libgift/proto/protocol_ver.h
+-rw-r--r--	root/root	usr/include/libgift/proto/share.h
+-rw-r--r--	root/root	usr/include/libgift/proto/share_hash.h
+-rw-r--r--	root/root	usr/include/libgift/proto/transfer_api.h
+-rw-r--r--	root/root	usr/include/libgift/stopwatch.h
+-rw-r--r--	root/root	usr/include/libgift/strobj.h
+-rw-r--r--	root/root	usr/include/libgift/tcpc.h
+-rw-r--r--	root/root	usr/include/libgift/tree.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libgift.la
+lrwxrwxrwx	root/root	usr/lib/libgift.so -> libgift.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgift.so.0 -> libgift.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgift.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgiftproto.la
+lrwxrwxrwx	root/root	usr/lib/libgiftproto.so -> libgiftproto.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgiftproto.so.0 -> libgiftproto.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgiftproto.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libgift.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/giftd.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/giFT/
+-rw-r--r--	root/root	usr/share/giFT/giftd.conf.template
+-rw-r--r--	root/root	usr/share/giFT/mime.types
+drwxr-xr-x	root/root	usr/share/giFT/ui/
+-rw-r--r--	root/root	usr/share/giFT/ui/ui.conf.template

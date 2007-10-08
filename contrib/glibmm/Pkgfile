@@ -5,20 +5,21 @@
 # Depends on: gtk libsigc++
 
 name=glibmm
-version=2.12.9
+version=2.12.10
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/glibmm/${version%.*}/glibmm-$version.tar.bz2)
 
 build() {
 	cd glibmm-$version
 
-    	./configure \
+	./configure \
 		--prefix=/usr \
+		--disable-dependency-tracking \
 		--disable-fulldocs \
 		--disable-nls
 
 	make
-    	make DESTDIR=$PKG install
+	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/doc
 }
 

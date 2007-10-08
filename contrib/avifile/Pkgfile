@@ -1,0 +1,31 @@
+# Description: Library fo AVI video files.
+# URL: http://avifile.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Martin Opel, mo at obbl-net dot de
+# Depends on: xorg-libxft xorg-libxv xorg-libxinerama libsdl liba52 libmad lame libdivx freetype libvorbis ffmpeg
+
+name=avifile
+version=0.7-0.7.45
+release=1
+source=(http://dl.sourceforge.net/sourceforge/avifile/avifile-$version.tar.bz2 \
+	avifile-$version-gcc4.patch)
+
+build() {
+	cd avifile-$version
+
+	patch -p1 -i $SRC/avifile-$version-gcc4.patch
+
+	./configure \
+		--prefix=/usr \
+		--enable-x86opt \
+		--without-qt \
+      --disable-xvidtest \
+      --disable-xvid \
+		--disable-ffmpeg-risky \
+		--with-linux-prefix='/usr/include/linux'
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/avifile-${version%-*}/doc
+}
+

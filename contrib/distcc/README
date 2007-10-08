@@ -1,0 +1,17 @@
+POST-INSTALL
+to use distcc, just 
+a) export DISTCC_HOSTS to include the compilation hosts
+b) prepend /usr/lib/distcc to your $PATH environment variable.
+   (e.g. in pkgmk.conf)
+c) export MAKEFLAGS=-j<n> where n is a number representing the number of
+   parallel jobs you want
+
+
+DISTCCD SERVICE
+
+There's a service to simplify running distccd. By default, it uses allows connections from '192.168.0.0/24' and runs as user 'nobody'. Both values can be overridden in /etc/rc.conf, like this:
+
+----
+DISTCC_ALLOW=192.168.1.0/24
+DISTCC_USER=otheruser
+----

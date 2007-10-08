@@ -9,8 +9,8 @@ drwxr-xr-x	root/root	usr/include/wavpack/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libwavpack.a
 -rwxr-xr-x	root/root	usr/lib/libwavpack.la
-lrwxrwxrwx	root/root	usr/lib/libwavpack.so -> libwavpack.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libwavpack.so.1 -> libwavpack.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libwavpack.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libwavpack.so -> libwavpack.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libwavpack.so.1 -> libwavpack.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libwavpack.so.1.0.1
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/wavpack.pc

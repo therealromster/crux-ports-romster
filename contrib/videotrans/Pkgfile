@@ -2,18 +2,17 @@
 # URL: http://videotrans.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: dvdauthor, multimux, qt3, sox, transcode
+# Depends on: dvdauthor multimux qt3 sox transcode
 
 name=videotrans
-version=1.5.2
+version=1.6.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2 \
-	$name-$version-configure_paths.patch)
+source=(http://dl.sourceforge.net/sourceforge/videotrans/videotrans-$version.tar.bz2)
 
 build() {
-	patch -p0 -i $SRC/$name-$version-configure_paths.patch
-	cd $name-$version
+	cd videotrans-$version
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 }
 

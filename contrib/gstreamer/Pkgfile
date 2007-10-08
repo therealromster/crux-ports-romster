@@ -5,21 +5,26 @@
 # Depends on: libxml2
 
 name=gstreamer
-version=0.10.11
+version=0.10.14
 release=1
 source=(http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd gstreamer-$version
 
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
+		--disable-static \
+		--disable-dependency-tracking \
 		--disable-nls \
 		--disable-gst-debug \
+		--disable-debug \
 		--disable-examples \
-		--disable-tests
+		--disable-failing-tests
 
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/gtk-doc
 }
 

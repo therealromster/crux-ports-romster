@@ -1,0 +1,35 @@
+# Description: Uptime record tracking daemon.
+# URL: http://podgorny.cz/uptimed/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on: 
+
+name=uptimed
+version=0.3.11
+release=1
+source=(http://podgorny.cz/uptimed/releases/uptimed-$version.tar.bz2
+	rc.uptimed)
+
+build() {
+	cd uptimed-$version
+
+	sed -i -e "s|/var/spool/uptimed|'\$(DESTDIR)&'|" Makefile.in
+
+	sed -i \
+	    -e '/^SENDMAIL=/s|lib|sbin|' \
+	    -e "s|^PIDFILE=.*|'&.pid'|" \
+		 etc/uptimed.conf-dist
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/man \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/etc/uptimed.conf-dist $PKG/etc/uptimed.conf
+	install -D ../rc.uptimed $PKG/etc/rc.d/uptimed
+}
+

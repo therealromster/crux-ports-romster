@@ -5,7 +5,7 @@
 # Depends on: iproute2
 
 name=iptables-imq
-version=1.3.7-2.6.17
+version=1.3.8-2.6.17
 patch=1.3.0-imq1
 release=1
 source=(ftp://ftp.netfilter.org/pub/iptables/iptables-${version%%-*}.tar.bz2 \

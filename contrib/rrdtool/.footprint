@@ -8,21 +8,37 @@ drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/librrd.a
 -rwxr-xr-x	root/root	usr/lib/librrd.la
-lrwxrwxrwx	root/root	usr/lib/librrd.so -> librrd.so.2.0.8
-lrwxrwxrwx	root/root	usr/lib/librrd.so.2 -> librrd.so.2.0.8
--rwxr-xr-x	root/root	usr/lib/librrd.so.2.0.8
+lrwxrwxrwx	root/root	usr/lib/librrd.so -> librrd.so.2.0.10
+lrwxrwxrwx	root/root	usr/lib/librrd.so.2 -> librrd.so.2.0.10
+-rwxr-xr-x	root/root	usr/lib/librrd.so.2.0.10
 -rw-r--r--	root/root	usr/lib/librrd_th.a
 -rwxr-xr-x	root/root	usr/lib/librrd_th.la
 lrwxrwxrwx	root/root	usr/lib/librrd_th.so -> librrd_th.so.2.0.8
 lrwxrwxrwx	root/root	usr/lib/librrd_th.so.2 -> librrd_th.so.2.0.8
 -rwxr-xr-x	root/root	usr/lib/librrd_th.so.2.0.8
-drwxr-xr-x	root/root	usr/lib/python2.4/
-drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/
--rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/rrdtoolmodule.so
+drwxr-xr-x	root/root	usr/lib/perl5/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.8/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.8/RRDp.pm
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.8/linux/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.8/linux/RRDs.pm
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.8/linux/auto/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.8/linux/auto/RRDs/
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.8/linux/auto/RRDs/RRDs.so
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.8/linux/ntmake.pl
+drwxr-xr-x	root/root	usr/lib/python2.5/
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/py_rrdtool-0.2.1-py2.5.egg-info
+-rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/rrdtoolmodule.so
 drwxr-xr-x	root/root	usr/lib/rrdtool/
 -rwxr-xr-x	root/root	usr/lib/rrdtool/ifOctets.tcl
 -rw-r--r--	root/root	usr/lib/rrdtool/pkgIndex.tcl
--rwxr-xr-x	root/root	usr/lib/tclrrd1.2.15.so
+drwxr-xr-x	root/root	usr/lib/ruby/
+drwxr-xr-x	root/root	usr/lib/ruby/site_ruby/
+drwxr-xr-x	root/root	usr/lib/ruby/site_ruby/1.8/
+drwxr-xr-x	root/root	usr/lib/ruby/site_ruby/1.8/linux/
+-rwxr-xr-x	root/root	usr/lib/ruby/site_ruby/1.8/linux/RRD.so
+-rwxr-xr-x	root/root	usr/lib/tclrrd1.2.23.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/bin_dec_hex.1.gz
@@ -42,6 +58,7 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/rrdgraph_rpn.1.gz
 -rw-r--r--	root/root	usr/man/man1/rrdinfo.1.gz
 -rw-r--r--	root/root	usr/man/man1/rrdlast.1.gz
+-rw-r--r--	root/root	usr/man/man1/rrdlastupdate.1.gz
 -rw-r--r--	root/root	usr/man/man1/rrdresize.1.gz
 -rw-r--r--	root/root	usr/man/man1/rrdrestore.1.gz
 -rw-r--r--	root/root	usr/man/man1/rrdthreads.1.gz
@@ -50,6 +67,9 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/rrdtutorial.1.gz
 -rw-r--r--	root/root	usr/man/man1/rrdupdate.1.gz
 -rw-r--r--	root/root	usr/man/man1/rrdxport.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-r--r--r--	root/root	usr/man/man3/RRDp.3pm.gz
+-r--r--r--	root/root	usr/man/man3/RRDs.3pm.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/rrdtool/
 drwxr-xr-x	root/root	usr/share/rrdtool/fonts/

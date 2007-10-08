@@ -66,9 +66,9 @@ drwxr-xr-x	root/root	usr/include/OpenEXR/
 -rw-r--r--	root/root	usr/include/OpenEXR/OpenEXRConfig.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libIlmImf.la
-lrwxrwxrwx	root/root	usr/lib/libIlmImf.so -> libIlmImf.so.4.0.0
-lrwxrwxrwx	root/root	usr/lib/libIlmImf.so.4 -> libIlmImf.so.4.0.0
--rwxr-xr-x	root/root	usr/lib/libIlmImf.so.4.0.0
+lrwxrwxrwx	root/root	usr/lib/libIlmImf.so -> libIlmImf.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libIlmImf.so.6 -> libIlmImf.so.6.0.0
+-rwxr-xr-x	root/root	usr/lib/libIlmImf.so.6.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/OpenEXR.pc
 drwxr-xr-x	root/root	usr/share/

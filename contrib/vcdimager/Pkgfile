@@ -1,0 +1,22 @@
+# Description: Create (S)VCDs. 
+# URL: http://www.gnu.org/software/vcdimager/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Hannes Mayer, kontakt at ecarux de
+# Depends on: libcdio libxml2 popt
+
+name=vcdimager
+version=0.7.23
+release=1
+source=(ftp://gnu.mirror.pacific.net.au/gnu/gnu/vcdimager/vcdimager-$version.tar.gz)
+
+build() {
+	cd vcdimager-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static  
+    	make 
+    	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/info/
+}
+

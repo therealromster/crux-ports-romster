@@ -1,0 +1,39 @@
+--- avifile-0.7-0.7.45/include/avm_map.h.gcc4	2007-02-22 10:58:56.000000000 +0100
++++ avifile-0.7-0.7.45/include/avm_map.h	2007-02-22 10:59:13.000000000 +0100
+@@ -33,19 +33,19 @@
+ template <class Key, class Value, class Compare = less<Key>, class equal = equal<Key> > class avm_map
+ {
+ protected:
+-    template <class Key1, class Value1> struct pair
++    template <class KeyP, class ValueP> struct pair
+     {
+-	Key1 key;
+-	Value1 value;
++	KeyP key;
++	ValueP value;
+ 	pair() : key(Key()), value(Value()) {}
+-	pair(Key1 k, Value1 v) : key(k), value(v) {}
+-	pair(const pair<Key1, Value1>& p) : key(p.key), value(p.value) {}
++	pair(KeyP k, ValueP v) : key(k), value(v) {}
++	pair(const pair<KeyP, ValueP>& p) : key(p.key), value(p.value) {}
+     };
+     typedef pair<Key, Value> _Tpair;
+ 
+     template <class Key1, class Value1> struct binary_tree_node
+     {
+-	avm_map::pair<Key1, Value1>* entry;
++	_Tpair* entry;
+ 	binary_tree_node<Key1, Value1>* left;
+ 	Key1 minval;
+ 	binary_tree_node<Key1, Value1>* right;
+--- avifile-0.7-0.7.45/plugins/libmp3lame_audioenc/mp3encoder.cpp.gcc4	2006-03-05 21:45:26.000000000 +0100
++++ avifile-0.7-0.7.45/plugins/libmp3lame_audioenc/mp3encoder.cpp	2007-02-22 10:45:57.000000000 +0100
+@@ -30,7 +30,7 @@
+ 	short  nCodecDelay;
+     };
+ public:
+-    MP3Encoder::MP3Encoder(const CodecInfo& info, const WAVEFORMATEX* format)
++    MP3Encoder(const CodecInfo& info, const WAVEFORMATEX* format)
+ 	:IAudioEncoder(info)
+     {
+ 	in_fmt=*format;

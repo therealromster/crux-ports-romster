@@ -5,13 +5,14 @@
 # Depends on: 
 
 name=multimux
-version=0.2.4
+version=0.2.5.2
 release=1
 source=(http://www.ibiblio.org/pub/linux/apps/video/multimux-$version.tgz)
 
-build () {
-	cd $name-$version
+build() {
+	cd multimux-$version
+	sed -i -e "s|-O2|$CFLAGS|" Makefile
 	make
-	install -D -m755 -groot -oroot $name $PKG/usr/bin/$name
+	install -D -m755 multimux $PKG/usr/bin/multimux
 }
 
