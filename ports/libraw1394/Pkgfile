@@ -1,0 +1,18 @@
+# Description: Firewire RAW libraries.
+# URL: http://www.linux1394.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on: 
+
+name=libraw1394
+version=1.2.1
+release=1
+source=(http://www.linux1394.org/dl/libraw1394-$version.tar.gz)
+
+build() {
+	cd libraw1394-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+

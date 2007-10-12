@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dumpiso
+-rwxr-xr-x	root/root	usr/bin/sendiso
+-rwxr-xr-x	root/root	usr/bin/testlibraw
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libraw1394/
+-rw-r--r--	root/root	usr/include/libraw1394/csr.h
+-rw-r--r--	root/root	usr/include/libraw1394/ieee1394.h
+-rw-r--r--	root/root	usr/include/libraw1394/raw1394.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libraw1394.a
+-rwxr-xr-x	root/root	usr/lib/libraw1394.la
+lrwxrwxrwx	root/root	usr/lib/libraw1394.so -> libraw1394.so.8.1.1
+lrwxrwxrwx	root/root	usr/lib/libraw1394.so.8 -> libraw1394.so.8.1.1
+-rwxr-xr-x	root/root	usr/lib/libraw1394.so.8.1.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libraw1394.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dumpiso.1.gz
+-rw-r--r--	root/root	usr/man/man1/sendiso.1.gz
+-rw-r--r--	root/root	usr/man/man1/testlibraw.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/isodump.5.gz
