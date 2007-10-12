@@ -1,0 +1,33 @@
+# Description: Unicap provides a uniform interface to video capture devices.
+# URL: http://www.unicap-imaging.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on: libiec61883 alsa-lib libtheora
+
+name=unicap
+version=0.2.17
+release=1
+source=(http://dl.sourceforge.net/sourceforge/unicap/unicap-$version.tar.gz)
+mirror=(http://unicap-imaging.org/downloads/unicap-$version.tar.gz)
+
+build() {
+	cd unicap-$version
+
+	# why does --disable-gtk-doc never work!
+	sed -i -e "/@SUBDIRS = /s/doc//" Makefile.in
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-gtk-doc \
+		--disable-nls \
+		--disable-unicapgtk \
+		--disable-ucil \
+		--disable-v4l \
+		--disable-v4l2 \
+		--without-x
+    
+	make
+	make DESTDIR=$PKG install
+}
+

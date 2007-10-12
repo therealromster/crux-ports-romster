@@ -1,0 +1,35 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/unicap/
+-rw-r--r--	root/root	usr/include/unicap/ucil.h
+-rw-r--r--	root/root	usr/include/unicap/ucil_alsa.h
+-rw-r--r--	root/root	usr/include/unicap/ucil_version.h
+-rw-r--r--	root/root	usr/include/unicap/unicap.h
+-rw-r--r--	root/root	usr/include/unicap/unicap_status.h
+-rw-r--r--	root/root	usr/include/unicap/unicap_version.h
+-rw-r--r--	root/root	usr/include/unicap/unicapgtk.h
+-rw-r--r--	root/root	usr/include/unicap/unicapgtk_device_property.h
+-rw-r--r--	root/root	usr/include/unicap/unicapgtk_device_selection.h
+-rw-r--r--	root/root	usr/include/unicap/unicapgtk_property_dialog.h
+-rw-r--r--	root/root	usr/include/unicap/unicapgtk_version.h
+-rw-r--r--	root/root	usr/include/unicap/unicapgtk_video_display.h
+-rw-r--r--	root/root	usr/include/unicap/unicapgtk_video_format_selection.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libunicap.la
+lrwxrwxrwx	root/root	usr/lib/libunicap.so -> libunicap.so.2.1.1
+lrwxrwxrwx	root/root	usr/lib/libunicap.so.2 -> libunicap.so.2.1.1
+-rwxr-xr-x	root/root	usr/lib/libunicap.so.2.1.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libucil.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libunicap.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libunicapgtk.pc
+drwxr-xr-x	root/root	usr/lib/unicap2/
+drwxr-xr-x	root/root	usr/lib/unicap2/cpi/
+-rwxr-xr-x	root/root	usr/lib/unicap2/cpi/libdcam.la
+lrwxrwxrwx	root/root	usr/lib/unicap2/cpi/libdcam.so -> libdcam.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/unicap2/cpi/libdcam.so.0 -> libdcam.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/unicap2/cpi/libdcam.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/unicap2/cpi/libvid21394.la
+lrwxrwxrwx	root/root	usr/lib/unicap2/cpi/libvid21394.so -> libvid21394.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/unicap2/cpi/libvid21394.so.0 -> libvid21394.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/unicap2/cpi/libvid21394.so.0.0.0
