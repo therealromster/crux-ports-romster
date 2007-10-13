@@ -49,7 +49,6 @@ d:mingw32-api
 d:mingw32-binutils
 d:mingw32-gcc
 d:mingw32-runtime
-d:module-usb-quickcam
 d:multimux
 d:ntfs-3g
 d:numarray
@@ -312,10 +311,6 @@ f:16f923eba3030b80dcade2a461985e8c:mingw32-runtime/.footprint
 f:64d24aef29cfd622e10037549a3ce64c:mingw32-runtime/.md5sum
 f:a89245058732b01796d0ce1e2279fb00:mingw32-runtime/.nostrip
 f:811c40b30ba31661f01e5bacc54a0260:mingw32-runtime/Pkgfile
-f:97c6b88acc74241e85ec104b357b1e18:module-usb-quickcam/.footprint
-f:e9e09a36571241604814204b375efdab:module-usb-quickcam/.md5sum
-f:891e30f977778bfede8deaeec8a20360:module-usb-quickcam/Pkgfile
-f:87768e50db5ed1cc2ce705101c8c9cd2:module-usb-quickcam/README
 f:d4d5d87cf73b356b7459684e54ec1f65:multimux/.footprint
 f:85be4cf9d6298178f24382786e03b98f:multimux/.md5sum
 f:ff119eb8d79969580bf504a78fb72aa7:multimux/Pkgfile
