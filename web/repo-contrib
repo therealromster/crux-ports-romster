@@ -49,6 +49,7 @@ d:mingw32-api
 d:mingw32-binutils
 d:mingw32-gcc
 d:mingw32-runtime
+d:skype
 d:multimux
 d:ntfs-3g
 d:numarray
@@ -311,6 +312,10 @@ f:16f923eba3030b80dcade2a461985e8c:mingw32-runtime/.footprint
 f:64d24aef29cfd622e10037549a3ce64c:mingw32-runtime/.md5sum
 f:a89245058732b01796d0ce1e2279fb00:mingw32-runtime/.nostrip
 f:811c40b30ba31661f01e5bacc54a0260:mingw32-runtime/Pkgfile
+f:9a8403e2ee505283408f0420bb73822a:skype/.footprint
+f:c8d39bca100577aed7dc44df89d40ed8:skype/.md5sum
+f:e0daebceb16786319734bb65ea74b78c:skype/Pkgfile
+f:360943775191b7ed850d2094be68447d:skype/Pkgfile~
 f:d4d5d87cf73b356b7459684e54ec1f65:multimux/.footprint
 f:85be4cf9d6298178f24382786e03b98f:multimux/.md5sum
 f:ff119eb8d79969580bf504a78fb72aa7:multimux/Pkgfile
