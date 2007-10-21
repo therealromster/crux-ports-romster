@@ -1,26 +1,23 @@
-# $Id: 
 # Description: LZMA Compression as used by 7-zip.
 # URL: http://tukaani.org/lzma/
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
-# Recommended:	
-# Optional:	
-# Category:	compression, algorithm
-
 name=lzma
-version=4.32.0beta3
+version=4.32.0beta5
 release=1
-source=(http://tukaani.org/$name/$name-$version.tar.gz)
+source=(http://tukaani.org/lzma/lzma-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd lzma-$version
 
 	./configure \
 		--prefix=/usr \
+		--mandir=$PKG/usr/man \
 		--disable-static
 
-	make && make prefix=$PKG/usr install
-	chown -R root:root $PKG
+	make
+	make prefix=$PKG/usr install
 }
+
