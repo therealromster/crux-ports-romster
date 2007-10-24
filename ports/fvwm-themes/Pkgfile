@@ -2,7 +2,7 @@
 # URL: http://www.fvwm.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: fvwm xorg xorg-xmessage
+# Depends on: fvwm xorg-libx11 xmessage
 
 name=fvwm-themes
 version=0.6.2
