@@ -1,12 +1,6 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/avibench
--rwxr-xr-x	root/root	usr/bin/avicat
 -rwxr-xr-x	root/root	usr/bin/avifile-config
--rwxr-xr-x	root/root	usr/bin/avimake
--rwxr-xr-x	root/root	usr/bin/avirec
--rwxr-xr-x	root/root	usr/bin/avitype
--rwxr-xr-x	root/root	usr/bin/kv4lsetup
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/avifile-0.7/
 -rw-r--r--	root/root	usr/include/avifile-0.7/Locker.h
@@ -59,8 +53,6 @@ drwxr-xr-x	root/root	usr/lib/avifile-0.7/
 -rwxr-xr-x	root/root	usr/lib/avifile-0.7/mp3lamebin_audioenc.so
 -rwxr-xr-x	root/root	usr/lib/avifile-0.7/mpeg_audiodec.la
 -rwxr-xr-x	root/root	usr/lib/avifile-0.7/mpeg_audiodec.so
--rwxr-xr-x	root/root	usr/lib/avifile-0.7/osmjpeg.la
--rwxr-xr-x	root/root	usr/lib/avifile-0.7/osmjpeg.so
 drwxr-xr-x	root/root	usr/lib/avifile-0.7/vidix/
 -rwxr-xr-x	root/root	usr/lib/avifile-0.7/vidix/libgenfb.la
 -rwxr-xr-x	root/root	usr/lib/avifile-0.7/vidix/libgenfb.so
@@ -125,8 +117,6 @@ drwxr-xr-x	root/root	usr/share/aclocal/
 -rw-r--r--	root/root	usr/share/aclocal/avifile.m4
 drwxr-xr-x	root/root	usr/share/avifile-0.7/
 -rw-r--r--	root/root	usr/share/avifile-0.7/action.cfg
-drwxr-xr-x	root/root	usr/share/avifile-0.7/i18/
--rw-r--r--	root/root	usr/share/avifile-0.7/i18/avicap_de.qm
 drwxr-xr-x	root/root	usr/share/avifile-0.7/pixmaps/
 -rw-r--r--	root/root	usr/share/avifile-0.7/pixmaps/about.ppm
 -rw-r--r--	root/root	usr/share/avifile-0.7/pixmaps/bottom.ppm
@@ -142,7 +132,3 @@ drwxr-xr-x	root/root	usr/share/avifile-0.7/pixmaps/
 -rw-r--r--	root/root	usr/share/avifile-0.7/pixmaps/test.xpm
 -rw-r--r--	root/root	usr/share/avifile-0.7/pixmaps/top.ppm
 -rw-r--r--	root/root	usr/share/avifile-0.7/pixmaps/up.ppm
-drwxr-xr-x	root/root	usr/share/avifile-0.7/scripts/
--rw-r--r--	root/root	usr/share/avifile-0.7/scripts/avicap-boot
--rw-r--r--	root/root	usr/share/avifile-0.7/scripts/avicap-setnvram
--rw-r--r--	root/root	usr/share/avifile-0.7/scripts/avicap-shutdown

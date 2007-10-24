@@ -2,7 +2,7 @@
 # URL: http://tcl.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Sven Dahl, dahl at c64 dot org
-# Depends on: xorg tcl
+# Depends on: xorg-libxft tcl
 
 name=tk
 version=8.4.14
@@ -28,8 +28,9 @@ build() {
 
 	sed -i "s|-L$SRC/tk$version/unix|-L/usr/lib|" $PKG/usr/lib/tkConfig.sh
 
-	rm -rf $PKG/usr/lib/tk8.5/demos
-	ln -sf wish8.4 $PKG/usr/bin/wish
+	rm -r $PKG/usr/lib/tk${version%.*}/demos
+	rm $PKG/usr/lib/tk${version%.*}/images/README
+	ln -s wish${version%.*} $PKG/usr/bin/wish
 	chmod -R u+w,go-w $PKG
 	find $PKG/usr/man -type f -print0 | xargs -0 chmod a-x
 }

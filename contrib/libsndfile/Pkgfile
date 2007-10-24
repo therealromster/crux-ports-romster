@@ -2,7 +2,8 @@
 # URL: http://www.mega-nerd.com/libsndfile
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: flac sqlite3 alsa-lib
+# Depends on: flac alsa-lib
+# Nice to have: sqlite3
 
 name=libsndfile
 version=1.0.18pre17

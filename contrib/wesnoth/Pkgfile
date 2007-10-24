@@ -1,9 +1,9 @@
-# Description: The Battle for Wesnoth  is a free, turn-based strategy game with a fantasy theme. Fight a desperate battle to reclaim the throne of Wesnoth, or take hand in any number of other adventures.
+# Description: The Battle for Wesnoth is a turn-based strategy game with a fantasy theme.
 # URL: http://www.wesnoth.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg sdl_image sdl_mixer sdl_net freetype python
-# Nice To Have: upx
+# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_net freetype python
+# Optional: upx
 
 name=wesnoth
 version=1.2.6
@@ -32,7 +32,10 @@ build() {
 	make DESTDIR=$PKG install
 
 	find $PKG/usr/man -maxdepth 0 -type d ! -regex 'man?' -exec rm -r {} \;
-	rm $PKG/usr/share/wesnoth/data/COPYING.txt
+
+	rm \
+		$PKG/usr/share/wesnoth/data/COPYING.txt \
+		$PKG/usr/share/wesnoth/fonts/COPYING
 
 	# compress binary files if upx is installed to save disk space
 	if pkginfo -i |grep '^upx ' > /dev/null; then

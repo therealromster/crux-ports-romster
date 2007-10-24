@@ -15,6 +15,9 @@ build() {
 
 	patch -p1 -i $SRC/avifile-$version-gcc4.patch
 
+	# temp fix remove samples dosn't build on current gcc
+	sed -i -e 's/^ doc include debian libavqt player samples$/ doc include debian libavqt player/' Makefile.in
+
 	./configure \
 		--prefix=/usr \
 		--enable-x86opt \

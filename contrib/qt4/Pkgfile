@@ -2,7 +2,7 @@
 # URL: http://trolltech.com/
 # Packager: Johannes Winkelmann, jw at tks6 dot net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg-libsm  xorg-libxrandr xorg-libxinerama xorg-libxcursor xorg-libxfixes xorg-libxrandr xorg-libxrender xorg-setxkbmap libtiff libmng libpng freetype glib openssl
+# Depends on: freetype glib libmng libpng openssl xorg-libsm xorg-libxcursor xorg-libxinerama xorg-setxkbmap
 # Optional: upx ccache mysql sqlite nvidia
 
 name=qt4

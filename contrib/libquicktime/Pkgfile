@@ -5,7 +5,7 @@
 # Depends on: ffmpeg gtk libdivx libdv mesa3d x264 xorg-libxaw
 
 name=libquicktime
-version=1.0.0
+version=1.0.1
 release=1
 source=(http://dl.sourceforge.net/sourceforge/libquicktime/libquicktime-$version.tar.gz)
 
