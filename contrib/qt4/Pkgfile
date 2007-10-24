@@ -1,0 +1,105 @@
+# Description: Qt4 Free Edition.
+# URL: http://trolltech.com/
+# Packager: Johannes Winkelmann, jw at tks6 dot net
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg-libsm  xorg-libxrandr xorg-libxinerama xorg-libxcursor xorg-libxfixes xorg-libxrandr xorg-libxrender xorg-setxkbmap libtiff libmng libpng freetype glib openssl
+# Optional: upx ccache mysql sqlite nvidia
+
+name=qt4
+version=4.3.2
+release=1
+source=(ftp://ftp.trolltech.com/pub/qt/source/qt-x11-opensource-src-$version.tar.gz)
+
+build() {
+	cd qt-x11-opensource-src-$version
+
+	# don't use distcc as it wont compile but use ccache if installed
+	if pkginfo -i |grep '^distcc ' > /dev/null; then
+		if pkginfo -i |grep '^ccache ' > /dev/null; then
+			if [ $CCACHE_PREFIX = distcc ]; then
+				unset CCACHE_PREFIX
+			fi
+		else
+			export PATH="$(echo $PATH |sed -e 's|/usr/lib/distcc:||')"
+		fi
+	fi
+
+	if [ "$(pkginfo -i |grep '^mysql ')" ]; then
+		local SQL='-qt-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql'
+	fi
+	
+	if [ -d /usr/include/nvidia ]; then
+		export CFLAGS="$CFLAGS -I/usr/include/nvidia"
+		export CXXFLAGS="$CXXFLAGS -I/usr/include/nvidia"
+	fi
+
+	# don't link against our currently installed libraries
+	export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$(pwd)/lib"
+
+	# we don't want docs, sample code; please use our optimization flags
+	sed -i "s|-O2|$CXXFLAGS|" mkspecs/linux-g++/qmake.conf
+	sed -i "s|-I. |$CXXFLAGS -I. |" qmake/Makefile.unix
+	sed -i 's|read acceptance|acceptance=yes|' configure
+
+	./configure \
+		-prefix /usr/share/qt4 \
+		-bindir /usr/share/qt4/bin \
+		-headerdir /usr/include/qt4 \
+		-libdir /usr/lib \
+		-plugindir /usr/lib/qt4 \
+		-platform linux-g++ -release -shared -sm \
+		-tablet -nis -verbose -qt-gif -system-zlib \
+		-system-lib{png,jpeg} \
+		-no-{cups,fast,exceptions,nas-sound} \
+		-x{cursor,inerama,kb,randr,render} \
+		-nomake demos -nomake examples \
+		$SQL
+
+	make
+	make INSTALL_ROOT=$PKG install_subtargets install_qmake
+
+	# install mkspecs without having to deleate more junk than it's worth using make install
+	install -d $PKG/usr/share/qt4/mkspecs
+	mv mkspecs/{linux-g++{,-32,-64},common,features} $PKG/usr/share/qt4/mkspecs/
+	ln -s linux-g++ $PKG/usr/share/qt4/mkspecs/default
+
+	# remove junk
+	rm $PKG/usr/share/qt4/mkspecs/common/mac{,-g++}.conf
+	find $PKG -name '*.debug' -exec rm {} \;
+
+	rm -r \
+		$PKG/usr/share/qt4/phrasebooks \
+		$PKG/usr/share/qt4/mkspecs/features/{win32,mac}
+
+	# symlinks for qt4
+	ln -s ../../include/qt4  $PKG/usr/share/qt4/include
+	ln -s ../../lib          $PKG/usr/share/qt4/lib
+	ln -s ../../lib/qt       $PKG/usr/share/qt4/plugins
+	
+	# fix paths
+	sed -i -e "s|-L$SRC/qt-x11-opensource-src-$version/lib ||g" $PKG/usr/lib/*.prl
+	sed -i -e "s|-L$SRC/qt-x11-opensource-src-$version/lib ||g" $PKG/usr/lib/pkgconfig/*.pc
+	sed -i -e "s|$SRC/qt-x11-opensource-src-$version/bin|/usr/share/qt4/bin|g" $PKG/usr/lib/pkgconfig/*.pc
+
+	# add symlinks for qt4 in /usr/bin
+	(
+		install -d $PKG/usr/bin
+		cd $PKG/usr/bin
+		for f in assistant designer linguist lrelease lupdate moc qmake qtconfig uic; do
+			ln -s ../share/qt4/bin/$f $f-qt4
+		done
+
+		for f in pixeltool qdbus qdbuscpp2xml qdbusxml2cpp qt3to4 rcc uic3; do
+			ln -s ../share/qt4/bin/$f $f
+		done
+	)
+
+	# compress binary files if upx is installed to save disk space
+	if pkginfo -i |grep '^upx ' > /dev/null; then
+		(
+			cd $PKG/usr/share/qt4/bin
+			upx -9 $(find . -type f ! -name assistant ! -name qt3to4 |xargs)
+		)
+	fi
+}
+
