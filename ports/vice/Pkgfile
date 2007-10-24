@@ -2,7 +2,7 @@
 # URL: http://www.viceteam.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg
+# Depends on: xorg-libx11
 # Nice To Have: upx
 
 name=vice

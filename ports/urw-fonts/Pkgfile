@@ -2,7 +2,7 @@
 # URL: http://www.urwpp.de/english/home.html
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Seba Zwierzchowski, forum atheidi dot linuxpl dot com
-# Depends on: xorg fontconfig
+# Depends on: xorg-libx11 fontconfig
 
 name=urw-fonts
 version=1.0.7pre41

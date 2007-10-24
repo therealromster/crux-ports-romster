@@ -3,7 +3,7 @@
 # URL: http://lmms.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jose V Beneyto, <joberui@ei.upv.es>
-# Depends on: xorg qt3 sdl_sound libsamplerate audacity-old-effects-vst jack-audio-connection-kit flac libvorbis ladspa
+# Depends on: xorg-libx11 qt3 sdl_sound libsamplerate audacity-old-effects-vst jack-audio-connection-kit flac libvorbis ladspa
 
 # Recommended:	audacity-old-effects-vst
 # Optional:	libsndfile libvorbis flac

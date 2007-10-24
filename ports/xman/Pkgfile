@@ -3,7 +3,7 @@
 # URL: http://xorg.freedesktop.org/releases/individual/app/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on: xorg-libxprintutil
+# Depends on: xorg-libx11-libxprintutil
 
 name=xman
 version=1.0.2

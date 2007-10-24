@@ -2,7 +2,7 @@
 # URL: http://lincity-ng.berlios.de/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg sdl_mixer sdl_ttf sdl_gfx physfs ftjam
+# Depends on: xorg-libx11 sdl_mixer sdl_ttf sdl_gfx physfs ftjam
 
 # Recommended:	
 # Optional:	

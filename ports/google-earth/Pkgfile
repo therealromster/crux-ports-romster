@@ -2,7 +2,7 @@
 # URL: http://earth.google.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jose V Beneyto, joberui at ei dot upv dot es
-# Depends on: xorg, xorg-font-bitstream-vera
+# Depends on: xorg-libx11, xorg-font-bitstream-vera
 
 
 name=google-earth

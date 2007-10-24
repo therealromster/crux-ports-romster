@@ -2,7 +2,7 @@
 # URL: http://mjpeg.sourceforge.net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: bashy, ronny kornexl at online de
-# Depends on: xorg libquicktime libpng libdv gtk libsdl
+# Depends on: xorg-libx11 libquicktime libpng libdv gtk libsdl
 
 name=mjpegtools
 version=1.9.0rc2

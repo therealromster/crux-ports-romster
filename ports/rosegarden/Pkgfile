@@ -2,7 +2,7 @@
 # URL: http://www.rosegardenmusic.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Diederick de Vries, diederick at diederickdevries dot net
-# Depends on: xorg cmake dssi liblrdf kdelibs fftw
+# Depends on: xorg-libx11 cmake dssi liblrdf kdelibs fftw
 # Nice To Have: upx
 
 # Recommended:	lirc

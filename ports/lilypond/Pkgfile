@@ -2,7 +2,7 @@
 # URL: http://lilypond.org/web/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg fontforge guile freetype fontconfig pango python ghostscript urw-fonts
+# Depends on: xorg-libx11 fontforge guile freetype fontconfig pango python ghostscript urw-fonts
 # Optional: texinfo
 
 name=lilypond
