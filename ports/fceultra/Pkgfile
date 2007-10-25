@@ -1,0 +1,31 @@
+# Description: A Nintendo Entertainment System (NES) Emulator.
+# URL: http://fceultra.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: xorg-libx11 mesa3d libsdl
+# Optional: upx
+
+name=fceultra
+version=0.98.12
+release=1
+source=(http://dl.sourceforge.net/sourceforge/fceultra/fceu-$version.src.tar.bz2)
+
+build() {
+	cd fceu
+
+	./configure \
+		--prefix=/usr \
+		--with-opengl
+
+	make
+	make DESTDIR=$PKG install
+
+	# compress binary files if upx is installed to save disk space
+	if pkginfo -i |grep '^upx ' > /dev/null; then
+		(
+			cd $PKG/usr/bin
+			upx -9 fceu
+		)
+	fi
+}
+
