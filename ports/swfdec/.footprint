@@ -1,0 +1,42 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/swfdec-0.5/
+drwxr-xr-x	root/root	usr/include/swfdec-0.5/libswfdec-gtk/
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec-gtk/swfdec-gtk.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec-gtk/swfdec_gtk_keys.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec-gtk/swfdec_gtk_loader.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec-gtk/swfdec_gtk_player.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec-gtk/swfdec_gtk_widget.h
+drwxr-xr-x	root/root	usr/include/swfdec-0.5/libswfdec/
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_array.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_context.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_debugger.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_frame.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_function.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_native_function.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_object.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_as_types.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_audio.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_buffer.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_enums.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_file_loader.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_keys.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_loader.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_player.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_rectangle.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_script.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_system.h
+-rw-r--r--	root/root	usr/include/swfdec-0.5/libswfdec/swfdec_url.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libswfdec-0.5.la
+lrwxrwxrwx	root/root	usr/lib/libswfdec-0.5.so -> libswfdec-0.5.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libswfdec-0.5.so.3 -> libswfdec-0.5.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libswfdec-0.5.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libswfdec-gtk-0.5.la
+lrwxrwxrwx	root/root	usr/lib/libswfdec-gtk-0.5.so -> libswfdec-gtk-0.5.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libswfdec-gtk-0.5.so.3 -> libswfdec-gtk-0.5.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libswfdec-gtk-0.5.so.3.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/swfdec-0.5.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/swfdec-gtk-0.5.pc
