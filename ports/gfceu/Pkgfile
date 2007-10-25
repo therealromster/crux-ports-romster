@@ -1,0 +1,17 @@
+# Description: GTK frontend for the FCE Ultra Nintendo Entertainment System emulator.
+# URL: http://dietschnitzel.com/gfceu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: python gtk2 fceultra
+
+name=gfceu
+version=0.6.0
+release=1
+source=(http://dietschnitzel.com/gfceu/gfceu-$version.tar.gz)
+
+build() {
+	cd gfceu-$version
+	sed -i -e 's|share/man/man1/|/usr/man/man1/|' setup.py
+	python setup.py install --root=$PKG
+}
+
