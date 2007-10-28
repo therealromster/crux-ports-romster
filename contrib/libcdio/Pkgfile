@@ -1,11 +1,11 @@
-# Description: The Compact Disc Input and Control library contains a library for CD-ROM and CD image access.
+# Description: A library for CD-ROM and CD image access.
 # URL: http://www.gnu.org/software/libcdio/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Tim Biermann, tim_biermann at web dot de
 # Depends on: cdparanoia libcddb
 
 name=libcdio
-version=0.78.2
+version=0.79
 release=1
 source=(http://ftp.gnu.org/gnu/libcdio/libcdio-$version.tar.gz)
 
@@ -14,20 +14,13 @@ build() {
 
 	./configure \
 		--prefix=/usr \
- 	        --with-cd-drive \
-		--with-cd-info \
-		--with-cd-paranoia \
-		--with-cdda-player \
-		--with-cd-paranoia-name \
-		--with-cd-read \
-		--with-iso-info \
-		--with-iso-read \
+		--mandir=/usr \
 		--disable-static
 
 	make
 	make DESTDIR=$PKG install
-	rm $PKG/usr/bin/yes
-	rm -r $PKG/usr/man
-	rm -rf $PKG/usr/info
+
+	rm -rf $PKG/usr/share
+	rm -r $PKG/usr/jp
 }
 

@@ -5,7 +5,7 @@
 # Depends on: ilmbase
 
 name=openexr
-version=1.6.0
+version=1.6.1
 release=1
 source=(http://download.savannah.nongnu.org/releases/openexr/openexr-$version.tar.gz)
 
@@ -14,8 +14,7 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--disable-static \
-		--disable-dependency-tracking
+		--disable-static
 
 	make
 	make DESTDIR=$PKG install

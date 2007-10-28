@@ -2,6 +2,7 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/cd-drive
 -rwxr-xr-x	root/root	usr/bin/cd-info
+-rwxr-xr-x	root/root	usr/bin/cd-paranoia
 -rwxr-xr-x	root/root	usr/bin/cd-read
 -rwxr-xr-x	root/root	usr/bin/cdda-player
 -rwxr-xr-x	root/root	usr/bin/iso-info
@@ -56,13 +57,13 @@ lrwxrwxrwx	root/root	usr/lib/libcdio++.so -> libcdio++.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libcdio++.so.0 -> libcdio++.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libcdio++.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libcdio.la
-lrwxrwxrwx	root/root	usr/lib/libcdio.so -> libcdio.so.7.1.0
-lrwxrwxrwx	root/root	usr/lib/libcdio.so.7 -> libcdio.so.7.1.0
--rwxr-xr-x	root/root	usr/lib/libcdio.so.7.1.0
+lrwxrwxrwx	root/root	usr/lib/libcdio.so -> libcdio.so.7.1.1
+lrwxrwxrwx	root/root	usr/lib/libcdio.so.7 -> libcdio.so.7.1.1
+-rwxr-xr-x	root/root	usr/lib/libcdio.so.7.1.1
 -rwxr-xr-x	root/root	usr/lib/libcdio_cdda.la
-lrwxrwxrwx	root/root	usr/lib/libcdio_cdda.so -> libcdio_cdda.so.0.0.2
-lrwxrwxrwx	root/root	usr/lib/libcdio_cdda.so.0 -> libcdio_cdda.so.0.0.2
--rwxr-xr-x	root/root	usr/lib/libcdio_cdda.so.0.0.2
+lrwxrwxrwx	root/root	usr/lib/libcdio_cdda.so -> libcdio_cdda.so.0.0.3
+lrwxrwxrwx	root/root	usr/lib/libcdio_cdda.so.0 -> libcdio_cdda.so.0.0.3
+-rwxr-xr-x	root/root	usr/lib/libcdio_cdda.so.0.0.3
 -rwxr-xr-x	root/root	usr/lib/libcdio_paranoia.la
 lrwxrwxrwx	root/root	usr/lib/libcdio_paranoia.so -> libcdio_paranoia.so.0.0.2
 lrwxrwxrwx	root/root	usr/lib/libcdio_paranoia.so.0 -> libcdio_paranoia.so.0.0.2
@@ -72,9 +73,9 @@ lrwxrwxrwx	root/root	usr/lib/libiso9660++.so -> libiso9660++.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libiso9660++.so.0 -> libiso9660++.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libiso9660++.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libiso9660.la
-lrwxrwxrwx	root/root	usr/lib/libiso9660.so -> libiso9660.so.5.0.1
-lrwxrwxrwx	root/root	usr/lib/libiso9660.so.5 -> libiso9660.so.5.0.1
--rwxr-xr-x	root/root	usr/lib/libiso9660.so.5.0.1
+lrwxrwxrwx	root/root	usr/lib/libiso9660.so -> libiso9660.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/libiso9660.so.5 -> libiso9660.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/libiso9660.so.5.1.0
 -rwxr-xr-x	root/root	usr/lib/libudf.la
 lrwxrwxrwx	root/root	usr/lib/libudf.so -> libudf.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libudf.so.0 -> libudf.so.0.0.0
@@ -84,3 +85,5 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libcdio_cdda.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libcdio_paranoia.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libiso9660.pc
+drwxr-xr-x	root/root	usr/man1/
+-rw-r--r--	root/root	usr/man1/cd-paranoia.1

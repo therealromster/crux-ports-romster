@@ -46,20 +46,20 @@ drwxr-xr-x	root/root	usr/include/OpenEXR/
 -rw-r--r--	root/root	usr/include/OpenEXR/halfLimits.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libHalf.la
-lrwxrwxrwx	root/root	usr/lib/libHalf.so -> libHalf.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libHalf.so.0 -> libHalf.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libHalf.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libHalf.so -> libHalf.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libHalf.so.6 -> libHalf.so.6.0.0
+-rwxr-xr-x	root/root	usr/lib/libHalf.so.6.0.0
 -rwxr-xr-x	root/root	usr/lib/libIex.la
-lrwxrwxrwx	root/root	usr/lib/libIex.so -> libIex.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libIex.so.0 -> libIex.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libIex.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libIex.so -> libIex.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libIex.so.6 -> libIex.so.6.0.0
+-rwxr-xr-x	root/root	usr/lib/libIex.so.6.0.0
 -rwxr-xr-x	root/root	usr/lib/libIlmThread.la
-lrwxrwxrwx	root/root	usr/lib/libIlmThread.so -> libIlmThread.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libIlmThread.so.0 -> libIlmThread.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libIlmThread.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libIlmThread.so -> libIlmThread.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libIlmThread.so.6 -> libIlmThread.so.6.0.0
+-rwxr-xr-x	root/root	usr/lib/libIlmThread.so.6.0.0
 -rwxr-xr-x	root/root	usr/lib/libImath.la
-lrwxrwxrwx	root/root	usr/lib/libImath.so -> libImath.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libImath.so.0 -> libImath.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libImath.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libImath.so -> libImath.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libImath.so.6 -> libImath.so.6.0.0
+-rwxr-xr-x	root/root	usr/lib/libImath.so.6.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/IlmBase.pc

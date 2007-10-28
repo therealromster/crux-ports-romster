@@ -267,6 +267,7 @@ d:libofa
 d:liboping
 d:librdf
 d:librsvg
+d:swfdec
 d:libsexy
 d:libsexymm
 d:libshbuf
@@ -328,7 +329,6 @@ d:pystatgrab
 d:pytables
 d:pyusb
 d:pyyaml
-d:qc-usb
 d:qemu
 d:qjackctl
 d:rlog
@@ -371,6 +371,8 @@ d:zsnes
 d:unicap
 d:libraw1394
 d:libiec61883
+d:fceultra
+d:gfceu
 f:360e6d145ad9648e85da8d07f31b2a1e:action-cube/.footprint
 f:c864f6c18612fffbab4ca21294a076ad:action-cube/.md5sum
 f:932d78de456ad47b808af31ab671e259:action-cube/Pkgfile
@@ -1223,6 +1225,9 @@ f:7c219aac0b54cb1cd09d5d193cc8f27f:librsvg/Pkgfile
 f:66034020e096504de0da57c0436728f6:librsvg/README
 f:a35976411408c15b7804cfd0fc7bbb7e:librsvg/post-install
 f:a35976411408c15b7804cfd0fc7bbb7e:librsvg/post-remove
+f:8668d8bf3fc3085f94460b32920ef814:swfdec/.footprint
+f:2432212fc15f86226024dcc73696332d:swfdec/.md5sum
+f:51126a11ee60229edd759d6444a8e0b3:swfdec/Pkgfile
 f:e5c162523ac076ec445529d07ec85197:libsexy/.footprint
 f:baeb907273163791795a0d9f7f1495ce:libsexy/.md5sum
 f:0ffa061c62c01077283e428a1b1688fc:libsexy/Pkgfile
@@ -1290,7 +1295,6 @@ f:189c7df36e3b7e9e94bf1b481b1ad05d:lzma/.footprint
 f:f69b0747ee21d8e181bbc5b36ad7a8a2:lzma/.md5sum
 f:d784fa8b6d98d27699781bd9a7cf19f0:lzma/.sync
 f:71ac37d9740a78dadc31deead5c7b84f:lzma/Pkgfile
-f:4d6f23d8799c83638227dd1c3500405a:lzma/Pkgfile~
 f:82f52168a4c8e4d594b806cd4fae8b28:magicrescue/.footprint
 f:6492dacae896d6eaa1dd734c17f4e949:magicrescue/.md5sum
 f:ee2915198da5ab18d61f6acb11f52672:magicrescue/Pkgfile
@@ -1426,11 +1430,6 @@ f:746bc1ecdc8e4611dd525e7cd9a8c04c:pyyaml/.footprint
 f:9e1e6dddfe34cb6371c97d050e346032:pyyaml/.md5sum
 f:68b329da9893e34099c7d8ad5cb9c940:pyyaml/.sync
 f:29528f90315200ff7f7704b65a5214bc:pyyaml/Pkgfile
-f:fcfbfde195787041b276b5ea99ca0ac4:qc-usb/.footprint
-f:e9e09a36571241604814204b375efdab:qc-usb/.md5sum
-f:68b329da9893e34099c7d8ad5cb9c940:qc-usb/.sync
-f:d8a6858f6fe283e037d3382af785a319:qc-usb/Pkgfile
-f:f4a67b5eacd79ef4c24578c115aef5e5:qc-usb/README
 f:e3ecf7d0f5d0a3ecbea031660bcc18c7:qemu/.footprint
 f:7180e64fbc3988e88b30adb8030ed55a:qemu/.md5sum
 f:ec06591830b8fcf53913f05f3d66f7e5:qemu/70-kqemu.rules
@@ -1573,3 +1572,9 @@ f:f6ab1281a8b784a081970cbec1ed79c6:libraw1394/Pkgfile
 f:f03ed6f7b2f33ef123a017336ffd3817:libiec61883/.footprint
 f:16200a5a754a154f7cd6fb557bdb6674:libiec61883/.md5sum
 f:fd88c89d6eb19ff7bbd48c5ae76da150:libiec61883/Pkgfile
+f:6458fce44193ab6c9cca1834573b50a2:fceultra/.footprint
+f:b48fe594bd9af78f2791c03b81770e4d:fceultra/.md5sum
+f:37dfb67c5296537f68c947f0a302b952:fceultra/Pkgfile
+f:cf60e6c2ae630c41334d817eaca3171d:gfceu/Pkgfile
+f:8af340445bedb34ecbb86ef7ef2f40ca:gfceu/.md5sum
+f:b4c7a332f8ad2f118d00f0e5f6717023:gfceu/.footprint
