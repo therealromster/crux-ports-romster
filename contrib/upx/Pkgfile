@@ -11,9 +11,9 @@ source=(http://upx.sourceforge.net/download/upx-$version-src.tar.bz2)
 
 build() {
 	cd upx-$version-src
-	(cd doc; make; cd ..)
-	(cd src; make; cd ..)
-	install -D -m644 doc/upx.1 $PKG/usr/man/man1/upx.1
-	install -D -m755 src/upx.out $PKG/usr/bin/upx
+	(cd doc; make)
+	(cd src; make)
+	install -D -m 644 doc/upx.1 $PKG/usr/man/man1/upx.1
+	install -D -m 755 src/upx.out $PKG/usr/bin/upx
 }
 
