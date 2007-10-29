@@ -1,15 +1,11 @@
 # Description: Window manager: speed, simplicity, and not getting in the user's way.
 # URL: http://www.icewm.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Han Boetes <han@mijncomputer.nl>
-# Depends on: imlib
-
-# Recommended:	
-# Optional:		
-# Category:		window manager
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: imlib xorg-libice xorg-libxft xorg-libxinerama xorg-mkfontdir
 
 name=icewm
-version=1.2.30
+version=1.2.32
 release=1
 source=(http://dl.sourceforge.net/sourceforge/icewm/icewm-$version.tar.gz)
 
