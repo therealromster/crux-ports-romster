@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# /etc/rc.d/kdm: start/stop kde display manager
+#
+
+case "$1" in
+start)
+    export HOME=/root
+    cd $HOME
+    /usr/bin/kdm
+    ;;
+stop)
+    kill `cat /var/run/kdm.pid`
+    ;;
+restart)
+    $0 stop
+    $0 start
+    ;;
+*)
+    echo "usage: $0 start|stop|restart"
+    ;;
+esac
+
+# End of file

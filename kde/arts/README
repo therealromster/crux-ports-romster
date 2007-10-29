@@ -1,0 +1,20 @@
+POST-INSTALL
+
+	From: Nick Steeves
+	To: Daniel Mueller 
+	Date: Mon, 21 Jun 2004 22:40:17 -0600
+
+	After observing that my music was often skipping, I noticed 
+	that /usr/bin/artswrapper isn't setuid.
+	http://www.arts-project.org/doc/handbook/artswrapper.html
+
+
+PRECAUTION
+
+	Although artswrapper exists to execute artsd with real-time privileges for
+	a normal user, setuid still makes me apprehensive.  For this reason, I
+	restrict the group of users which can use artswrapper.
+
+	# chgrp wheel /usr/bin/artswrapper
+	# chmod 750   /usr/bin/artswrapper
+	# chmod u+s   /usr/bin/artswrapper

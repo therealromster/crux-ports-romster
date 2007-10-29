@@ -1,0 +1,29 @@
+# Description: Network-related programs and modules for KDE.
+# URL: http://www.kde.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager:	sten, nick dot steeves at shaw dot ca
+# Depends on: ppp, openldap, kdebase, wireless-tools
+
+name=kdenetwork
+version=3.5.8
+release=1
+source=(http://download.kde.org/stable/$version/src/kdenetwork-$version.tar.bz2 \
+webcam.patch \
+lisa)
+
+build() {
+	cd kdenetwork-$version
+	#patch -p1 < $SRC/webcam.patch
+
+	./configure \
+		--prefix=/usr \
+		--disable-debug \
+		--disable-dependency-tracking \
+		--enable-final
+
+	make
+	make DESTDIR=$PKG install
+	install -D ../lisa $PKG/etc/rc.d/lisa
+	find $PKG/usr/share \( -name 'TODO' -o -name 'README' \) -delete
+}
+

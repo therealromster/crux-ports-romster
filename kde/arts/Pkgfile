@@ -1,0 +1,27 @@
+# Description: aRts Sound system.
+# URL: http://www.kde.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: glib, qt3, libvorbis, libogg, audiofile, alsa-utils
+
+name=arts
+version=1.5.8
+release=1
+source=(http://download.kde.org/stable/3.5.8/src/arts-$version.tar.bz2 \
+	qtmcopnod.patch)
+
+build() {
+	cd arts-$version
+	#patch -p0 < $SRC/qtmcopnod.patch
+
+	./configure	\
+		--prefix=/usr \
+		--disable-debug \
+		--enable-final \
+		--disable-dependency-tracking \
+		--with-alsa
+
+	make
+	make DESTDIR=$PKG install
+}
+

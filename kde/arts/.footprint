@@ -1,0 +1,191 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/artsc-config
+-rwxr-xr-x	root/root	usr/bin/artscat
+-rwxr-xr-x	root/root	usr/bin/artsd
+-rwxr-xr-x	root/root	usr/bin/artsdsp
+-rwxr-xr-x	root/root	usr/bin/artsplay
+-rwxr-xr-x	root/root	usr/bin/artsrec
+-rwxr-xr-x	root/root	usr/bin/artsshell
+-rwxr-xr-x	root/root	usr/bin/artswrapper
+-rwxr-xr-x	root/root	usr/bin/mcopidl
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/arts/
+-rw-r--r--	root/root	usr/include/arts/anyref.h
+-rw-r--r--	root/root	usr/include/arts/arts_export.h
+-rw-r--r--	root/root	usr/include/arts/artsflow.h
+-rw-r--r--	root/root	usr/include/arts/artsflow.idl
+-rw-r--r--	root/root	usr/include/arts/artsversion.h
+-rw-r--r--	root/root	usr/include/arts/asyncstream.h
+-rw-r--r--	root/root	usr/include/arts/audioio.h
+-rw-r--r--	root/root	usr/include/arts/audiosubsys.h
+-rw-r--r--	root/root	usr/include/arts/buffer.h
+-rw-r--r--	root/root	usr/include/arts/bufferqueue.h
+-rw-r--r--	root/root	usr/include/arts/cache.h
+-rw-r--r--	root/root	usr/include/arts/cachedwav.h
+-rw-r--r--	root/root	usr/include/arts/common.h
+-rw-r--r--	root/root	usr/include/arts/connect.h
+-rw-r--r--	root/root	usr/include/arts/connection.h
+-rw-r--r--	root/root	usr/include/arts/convert.h
+-rw-r--r--	root/root	usr/include/arts/core.h
+-rw-r--r--	root/root	usr/include/arts/core.idl
+-rw-r--r--	root/root	usr/include/arts/cpuinfo.h
+-rw-r--r--	root/root	usr/include/arts/datapacket.h
+-rw-r--r--	root/root	usr/include/arts/debug.h
+-rw-r--r--	root/root	usr/include/arts/delayedreturn.h
+-rw-r--r--	root/root	usr/include/arts/dispatcher.h
+-rw-r--r--	root/root	usr/include/arts/dynamicrequest.h
+-rw-r--r--	root/root	usr/include/arts/dynamicskeleton.h
+-rw-r--r--	root/root	usr/include/arts/extensionloader.h
+-rw-r--r--	root/root	usr/include/arts/factory.h
+-rw-r--r--	root/root	usr/include/arts/fft.h
+-rw-r--r--	root/root	usr/include/arts/flowsystem.h
+-rw-r--r--	root/root	usr/include/arts/giomanager.h
+drwxr-xr-x	root/root	usr/include/arts/gsl/
+-rw-r--r--	root/root	usr/include/arts/gsl/gslcommon.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslconfig.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslconvert.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gsldatacache.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gsldatahandle-mad.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gsldatahandle-vorbis.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gsldatahandle.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gsldatautils.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gsldefs.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslengine.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslfft.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslfilter.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslieee754.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslloader.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslmagic.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslmath.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gsloscillator.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslosctable.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslsignal.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslwavechunk.h
+-rw-r--r--	root/root	usr/include/arts/gsl/gslwaveosc.h
+-rw-r--r--	root/root	usr/include/arts/gslschedule.h
+-rw-r--r--	root/root	usr/include/arts/idlfilereg.h
+-rw-r--r--	root/root	usr/include/arts/ifacerepo_impl.h
+-rw-r--r--	root/root	usr/include/arts/iomanager.h
+-rw-r--r--	root/root	usr/include/arts/kmedia2.h
+-rw-r--r--	root/root	usr/include/arts/kmedia2.idl
+-rw-r--r--	root/root	usr/include/arts/mcopconfig.h
+-rw-r--r--	root/root	usr/include/arts/mcoputils.h
+-rw-r--r--	root/root	usr/include/arts/notification.h
+-rw-r--r--	root/root	usr/include/arts/object.h
+-rw-r--r--	root/root	usr/include/arts/objectmanager.h
+-rw-r--r--	root/root	usr/include/arts/pipebuffer.h
+-rw-r--r--	root/root	usr/include/arts/pool.h
+-rw-r--r--	root/root	usr/include/arts/qiomanager.h
+-rw-r--r--	root/root	usr/include/arts/reference.h
+-rw-r--r--	root/root	usr/include/arts/referenceclean.h
+-rw-r--r--	root/root	usr/include/arts/resample.h
+-rw-r--r--	root/root	usr/include/arts/socketconnection.h
+-rw-r--r--	root/root	usr/include/arts/soundserver.h
+-rw-r--r--	root/root	usr/include/arts/soundserver.idl
+-rw-r--r--	root/root	usr/include/arts/startupmanager.h
+-rw-r--r--	root/root	usr/include/arts/stdsynthmodule.h
+-rw-r--r--	root/root	usr/include/arts/synthschedule.h
+-rw-r--r--	root/root	usr/include/arts/tcpconnection.h
+-rw-r--r--	root/root	usr/include/arts/tcpserver.h
+-rw-r--r--	root/root	usr/include/arts/thread.h
+-rw-r--r--	root/root	usr/include/arts/type.h
+-rw-r--r--	root/root	usr/include/arts/unixconnection.h
+-rw-r--r--	root/root	usr/include/arts/unixserver.h
+-rw-r--r--	root/root	usr/include/arts/weakreference.h
+drwxr-xr-x	root/root	usr/include/artsc/
+-rw-r--r--	root/root	usr/include/artsc/artsc.h
+-rw-r--r--	root/root	usr/include/artsc/artsc_export.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libartsc.la
+lrwxrwxrwx	root/root	usr/lib/libartsc.so -> libartsc.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libartsc.so.0 -> libartsc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartscbackend.la
+lrwxrwxrwx	root/root	usr/lib/libartscbackend.so -> libartscbackend.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libartscbackend.so.0 -> libartscbackend.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartscbackend.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsdsp.la
+lrwxrwxrwx	root/root	usr/lib/libartsdsp.so -> libartsdsp.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libartsdsp.so.0 -> libartsdsp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsdsp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsdsp_st.la
+lrwxrwxrwx	root/root	usr/lib/libartsdsp_st.so -> libartsdsp_st.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libartsdsp_st.so.0 -> libartsdsp_st.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsdsp_st.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsflow.la
+lrwxrwxrwx	root/root	usr/lib/libartsflow.so -> libartsflow.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libartsflow.so.1 -> libartsflow.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsflow.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsflow_idl.la
+lrwxrwxrwx	root/root	usr/lib/libartsflow_idl.so -> libartsflow_idl.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libartsflow_idl.so.1 -> libartsflow_idl.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsflow_idl.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsgslplayobject.la
+lrwxrwxrwx	root/root	usr/lib/libartsgslplayobject.so -> libartsgslplayobject.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libartsgslplayobject.so.0 -> libartsgslplayobject.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartsgslplayobject.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartswavplayobject.la
+lrwxrwxrwx	root/root	usr/lib/libartswavplayobject.so -> libartswavplayobject.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libartswavplayobject.so.0 -> libartswavplayobject.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libartswavplayobject.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgmcop.la
+lrwxrwxrwx	root/root	usr/lib/libgmcop.so -> libgmcop.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libgmcop.so.1 -> libgmcop.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libgmcop.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libkmedia2.la
+lrwxrwxrwx	root/root	usr/lib/libkmedia2.so -> libkmedia2.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libkmedia2.so.1 -> libkmedia2.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libkmedia2.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libkmedia2_idl.la
+lrwxrwxrwx	root/root	usr/lib/libkmedia2_idl.so -> libkmedia2_idl.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libkmedia2_idl.so.1 -> libkmedia2_idl.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libkmedia2_idl.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libmcop.la
+lrwxrwxrwx	root/root	usr/lib/libmcop.so -> libmcop.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libmcop.so.1 -> libmcop.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libmcop.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libmcop_mt.la
+lrwxrwxrwx	root/root	usr/lib/libmcop_mt.so -> libmcop_mt.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libmcop_mt.so.1 -> libmcop_mt.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libmcop_mt.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libqtmcop.la
+lrwxrwxrwx	root/root	usr/lib/libqtmcop.so -> libqtmcop.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libqtmcop.so.1 -> libqtmcop.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libqtmcop.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libsoundserver_idl.la
+lrwxrwxrwx	root/root	usr/lib/libsoundserver_idl.so -> libsoundserver_idl.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libsoundserver_idl.so.1 -> libsoundserver_idl.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libsoundserver_idl.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libx11globalcomm.la
+lrwxrwxrwx	root/root	usr/lib/libx11globalcomm.so -> libx11globalcomm.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libx11globalcomm.so.1 -> libx11globalcomm.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libx11globalcomm.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/mcop/
+drwxr-xr-x	root/root	usr/lib/mcop/Arts/
+-rw-r--r--	root/root	usr/lib/mcop/Arts/DataHandlePlay.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/FileInputStream.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/GSLPlayObject.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_ADD.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_AMAN_PLAY.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_AMAN_RECORD.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_BUS_DOWNLINK.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_BUS_UPLINK.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_FREQUENCY.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_MUL.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_MULTI_ADD.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_PLAY.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_PLAY_WAV.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_RECORD.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/Synth_WAVE_SIN.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/WavPlayObject.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/WaveDataHandle.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/Arts/X11GlobalComm.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/artsflow.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/artsflow.mcoptype
+-rw-r--r--	root/root	usr/lib/mcop/kmedia2.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/kmedia2.mcoptype
+-rw-r--r--	root/root	usr/lib/mcop/soundserver.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/soundserver.mcoptype
+-rw-r--r--	root/root	usr/lib/mcop/x11globalcomm.mcopclass
+-rw-r--r--	root/root	usr/lib/mcop/x11globalcomm.mcoptype

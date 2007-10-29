@@ -1,0 +1,12 @@
+POST-INSTALL
+
+/etc/rc.d/lisa starts LISa, the LAN Information Server.
+
+LISa is intended to provide a kind of "network neighbourhood", although
+it only relies on the TCP/IP protocol stack--no SMB or whatever.
+
+You'll need to run kcontrol -> Internet & Network -> Local Network
+Browsing.  /etc/rc.d/lisa start, and network browsing is go!
+
+Included in this directory is a sample /etc/lisa.conf, in case you
+need one.

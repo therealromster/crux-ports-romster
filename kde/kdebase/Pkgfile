@@ -1,0 +1,35 @@
+# Description: Basic applications for the KDE system.
+# URL: http://www.kde.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager:	sten, nick dot steeves at shaw dot ca
+# Depends on:	kdelibs, ghostscript, cdparanoia, lame, hal, dbus-qt3
+# Nice to have:	samba
+
+name=kdebase
+version=3.5.8
+release=1
+source=(http://download.kde.org/stable/$version/src/kdebase-$version.tar.bz2 \
+	kdm \
+	crux.desktop)
+
+build() {
+	cd kdebase-$version
+
+	./configure	\
+		--prefix=/usr \
+		--with-shadow \
+		--disable-debug \
+		--disable-dependency-tracking \
+		--enable-final
+
+	make
+	make DESTDIR=$PKG GENKDMCONF_FLAGS="--no-old" install
+
+	install -d $PKG/etc/rc.d
+	install -m 0755 ../kdm $PKG/etc/rc.d/kdm
+	install -m 0644 ../crux.desktop $PKG/usr/share/services/searchproviders/crux.desktop
+
+	rm -rf $PKG/usr/share/doc/kdm
+	find $PKG/usr/share/doc/HTML/* ! -wholename '*HTML/en*' -delete
+	find $PKG/usr/share \( -name 'README*' -o -name 'TODO' \) -delete
+}
