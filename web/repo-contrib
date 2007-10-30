@@ -30,6 +30,7 @@ d:liba52
 d:libcgi
 d:libdts
 d:libdvdnav
+d:libdvdnav/libdvdnav
 d:libevent
 d:libfaketime
 d:libidn
@@ -251,9 +252,9 @@ f:3c1b9158898ed90d97a263576534b958:libcgi/Pkgfile
 f:c5711a53dbc64aa0def543a9ffaca408:libdts/.footprint
 f:ac32bd98f544c37c30abb33245a9b42b:libdts/.md5sum
 f:d8b3e8ecbc51dae8aecea778fe902f5f:libdts/Pkgfile
-f:9c8becfb13df62de186b16abda0e1c23:libdvdnav/.footprint
-f:334466b2ec55d0a571ceec37ff388b37:libdvdnav/.md5sum
-f:970f7bf539141a298e03de0255d61e1e:libdvdnav/Pkgfile
+f:ffa41ce60e70f2f7d57118d06af313af:libdvdnav/libdvdnav/.footprint
+f:f362790c7a8d963048e1381ccc699bf2:libdvdnav/libdvdnav/.md5sum
+f:f4b880e212b84daf44104603ab3250d0:libdvdnav/libdvdnav/Pkgfile
 f:42dcbbc4b195ef5a26a7666f2e0ff59e:libdvdnav/Pkgfile~
 f:a6a84f66f7546c541600fd216db6093c:libevent/.footprint
 f:82bbd6e0a1a469b657d4c26c66ede4c8:libevent/.md5sum
