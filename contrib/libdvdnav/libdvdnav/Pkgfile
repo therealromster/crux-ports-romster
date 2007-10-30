@@ -1,0 +1,26 @@
+# Description: DVD Navigation library.
+# URL: http://dvd.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: libdvdcss
+
+name=libdvdnav
+version=r956
+release=1
+source=(http://romster.shortcircuit.net.au/crux/source/libdvdnav-snapshot-$version.tar.bz2)
+
+build() {
+	cd libdvdnav
+
+	export \
+		CFLAGS="${CFLAGS//-O?/}" \
+		CXXFLAGS="${CXXFLAGS//-O?/}"
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-debug
+
+	make DESTDIR=$PKG install
+}
+
