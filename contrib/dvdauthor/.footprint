@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dvdauthor
+-rwxr-xr-x	root/root	usr/bin/dvddirdel
+-rwxr-xr-x	root/root	usr/bin/dvdunauthor
+-rwxr-xr-x	root/root	usr/bin/mpeg2desc
+-rwxr-xr-x	root/root	usr/bin/spumux
+-rwxr-xr-x	root/root	usr/bin/spuunmux
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dvdauthor.1.gz
+-rw-r--r--	root/root	usr/man/man1/spumux.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/dvdauthor/
+-rw-r--r--	root/root	usr/share/dvdauthor/dvdauthor.xsd
+-rw-r--r--	root/root	usr/share/dvdauthor/spumux.xsd
