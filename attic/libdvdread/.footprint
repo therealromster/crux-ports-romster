@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/dvdread/
+-rw-r--r--	root/root	usr/include/dvdread/cmd_print.h
+-rw-r--r--	root/root	usr/include/dvdread/dvd_reader.h
+-rw-r--r--	root/root	usr/include/dvdread/ifo_print.h
+-rw-r--r--	root/root	usr/include/dvdread/ifo_read.h
+-rw-r--r--	root/root	usr/include/dvdread/ifo_types.h
+-rw-r--r--	root/root	usr/include/dvdread/nav_print.h
+-rw-r--r--	root/root	usr/include/dvdread/nav_read.h
+-rw-r--r--	root/root	usr/include/dvdread/nav_types.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libdvdread.a
+-rwxr-xr-x	root/root	usr/lib/libdvdread.la
+lrwxrwxrwx	root/root	usr/lib/libdvdread.so -> libdvdread.so.3.2.1
+lrwxrwxrwx	root/root	usr/lib/libdvdread.so.3 -> libdvdread.so.3.2.1
+-rwxr-xr-x	root/root	usr/lib/libdvdread.so.3.2.1
