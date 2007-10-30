@@ -122,6 +122,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/base.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/bin.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/box.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/builder.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/button.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/buttonbox.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/calendar.h
@@ -221,6 +222,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/assistant_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/bin_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/box_p.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/builder_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/button_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/buttonbox_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/calendar_p.h
@@ -309,6 +311,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/radiotoolbutton_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/range_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/rc_p.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/recentaction_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/recentchooser_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/recentchooserdialog_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/recentchoosermenu_p.h
@@ -318,6 +321,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/recentmanager_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/ruler_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/scale_p.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/scalebutton_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/scrollbar_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/scrolledwindow_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/selectiondata_p.h
@@ -349,6 +353,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/toolbar_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/toolbutton_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/toolitem_p.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/tooltip_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/tooltips_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/treedragdest_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/treedragsource_p.h
@@ -365,6 +370,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/treeviewcolumn_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/uimanager_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/viewport_p.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/volumebutton_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/widget_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/private/window_p.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/progressbar.h
@@ -375,6 +381,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/radiotoolbutton.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/range.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/rc.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/recentaction.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/recentchooser.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/recentchooserdialog.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/recentchoosermenu.h
@@ -384,6 +391,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/recentmanager.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/ruler.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/scale.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/scalebutton.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/scrollbar.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/scrolledwindow.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/selectiondata.h
@@ -419,6 +427,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/toolbar.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/toolbutton.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/toolitem.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/tooltip.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/tooltips.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/treedragdest.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/treedragsource.h
@@ -437,6 +446,7 @@ drwxr-xr-x	root/root	usr/include/gtkmm-2.4/gtkmm/private/
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/treeviewcolumn.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/uimanager.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/viewport.h
+-rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/volumebutton.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/widget.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/window.h
 -rw-r--r--	root/root	usr/include/gtkmm-2.4/gtkmm/wrap_init.h
