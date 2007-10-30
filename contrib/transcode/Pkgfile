@@ -2,7 +2,7 @@
 # URL: http://www.transcoding.org/cgi-bin/transcode
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: imagemagick avifile libdvdread libfame lzo mjpegtools mpeg2dec mplayer xorg-libxaw xorg-libxpm xorg-libxv
+# Depends on: imagemagick avifile libdvdnav libfame lzo mjpegtools mpeg2dec mplayer xorg-libxaw xorg-libxpm xorg-libxv
 
 name=transcode
 version=20070625
