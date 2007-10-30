@@ -20,6 +20,7 @@ drwxr-xr-x	root/root	usr/include/glibmm-2.4/glibmm/
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/init.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/interface.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/iochannel.h
+-rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/keyfile.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/listhandle.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/main.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/markup.h
@@ -37,12 +38,14 @@ drwxr-xr-x	root/root	usr/include/glibmm-2.4/glibmm/private/
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/fileutils_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/interface_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/iochannel_p.h
+-rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/keyfile_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/markup_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/module_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/object_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/optioncontext_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/optionentry_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/optiongroup_p.h
+-rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/regex_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/shell_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/spawn_p.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/private/thread_p.h
@@ -53,6 +56,7 @@ drwxr-xr-x	root/root	usr/include/glibmm-2.4/glibmm/private/
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/quark.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/random.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/refptr.h
+-rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/regex.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/sarray.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/shell.h
 -rw-r--r--	root/root	usr/include/glibmm-2.4/glibmm/signalproxy.h
