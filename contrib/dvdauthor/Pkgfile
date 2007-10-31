@@ -2,16 +2,20 @@
 # URL: http://dvdauthor.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: libxml2 libdvdread
+# Depends on: libxml2 libdvdnav
 
 name=dvdauthor
-version=0.6.11
+version=0.6.14
 release=1
 source=(http://dl.sourceforge.net/sourceforge/dvdauthor/dvdauthor-$version.tar.gz)
 
 build() {
 	cd dvdauthor-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man
+
 	make
 	make prefix=$PKG/usr install
 }

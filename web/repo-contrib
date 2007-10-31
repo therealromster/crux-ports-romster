@@ -30,7 +30,6 @@ d:liba52
 d:libcgi
 d:libdts
 d:libdvdnav
-d:libdvdnav/libdvdnav
 d:libevent
 d:libfaketime
 d:libidn
@@ -135,6 +134,7 @@ d:wesnoth
 d:xscreensaver
 d:libsamplerate
 d:zopeinterface
+d:dvdauthor
 f:56312d8adf19613d6cc5e4780609c939:boost/.footprint
 f:d49cc3815a124426d308312d8ffa3f72:boost/.md5sum
 f:0e67f0f09a88fce44492a34966e29200:boost/Pkgfile
@@ -252,10 +252,9 @@ f:3c1b9158898ed90d97a263576534b958:libcgi/Pkgfile
 f:c5711a53dbc64aa0def543a9ffaca408:libdts/.footprint
 f:ac32bd98f544c37c30abb33245a9b42b:libdts/.md5sum
 f:d8b3e8ecbc51dae8aecea778fe902f5f:libdts/Pkgfile
-f:ffa41ce60e70f2f7d57118d06af313af:libdvdnav/libdvdnav/.footprint
-f:f362790c7a8d963048e1381ccc699bf2:libdvdnav/libdvdnav/.md5sum
-f:f4b880e212b84daf44104603ab3250d0:libdvdnav/libdvdnav/Pkgfile
-f:42dcbbc4b195ef5a26a7666f2e0ff59e:libdvdnav/Pkgfile~
+f:ffa41ce60e70f2f7d57118d06af313af:libdvdnav/.footprint
+f:f362790c7a8d963048e1381ccc699bf2:libdvdnav/.md5sum
+f:f4b880e212b84daf44104603ab3250d0:libdvdnav/Pkgfile
 f:a6a84f66f7546c541600fd216db6093c:libevent/.footprint
 f:82bbd6e0a1a469b657d4c26c66ede4c8:libevent/.md5sum
 f:7a6ef095956933a88b4169773194cb47:libevent/Pkgfile
@@ -380,7 +379,7 @@ f:666c299996bf77c1b870459188d94023:tor/pre-install
 f:128bcc0a2ae7a3a6fa86935cabeb9a4b:tor/tor.rc
 f:a518abd4a87789947e93c07532a3a633:transcode/.footprint
 f:044d3b5a6db29b4334ef159fb08571b3:transcode/.md5sum
-f:c371cc0e8d38ad3fc067462e88b975ca:transcode/Pkgfile
+f:ccafeb1ce69d32ec9b43b688d4208036:transcode/Pkgfile
 f:81f0648fe51ec61e84d40eb2c59af1f3:twisted/.footprint
 f:c9b4668408c7861e2f45070324a0c8a6:twisted/.md5sum
 f:7defe4057efd9185b932c2f4f85ea917:twisted/Pkgfile
@@ -608,3 +607,6 @@ f:8e061d8cf22eb083e8ac1f066737e580:libsamplerate/Pkgfile
 f:143a5a8d048f2dd877b220efceeb3977:zopeinterface/.footprint
 f:7f09a5edf66a1377c653092388015a42:zopeinterface/.md5sum
 f:40a7109c775fb3f366ac3c2942bb923a:zopeinterface/Pkgfile
+f:a57812184bfb99d57d95b202aca24a61:dvdauthor/.footprint
+f:0088a21bbf170397f9c0a3b5700d4e3c:dvdauthor/.md5sum
+f:9a5c85a37188bbdcdf77b7db1f723e64:dvdauthor/Pkgfile
