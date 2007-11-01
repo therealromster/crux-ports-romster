@@ -5,7 +5,7 @@
 # Depends on: liba52 faac imlib2 lame libsdl libtheora libxvid x264
 
 name=ffmpeg
-version=r8878
+version=r10891
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.bz2)
 
@@ -13,7 +13,7 @@ build() {
 	cd ffmpeg
 
 	unset CFLAGS CXXFLAGS
-
+	
 	./configure \
 		--prefix=/usr \
 		--enable-liba52 \
@@ -25,8 +25,8 @@ build() {
 		--enable-libogg \
 		--enable-libtheora \
 		--enable-libvorbis \
-		--enable-x264 \
-		--enable-xvid \
+		--enable-libx264 \
+		--enable-libxvid \
 		--enable-pp \
 		--disable-static \
 		--enable-shared \
@@ -34,14 +34,15 @@ build() {
 		--enable-x11grab \
 		--enable-swscaler \
 		--enable-gpl \
-		--disable-audio-oss \
-		--disable-audio-beos \
 		--disable-debug \
 		--arch=$(uname -m) \
 		--cpu=$(uname -p)
 	
-	make
-	make -C doc ffmpeg.1 ffserver.1 ffplay.1
-	make DESTDIR=$PKG install install-man
+	sed -i -e '175s/ifeq ($(BUILD_SHARED),yes)/ifeq ($(BUILD_SHARED),no)/' Makefile
+
+	make all
+	echo $?
+	#make -C doc ffmpeg.1 ffserver.1 ffplay.1
+	make DESTDIR=$PKG install
 }
 

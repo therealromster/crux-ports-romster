@@ -9,6 +9,7 @@ drwxr-xr-x	root/root	usr/include/ffmpeg/
 -rw-r--r--	root/root	usr/include/ffmpeg/avcodec.h
 -rw-r--r--	root/root	usr/include/ffmpeg/avformat.h
 -rw-r--r--	root/root	usr/include/ffmpeg/avio.h
+-rw-r--r--	root/root	usr/include/ffmpeg/avstring.h
 -rw-r--r--	root/root	usr/include/ffmpeg/avutil.h
 -rw-r--r--	root/root	usr/include/ffmpeg/base64.h
 -rw-r--r--	root/root	usr/include/ffmpeg/common.h
@@ -31,15 +32,15 @@ drwxr-xr-x	root/root	usr/include/ffmpeg/
 drwxr-xr-x	root/root	usr/include/postproc/
 -rw-r--r--	root/root	usr/include/postproc/postprocess.h
 drwxr-xr-x	root/root	usr/lib/
-lrwxrwxrwx	root/root	usr/lib/libavcodec.so -> libavcodec.so.51.40.4
-lrwxrwxrwx	root/root	usr/lib/libavcodec.so.51 -> libavcodec.so.51.40.4
--rwxr-xr-x	root/root	usr/lib/libavcodec.so.51.40.4
-lrwxrwxrwx	root/root	usr/lib/libavformat.so -> libavformat.so.51.12.1
-lrwxrwxrwx	root/root	usr/lib/libavformat.so.51 -> libavformat.so.51.12.1
--rwxr-xr-x	root/root	usr/lib/libavformat.so.51.12.1
-lrwxrwxrwx	root/root	usr/lib/libavutil.so -> libavutil.so.49.4.0
-lrwxrwxrwx	root/root	usr/lib/libavutil.so.49 -> libavutil.so.49.4.0
--rwxr-xr-x	root/root	usr/lib/libavutil.so.49.4.0
+lrwxrwxrwx	root/root	usr/lib/libavcodec.so -> libavcodec.so.51.47.2
+lrwxrwxrwx	root/root	usr/lib/libavcodec.so.51 -> libavcodec.so.51.47.2
+-rwxr-xr-x	root/root	usr/lib/libavcodec.so.51.47.2
+lrwxrwxrwx	root/root	usr/lib/libavformat.so -> libavformat.so.51.17.0
+lrwxrwxrwx	root/root	usr/lib/libavformat.so.51 -> libavformat.so.51.17.0
+-rwxr-xr-x	root/root	usr/lib/libavformat.so.51.17.0
+lrwxrwxrwx	root/root	usr/lib/libavutil.so -> libavutil.so.49.5.0
+lrwxrwxrwx	root/root	usr/lib/libavutil.so.49 -> libavutil.so.49.5.0
+-rwxr-xr-x	root/root	usr/lib/libavutil.so.49.5.0
 lrwxrwxrwx	root/root	usr/lib/libpostproc.so -> libpostproc.so.51.1.0
 lrwxrwxrwx	root/root	usr/lib/libpostproc.so.51 -> libpostproc.so.51.1.0
 -rwxr-xr-x	root/root	usr/lib/libpostproc.so.51.1.0
@@ -59,8 +60,3 @@ drwxr-xr-x	root/root	usr/lib/vhook/
 -rwxr-xr-x	root/root	usr/lib/vhook/null.so
 -rwxr-xr-x	root/root	usr/lib/vhook/ppm.so
 -rwxr-xr-x	root/root	usr/lib/vhook/watermark.so
-drwxr-xr-x	root/root	usr/man/
-drwxr-xr-x	root/root	usr/man/man1/
--rw-r--r--	root/root	usr/man/man1/ffmpeg.1.gz
--rw-r--r--	root/root	usr/man/man1/ffplay.1.gz
--rw-r--r--	root/root	usr/man/man1/ffserver.1.gz
