@@ -1,0 +1,15 @@
+# Description: Reader for PDF files.
+# URL: http://www.foxitsoftware.com/pdf/desklinux/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=foxit-reader
+version=1
+release=1
+source=(http://www.foxitsoftware.com/foxitreader/FoxitReaderLinux.tar.gz)
+
+build() {
+	install -D -m 0755 ReaderLinux $PKG/usr/bin/pdf-reader
+}
+

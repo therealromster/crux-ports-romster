@@ -373,6 +373,7 @@ d:libraw1394
 d:libiec61883
 d:fceultra
 d:gfceu
+d:foxit-reader
 f:360e6d145ad9648e85da8d07f31b2a1e:action-cube/.footprint
 f:c864f6c18612fffbab4ca21294a076ad:action-cube/.md5sum
 f:932d78de456ad47b808af31ab671e259:action-cube/Pkgfile
@@ -540,7 +541,6 @@ f:fbe410e577cb79603f50a82dfbe6598a:hydrogen/Pkgfile
 f:989f9d0077bab7e84b89aca95ca21354:icewm/.footprint
 f:9b53ccb34cfc51885d72dc098eca0893:icewm/.md5sum
 f:a3d60fda4ae8ebe28b78f7fccf67e9d0:icewm/Pkgfile
-f:f8ca44f2d368418e7e5515218128dc87:icewm/Pkgfile~
 f:f994ffe86ac6c23f57e3248fece960af:icewm-theme-berryxp/.footprint
 f:74842c4acb1506bca633675080c976ac:icewm-theme-berryxp/.md5sum
 f:3fb95cbaff6261ea4302d64745501bbc:icewm-theme-berryxp/Pkgfile
@@ -1578,3 +1578,6 @@ f:37dfb67c5296537f68c947f0a302b952:fceultra/Pkgfile
 f:cf60e6c2ae630c41334d817eaca3171d:gfceu/Pkgfile
 f:8af340445bedb34ecbb86ef7ef2f40ca:gfceu/.md5sum
 f:b4c7a332f8ad2f118d00f0e5f6717023:gfceu/.footprint
+f:35da21a4a1364c28530455b88d4d82fe:foxit-reader/Pkgfile
+f:9118385520695f964bb168aa7d69e9bb:foxit-reader/.md5sum
+f:26df002db74ea4d1f5fcbad45382373b:foxit-reader/.footprint
