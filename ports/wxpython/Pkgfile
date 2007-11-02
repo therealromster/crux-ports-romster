@@ -2,16 +2,20 @@
 # URL: http://www.wxpython.org/
 # Packager: sten, nick dot steeves at shaw dot ca
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: python wxgtk
+# Depends on: pyopengl wxgtk
 
 name=wxpython
-version=2.8.4.0
-release=2
+version=2.8.6.0
+release=1
 source=(http://dl.sourceforge.net/sourceforge/wxpython/wxPython-src-$version.tar.bz2)
 
 build() {
 	cd wxPython-src-$version/wxPython
 	install -d $PKG/usr
+
+	export \
+		CFLAGS="$CFLAGS -fno-strict-aliasing" \
+		CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
 
 	python setup.py \
 		WXPORT=gtk2 \

@@ -94,6 +94,10 @@ drwxr-xr-x	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_radio.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_region.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_renderer.i
+-rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_richtextbuffer.i
+-rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_richtextctrl.i
+-rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_richtexthtml.i
+-rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_richtextxml.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_sashwin.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_scrolbar.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/_settings.i
@@ -575,7 +579,7 @@ drwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/wizard.pyc
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/xrc.py
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/xrc.pyc
--rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxPython-2.8.4.0-py2.5.egg-info
+-rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxPython-2.8.6.0-py2.5.egg-info
 drwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxPython/
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxPython/__init__.py
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxPython/__init__.pyc
@@ -773,8 +777,8 @@ drwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxP
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxPython/xrc.py
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wxPython/xrc.pyc
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx.pth
--rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wxPython_common-2.8.4.0-py2.5.egg-info
--rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wxaddons-2.8.4.0-py2.5.egg-info
+-rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wxPython_common-2.8.6.0-py2.5.egg-info
+-rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wxaddons-2.8.6.0-py2.5.egg-info
 drwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wxaddons/
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wxaddons/__init__.py
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wxaddons/__init__.pyc
