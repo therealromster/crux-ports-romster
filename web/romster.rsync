@@ -1,0 +1,9 @@
+#
+# /etc/ports/romster.rsync port collection of Danny Rawlins, romster at shortcircuit dot net dot au
+#
+
+host=data.shortcircuit.net.au
+collection=romster
+destination=/usr/ports/romster
+
+# End of file
