@@ -1,0 +1,29 @@
+# Description: A tool to create disk-at-once and track-at-once CDs.
+# URL: http://cdrecord.berlios.de/old/private/cdrecord.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Simon Gloﬂner, viper at hometux dot de
+# Depends on: 
+
+name=cdrtools
+version=2.01.01a36
+release=1
+source=(ftp://ftp.berlios.de/pub/cdrecord/alpha/cdrtools-$version.tar.bz2)
+
+build() {
+	cd cdrtools-${version%a*}
+
+	make
+	make INS_BASE=$PKG/usr install
+
+	rm -rf $PKG/usr/{include,lib,sbin,share,man/man5}
+
+	rm  \
+		$PKG/usr/etc/default/rscsi \
+		$PKG/usr/man/man1/cdda2ogg.1
+
+	chown -R root:root $PKG
+	chown root:cdrom $PKG/usr/bin/cdrecord
+	chmod -R u+w,g-w $PKG
+	chmod u+s,o-x $PKG/usr/bin/cdrecord
+}
+
