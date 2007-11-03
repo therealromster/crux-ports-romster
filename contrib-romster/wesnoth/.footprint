@@ -1286,7 +1286,8 @@ drwxr-xr-x	root/root	usr/share/wesnoth/data/languages/
 -rw-r--r--	root/root	usr/share/wesnoth/data/languages/ru_RU.cfg
 -rw-r--r--	root/root	usr/share/wesnoth/data/languages/sk_SK.cfg
 -rw-r--r--	root/root	usr/share/wesnoth/data/languages/sl_SI.cfg
--rw-r--r--	root/root	usr/share/wesnoth/data/languages/sr_CS.cfg
+-rw-r--r--	root/root	usr/share/wesnoth/data/languages/sr_RS.cfg
+-rw-r--r--	root/root	usr/share/wesnoth/data/languages/sr_RS@latin.cfg
 -rw-r--r--	root/root	usr/share/wesnoth/data/languages/sv_SE.cfg
 -rw-r--r--	root/root	usr/share/wesnoth/data/languages/tl_PH.cfg
 -rw-r--r--	root/root	usr/share/wesnoth/data/languages/tr_TR.cfg
@@ -1650,6 +1651,7 @@ drwxr-xr-x	root/root	usr/share/wesnoth/data/units/
 drwxr-xr-x	root/root	usr/share/wesnoth/fonts/
 -rw-r--r--	root/root	usr/share/wesnoth/fonts/DejaVuSans.ttf
 -rw-r--r--	root/root	usr/share/wesnoth/fonts/FreeSans.ttf
+-rw-r--r--	root/root	usr/share/wesnoth/fonts/sazanami-gothic.ttf
 drwxr-xr-x	root/root	usr/share/wesnoth/images/
 drwxr-xr-x	root/root	usr/share/wesnoth/images/attacks/
 -rw-r--r--	root/root	usr/share/wesnoth/images/attacks/axe-deathblade.png

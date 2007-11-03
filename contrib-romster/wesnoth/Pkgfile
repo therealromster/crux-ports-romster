@@ -6,7 +6,7 @@
 # Optional: upx
 
 name=wesnoth
-version=1.2.6
+version=1.2.7
 release=1
 source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2)
 
