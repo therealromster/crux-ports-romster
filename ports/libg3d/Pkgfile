@@ -1,0 +1,23 @@
+# Description: Library for loading 3D models of many file types.
+# URL: http://automagically.de/?g3dviewer
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: gtkglext
+
+name=libg3d
+version=0.0.6
+release=1
+source=(http://automagically.de/files/libg3d-$version.tar.gz)
+
+build() {
+	cd libg3d-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-gtk-doc
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+
