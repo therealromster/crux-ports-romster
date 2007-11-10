@@ -5,7 +5,7 @@
 # Depends on:	kdelibs, ghostscript, cdparanoia, lame, hal, dbus-qt3
 # Nice to have:	samba
 
-name=kdebase
+name=kdebase3
 version=3.5.8
 release=1
 source=(http://download.kde.org/stable/$version/src/kdebase-$version.tar.bz2 \

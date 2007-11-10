@@ -4,7 +4,7 @@
 # Packager: sten, nick dot steeves at shaw dot ca
 # Depends on: perl, db, sudo, libidn, imlib, hicolor-icon-theme, libart_lgpl, qt3, audiofile, libxml2, libxslt, libpcre, openssl, gnupg, gpgme, gamin, aspell, cups, openldap, freeglut, arts, xorg-libxext
 
-name=kdelibs
+name=kdelibs3
 version=3.5.8
 release=1
 source=(http://download.kde.org/stable/$version/src/kdelibs-$version.tar.bz2 \
