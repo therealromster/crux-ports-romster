@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/applyplugin
 -rwxr-xr-x	root/root	usr/bin/listplugins
 drwxr-xr-x	root/root	usr/include/
--r--r--r--	root/root	usr/include/ladspa.h
+-rw-r--r--	root/root	usr/include/ladspa.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/ladspa/
 -rwxr-xr-x	root/root	usr/lib/ladspa/amp.so

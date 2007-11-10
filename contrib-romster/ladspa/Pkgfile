@@ -5,7 +5,7 @@
 # Depends on:
 
 name=ladspa
-version=1.12
+version=1.13
 release=1
 source=(http://www.ladspa.org/download/ladspa_sdk_$version.tgz \
 	ladspa-$version.patch)
@@ -13,7 +13,16 @@ source=(http://www.ladspa.org/download/ladspa_sdk_$version.tgz \
 build() {
 	cd ladspa_sdk/src
 	patch -p2 -i $SRC/ladspa-$version.patch
-	export CFLAGS="${CFLAGS//-O?/-O3}" CXXFLAGS="${CXXFLAGS//-O?/-O3}"
+
+	export \
+		CFLAGS="${CFLAGS//-O?/-O3}" \
+		CXXFLAGS="${CXXFLAGS//-O?/-O3}"
+
+	sed -i \
+		-e "s/@CFLAGS@/$CFLAGS/" \
+		-e "s/@CXXFLAGS@/$CXXFLAGS/" \
+		makefile
+
 	make
 	make DESTDIR=$PKG install
 }
