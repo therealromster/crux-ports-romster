@@ -1,0 +1,82 @@
+diff -pruN ladspa_sdk.orig/src/makefile ladspa_sdk/src/makefile
+--- ladspa_sdk.orig/src/makefile	2007-11-06 23:33:34.000000000 +1100
++++ ladspa_sdk/src/makefile	2007-11-06 23:58:27.000000000 +1100
+@@ -4,9 +4,9 @@
+ #
+ # Change these if you want to install somewhere else.
+ 
+-INSTALL_PLUGINS_DIR	=	/usr/lib/ladspa/
+-INSTALL_INCLUDE_DIR	=	/usr/include/
+-INSTALL_BINARY_DIR	=	/usr/bin/
++INSTALL_PLUGINS_DIR	=	$(DESTDIR)/usr/lib/ladspa/
++INSTALL_INCLUDE_DIR	=	$(DESTDIR)/usr/include/
++INSTALL_BINARY_DIR	=	$(DESTDIR)/usr/bin/
+ 
+ ###############################################################################
+ #
+@@ -15,7 +15,7 @@ INSTALL_BINARY_DIR	=	/usr/bin/
+ 
+ INCLUDES	=	-I.
+ LIBRARIES	=	-ldl -lm
+-CFLAGS		=	$(INCLUDES) -Wall -Werror -O3 -fPIC
++CFLAGS		=	$(INCLUDES) -Wall -Werror -fPIC @CFLAGS@
+-CXXFLAGS	=	$(CFLAGS)
++CXXFLAGS	=	$(INCLUDES) -Wall -Werror -fPIC @CXXFLAGS@
+ PLUGINS		=	../plugins/amp.so				\
+ 			../plugins/delay.so				\
+@@ -46,22 +46,22 @@ CPP		=	c++
+ # TARGETS
+ #
+ 
+-test:	/tmp/test.wav ../snd/noise.wav always
+-	@echo ---------------------------------------------
+-	@echo First listen to the white noise input signal:
+-	@echo ---------------------------------------------
+-	-sndfile-play ../snd/noise.wav
+-	@echo -------------------------
+-	@echo Compare to plugin output.
+-	@echo -------------------------
+-	@echo Should be a noise band around 6000Hz, repeated quietly after 1s.
+-	-sndfile-play /tmp/test.wav
+-	@echo Test complete.
++test:
++#	@echo ---------------------------------------------
++#	@echo First listen to the white noise input signal:
++#	@echo ---------------------------------------------
++#	-sndfile-play ../snd/noise.wav
++#	@echo -------------------------
++#	@echo Compare to plugin output.
++#	@echo -------------------------
++#	@echo Should be a noise band around 6000Hz, repeated quietly after 1s.
++#	-sndfile-play /tmp/test.wav
++#	@echo Test complete.
+ 
+ install:	targets
+-	-mkdirhier $(INSTALL_PLUGINS_DIR)
+-	-mkdirhier $(INSTALL_INCLUDE_DIR)
+-	-mkdirhier $(INSTALL_BINARY_DIR)
++	install -d $(INSTALL_PLUGINS_DIR)
++	install -d $(INSTALL_INCLUDE_DIR)
++	install -d $(INSTALL_BINARY_DIR)
+ 	cp ../plugins/* $(INSTALL_PLUGINS_DIR)
+ 	cp ladspa.h $(INSTALL_INCLUDE_DIR)
+ 	cp ../bin/* $(INSTALL_BINARY_DIR)
+diff -pruN ladspa_sdk.orig/src/plugins/sine.cpp ladspa_sdk/src/plugins/sine.cpp
+--- ladspa_sdk.orig/src/plugins/sine.cpp	2007-11-06 23:33:34.000000000 +1100
++++ ladspa_sdk/src/plugins/sine.cpp	2007-11-06 23:59:26.000000000 +1100
+@@ -68,6 +68,15 @@ initialise_sine_table() {
+ 
+ /*****************************************************************************/
+ 
++LADSPA_Handle instantiateSineOscillator(const LADSPA_Descriptor *, unsigned long SampleRate);
++void connectPortToSineOscillator(LADSPA_Handle Instance, unsigned long Port, LADSPA_Data * DataLocation);
++void activateSineOscillator(void * pvHandle);
++void runSineOscillator_FreqAudio_AmpAudio(LADSPA_Handle Instance, unsigned long SampleCount);
++void runSineOscillator_FreqAudio_AmpCtrl(LADSPA_Handle Instance, unsigned long SampleCount);
++void runSineOscillator_FreqCtrl_AmpAudio(LADSPA_Handle Instance, unsigned long SampleCount);
++void runSineOscillator_FreqCtrl_AmpCtrl(LADSPA_Handle Instance, unsigned long SampleCount);
++void cleanupSineOscillator(void *pvHandle);
++
+ class SineOscillator {
+ private:
+ 
