@@ -2,17 +2,31 @@
 # URL: http://icculus.org/physfs/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Mark Rosenstand, mark at borkware dot net
-# Depends on: ncurses readline zlib
+# Depends on: ncurses readline zlib 
+# Optional: wxgtk
 
 name=physfs
-version=1.0.1
+version=1.1.0
 release=1
 source=(http://icculus.org/physfs/downloads/physfs-$version.tar.gz)
 
 build() {
 	cd physfs-$version
-	./configure --prefix=/usr
+
+	#version 1.1.1 moves to cmake that isn't deemed ready to use yet.
+
+	#export CFLAGS="$CFLAGS -fno-strict-aliasing"
+	
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	#cmake \
+	#	-DPHYSFS_BUILD_STATIC=FALSE \
+	#	-DCMAKE_INSTALL_PREFIX=$PKG/usr .
+
 	make
 	make DESTDIR=$PKG install
+	#make install
 }
 
