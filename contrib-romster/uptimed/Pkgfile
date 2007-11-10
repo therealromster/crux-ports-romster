@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=uptimed
-version=0.3.11
+version=0.3.12
 release=1
 source=(http://podgorny.cz/uptimed/releases/uptimed-$version.tar.bz2
 	rc.uptimed)
@@ -30,6 +30,6 @@ build() {
 	make DESTDIR=$PKG install
 
 	mv $PKG/etc/uptimed.conf-dist $PKG/etc/uptimed.conf
-	install -D ../rc.uptimed $PKG/etc/rc.d/uptimed
+	install -D -m 0755 $SRC/rc.uptimed $PKG/etc/rc.d/uptimed
 }
 
