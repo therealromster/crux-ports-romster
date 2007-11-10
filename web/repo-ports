@@ -272,7 +272,6 @@ d:libsexy
 d:libsexymm
 d:libshbuf
 d:libsidplay2
-d:libsimage
 d:libsoup
 d:libstatgrab
 d:libsvg
@@ -329,6 +328,7 @@ d:pystatgrab
 d:pytables
 d:pyusb
 d:pyyaml
+d:libg3d
 d:qemu
 d:qjackctl
 d:rlog
@@ -357,6 +357,7 @@ d:viewperf
 d:vsplit
 d:webalizer
 d:wengo
+d:simage
 d:wormux
 d:wxgtk
 d:wxpython
@@ -1240,9 +1241,6 @@ f:d40f6c5c1ef8ad7f396c0361bb393aed:libsidplay2/.footprint
 f:8503c889e42c37abd0f93e541c295491:libsidplay2/.md5sum
 f:68b329da9893e34099c7d8ad5cb9c940:libsidplay2/.sync
 f:e9b7688bec7ff6f4871c6bc6c5efb841:libsidplay2/Pkgfile
-f:d2addd5a56d694037ce7aaf0d152894c:libsimage/.footprint
-f:c4b86826763f4728477ad859045d0ff9:libsimage/.md5sum
-f:3f44f63f9c960d3d73237889a05363a1:libsimage/Pkgfile
 f:e063fb97ddf624c05e0df33794a762b5:libsoup/.footprint
 f:2846a13b460d0459b645ae553d78bf92:libsoup/.md5sum
 f:01273231b0c6d1b560e65f96091ea57a:libsoup/Pkgfile
@@ -1429,6 +1427,9 @@ f:746bc1ecdc8e4611dd525e7cd9a8c04c:pyyaml/.footprint
 f:9e1e6dddfe34cb6371c97d050e346032:pyyaml/.md5sum
 f:68b329da9893e34099c7d8ad5cb9c940:pyyaml/.sync
 f:29528f90315200ff7f7704b65a5214bc:pyyaml/Pkgfile
+f:37fc34047d95b8d0aba01f3979a39e69:libg3d/Pkgfile
+f:e35688a38878053792a12890e19a155c:libg3d/.md5sum
+f:9aba73f4b89ce6296f6d8ebcc31812fa:libg3d/.footprint
 f:e3ecf7d0f5d0a3ecbea031660bcc18c7:qemu/.footprint
 f:7180e64fbc3988e88b30adb8030ed55a:qemu/.md5sum
 f:ec06591830b8fcf53913f05f3d66f7e5:qemu/70-kqemu.rules
@@ -1444,9 +1445,9 @@ f:6528aad7f853e04b66aa77fdae348681:rosegarden/.footprint
 f:7c8612247022e89415509a45a9bffc39:rosegarden/.md5sum
 f:c784d9c193a8f0e02e4e2fd6b7c1a4bb:rosegarden/.tags
 f:d1eb6044b17acc6a40d80391f5e34530:rosegarden/Pkgfile
-f:ba2fc8d381d4314c5cf84997d1ef9333:s3d/.footprint
-f:0d48449b52c8336d5dfbbdf403b9744d:s3d/.md5sum
-f:9923836395f287c85d285fc5932f88a5:s3d/Pkgfile
+f:86b790587e12de2c328035c93fb22e30:s3d/.footprint
+f:6689e7cf08b99b5261e23b1a2c216979:s3d/.md5sum
+f:81840f989d216dc16254effa51b4797e:s3d/Pkgfile
 f:26b6b625f9fc6d811840eaf10087d91f:safe-build/.footprint
 f:2efe637bd9fddbfe560e93cd074abd85:safe-build/.md5sum
 f:4bd06a453ff2910544f82e990bbbe62b:safe-build/Pkgfile
@@ -1527,6 +1528,9 @@ f:ef58402e666617d3359bdd104c7a0a3f:wengo/.footprint
 f:5d87cd2a3c6ee4d19af07de50f4e3cbe:wengo/.md5sum
 f:85c3c85694939b5ad62da18ea9ba4f78:wengo/Pkgfile
 f:e1b089d35e5354379f9e777f6db9a6ae:wengo/wengo.sh
+f:d2addd5a56d694037ce7aaf0d152894c:simage/.footprint
+f:c4b86826763f4728477ad859045d0ff9:simage/.md5sum
+f:0853740333bf0aa8354aa921b8be20f3:simage/Pkgfile
 f:0b259b6cd61c6b18804a5919281a11e5:wormux/.footprint
 f:edd7b82ba1a0fb66f28d2fd46850e964:wormux/.md5sum
 f:0f3bb339851692c8f1bb07975feecd10:wormux/Pkgfile
