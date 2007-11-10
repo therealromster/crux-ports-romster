@@ -1,0 +1,24 @@
+# Description: An implementation of Media Transfer Protocol (MPT).
+# URL: http://libmtp.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=libmtp
+version=0.2.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/libmtp/libmtp-$version.tar.gz)
+
+build() {
+	cd libmtp-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+
