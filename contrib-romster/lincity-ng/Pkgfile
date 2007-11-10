@@ -5,7 +5,7 @@
 # Depends on: jam physfs sdl_gfx sdl_image sdl_mixer sdl_ttf
 
 name=lincity-ng
-version=1.1.1
+version=1.1.2
 release=1
 source=(http://download.berlios.de/lincity-ng/lincity-ng-$version.tar.bz2)
 
