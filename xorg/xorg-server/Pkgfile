@@ -1,0 +1,31 @@
+# Description: X Window System server
+# URL: http://xorg.freedesktop.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: mesa3d, xorg-bdftopcf, xorg-mkfontdir, xorg-mkfontscale, xorg-xf86driproto, xorg-libxkbui, xorg-xcmiscproto, xorg-scrnsaverproto, xorg-bigreqsproto, xorg-libxevie, xorg-libxtst, xorg-libdmx, xorg-libxxf86misc, xorg-libxaw, xorg-libxvmc, xorg-libxi, xorg-libxres, xorg-libxcomposite, xorg-libxinerama, xorg-libxrandr, xorg-libxtrap, xorg-libxft, xorg-libxcursor, xorg-libxxf86dga, xorg-libpixman
+
+name=xorg-server
+version=1.4
+release=3
+source=(http://xorg.freedesktop.org/releases/individual/xserver/$name-$version.tar.bz2 \
+        http://dl.sourceforge.net/mesa3d/MesaLib-7.0.1.tar.bz2 \
+		  kbd-led.patch)
+
+
+build() {
+	cd $name-$version
+
+	patch -p1 -i $SRC/kbd-led.patch
+
+	./configure --prefix=/usr --enable-dri \
+	            --with-mesa-source=$SRC/Mesa-7.0.1 \
+	            --localstatedir=/var --mandir=/usr/man \
+	            --with-xkb-output=/var/lib/xkb \
+	            --enable-xprint --enable-dmx \
+	            --disable-config-hal
+
+	make
+	make DESTDIR=$PKG install
+
+	rmdir $PKG/var/log
+}

@@ -1,0 +1,1227 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/X -> Xorg
+-rwxr-xr-x	root/root	usr/bin/Xdmx
+-rwxr-xr-x	root/root	usr/bin/Xnest
+-rwsr-xr-x	root/root	usr/bin/Xorg
+-rwxr-xr-x	root/root	usr/bin/Xprt
+-rwxr-xr-x	root/root	usr/bin/Xvfb
+-rwxr-xr-x	root/root	usr/bin/cvt
+-rwxr-xr-x	root/root	usr/bin/dmxaddinput
+-rwxr-xr-x	root/root	usr/bin/dmxaddscreen
+-rwxr-xr-x	root/root	usr/bin/dmxreconfig
+-rwxr-xr-x	root/root	usr/bin/dmxresize
+-rwxr-xr-x	root/root	usr/bin/dmxrminput
+-rwxr-xr-x	root/root	usr/bin/dmxrmscreen
+-rwxr-xr-x	root/root	usr/bin/dmxtodmx
+-rwxr-xr-x	root/root	usr/bin/dmxwininfo
+-rwxr-xr-x	root/root	usr/bin/gtf
+lrwxrwxrwx	root/root	usr/bin/inb -> ioport
+lrwxrwxrwx	root/root	usr/bin/inl -> ioport
+lrwxrwxrwx	root/root	usr/bin/inw -> ioport
+-rwxr-xr-x	root/root	usr/bin/ioport
+lrwxrwxrwx	root/root	usr/bin/outb -> ioport
+lrwxrwxrwx	root/root	usr/bin/outl -> ioport
+lrwxrwxrwx	root/root	usr/bin/outw -> ioport
+-rwxr-xr-x	root/root	usr/bin/pcitweak
+-rwxr-xr-x	root/root	usr/bin/scanpci
+-rwxr-xr-x	root/root	usr/bin/vdltodmx
+-rwxr-xr-x	root/root	usr/bin/xdmx
+-rwxr-xr-x	root/root	usr/bin/xdmxconfig
+-rwxr-xr-x	root/root	usr/bin/xorgconfig
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/X11/
+drwxr-xr-x	root/root	usr/etc/X11/Xsession.d/
+-rw-r--r--	root/root	usr/etc/X11/Xsession.d/92xprint-xpserverlist
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/xorg/
+-rw-r--r--	root/root	usr/include/xorg/BT.h
+-rw-r--r--	root/root	usr/include/xorg/IBM.h
+-rw-r--r--	root/root	usr/include/xorg/TI.h
+-rw-r--r--	root/root	usr/include/xorg/XIstubs.h
+-rw-r--r--	root/root	usr/include/xorg/afb.h
+-rw-r--r--	root/root	usr/include/xorg/assyntax.h
+-rw-r--r--	root/root	usr/include/xorg/atKeynames.h
+-rw-r--r--	root/root	usr/include/xorg/bstore.h
+-rw-r--r--	root/root	usr/include/xorg/bstorestr.h
+-rw-r--r--	root/root	usr/include/xorg/bt829.h
+-rw-r--r--	root/root	usr/include/xorg/cfb.h
+-rw-r--r--	root/root	usr/include/xorg/cfb16.h
+-rw-r--r--	root/root	usr/include/xorg/cfb32.h
+-rw-r--r--	root/root	usr/include/xorg/cfb8_16.h
+-rw-r--r--	root/root	usr/include/xorg/cfb8_32.h
+-rw-r--r--	root/root	usr/include/xorg/cfbmap.h
+-rw-r--r--	root/root	usr/include/xorg/cfbmskbits.h
+-rw-r--r--	root/root	usr/include/xorg/cfbunmap.h
+-rw-r--r--	root/root	usr/include/xorg/closestr.h
+-rw-r--r--	root/root	usr/include/xorg/closure.h
+-rw-r--r--	root/root	usr/include/xorg/colormap.h
+-rw-r--r--	root/root	usr/include/xorg/colormapst.h
+-rw-r--r--	root/root	usr/include/xorg/compiler.h
+-rw-r--r--	root/root	usr/include/xorg/cursor.h
+-rw-r--r--	root/root	usr/include/xorg/cursorstr.h
+-rw-r--r--	root/root	usr/include/xorg/damage.h
+-rw-r--r--	root/root	usr/include/xorg/damagestr.h
+-rw-r--r--	root/root	usr/include/xorg/dbestruct.h
+-rw-r--r--	root/root	usr/include/xorg/dgaproc.h
+-rw-r--r--	root/root	usr/include/xorg/dix.h
+-rw-r--r--	root/root	usr/include/xorg/dixevents.h
+-rw-r--r--	root/root	usr/include/xorg/dixfont.h
+-rw-r--r--	root/root	usr/include/xorg/dixfontstr.h
+-rw-r--r--	root/root	usr/include/xorg/dixgrabs.h
+-rw-r--r--	root/root	usr/include/xorg/dixstruct.h
+-rw-r--r--	root/root	usr/include/xorg/dri.h
+-rw-r--r--	root/root	usr/include/xorg/dristruct.h
+-rw-r--r--	root/root	usr/include/xorg/edid.h
+-rw-r--r--	root/root	usr/include/xorg/exa.h
+-rw-r--r--	root/root	usr/include/xorg/exevents.h
+-rw-r--r--	root/root	usr/include/xorg/extension.h
+-rw-r--r--	root/root	usr/include/xorg/extinit.h
+-rw-r--r--	root/root	usr/include/xorg/extnsionst.h
+-rw-r--r--	root/root	usr/include/xorg/fb.h
+-rw-r--r--	root/root	usr/include/xorg/fbdevhw.h
+-rw-r--r--	root/root	usr/include/xorg/fboverlay.h
+-rw-r--r--	root/root	usr/include/xorg/fbpseudocolor.h
+-rw-r--r--	root/root	usr/include/xorg/fbrop.h
+-rw-r--r--	root/root	usr/include/xorg/fi1236.h
+-rw-r--r--	root/root	usr/include/xorg/fourcc.h
+-rw-r--r--	root/root	usr/include/xorg/gc.h
+-rw-r--r--	root/root	usr/include/xorg/gcstruct.h
+-rw-r--r--	root/root	usr/include/xorg/globals.h
+-rw-r--r--	root/root	usr/include/xorg/glyphstr.h
+-rw-r--r--	root/root	usr/include/xorg/hotplug.h
+-rw-r--r--	root/root	usr/include/xorg/i2c_def.h
+-rw-r--r--	root/root	usr/include/xorg/input.h
+-rw-r--r--	root/root	usr/include/xorg/inputstr.h
+-rw-r--r--	root/root	usr/include/xorg/mfb.h
+-rw-r--r--	root/root	usr/include/xorg/mfbmap.h
+-rw-r--r--	root/root	usr/include/xorg/mfbunmap.h
+-rw-r--r--	root/root	usr/include/xorg/mi.h
+-rw-r--r--	root/root	usr/include/xorg/mibank.h
+-rw-r--r--	root/root	usr/include/xorg/mibstore.h
+-rw-r--r--	root/root	usr/include/xorg/micmap.h
+-rw-r--r--	root/root	usr/include/xorg/micoord.h
+-rw-r--r--	root/root	usr/include/xorg/mifillarc.h
+-rw-r--r--	root/root	usr/include/xorg/mifpoly.h
+-rw-r--r--	root/root	usr/include/xorg/migc.h
+-rw-r--r--	root/root	usr/include/xorg/miline.h
+-rw-r--r--	root/root	usr/include/xorg/mipict.h
+-rw-r--r--	root/root	usr/include/xorg/mipointer.h
+-rw-r--r--	root/root	usr/include/xorg/mipointrst.h
+-rw-r--r--	root/root	usr/include/xorg/misc.h
+-rw-r--r--	root/root	usr/include/xorg/miscstruct.h
+-rw-r--r--	root/root	usr/include/xorg/mispans.h
+-rw-r--r--	root/root	usr/include/xorg/mistruct.h
+-rw-r--r--	root/root	usr/include/xorg/miwideline.h
+-rw-r--r--	root/root	usr/include/xorg/mizerarc.h
+-rw-r--r--	root/root	usr/include/xorg/msp3430.h
+-rw-r--r--	root/root	usr/include/xorg/opaque.h
+-rw-r--r--	root/root	usr/include/xorg/os.h
+-rw-r--r--	root/root	usr/include/xorg/picture.h
+-rw-r--r--	root/root	usr/include/xorg/picturestr.h
+-rw-r--r--	root/root	usr/include/xorg/pixmap.h
+-rw-r--r--	root/root	usr/include/xorg/pixmapstr.h
+-rw-r--r--	root/root	usr/include/xorg/property.h
+-rw-r--r--	root/root	usr/include/xorg/propertyst.h
+-rw-r--r--	root/root	usr/include/xorg/randrstr.h
+-rw-r--r--	root/root	usr/include/xorg/region.h
+-rw-r--r--	root/root	usr/include/xorg/regionstr.h
+-rw-r--r--	root/root	usr/include/xorg/renderedge.h
+-rw-r--r--	root/root	usr/include/xorg/resource.h
+-rw-r--r--	root/root	usr/include/xorg/rgb.h
+-rw-r--r--	root/root	usr/include/xorg/sarea.h
+-rw-r--r--	root/root	usr/include/xorg/screenint.h
+-rw-r--r--	root/root	usr/include/xorg/scrnintstr.h
+-rw-r--r--	root/root	usr/include/xorg/selection.h
+-rw-r--r--	root/root	usr/include/xorg/servermd.h
+-rw-r--r--	root/root	usr/include/xorg/shadow.h
+-rw-r--r--	root/root	usr/include/xorg/shadowfb.h
+-rw-r--r--	root/root	usr/include/xorg/site.h
+-rw-r--r--	root/root	usr/include/xorg/swaprep.h
+-rw-r--r--	root/root	usr/include/xorg/swapreq.h
+-rw-r--r--	root/root	usr/include/xorg/tda8425.h
+-rw-r--r--	root/root	usr/include/xorg/tda9850.h
+-rw-r--r--	root/root	usr/include/xorg/tda9885.h
+-rw-r--r--	root/root	usr/include/xorg/uda1380.h
+-rw-r--r--	root/root	usr/include/xorg/validate.h
+-rw-r--r--	root/root	usr/include/xorg/vbe.h
+-rw-r--r--	root/root	usr/include/xorg/vbeModes.h
+-rw-r--r--	root/root	usr/include/xorg/vgaHW.h
+-rw-r--r--	root/root	usr/include/xorg/wfbrename.h
+-rw-r--r--	root/root	usr/include/xorg/window.h
+-rw-r--r--	root/root	usr/include/xorg/windowstr.h
+-rw-r--r--	root/root	usr/include/xorg/xaa.h
+-rw-r--r--	root/root	usr/include/xorg/xaaWrapper.h
+-rw-r--r--	root/root	usr/include/xorg/xaalocal.h
+-rw-r--r--	root/root	usr/include/xorg/xaarop.h
+-rw-r--r--	root/root	usr/include/xorg/xf1bpp.h
+-rw-r--r--	root/root	usr/include/xorg/xf4bpp.h
+-rw-r--r--	root/root	usr/include/xorg/xf86.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Crtc.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Cursor.h
+-rw-r--r--	root/root	usr/include/xorg/xf86DDC.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Modes.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Module.h
+-rw-r--r--	root/root	usr/include/xorg/xf86OSmouse.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Opt.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Optrec.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Parser.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Pci.h
+-rw-r--r--	root/root	usr/include/xorg/xf86PciInfo.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Priv.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Privstr.h
+-rw-r--r--	root/root	usr/include/xorg/xf86RAC.h
+-rw-r--r--	root/root	usr/include/xorg/xf86RamDac.h
+-rw-r--r--	root/root	usr/include/xorg/xf86RandR12.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Rename.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Resources.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Version.h
+-rw-r--r--	root/root	usr/include/xorg/xf86Xinput.h
+-rw-r--r--	root/root	usr/include/xorg/xf86_OSlib.h
+-rw-r--r--	root/root	usr/include/xorg/xf86_OSproc.h
+-rw-r--r--	root/root	usr/include/xorg/xf86_ansic.h
+-rw-r--r--	root/root	usr/include/xorg/xf86_libc.h
+-rw-r--r--	root/root	usr/include/xorg/xf86cmap.h
+-rw-r--r--	root/root	usr/include/xorg/xf86fbman.h
+-rw-r--r--	root/root	usr/include/xorg/xf86i2c.h
+-rw-r--r--	root/root	usr/include/xorg/xf86int10.h
+-rw-r--r--	root/root	usr/include/xorg/xf86sbusBus.h
+-rw-r--r--	root/root	usr/include/xorg/xf86str.h
+-rw-r--r--	root/root	usr/include/xorg/xf86xv.h
+-rw-r--r--	root/root	usr/include/xorg/xf86xvmc.h
+-rw-r--r--	root/root	usr/include/xorg/xf86xvpriv.h
+-rw-r--r--	root/root	usr/include/xorg/xisb.h
+-rw-r--r--	root/root	usr/include/xorg/xkbsrv.h
+-rw-r--r--	root/root	usr/include/xorg/xorg-server.h
+-rw-r--r--	root/root	usr/include/xorg/xorgVersion.h
+-rw-r--r--	root/root	usr/include/xorg/xvdix.h
+-rw-r--r--	root/root	usr/include/xorg/xvmcext.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/X11/
+-rw-r--r--	root/root	usr/lib/X11/Cards
+-rw-r--r--	root/root	usr/lib/X11/Options
+drwxr-xr-x	root/root	usr/lib/X11/xserver/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/Xprinters
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/Xprinters.ghostscript
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/attributes/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/attributes/document
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/attributes/job
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/attributes/printer
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/ddx-config/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/ddx-config/raster/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/ddx-config/raster/pcl
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/ddx-config/raster/postscript (EMPTY)
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/CANONBJ10E-GS/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/CANONBJ10E-GS/model-config
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/AvantGarde-Book.pmf -> ../../PSdefault/fonts/AvantGarde-Book.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/AvantGarde-BookOblique.pmf -> ../../PSdefault/fonts/AvantGarde-BookOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/AvantGarde-Demi.pmf -> ../../PSdefault/fonts/AvantGarde-Demi.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/AvantGarde-DemiOblique.pmf -> ../../PSdefault/fonts/AvantGarde-DemiOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Courier-Bold.pmf -> ../../PSdefault/fonts/Courier-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Courier-BoldOblique.pmf -> ../../PSdefault/fonts/Courier-BoldOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Courier-Oblique.pmf -> ../../PSdefault/fonts/Courier-Oblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Courier.pmf -> ../../PSdefault/fonts/Courier.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Helvetica-Bold.pmf -> ../../PSdefault/fonts/Helvetica-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Helvetica-BoldOblique.pmf -> ../../PSdefault/fonts/Helvetica-BoldOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Helvetica-Oblique.pmf -> ../../PSdefault/fonts/Helvetica-Oblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Helvetica.pmf -> ../../PSdefault/fonts/Helvetica.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/LubalinGraph-Book.pmf -> ../../PSdefault/fonts/LubalinGraph-Book.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/LubalinGraph-BookOblique.pmf -> ../../PSdefault/fonts/LubalinGraph-BookOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/LubalinGraph-Demi.pmf -> ../../PSdefault/fonts/LubalinGraph-Demi.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/LubalinGraph-DemiOblique.pmf -> ../../PSdefault/fonts/LubalinGraph-DemiOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/NewCentSchlbk-Bold.pmf -> ../../PSdefault/fonts/NewCentSchlbk-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/NewCentSchlbk-BoldItal.pmf -> ../../PSdefault/fonts/NewCentSchlbk-BoldItal.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/NewCentSchlbk-Ital.pmf -> ../../PSdefault/fonts/NewCentSchlbk-Ital.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/NewCentSchlbk-Roman.pmf -> ../../PSdefault/fonts/NewCentSchlbk-Roman.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Souvenir-Demi.pmf -> ../../PSdefault/fonts/Souvenir-Demi.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Souvenir-DemiItalic.pmf -> ../../PSdefault/fonts/Souvenir-DemiItalic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Souvenir-Light.pmf -> ../../PSdefault/fonts/Souvenir-Light.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Souvenir-LightItalic.pmf -> ../../PSdefault/fonts/Souvenir-LightItalic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Symbol.pmf -> ../../PSdefault/fonts/Symbol.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Times-Bold.pmf -> ../../PSdefault/fonts/Times-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Times-BoldItalic.pmf -> ../../PSdefault/fonts/Times-BoldItalic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Times-Italic.pmf -> ../../PSdefault/fonts/Times-Italic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/Times-Roman.pmf -> ../../PSdefault/fonts/Times-Roman.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/ZapfDingbats.pmf -> ../../PSdefault/fonts/ZapfDingbats.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/fonts/fonts.dir
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/CANONC3200-PS/model-config
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/GSdefault/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/GSdefault/model-config
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00051.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00052.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00053.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00054.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00055.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00056.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00057.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00058.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00059.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00060.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00061.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00062.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00063.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00064.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00065.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00066.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00067.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00068.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00069.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00070.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00071.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00072.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00073.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00074.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00075.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00076.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00077.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00079.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00080.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00081.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00082.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00083.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00084.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00085.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00086.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00087.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00088.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00089.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00090.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00091.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00092.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00093.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/9nb00094.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/README
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/fonts.alias (EMPTY)
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/fonts.dir
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/fonts/lpr0ye1a.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPDJ1600C/model-config
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/AvantGarde-Book.pmf -> ../../PSdefault/fonts/AvantGarde-Book.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/AvantGarde-BookOblique.pmf -> ../../PSdefault/fonts/AvantGarde-BookOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/AvantGarde-Demi.pmf -> ../../PSdefault/fonts/AvantGarde-Demi.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/AvantGarde-DemiOblique.pmf -> ../../PSdefault/fonts/AvantGarde-DemiOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Courier-Bold.pmf -> ../../PSdefault/fonts/Courier-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Courier-BoldOblique.pmf -> ../../PSdefault/fonts/Courier-BoldOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Courier-Oblique.pmf -> ../../PSdefault/fonts/Courier-Oblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Courier.pmf -> ../../PSdefault/fonts/Courier.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Helvetica-Bold.pmf -> ../../PSdefault/fonts/Helvetica-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Helvetica-BoldOblique.pmf -> ../../PSdefault/fonts/Helvetica-BoldOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Helvetica-Oblique.pmf -> ../../PSdefault/fonts/Helvetica-Oblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Helvetica.pmf -> ../../PSdefault/fonts/Helvetica.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/LubalinGraph-Book.pmf -> ../../PSdefault/fonts/LubalinGraph-Book.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/LubalinGraph-BookOblique.pmf -> ../../PSdefault/fonts/LubalinGraph-BookOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/LubalinGraph-Demi.pmf -> ../../PSdefault/fonts/LubalinGraph-Demi.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/LubalinGraph-DemiOblique.pmf -> ../../PSdefault/fonts/LubalinGraph-DemiOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/NewCentSchlbk-Bold.pmf -> ../../PSdefault/fonts/NewCentSchlbk-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/NewCentSchlbk-BoldItal.pmf -> ../../PSdefault/fonts/NewCentSchlbk-BoldItal.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/NewCentSchlbk-Ital.pmf -> ../../PSdefault/fonts/NewCentSchlbk-Ital.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/NewCentSchlbk-Roman.pmf -> ../../PSdefault/fonts/NewCentSchlbk-Roman.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Souvenir-Demi.pmf -> ../../PSdefault/fonts/Souvenir-Demi.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Souvenir-DemiItalic.pmf -> ../../PSdefault/fonts/Souvenir-DemiItalic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Souvenir-Light.pmf -> ../../PSdefault/fonts/Souvenir-Light.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Souvenir-LightItalic.pmf -> ../../PSdefault/fonts/Souvenir-LightItalic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Symbol.pmf -> ../../PSdefault/fonts/Symbol.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Times-Bold.pmf -> ../../PSdefault/fonts/Times-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Times-BoldItalic.pmf -> ../../PSdefault/fonts/Times-BoldItalic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Times-Italic.pmf -> ../../PSdefault/fonts/Times-Italic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/Times-Roman.pmf -> ../../PSdefault/fonts/Times-Roman.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/ZapfDingbats.pmf -> ../../PSdefault/fonts/ZapfDingbats.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/fonts/fonts.dir
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4050-PS/model-config
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00051.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00052.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00053.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00054.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00055.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00056.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00057.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00058.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00059.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00060.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00061.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00062.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00063.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00064.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00065.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00066.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00067.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00068.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00069.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00070.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00071.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00072.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00073.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00074.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00075.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00076.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00077.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00079.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00080.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00081.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00082.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00083.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00084.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00085.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00086.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00087.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00088.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00089.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00090.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00091.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00092.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00093.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/9nb00094.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/README
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/fonts.alias (EMPTY)
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/fonts.dir
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/fonts/lpr0ye1a.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/HPLJ4family/model-config
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/PS2PDFspooldir-GS/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PS2PDFspooldir-GS/model-config
+-rwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/PS2PDFspooldir-GS/ps2pdf_spooltodir.sh
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/AvantGarde-Book.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/AvantGarde-BookOblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/AvantGarde-Demi.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/AvantGarde-DemiOblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Courier-Bold.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Courier-BoldOblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Courier-Oblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Courier.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Helvetica-Bold.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Helvetica-BoldOblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Helvetica-Oblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Helvetica.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/LubalinGraph-Book.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/LubalinGraph-BookOblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/LubalinGraph-Demi.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/LubalinGraph-DemiOblique.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/NewCentSchlbk-Bold.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/NewCentSchlbk-BoldItal.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/NewCentSchlbk-Ital.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/NewCentSchlbk-Roman.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Souvenir-Demi.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Souvenir-DemiItalic.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Souvenir-Light.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Souvenir-LightItalic.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Symbol.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Times-Bold.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Times-BoldItalic.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Times-Italic.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/Times-Roman.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/ZapfDingbats.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/fonts/fonts.dir
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSdefault/model-config
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/PSspooldir/
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/PSspooldir/model-config
+-rwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/PSspooldir/spooltodir.sh
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Courier-Bold.pmf -> ../../PSdefault/fonts/Courier-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Courier-BoldOblique.pmf -> ../../PSdefault/fonts/Courier-BoldOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Courier-Oblique.pmf -> ../../PSdefault/fonts/Courier-Oblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Courier.pmf -> ../../PSdefault/fonts/Courier.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Helvetica-Bold.pmf -> ../../PSdefault/fonts/Helvetica-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Helvetica-BoldOblique.pmf -> ../../PSdefault/fonts/Helvetica-BoldOblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Helvetica-Oblique.pmf -> ../../PSdefault/fonts/Helvetica-Oblique.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Helvetica.pmf -> ../../PSdefault/fonts/Helvetica.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Symbol.pmf -> ../../PSdefault/fonts/Symbol.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Times-Bold.pmf -> ../../PSdefault/fonts/Times-Bold.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Times-BoldItalic.pmf -> ../../PSdefault/fonts/Times-BoldItalic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Times-Italic.pmf -> ../../PSdefault/fonts/Times-Italic.pmf
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/Times-Roman.pmf -> ../../PSdefault/fonts/Times-Roman.pmf
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/fonts/fonts.dir
+-rw-r--r--	root/root	usr/lib/X11/xserver/C/print/models/SPSPARC2/model-config
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/POSIX -> C
+-rw-r--r--	root/root	usr/lib/X11/xserver/README
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/af_ZA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/af_ZA.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_AE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_AE.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_AE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_BH -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_BH.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_BH.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_DZ -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_DZ.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_DZ.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_EG -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_EG.ISO8859-6 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_EG.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_EG.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_EG.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_IQ -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_IQ.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_IQ.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_JO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_JO.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_JO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_KW -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_KW.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_KW.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_LB -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_LB.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_LB.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_LY -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_LY.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_LY.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_MA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_MA.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_MA.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_OM -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_OM.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_OM.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_QA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_QA.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_QA.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SA.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SA.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SD -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SD.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SD.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SY -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SY.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_SY.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_TN -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_TN.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_TN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_YE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_YE.iso88596 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ar_YE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/be_BY -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/be_BY.cp1251 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/be_BY.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bg_BG -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bg_BG.ISO8859-5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bg_BG.cp1251 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bg_BG.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bn_IN.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bn_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bokmal -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/br_FR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/br_FR.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bs -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bs_BA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bs_BA.ISO-8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bs_BA.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bs_BA.ISO_8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bs_BA.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/bs_BA.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca_ES -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca_ES.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca_ES.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca_ES.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca_ES.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca_ES.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ca_ES@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/catalan -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/croatian -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cs_CZ -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cs_CZ.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cs_CZ.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cs_CZ.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cy_GB -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cy_GB.iso885914 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cz -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/cz.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/czech -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da_DK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da_DK.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da_DK.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da_DK.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da_DK.iso885915 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/da_DK.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/danish -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/dansk -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_AT -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_AT.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_AT.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_AT.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_AT.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_AT.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_AT@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_BE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_BE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_BE.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_BE@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_CH -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_CH.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_CH.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_CH.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_DE@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_LU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_LU.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_LU.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_LU.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/de_LU@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/deutsch -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/el_GR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/el_GR.ISO8859-7 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/el_GR.ISO8859-7@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/el_GR.iso88597 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/el_GR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_AU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_AU.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_AU.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_AU.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_BW -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_BW.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_CA -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_CA.ISO8859-1 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_CA.iso88591 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_CA.utf8 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_DK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_DK.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_GB -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_GB.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_GB.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_GB.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_GB.iso885915 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_GB.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_HK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_HK.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IE.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IE.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IE.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IE@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IN -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_NZ -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_NZ.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_NZ.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_NZ.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_PH -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_PH.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_SG -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_SG.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_US.ISO8859-1 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_US.ISO8859-15 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_US.UTF-8 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_US.iso88591 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_US.iso885915 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_US.utf8 -> en_US
+drwxr-xr-x	root/root	usr/lib/X11/xserver/en_US/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/en_US/print/
+drwxr-xr-x	root/root	usr/lib/X11/xserver/en_US/print/attributes/
+-rw-r--r--	root/root	usr/lib/X11/xserver/en_US/print/attributes/document
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_ZA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_ZA.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_ZA.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_ZW -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/en_ZW.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_AR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_AR.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_AR.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_AR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_BO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_BO.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_BO.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_BO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CL -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CL.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CL.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CL.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CO.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CO.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CR.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CR.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_CR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_DO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_DO.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_DO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_EC -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_EC.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_EC.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_EC.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_ES@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_GT -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_GT.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_GT.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_GT.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_HN -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_HN.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_HN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_MX -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_MX.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_MX.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_MX.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_NI -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_NI.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_NI.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_NI.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PA.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PA.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PA.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PE.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PR -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PR.iso88591 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PR.utf8 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PY -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PY.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PY.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_PY.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_SV -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_SV.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_SV.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_SV.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_US -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_US.iso88591 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_UY -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_UY.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_UY.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_UY.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_VE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_VE.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_VE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/es_VE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/et_EE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/et_EE.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/et_EE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/et_EE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/eu_ES -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/eu_ES.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/eu_ES.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/eu_ES@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fa_IR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fi_FI@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fo_FO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fo_FO.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fo_FO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_BE@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CA -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CA.ISO8859-1 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CA.iso88591 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CA.utf8 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CH -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CH.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CH.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_CH.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_FR@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_LU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_LU.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_LU.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_LU.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/fr_LU@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ga_IE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ga_IE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ga_IE.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ga_IE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ga_IE@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gl_ES -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gl_ES.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gl_ES.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gl_ES.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gl_ES@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gu_IN.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gu_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gv_GB -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/gv_GB.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/he -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/he_IL -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/he_IL.ISO8859-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/he_IL.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/he_IL.iso88598 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/he_IL.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hebrew -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hi_IN.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hi_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hr_HR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hr_HR.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hr_HR.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hr_HR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hu_HU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hu_HU.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hu_HU.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/hu_HU.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/id_ID -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/id_ID.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/id_ID.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/is_IS -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/is_IS.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/is_IS.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/is_IS.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_CH -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_CH.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_CH.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/it_IT@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/italian -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/iw_IL -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/iw_IL.iso88598 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.EUC -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.PCK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.eucJP -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.eucjp -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.sjis -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.ujis -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ja_JP.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/japan -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/japanese -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/japanese.euc -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/japanese.sjis -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ka_GE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ka_GE.georgianps -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/kl_GL -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/kl_GL.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/kl_GL.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko_KR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko_KR.EUC -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko_KR.EUC@dict -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko_KR.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko_KR.UTF-8@dict -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko_KR.euckr -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ko_KR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/korean -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/korean.euc -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/kw_GB -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/kw_GB.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lithuanian -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lt -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lt.ISO8859-13 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lt_LT -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lt_LT.ISO8859-13 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lt_LT.iso885913 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lt_LT.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lv -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lv.ISO8859-13 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lv_LV -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lv_LV.ISO8859-13 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lv_LV.iso885913 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/lv_LV.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mi_NZ -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mi_NZ.iso885913 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mk_MK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mk_MK.ISO8859-5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mk_MK.iso88595 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mk_MK.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mr_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ms_MY -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ms_MY.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mt_MT -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/mt_MT.iso88593 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nb_NO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nb_NO.ISO-8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_BE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_BE.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_BE.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_BE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_BE.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_BE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_BE@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_NL -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_NL.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_NL.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_NL.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_NL.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_NL.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nl_NL@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nn_NO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/nn_NO.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/no -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/no.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/no_NO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/no_NO.ISO8859-1@bokmal -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/no_NO.ISO8859-1@nynorsk -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/no_NO.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/no_NO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/norwegian -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/oc_FR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/oc_FR.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pa_IN.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pa_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pl_PL -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pl_PL.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pl_PL.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pl_PL.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pl_PL.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/polish -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/portuguese -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.88591.en -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.ISO-8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.ISO_8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.iso885915 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_BR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_PT -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_PT.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_PT.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_PT.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_PT.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_PT.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/pt_PT@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ro_RO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ro_RO.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ro_RO.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ro_RO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/romanian -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru.ISO8859-5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru.ansi1251 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru.koi8-r -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU.ANSI1251 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU.ISO8859-5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU.KOI8-R -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU.iso88595 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU.koi8r -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_RU.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_SU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_UA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ru_UA.koi8u -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/russian -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/se_NO -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/se_NO.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sh -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sh.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sh_BA.ISO8859-2@bosnia -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sh_YU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sh_YU.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sh_YU.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/si -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/si_LK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/si_LK.UTF8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sinhala -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sk -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sk.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sk_SK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sk_SK.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sk_SK.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sk_SK.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sl_SI -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sl_SI.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sl_SI.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sl_SI.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/slovak -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/slovene -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/slovenian -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/spanish -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sq_AL -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sq_AL.ISO8859-2 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sq_AL.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sq_AL.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_SP -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_SP.ISO8859-5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_YU -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_YU.ISO8859-5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_YU.iso88592 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_YU.iso88595@cyrillic -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_YU.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sr_YU@cyrillic -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/su -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/su.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_FI -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_FI.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_FI.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_FI.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_FI@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_SE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_SE.ISO8859-1 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_SE.ISO8859-15 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_SE.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_SE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_SE.iso885915 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/sv_SE.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/swedish -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ta_IN -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ta_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/te_IN -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/te_IN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tg_TJ -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tg_TJ.koi8t -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/th -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/th_TH -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/th_TH.ISO8859-11 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/th_TH.TIS620 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/th_TH.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/th_TH.tis620 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/th_TH.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/thai -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tl_PH -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tl_PH.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tr -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tr.ISO8859-9 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tr_TR -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tr_TR.ISO8859-9 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tr_TR.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tr_TR.iso88599 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/tr_TR.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/turkish -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/uk_UA -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/uk_UA.koi8u -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/uk_UA.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ur_PK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/ur_PK.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/uz_UZ -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/uz_UZ.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/vi_VN -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/vi_VN.tcvn -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/vi_VN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/wa_BE -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/wa_BE.iso88591 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/wa_BE.iso885915@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/wa_BE@euro -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/yi_US -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/yi_US.cp1255 -> en_US
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh.GBK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.EUC -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.EUC@pinyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.EUC@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.EUC@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GB18030 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GB18030@pinyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GB18030@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GB18030@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GBK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GBK@pinyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GBK@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.GBK@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.UTF-8@pinyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.UTF-8@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.UTF-8@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.gb18030 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.gb2312 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.gbk -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_CN.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.BIG5HK -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.BIG5HK@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.BIG5HK@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.UTF-8@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.UTF-8@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.big5hkscs -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_HK.utf8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.BIG5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.BIG5@pinyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.BIG5@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.BIG5@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.BIG5@zhuyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.EUC -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.EUC@pinyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.EUC@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.EUC@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.EUC@zhuyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.UTF-8 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.UTF-8@pinyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.UTF-8@radical -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.UTF-8@stroke -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.UTF-8@zhuyin -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.big5 -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.euctw -> C
+lrwxrwxrwx	root/root	usr/lib/X11/xserver/zh_TW.utf8 -> C
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/xorg-server.pc
+drwxr-xr-x	root/root	usr/lib/xorg/
+drwxr-xr-x	root/root	usr/lib/xorg/modules/
+drwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libGLcore.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libGLcore.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libdbe.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libdbe.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libdri.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libdri.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libextmod.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libextmod.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/librecord.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/librecord.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libxtrap.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libxtrap.so
+drwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libfreetype.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libfreetype.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libtype1.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libtype1.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libafb.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libafb.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libcfb.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libcfb.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libcfb32.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libcfb32.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libexa.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libexa.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libfb.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libfb.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libint10.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libint10.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libmfb.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libmfb.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libpcidata.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libpcidata.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libscanpci.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libscanpci.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libshadow.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libshadow.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libshadowfb.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libshadowfb.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libvbe.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libvbe.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libvgahw.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libvgahw.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libwfb.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libwfb.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxaa.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxaa.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf1bpp.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf1bpp.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf4bpp.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf4bpp.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf8_16bpp.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf8_16bpp.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf8_32bpp.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libxf8_32bpp.so
+drwxr-xr-x	root/root	usr/lib/xorg/modules/linux/
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/linux/libfbdevhw.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/linux/libfbdevhw.so
+drwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/bt829_drv.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/bt829_drv.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/fi1236_drv.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/fi1236_drv.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/msp3430_drv.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/msp3430_drv.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/tda8425_drv.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/tda8425_drv.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/tda9850_drv.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/tda9850_drv.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/tda9885_drv.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/tda9885_drv.so
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/uda1380_drv.la
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/uda1380_drv.so
+drwxr-xr-x	root/root	usr/lib/xserver/
+-rw-r--r--	root/root	usr/lib/xserver/SecurityPolicy
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/Xdmx.1.gz
+-rw-r--r--	root/root	usr/man/man1/Xnest.1.gz
+-rw-r--r--	root/root	usr/man/man1/Xorg.1.gz
+-rw-r--r--	root/root	usr/man/man1/Xprt.1.gz
+-rw-r--r--	root/root	usr/man/man1/Xserver.1.gz
+-rw-r--r--	root/root	usr/man/man1/Xvfb.1.gz
+-rw-r--r--	root/root	usr/man/man1/cvt.1.gz
+-rw-r--r--	root/root	usr/man/man1/dmxtodmx.1.gz
+-rw-r--r--	root/root	usr/man/man1/gtf.1.gz
+-rw-r--r--	root/root	usr/man/man1/pcitweak.1.gz
+-rw-r--r--	root/root	usr/man/man1/scanpci.1.gz
+-rw-r--r--	root/root	usr/man/man1/vdltodmx.1.gz
+-rw-r--r--	root/root	usr/man/man1/xdmxconfig.1.gz
+-rw-r--r--	root/root	usr/man/man1/xorgconfig.1.gz
+drwxr-xr-x	root/root	usr/man/man4/
+-rw-r--r--	root/root	usr/man/man4/exa.4.gz
+-rw-r--r--	root/root	usr/man/man4/fbdevhw.4.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/SecurityPolicy.5.gz
+-rw-r--r--	root/root	usr/man/man5/xorg.conf.5.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/xorg-server.m4
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/lib/
+drwxr-xr-x	root/root	var/lib/xkb/
+-rw-r--r--	root/root	var/lib/xkb/README.compiled
