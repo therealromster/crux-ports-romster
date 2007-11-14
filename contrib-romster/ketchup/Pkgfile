@@ -2,7 +2,7 @@
 # URL: http://www.selenic.com/ketchup/wiki/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Mark Rosenstand, mark at borkware dot net
-# Depends on: python
+# Depends on: python gnupg
 
 name=ketchup
 version=0.9.8
