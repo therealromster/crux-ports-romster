@@ -2,10 +2,10 @@
 # URL: http://www.jwz.org/xscreensaver/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: bc libglade netpbm fortune gdk-pixbuf
+# Depends on: bc fortune gdk-pixbuf libglade libungif netpbm
 
 name=xscreensaver
-version=5.03
+version=5.04
 release=1
 source=(http://www.jwz.org/xscreensaver/xscreensaver-$version.tar.gz)
 
@@ -19,17 +19,23 @@ build() {
 		--prefix=/usr \
 		--libexecdir=/usr/lib \
 		--mandir=/usr/man \
+		--with-x-app-defaults=/etc/X11/app-defaults \
 		--enable-locking \
+		--enable-root-passwd \
+		--with-dpms-ext \
+		--with-xinerama-ext \
+		--with-xshm-ext \
+		--with-proc-interrupts \
+		--with-shadow \
 		--with-pixbuf \
 		--with-jpeg \
-		--with-xshm-ext \
 		--without-motif \
 		--without-gnome \
 		--without-gle \
 		--without-setuid-hacks
 
 	make
-	make install_prefix=$PKG AD_DIR=/etc/X11/app-defaults install
+	make install_prefix=$PKG install
 	rm $PKG/usr/share/xscreensaver/config/README
 }
 

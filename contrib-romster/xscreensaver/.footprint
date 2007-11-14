@@ -14,6 +14,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/xscreensaver-text
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/xscreensaver/
+-rwxr-xr-x	root/root	usr/lib/xscreensaver/abstractile
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/anemone
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/anemotaxis
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/antinspect
@@ -129,6 +130,7 @@ drwxr-xr-x	root/root	usr/lib/xscreensaver/
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/lissie
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/ljlatest
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/lmorph
+-rwxr-xr-x	root/root	usr/lib/xscreensaver/lockward
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/loop
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/m6502
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/maze
@@ -138,6 +140,7 @@ drwxr-xr-x	root/root	usr/lib/xscreensaver/
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/mirrorblob
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/mismunch
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/moebius
+-rwxr-xr-x	root/root	usr/lib/xscreensaver/moebiusgears
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/moire
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/moire2
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/molecule
@@ -233,6 +236,7 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/xscreensaver-text.1.gz
 -rw-r--r--	root/root	usr/man/man1/xscreensaver.1.gz
 drwxr-xr-x	root/root	usr/man/man6/
+-rw-r--r--	root/root	usr/man/man6/abstractile.6.gz
 -rw-r--r--	root/root	usr/man/man6/anemone.6.gz
 -rw-r--r--	root/root	usr/man/man6/anemotaxis.6.gz
 -rw-r--r--	root/root	usr/man/man6/antinspect.6.gz
@@ -349,6 +353,7 @@ drwxr-xr-x	root/root	usr/man/man6/
 -rw-r--r--	root/root	usr/man/man6/lissie.6.gz
 -rw-r--r--	root/root	usr/man/man6/ljlatest.6.gz
 -rw-r--r--	root/root	usr/man/man6/lmorph.6.gz
+-rw-r--r--	root/root	usr/man/man6/lockward.6.gz
 -rw-r--r--	root/root	usr/man/man6/loop.6.gz
 -rw-r--r--	root/root	usr/man/man6/maze.6.gz
 -rw-r--r--	root/root	usr/man/man6/memscroller.6.gz
@@ -357,6 +362,7 @@ drwxr-xr-x	root/root	usr/man/man6/
 -rw-r--r--	root/root	usr/man/man6/mirrorblob.6.gz
 -rw-r--r--	root/root	usr/man/man6/mismunch.6.gz
 -rw-r--r--	root/root	usr/man/man6/moebius.6.gz
+-rw-r--r--	root/root	usr/man/man6/moebiusgears.6.gz
 -rw-r--r--	root/root	usr/man/man6/moire.6.gz
 -rw-r--r--	root/root	usr/man/man6/moire2.6.gz
 -rw-r--r--	root/root	usr/man/man6/molecule.6.gz
@@ -448,6 +454,7 @@ drwxr-xr-x	root/root	usr/share/pixmaps/
 -rw-r--r--	root/root	usr/share/pixmaps/xscreensaver.xpm
 drwxr-xr-x	root/root	usr/share/xscreensaver/
 drwxr-xr-x	root/root	usr/share/xscreensaver/config/
+-rw-r--r--	root/root	usr/share/xscreensaver/config/abstractile.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/anemone.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/anemotaxis.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/antinspect.xml
@@ -567,6 +574,7 @@ drwxr-xr-x	root/root	usr/share/xscreensaver/config/
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lisa.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lissie.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lmorph.xml
+-rw-r--r--	root/root	usr/share/xscreensaver/config/lockward.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/loop.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/m6502.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/maze.xml
@@ -576,6 +584,7 @@ drwxr-xr-x	root/root	usr/share/xscreensaver/config/
 -rw-r--r--	root/root	usr/share/xscreensaver/config/mirrorblob.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/mismunch.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/moebius.xml
+-rw-r--r--	root/root	usr/share/xscreensaver/config/moebiusgears.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/moire.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/moire2.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/molecule.xml
