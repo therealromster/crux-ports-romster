@@ -5,7 +5,7 @@
 # Depends on: libart_lgpl libcgi libgd python tcl freetype
 
 name=rrdtool
-version=1.2.23
+version=1.2.25
 release=1
 source=(http://oss.oetiker.ch/rrdtool/pub/rrdtool-$version.tar.gz)
 
@@ -14,7 +14,9 @@ build() {
 
 	./configure \
 		--prefix=/usr \
+		--mandir=/usr/man \
 		--enable-shared \
+		--disable-static \
 		--enable-local-libpng \
 		--enable-local-zlib \
 		--enable-perl-site-install \
@@ -27,10 +29,10 @@ build() {
 		$PKG/usr/share/doc \
 		$PKG/usr/share/rrdtool/examples
 
-	# Remove perlcrap
+	# Remove perl crap
 	find $PKG \
-		\( -name '.packlist' -or \
-		-name '*.bs' -or \
+		\( -name '.packlist' -o \
+		-name '*.bs' -o \
 		-name 'perllocal.pod' \) -delete
 
 	# Remove empty directories
