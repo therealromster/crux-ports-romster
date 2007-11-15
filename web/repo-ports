@@ -248,7 +248,6 @@ d:libavifile
 d:libbash
 d:libcroco
 d:libcrypto++
-d:libdivx
 d:libdivx-legacy
 d:libdv
 d:libfame
@@ -1151,9 +1150,6 @@ f:e3a36a0fbbae525cd833d108810f493b:libcrypto++/.footprint
 f:b3e2d0fd23eec2e9690617b56f412255:libcrypto++/.md5sum
 f:cb3d4448970b2203dd21ae356321c831:libcrypto++/Pkgfile
 f:f0a4bfd3b95060599be169ec5592a99c:libcrypto++/crypto-5.2.1.patch.gz
-f:698061efc570f34618db96fe07054e65:libdivx/.footprint
-f:5648d6e2c95d1a45e165ecd32e84c196:libdivx/.md5sum
-f:163cd76231af1af518f453fc20b50900:libdivx/Pkgfile
 f:1ffb6c87c7c69f129cfe12dc7d15ca6d:libdivx-legacy/.footprint
 f:b93419b573a220fe34544894dabac895:libdivx-legacy/.md5sum
 f:14e3f138f545bb5228a0dbf53ff71b61:libdivx-legacy/Pkgfile
@@ -1274,9 +1270,7 @@ f:a99e2abd6bf805f45b311ac8d938f036:lmms/lmms.desktop
 f:ade7afdd178e1607abe41eaa91a4307d:lrzip/.footprint
 f:33c67cf1e3000de7cd0483005b4e1e6f:lrzip/.md5sum
 f:2af40abc341ecc0d04116c295f71a9ca:lrzip/Pkgfile
-f:189c7df36e3b7e9e94bf1b481b1ad05d:lzma/.footprint
-f:b46009a2c814468d32bb0bae72b58fda:lzma/.md5sum
-f:c68a69a4908bed34962a5e6565dfcb3e:lzma/Pkgfile
+f:c68a69a4908bed34962a5e6565dfcb3e:lzma/Pkgfile~
 f:82f52168a4c8e4d594b806cd4fae8b28:magicrescue/.footprint
 f:6492dacae896d6eaa1dd734c17f4e949:magicrescue/.md5sum
 f:ee2915198da5ab18d61f6acb11f52672:magicrescue/Pkgfile

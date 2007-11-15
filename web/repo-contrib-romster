@@ -135,6 +135,7 @@ d:xplanet
 d:xscreensaver
 d:yacy
 d:zopeinterface
+d:lzma
 f:8db377b823d9a07b9cc6b2b65b0a4057:avifile/.footprint
 f:0a6201b20ce3f49c3ef5b0b86aa1a941:avifile/.md5sum
 f:d47cb16308db3884ab0235dbff28d727:avifile/Pkgfile
@@ -254,6 +255,7 @@ f:ba7310716db3b65030f6d16e721d9f71:gst-ffmpeg/Pkgfile
 f:0438f53ef90f60c4bab0f8355bab4239:gst-plugins-bad/.footprint
 f:814606802218f97f79485aa035f3f57b:gst-plugins-bad/.md5sum
 f:2e3ef87a191ffdb6e20d6807bebe7fb9:gst-plugins-bad/Pkgfile
+f:31bcc3bf3d2fe4a8281ac16a7ea729f5:gst-plugins-bad/Pkgfile~
 f:524e8e6f28280b261e2d01914e4a6733:gst-plugins-base/.footprint
 f:c2bc283e3fe40ea827f6bf1caca11c4a:gst-plugins-base/.md5sum
 f:9c4d256e34d19b0df32b2c994c1a4057:gst-plugins-base/Pkgfile
@@ -342,7 +344,7 @@ f:1fc5875f0d2987b8bb2a943962644692:libdca/.md5sum
 f:c66ccc916492193b891f35323c837e6e:libdca/Pkgfile
 f:698061efc570f34618db96fe07054e65:libdivx/.footprint
 f:5648d6e2c95d1a45e165ecd32e84c196:libdivx/.md5sum
-f:782e2627104214d8324a263c64d34dd6:libdivx/Pkgfile
+f:98891e96fee6f1f7b77698122174b50f:libdivx/Pkgfile
 f:c5711a53dbc64aa0def543a9ffaca408:libdts/.footprint
 f:ac32bd98f544c37c30abb33245a9b42b:libdts/.md5sum
 f:d8b3e8ecbc51dae8aecea778fe902f5f:libdts/Pkgfile
@@ -395,8 +397,8 @@ f:1636ab3c8261a18e90bee6c69310943a:libsigc++/.footprint
 f:5d10376a7d4a50a45da66eea5c3162af:libsigc++/.md5sum
 f:5aa991a58cce97b0e02b052987a7da59:libsigc++/Pkgfile
 f:9416c076ce5a45f9578938cacb1559bb:libsndfile/.footprint
-f:481b158b6d3da7f3a2a11bfeaf1d046c:libsndfile/.md5sum
-f:2cfb8fb703d069e0fb016f3e4b0f688b:libsndfile/Pkgfile
+f:4cac5a2cabeba6786459de547c794c5a:libsndfile/.md5sum
+f:28e5b5dc611eed80518a3fde70207c85:libsndfile/Pkgfile
 f:e3d6fc1d9b580166b037b7f736c44658:libswfdec/.footprint
 f:494861132ebbc4c2ec80e17ebd975923:libswfdec/.md5sum
 f:380146a209fbb30dde03fa9b16750d8f:libswfdec/Pkgfile
@@ -477,6 +479,7 @@ f:7e83be64a92706b61e38dffe0adc6a4c:preload/.footprint
 f:f11971729818aef7a0b98eb3916febec:preload/.md5sum
 f:61bd28c647624d6448e3aef54d281b06:preload/Pkgfile
 f:5a48082b3625645cbcd39f8e731f0aa6:preload/rc.preload
+f:0c15f875a00e951348d1d3a9bd0e608c:preload/Pkgfile~
 f:275a815fb9e854b1c0812765dde0d3f0:pygstreamer/.footprint
 f:a09cd2062cd54fc358c0929863e26dea:pygstreamer/.md5sum
 f:b1156aeb5d37b06c860244c0fa4f14e7:pygstreamer/Pkgfile
@@ -494,6 +497,7 @@ f:ba494aa56077b937c33398826d35a9c8:qt4/.footprint
 f:f99cacb55fd5fb83a01e73eab0ee1b36:qt4/.md5sum
 f:58f9c59c8fef49b34c3409b69bc9ad5b:qt4/Pkgfile
 f:a7bf5cafb39a45d6065e176cdfbab1ff:qt4/README
+f:bba213319daad12d10f68acb94de6392:qt4/Pkgfile~
 f:3a78cdfcf0f60b45972570165fcbb184:rrdtool/.footprint
 f:b9a090c3ada23e09029bcc2f1c5ee647:rrdtool/.md5sum
 f:a7f0c3661c685fb98e0424b35266aab4:rrdtool/Pkgfile
@@ -598,6 +602,7 @@ f:90c21cf99c3562f76de5298fb989d5f6:xplanet/Pkgfile
 f:388c2bb8543c17d75892216f5ea55a13:xscreensaver/.footprint
 f:4fc88dc454f592bd607e9148a612a280:xscreensaver/.md5sum
 f:764e62c434c34a2cf4e10bade99a3774:xscreensaver/Pkgfile
+f:7b4b842721da19db5b56ca588c61db3e:xscreensaver/Pkgfile~
 f:8efca17b94e9e6fe89c5c8451f6084d9:yacy/.footprint
 f:421dcd1e28cd141401fc5de3f5d55a66:yacy/.md5sum
 f:8a1a30227f00a1ced6212104e2cc65ad:yacy/Pkgfile
@@ -609,3 +614,6 @@ f:d77dc8b70b0e1434650079f5ee61e3fc:yacy/yacy.rc
 f:143a5a8d048f2dd877b220efceeb3977:zopeinterface/.footprint
 f:7f09a5edf66a1377c653092388015a42:zopeinterface/.md5sum
 f:40a7109c775fb3f366ac3c2942bb923a:zopeinterface/Pkgfile
+f:189c7df36e3b7e9e94bf1b481b1ad05d:lzma/.footprint
+f:b46009a2c814468d32bb0bae72b58fda:lzma/.md5sum
+f:226bd1ac4d0795506802d1565008359c:lzma/Pkgfile

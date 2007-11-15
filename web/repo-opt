@@ -1,6 +1,7 @@
 d:tetex
 d:swig
 d:cdrtools
+d:xchat
 f:61931ac0887f5c29d494ef58b661f51c:tetex/tetex.patch.gz
 f:21e7705ccda74c2c9ad9de5167990df6:tetex/.footprint
 f:83ebfb59fbcac8b7a8f4c0b30c7ffb77:tetex/.md5sum
@@ -14,3 +15,6 @@ f:1aecea0dc1543b001f16629a456f07c2:swig/Pkgfile
 f:2577093266e9d692ad8292c8c149d9d8:cdrtools/.footprint
 f:3d891c131c9e86723a0c8b4bc85e1d5d:cdrtools/.md5sum
 f:2458ef3e8b9d6e218f0a8e58afbb999c:cdrtools/Pkgfile
+f:ed33cc006d87b42e3187513a298b7cdf:xchat/.footprint
+f:bb38279e395f9118156efaf2a6f8178e:xchat/.md5sum
+f:b2b301c67155518d82d5cc260552c29f:xchat/Pkgfile
