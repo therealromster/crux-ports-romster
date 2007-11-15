@@ -1,0 +1,39 @@
+# Description: GTK+ based IRC client.
+# URL: http://www.xchat.org/
+# Maintainer: Matt Housh, jaeger at crux dot nu
+# Depends on: gtk python perl openssl dbus
+# Optional: libsexy
+
+name=xchat
+version=2.8.4
+release=2
+source=(http://www.xchat.org/files/source/${version%.*}/xchat-$version.tar.bz2 \
+	http://www.xchat.org/files/source/${version%.*}/patches/xc${version//./}-fix-scrollbfdleak.diff \
+	http://www.xchat.org/files/source/${version%.*}/patches/xc${version//./}-improvescrollback.diff \
+	http://www.xchat.org/files/source/${version%.*}/patches/xc${version//./}-scrollbmkdir.diff)
+
+build() {
+	cd xchat-$version
+
+	for p in fix-scrollbfdleak improvescrollback scrollbmkdir; do
+		patch -p1 -i $SRC/xc${version//./}-$p.diff
+	done
+
+	./configure \
+		--prefix=/usr \
+		--enable-openssl \
+		--enable-perl \
+		--enable-python \
+		--enable-ipv6 \
+		--disable-gnome \
+		--disable-textfe \
+		--disable-tcl \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+	install -D xchat.desktop $PKG/usr/share/applications/xchat.desktop
+	install -D xchat.png $PKG/usr/share/pixmaps/xchat.png
+}
+
