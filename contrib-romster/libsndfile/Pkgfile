@@ -6,7 +6,7 @@
 # Nice to have: sqlite3
 
 name=libsndfile
-version=1.0.18pre17
+version=1.0.18pre18
 release=1
 source=(http://www.mega-nerd.com/tmp/libsndfile-$version.tar.gz)
 
