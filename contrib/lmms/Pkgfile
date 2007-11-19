@@ -10,26 +10,29 @@
 # Category:	audio audio:midi audio:synthesizer audio:sampler
 
 name=lmms
-version=0.2.1
-release=2
+version=0.3.1
+release=1
 source=(http://dl.sourceforge.net/sourceforge/lmms/lmms-$version.tar.bz2 \
 	lmms-32x32.png lmms.desktop)
 
 build() {
 	cd lmms-$version
 
+	export \
+		CFLAGS="${CFLAGS/-fomit-frame-pointer/}" \
+		CXXFLAGS="${CXXFLAGS/-fomit-frame-pointer/}"
+
 	./configure \
-		LDFLAGS="$LDFLAGS -L/usr/lib" \
-		CXXFLAGS="$CXXFLAGS -I/usr/include" \
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--disable-nls \
 		--enable-hqsinc \
 		--with-vst \
 		--without-oss \
-		--without-sdlsound
+		--without-sdlsound \
+		--without-singerbot
 
-  	make
+  	make -j1
 	make DESTDIR=$PKG install
 	 
   	#find $PKG/usr/share/lmms/locale/ -type f -prune ! -name '*en.qm' | xargs rm -fr
