@@ -1,0 +1,93 @@
+# Description: TeX distribution for UNIX compatible systems.
+# URL: http://www.tug.org/tetex/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Robert McMeekin, viper at mcmeekin dot info
+# Depends on: libpng ncurses t1lib libgd
+
+name=tetex
+version=3.0
+release=1
+
+source=(ftp://dante.ctan.org/pub/tex/systems/unix/teTeX/current/distrib/tetex-{src,texmf{,src}}-$version.tar.gz \
+	tetex.patch.gz)
+
+build() {
+	cd tetex-src-$version
+
+	install -d $PKG/usr/share/texmf
+	cp -r $(/bin/ls --color=never |grep -v tetex-src-$version) $PKG/usr/share/texmf/
+	
+	zcat $SRC/tetex.patch.gz |patch -p0
+
+	./configure \
+		--prefix=/usr \
+		--datadir=/usr/share \
+		--disable-multiplatform \
+		--without-texinfo \
+		--without-texi2html \
+		--without-dialog \
+		--without-psutils \
+		--with-x \
+		--with-xdvi-x-toolkit=xaw \
+		--with-system-zlib \
+		--with-system-pnglib \
+		--with-system-ncurses \
+		--with-system-t1lib \
+		--with-system-gd
+
+	make
+
+	# temp fix, this tools tries to write in real root
+	sed -i \
+		-e 's/fmtutil-sys/fmtutil-sys-fix/g' \
+		-e 's/updmap-sys/updmap-sys-fix/g' \
+		Makefile
+
+	make \
+		DESTDIR=$PKG \
+		prefix=$PKG/usr \
+		texmf=$PKG/usr/share/texmf install
+
+	rm -rf $PKG/usr/info
+
+	find $PKG/ -type d \( \
+		-name 'doc' -o \
+		-name 'docs' -o \
+		-name 'examples' -o \
+		-name 'document' -o \
+		-name 'src' \) -print0 |xargs -0 rm -rf
+
+	find $PKG/ -type f \( \
+			-name 'README*' -o \
+			-name 'COPYING' -o \
+			-name 'COPYING.*' -o \
+			-name 'TODO' -o \
+			-name 'AUTHORS' -o \
+			-name 'INSTALL*' -o \
+			-name 'ABOUT-NLS' -o \
+			-name 'BUGS' -o \
+			-name 'HIER' -o \
+			-name 'LESSTIF-BUGS' -o \
+			-name 'ChangeLog' -o \
+			-name 'ChangeLog.*' -o \
+			-name 'CHANGES' -o \
+			-name 'CHANGES.*' -o \
+			-name 'VERSIONS' -o \
+			-name 'LICENSE' -o \
+			-name 'VERSION' -o \
+			-name 'NEWS' -o \
+			-name 'INTRODUCTION' -o \
+			-name 'MANIFEST' -o \
+			-name 'PROJECTS' -o \
+			-name 'ACK' -o \
+			-name 'FREEDOM' -o \
+			-name 'MIRROR' -o \
+			-name 'CONTRIB' -o \
+			-name 'ANNOUNCE' -o \
+			-name 'FILES' -o \
+			-name 'NOTES' -o \
+			-name 'PORTING' -o \
+			-name 'RELEASE' -o \
+			-name 'FAQ' \) -print0 |xargs -0 rm
+}
+
