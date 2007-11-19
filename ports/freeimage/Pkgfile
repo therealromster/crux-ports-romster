@@ -2,14 +2,14 @@
 # URL: http://freeimage.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: nacho
-# Depends on:
+# Depends on: unzip
 
 # Recommended:	
 # Optional:	
 # Category:	library
 
 name=freeimage
-version=3.9.3
+version=3.10.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/freeimage/FreeImage${version//./}.zip)
  
@@ -23,7 +23,7 @@ build() {
 	install -d $PKG/usr/lib
 	make
 	make install
-	install -D -m644 Dist/FreeImage.h $PKG/usr/include/FreeImage.h
-	ln -fs /usr/lib/libfreeimage-$version.so $PKG/usr/lib/libfreeimage.so
+	install -D -m 0644 Dist/FreeImage.h $PKG/usr/include/FreeImage.h
+	ln -sf /usr/lib/libfreeimage-$version.so $PKG/usr/lib/libfreeimage.so
 }
 
