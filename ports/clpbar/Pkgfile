@@ -1,23 +1,22 @@
-# $Id: 
 # Description: Command Line Progress Bar.
 # URL: http://clpbar.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
-# Recommended:	
-# Optional:	
-# Category:		console
-
 name=clpbar
-version=1.10.7
+version=1.10.9
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/bar_$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/clpbar/bar_$version.tar.gz)
 
 build() {
 	cd bar-$version
-	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
 }
 
