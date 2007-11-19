@@ -1,22 +1,33 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/beep-media-player-2
--rwxr-xr-x	root/root	usr/bin/bmp-enqueue-files-2.0
--rwxr-xr-x	root/root	usr/bin/bmp-enqueue-uris-2.0
 -rwxr-xr-x	root/root	usr/bin/bmp-play-files-2.0
--rwxr-xr-x	root/root	usr/bin/bmp-play-lastfm-2.0
+-rwxr-xr-x	root/root	usr/bin/bmp-play-uris-2.0
 lrwxrwxrwx	root/root	usr/bin/bmp2 -> /usr/bin/beep-media-player-2
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/bmp-2.0/
 drwxr-xr-x	root/root	usr/include/bmp-2.0/bmp/
 -rw-r--r--	root/root	usr/include/bmp-2.0/bmp/bmp.hh
 -rw-r--r--	root/root	usr/include/bmp-2.0/bmp/dbus.hh
+drwxr-xr-x	root/root	usr/include/bmp-2.0/bmp/types/
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-basic.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-bookmarks.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-database.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-lastfm.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-library.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-network.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-ui.hh
+-rw-r--r--	root/root	usr/include/bmp-2.0/bmp/types/types-xspf.hh
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/beep-media-player-2-bin
 -rwxr-xr-x	root/root	usr/lib/beep-media-player-2-sentinel
 drwxr-xr-x	root/root	usr/lib/bmpx/
 drwxr-xr-x	root/root	usr/lib/bmpx/plugins/
 drwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_asf.la
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_asf.so -> libtaglib_plugin_asf.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_asf.so.0 -> libtaglib_plugin_asf.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_asf.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.la
 lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.so -> libtaglib_plugin_flac.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_flac.so.0 -> libtaglib_plugin_flac.so.0.0.0
@@ -41,10 +52,6 @@ lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_mpc.so.0 -> li
 lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.so -> libtaglib_plugin_ogg.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.so.0 -> libtaglib_plugin_ogg.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_ogg.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.la
-lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.so -> libtaglib_plugin_wma.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.so.0 -> libtaglib_plugin_wma.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/bmpx/plugins/taglib/libtaglib_plugin_wma.so.0.0.0
 drwxr-xr-x	root/root	usr/lib/bmpx/plugins/vfs/
 drwxr-xr-x	root/root	usr/lib/bmpx/plugins/vfs/container/
 -rwxr-xr-x	root/root	usr/lib/bmpx/plugins/vfs/container/libcontainer_folder.la
@@ -81,7 +88,6 @@ drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/bmp-2.0-offline.desktop
 -rw-r--r--	root/root	usr/share/applications/bmp-2.0.desktop
--rw-r--r--	root/root	usr/share/applications/bmp-enqueue-2.0.desktop
 -rw-r--r--	root/root	usr/share/applications/bmp-play-2.0.desktop
 drwxr-xr-x	root/root	usr/share/bmpx/
 drwxr-xr-x	root/root	usr/share/bmpx/data/
@@ -95,6 +101,7 @@ drwxr-xr-x	root/root	usr/share/bmpx/glade/
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-lastfm-tag.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-play-uri.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-progress.glade
+-rw-r--r--	root/root	usr/share/bmpx/glade/dialog-remove-update-podcast.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-simple-entry.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-simple-progress.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-track-details.glade
@@ -183,38 +190,14 @@ drwxr-xr-x	root/root	usr/share/bmpx/icons/tray-icons/
 -rw-r--r--	root/root	usr/share/bmpx/icons/tray-icons/tray-icon-paused.png
 -rw-r--r--	root/root	usr/share/bmpx/icons/tray-icons/tray-icon-playing.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/
--rw-r--r--	root/root	usr/share/bmpx/images/audio-default-no-background.png
 -rw-r--r--	root/root	usr/share/bmpx/images/audio-default.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/cdda/
 -rw-r--r--	root/root	usr/share/bmpx/images/cdda/audiocd-big.png
 -rw-r--r--	root/root	usr/share/bmpx/images/cdda/audiocd-unplayable.png
-drwxr-xr-x	root/root	usr/share/bmpx/images/collections/
--rw-r--r--	root/root	usr/share/bmpx/images/collections/collection.png
 -rw-r--r--	root/root	usr/share/bmpx/images/cover-frame.png
-drwxr-xr-x	root/root	usr/share/bmpx/images/hal/
--rw-r--r--	root/root	usr/share/bmpx/images/hal/dev-cdrom.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/dev-volume-1394.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/dev-volume-ide.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/dev-volume-usb.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-camera.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-cdrom.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-cf-card.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-floppy.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-harddrive-1394.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-harddrive-usb.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-harddrive.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-ipod.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-ms.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-removable-1394.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-removable-usb.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-removable.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-sdmmc-card.png
--rw-r--r--	root/root	usr/share/bmpx/images/hal/device-sm-card.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/lastfm/
+-rw-r--r--	root/root	usr/share/bmpx/images/lastfm/artist-unknown.png
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/audioscrobbler.png
--rw-r--r--	root/root	usr/share/bmpx/images/lastfm/header-logo-left.png
--rw-r--r--	root/root	usr/share/bmpx/images/lastfm/header-logo-right.png
--rw-r--r--	root/root	usr/share/bmpx/images/lastfm/header-logo-slice.png
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/lastfm-album.png
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/lastfm-artist.png
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/lastfm-friend.png
@@ -226,28 +209,14 @@ drwxr-xr-x	root/root	usr/share/bmpx/images/lastfm/
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/lastfm-tag.png
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/lastfm-track.png
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/lastfm-user.png
-drwxr-xr-x	root/root	usr/share/bmpx/images/library/
 -rw-r--r--	root/root	usr/share/bmpx/images/logo-about.png
 -rw-r--r--	root/root	usr/share/bmpx/images/logo-splash.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/main/
--rw-r--r--	root/root	usr/share/bmpx/images/main/header-logo-left.png
--rw-r--r--	root/root	usr/share/bmpx/images/main/header-logo-right.png
--rw-r--r--	root/root	usr/share/bmpx/images/main/header-logo-slice.png
--rw-r--r--	root/root	usr/share/bmpx/images/main/warning.png
--rw-r--r--	root/root	usr/share/bmpx/images/main/yingyang.gif
--rw-r--r--	root/root	usr/share/bmpx/images/main/yingyang_paused.gif
--rw-r--r--	root/root	usr/share/bmpx/images/main/yingyang_seeking.png
+-rw-r--r--	root/root	usr/share/bmpx/images/main/paused.gif
 drwxr-xr-x	root/root	usr/share/bmpx/images/podcast/
 -rw-r--r--	root/root	usr/share/bmpx/images/podcast/feed-default.png
 -rw-r--r--	root/root	usr/share/bmpx/images/podcast/feed-expired.png
-drwxr-xr-x	root/root	usr/share/bmpx/images/preferences/
--rw-r--r--	root/root	usr/share/bmpx/images/preferences/lastfm.png
--rw-r--r--	root/root	usr/share/bmpx/images/preferences/library.png
--rw-r--r--	root/root	usr/share/bmpx/images/preferences/misc.png
--rw-r--r--	root/root	usr/share/bmpx/images/preferences/museek.png
--rw-r--r--	root/root	usr/share/bmpx/images/preferences/musicbrainz.png
--rw-r--r--	root/root	usr/share/bmpx/images/preferences/playback.png
--rw-r--r--	root/root	usr/share/bmpx/images/preferences/podcasts.png
+-rw-r--r--	root/root	usr/share/bmpx/images/podcast/updating.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/rating/
 -rw-r--r--	root/root	usr/share/bmpx/images/rating/stars_0.png
 -rw-r--r--	root/root	usr/share/bmpx/images/rating/stars_1.png
@@ -304,7 +273,6 @@ drwxr-xr-x	root/root	usr/share/bmpx/images/stock/
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-feed_delete.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-feed_disk.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-folder.png
--rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-html.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-new.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-picture.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/silk-plugin.png
@@ -314,28 +282,18 @@ drwxr-xr-x	root/root	usr/share/bmpx/images/stock/
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/tag.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/track.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/undo.png
+-rw-r--r--	root/root	usr/share/bmpx/images/stock/web.png
 -rw-r--r--	root/root	usr/share/bmpx/images/stock/xiph.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/svg/
 -rw-r--r--	root/root	usr/share/bmpx/images/svg/button-background.svg
 -rw-r--r--	root/root	usr/share/bmpx/images/svg/button-outline.svg
+-rw-r--r--	root/root	usr/share/bmpx/images/throbber-small.gif
 -rw-r--r--	root/root	usr/share/bmpx/images/throbber.gif
+-rw-r--r--	root/root	usr/share/bmpx/images/video-default.png
 drwxr-xr-x	root/root	usr/share/dbus-1/
 drwxr-xr-x	root/root	usr/share/dbus-1/services/
 -rw-r--r--	root/root	usr/share/dbus-1/services/org.beepmediaplayer.sentinel.service
 -rw-r--r--	root/root	usr/share/dbus-1/services/org.mpris.bmp.service
-drwxr-xr-x	root/root	usr/share/doc/
-drwxr-xr-x	root/root	usr/share/doc/bmpx/
-drwxr-xr-x	root/root	usr/share/doc/bmpx/images/
--rw-r--r--	root/root	usr/share/doc/bmpx/images/active-source.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/bmp-logo-small.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/bmp.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/favicon.ico
--rw-r--r--	root/root	usr/share/doc/bmpx/images/gradient.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/important.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/main-window.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/playing-source.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/rect1869.png
--rw-r--r--	root/root	usr/share/doc/bmpx/images/tip.png
 drwxr-xr-x	root/root	usr/share/icons/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/
