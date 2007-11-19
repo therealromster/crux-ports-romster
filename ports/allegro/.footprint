@@ -18,7 +18,6 @@ drwxr-xr-x	root/root	usr/include/allegro/
 -rw-r--r--	root/root	usr/include/allegro/3dmaths.h
 -rw-r--r--	root/root	usr/include/allegro/alcompat.h
 -rw-r--r--	root/root	usr/include/allegro/alinline.h
--rw-r--r--	root/root	usr/include/allegro/altime.h
 -rw-r--r--	root/root	usr/include/allegro/alunixac.h
 -rw-r--r--	root/root	usr/include/allegro/base.h
 -rw-r--r--	root/root	usr/include/allegro/color.h
@@ -27,9 +26,7 @@ drwxr-xr-x	root/root	usr/include/allegro/
 -rw-r--r--	root/root	usr/include/allegro/datafile.h
 -rw-r--r--	root/root	usr/include/allegro/debug.h
 -rw-r--r--	root/root	usr/include/allegro/digi.h
--rw-r--r--	root/root	usr/include/allegro/display.h
 -rw-r--r--	root/root	usr/include/allegro/draw.h
--rw-r--r--	root/root	usr/include/allegro/events.h
 -rw-r--r--	root/root	usr/include/allegro/file.h
 -rw-r--r--	root/root	usr/include/allegro/fix.h
 -rw-r--r--	root/root	usr/include/allegro/fixed.h
@@ -53,21 +50,12 @@ drwxr-xr-x	root/root	usr/include/allegro/inline/
 -rw-r--r--	root/root	usr/include/allegro/inline/system.inl
 drwxr-xr-x	root/root	usr/include/allegro/internal/
 -rw-r--r--	root/root	usr/include/allegro/internal/aintern.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern_dtor.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern_events.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern_joystick.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern_keyboard.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern_mouse.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern_thread.h
--rw-r--r--	root/root	usr/include/allegro/internal/aintern_vector.h
 -rw-r--r--	root/root	usr/include/allegro/internal/aintvga.h
 -rw-r--r--	root/root	usr/include/allegro/internal/alconfig.h
 -rw-r--r--	root/root	usr/include/allegro/joystick.h
 -rw-r--r--	root/root	usr/include/allegro/keyboard.h
--rw-r--r--	root/root	usr/include/allegro/keycodes.h
 -rw-r--r--	root/root	usr/include/allegro/lzss.h
 -rw-r--r--	root/root	usr/include/allegro/matrix.h
--rw-r--r--	root/root	usr/include/allegro/memory.h
 -rw-r--r--	root/root	usr/include/allegro/midi.h
 -rw-r--r--	root/root	usr/include/allegro/mouse.h
 -rw-r--r--	root/root	usr/include/allegro/palette.h
@@ -87,6 +75,7 @@ drwxr-xr-x	root/root	usr/include/allegro/platform/
 -rw-r--r--	root/root	usr/include/allegro/platform/albecfg.h
 -rw-r--r--	root/root	usr/include/allegro/platform/albeos.h
 -rw-r--r--	root/root	usr/include/allegro/platform/aldjgpp.h
+-rw-r--r--	root/root	usr/include/allegro/platform/aldmc.h
 -rw-r--r--	root/root	usr/include/allegro/platform/aldos.h
 -rw-r--r--	root/root	usr/include/allegro/platform/almac.h
 -rw-r--r--	root/root	usr/include/allegro/platform/almaccfg.h
@@ -102,7 +91,6 @@ drwxr-xr-x	root/root	usr/include/allegro/platform/
 -rw-r--r--	root/root	usr/include/allegro/platform/alunixac.h
 -rw-r--r--	root/root	usr/include/allegro/platform/alwatcom.h
 -rw-r--r--	root/root	usr/include/allegro/platform/alwin.h
--rw-r--r--	root/root	usr/include/allegro/platform/astdbool.h
 -rw-r--r--	root/root	usr/include/allegro/platform/astdint.h
 -rw-r--r--	root/root	usr/include/allegro/platform/macdef.h
 -rw-r--r--	root/root	usr/include/allegro/quat.h
@@ -117,16 +105,16 @@ drwxr-xr-x	root/root	usr/include/allegro/platform/
 -rw-r--r--	root/root	usr/include/xalleg.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/allegro/
-drwxr-xr-x	root/root	usr/lib/allegro/4.3.1/
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-alsadigi.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-alsamidi.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-dga2.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-fbcon.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-jackdigi.so
--rwxr-xr-x	root/root	usr/lib/allegro/4.3.1/alleg-vga.so
--rw-r--r--	root/root	usr/lib/allegro/4.3.1/modules.lst
--rwxr-xr-x	root/root	usr/lib/liballeg-4.3.1.so
-lrwxrwxrwx	root/root	usr/lib/liballeg.so.4.3 -> liballeg-4.3.1.so
+drwxr-xr-x	root/root	usr/lib/allegro/4.2.2/
+-rwxr-xr-x	root/root	usr/lib/allegro/4.2.2/alleg-alsadigi.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.2.2/alleg-alsamidi.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.2.2/alleg-dga2.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.2.2/alleg-fbcon.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.2.2/alleg-jackdigi.so
+-rwxr-xr-x	root/root	usr/lib/allegro/4.2.2/alleg-vga.so
+-rw-r--r--	root/root	usr/lib/allegro/4.2.2/modules.lst
+-rwxr-xr-x	root/root	usr/lib/liballeg-4.2.2.so
+lrwxrwxrwx	root/root	usr/lib/liballeg.so.4.2 -> liballeg-4.2.2.so
 -rw-r--r--	root/root	usr/lib/liballeg_unsharable.a
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man3/
@@ -385,8 +373,6 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/exmem.3.gz
 -rw-r--r--	root/root	usr/man/man3/exmidi.3.gz
 -rw-r--r--	root/root	usr/man/man3/exmouse.3.gz
--rw-r--r--	root/root	usr/man/man3/exnew_events.3.gz
--rw-r--r--	root/root	usr/man/man3/exnewapi.3.gz
 -rw-r--r--	root/root	usr/man/man3/expackf.3.gz
 -rw-r--r--	root/root	usr/man/man3/expal.3.gz
 -rw-r--r--	root/root	usr/man/man3/expat.3.gz
@@ -708,6 +694,7 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/mouse_needs_poll.3.gz
 -rw-r--r--	root/root	usr/man/man3/mouse_pos.3.gz
 -rw-r--r--	root/root	usr/man/man3/mouse_sprite.3.gz
+-rw-r--r--	root/root	usr/man/man3/mouse_w.3.gz
 -rw-r--r--	root/root	usr/man/man3/mouse_x.3.gz
 -rw-r--r--	root/root	usr/man/man3/mouse_x_focus.3.gz
 -rw-r--r--	root/root	usr/man/man3/mouse_y.3.gz
@@ -750,6 +737,7 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/pack_mputl.3.gz
 -rw-r--r--	root/root	usr/man/man3/pack_mputw.3.gz
 -rw-r--r--	root/root	usr/man/man3/pack_putc.3.gz
+-rw-r--r--	root/root	usr/man/man3/pack_ungetc.3.gz
 -rw-r--r--	root/root	usr/man/man3/packfile_password.3.gz
 -rw-r--r--	root/root	usr/man/man3/palette_color.3.gz
 -rw-r--r--	root/root	usr/man/man3/persp_project.3.gz
@@ -777,6 +765,7 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/popup_dialog.3.gz
 -rw-r--r--	root/root	usr/man/man3/position_dialog.3.gz
 -rw-r--r--	root/root	usr/man/man3/position_mouse.3.gz
+-rw-r--r--	root/root	usr/man/man3/position_mouse_w.3.gz
 -rw-r--r--	root/root	usr/man/man3/position_mouse_z.3.gz
 -rw-r--r--	root/root	usr/man/man3/push_config_state.3.gz
 -rw-r--r--	root/root	usr/man/man3/put_backslash.3.gz

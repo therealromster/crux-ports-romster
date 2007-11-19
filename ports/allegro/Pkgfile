@@ -1,5 +1,5 @@
 # Description: A multi-platform game programming library for C/C++.
-# URL: http://www.talula.demon.co.uk/allegro/
+# URL: http://alleg.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
 # Depends on: alsa-lib
@@ -9,7 +9,7 @@
 # it really just executes exit(0) (or something)
 
 name=allegro
-version=4.3.1
+version=4.2.2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/alleg/allegro-$version.tar.gz)
 
