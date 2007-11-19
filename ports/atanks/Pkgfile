@@ -5,7 +5,7 @@
 # Depends on: allegro
 
 name=atanks
-version=2.3
+version=2.6
 release=1
 source=(http://dl.sourceforge.net/sourceforge/atanks/atanks-$version.tar.gz \
 	atanks.sh)
