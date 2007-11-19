@@ -180,6 +180,8 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/djvuthumbnail.so
 -rwxr-xr-x	root/root	usr/lib/kde3/dockbar_panelextension.la
 -rwxr-xr-x	root/root	usr/lib/kde3/dockbar_panelextension.so
+-rwxr-xr-x	root/root	usr/lib/kde3/exrthumbnail.la
+-rwxr-xr-x	root/root	usr/lib/kde3/exrthumbnail.so
 -rwxr-xr-x	root/root	usr/lib/kde3/extensionproxy.la
 -rwxr-xr-x	root/root	usr/lib/kde3/extensionproxy.so
 -rwxr-xr-x	root/root	usr/lib/kde3/fontthumbnail.la
@@ -308,6 +310,8 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/kcm_usb.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kcm_useraccount.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kcm_useraccount.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kcm_view1394.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kcm_view1394.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kcm_xinerama.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kcm_xinerama.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kcminit.la
@@ -544,8 +548,6 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/lockout_panelapplet.so
 -rwxr-xr-x	root/root	usr/lib/kde3/media_panelapplet.la
 -rwxr-xr-x	root/root	usr/lib/kde3/media_panelapplet.so
--rwxr-xr-x	root/root	usr/lib/kde3/media_propsdlgplugin.la
--rwxr-xr-x	root/root	usr/lib/kde3/media_propsdlgplugin.so
 -rwxr-xr-x	root/root	usr/lib/kde3/menu_panelapplet.la
 -rwxr-xr-x	root/root	usr/lib/kde3/menu_panelapplet.so
 -rwxr-xr-x	root/root	usr/lib/kde3/minipager_panelapplet.la
@@ -720,6 +722,7 @@ drwxr-xr-x	root/root	usr/share/applications/kde/
 -rw-r--r--	root/root	usr/share/applications/kde/kcmsmserver.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kcmtaskbar.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kcmusb.desktop
+-rw-r--r--	root/root	usr/share/applications/kde/kcmview1394.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kdepasswd.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kdeprintfax.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kdm.desktop
@@ -1149,6 +1152,8 @@ drwxr-xr-x	root/root	usr/share/apps/kcmlocale/pics/
 -rw-r--r--	root/root	usr/share/apps/kcmlocale/pics/background.png
 drwxr-xr-x	root/root	usr/share/apps/kcmusb/
 -rw-r--r--	root/root	usr/share/apps/kcmusb/usb.ids
+drwxr-xr-x	root/root	usr/share/apps/kcmview1394/
+-rw-r--r--	root/root	usr/share/apps/kcmview1394/oui.db
 drwxr-xr-x	root/root	usr/share/apps/kconf_update/
 -rwxr-xr-x	root/root	usr/share/apps/kconf_update/convertShortcuts.pl
 -rw-r--r--	root/root	usr/share/apps/kconf_update/favicons.upd
@@ -2163,6 +2168,695 @@ drwxr-xr-x	root/root	usr/share/desktop-directories/
 -rw-r--r--	root/root	usr/share/desktop-directories/kde-utilities.directory
 drwxr-xr-x	root/root	usr/share/doc/
 drwxr-xr-x	root/root	usr/share/doc/HTML/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kappfinder/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kappfinder/man-kappfinder.1.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kate/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/advanced.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kate/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/configdialog01.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/configdialog02.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/configuring.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/fundamentals.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/highlighted.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/highlighting.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/kate.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/man-kate.1.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/mdi.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/menus.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/mimetypechooser.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/part.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/plugins.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/regular-expressions.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kate/unhighlighted.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/arts/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/arts/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/arts/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/arts/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/arts/midi.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/background/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/background/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/background/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/background/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/bell/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/bell/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/bell/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/bell/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/cache/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/cache/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/cache/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/cache/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/clock/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/clock/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/clock/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/clock/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/colors/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/colors/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/colors/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/colors/index.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/common -> /usr/share/doc/HTML/en/common
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/cookies/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/cookies/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/cookies/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/cookies/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/crypto/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/crypto/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/crypto/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/crypto/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/desktop/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/desktop/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/desktop/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/desktop/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/desktopbehavior/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/desktopbehavior/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/desktopbehavior/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/desktopbehavior/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/ebrowsing/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/ebrowsing/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/ebrowsing/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/ebrowsing/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/email/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/email/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/email/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/email/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/energy/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/energy/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/energy/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/energy/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/filemanager/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/filemanager/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/filemanager/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/filemanager/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/filemanager/kfileman1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/filemanager/kfileman2.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/filetypes/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/filetypes/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/filetypes/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/filetypes/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/fonts/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/fonts/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/fonts/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/fonts/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/helpindex.html/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/helpindex.html/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/helpindex.html/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/helpindex.html/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/icons/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/icons/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/icons/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/icons/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmaccess/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmaccess/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmaccess/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmaccess/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmcss/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmcss/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmcss/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmcss/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmfontinst/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmfontinst/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmfontinst/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmfontinst/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmkonsole/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmkonsole/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmkonsole/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmkonsole/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmlaunch/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmlaunch/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmlaunch/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmlaunch/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmnotify/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmnotify/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmnotify/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmnotify/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmsmserver/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmsmserver/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmsmserver/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmsmserver/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmstyle/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmstyle/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmstyle/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmstyle/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kcmtaskbar/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kcmtaskbar/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmtaskbar/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kcmtaskbar/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kdm/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kdm/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kdm/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kdm/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/keyboard/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/keyboard/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/keyboard/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/keyboard/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/keys/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/keys/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/keys/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/keys/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/khtml/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/khtml/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/khtml/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/khtml/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/khtml/nsplugin.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/kwindecoration/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/kwindecoration/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kwindecoration/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/kwindecoration/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/language/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/language/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/language/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/language/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/mouse/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/mouse/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/mouse/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/mouse/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/netpref/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/netpref/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/netpref/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/netpref/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/panel/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/panel/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/panel/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/panel/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/panelappearance/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/panelappearance/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/panelappearance/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/panelappearance/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/passwords/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/passwords/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/passwords/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/passwords/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/performance/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/performance/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/performance/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/performance/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/proxy/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/proxy/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/proxy/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/proxy/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/proxy/socks.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/screensaver/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/screensaver/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/screensaver/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/screensaver/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/screenshot.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/smb/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/smb/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/smb/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/smb/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/spellchecking/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/spellchecking/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/spellchecking/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/spellchecking/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/useragent/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/useragent/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/useragent/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/useragent/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kcontrol/windowmanagement/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kcontrol/windowmanagement/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/windowmanagement/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kcontrol/windowmanagement/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdcop/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kdcop/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdcop/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdcop/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/kate/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/kate/html/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/kwin/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/kwin/html/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/kwin/lib/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/kwin/lib/html/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/libkonq/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebase-apidocs/libkonq/html/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdebugdialog/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kdebugdialog/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdebugdialog/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdebugdialog/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdeprint/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/add-printer-wiz.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kdeprint/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cr32-action-wizard.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cups-config.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cups-filterarchitecture-kivio-70Percent-scaled.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsaddprinterwizard1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsaddprinterwizard2_backendselection.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsaddprinterwizard3_networkscan.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsaddprinterwizard3_networkscan_results.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsaddprinterwizard4_networkscan_config.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsoptions.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfig_browse_relay_add_button.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfig_browsingmasks_add_button.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration10_browsinggeneral.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration11_browsingconnections.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration11_browsingmasks.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration12_browsingtimeouts.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration14_browsingrelay.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration15a_resourceallprinters_defineaccess.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration15b_resourceallprinters_defineaccess.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration15c_resourceallprinters_defineaccess.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration1_welcome.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration2_general.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration3_logging.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration4_directories.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration5_HTTP.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration6_encryption.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration7_miscellanious.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration8_networkgeneral.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration9_networkclients.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration_resourceadminaccessmasks.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration_resourceadminaddprinters.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration_resourceadminaddprinters_defineaccess.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration_resourceadminauthorization.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/cupsserverconfiguration_securityoverview.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/extensions.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/external-command.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/final-word.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/getting-started.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/highlights.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kcontrol-icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kcontrolcenter-printmanager-jobcontrol-2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kcron_to_be_printed.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kdeprint-jobviewer.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kprinter-as-netscape-printcommand.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kprinter-kivio.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kprinter.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kprinter_called_from_run_command.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/kprinter_with_kcron_developer_special.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/lpd.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/lpr-bsd.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/lprng.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/ps-boxes.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/rlpr.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/steinbruch_scaled.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/tech-overview.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdeprint/theory.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdesu/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kdesu/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdesu/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdesu/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdesu/man-kdesu.1.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdm/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kdm/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdm/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdm/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdm/kdmrc-ref.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kfind/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kfind/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kfind/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kfind/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kfind/man-kfind.1.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/khelpcenter/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/background.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/bgtable.png
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/khelpcenter/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/contact.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/khelpcenter/faq/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/about.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/khelpcenter/faq/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/configkde.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/contrib.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/desktop.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/filemng.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/getkde.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/install.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/intro.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/kdeapps.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/misc.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/moreinfo.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/nonkdeapps.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/notrelated.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/panel.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/qt.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/questions.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/sound.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/tips.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/webbrowse.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/faq/winmng.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/khelpcenter/glossary/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/glossary/checkxrefs
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/khelpcenter/glossary/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/glossary/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/glossary/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/glossary/kdeprintingglossary.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/help.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/kdelogo2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/khelpcenter.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/konq.css
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/lines.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/lines2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/pointers.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/khelpcenter/quickstart/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/khelpcenter/quickstart/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/quickstart/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/quickstart/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/shadow1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/support.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/a-window.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/accessibility.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/amarok-icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/amarok.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/base-kde-applications.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/browser-fine-tuning.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/burning-cds.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/control-center.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/creating-graphics.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/credits-and-license.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/customizing-desktop.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/desktop.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/email.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/extragear-applications.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/file-sharing.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/font-installation.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/getting-help.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/glossary.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/groupware-kontact.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/internet-shortcuts.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/juk-icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/juk.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kaboodle-icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kaboodle.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kcalc-systray.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kcontrol.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kde-as-root.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kde-edutainment.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kde-for-admins.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kde-office.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kmag.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kmousetool.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kmouth.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kmouth2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kmouth3.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/knode-identity.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/knode-mail-account.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/knode-news-account.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/knode-start.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/konq-sidebar.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/konq-simple.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/konsole-intro.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kopete.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kppp-dialer-tab.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/kppp-wizard.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/messaging-intro.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/migrator-applications.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/migrator-dictionary.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/net-connection-setup.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/networking-with-windows.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/noatun-icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/noatun.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/oggfolder.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/open-file-dialog.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/panel-and-desktop.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/pdf-files.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/playing-audiocds.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/playing-movies.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/playing-music.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/printer-setup.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/printing-from-apps.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/programs-and-documents.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/programs-controlling.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/removable-disks.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/rip.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/ripsettings.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/screen-captures.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/services.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/shared-sessions.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/splash-screen.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/standard-menu-entries.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/switching-sessions.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/the-filemanager.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/titlebar-menu.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/troubleshooting-network-x.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/troubleshooting-no-open.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/under-the-hood.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/usenet.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/where-next.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/windows-how-to.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/userguide/your-kde-account.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict10.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict11.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict12.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict13.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict14.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict15.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict16.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict17.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict18.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict19.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict20.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict21.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict22.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict23.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict3.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict4.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict5.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict6.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict7.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict8.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/visualdict/pict9.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/welcome.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/khelpcenter/whatiskde.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kicker/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/bookmarks_icon.png
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kicker/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/desktop_icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/k_menu_icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/man-appletproxy.1.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/man-kicker.1.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/printsys_icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/quickbrowser_icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/recent_docs_icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/screenshot_left.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/screenshot_right.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/taskbar_group.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/terminals_icon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kicker/windowlist_icon.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/cdinfo/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/cdinfo/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/cdinfo/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/cdinfo/index.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/common -> /usr/share/doc/HTML/en/common
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/devices/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/devices/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/devices/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/devices/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/dma/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/dma/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/dma/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/dma/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/memory/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/memory/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/memory/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/memory/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/nics/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/nics/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/nics/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/nics/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/pci/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/pci/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pci/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pci/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/processor/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/processor/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/processor/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/processor/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/samba/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/samba/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/samba/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/samba/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/sound/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/sound/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/sound/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/sound/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/usb/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/usb/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/usb/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/usb/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kioslave/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/bzip.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/bzip2.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/cgi.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kioslave/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/data.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/file.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/finger.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/fish.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/floppy.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/ftp.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/gopher.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/gzip.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/help.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/http.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/https.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/imap.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/imaps.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/info.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/lan.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/ldap.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/mac.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/mailto.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/man.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/mrml.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/news.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/nfs.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/nntp.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/pop3.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/pop3s.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/print.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/rlan.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/rlogin.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/sftp.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/smb.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/smtp.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/tar.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/telnet.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/thumbnail.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/webdav.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kioslave/webdavs.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/klipper/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/klipper/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/klipper/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/klipper/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/klipper/screenshot.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kmenuedit/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kmenuedit/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/done.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/itemname.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/kmenueditmain.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/new.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/selecticon.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kmenuedit/selectinternet.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/knetattach/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/knetattach/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/knetattach/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/knetattach/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/knetattach/screenshot.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/knetattach/screenshot1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/knetattach/screenshot2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/knetattach/screenshot3.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/knetattach/screenshot4.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kompmgr/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kompmgr/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kompmgr/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kompmgr/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/konqueror/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/basics.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/bookmarks.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/browser.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/cmndline.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/commands.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/konqueror/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/config.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/credits.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/dirtree.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/dragdrop.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/faq.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/filemanager.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/introduction.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/konqorg.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/man-kbookmarkmerger.1.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/parts.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/path-complete.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/plugins.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/save-settings.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/shortcut1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/shortcut2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/sidebar.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/konsole/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/konsole/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/konsole.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/tabbar.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kpager/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kpager/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kpager/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kpager/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kpager/screenshot.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kpager/settings.png
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/ksplashml/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/ksplashml/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/ksplashml/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/ksplashml/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/ksysguard/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/ksysguard/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/ksysguard/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/ksysguard/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kwrite/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kwrite/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kwrite/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kwrite/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kxkb/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kxkb/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kxkb/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kxkb/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kxkb/layout.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kxkb/switching.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kxkb/xkb.png
 drwxr-xr-x	root/root	usr/share/fonts/
 drwxr-xr-x	root/root	usr/share/fonts/override/
 -rw-r--r--	root/root	usr/share/fonts/override/fonts.dir
@@ -3792,6 +4486,7 @@ drwxr-xr-x	root/root	usr/share/services/
 -rw-r--r--	root/root	usr/share/services/cgi.protocol
 -rw-r--r--	root/root	usr/share/services/cursorthumbnail.desktop
 -rw-r--r--	root/root	usr/share/services/djvuthumbnail.desktop
+-rw-r--r--	root/root	usr/share/services/exrthumbnail.desktop
 -rw-r--r--	root/root	usr/share/services/finger.protocol
 -rw-r--r--	root/root	usr/share/services/fish.protocol
 -rw-r--r--	root/root	usr/share/services/floppy.protocol
@@ -3847,7 +4542,6 @@ drwxr-xr-x	root/root	usr/share/services/kded/
 -rw-r--r--	root/root	usr/share/services/mac.protocol
 -rw-r--r--	root/root	usr/share/services/man.protocol
 -rw-r--r--	root/root	usr/share/services/media.protocol
--rw-r--r--	root/root	usr/share/services/media_propsdlgplugin.desktop
 -rw-r--r--	root/root	usr/share/services/nfs.protocol
 -rw-r--r--	root/root	usr/share/services/nntp.protocol
 -rw-r--r--	root/root	usr/share/services/nntps.protocol

@@ -1,9 +1,9 @@
 # Description: Basic applications for the KDE system.
 # URL: http://www.kde.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager:	sten, nick dot steeves at shaw dot ca
-# Depends on:	kdelibs, ghostscript, cdparanoia, lame, hal, dbus-qt3
-# Nice to have:	samba
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs3 ghostscript cdparanoia lame hal dbus-qt3
+# Optional: samba
 
 name=kdebase3
 version=3.5.8
@@ -33,3 +33,4 @@ build() {
 	find $PKG/usr/share/doc/HTML/* ! -wholename '*HTML/en*' -delete
 	find $PKG/usr/share \( -name 'README*' -o -name 'TODO' \) -delete
 }
+
