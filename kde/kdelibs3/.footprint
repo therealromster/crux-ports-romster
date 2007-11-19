@@ -17,7 +17,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/dcopserver_shutdown
 -rwxr-xr-x	root/root	usr/bin/dcopstart
 lrwxrwxrwx	root/root	usr/bin/filesharelist -> fileshareset
--rwsr-xr-x	root/root	usr/bin/fileshareset
+-rwxr-xr-x	root/root	usr/bin/fileshareset
 -rwxr-xr-x	root/root	usr/bin/imagetops
 -rwxr-xr-x	root/root	usr/bin/kab2kabc
 -rwxr-xr-x	root/root	usr/bin/kaddprinterwizard
@@ -46,7 +46,7 @@ lrwxrwxrwx	root/root	usr/bin/kfmexec -> kioexec
 -rwxr-xr-x	root/root	usr/bin/kioslave
 -rwxr-xr-x	root/root	usr/bin/klauncher
 -rwxr-xr-x	root/root	usr/bin/kmailservice
--rwsr-xr-x	root/root	usr/bin/kpac_dhcp_helper
+-rwxr-xr-x	root/root	usr/bin/kpac_dhcp_helper
 -rwxr-xr-x	root/root	usr/bin/ksendbugmail
 -rwxr-xr-x	root/root	usr/bin/kshell
 -rwxr-xr-x	root/root	usr/bin/kstartupconfig
@@ -62,6 +62,7 @@ lrwxrwxrwx	root/root	usr/bin/kfmexec -> kioexec
 -rwxr-xr-x	root/root	usr/bin/meinproc
 -rwxr-xr-x	root/root	usr/bin/preparetips
 -rwsr-xr-x	root/root	usr/bin/start_kdeinit
+-rwxr-xr-x	root/root	usr/bin/start_kdeinit_wrapper
 drwxr-xr-x	root/root	usr/etc/
 drwxr-xr-x	root/root	usr/etc/xdg/
 drwxr-xr-x	root/root	usr/etc/xdg/menus/
@@ -665,6 +666,7 @@ drwxr-xr-x	root/root	usr/include/kspell2/
 -rw-r--r--	root/root	usr/include/kstringvalidator.h
 -rw-r--r--	root/root	usr/include/kstyle.h
 -rw-r--r--	root/root	usr/include/ksvgiconengine.h
+-rw-r--r--	root/root	usr/include/kswitchlanguagedialog.h
 -rw-r--r--	root/root	usr/include/ksycoca.h
 -rw-r--r--	root/root	usr/include/ksycocaentry.h
 -rw-r--r--	root/root	usr/include/ksycocatype.h
@@ -848,6 +850,8 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/kimg_dds.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kimg_eps.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kimg_eps.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kimg_exr.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kimg_exr.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kimg_hdr.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kimg_hdr.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kimg_ico.la
@@ -1301,6 +1305,8 @@ drwxr-xr-x	root/root	usr/share/apps/kdeprint/filters/
 -rw-r--r--	root/root	usr/share/apps/kdeprint/filters/enscript.xml
 -rw-r--r--	root/root	usr/share/apps/kdeprint/filters/imagetops.desktop
 -rw-r--r--	root/root	usr/share/apps/kdeprint/filters/imagetops.xml
+-rw-r--r--	root/root	usr/share/apps/kdeprint/filters/pdf2ps.desktop
+-rw-r--r--	root/root	usr/share/apps/kdeprint/filters/pdf2ps.xml
 -rw-r--r--	root/root	usr/share/apps/kdeprint/filters/pdfwrite.desktop
 -rw-r--r--	root/root	usr/share/apps/kdeprint/filters/pdfwrite.xml
 -rw-r--r--	root/root	usr/share/apps/kdeprint/filters/poster.desktop
@@ -5506,6 +5512,7 @@ drwxr-xr-x	root/root	usr/share/mimelnk/application/
 -rw-r--r--	root/root	usr/share/mimelnk/application/x-x509-ca-cert.desktop
 -rw-r--r--	root/root	usr/share/mimelnk/application/x-xliff.desktop
 -rw-r--r--	root/root	usr/share/mimelnk/application/x-zerosize.desktop
+-rw-r--r--	root/root	usr/share/mimelnk/application/x-zip-compressed.desktop
 -rw-r--r--	root/root	usr/share/mimelnk/application/x-zip.desktop
 -rw-r--r--	root/root	usr/share/mimelnk/application/x-zoo.desktop
 -rw-r--r--	root/root	usr/share/mimelnk/application/xhtml+xml.desktop
@@ -5666,6 +5673,7 @@ drwxr-xr-x	root/root	usr/share/services/
 -rw-r--r--	root/root	usr/share/services/data.protocol
 -rw-r--r--	root/root	usr/share/services/dds.kimgio
 -rw-r--r--	root/root	usr/share/services/eps.kimgio
+-rw-r--r--	root/root	usr/share/services/exr.kimgio
 -rw-r--r--	root/root	usr/share/services/file.protocol
 -rw-r--r--	root/root	usr/share/services/ftp.protocol
 -rw-r--r--	root/root	usr/share/services/ghelp.protocol

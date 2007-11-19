@@ -2,7 +2,7 @@
 # URL: http://www.kde.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: perl, db, sudo, libidn, imlib, hicolor-icon-theme, libart_lgpl, qt3, audiofile, libxml2, libxslt, libpcre, openssl, gnupg, gpgme, gamin, aspell, cups, openldap, freeglut, arts, xorg-libxext
+# Depends on: perl db sudo libidn imlib hicolor-icon-theme libart_lgpl qt3 audiofile libxml2 libxslt libpcre openssl gnupg gpgme gamin aspell cups openldap freeglut arts xorg-libxext
 
 name=kdelibs3
 version=3.5.8
