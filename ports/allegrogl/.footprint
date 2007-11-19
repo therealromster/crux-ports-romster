@@ -15,4 +15,7 @@ drwxr-xr-x	root/root	usr/include/allegrogl/GLext/
 -rw-r--r--	root/root	usr/include/allegrogl/gl_ext.h
 -rw-r--r--	root/root	usr/include/allegrogl/gl_header_detect.h
 drwxr-xr-x	root/root	usr/lib/
--rwxr-xr-x	root/root	usr/lib/libagl.so
+lrwxrwxrwx	root/root	usr/lib/libagl.so -> libagl.so.0.4.3
+lrwxrwxrwx	root/root	usr/lib/libagl.so.0 -> libagl.so.0.4.3
+lrwxrwxrwx	root/root	usr/lib/libagl.so.0.4 -> libagl.so.0.4.3
+-rwxr-xr-x	root/root	usr/lib/libagl.so.0.4.3
