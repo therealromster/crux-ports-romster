@@ -6,21 +6,24 @@
 # Depends on: clamav
 
 name=clamsmtp
-version=1.8
+version=1.9
 release=1
 source=(http://memberwebs.com/nielsen/software/clamsmtp/clamsmtp-$version.tar.gz \
 	clamsmtpd.rc)
 
 build () {
 	cd $name-$version
-	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	install -D $SRC/clamsmtpd.rc $PKG/etc/rc.d/clamsmptd
 
-	# edit config to run as user 'clamav'
-	sed -i 's|#User: clamav|User: clamav|' $SRC/$name-$version/doc/clamsmtpd.conf
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
 
-	install -D doc/clamsmtpd.conf $PKG/etc/clamsmtpd.conf
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
+
+	install -D -m 0755 $SRC/clamsmtpd.rc $PKG/etc/rc.d/clamsmptd
+	install -D -m 0644 doc/clamsmtpd.conf $PKG/etc/clamsmtpd.conf
+
+	sed -i -e 's/#User: clamav/User: clamav/' $PKG/etc/clamsmtpd.conf
 }
 

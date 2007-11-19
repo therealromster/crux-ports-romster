@@ -1,5 +1,5 @@
 drwxr-xr-x	root/root	etc/
--rwxr-xr-x	root/root	etc/clamsmtpd.conf
+-rw-r--r--	root/root	etc/clamsmtpd.conf
 drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/clamsmptd
 drwxr-xr-x	root/root	usr/
