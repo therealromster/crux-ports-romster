@@ -1,0 +1,51 @@
+# Description: Complete solution to record, convert and stream audio and video (snapshot).
+# URL: http://ffmpeg.mplayerhq.hu/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: liba52 faac imlib2 lame libsdl libtheora libxvid x264
+
+name=ffmpeg
+version=r11067
+release=1
+source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.lzma)
+
+build() {
+	# temp fix untill/if pkgutils supports lzma
+	tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
+	rm $name-snapshot-$version.tar.lzma
+
+	cd ffmpeg
+
+	unset CFLAGS CXXFLAGS
+	
+	./configure \
+		--prefix=/usr \
+		--enable-liba52 \
+		--enable-liba52bin \
+		--enable-libfaac \
+		--enable-libfaad \
+		--enable-libfaadbin \
+		--enable-libmp3lame \
+		--enable-libtheora \
+		--enable-libvorbis \
+		--enable-libx264 \
+		--enable-libxvid \
+		--enable-pp \
+		--disable-static \
+		--enable-shared \
+		--enable-pthreads \
+		--enable-x11grab \
+		--enable-swscaler \
+		--enable-gpl \
+		--disable-debug \
+		--arch=$(uname -m) \
+		--cpu=$(uname -p)
+	
+	sed -i -e '175s/ifeq ($(BUILD_SHARED),yes)/ifeq ($(BUILD_SHARED),no)/' Makefile
+
+	make all
+	echo $?
+	#make -C doc ffmpeg.1 ffserver.1 ffplay.1
+	make DESTDIR=$PKG install
+}
+
