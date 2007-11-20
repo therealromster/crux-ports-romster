@@ -5,11 +5,15 @@
 # Depends on: liba52 faac imlib2 lame libsdl libtheora libxvid x264
 
 name=ffmpeg
-version=r10891
+version=r11067
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.bz2)
+source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.lzma)
 
 build() {
+	# temp fix untill/if pkgutils supports lzma
+	tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
+	rm $name-snapshot-$version.tar.lzma
+
 	cd ffmpeg
 
 	unset CFLAGS CXXFLAGS
@@ -22,7 +26,6 @@ build() {
 		--enable-libfaad \
 		--enable-libfaadbin \
 		--enable-libmp3lame \
-		--enable-libogg \
 		--enable-libtheora \
 		--enable-libvorbis \
 		--enable-libx264 \
