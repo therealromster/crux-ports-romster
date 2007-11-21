@@ -1,0 +1,17 @@
+# Description: Advanced memory diagnostic tool.
+# URL: http://www.memtest.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on: 
+
+name=memtest86+
+version=1.70
+release=1
+source=(http://www.memtest.org/download/$version/memtest86+-$version.tar.gz)
+
+build() {
+	cd memtest86+-$version
+	make memtest.bin
+	install -D -m 0644 memtest.bin $PKG/boot/memtest.bin
+}
+
