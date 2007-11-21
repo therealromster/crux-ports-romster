@@ -1,0 +1,35 @@
+# Description: Text-based web browser.
+# URL: http://lynx.isc.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on: ncurses openssl zlib
+# Optional: upx
+
+name=lynx
+version=2.8.6
+release=3
+source=(http://lynx.isc.org/lynx$version/lynx$version.tar.bz2)
+
+build() {
+	cd lynx${version//./-}
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--enable-color-style \
+		--enable-ipv6 \
+		--with-ssl \
+		--with-zlib
+
+	make
+	make DESTDIR=$PKG install
+
+	# compress binary files if upx is installed to save disk space
+	if pkginfo -i |grep '^upx ' > /dev/null; then
+		(
+			cd $PKG/usr/bin
+			upx -9 lynx
+		)
+	fi
+}
+
