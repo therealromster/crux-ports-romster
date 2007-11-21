@@ -1,0 +1,20 @@
+# Description: Brute force algorithm to guess the password for decoding an encrypted compressed file. It can crack zip, 7z, and rar file passwords.
+# URL: http://rarcrack.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: libxml2 7zip unrar unzip
+
+name=rarcrack
+version=0.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/rarcrack/rarcrack-$version.tar.bz2)
+
+build() {
+	cd rarcrack-$version
+	sed -i -e "/PREFIX=/s|/usr|$PKG&|" Makefile
+	install -d $PKG/usr/bin
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+
