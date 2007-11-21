@@ -10,7 +10,6 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/h5import
 -rwxr-xr-x	root/root	usr/bin/h5jam
 -rwxr-xr-x	root/root	usr/bin/h5ls
--rwxr-xr-x	root/root	usr/bin/h5perf
 -rwxr-xr-x	root/root	usr/bin/h5redeploy
 -rwxr-xr-x	root/root	usr/bin/h5repack
 -rwxr-xr-x	root/root	usr/bin/h5repart
@@ -81,6 +80,7 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/H5VarLenType.h
 -rw-r--r--	root/root	usr/include/H5Zpublic.h
 -rw-r--r--	root/root	usr/include/H5api_adpt.h
+-rw-r--r--	root/root	usr/include/H5cxx_pubconf.h
 -rw-r--r--	root/root	usr/include/H5pubconf.h
 -rw-r--r--	root/root	usr/include/H5public.h
 -rw-r--r--	root/root	usr/include/hdf5.h
@@ -93,7 +93,6 @@ lrwxrwxrwx	root/root	usr/lib/libhdf5.so.0 -> libhdf5.so.0.0.0
 -rw-r--r--	root/root	usr/lib/libhdf5.so.0.0.0
 -rw-r--r--	root/root	usr/lib/libhdf5_cpp.a
 -rw-r--r--	root/root	usr/lib/libhdf5_cpp.la
--rw-r--r--	root/root	usr/lib/libhdf5_cpp.settings
 -rw-r--r--	root/root	usr/lib/libhdf5_hl.a
 -rw-r--r--	root/root	usr/lib/libhdf5_hl.la
 lrwxrwxrwx	root/root	usr/lib/libhdf5_hl.so -> libhdf5_hl.so.0.0.0
