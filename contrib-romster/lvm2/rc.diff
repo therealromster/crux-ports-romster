@@ -1,0 +1,26 @@
+--- /etc/rc.orig
++++ /etc/rc
+@@ -13,6 +13,13 @@
+ /bin/mount -n -t sysfs none /sys
+ /sbin/start_udev
+ 
++# Create device-mapper device nodes
++/sbin/dmsetup mknodes
++
++# Scan for LVM volume groups
++/sbin/vgscan --ignorelockingfailure
++/sbin/vgchange --ignorelockingfailure -a y
++
+ # Mount root read-only
+ /bin/mount -n -o remount,ro /
+ 
+--- /etc/rc.shutdown.orig
++++ /etc/rc.shutdown
+@@ -44,6 +44,7 @@
+ 
+ # Unmount file systems
+ /bin/umount -a -r
++/sbin/vgchange -a n
+ 
+ # Remount root filesystem read-only
+ /bin/mount -n -o remount,ro /
