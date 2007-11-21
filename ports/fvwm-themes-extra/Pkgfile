@@ -1,13 +1,13 @@
 # Description: FVWM precreated themes - extra.
-# URL: http://www.fvwm.org/
+# URL: http://fvwm-themes.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: fvwm-themes
 
 name=fvwm-themes-extra
-version=0.6.2
+version=0.7.0
 release=1
-source=(http://prdownloads.sourceforge.net/fvwm-themes/fvwm-themes-extra-$version.tar.bz2)
+source=(http://dl.sourceforge.net/fvwm-themes/fvwm-themes-extra-$version.tar.bz2)
 
 build() {
 	install -d $PKG/usr/share/fvwm/themes
