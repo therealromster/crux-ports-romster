@@ -1,0 +1,45 @@
+# Description: OpenGL-based racing game featuring Tux.
+# URL: http://tuxracer.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on: mesa3d sdl_mixer tcl xorg-libice xorg-libx11
+
+name=tuxracer
+version=0.61
+release=1
+source=(http://dl.sourceforge.net/tuxracer/tuxracer{,-data}-$version.tar.gz \
+	tuxracer-0.61-gcc30-fixes.patch \
+	tuxracer-0.61-skip-glx.h-check.patch)
+
+build() {
+	cd tuxracer-$version
+
+	local tcl_version=$(pkginfo -i |grep '^tcl ' |awk '{print $2}' |sed -e 's/.[0-9]*-[0-9]*$//')
+
+	export \
+		CFLAGS="$CFLAGS -fno-strict-aliasing" \
+		CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
+
+	patch -p1 -i $SRC/tuxracer-0.61-gcc30-fixes.patch
+	patch -p1 -i $SRC/tuxracer-0.61-skip-glx.h-check.patch
+	sed -i -e 's/-malign/-falign/g' configure.in
+
+	autoreconf -i
+
+	./configure \
+		--prefix=/usr \
+		--with-tcl-lib-name=tcl$tcl_version \
+		--with-data-dir=/usr/share/tuxracer
+
+	make
+	make DESTDIR=$PKG install
+
+	install -d $PKG/usr/share
+	cp -r $SRC/tuxracer-data-$version $PKG/usr/share/tuxracer
+	
+	chmod -R a+r $PKG/usr/share/tuxracer
+	find $PKG/usr/share/tuxracer -type d -print0 | xargs -0 chmod g-s
+
+	rm $PKG/usr/share/tuxracer/README
+}
+
