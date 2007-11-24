@@ -451,12 +451,7 @@ drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/ked_diphone/festvox/
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/ked_diphone/festvox/ked_diphone.scm
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/ked_diphone/group/
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/ked_diphone/group/kedlpc16k.group
-drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/rab_diphone/
--rw-r--r--	root/root	usr/share/festival/lib/voices/english/rab_diphone/COPYING
-drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/rab_diphone/festvox/
--rw-r--r--	root/root	usr/share/festival/lib/voices/english/rab_diphone/festvox/rab_diphone.scm
-drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/rab_diphone/group/
--rw-r--r--	root/root	usr/share/festival/lib/voices/english/rab_diphone/group/rablpc16k.group
+-rw-r--r--	root/root	usr/share/festival/lib/voices/english/ked_diphone/group/kedlpc8k.group
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/us1_mbrola/
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/us1_mbrola/festvox/
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/us1_mbrola/festvox/us1_mbrola.scm
@@ -472,16 +467,6 @@ drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/us3_mbrola/festvox/
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/us3_mbrola/festvox/us3_mbrola.scm
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/us3_mbrola/festvox/usdurtreeZ.scm
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/us3_mbrola/usradio
-drwxr-xr-x	root/root	usr/share/festival/lib/voices/spanish/
-drwxr-xr-x	root/root	usr/share/festival/lib/voices/spanish/el_diphone/
--rw-r--r--	root/root	usr/share/festival/lib/voices/spanish/el_diphone/COPYING
-drwxr-xr-x	root/root	usr/share/festival/lib/voices/spanish/el_diphone/festvox/
--rw-r--r--	root/root	usr/share/festival/lib/voices/spanish/el_diphone/festvox/el_diphone.scm
--rw-r--r--	root/root	usr/share/festival/lib/voices/spanish/el_diphone/festvox/spanint.scm
--rw-r--r--	root/root	usr/share/festival/lib/voices/spanish/el_diphone/festvox/spanlex.scm
--rw-r--r--	root/root	usr/share/festival/lib/voices/spanish/el_diphone/festvox/sptoken.scm
-drwxr-xr-x	root/root	usr/share/festival/lib/voices/spanish/el_diphone/group/
--rw-r--r--	root/root	usr/share/festival/lib/voices/spanish/el_diphone/group/ellpc11k.group
 -r--r--r--	root/root	usr/share/festival/lib/web.scm
 drwxr-xr-x	root/root	usr/share/speech_tools/
 drwxr-xr-x	root/root	usr/share/speech_tools/bin/
@@ -497,11 +482,9 @@ drwxr-xr-x	root/root	usr/share/speech_tools/bin/
 -rwxr-xr-x	root/root	usr/share/speech_tools/bin/resynth
 -rwxr-xr-x	root/root	usr/share/speech_tools/bin/tex_to_images
 drwxr-xr-x	root/root	usr/share/speech_tools/config/
--rw-r--r--	root/root	usr/share/speech_tools/config/Makefile
 -rw-r--r--	root/root	usr/share/speech_tools/config/ReadMe
 -rw-r--r--	root/root	usr/share/speech_tools/config/common_make_rules
 drwxr-xr-x	root/root	usr/share/speech_tools/config/compilers/
--rw-r--r--	root/root	usr/share/speech_tools/config/compilers/Makefile
 -rw-r--r--	root/root	usr/share/speech_tools/config/compilers/egcs.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/compilers/gcc.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/compilers/gcc27.mak
@@ -527,7 +510,6 @@ drwxr-xr-x	root/root	usr/share/speech_tools/config/compilers/
 -rw-r--r--	root/root	usr/share/speech_tools/config/config
 -rw-r--r--	root/root	usr/share/speech_tools/config/config.in
 drwxr-xr-x	root/root	usr/share/speech_tools/config/configs/
--rw-r--r--	root/root	usr/share/speech_tools/config/configs/Makefile
 -rw-r--r--	root/root	usr/share/speech_tools/config/configs/cstr.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/configs/cstr_jdk1.2.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/configs/egcs_as_gcc.mak
@@ -540,7 +522,6 @@ drwxr-xr-x	root/root	usr/share/speech_tools/config/configs/
 -rw-r--r--	root/root	usr/share/speech_tools/config/make_system.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/modincludes.inc
 drwxr-xr-x	root/root	usr/share/speech_tools/config/modules/
--rw-r--r--	root/root	usr/share/speech_tools/config/modules/Makefile
 -rw-r--r--	root/root	usr/share/speech_tools/config/modules/debugging.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/modules/descriptions
 -rw-r--r--	root/root	usr/share/speech_tools/config/modules/dmalloc.mak
@@ -559,7 +540,6 @@ drwxr-xr-x	root/root	usr/share/speech_tools/config/modules/
 -rw-r--r--	root/root	usr/share/speech_tools/config/modules/win32_audio.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/project.mak
 drwxr-xr-x	root/root	usr/share/speech_tools/config/rules/
--rw-r--r--	root/root	usr/share/speech_tools/config/rules/Makefile
 -rw-r--r--	root/root	usr/share/speech_tools/config/rules/bin_process.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/rules/build_dir.mak
 -rwxr-xr-x	root/root	usr/share/speech_tools/config/rules/build_tree.sh
@@ -589,7 +569,6 @@ drwxr-xr-x	root/root	usr/share/speech_tools/config/rules/
 drwxr-xr-x	root/root	usr/share/speech_tools/config/systems/
 -rw-r--r--	root/root	usr/share/speech_tools/config/systems/DebianGNULinux.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/systems/Linux.mak
--rw-r--r--	root/root	usr/share/speech_tools/config/systems/Makefile
 -rw-r--r--	root/root	usr/share/speech_tools/config/systems/RedHatLinux.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/systems/alpha_Linux.mak
 -rw-r--r--	root/root	usr/share/speech_tools/config/systems/alpha_OSF1V4.0.mak
