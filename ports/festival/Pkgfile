@@ -93,6 +93,13 @@ build() {
 		sed -i -e "s|$SRC|/usr/share|g" $file
 	done
 
-	#chown -R root:root $PKG
+	for file in $PKG/usr/share/speech_tools/bin/*; do
+		sed -i -e "s|$SRC|/usr/share|g" $file
+	done
+
+		for file in $(find $PKG/usr/share/festival/examples/* -type f); do
+		sed -i -e "s|$SRC|festival|g" $file
+	done
+
 }
 
