@@ -138,6 +138,7 @@ drwxr-xr-x	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/controls.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/core.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/gdi.i
+-rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/glcanvas.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/grid.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/html.i
 -rw-r--r--	root/root	usr/usr/include/wx-2.8/wx/wxPython/i_files/media.i
@@ -182,6 +183,7 @@ drwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_gdi.pyc
 -rwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_gdi_.so
 -rwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_gizmos.so
+-rwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_glcanvas.so
 -rwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_grid.so
 -rwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_html.so
 -rwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/_media.so
@@ -213,6 +215,8 @@ drwxr-xr-x	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/combo.pyc
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/gizmos.py
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/gizmos.pyc
+-rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/glcanvas.py
+-rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/glcanvas.pyc
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/grid.py
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/grid.pyc
 -rw-r--r--	root/root	usr/usr/lib/python2.5/site-packages/wx-2.8-gtk2-unicode/wx/html.py
