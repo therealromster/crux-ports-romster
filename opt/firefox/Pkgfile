@@ -1,0 +1,56 @@
+# Description: Mozilla Web Browser Component.
+# URL: http://www.mozilla.com/firefox/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: libidl gtk libpng libjpeg zlib
+
+name=firefox
+version=2.0.0.10
+release=1
+source=(ftp://ftp.mozilla.org/pub/mozilla.org/$name/releases/$version/source/$name-$version-source.tar.bz2 \
+	$name-2.0-add-ldflags.patch \
+	http://crux.nu/files/$name/$name.desktop \
+	http://crux.nu/files/$name/$name.png \
+	mozconfig)
+
+build() {
+	export MOZ_CO_PROJECT=browser
+	export BUILD_OFFICIAL=1
+	export MOZILLA_OFFICIAL=1
+	export MOZILLA_FIVE_HOME=/usr/lib/firefox
+
+	cd mozilla
+	patch -p0 -i $SRC/$name-2.0-add-ldflags.patch
+	sed -e "s/#CFLAGS#/$CFLAGS/" $SRC/mozconfig > .mozconfig
+	./configure
+	make
+
+	mkdir -p $PKG$MOZILLA_FIVE_HOME
+	cp -rL dist/bin/* $PKG$MOZILLA_FIVE_HOME
+	mkdir -p $PKG/usr/bin
+	ln -s /usr/lib/$name/$name $PKG/usr/bin/$name
+
+	# devel stuff
+	mkdir -p $PKG/usr/share/idl/$name $PKG/usr/include/$name
+	cp -frL dist/idl/* $PKG/usr/share/idl/$name/
+	cp -frL dist/include/* $PKG/usr/include/$name/
+
+	# pkgconfig
+	mkdir -p $PKG/usr/lib/pkgconfig
+	install build/unix/*.pc $PKG/usr/lib/pkgconfig
+	sed -i -e "s|/usr/local|/usr|g" $PKG/usr/lib/pkgconfig/*.pc
+	sed -i -e "s|$name-$version|$name|g" $PKG/usr/lib/pkgconfig/*.pc
+	# disgusting hack
+	sed -i -e 's|\(Cflags:.*\)|\1 -I${includedir}/dom -I${includedir}/necko|' \
+		$PKG/usr/lib/pkgconfig/*.pc
+
+	chmod 644 $PKG/usr/lib/pkgconfig/$name-*.pc
+
+	rm -f $PKG/usr/lib/$name/README.txt $PKG/usr/lib/$name/init.d/README
+
+	# desktop entry/icon
+	install -D -m 0644 $SRC/$name.desktop \
+		$PKG/usr/share/applications/$name.desktop
+	install -D -m 0644 $SRC/$name.png $PKG/usr/share/pixmaps/$name.png
+}
+
