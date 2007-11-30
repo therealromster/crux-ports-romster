@@ -11,8 +11,10 @@ source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.
 
 build() {
 	# temp fix untill/if pkgutils supports lzma
-	tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
-	rm $name-snapshot-$version.tar.lzma
+	if [ -e $SRC/$name-snapshot-$version.tar.lzma ]; then
+		tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
+		rm $name-snapshot-$version.tar.lzma
+	fi
 
 	cd ffmpeg
 
