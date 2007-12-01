@@ -1,0 +1,23 @@
+# Description: WINE - Implementation of Windows DLL's and core.
+# URL: http://www.winehq.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Daniel Walpole, daniel at walpole dot id dot au
+# Depends on: fontforge xorg-font-msttcorefonts
+
+name=wine
+version=0.9.50
+release=1
+source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
+
+build() {
+	cd wine-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man \
+		--disable-nls
+
+	make depend
+	make
+	make prefix=$PKG/usr install
+}
