@@ -8,7 +8,7 @@ name=tetex
 version=3.0
 release=1
 
-source=(ftp://dante.ctan.org/pub/tex/systems/unix/teTeX/current/distrib/tetex-{src,texmf{,src}}-$version.tar.gz \
+source=(ftp://dante.ctan.org/pub/tex/systems/unix/teTeX/$version/distrib/tetex-{src,texmf{,src}}-$version.tar.gz \
 	tetex.patch.gz)
 
 build() {
