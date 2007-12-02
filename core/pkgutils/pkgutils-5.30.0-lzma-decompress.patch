@@ -1,0 +1,12 @@
+diff -pruN pkgutils-5.30.0.orig/pkgmk.in pkgutils-5.30.0/pkgmk.in
+--- pkgutils-5.30.0.orig/pkgmk.in	2007-11-29 11:36:34.364509888 +1100
++++ pkgutils-5.30.0/pkgmk.in	2007-11-29 12:01:57.696319552 +1100
+@@ -141,6 +141,8 @@ unpack_source() {
+ 				COMMAND="tar -C $SRC --use-compress-program=gzip -xf $LOCAL_FILENAME" ;;
+ 			*.tar.bz2)
+ 				COMMAND="tar -C $SRC --use-compress-program=bzip2 -xf $LOCAL_FILENAME" ;;
++			*.tar.lzma)
++				COMMAND="tar -C $SRC --use-compress-program=lzma -xf $LOCAL_FILENAME" ;;
+ 			*.zip)
+ 				COMMAND="unzip -qq -o -d $SRC $LOCAL_FILENAME" ;;
+ 			*)
