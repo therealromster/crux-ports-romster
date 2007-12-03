@@ -614,59 +614,59 @@ drwxr-xr-x	root/root	usr/include/wx-2.8/wx/xrc/
 -rw-r--r--	root/root	usr/include/wx-2.8/wx/zstream.h
 drwxr-xr-x	root/root	usr/lib/
 lrwxrwxrwx	root/root	usr/lib/libwx_baseu-2.8.so -> libwx_baseu-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_baseu-2.8.so.0 -> libwx_baseu-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_baseu-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_baseu-2.8.so.0 -> libwx_baseu-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_baseu-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_baseu_net-2.8.so -> libwx_baseu_net-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_baseu_net-2.8.so.0 -> libwx_baseu_net-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_baseu_net-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_baseu_net-2.8.so.0 -> libwx_baseu_net-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_baseu_net-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_baseu_xml-2.8.so -> libwx_baseu_xml-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_baseu_xml-2.8.so.0 -> libwx_baseu_xml-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_baseu_xml-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_baseu_xml-2.8.so.0 -> libwx_baseu_xml-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_baseu_xml-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_adv-2.8.so -> libwx_gtk2u_adv-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_adv-2.8.so.0 -> libwx_gtk2u_adv-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_adv-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_adv-2.8.so.0 -> libwx_gtk2u_adv-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_adv-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_aui-2.8.so -> libwx_gtk2u_aui-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_aui-2.8.so.0 -> libwx_gtk2u_aui-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_aui-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_aui-2.8.so.0 -> libwx_gtk2u_aui-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_aui-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_core-2.8.so -> libwx_gtk2u_core-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_core-2.8.so.0 -> libwx_gtk2u_core-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_core-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_core-2.8.so.0 -> libwx_gtk2u_core-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_core-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_fl-2.8.so -> libwx_gtk2u_fl-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_fl-2.8.so.0 -> libwx_gtk2u_fl-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_fl-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_fl-2.8.so.0 -> libwx_gtk2u_fl-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_fl-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gizmos-2.8.so -> libwx_gtk2u_gizmos-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gizmos-2.8.so.0 -> libwx_gtk2u_gizmos-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_gizmos-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gizmos-2.8.so.0 -> libwx_gtk2u_gizmos-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_gizmos-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gizmos_xrc-2.8.so -> libwx_gtk2u_gizmos_xrc-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gizmos_xrc-2.8.so.0 -> libwx_gtk2u_gizmos_xrc-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_gizmos_xrc-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gizmos_xrc-2.8.so.0 -> libwx_gtk2u_gizmos_xrc-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_gizmos_xrc-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gl-2.8.so -> libwx_gtk2u_gl-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gl-2.8.so.0 -> libwx_gtk2u_gl-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_gl-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_gl-2.8.so.0 -> libwx_gtk2u_gl-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_gl-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_html-2.8.so -> libwx_gtk2u_html-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_html-2.8.so.0 -> libwx_gtk2u_html-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_html-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_html-2.8.so.0 -> libwx_gtk2u_html-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_html-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_ogl-2.8.so -> libwx_gtk2u_ogl-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_ogl-2.8.so.0 -> libwx_gtk2u_ogl-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_ogl-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_ogl-2.8.so.0 -> libwx_gtk2u_ogl-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_ogl-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_plot-2.8.so -> libwx_gtk2u_plot-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_plot-2.8.so.0 -> libwx_gtk2u_plot-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_plot-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_plot-2.8.so.0 -> libwx_gtk2u_plot-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_plot-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_qa-2.8.so -> libwx_gtk2u_qa-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_qa-2.8.so.0 -> libwx_gtk2u_qa-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_qa-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_qa-2.8.so.0 -> libwx_gtk2u_qa-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_qa-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_richtext-2.8.so -> libwx_gtk2u_richtext-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_richtext-2.8.so.0 -> libwx_gtk2u_richtext-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_richtext-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_richtext-2.8.so.0 -> libwx_gtk2u_richtext-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_richtext-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_stc-2.8.so -> libwx_gtk2u_stc-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_stc-2.8.so.0 -> libwx_gtk2u_stc-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_stc-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_stc-2.8.so.0 -> libwx_gtk2u_stc-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_stc-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_svg-2.8.so -> libwx_gtk2u_svg-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_svg-2.8.so.0 -> libwx_gtk2u_svg-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_svg-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_svg-2.8.so.0 -> libwx_gtk2u_svg-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_svg-2.8.so.0.4.0
 lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_xrc-2.8.so -> libwx_gtk2u_xrc-2.8.so.0
-lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_xrc-2.8.so.0 -> libwx_gtk2u_xrc-2.8.so.0.3.0
--rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_xrc-2.8.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libwx_gtk2u_xrc-2.8.so.0 -> libwx_gtk2u_xrc-2.8.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libwx_gtk2u_xrc-2.8.so.0.4.0
 drwxr-xr-x	root/root	usr/lib/wx/
 drwxr-xr-x	root/root	usr/lib/wx/config/
 -rwxr-xr-x	root/root	usr/lib/wx/config/gtk2-unicode-release-2.8
