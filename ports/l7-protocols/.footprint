@@ -39,8 +39,10 @@ drwxr-xr-x	root/root	usr/etc/l7-protocols/protocols/
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/aimwebcontent.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/applejuice.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/ares.pat
+-rw-r--r--	root/root	usr/etc/l7-protocols/protocols/armagetron.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/battlefield1942.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/battlefield2.pat
+-rw-r--r--	root/root	usr/etc/l7-protocols/protocols/battlefield2142.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/bgp.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/biff.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/bittorrent.pat
@@ -79,6 +81,7 @@ drwxr-xr-x	root/root	usr/etc/l7-protocols/protocols/
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/jabber.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/kugoo.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/live365.pat
+-rw-r--r--	root/root	usr/etc/l7-protocols/protocols/liveforspeed.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/lpd.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/mohaa.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/msn-filetransfer.pat
@@ -99,6 +102,7 @@ drwxr-xr-x	root/root	usr/etc/l7-protocols/protocols/
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/quake1.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/radmin.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/rdp.pat
+-rw-r--r--	root/root	usr/etc/l7-protocols/protocols/replaytv-ivs.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/rlogin.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/rtsp.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/shoutcast.pat
@@ -117,12 +121,12 @@ drwxr-xr-x	root/root	usr/etc/l7-protocols/protocols/
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/stun.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/subspace.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/subversion.pat
+-rw-r--r--	root/root	usr/etc/l7-protocols/protocols/teamfortress2.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/teamspeak.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/telnet.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/tesla.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/tftp.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/thecircle.pat
-lrwxrwxrwx	root/root	usr/etc/l7-protocols/protocols/tls.pat -> ssl.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/tor.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/tsp.pat
 -rw-r--r--	root/root	usr/etc/l7-protocols/protocols/unknown.pat
@@ -262,3 +266,9 @@ drwxr-xr-x	root/root	usr/etc/l7-protocols/testing/data/
 -rw-r--r--	root/root	usr/etc/l7-protocols/testing/data/yahoo-2
 -rw-r--r--	root/root	usr/etc/l7-protocols/testing/data/yahoo-3
 -rw-r--r--	root/root	usr/etc/l7-protocols/testing/data/yahoo-4
+-rwxr-xr-x	root/root	usr/etc/l7-protocols/testing/match_kernel
+-rwxr-xr-x	root/root	usr/etc/l7-protocols/testing/randchars
+-rwxr-xr-x	root/root	usr/etc/l7-protocols/testing/randprintable
+-rw-r--r--	root/root	usr/etc/l7-protocols/testing/speeds-2007-10-02-450MHz
+-rwxr-xr-x	root/root	usr/etc/l7-protocols/testing/test_speed-kernel
+-rwxr-xr-x	root/root	usr/etc/l7-protocols/testing/test_speed-userspace

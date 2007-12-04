@@ -5,7 +5,7 @@
 # Depends on:
 
 name=l7-protocols
-version=2007-01-14
+version=2007-11-22
 release=1
 source=(http://dl.sourceforge.net/sourceforge/l7-filter/l7-protocols-$version.tar.gz)
 
@@ -14,12 +14,14 @@ build() {
 	make PREFIX=$PKG/usr install
 
 	find $PKG \
-		-name CHANGELOG -delete -or \
-		-name HOWTO -delete -or \
-		-name LICENSE -delete -or \
-		-name Makefile -delete -or \
-		-name README -delete -or \
-		-name WANTED -delete
+	\( \
+		-name CHANGELOG -o \
+		-name HOWTO -o \
+		-name LICENSE -o \
+		-name Makefile -o \
+		-name README -o \
+		-name WANTED \
+	\) -delete
 
 	rm -r $PKG/usr/etc/l7-protocols/example_traffic
 
