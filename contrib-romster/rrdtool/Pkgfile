@@ -5,7 +5,7 @@
 # Depends on: libart_lgpl libcgi libgd python tcl freetype
 
 name=rrdtool
-version=1.2.25
+version=1.2.26
 release=1
 source=(http://oss.oetiker.ch/rrdtool/pub/rrdtool-$version.tar.gz)
 
