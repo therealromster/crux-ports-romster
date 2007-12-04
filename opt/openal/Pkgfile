@@ -2,14 +2,20 @@
 # URL: http://openal.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Han Boetes, han at mijncomputer dot nl
-# Depends on: alsa-lib libvorbis libsdl
+# Depends on: libvorbis smpeg
 
 name=openal
-version=r1426
+version=r1467
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/openal-snapshot-$version.tar.bz2)
+source=(http://romster.shortcircuit.net.au/crux/source/openal-snapshot-$version.tar.lzma)
 
 build() {
+	# temp fix untill/if pkgutils supports lzma
+		if [ -e $SRC/$name-snapshot-$version.tar.lzma ]; then
+			tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
+			rm $name-snapshot-$version.tar.lzma
+		fi
+
 	cd openal
 
 	./configure \
