@@ -2,14 +2,20 @@
 # URL: http://developers.videolan.org/x264.html
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Rouven Schuerch, rs at tegonal dot com
-# Depends on:	
+# Depends on: lzma
 
 name=x264
-version=r694
+version=r708
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/x264-snapshot-$version.tar.bz2)
+source=(http://romster.shortcircuit.net.au/crux/source/x264-snapshot-$version.tar.lzma)
 
 build() {
+	# temp fix untill/if pkgutils supports lzma
+	if [ -e $SRC/$name-snapshot-$version.tar.lzma ]; then
+		tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
+		rm $name-snapshot-$version.tar.lzma
+	fi
+
 	cd x264
 
 	sed -i -e '/^    CFLAGS="/s/-O4 -ffast-math $CFLAGS/${CFLAGS\/-O?\/-O3} -ffast-math/' configure
