@@ -29,7 +29,11 @@ build() {
 	touch $PKG/etc/adjtime
 
 	rm -r $PKG/usr/share
-	rm $PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix}
-	rm $PKG/usr/man/man8/{fsck.minix,mkfs.bfs,mkfs.minix}.8
+
+	rm \
+		$PKG/usr/bin/wall \
+		$PKG/sbin/{mkfs.bfs,mkfs.minix,fsck.minix} \
+		$PKG/usr/man/man8/{fsck.minix,mkfs.bfs,mkfs.minix}.8 \
+		$PKG/usr/man/man1/wall.1
 }
 
