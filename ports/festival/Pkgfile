@@ -2,11 +2,11 @@
 # URL: http://www.cstr.ed.ac.uk/projects/festival/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Brian Miculcy, morlenxus at gmx dot net
-# Depends on:
+# Depends on: ncurses perl python
 
 name=festival
 version=1.96
-release=2
+release=3
 source=(http://www.festvox.org/packed/festival/$version/festival-$version-beta.tar.gz \
 	http://www.festvox.org/packed/festival/$version/festlex_{CMU,OALD,POSLEX}.tar.gz \
 	http://www.festvox.org/packed/festival/$version/festvox_{kallpc16k,kedlpc8k,kedlpc16k}.tar.gz \
@@ -14,6 +14,8 @@ source=(http://www.festvox.org/packed/festival/$version/festival-$version-beta.t
 	http://www.festvox.org/packed/festival/$version/speech_tools-1.2.${version##*.}-beta.tar.gz)
 
 build() {
+	export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$(pwd)/lib"
+
 	install -d \
 		$PKG/usr/bin \
 		$PKG/usr/lib \
@@ -83,23 +85,26 @@ build() {
 	
 	find $PKG -name 'Makefile' -delete
 	
-	rm -fr \
+	rm -r \
 		$PKG/usr/share/festival/lib/etc \
 		$PKG/usr/include/EST/win32
 
 	sed -i -e 's|/projects/festival/lib|/usr/share/festival|g' $PKG/usr/share/festival/lib/lexicons.scm
 	
-	for file in $PKG/usr/bin/{festival_server,festival_server_control,text2wave}; do
-		sed -i -e "s|$SRC|/usr/share|g" $file
-	done
+#	for file in $PKG/usr/bin/{festival_server,festival_server_control,text2wave}; do
+#		sed -i -e "s|$SRC|/usr/share|g" $file
+#	done
 
-	for file in $PKG/usr/share/speech_tools/bin/*; do
-		sed -i -e "s|$SRC|/usr/share|g" $file
-	done
+#	(
+#		cd $PKG/usr/share/speech_tools/bin/
+#		for file in tex_to_images build_docbook_index cxx_to_docbook est_program est_gdb est_examples raw_to_xgraph,pm; do
+#			sed -i -e "s|$SRC|/usr/share|g" $file
+#		done
+#	)
 
-		for file in $(find $PKG/usr/share/festival/examples/* -type f); do
-		sed -i -e "s|$SRC|festival|g" $file
-	done
+#	for file in $(find $PKG/usr/share/festival/examples/* -type f); do
+#		sed -i -e "s|$SRC|festival|g" $file
+#	done
 
 }
 
