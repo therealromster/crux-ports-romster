@@ -2,14 +2,10 @@
 # URL: http://librdf.org/raptor/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Diederick de Vries, diederick at diederickdevries dot net
-# Depends on: libxslt libxml2
-
-# Recommended:	
-# Optional:	
-# Category:	library
+# Depends on: curl libxslt libxml2
 
 name=librdf
-version=1.4.15
+version=1.4.16
 release=1
 source=(http://download.librdf.org/source/raptor-$version.tar.gz)
 
