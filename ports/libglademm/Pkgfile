@@ -2,10 +2,10 @@
 # URL: http://gtkmm.sourceforge.net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Han Boetes, han at mijncomputer dot nl
-# Depends on: libglade glibmm cairomm gdk-pixbuf
+# Depends on: libglade glibmm cairomm
 
 name=libglademm
-version=2.6.4
+version=2.6.5
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/libglademm/${version%.*}/libglademm-$version.tar.bz2)
 
