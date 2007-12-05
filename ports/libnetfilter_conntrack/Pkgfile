@@ -5,13 +5,17 @@
 # Depends on: libnfnetlink
 
 name=libnetfilter_conntrack
-version=0.0.75
+version=0.0.82
 release=1
 source=(http://www.netfilter.org/projects/libnetfilter_conntrack/files/libnetfilter_conntrack-$version.tar.bz2)
 
 build() {
 	cd libnetfilter_conntrack-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
 	make
 	make DESTDIR=$PKG install
 }

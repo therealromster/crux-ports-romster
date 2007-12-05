@@ -10,35 +10,28 @@ drwxr-xr-x	root/root	usr/include/libnetfilter_conntrack/
 -rw-r--r--	root/root	usr/include/libnetfilter_conntrack/libnetfilter_conntrack_udp.h
 -rw-r--r--	root/root	usr/include/libnetfilter_conntrack/linux_nfnetlink_conntrack.h
 drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/libnetfilter_conntrack.a
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack.la
 lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack.so -> libnetfilter_conntrack.so.1.2.0
 lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack.so.1 -> libnetfilter_conntrack.so.1.2.0
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack.so.1.2.0
 drwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/
--rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv4-0.0.75.so
--rw-r--r--	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv4.a
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv4-0.0.82.so
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv4.la
-lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv4.so -> nfct_l3proto_ipv4-0.0.75.so
--rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv6-0.0.75.so
--rw-r--r--	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv6.a
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv4.so -> nfct_l3proto_ipv4-0.0.82.so
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv6-0.0.82.so
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv6.la
-lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv6.so -> nfct_l3proto_ipv6-0.0.75.so
--rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_icmp-0.0.75.so
--rw-r--r--	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_icmp.a
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_l3proto_ipv6.so -> nfct_l3proto_ipv6-0.0.82.so
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_icmp-0.0.82.so
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_icmp.la
-lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_icmp.so -> nfct_proto_icmp-0.0.75.so
--rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_sctp-0.0.75.so
--rw-r--r--	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_sctp.a
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_icmp.so -> nfct_proto_icmp-0.0.82.so
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_sctp-0.0.82.so
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_sctp.la
-lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_sctp.so -> nfct_proto_sctp-0.0.75.so
--rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_tcp-0.0.75.so
--rw-r--r--	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_tcp.a
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_sctp.so -> nfct_proto_sctp-0.0.82.so
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_tcp-0.0.82.so
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_tcp.la
-lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_tcp.so -> nfct_proto_tcp-0.0.75.so
--rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_udp-0.0.75.so
--rw-r--r--	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_udp.a
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_tcp.so -> nfct_proto_tcp-0.0.82.so
+-rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_udp-0.0.82.so
 -rwxr-xr-x	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_udp.la
-lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_udp.so -> nfct_proto_udp-0.0.75.so
+lrwxrwxrwx	root/root	usr/lib/libnetfilter_conntrack/nfct_proto_udp.so -> nfct_proto_udp-0.0.82.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libnetfilter_conntrack.pc
