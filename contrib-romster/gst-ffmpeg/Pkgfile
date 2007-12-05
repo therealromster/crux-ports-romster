@@ -5,17 +5,20 @@
 # Depends on: gst-plugins-base python
 
 name=gst-ffmpeg
-version=0.10.2
+version=0.10.3
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-ffmpeg/gst-ffmpeg-$version.tar.gz)
 
 build() {
 	cd gst-ffmpeg-$version
 
-	CFLAGS="${CFLAGS//-O?/-O2}" CXXFLAGS="${CXXFLAGS//-O?/-O2}" \
-		./configure \
-			--prefix=/usr \
-			--disable-static
+	export \
+		CFLAGS="${CFLAGS//-O?/-O2}" \
+		CXXFLAGS="${CXXFLAGS//-O?/-O2}"
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
 		
 	make
 	make DESTDIR=$PKG install
