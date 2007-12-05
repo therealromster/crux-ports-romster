@@ -1,0 +1,31 @@
+# Description: Small utility that allows users to overclock NVIDIA based video cards.
+# URL: http://www.linuxhardware.org/nvclock/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Nathan Pardoe, lithium at poolofrandomness dot com
+# Depends on: gtk lzma xorg-libxext xorg-libx11
+
+name=nvclock
+version=20071205
+release=1
+source=(http://romster.shortcircuit.net.au/crux/source/nvclock-snapshot-$version.tar.lzma)
+#source=(http://www.linuxhardware.org/nvclock/nvclock$version.tar.gz)
+
+build() {
+	# temp fix untill/if pkgutils supports lzma
+	if [ -e $SRC/$name-snapshot-$version.tar.lzma ]; then
+		tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
+		rm $name-snapshot-$version.tar.lzma
+	fi
+
+	cd nvclock
+
+	./configure \
+		--prefix=/usr \
+		--disable-qt \
+		--with-x
+
+	make -j1
+	make prefix=$PKG/usr install
+	rm -r $PKG/usr/share
+}
+
