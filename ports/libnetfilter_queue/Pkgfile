@@ -5,13 +5,17 @@
 # Depends on: libnfnetlink
 
 name=libnetfilter_queue
-version=0.0.13
+version=0.0.15
 release=1
 source=(http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-$version.tar.bz2)
 
 build () {
     cd libnetfilter_queue-$version
-    ./configure --prefix=/usr
+
+    ./configure \
+	 	--prefix=/usr \
+		--disable-static
+
     make
     make DESTDIR=$PKG install
 }
