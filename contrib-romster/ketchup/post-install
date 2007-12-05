@@ -1,0 +1,4 @@
+#!/bin/sh
+
+gpg --keyserver wwwkeys.pgp.net --recv-keys 0x517D0F0E
+
