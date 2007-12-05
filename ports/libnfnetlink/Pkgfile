@@ -5,13 +5,17 @@
 # Depends on: 
 
 name=libnfnetlink
-version=0.0.25
+version=0.0.30
 release=1
 source=(http://www.netfilter.org/projects/libnfnetlink/files/libnfnetlink-$version.tar.bz2)
 
 build() {
 	cd libnfnetlink-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
 	make
 	make DESTDIR=$PKG install
 }
