@@ -1,0 +1,7 @@
+
+add:
+
+export MAKE=pretty-make
+
+to /etc/pkgmk.conf to use pretty-make
+

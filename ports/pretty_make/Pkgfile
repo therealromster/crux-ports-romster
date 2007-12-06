@@ -1,0 +1,15 @@
+# Description: Pretty make is a very small python script that will organise and colorize your make output.
+# URL: http://phil.freehackers.org/pretty-make/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: python
+
+name=pretty_make
+version=1.3
+release=1
+source=(http://phil.freehackers.org/pretty-make/pretty_make.py)
+
+build() {
+	install -D -m 0755 pretty_make.py $PKG/usr/bin/pretty-make
+}
+
