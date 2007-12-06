@@ -1,0 +1,27 @@
+# Description: A high-performance, scalable, cross platform Lucene clone in C++.
+# URL: http://clucene.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on: graphviz
+
+name=clucene
+version=0.9.20
+release=1
+source=(http://dl.sourceforge.net/sourceforge/clucene/clucene-core-$version.tar.bz2)
+
+build() {
+	cd clucene-core-$version
+
+	cp -rf ../*.h ./src/CLucene/util/
+	./autogen.sh
+	
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-debug \
+		--disable-nls
+
+	make
+	make prefix=$PKG/usr install
+}
+
