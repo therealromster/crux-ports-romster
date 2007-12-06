@@ -1,0 +1,49 @@
+# Description: Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks.
+# URL: http://www.graphviz.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Richard Pöttler, richard dot poettler at gmail dot com
+# Depends on: pango swig expat zlib libgd gtk
+
+name=graphviz
+version=2.16
+release=1
+source=(http://www.graphviz.org/pub/graphviz/ARCHIVE/graphviz-$version.tar.gz)
+
+build() {
+	cd graphviz-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-ltdl \
+		--disable-static \
+		--disable-demo \
+		--disable-sharp \
+		--disable-guile \
+		--disable-java \
+		--disable-lua \
+		--disable-ocaml \
+		--disable-php \
+		--disable-ruby \
+		--disable-tcl \
+		--with-x \
+		--with-pangocairo \
+		--with-freetype2 \
+		--with-fontconfig \
+		--with-gtk \
+		--with-libgd \
+		--without-gnomeui
+
+	make
+	make DESTDIR=$PKG install install-data-am
+	rm -r $PKG/usr/share/graphviz/doc
+
+	cd lib
+	install -m 0644 ../libltdl/*.h $PKG/usr/include/graphviz/
+	install -m 0644 graph/*.h $PKG/usr/include/graphviz/
+	install -m 0644 agraph/*.h $PKG/usr/include/graphviz/
+	install -m 0644 common/*.h $PKG/usr/include/graphviz/
+	install -m 0644 dotgen/*.h $PKG/usr/include/graphviz/
+	install -m 0644 gvc/*.h $PKG/usr/include/graphviz/
+}
+
