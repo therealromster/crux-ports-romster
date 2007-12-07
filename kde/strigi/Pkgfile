@@ -1,0 +1,26 @@
+# Description: Daemon to index files.
+# URL: http://strigi.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Hannes Mayer, kontakt at ecarux dot de
+# Depends on: cmake clucene zlib bzip2 openssl xerces-c libxml2 dbus exiv2 xorg-libxext
+
+name=strigi
+version=0.5.7
+release=1
+source=(http://dl.sourceforge.net/sourceforge/strigi/strigi-$version.tar.bz2)
+
+build() {
+	cd strigi-$version
+
+	install -d build
+	cd build
+
+	cmake \
+		-DCMAKE_INSTALL_PREFIX=$PKG/usr .. \
+		-DENABLE_INOTIFY:BOOL=ON \
+		-DENABLE_DBUS:BOOL=ON
+
+	make
+	make install
+}
+

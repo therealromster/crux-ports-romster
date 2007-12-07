@@ -1,0 +1,96 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/deepfind
+-rwxr-xr-x	root/root	usr/bin/deepgrep
+-rwxr-xr-x	root/root	usr/bin/luceneindexer
+-rwxr-xr-x	root/root	usr/bin/strigiclient
+-rwxr-xr-x	root/root	usr/bin/strigicmd
+-rwxr-xr-x	root/root	usr/bin/strigidaemon
+-rwxr-xr-x	root/root	usr/bin/xmlindexer
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/strigi/
+-rw-r--r--	root/root	usr/include/strigi/analysisresult.h
+-rw-r--r--	root/root	usr/include/strigi/analyzerconfiguration.h
+-rw-r--r--	root/root	usr/include/strigi/analyzerplugin.h
+-rw-r--r--	root/root	usr/include/strigi/archivereader.h
+-rw-r--r--	root/root	usr/include/strigi/asyncsocket.h
+-rw-r--r--	root/root	usr/include/strigi/asyncsocketclient.h
+-rw-r--r--	root/root	usr/include/strigi/bufferedstream.h
+-rw-r--r--	root/root	usr/include/strigi/clientinterface.h
+-rw-r--r--	root/root	usr/include/strigi/diranalyzer.h
+-rw-r--r--	root/root	usr/include/strigi/encodinginputstream.h
+-rw-r--r--	root/root	usr/include/strigi/fieldproperties.h
+-rw-r--r--	root/root	usr/include/strigi/fieldtypes.h
+-rw-r--r--	root/root	usr/include/strigi/fileinputstream.h
+-rw-r--r--	root/root	usr/include/strigi/indexeddocument.h
+-rw-r--r--	root/root	usr/include/strigi/indexmanager.h
+-rw-r--r--	root/root	usr/include/strigi/indexplugin.h
+-rw-r--r--	root/root	usr/include/strigi/indexreader.h
+-rw-r--r--	root/root	usr/include/strigi/indexwriter.h
+-rw-r--r--	root/root	usr/include/strigi/inputstream.h
+-rw-r--r--	root/root	usr/include/strigi/inputstreamreader.h
+drwxr-xr-x	root/root	usr/include/strigi/qtdbus/
+-rw-r--r--	root/root	usr/include/strigi/qtdbus/strigiasyncclient.h
+-rw-r--r--	root/root	usr/include/strigi/qtdbus/strigiclient.h
+-rw-r--r--	root/root	usr/include/strigi/qtdbus/strigidbus.h
+-rw-r--r--	root/root	usr/include/strigi/qtdbus/strigitypes.h
+-rw-r--r--	root/root	usr/include/strigi/query.h
+-rw-r--r--	root/root	usr/include/strigi/queryparser.h
+-rw-r--r--	root/root	usr/include/strigi/sdfinputstream.h
+-rw-r--r--	root/root	usr/include/strigi/streamanalyzer.h
+-rw-r--r--	root/root	usr/include/strigi/streamanalyzerfactory.h
+-rw-r--r--	root/root	usr/include/strigi/streambase.h
+-rw-r--r--	root/root	usr/include/strigi/streambuffer.h
+-rw-r--r--	root/root	usr/include/strigi/streamendanalyzer.h
+-rw-r--r--	root/root	usr/include/strigi/streameventanalyzer.h
+-rw-r--r--	root/root	usr/include/strigi/streamlineanalyzer.h
+-rw-r--r--	root/root	usr/include/strigi/streamsaxanalyzer.h
+-rw-r--r--	root/root	usr/include/strigi/streamthroughanalyzer.h
+-rw-r--r--	root/root	usr/include/strigi/strigiconfig.h
+-rw-r--r--	root/root	usr/include/strigi/strigihtmlgui.h
+-rw-r--r--	root/root	usr/include/strigi/stringstream.h
+-rw-r--r--	root/root	usr/include/strigi/stringterminatedsubstream.h
+-rw-r--r--	root/root	usr/include/strigi/subinputstream.h
+-rw-r--r--	root/root	usr/include/strigi/substreamprovider.h
+-rw-r--r--	root/root	usr/include/strigi/substreamproviderprovider.h
+-rw-r--r--	root/root	usr/include/strigi/textutils.h
+-rw-r--r--	root/root	usr/include/strigi/variant.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libsearchclient.so -> libsearchclient.so.0
+lrwxrwxrwx	root/root	usr/lib/libsearchclient.so.0 -> libsearchclient.so.0.5.7
+-rwxr-xr-x	root/root	usr/lib/libsearchclient.so.0.5.7
+lrwxrwxrwx	root/root	usr/lib/libstreamanalyzer.so -> libstreamanalyzer.so.0
+lrwxrwxrwx	root/root	usr/lib/libstreamanalyzer.so.0 -> libstreamanalyzer.so.0.5.7
+-rwxr-xr-x	root/root	usr/lib/libstreamanalyzer.so.0.5.7
+lrwxrwxrwx	root/root	usr/lib/libstreams.so -> libstreams.so.0
+lrwxrwxrwx	root/root	usr/lib/libstreams.so.0 -> libstreams.so.0.5.7
+-rwxr-xr-x	root/root	usr/lib/libstreams.so.0.5.7
+lrwxrwxrwx	root/root	usr/lib/libstrigihtmlgui.so -> libstrigihtmlgui.so.0
+lrwxrwxrwx	root/root	usr/lib/libstrigihtmlgui.so.0 -> libstrigihtmlgui.so.0.5.7
+-rwxr-xr-x	root/root	usr/lib/libstrigihtmlgui.so.0.5.7
+lrwxrwxrwx	root/root	usr/lib/libstrigiqtdbusclient.so -> libstrigiqtdbusclient.so.0
+lrwxrwxrwx	root/root	usr/lib/libstrigiqtdbusclient.so.0 -> libstrigiqtdbusclient.so.0.5.7
+-rwxr-xr-x	root/root	usr/lib/libstrigiqtdbusclient.so.0.5.7
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libstreamanalyzer.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libstreams.pc
+drwxr-xr-x	root/root	usr/lib/strigi/
+-rw-r--r--	root/root	usr/lib/strigi/StrigiConfig.cmake
+-rwxr-xr-x	root/root	usr/lib/strigi/strigiea_jpeg.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigiindex_clucene.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigila_cpp.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigila_deb.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigila_namespaceharvester.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigila_xpm.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigita_au.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigita_gif.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigita_pcx.so
+-rwxr-xr-x	root/root	usr/lib/strigi/strigita_xbm.so
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/dbus-1/
+drwxr-xr-x	root/root	usr/share/dbus-1/services/
+-rw-r--r--	root/root	usr/share/dbus-1/services/org.freedesktop.xesam.searcher.service
+-rw-r--r--	root/root	usr/share/dbus-1/services/vandenoever.strigi.service
+drwxr-xr-x	root/root	usr/share/strigi/
+drwxr-xr-x	root/root	usr/share/strigi/fieldproperties/
+-rw-r--r--	root/root	usr/share/strigi/fieldproperties/xesam.rdfs
