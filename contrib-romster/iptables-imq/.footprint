@@ -8,6 +8,7 @@ drwxr-xr-x	root/root	usr/lib/iptables/
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_IMQ.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_LOG.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_MARK.so
+-rwxr-xr-x	root/root	usr/lib/iptables/libip6t_NFLOG.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_NFQUEUE.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_REJECT.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_TCPMSS.so
@@ -16,6 +17,7 @@ drwxr-xr-x	root/root	usr/lib/iptables/
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_esp.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_eui64.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_frag.so
+-rwxr-xr-x	root/root	usr/lib/iptables/libip6t_hashlimit.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_hl.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_icmp6.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_ipv6header.so
@@ -23,6 +25,7 @@ drwxr-xr-x	root/root	usr/lib/iptables/
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_limit.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_mac.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_mark.so
+-rwxr-xr-x	root/root	usr/lib/iptables/libip6t_mh.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_multiport.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_owner.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libip6t_physdev.so
@@ -45,6 +48,7 @@ drwxr-xr-x	root/root	usr/lib/iptables/
 -rwxr-xr-x	root/root	usr/lib/iptables/libipt_MASQUERADE.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libipt_MIRROR.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libipt_NETMAP.so
+-rwxr-xr-x	root/root	usr/lib/iptables/libipt_NFLOG.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libipt_NFQUEUE.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libipt_NOTRACK.so
 -rwxr-xr-x	root/root	usr/lib/iptables/libipt_REDIRECT.so

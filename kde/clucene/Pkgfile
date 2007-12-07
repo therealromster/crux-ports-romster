@@ -12,8 +12,8 @@ source=(http://dl.sourceforge.net/sourceforge/clucene/clucene-core-$version.tar.
 build() {
 	cd clucene-core-$version
 
-	cp -rf ../*.h ./src/CLucene/util/
-	./autogen.sh
+	#cp -rf ../*.h ./src/CLucene/util/
+	#./autogen.sh
 	
 	./configure \
 		--prefix=/usr \

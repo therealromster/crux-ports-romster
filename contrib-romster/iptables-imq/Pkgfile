@@ -5,21 +5,18 @@
 # Depends on: iproute2
 
 name=iptables-imq
-version=1.3.8-2.6.17
-patch=1.3.0-imq1
+version=1.3.8-2.6.21
+patch=1.3.6-imq
 release=1
 source=(ftp://ftp.netfilter.org/pub/iptables/iptables-${version%%-*}.tar.bz2 \
-	http://www.linuximq.net/patchs/linux-${version##*-}-${patch##*-}.diff \
+	http://www.linuximq.net/patchs/linux-${version##*-}-img2.diff \
 	http://www.linuximq.net/patchs/iptables-$patch.diff)
 
 build() {
 	cd iptables-${version%%-*}
-	sed -i "s|iptables-1.3.3|iptables-${version%%-*}|" $SRC/iptables-$patch.diff 
-	patch -p0 -i $SRC/iptables-$patch.diff
-	chmod +x userspace/extensions/.IMQ-test*
 	
-	cp $SRC/iptables-${version%%-*}/userspace/extensions/* $SRC/iptables-${version%%-*}/extensions/
-	cp userspace/extensions/.IMQ-test userspace/extensions/.IMQ-test6 $SRC/iptables-${version%%-*}/extensions/
+	patch -p1 -i $SRC/iptables-$patch.diff
+	chmod +x extensions/.IMQ-test*
 	
 	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr all
 	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr DESTDIR=$PKG install install-devel

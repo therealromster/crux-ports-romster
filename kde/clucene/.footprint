@@ -33,6 +33,7 @@ drwxr-xr-x	root/root	usr/include/CLucene/debug/
 -rw-r--r--	root/root	usr/include/CLucene/debug/error.h
 -rw-r--r--	root/root	usr/include/CLucene/debug/lucenebase.h
 -rw-r--r--	root/root	usr/include/CLucene/debug/mem.h
+-rw-r--r--	root/root	usr/include/CLucene/debug/pool.h
 drwxr-xr-x	root/root	usr/include/CLucene/document/
 -rw-r--r--	root/root	usr/include/CLucene/document/DateField.h
 -rw-r--r--	root/root	usr/include/CLucene/document/Document.h
@@ -65,6 +66,7 @@ drwxr-xr-x	root/root	usr/include/CLucene/queryParser/
 -rw-r--r--	root/root	usr/include/CLucene/queryParser/MultiFieldQueryParser.h
 -rw-r--r--	root/root	usr/include/CLucene/queryParser/QueryParser.h
 -rw-r--r--	root/root	usr/include/CLucene/queryParser/QueryParserBase.h
+-rw-r--r--	root/root	usr/include/CLucene/queryParser/QueryParserConstants.h
 -rw-r--r--	root/root	usr/include/CLucene/queryParser/QueryToken.h
 -rw-r--r--	root/root	usr/include/CLucene/queryParser/TokenList.h
 drwxr-xr-x	root/root	usr/include/CLucene/search/
@@ -98,6 +100,7 @@ drwxr-xr-x	root/root	usr/include/CLucene/search/
 -rw-r--r--	root/root	usr/include/CLucene/search/QueryFilter.h
 -rw-r--r--	root/root	usr/include/CLucene/search/RangeFilter.h
 -rw-r--r--	root/root	usr/include/CLucene/search/RangeQuery.h
+-rw-r--r--	root/root	usr/include/CLucene/search/ScoreDoc.h
 -rw-r--r--	root/root	usr/include/CLucene/search/Scorer.h
 -rw-r--r--	root/root	usr/include/CLucene/search/SearchHeader.h
 -rw-r--r--	root/root	usr/include/CLucene/search/Similarity.h
@@ -120,6 +123,7 @@ drwxr-xr-x	root/root	usr/include/CLucene/store/
 drwxr-xr-x	root/root	usr/include/CLucene/util/
 -rw-r--r--	root/root	usr/include/CLucene/util/Arrays.h
 -rw-r--r--	root/root	usr/include/CLucene/util/BitSet.h
+-rw-r--r--	root/root	usr/include/CLucene/util/English.h
 -rw-r--r--	root/root	usr/include/CLucene/util/Equators.h
 -rw-r--r--	root/root	usr/include/CLucene/util/FastCharStream.h
 -rw-r--r--	root/root	usr/include/CLucene/util/MD5Digester.h
@@ -128,18 +132,15 @@ drwxr-xr-x	root/root	usr/include/CLucene/util/
 -rw-r--r--	root/root	usr/include/CLucene/util/Reader.h
 -rw-r--r--	root/root	usr/include/CLucene/util/StringBuffer.h
 -rw-r--r--	root/root	usr/include/CLucene/util/StringIntern.h
--rw-r--r--	root/root	usr/include/CLucene/util/ThreadLocal.h
 -rw-r--r--	root/root	usr/include/CLucene/util/VoidList.h
 -rw-r--r--	root/root	usr/include/CLucene/util/VoidMap.h
 -rw-r--r--	root/root	usr/include/CLucene/util/bufferedstream.h
 -rw-r--r--	root/root	usr/include/CLucene/util/dirent.h
 -rw-r--r--	root/root	usr/include/CLucene/util/fileinputstream.h
--rw-r--r--	root/root	usr/include/CLucene/util/googlesparsemap.h
 -rw-r--r--	root/root	usr/include/CLucene/util/inputstreambuffer.h
 -rw-r--r--	root/root	usr/include/CLucene/util/jstreamsconfig.h
 -rw-r--r--	root/root	usr/include/CLucene/util/streambase.h
 -rw-r--r--	root/root	usr/include/CLucene/util/stringreader.h
--rw-r--r--	root/root	usr/include/CLucene/util/subinputstream.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/CLucene/
 -rw-r--r--	root/root	usr/lib/CLucene/clucene-config.h

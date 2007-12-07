@@ -1,7 +1,7 @@
 REQUIREMENTS:
 
-	Kernel source in /usr/src/linux-2.6.17
-	Kernel version 2.6.17 patched with IMQ.
+	Kernel source in /usr/src/linux-2.6.21
+	Kernel version 2.6.21.x patched with IMQ.
 
 PRECAUTION:
 
@@ -13,9 +13,9 @@ PRE-INSTALL:
 
 	Patch the kernel source with:
 
-	cd /usr/src
+	cd /usr/src/linux-2.6.21.x
 	(copy from the pkgmk source after downloading or wget the patch off the site)
-	patch -p0 -i linux-2.6.17-imq1.diff
+	patch -p1 -i ../linux-2.6.21-img2.diff
 
 	enable IMQ filter as a module
 
