@@ -1,0 +1,25 @@
+# Description: conntrack, the userspace command line interface, and conntrackd, the userspace daemon.
+# URL: http://people.netfilter.org/pablo/conntrack-tools/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: libnetfilter_conntrack libnfnetlink
+
+name=conntrack-tools
+version=0.9.5
+release=1
+source=(http://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-$version.tar.bz2 \
+	conntrackd.rc)
+
+build() {
+	cd conntrack-tools-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+	install -D -m 0755 $SRC/conntrackd.rc $PKG/etc/rc.d/conntrackd
+}
+
