@@ -1,0 +1,151 @@
+diff -pruN GeoIP-1.4.3.orig/apps/Makefile.in GeoIP-1.4.3/apps/Makefile.in
+--- GeoIP-1.4.3.orig/apps/Makefile.in	2007-12-09 04:41:04.422374504 +1100
++++ GeoIP-1.4.3/apps/Makefile.in	2007-12-09 04:41:43.109493168 +1100
+@@ -95,7 +95,8 @@ AM_CPPFLAGS = -DSYSCONFDIR=\"$(sysconfdi
+ DEPS = $(top_builddir)/libGeoIP/libGeoIP.la
+ LDADDS = $(top_builddir)/libGeoIP/libGeoIP.la
+ 
+-bin_PROGRAMS = geoiplookup geoipupdate
++bin_PROGRAMS = geoiplookup
++sbin_PROGRAMS = geoipupdate
+ 
+ geoiplookup_SOURCES = geoiplookup.c
+ geoiplookup_LDFLAGS = 
+@@ -108,7 +109,8 @@ geoipupdate_DEPENDENCIES = $(top_builddi
+ geoipupdate_LDADD = $(top_builddir)/libGeoIP/libGeoIPUpdate.la $(top_builddir)/libGeoIP/libGeoIP.la
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+ CONFIG_CLEAN_FILES = 
+-bin_PROGRAMS =  geoiplookup$(EXEEXT) geoipupdate$(EXEEXT)
++bin_PROGRAMS =  geoiplookup$(EXEEXT)
++sbin_PROGRAMS =  geoipupdate$(EXEEXT)
+ PROGRAMS =  $(bin_PROGRAMS)
+ 
+ 
+@@ -146,13 +148,22 @@ Makefile: $(srcdir)/Makefile.in  $(top_b
+ 
+ mostlyclean-binPROGRAMS:
+ 
++mostlyclean-sbinPROGRAMS:
++
+ clean-binPROGRAMS:
+ 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+ 
++clean-sbinPROGRAMS:
++	-test -z "$(sbin_PROGRAMS)" || rm -f $(sbin_PROGRAMS)
++
+ distclean-binPROGRAMS:
+ 
++distclean-sbinPROGRAMS:
++
+ maintainer-clean-binPROGRAMS:
+ 
++maintainer-clean-sbinPROGRAMS:
++
+ install-binPROGRAMS: $(bin_PROGRAMS)
+ 	@$(NORMAL_INSTALL)
+ 	$(mkinstalldirs) $(DESTDIR)$(bindir)
+@@ -163,12 +174,28 @@ install-binPROGRAMS: $(bin_PROGRAMS)
+ 	  else :; fi; \
+ 	done
+ 
++install-sbinPROGRAMS: $(sbin_PROGRAMS)
++	@$(NORMAL_INSTALL)
++	$(mkinstalldirs) $(DESTDIR)$(sbindir)
++	@list='$(sbin_PROGRAMS)'; for p in $$list; do \
++	  if test -f $$p; then \
++	    echo " $(LIBTOOL)  --mode=install $(INSTALL_PROGRAM) $$p $(DESTDIR)$(sbindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`"; \
++	    $(LIBTOOL)  --mode=install $(INSTALL_PROGRAM) $$p $(DESTDIR)$(sbindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
++	  else :; fi; \
++	done
++
+ uninstall-binPROGRAMS:
+ 	@$(NORMAL_UNINSTALL)
+ 	list='$(bin_PROGRAMS)'; for p in $$list; do \
+ 	  rm -f $(DESTDIR)$(bindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
+ 	done
+ 
++uninstall-sbinPROGRAMS:
++	@$(NORMAL_UNINSTALL)
++	list='$(sbin_PROGRAMS)'; for p in $$list; do \
++	  rm -f $(DESTDIR)$(sbindir)/`echo $$p|sed 's/$(EXEEXT)$$//'|sed '$(transform)'|sed 's/$$/$(EXEEXT)/'`; \
++	done
++
+ .c.o:
+ 	$(COMPILE) -c $<
+ 
+@@ -278,7 +305,7 @@ check-am: all-am
+ check: check-am
+ installcheck-am:
+ installcheck: installcheck-am
+-install-exec-am: install-binPROGRAMS
++install-exec-am: install-binPROGRAMS install-sbinPROGRAMS
+ install-exec: install-exec-am
+ 
+ install-data-am:
+@@ -287,14 +314,14 @@ install-data: install-data-am
+ install-am: all-am
+ 	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+ install: install-am
+-uninstall-am: uninstall-binPROGRAMS
++uninstall-am: uninstall-binPROGRAMS uninstall-sbinPROGRAMS
+ uninstall: uninstall-am
+ all-am: Makefile $(PROGRAMS)
+ all-redirect: all-am
+ install-strip:
+ 	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
+ installdirs:
+-	$(mkinstalldirs)  $(DESTDIR)$(bindir)
++	$(mkinstalldirs)  $(DESTDIR)$(bindir) $(DESTDIR)$(sbindir)
+ 
+ 
+ mostlyclean-generic:
+@@ -306,24 +333,24 @@ distclean-generic:
+ 	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
+ 
+ maintainer-clean-generic:
+-mostlyclean-am:  mostlyclean-binPROGRAMS mostlyclean-compile \
++mostlyclean-am:  mostlyclean-binPROGRAMS mostlyclean-sbinPROGRAMS mostlyclean-compile \
+ 		mostlyclean-libtool mostlyclean-tags \
+ 		mostlyclean-generic
+ 
+ mostlyclean: mostlyclean-am
+ 
+-clean-am:  clean-binPROGRAMS clean-compile clean-libtool clean-tags \
++clean-am:  clean-binPROGRAMS clean-sbinPROGRAMS clean-compile clean-libtool clean-tags \
+ 		clean-generic mostlyclean-am
+ 
+ clean: clean-am
+ 
+-distclean-am:  distclean-binPROGRAMS distclean-compile distclean-libtool \
++distclean-am:  distclean-binPROGRAMS distclean-sbinPROGRAMS distclean-compile distclean-libtool \
+ 		distclean-tags distclean-generic clean-am
+ 	-rm -f libtool
+ 
+ distclean: distclean-am
+ 
+-maintainer-clean-am:  maintainer-clean-binPROGRAMS \
++maintainer-clean-am:  maintainer-clean-binPROGRAMS maintainer-clean-sbinPROGRAMS \
+ 		maintainer-clean-compile maintainer-clean-libtool \
+ 		maintainer-clean-tags maintainer-clean-generic \
+ 		distclean-am
+@@ -334,6 +361,8 @@ maintainer-clean: maintainer-clean-am
+ 
+ .PHONY: mostlyclean-binPROGRAMS distclean-binPROGRAMS clean-binPROGRAMS \
+ maintainer-clean-binPROGRAMS uninstall-binPROGRAMS install-binPROGRAMS \
++mostlyclean-sbinPROGRAMS distclean-sbinPROGRAMS clean-sbinPROGRAMS \
++maintainer-clean-sbinPROGRAMS uninstall-sbinPROGRAMS install-sbinPROGRAMS \
+ mostlyclean-compile distclean-compile clean-compile \
+ maintainer-clean-compile mostlyclean-libtool distclean-libtool \
+ clean-libtool maintainer-clean-libtool tags mostlyclean-tags \
+diff -pruN GeoIP-1.4.3.orig/man/geoipupdate.1 GeoIP-1.4.3/man/geoipupdate.1
+--- GeoIP-1.4.3.orig/man/geoipupdate.1	2007-12-09 04:41:04.401377696 +1100
++++ GeoIP-1.4.3/man/geoipupdate.1	2007-12-09 04:42:44.697751664 +1100
+@@ -35,7 +35,7 @@ Below is a sample crontab that runs geoi
+ .PP
+ MAILTO=your@email.com
+ .PP
+-0 12 * * 3 /usr/local/bin/geoipupdate
++0 12 * * 3 /usr/sbin/geoipupdate
+ .PP
+ # end of crontab
+ .RE
