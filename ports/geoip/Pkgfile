@@ -1,0 +1,23 @@
+# Description: A free GeoIP Country database.
+# URL: http://www.maxmind.com/app/c
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on:
+
+name=geoip
+version=1.4.3
+release=1
+source=(http://www.maxmind.com/download/geoip/api/c/GeoIP-$version.tar.gz)
+
+build () {
+	cd GeoIP-$version
+
+	./configure \
+		--prefix=/usr \
+		--with-city=yes \
+		--disable-static
+
+	make
+	make prefix=$PKG/usr install
+}
+

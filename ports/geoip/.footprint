@@ -1,0 +1,27 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/geoiplookup
+-rwxr-xr-x	root/root	usr/bin/geoipupdate
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/GeoIP.conf
+-rw-r--r--	root/root	usr/etc/GeoIP.conf.default
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/GeoIP.h
+-rw-r--r--	root/root	usr/include/GeoIPCity.h
+-rw-r--r--	root/root	usr/include/GeoIPUpdate.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libGeoIP.la
+lrwxrwxrwx	root/root	usr/lib/libGeoIP.so -> libGeoIP.so.1.4.3
+lrwxrwxrwx	root/root	usr/lib/libGeoIP.so.1 -> libGeoIP.so.1.4.3
+-rwxr-xr-x	root/root	usr/lib/libGeoIP.so.1.4.3
+-rwxr-xr-x	root/root	usr/lib/libGeoIPUpdate.la
+lrwxrwxrwx	root/root	usr/lib/libGeoIPUpdate.so -> libGeoIPUpdate.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libGeoIPUpdate.so.0 -> libGeoIPUpdate.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libGeoIPUpdate.so.0.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/geoiplookup.1.gz
+-rw-r--r--	root/root	usr/man/man1/geoipupdate.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/GeoIP/
+-rw-r--r--	root/root	usr/share/GeoIP/GeoIP.dat
