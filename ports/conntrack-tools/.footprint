@@ -1,4 +1,6 @@
 drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/conntrackd/
+-rw-r--r--	root/root	etc/conntrackd/conntrackd.conf
 drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/conntrackd
 drwxr-xr-x	root/root	usr/

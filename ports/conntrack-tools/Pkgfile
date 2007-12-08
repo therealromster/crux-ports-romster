@@ -6,7 +6,7 @@
 
 name=conntrack-tools
 version=0.9.5
-release=1
+release=2
 source=(http://www.netfilter.org/projects/conntrack-tools/files/conntrack-tools-$version.tar.bz2 \
 	conntrackd.rc)
 
@@ -21,5 +21,6 @@ build() {
 	make
 	make DESTDIR=$PKG install
 	install -D -m 0755 $SRC/conntrackd.rc $PKG/etc/rc.d/conntrackd
+	install -D -m 0644 examples/stats/conntrackd.conf $PKG/etc/conntrackd/conntrackd.conf
 }
 
