@@ -1,0 +1,27 @@
+# Description: Rasqal RDF Query Library.
+# URL: http://librdf.org/rasqal/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: raptor libpcre
+
+name=rasqal
+version=0.9.15
+release=1
+source=(http://download.librdf.org/source/rasqal-$version.tar.gz)
+
+build() {
+	cd rasqal-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static \
+		--with-regex-library=pcre \
+		--with-triples-source=redland \
+		--with-raptor=system
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
+
