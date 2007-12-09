@@ -1,0 +1,33 @@
+# Description: Redland RDF Libraries.
+# URL: http://librdf.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Hannes Mayer, kontakr at ecarux dot de
+# Depends on: sqlite3 rasqalopenssl libxml2
+
+name=redland
+version=1.0.6
+release=1
+source=(http://download.librdf.org/source/redland-$version.tar.gz)
+
+build() {
+	cd redland-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static \
+		--enable-parsers=raptor \
+		--with-openssl-digests \
+		--with-postgresql=no \
+		--with-mysql=no \
+		--with-bdb=no \
+		--with-sqlite=3 \
+		--with-raptor=system \
+		--with-rasqal=system \
+		--with-xml-parser=libxml
+
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share
+}
+
