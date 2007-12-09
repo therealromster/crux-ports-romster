@@ -1,0 +1,22 @@
+# Description: Blitz is an interm image effect library that people can use until KDE4.1 is released. KImageEffect, the old image effect class is being dropped for KDE4.0 and the replacement, Quasar, won't be ready until KDE4.1. Blitz gives people something to use in the meantime.
+# URL: http://sourceforge.net/projects/qimageblitz
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: cmake
+
+name=qimageblitz
+version=0.0.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/qimageblitz/qimageblitz-$version.tar.bz2)
+
+build() {
+	cd qimageblitz-$version
+
+	install -d build
+	cd build
+
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make
+	make DESTDIR=$PKG install
+}
+

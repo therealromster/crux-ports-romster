@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/blitztest
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/qimageblitz/
+-rw-r--r--	root/root	usr/include/qimageblitz/blitzcpu.h
+-rw-r--r--	root/root	usr/include/qimageblitz/qimageblitz.h
+-rw-r--r--	root/root	usr/include/qimageblitz/qimageblitz_export.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libqimageblitz.so -> libqimageblitz.so.4
+lrwxrwxrwx	root/root	usr/lib/libqimageblitz.so.4 -> libqimageblitz.so.4.0.0
+-rwxr-xr-x	root/root	usr/lib/libqimageblitz.so.4.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/qimageblitz.pc
