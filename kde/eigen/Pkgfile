@@ -1,0 +1,22 @@
+# Description: Lightweight C++ template library for vector and matrix math, a.k.a. linear algebra.
+# URL: http://eigen.tuxfamily.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: cmake qt4
+
+name=eigen
+version=1.0.5
+release=1
+source=(http://download.tuxfamily.org/eigen/eigen-$version.tar.gz)
+
+build() {
+	cd eigen/src
+
+	install -d build
+	cd build
+
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make
+	make DESTDIR=$PKG install
+}
+
