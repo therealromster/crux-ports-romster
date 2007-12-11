@@ -2,7 +2,9 @@
 # URL: http://eigen.tuxfamily.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: alsa strigi Soprano qimageblitz eigen taglib qca
+# Depends on: alsa-lib strigi soprano qimageblitz eigen taglib qca shared-mime-info libungif openexr jasper enchant avahi
+
+#won't compile yet -- fam
 
 name=kdelibs
 version=3.96.0

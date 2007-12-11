@@ -1691,6 +1691,7 @@ drwxr-xr-x	root/root	usr/lib/kde4/cmake/
 -rwxr-xr-x	root/root	usr/lib/kde4/krosskjs.so
 -rwxr-xr-x	root/root	usr/lib/kde4/krossmoduleforms.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kspell_aspell.so
+-rwxr-xr-x	root/root	usr/lib/kde4/kspell_enchant.so
 -rwxr-xr-x	root/root	usr/lib/kde4/ktexteditor_docwordcompletion.so
 -rwxr-xr-x	root/root	usr/lib/kde4/ktexteditor_insertfile.so
 -rwxr-xr-x	root/root	usr/lib/kde4/ktexteditor_kdatatool.so
@@ -3892,6 +3893,7 @@ drwxr-xr-x	root/root	usr/share/kde4/services/kded/
 -rw-r--r--	root/root	usr/share/kde4/services/kmailservice.protocol
 -rw-r--r--	root/root	usr/share/kde4/services/kmultipart.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/kspell_aspell.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/kspell_enchant.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/ktexteditor_docwordcompletion.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/ktexteditor_docwordcompletion_config.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/ktexteditor_insertfile.desktop
