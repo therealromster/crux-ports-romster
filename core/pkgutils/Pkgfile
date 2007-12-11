@@ -5,13 +5,13 @@
 # Depends on: libarchive
 
 name=pkgutils
-version=5.30.0
+version=5.31.0
 release=2
 source=(http://crux.nu/files/pkgutils-$version.tar.gz \
 	pkgutils-$version-lzma-decompress.patch \
 	pkgutils-$version-lzma-compress-package.patch)
 
-build () {
+build() {
 	cd pkgutils-$version
 
 	patch -p1 -i $SRC/pkgutils-$version-lzma-decompress.patch
