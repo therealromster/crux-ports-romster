@@ -139,7 +139,6 @@ drwxr-xr-x	root/root	usr/lib/soprano/
 -rwxr-xr-x	root/root	usr/lib/soprano/libsoprano_raptorparser.so
 -rwxr-xr-x	root/root	usr/lib/soprano/libsoprano_raptorserializer.so
 -rwxr-xr-x	root/root	usr/lib/soprano/libsoprano_redlandbackend.so
--rwxr-xr-x	root/root	usr/lib/soprano/libsoprano_sesame2backend.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/dbus-1/
 drwxr-xr-x	root/root	usr/share/dbus-1/interfaces/
@@ -155,11 +154,6 @@ drwxr-xr-x	root/root	usr/share/soprano/plugins/
 -rw-r--r--	root/root	usr/share/soprano/plugins/raptorparser.desktop
 -rw-r--r--	root/root	usr/share/soprano/plugins/raptorserializer.desktop
 -rw-r--r--	root/root	usr/share/soprano/plugins/redlandbackend.desktop
--rw-r--r--	root/root	usr/share/soprano/plugins/sesame2backend.desktop
 drwxr-xr-x	root/root	usr/share/soprano/rules/
 -rw-r--r--	root/root	usr/share/soprano/rules/nrl.rules
 -rw-r--r--	root/root	usr/share/soprano/rules/rdfs.rules
-drwxr-xr-x	root/root	usr/share/soprano/sesame2/
--rw-r--r--	root/root	usr/share/soprano/sesame2/openrdf-sesame-2.0-rc1-onejar.jar
--rw-r--r--	root/root	usr/share/soprano/sesame2/slf4j-api-1.4.2.jar
--rw-r--r--	root/root	usr/share/soprano/sesame2/slf4j-simple-1.4.2.jar
