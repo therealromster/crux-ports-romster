@@ -2,7 +2,7 @@
 # URL: http://www.graphviz.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Richard Pöttler, richard dot poettler at gmail dot com
-# Depends on: pango swig expat zlib libgd gtk
+# Depends on: pango swig expat zlib libgd gtk python
 
 name=graphviz
 version=2.16
