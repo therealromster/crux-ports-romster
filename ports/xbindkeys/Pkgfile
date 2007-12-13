@@ -1,0 +1,24 @@
+# Description: Allows you to launch shell commands with your keyboard or your mouse under xorg.
+# URL: http://hocwp.free.fr/xbindkeys/xbindkeys.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Johannes Winkelmann, jw at tks6 dot net
+# Depends on: xorg-libx11
+
+name=xbindkeys
+version=1.8.2
+release=1
+source=(http://hocwp.free.fr/xbindkeys/xbindkeys-$version.tar.gz)
+
+build() {
+	cd xbindkeys-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-tk \
+		--disable-guile
+
+	make
+	make DESTDIR=$PKG install
+}
+
