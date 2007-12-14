@@ -346,9 +346,15 @@ backup_ports() {
     
     # backup built packages
     cd "$SAFE_BUILD_DIR/usr/ports/packages"
+
+    if [ ! -d "$SAFE_BUILD_DIR/usr/ports/packages/$CRUX_VERSION" ]; then
+        mkdir $CRUX_VERSION
+    fi
+
+
     for file in *; do
-        if [ ! -f "/usr/share/safe-build/packages/$file" ]; then
-            ln "$SAFE_BUILD_DIR/usr/ports/packages/$file" "/usr/share/safe-build/packages/"
+        if [ ! -f "/usr/share/safe-build/packages/$CRUX_VERSION/$file" ]; then
+            ln "$SAFE_BUILD_DIR/usr/ports/packages/$file" "/usr/share/safe-build/packages/$CRUX_VERSION/"
             echo -n '.'
         fi
     done
@@ -371,11 +377,11 @@ restore_ports() {
 
     echo -n 'Restoring backed up ports'
 
-    cd '/usr/share/safe-build/packages/'
+    cd "/usr/share/safe-build/packages/$CRUX_VERSION"
     for file in *; do
         
-        if [ -f "/usr/share/safe-build/packages/$file" ]; then
-            ln "/usr/share/safe-build/packages/$file" "$SAFE_BUILD_DIR/usr/ports/packages/"
+        if [ -f "/usr/share/safe-build/packages/$CRUX_VERSION/$file" ]; then
+            ln "/usr/share/safe-build/packages/$CRUX_VERSION/$file" "$SAFE_BUILD_DIR/usr/ports/packages/"
             echo -n '.'
         fi
 
@@ -490,6 +496,7 @@ SAFE_BUILD_CDIMAGE_PACKAGES_INSTALL_XORG='no'
 
 [ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'
 [ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/var/crux-2.3'
+[ -z "${CRUX_VERSION}" ] && CRUX_VERSION='2.3'
 [ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_PORTS_TREE='core opt contrib xorg'
 
 main "$@"

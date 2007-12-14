@@ -5,7 +5,7 @@
 # Depends on:
 
 name=safe-build
-version=0.0.0-alpha-31
+version=0.0.0-alpha-32
 release=1
 source=($name.in $name.conf)
 
@@ -16,7 +16,7 @@ build() {
 	#rm -r $PKG/usr/share/doc
 	sed -i -e "s|@VERSION@|$version|g" $name.in
 	install -d $PKG/usr/share/safe-build/packages
-	install -D -m755 $name.in $PKG/usr/sbin/$name
-	install -D -m644 $name.conf $PKG/etc/$name.conf
+	install -D -m 0755 $name.in $PKG/usr/sbin/$name
+	install -D -m 0644 $name.conf $PKG/etc/$name.conf
 }
 
