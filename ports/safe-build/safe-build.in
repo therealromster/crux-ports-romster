@@ -392,6 +392,35 @@ restore_ports() {
     start_chroot
 }
 
+clean() {
+    local required=($(ls --color=never /usr/ports/core/ |xargs) safe-build)
+    local recomended=(popt distcc prtverify fakeroot)
+    local optional=()
+
+    local list=(${required[@]} ${recomended[@]} ${optional[@]})
+
+    local tmpfile='/tmp/.safe-build_clean'
+
+    pkginfo -i |awk '{print $1}' > $tmpfile
+
+    for p in "${list[@]}"; do
+       	sed -i -e "/^$p$/d" $tmpfile
+    done
+
+    total=$(cat $tmpfile |wc -w)
+    count=1
+
+    cat $tmpfile |while read line; do
+    	z=`printf  "%.0f\n" $(bc -l <<< "($count / $total) * 100")`
+    	echo "[$z%] Removing: $line"
+    	count=$[$count+1]
+    	pkgrm "$line"
+    done
+
+    unset total count z
+    rm $tmpfile
+}
+
 print_help() {
 	echo "usage: ${SAFE_BUILD_COMMAND##*/} [options]"
 	echo "options:"
@@ -400,6 +429,7 @@ print_help() {
     #echo "  -r,   --restore             restore backed up ports (reverse of -b)"
 	echo "  -s,   --system              use working system ports"
     echo "  -c    --chroot              chroot back into the directory"
+    echo "  -C    --clean               uninstall packages to a clean state"
     echo "  -u    --umount              unmount the chroot (shutdown)"
 	echo "  -v,   --version             print version and exit"
 	echo "  -h,   --help                print help and exit"
@@ -420,6 +450,8 @@ parse_options() {
 				SAFE_BUILD_SHUTDOWN_SYSTEM='yes' ;;
             -c|--chroot)
                 SAFE_BUILD_SETUP_CHROOT='yes' ;;
+			-C|--clean)
+				CLEAN='yes' ;;
 			-v|--version)
 				echo "${SAFE_BUILD_COMMAND##*/} (chroot) $SAFE_BUILD_VERSION"
 				exit 0 ;;
@@ -454,6 +486,10 @@ main() {
         start_chroot
     fi
 
+    if [ "$CLEAN" = 'yes' ]; then
+        clean
+    fi
+
     if [ "$SAFE_BUILD_SHUTDOWN_SYSTEM" = 'yes' ]; then
         shutdown_umount
     fi
@@ -486,6 +522,7 @@ SAFE_BUILD_SETUP_CHROOT='no'
 SAFE_BUILD_SHUTDOWN_SYSTEM='no'
 SAFE_BUILD_BACKUP_PORTS='no'
 SAFE_BUILD_RESTORE_PORTS='no'
+CLEAN='no'
 
 SAFE_BUILD_CDIMAGE_PORTS_OPT='no'
 SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE='no'
