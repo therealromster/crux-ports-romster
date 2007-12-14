@@ -1,0 +1,25 @@
+diff -pruN xchat-2.8.4.orig/src/fe-gtk/xtext.c xchat-2.8.4/src/fe-gtk/xtext.c
+--- xchat-2.8.4.orig/src/fe-gtk/xtext.c	2007-12-14 15:38:27.452958984 +1100
++++ xchat-2.8.4/src/fe-gtk/xtext.c	2007-12-14 15:43:53.216435408 +1100
+@@ -1916,17 +1916,17 @@ gtk_xtext_check_mark_stamp (GtkXText *xt
+ 
+ 	if ((mask & GDK_SHIFT_MASK))
+ 	{
+-		if (!xtext->mark_stamp)
++		if (xtext->mark_stamp)
+ 		{
+ 			redraw = TRUE;	/* must redraw all */
+-			xtext->mark_stamp = TRUE;
++			xtext->mark_stamp = FALSE;
+ 		}
+ 	} else
+ 	{
+-		if (xtext->mark_stamp)
++		if (!xtext->mark_stamp)
+ 		{
+ 			redraw = TRUE;	/* must redraw all */
+-			xtext->mark_stamp = FALSE;
++			xtext->mark_stamp = TRUE;
+ 		}
+ 	}
+ 	return redraw;
