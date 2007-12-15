@@ -1,0 +1,17 @@
+# Description: Python library for the cddb meta-data server.
+# URL: http://cddb-py.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: python
+
+name=cddb-py
+version=1.4
+release=1
+source=(http://cddb-py.sourceforge.net/CDDB-$version.tar.gz)
+
+build() {
+    cd CDDB-$version
+    python setup.py build
+    python setup.py install --root=$PKG
+}
+
