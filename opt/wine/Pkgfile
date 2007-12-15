@@ -5,7 +5,7 @@
 # Depends on: fontforge xorg-font-msttcorefonts
 
 name=wine
-version=0.9.50
+version=0.9.51
 release=1
 source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
 
@@ -20,4 +20,7 @@ build() {
 	make depend
 	make
 	make prefix=$PKG/usr install
+
+	rm -r $PKG/usr/man/de.UTF-8
 }
+

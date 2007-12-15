@@ -100,6 +100,9 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/basetsd.h
 -rw-r--r--	root/root	usr/include/wine/windows/basetyps.h
 -rw-r--r--	root/root	usr/include/wine/windows/bcrypt.h
+-rw-r--r--	root/root	usr/include/wine/windows/bits.h
+-rw-r--r--	root/root	usr/include/wine/windows/bits.idl
+-rw-r--r--	root/root	usr/include/wine/windows/bitsmsg.h
 -rw-r--r--	root/root	usr/include/wine/windows/cderr.h
 -rw-r--r--	root/root	usr/include/wine/windows/cfgmgr32.h
 -rw-r--r--	root/root	usr/include/wine/windows/cguid.h
@@ -362,6 +365,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/odbcinst.h
 -rw-r--r--	root/root	usr/include/wine/windows/ole2.h
 -rw-r--r--	root/root	usr/include/wine/windows/ole2ver.h
+-rw-r--r--	root/root	usr/include/wine/windows/oleacc.h
+-rw-r--r--	root/root	usr/include/wine/windows/oleacc.idl
 -rw-r--r--	root/root	usr/include/wine/windows/oleauto.h
 -rw-r--r--	root/root	usr/include/wine/windows/olectl.h
 -rw-r--r--	root/root	usr/include/wine/windows/oledb.h
@@ -520,6 +525,7 @@ lrwxrwxrwx	root/root	usr/lib/libwine.so.1 -> libwine.so.1.0
 drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/acledit.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/activeds.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/actxprxy.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/advapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/advpack.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/amstream.dll.so
@@ -841,6 +847,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/pstorec.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/qcap.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/qmgr.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/qmgrprxy.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/quartz.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/query.dll.so
 -rw-r--r--	root/root	usr/lib/wine/rasapi16.dll16
@@ -881,6 +888,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/sti.dll.so
 -rw-r--r--	root/root	usr/lib/wine/storage.dll16
 -rw-r--r--	root/root	usr/lib/wine/stress.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/svchost.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/svrapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sxs.dll.so
 -rw-r--r--	root/root	usr/lib/wine/system.drv16
