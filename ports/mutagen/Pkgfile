@@ -1,0 +1,18 @@
+# Description: Python based tagging library.
+# URL: http://www.sacredchao.net/quodlibet/wiki/Development/Mutagen
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Antonio SJ Musumeci, bile at landofbile dot com
+# Depends on: python
+
+name=mutagen
+version=1.13
+release=1
+source=(http://www.sacredchao.net/~piman/software/mutagen-$version.tar.gz)
+
+build() {
+    cd mutagen-$version
+	 sed -i -e 's|share/man/man1|man/man1|g' setup.py
+    python setup.py build
+    python setup.py install --root $PKG
+}
+
