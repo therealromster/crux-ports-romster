@@ -1,20 +1,31 @@
-# Description: A port of 7-zip for POSIX systems
+# Description: A port of 7-zip for POSIX systems.
 # URL: http://p7zip.sourceforge.net/
-# Maintainer: Matt Housh, jaeger at crux dot nu
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at crux dot nu
+# Dependencies: 
 
 name=p7zip
-version=4.45
+version=4.57
 release=1
-source=(http://prdownloads.sourceforge.net/$name/${name}_${version}_src_all.tar.bz2)
+source=(http://dl.sourceforge.net/p7zip/p7zip_${version}_src_all.tar.bz2)
 
 build() {
-	cd ${name}_$version
+	cd p7zip_$version
+
 	sed -i -e "s/OPTFLAGS=.*/OPTFLAGS=$CFLAGS/" makefile.machine
+
 	make 7za sfx
-	sh install.sh usr/bin usr/lib/$name usr/man $PKG/
-	rm -f $PKG/usr/bin/7za $PKG/usr/man/man1/7zr*
-	ln -s /usr/lib/$name/7za $PKG/usr/bin/7za
-	ln -s /usr/lib/$name/7za $PKG/usr/bin/7z
-	rm -rf $PKG/usr/local
-	chmod -R u+rw $PKG
+	sh install.sh usr/bin usr/lib/p7zip usr/man usr/share/doc/p7zip $PKG/
+
+	rm \
+		$PKG/usr/bin/7za \
+		$PKG/usr/man/man1/7zr.1
+
+	ln -s /usr/lib/p7zip/7za $PKG/usr/bin/7za
+	ln -s /usr/lib/p7zip/7za $PKG/usr/bin/7z
+
+	rm -r $PKG/usr/share
+
+	chmod -R u+w $PKG
 }
+
