@@ -5,7 +5,7 @@
 # Depends on:
 
 name=safe-build
-version=0.0.0-alpha-33
+version=0.0.0-alpha-36
 release=1
 source=($name.in $name.conf)
 

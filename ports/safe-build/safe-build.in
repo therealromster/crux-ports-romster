@@ -99,6 +99,7 @@ setup_image() {
 
     for p in core/*; do
 		pkgadd -r "$SAFE_BUILD_DIR" "$p"
+        cp "$p" "$SAFE_BUILD_DIR/usr/ports/packages/"
         echo -n '.'
 	done
 
@@ -285,14 +286,9 @@ rest() {
     # copy files over so a 'ports -u' dosn't take so long to do
 	cd '/usr/ports/'
     
-	#for repo in *; do
     for repo in $SAFE_BUILD_PORTS_TREE; do
 		if [ $repo	!= distfiles ] && [ $repo != packages ]; then
             cp -R $repo "$SAFE_BUILD_DIR/usr/ports/"
-#            for port in $repo; do
-#                find "/usr/ports/$port/" -type f | xargs cp "$SAFE_BUILD_DIR/usr/ports/$port/"
-#                echo -n '.'
-#            done
             echo -n '.'
 		fi
 	done
@@ -309,13 +305,8 @@ rest() {
 	done
 
     echo ''
-    
-	#cd '/usr/ports/packages'
-	#for i in $(ls --color=never); do
-	#	ln -s "$i" "$SAFE_BUILD_DIR/usr/ports/packages/"
-	#done
 
-    # install script so chroot can be shutdown
+    # install script to chroot
     cp "/usr/sbin/${SAFE_BUILD_COMMAND##*/}" "$SAFE_BUILD_DIR/usr/sbin/"
 
     #start_chroot
@@ -354,7 +345,7 @@ backup_ports() {
 
     for file in *; do
         if [ ! -f "/usr/share/safe-build/packages/$CRUX_VERSION/$file" ]; then
-            ln "$SAFE_BUILD_DIR/usr/ports/packages/$file" "/usr/share/safe-build/packages/$CRUX_VERSION/"
+            ln "$SAFE_BUILD_DIR/usr/ports/packages/$file" "/usr/share/safe-build/packages/$CRUX_VERSION/$file"
             echo -n '.'
         fi
     done
@@ -363,7 +354,7 @@ backup_ports() {
     cd "$SAFE_BUILD_DIR/usr/ports/distfiles"
     for file in *; do
         if [ ! -f "/usr/ports/distfiles/$file" ]; then
-            ln "$SAFE_BUILD_DIR/usr/ports/distfiles/$file" "/usr/ports/distfiles/"
+            ln "$SAFE_BUILD_DIR/usr/ports/distfiles/$file" "/usr/ports/distfiles/$file"
             echo -n '.'
         fi
     done
@@ -372,19 +363,15 @@ backup_ports() {
 }
 
 restore_ports() {
-
-    local file
-
-    echo -n 'Restoring backed up ports'
-
+    local file=''
+    echo 'Restoring backed up ports'
     cd "/usr/share/safe-build/packages/$CRUX_VERSION"
+
     for file in *; do
-        
         if [ -f "/usr/share/safe-build/packages/$CRUX_VERSION/$file" ]; then
-            ln "/usr/share/safe-build/packages/$CRUX_VERSION/$file" "$SAFE_BUILD_DIR/usr/ports/packages/"
+            ln "/usr/share/safe-build/packages/$CRUX_VERSION/$file" "$SAFE_BUILD_DIR/usr/ports/packages/$file"
             echo -n '.'
         fi
-
     done
     
     echo ''
