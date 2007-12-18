@@ -1,0 +1,18 @@
+# Description: A tool for converting PDF to HTML.
+# URL: http://pdftohtml.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Aaron Marks, nymacro at gmail dot com
+# Depends on: xpdf gcc34
+
+name=pdftohtml
+version=0.36
+release=1
+
+source=(http://dl.sourceforge.net/sourceforge/pdftohtml/pdftohtml-$version.tar.gz)
+
+build() {
+	cd pdftohtml-$version
+	make CXX=g++-3.4
+	install -D -m 0755 pdftohtml $PKG/usr/bin/pdftohtml
+}
+
