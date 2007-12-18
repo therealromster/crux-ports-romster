@@ -1,0 +1,19 @@
+# Description: Gnome python extras.
+# URL: http://www.gnome.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: glib pygtk
+
+name=gnome-python-extras
+version=2.12.1
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/gnome-python-extras/${version%.*}/gnome-python-extras-$version.tar.bz2)
+
+build() {
+	cd gnome-python-extras-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/gtk-doc
+}
+
