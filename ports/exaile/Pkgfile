@@ -2,7 +2,7 @@
 # URL: http://www.exaile.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Antonio SJ Musumeci, bile at landofbile dot com
-# Depends on: pygtk gst-python gst-plugins-good gst-plugins-ugly gst-plugins-bad cddb-py dbus-python mutagen sqlite3
+# Depends on: pygtk gst-python gst-plugins-good gst-plugins-ugly gst-plugins-bad cddb-py dbus-python mutagen sqlite3 gnome-python-extras
 
 name=exaile
 version=0.2.11.1
