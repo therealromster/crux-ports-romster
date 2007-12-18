@@ -1,0 +1,18 @@
+# Description: Kernel module for various webcams.
+# URL: http://mxhaard.free.fr/index.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Vincenzo Colosimo, vico at bicisport dot de
+# Depends on: 
+
+name=gspcav1
+version=1.00.20rc2
+date=20071214
+release=1
+source=(http://mxhaard.free.fr/spca50x/Download/$name-$date.tar.gz)
+
+build() {
+	cd $name-$date
+	make
+	install -D -m 0644 gspca.ko $PKG/lib/modules/$(uname -r)/kernel/drivers/media/video/usbvideo/gspca.ko
+}
+
