@@ -1,0 +1,17 @@
+# Description: GD Libraries.
+# URL: http://www.libgd.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jeremy Jones, jeremy at samnjack dot com
+# Depends on: xorg-libxpm libpng libjpeg freetype fontconfig
+
+name=libgd
+version=2.0.35
+release=1
+source=(http://www.libgd.org/releases/gd-$version.tar.gz)
+
+build() {
+	cd gd-$version
+	./configure --prefix=/usr
+	make DESTDIR=$PKG install
+}
+
