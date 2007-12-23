@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/rapper
+-rwxr-xr-x	root/root	usr/bin/raptor-config
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/raptor.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libraptor.la
+lrwxrwxrwx	root/root	usr/lib/libraptor.so -> libraptor.so.1.1.0
+lrwxrwxrwx	root/root	usr/lib/libraptor.so.1 -> libraptor.so.1.1.0
+-rwxr-xr-x	root/root	usr/lib/libraptor.so.1.1.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/raptor.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/rapper.1.gz
+-rw-r--r--	root/root	usr/man/man1/raptor-config.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/libraptor.3.gz
