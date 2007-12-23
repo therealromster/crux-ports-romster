@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	share/
+drwxr-xr-x	root/root	share/cromfs/
+-rw-r--r--	root/root	share/cromfs/BlockIndexing.txt
+-rw-r--r--	root/root	share/cromfs/ImplementationGuide.txt
+-rw-r--r--	root/root	share/cromfs/WriteAccess.txt
+-rw-r--r--	root/root	share/cromfs/size_demo.txt
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cromfs-driver
+-rwxr-xr-x	root/root	usr/bin/cvcromfs
+-rwxr-xr-x	root/root	usr/bin/mkcromfs
+-rwxr-xr-x	root/root	usr/bin/unmkcromfs
