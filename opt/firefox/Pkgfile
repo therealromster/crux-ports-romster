@@ -7,10 +7,10 @@
 name=firefox
 version=2.0.0.11
 release=1
-source=(ftp://ftp.mozilla.org/pub/mozilla.org/$name/releases/$version/source/$name-$version-source.tar.bz2 \
-	$name-2.0-add-ldflags.patch \
-	http://crux.nu/files/$name/$name.desktop \
-	http://crux.nu/files/$name/$name.png \
+source=(ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$version/source/firefox-$version-source.tar.bz2 \
+	firefox-2.0-add-ldflags.patch \
+	http://crux.nu/files/firefox/firefox.desktop \
+	http://crux.nu/files/firefox/firefox.png \
 	mozconfig)
 
 build() {
@@ -19,8 +19,12 @@ build() {
 	export MOZILLA_OFFICIAL=1
 	export MOZILLA_FIVE_HOME=/usr/lib/firefox
 
+	export \
+		CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //') -fno-strict-aliasing" \
+		CXXFLAGS="-O3 $(echo $CXXFLAGS |sed -e 's/-O[s0-3] //') -fno-strict-aliasing"
+
 	cd mozilla
-	patch -p0 -i $SRC/$name-2.0-add-ldflags.patch
+	patch -p0 -i $SRC/firefox-2.0-add-ldflags.patch
 	sed -e "s/#CFLAGS#/$CFLAGS/" $SRC/mozconfig > .mozconfig
 	./configure
 	make
@@ -28,29 +32,29 @@ build() {
 	mkdir -p $PKG$MOZILLA_FIVE_HOME
 	cp -rL dist/bin/* $PKG$MOZILLA_FIVE_HOME
 	mkdir -p $PKG/usr/bin
-	ln -s /usr/lib/$name/$name $PKG/usr/bin/$name
+	ln -s /usr/lib/firefox/firefox $PKG/usr/bin/firefox
 
 	# devel stuff
-	mkdir -p $PKG/usr/share/idl/$name $PKG/usr/include/$name
-	cp -frL dist/idl/* $PKG/usr/share/idl/$name/
-	cp -frL dist/include/* $PKG/usr/include/$name/
+	mkdir -p $PKG/usr/share/idl/firefox $PKG/usr/include/firefox
+	cp -frL dist/idl/* $PKG/usr/share/idl/firefox/
+	cp -frL dist/include/* $PKG/usr/include/firefox/
 
 	# pkgconfig
 	mkdir -p $PKG/usr/lib/pkgconfig
 	install build/unix/*.pc $PKG/usr/lib/pkgconfig
 	sed -i -e "s|/usr/local|/usr|g" $PKG/usr/lib/pkgconfig/*.pc
-	sed -i -e "s|$name-$version|$name|g" $PKG/usr/lib/pkgconfig/*.pc
+	sed -i -e "s|firefox-$version|firefox|g" $PKG/usr/lib/pkgconfig/*.pc
 	# disgusting hack
 	sed -i -e 's|\(Cflags:.*\)|\1 -I${includedir}/dom -I${includedir}/necko|' \
 		$PKG/usr/lib/pkgconfig/*.pc
 
-	chmod 644 $PKG/usr/lib/pkgconfig/$name-*.pc
+	chmod 0644 $PKG/usr/lib/pkgconfig/firefox-*.pc
 
-	rm -f $PKG/usr/lib/$name/README.txt $PKG/usr/lib/$name/init.d/README
+	rm -f $PKG/usr/lib/firefox/README.txt $PKG/usr/lib/firefox/init.d/README
 
 	# desktop entry/icon
-	install -D -m 0644 $SRC/$name.desktop \
-		$PKG/usr/share/applications/$name.desktop
-	install -D -m 0644 $SRC/$name.png $PKG/usr/share/pixmaps/$name.png
+	install -D -m 0644 $SRC/firefox.desktop \
+		$PKG/usr/share/applications/firefox.desktop
+	install -D -m 0644 $SRC/firefox.png $PKG/usr/share/pixmaps/firefox.png
 }
 
