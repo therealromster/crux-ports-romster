@@ -1,0 +1,29 @@
+# Description: Free Lossless Audio Codec.
+# URL: http://flac.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: libogg
+
+name=flac
+version=1.2.1
+release=2
+source=(http://dl.sourceforge.net/sourceforge/flac/flac-$version.tar.gz)
+
+build() {
+	cd flac-$version
+
+	# set optimization flag to best
+	export \
+		CFLAGS="$(echo $CFLAGS |sed -e 's/-O[s0-3] //')" \
+		CXXFLAGS="-O3 $(echo $CXXFLAGS |sed -e 's/-O[s0-3] //')"
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+	
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+}
+
