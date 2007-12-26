@@ -2,9 +2,9 @@
 # URL: http://www.kde.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: kdebase
+# Depends on: kdebase3
 
-name=kdegames
+name=kdegames3
 version=3.5.8
 release=1
 source=(http://download.kde.org/stable/$version/src/kdegames-$version.tar.bz2 \

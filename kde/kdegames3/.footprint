@@ -1,12 +1,10 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/atlantik
--rwxr-xr-x	root/root	usr/bin/kasteroids
 -rwxr-xr-x	root/root	usr/bin/katomic
 -rwxr-xr-x	root/root	usr/bin/kbackgammon
 -rwxr-xr-x	root/root	usr/bin/kbattleship
 -rwxr-xr-x	root/root	usr/bin/kblackbox
--rwxr-xr-x	root/root	usr/bin/kbounce
 -rwxr-xr-x	root/root	usr/bin/kenolaba
 -rwxr-xr-x	root/root	usr/bin/kfouleggs
 -rwxr-xr-x	root/root	usr/bin/kgoldrunner
@@ -16,7 +14,6 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/kmahjongg
 -rwxr-xr-x	root/root	usr/bin/kmines
 -rwxr-xr-x	root/root	usr/bin/knetwalk
--rwxr-xr-x	root/root	usr/bin/kolf
 -rwxr-xr-x	root/root	usr/bin/konquest
 -rwxr-xr-x	root/root	usr/bin/kpat
 -rwxr-xr-x	root/root	usr/bin/kpoker
@@ -92,25 +89,12 @@ drwxr-xr-x	root/root	usr/include/kgame/
 -rw-r--r--	root/root	usr/include/kgameprogress.h
 -rw-r--r--	root/root	usr/include/kgrid2d.h
 -rw-r--r--	root/root	usr/include/khighscore.h
-drwxr-xr-x	root/root	usr/include/kolf/
--rw-r--r--	root/root	usr/include/kolf/ball.h
--rw-r--r--	root/root	usr/include/kolf/canvasitem.h
--rw-r--r--	root/root	usr/include/kolf/config.h
--rw-r--r--	root/root	usr/include/kolf/floater.h
--rw-r--r--	root/root	usr/include/kolf/game.h
--rw-r--r--	root/root	usr/include/kolf/object.h
--rw-r--r--	root/root	usr/include/kolf/rtti.h
--rw-r--r--	root/root	usr/include/kolf/slope.h
--rw-r--r--	root/root	usr/include/kolf/statedb.h
--rw-r--r--	root/root	usr/include/kolf/vector.h
 -rw-r--r--	root/root	usr/include/kscoredialog.h
 -rw-r--r--	root/root	usr/include/kstdgameaction.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/kio_atlantik.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kio_atlantik.so
--rwxr-xr-x	root/root	usr/lib/kde3/kolf.la
--rwxr-xr-x	root/root	usr/lib/kde3/kolf.so
 -rwxr-xr-x	root/root	usr/lib/libatlantic.la
 lrwxrwxrwx	root/root	usr/lib/libatlantic.so -> libatlantic.so.1.2.0
 lrwxrwxrwx	root/root	usr/lib/libatlantic.so.1 -> libatlantic.so.1.2.0
@@ -127,23 +111,15 @@ lrwxrwxrwx	root/root	usr/lib/libatlantikui.so.1 -> libatlantikui.so.1.2.0
 lrwxrwxrwx	root/root	usr/lib/libkdegames.so -> libkdegames.so.1.2.0
 lrwxrwxrwx	root/root	usr/lib/libkdegames.so.1 -> libkdegames.so.1.2.0
 -rwxr-xr-x	root/root	usr/lib/libkdegames.so.1.2.0
--rwxr-xr-x	root/root	usr/lib/libkdeinit_kolf.la
--rwxr-xr-x	root/root	usr/lib/libkdeinit_kolf.so
--rwxr-xr-x	root/root	usr/lib/libkolf.la
-lrwxrwxrwx	root/root	usr/lib/libkolf.so -> libkolf.so.1.2.0
-lrwxrwxrwx	root/root	usr/lib/libkolf.so.1 -> libkolf.so.1.2.0
--rwxr-xr-x	root/root	usr/lib/libkolf.so.1.2.0
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 drwxr-xr-x	root/root	usr/share/applications/kde/
 -rw-r--r--	root/root	usr/share/applications/kde/KGoldrunner.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/atlantik.desktop
--rw-r--r--	root/root	usr/share/applications/kde/kasteroids.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/katomic.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kbackgammon.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kbattleship.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kblackbox.desktop
--rw-r--r--	root/root	usr/share/applications/kde/kbounce.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kenolaba.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kfouleggs.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kjumpingcube.desktop
@@ -152,7 +128,6 @@ drwxr-xr-x	root/root	usr/share/applications/kde/
 -rw-r--r--	root/root	usr/share/applications/kde/kmahjongg.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kmines.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/knetwalk.desktop
--rw-r--r--	root/root	usr/share/applications/kde/kolf.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/konquest.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kpat.desktop
 -rw-r--r--	root/root	usr/share/applications/kde/kpoker.desktop
@@ -886,11 +861,9 @@ drwxr-xr-x	root/root	usr/share/apps/carddecks/decks/
 -rw-r--r--	root/root	usr/share/apps/carddecks/decks/deck9.desktop
 -rw-r--r--	root/root	usr/share/apps/carddecks/decks/deck9.png
 drwxr-xr-x	root/root	usr/share/apps/kasteroids/
--rw-r--r--	root/root	usr/share/apps/kasteroids/kasteroidsui.rc
 drwxr-xr-x	root/root	usr/share/apps/kasteroids/sounds/
 -rw-r--r--	root/root	usr/share/apps/kasteroids/sounds/Explosion.wav
 drwxr-xr-x	root/root	usr/share/apps/kasteroids/sprites/
--rw-r--r--	root/root	usr/share/apps/kasteroids/sprites/bg.png
 drwxr-xr-x	root/root	usr/share/apps/kasteroids/sprites/bits/
 -rw-r--r--	root/root	usr/share/apps/kasteroids/sprites/bits/bits0000.png
 -rw-r--r--	root/root	usr/share/apps/kasteroids/sprites/bits/bits0001.png
@@ -1238,7 +1211,6 @@ drwxr-xr-x	root/root	usr/share/apps/kblackbox/pics/
 -rw-r--r--	root/root	usr/share/apps/kblackbox/pics/red.xpm
 -rw-r--r--	root/root	usr/share/apps/kblackbox/pics/white.xpm
 drwxr-xr-x	root/root	usr/share/apps/kbounce/
--rw-r--r--	root/root	usr/share/apps/kbounce/kbounceui.rc
 drwxr-xr-x	root/root	usr/share/apps/kbounce/pics/
 -rw-r--r--	root/root	usr/share/apps/kbounce/pics/ball0000.png
 -rw-r--r--	root/root	usr/share/apps/kbounce/pics/ball0001.png
@@ -1572,8 +1544,6 @@ drwxr-xr-x	root/root	usr/share/apps/kolf/courses/
 -rw-r--r--	root/root	usr/share/apps/kolf/courses/Practice
 -rw-r--r--	root/root	usr/share/apps/kolf/courses/ReallyEasy
 -rw-r--r--	root/root	usr/share/apps/kolf/courses/USApro
--rw-r--r--	root/root	usr/share/apps/kolf/intro
--rw-r--r--	root/root	usr/share/apps/kolf/kolfui.rc
 drwxr-xr-x	root/root	usr/share/apps/kolf/pics/
 -rw-r--r--	root/root	usr/share/apps/kolf/pics/cup.png
 -rw-r--r--	root/root	usr/share/apps/kolf/pics/grass.png
@@ -1588,8 +1558,6 @@ drwxr-xr-x	root/root	usr/share/apps/kolf/sounds/
 -rw-r--r--	root/root	usr/share/apps/kolf/sounds/holeinone.wav
 -rw-r--r--	root/root	usr/share/apps/kolf/sounds/puddle.wav
 -rw-r--r--	root/root	usr/share/apps/kolf/sounds/wall.wav
--rw-r--r--	root/root	usr/share/apps/kolf/tutorial.kolf
--rw-r--r--	root/root	usr/share/apps/kolf/tutorial.kolfgame
 drwxr-xr-x	root/root	usr/share/apps/konquest/
 -rw-r--r--	root/root	usr/share/apps/konquest/konquestui.rc
 drwxr-xr-x	root/root	usr/share/apps/konquest/pics/
@@ -2256,7 +2224,6 @@ drwxr-xr-x	root/root	usr/share/apps/lskat/grafix/
 drwxr-xr-x	root/root	usr/share/apps/zeroconf/
 -rw-r--r--	root/root	usr/share/apps/zeroconf/_kbattleship._tcp
 drwxr-xr-x	root/root	usr/share/config.kcfg/
--rw-r--r--	root/root	usr/share/config.kcfg/kasteroids.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/kfouleggs.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/kjumpingcube.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/klines.kcfg
@@ -2268,9 +2235,6 @@ drwxr-xr-x	root/root	usr/share/config.kcfg/
 -rw-r--r--	root/root	usr/share/config.kcfg/kspaceduel.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/ktron.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/kwin4.kcfg
-drwxr-xr-x	root/root	usr/share/config/
-drwxr-xr-x	root/root	usr/share/config/magic/
--rw-r--r--	root/root	usr/share/config/magic/kolf.magic
 drwxr-xr-x	root/root	usr/share/doc/
 drwxr-xr-x	root/root	usr/share/doc/HTML/
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/
@@ -2499,7 +2463,6 @@ drwxr-xr-x	root/root	usr/share/icons/crystalsvg/scalable/actions/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/apps/
--rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/kasteroids.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/katomic.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/kbackgammon.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/kbattleship.png
@@ -2533,7 +2496,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/apps/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/atlantik.png
--rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/kasteroids.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/katomic.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/kbackgammon.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/kbackgammon_engine.png
@@ -2566,7 +2528,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/lskat.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/apps/
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/kasteroids.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/katomic.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/kbackgammon.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/kbattleship.png
@@ -2600,7 +2561,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/apps/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/atlantik.png
--rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/kasteroids.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/katomic.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/kbackgammon.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/kbackgammon_engine.png
@@ -2635,7 +2595,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/apps/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/atlantik.png
--rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/kasteroids.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/katomic.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/kbackgammon.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/kbackgammon_engine.png
@@ -2668,7 +2627,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/lskat.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/apps/
--rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/kasteroids.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/katomic.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/kbackgammon.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/kbackgammon_engine.png
@@ -2702,8 +2660,6 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/lskat.png
 drwxr-xr-x	root/root	usr/share/mimelnk/
 drwxr-xr-x	root/root	usr/share/mimelnk/application/
--rw-r--r--	root/root	usr/share/mimelnk/application/x-kolf.desktop
--rw-r--r--	root/root	usr/share/mimelnk/application/x-kourse.desktop
 -rw-r--r--	root/root	usr/share/mimelnk/application/x-tuberling.desktop
 drwxr-xr-x	root/root	usr/share/services/
 -rw-r--r--	root/root	usr/share/services/atlantik.protocol
