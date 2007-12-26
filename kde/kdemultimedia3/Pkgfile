@@ -2,9 +2,9 @@
 # URL: http://www.kde.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: kdebase, flac, taglib, libtunepimp, cdrtools, xine-lib, libsdl, k3b
+# Depends on: kdebase3 flac taglib libtunepimp cdrtools xine-lib libsdl k3b
 
-name=kdemultimedia
+name=kdemultimedia3
 version=3.5.8
 release=1
 source=(http://download.kde.org/stable/$version/src/kdemultimedia-$version.tar.bz2)
