@@ -1,0 +1,41 @@
+# Maintainer:  Simone Rota, sip at crux dot nu
+# Description: A version control system (CVS replacement)
+# URL:         http://subversion.tigris.org
+# Depends on:  apr neon expat
+
+name=subversion
+version=1.4.6
+release=1
+source=(http://subversion.tigris.org/downloads/subversion-$version.tar.bz2)
+
+build() {
+	cd subversion-$version
+
+	#NEON_ALLOWED_LIST=
+	#sed -i -e 's|0.26.1|0.26.2|g' configure
+
+	LDFLAGS="-L$PKG/usr/lib" \
+		./configure \
+			--prefix=/usr \
+			--disable-nls \
+			--disable-mod-activation \
+			--with-apr=/usr \
+			--with-apr-util=/usr \
+			--with-neon=/usr \
+			--without-swig
+
+			#--disable-neon-version-check
+
+	make
+	make DESTDIR=$PKG external-install local-install 
+
+	# fix paths in *.la files
+	sed -i -e "s|-L$PKG/usr/lib||g" $PKG/usr/lib/*.la
+
+	# info pages seem to get generated when makeinfo is available
+	if pkginfo -i |grep '^texinfo '; then
+		echo 'no dir'
+		#rmdir $PKG/usr/info
+	fi
+}
+
