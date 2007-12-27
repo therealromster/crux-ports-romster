@@ -1,0 +1,48 @@
+# Description: Mozilla Network Security Services (NSS)
+# URL: http://www.mozilla.org/projects/security/pki/nss/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Simone Rota, sip at varlock dot com
+# Depends on: 
+
+name=nss
+version=3.11.4
+release=1
+source=(ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_RTM/src/nss-3.11.tar.gz \
+	ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_4_RTM/src/nss-$version.tar.gz \
+	nss-fixes.patch)
+
+build() {
+	export BUILD_OPT=1
+
+	cp -rp nss-$version/* nss-3.11
+
+	cd nss-3.11
+
+	patch -p1 -i $SRC/nss-fixes.patch
+
+	cd mozilla/security/nss
+
+	make -j1 nss_build_all
+	make install
+
+	install -d \
+		$PKG/usr/lib \
+		$PKG/usr/include/nss \
+		$PKG/usr/include/nspr
+
+	find ../../dist/*/lib -type l \( -name '*.so' -o -name '*.chk' \) -exec cp -L {} $PKG/usr/lib \;
+
+	install -v -D -m 0644 ../../nsprpub/lib/pkgconfig/nspr.pc $PKG/usr/lib/pkgconfig/nspr.pc
+	install -v -D -m 0644 ../../dist/*/lib/libcrmf.a $PKG/usr/lib/libcrmf.a
+	install -v -D -m 0644 lib/pkgconfig/nss.pc $PKG/usr/lib/pkgconfig/nss.pc
+	install -v -D -m 0755 ../../nsprpub/Linux*/config/nspr-config $PKG/usr/bin/nspr-config
+	install -v -D -m 0755 cmd/config/nss-config $PKG/usr/bin/nss-config
+	cp -Lr ../../dist/public/{dbm,nss} $PKG/usr/include/
+	cp -Lr ../../dist/*/include/* $PKG/usr/include/nspr
+	rm -r $PKG/usr/include/nspr/md
+
+	chmod 0644 $PKG/usr/include/nspr/prvrsion.h
+
+	unset BUILD_OPT
+}
+
