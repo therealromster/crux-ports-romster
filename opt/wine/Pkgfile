@@ -6,16 +6,24 @@
 
 name=wine
 version=0.9.51
-release=1
-source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
+release=2
+source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2 \
+	compile-info.patch)
 
 build() {
 	cd wine-$version
 
+	patch -p1 -i $SRC/compile-info.patch
+
+	export \
+		CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')" \
+		CXXFLAGS="-O3 $(echo $CXXFLAGS |sed -e 's/-O[s0-3] //')"
+
 	./configure \
 		--prefix=/usr \
 		--mandir=$PKG/usr/man \
-		--disable-nls
+		--disable-nls \
+		--disable-oss
 
 	make depend
 	make
