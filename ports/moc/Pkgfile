@@ -1,0 +1,28 @@
+# Description: Console audio player with support for mp3, ogg, wav etc.
+# URL: http://moc.daper.net/
+# Maintainer: 
+# Packager: Stoyan Zhekov, zhware at hotpop dot com
+# Depends on: ncurses libmad libvorbis libid3tag flac
+
+name=moc
+version=2.4.3
+release=1
+source=(ftp://ftp.daper.net/pub/soft/moc/stable/moc-$version.tar.bz2)
+
+build() {
+	cd moc-$version
+	
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls \
+		--disable-debug
+
+	make
+	make DESTDIR=$PKG install
+
+	install -D -m 0644 config.example $PKG/usr/share/moc/config.example
+
+	rm -rf $PKG/usr/share/doc
+}
+
