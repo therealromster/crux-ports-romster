@@ -5,8 +5,8 @@
 # Depends on: fontforge xorg-font-msttcorefonts
 
 name=wine
-version=0.9.51
-release=2
+version=0.9.52
+release=1
 source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2 \
 	compile-info.patch)
 
