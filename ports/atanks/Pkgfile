@@ -5,7 +5,7 @@
 # Depends on: allegro
 
 name=atanks
-version=2.6
+version=2.7
 release=1
 source=(http://dl.sourceforge.net/sourceforge/atanks/atanks-$version.tar.gz \
 	atanks.sh)
@@ -13,8 +13,8 @@ source=(http://dl.sourceforge.net/sourceforge/atanks/atanks-$version.tar.gz \
 build() {
 	cd atanks
 	(cd src; make)
-	install -D -m755 atanks $PKG/usr/share/atanks/atanks
-	install -m644 *.dat *.txt $PKG/usr/share/atanks/
-	install -D -m755 $SRC/atanks.sh $PKG/usr/bin/atanks
+	install -D -m 0755 atanks $PKG/usr/share/atanks/atanks
+	install -m 0644 *.dat *.txt -t $PKG/usr/share/atanks/
+	install -D -m 0755 $SRC/atanks.sh $PKG/usr/bin/atanks
 }
 
