@@ -5,7 +5,7 @@
 # Depends on: imlib xorg-libice xorg-libxft xorg-libxinerama xorg-mkfontdir
 
 name=icewm
-version=1.2.32
+version=1.2.34
 release=1
 source=(http://dl.sourceforge.net/sourceforge/icewm/icewm-$version.tar.gz)
 
