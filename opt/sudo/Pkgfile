@@ -1,0 +1,28 @@
+# Description: Sudo (superuser do).
+# URL: http://www.sudo.ws/sudo/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Todd Miller, todd dot miller at courtesan dot com
+# Depends on: 
+
+name=sudo
+version=1.6.9p10
+release=1
+source=(http://www.sudo.ws/sudo/dist/sudo-$version.tar.gz)
+
+build() {
+	cd sudo-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--libexecdir=/usr/lib \
+		--without-pam
+
+	make
+	install -d $PKG/{etc,usr/{bin,sbin}}
+	make -j1 DESTDIR=$PKG install
+	chmod a+x $PKG/usr/lib/*.la
+	ln -sf sudo $PKG/usr/bin/sudoedit
+	ln -sf sudo.8.gz $PKG/usr/man/man8/sudoedit.8
+}
+
