@@ -1,0 +1,26 @@
+# Description: The Library of Assorted Spiffy Things.
+# URL: http://www.eterm.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on: freetype imlib2 libpcre
+
+name=libast
+version=0.7
+release=1
+source=(http://www.eterm.org/download/libast-$version.tar.gz)
+
+build() {
+	cd libast-$version
+
+	./configure \
+		--prefix=/usr \
+		--with-gnu-ld \
+		--with-x \
+		--enable-mmx \
+		--disable-nls \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+}
+

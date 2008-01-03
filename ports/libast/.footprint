@@ -1,0 +1,32 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/libast-config
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libast.h
+drwxr-xr-x	root/root	usr/include/libast/
+-rw-r--r--	root/root	usr/include/libast/array.h
+-rw-r--r--	root/root	usr/include/libast/avl_tree.h
+-rw-r--r--	root/root	usr/include/libast/dlinked_list.h
+-rw-r--r--	root/root	usr/include/libast/iterator_if.h
+-rw-r--r--	root/root	usr/include/libast/linked_list.h
+-rw-r--r--	root/root	usr/include/libast/list_if.h
+-rw-r--r--	root/root	usr/include/libast/map_if.h
+-rw-r--r--	root/root	usr/include/libast/mbuff.h
+-rw-r--r--	root/root	usr/include/libast/obj.h
+-rw-r--r--	root/root	usr/include/libast/objpair.h
+-rw-r--r--	root/root	usr/include/libast/regexp.h
+-rw-r--r--	root/root	usr/include/libast/socket.h
+-rw-r--r--	root/root	usr/include/libast/str.h
+-rw-r--r--	root/root	usr/include/libast/sysdefs.h
+-rw-r--r--	root/root	usr/include/libast/tok.h
+-rw-r--r--	root/root	usr/include/libast/types.h
+-rw-r--r--	root/root	usr/include/libast/url.h
+-rw-r--r--	root/root	usr/include/libast/vector_if.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libast.la
+lrwxrwxrwx	root/root	usr/lib/libast.so -> libast.so.2.0.1
+lrwxrwxrwx	root/root	usr/lib/libast.so.2 -> libast.so.2.0.1
+-rwxr-xr-x	root/root	usr/lib/libast.so.2.0.1
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/libast.m4
