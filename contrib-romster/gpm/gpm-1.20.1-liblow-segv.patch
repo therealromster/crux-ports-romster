@@ -1,0 +1,12 @@
+--- gpm-1.20.1/src/lib/liblow.c.orig	2002-12-24 23:57:16.000000000 +0100
++++ gpm-1.20.1/src/lib/liblow.c	2004-08-19 04:02:13.834170632 +0200
+@@ -199,7 +199,8 @@
+    Gpm_Stst *new = NULL;
+    char* sock_name = 0;
+ 
+-   option.consolename = NULL;
++   if(!checked_con)
++      option.consolename = NULL;
+ 
+    gpm_report(GPM_PR_DEBUG,"VC: %d",flag);
+ 

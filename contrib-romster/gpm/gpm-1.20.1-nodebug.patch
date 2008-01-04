@@ -1,0 +1,14 @@
+--- gpm-1.20.0/src/lib/report-lib.c.foo	Wed Mar 27 17:13:24 2002
++++ gpm-1.20.0/src/lib/report-lib.c	Wed Mar 27 17:14:08 2002
+@@ -27,6 +27,11 @@
+ {
+    char *string = NULL;
+    va_list ap;
++#ifndef DEBUG_VERBOSE
++   if(stat==GPM_STAT_DEBUG)
++	   return;
++#endif
++
+    va_start(ap,text);
+ 
+    switch(stat) {

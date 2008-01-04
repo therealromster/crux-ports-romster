@@ -1,0 +1,47 @@
+# Description: Console mouse server.
+# URL: http://unix.schottelius.org/gpm/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Han Boetes, han at mijncomputer dot nl
+
+
+name=gpm
+version=1.20.1
+release=1
+source=(http://unix.schottelius.org/gpm/archives/gpm-$version.tar.bz2 \
+	gpm-$version-nodebug.patch \
+	gpm-$version-no-dumb-error-messages.patch \
+	gpm-$version-liblow-segv.patch \
+	gpm.rc)
+
+build() {
+	cd gpm-$version
+
+	sed -i \
+		-e 's/^MAKEINFO.*/MAKEINFO = no/' \
+		-e '/^EMACS.*/d' Makefile.include.in
+
+	# emacs gpm support is included in emacs. xterm-mouse-mode
+	sed -i \
+		-e 's/EMACS=.*/EMACS=:/' \
+		-e 's/ELISP=.*/ELISP=/' configure
+
+	patch -p1 -i $SRC/gpm-$version-nodebug.patch
+	patch -p1 -i $SRC/gpm-$version-no-dumb-error-messages.patch
+	patch -p1 -i $SRC/gpm-$version-liblow-segv.patch
+
+	./configure --prefix=/usr
+
+	make LDFLAGS='-lm'
+	make ROOT=$PKG install
+
+	install -D -m 0755 $SRC/gpm.rc $PKG/etc/rc.d/gpm
+
+	chmod 0755 $PKG/usr/lib/libgpm.so.*.*.*
+
+	rm -r $PKG/usr/etc
+
+	if pkginfo -i |grep '^texinfo ' > /dev/null; then
+		rm -r $PKG/usr/info
+	fi
+}
+

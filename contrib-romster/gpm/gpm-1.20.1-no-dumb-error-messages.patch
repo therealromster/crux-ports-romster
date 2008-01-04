@@ -1,0 +1,20 @@
+--- gpm-1.20.1/src/lib/liblow.c.no-dumb-error-messages	2003-07-07 15:42:18.000000000 +0200
++++ gpm-1.20.1/src/lib/liblow.c	2003-07-07 16:33:33.000000000 +0200
+@@ -259,7 +259,7 @@ int Gpm_Open(Gpm_Connect *conn, int flag
+          /* do we really need this check ? */
+          if(strncmp(tty,option.consolename,strlen(option.consolename)-1)
+             || !isdigit(tty[strlen(option.consolename)-1])) {
+-            gpm_report(GPM_PR_ERR,"strncmp/isdigit/option.consolename failed");
++             /* gpm_report(GPM_PR_ERR,"strncmp/isdigit/option.consolename failed"); */
+             goto err;
+          }
+           
+@@ -368,7 +368,7 @@ int Gpm_Open(Gpm_Connect *conn, int flag
+ 
+   /*....................................... Error: free all memory */
+    err:
+-   gpm_report(GPM_PR_ERR,"Oh, oh, it's an error! possibly I die! ");
++  /* gpm_report(GPM_PR_ERR,"Oh, oh, it's an error! possibly I die! "); */
+    do {
+       new=gpm_stack->next;
+       free(gpm_stack);
