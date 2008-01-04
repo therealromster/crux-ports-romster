@@ -1,0 +1,27 @@
+# Description: Record audio or data disc's in disk-at-once (DAO) mode.
+# URL: http://cdrdao.sourceforge.net/
+# Maintainer:   Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Michael Ablassmeier, michael.ablassmeier at holzkirchen dot by dot aok dot de 
+# Depends on: 
+
+name=cdrdao
+version=1.2.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/cdrdao/cdrdao-$version.tar.bz2)
+
+build() {
+ 	cd cdrdao-$version
+
+	./configure \
+		--prefix=/usr \
+		--without-lame
+
+	make
+	install -d $PKG/usr
+	make prefix=$PKG/usr install
+
+	chown root:cdrom $PKG/usr/bin/cdrdao
+	chmod u+s,o-x $PKG/usr/bin/cdrdao
+
+
+}
