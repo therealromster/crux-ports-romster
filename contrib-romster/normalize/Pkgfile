@@ -1,0 +1,24 @@
+# Description: Normalize mp3 and wav files.
+# URL: http://normalize.nongnu.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Markus Heinz, su1690 at studserver dot uni-dortmund dot de
+# Depends on: lame libmad vorbisgain
+
+name=normalize
+version=0.7.7
+release=1
+source=(http://savannah.nongnu.org/download/normalize/normalize-$version.tar.bz2)
+
+build() {
+	cd normalize-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+	# Don't make and or use this for oggs. Use vorbisgain.
+	rm $PKG/usr/bin/normalize-ogg
+}
+
