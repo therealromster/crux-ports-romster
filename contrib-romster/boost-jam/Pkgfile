@@ -1,0 +1,18 @@
+# Description: Build tool for boost.
+# URL: http://www.boost.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=boost-jam
+version=3.1.16
+release=1
+source=(http://dl.sourceforge.net/sourceforge/boost/boost-jam-$version.tgz)
+
+build() {
+	cd boost-jam-$version
+	local bindir='bin.linuxx86'
+	./build.sh gcc
+	install -D -m 0755 $bindir/bjam $PKG/usr/bin/bjam
+}
+
