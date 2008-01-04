@@ -1,0 +1,29 @@
+# Description: Widely used set of C/C++ libraries providing Unicode and Globalization support.
+# URL: http://www.icu-project.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on: 
+
+name=icu
+version=3.8.1
+release=1
+source=(http://download.icu-project.org/files/icu4c/$version/icu4c-${version//./_}-src.tgz)
+
+build() {
+	cd icu/source
+
+	chmod +x runConfigureICU configure install-sh
+
+	./runConfigureICU LinuxRedHat \
+		--prefix=/usr \
+		--enable-shared \
+		--disable-samples  \
+		--disable-tests  \
+		--enable-rpath
+
+	make
+	make prefix=$PKG/usr install
+
+	rm $PKG/usr/share/icu/$version/license.html
+}
+
