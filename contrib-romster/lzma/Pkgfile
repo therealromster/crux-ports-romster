@@ -2,10 +2,10 @@
 # URL: http://tukaani.org/lzma/
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on:
+# Depends on: 
 
 name=lzma
-version=4.32.3
+version=4.32.4
 release=1
 source=(http://tukaani.org/lzma/lzma-$version.tar.gz)
 
