@@ -4,12 +4,13 @@
 # Packager: Sven Dahl, dahl at c64 dot org
 
 name=tcl
-version=8.4.14
+version=8.5.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz)
 
 build() {
-	cd tcl$version/unix/
+	cd tcl$version/unix
+
 	./configure --prefix=/usr
 	make
 	make install MKLINKS_FLAGS="-s" INSTALL_ROOT=$PKG
@@ -18,11 +19,11 @@ build() {
 	cp tclUnixPort.h $PKG/usr/include/tclPort.h
 	cp tclUnixThrd.h $PKG/usr/include/tclThrd.h
 
-	sed -i -e "s|$SRC/tcl${version}/unix|/usr/lib|" $PKG/usr/lib/tclConfig.sh
+	sed -i -e "s|$SRC/tcl$version/unix|/usr/lib|" $PKG/usr/lib/tclConfig.sh
 
 	rm $PKG/usr/include/regex.h
 
-	ln -sf tclsh8.4 $PKG/usr/bin/tclsh
-	find $PKG/usr/man -type f -print0 | xargs -0 chmod 644
+	ln -sf tclsh${version%.*} $PKG/usr/bin/tclsh
+	chmod -R u+w $PKG/usr/man 
 }
 
