@@ -6,7 +6,7 @@
 # Nice to have: sqlite3
 
 name=libsndfile
-version=1.0.18pre18
+version=1.0.18pre19
 release=1
 source=(http://www.mega-nerd.com/tmp/libsndfile-$version.tar.gz)
 
@@ -16,8 +16,7 @@ build() {
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
-		--disable-static \
-		--disable-dependency-tracking
+		--disable-static
 
 	make
 	make DESTDIR=$PKG install
