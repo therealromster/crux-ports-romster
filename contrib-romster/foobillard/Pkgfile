@@ -2,7 +2,7 @@
 # URL: http://foobillard.sunsite.dk/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: libpng libsdl freetype mesa3d
+# Depends on: libpng libsdl freetype mesa3d xorg-libxaw xorg-libxi
 
 name=foobillard
 version=3.0a
