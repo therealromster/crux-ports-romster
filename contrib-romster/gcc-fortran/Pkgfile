@@ -5,8 +5,8 @@
 # Depends on: mpfr
 
 name=gcc-fortran
-version=4.1.2
-release=3
+version=4.2.2
+release=1
 source=(ftp://sources.redhat.com/pub/gcc/releases/gcc-$version/gcc-{core,fortran}-$version.tar.bz2 \
 	gcc-fortran-$version-nocheck-fixincludes.patch \
 	gcc-fortran-$version-fixinc.patch)
@@ -54,9 +54,11 @@ build() {
 		$PKG/usr/lib/gcc/*/$version/include		
 
 	# remove files already on the system out of the port
-	for i in $(find $PKG | sed -e "s|$PKG|/|"); do
-		if [ -e "$i" ] && [ ! -d "$i" ] ; then
-			rm $PKG/$i
+	for i in $(pkginfo -l gcc |sed -e "s|^|/|"); do
+		if [ -e "$i" ] && [ ! -d "$i" ]; then
+			if [ -e "$PKG$i" ]; then
+				rm "$PKG$i"
+			fi
 		fi
 	done
 
