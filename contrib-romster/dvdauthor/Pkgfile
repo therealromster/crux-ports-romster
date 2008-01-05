@@ -2,7 +2,7 @@
 # URL: http://dvdauthor.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: libxml2 libdvdnav
+# Depends on: libxml2 libdvdnav libpng
 
 name=dvdauthor
 version=0.6.14
