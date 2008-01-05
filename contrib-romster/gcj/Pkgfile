@@ -5,7 +5,7 @@
 # Depends On: texinfo
 
 name=gcj
-version=4.1.2
+version=4.2.2
 release=1
 source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-{core,g++,java}-$version.tar.bz2 \
 	gcj-$version-nocheck-fixincludes.patch \
