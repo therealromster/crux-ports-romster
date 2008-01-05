@@ -1,8 +1,8 @@
 # Description: Free peer-reviewed portable C++ source libraries.
-# URL: http://www.boost.org
+# URL: http://www.boost.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: python
+# Depends on: boost-jam icu python
 
 name=boost
 version=1.34.1
@@ -13,27 +13,31 @@ build() {
 	cd boost_${version//./_}
 
 	local bindir='bin.linuxx86'
-	local gccversion="$(pkginfo -i |grep '^gcc ' |awk '{print $2}' |sed -e "s/\([.0-9]*\)-[0-9]*/\1/")"
+	local gccversion="$(gcc -dumpversion)"
 	export CFLAGS="$CFLAGS -fno-strict-aliasing"
-
-	(
-		cd tools/jam/src
-		./build.sh gcc
-		install -D -m755 $bindir/bjam $PKG/usr/bin/bjam
-	)
+	export CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
 
 	(
 		cd tools/bcp
-		../jam/src/$bindir/bjam --toolset=gcc debug-symbols=off
-		install -D -m755 ../../bin.v2/tools/bcp/gcc-$gccversion/release/link-static/bcp $PKG/usr/bin/bcp
+
+		bjam \
+			--toolset=gcc \
+			debug-symbols=off \
+			-sHAVE_ICU=1
+
+		install -D -m 0755 ../../bin.v2/tools/bcp/gcc-$gccversion/release/link-static/bcp $PKG/usr/bin/bcp
 	)
 
-	./tools/jam/src/$bindir/bjam \
-		release debug-symbols=off threading=single,multi \
-		runtime-link=shared link=shared,static \
+	bjam \
+		release \
+		debug-symbols=off \
+		threading=single,multi \
+		runtime-link=shared \
+		link=shared,static \
 		--prefix=$PKG/usr \
 		--toolset=gcc \
 		--layout=system \
+		-sHAVE_ICU=1 \
 		install
 
 	cd libs/python/pyste/install
