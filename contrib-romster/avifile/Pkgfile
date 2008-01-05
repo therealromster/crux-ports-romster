@@ -2,7 +2,7 @@
 # URL: http://avifile.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: xorg-libxft xorg-libxv xorg-libxinerama libsdl liba52 libmad lame libdivx freetype libvorbis ffmpeg
+# Depends on: xorg-libxft xorg-libxv xorg-libxinerama libsdl liba52 libmad lame libdivx freetype libvorbis ffmpeg xorg-libxi xorg-libxxf86dga xorg-libxxf86vm libdivx-legacy
 
 name=avifile
 version=0.7-0.7.45
