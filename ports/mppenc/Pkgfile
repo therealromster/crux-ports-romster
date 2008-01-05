@@ -1,0 +1,22 @@
+# Description: Musepack Encoder, encode wav to MPC.
+# URL: http://www.musepack.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: cmake
+
+name=mppenc
+version=1.16
+release=1
+source=(http://files.musepack.net/source/mppenc-$version.tar.bz2)
+
+build() {
+	cd mppenc-$version
+
+	install -d build
+	cd build
+
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make
+	make DESTDIR=$PKG install
+}
+
