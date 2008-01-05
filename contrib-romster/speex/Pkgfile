@@ -5,16 +5,16 @@
 # Depends on: libogg
 
 name=speex
-version=1.2beta2
-release=1
+version=1.2beta3
+release=2
 source=(http://downloads.us.xiph.org/releases/speex/speex-$version.tar.gz)
 
 build() {
 	cd speex-$version
-	find $SRC -type f -exec sed -i -e 's|/share/man|/man|g' {} \; 
-	
+
 	./configure \
 		--prefix=/usr \
+		--mandir=$PKG/usr/man \
 		--disable-static \
 		--enable-epic-48k
 
