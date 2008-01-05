@@ -1,24 +1,222 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/libst-config
 lrwxrwxrwx	root/root	usr/bin/play -> sox
 lrwxrwxrwx	root/root	usr/bin/rec -> sox
 -rwxr-xr-x	root/root	usr/bin/sox
 lrwxrwxrwx	root/root	usr/bin/soxmix -> /usr/bin/sox
 drwxr-xr-x	root/root	usr/include/
--rw-r--r--	root/root	usr/include/st.h
--rw-r--r--	root/root	usr/include/ststdint.h
+-rw-r--r--	root/root	usr/include/sox.h
+-rw-r--r--	root/root	usr/include/soxstdint.h
 drwxr-xr-x	root/root	usr/lib/
--rwxr-xr-x	root/root	usr/lib/libst.la
-lrwxrwxrwx	root/root	usr/lib/libst.so -> libst.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libst.so.0 -> libst.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libst.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsfx.la
+lrwxrwxrwx	root/root	usr/lib/libsfx.so -> libsfx.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libsfx.so.0 -> libsfx.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsfx.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsox.la
+lrwxrwxrwx	root/root	usr/lib/libsox.so -> libsox.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libsox.so.0 -> libsox.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsox.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/sox/
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_aifc.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_aifc.so -> libsox_fmt_aifc.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_aifc.so.0 -> libsox_fmt_aifc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_aifc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_aiff.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_aiff.so -> libsox_fmt_aiff.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_aiff.so.0 -> libsox_fmt_aiff.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_aiff.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_al.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_al.so -> libsox_fmt_al.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_al.so.0 -> libsox_fmt_al.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_al.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_alsa.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_alsa.so -> libsox_fmt_alsa.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_alsa.so.0 -> libsox_fmt_alsa.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_alsa.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ao.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ao.so -> libsox_fmt_ao.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ao.so.0 -> libsox_fmt_ao.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ao.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_au.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_au.so -> libsox_fmt_au.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_au.so.0 -> libsox_fmt_au.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_au.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_auto.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_auto.so -> libsox_fmt_auto.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_auto.so.0 -> libsox_fmt_auto.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_auto.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_avr.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_avr.so -> libsox_fmt_avr.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_avr.so.0 -> libsox_fmt_avr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_avr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_cdr.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_cdr.so -> libsox_fmt_cdr.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_cdr.so.0 -> libsox_fmt_cdr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_cdr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_cvsd.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_cvsd.so -> libsox_fmt_cvsd.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_cvsd.so.0 -> libsox_fmt_cvsd.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_cvsd.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_dat.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_dat.so -> libsox_fmt_dat.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_dat.so.0 -> libsox_fmt_dat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_dat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_dvms.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_dvms.so -> libsox_fmt_dvms.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_dvms.so.0 -> libsox_fmt_dvms.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_dvms.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ffmpeg.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ffmpeg.so -> libsox_fmt_ffmpeg.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ffmpeg.so.0 -> libsox_fmt_ffmpeg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ffmpeg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_flac.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_flac.so -> libsox_fmt_flac.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_flac.so.0 -> libsox_fmt_flac.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_flac.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_gsm.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_gsm.so -> libsox_fmt_gsm.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_gsm.so.0 -> libsox_fmt_gsm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_gsm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_hcom.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_hcom.so -> libsox_fmt_hcom.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_hcom.so.0 -> libsox_fmt_hcom.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_hcom.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ima.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ima.so -> libsox_fmt_ima.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ima.so.0 -> libsox_fmt_ima.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ima.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_la.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_la.so -> libsox_fmt_la.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_la.so.0 -> libsox_fmt_la.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_la.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_lpc10.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_lpc10.so -> libsox_fmt_lpc10.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_lpc10.so.0 -> libsox_fmt_lpc10.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_lpc10.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_lu.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_lu.so -> libsox_fmt_lu.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_lu.so.0 -> libsox_fmt_lu.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_lu.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_maud.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_maud.so -> libsox_fmt_maud.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_maud.so.0 -> libsox_fmt_maud.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_maud.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_mp3.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_mp3.so -> libsox_fmt_mp3.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_mp3.so.0 -> libsox_fmt_mp3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_mp3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_nul.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_nul.so -> libsox_fmt_nul.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_nul.so.0 -> libsox_fmt_nul.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_nul.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_oss.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_oss.so -> libsox_fmt_oss.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_oss.so.0 -> libsox_fmt_oss.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_oss.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_prc.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_prc.so -> libsox_fmt_prc.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_prc.so.0 -> libsox_fmt_prc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_prc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_raw.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_raw.so -> libsox_fmt_raw.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_raw.so.0 -> libsox_fmt_raw.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_raw.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s1.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s1.so -> libsox_fmt_s1.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s1.so.0 -> libsox_fmt_s1.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s1.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s2.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s2.so -> libsox_fmt_s2.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s2.so.0 -> libsox_fmt_s2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s3.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s3.so -> libsox_fmt_s3.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s3.so.0 -> libsox_fmt_s3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s4.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s4.so -> libsox_fmt_s4.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_s4.so.0 -> libsox_fmt_s4.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_s4.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sf.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sf.so -> libsox_fmt_sf.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sf.so.0 -> libsox_fmt_sf.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sf.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_smp.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_smp.so -> libsox_fmt_smp.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_smp.so.0 -> libsox_fmt_smp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_smp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sndfile.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sndfile.so -> libsox_fmt_sndfile.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sndfile.so.0 -> libsox_fmt_sndfile.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sndfile.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sndrtool.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sndrtool.so -> libsox_fmt_sndrtool.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sndrtool.so.0 -> libsox_fmt_sndrtool.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sndrtool.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sphere.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sphere.so -> libsox_fmt_sphere.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_sphere.so.0 -> libsox_fmt_sphere.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_sphere.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_svx.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_svx.so -> libsox_fmt_svx.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_svx.so.0 -> libsox_fmt_svx.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_svx.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_txw.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_txw.so -> libsox_fmt_txw.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_txw.so.0 -> libsox_fmt_txw.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_txw.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u1.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u1.so -> libsox_fmt_u1.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u1.so.0 -> libsox_fmt_u1.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u1.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u2.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u2.so -> libsox_fmt_u2.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u2.so.0 -> libsox_fmt_u2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u3.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u3.so -> libsox_fmt_u3.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u3.so.0 -> libsox_fmt_u3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u4.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u4.so -> libsox_fmt_u4.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_u4.so.0 -> libsox_fmt_u4.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_u4.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ul.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ul.so -> libsox_fmt_ul.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ul.so.0 -> libsox_fmt_ul.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ul.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_voc.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_voc.so -> libsox_fmt_voc.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_voc.so.0 -> libsox_fmt_voc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_voc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_vorbis.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_vorbis.so -> libsox_fmt_vorbis.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_vorbis.so.0 -> libsox_fmt_vorbis.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_vorbis.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_vox.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_vox.so -> libsox_fmt_vox.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_vox.so.0 -> libsox_fmt_vox.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_vox.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_wav.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_wav.so -> libsox_fmt_wav.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_wav.so.0 -> libsox_fmt_wav.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_wav.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_wve.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_wve.so -> libsox_fmt_wve.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_wve.so.0 -> libsox_fmt_wve.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_wve.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_xa.la
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_xa.so -> libsox_fmt_xa.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_xa.so.0 -> libsox_fmt_xa.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_xa.so.0.0.0
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 lrwxrwxrwx	root/root	usr/man/man1/play.1.gz -> sox.1.gz
 lrwxrwxrwx	root/root	usr/man/man1/rec.1.gz -> sox.1.gz
 -rw-r--r--	root/root	usr/man/man1/sox.1.gz
 drwxr-xr-x	root/root	usr/man/man3/
--rw-r--r--	root/root	usr/man/man3/libst.3.gz
+-rw-r--r--	root/root	usr/man/man3/libsox.3.gz
 drwxr-xr-x	root/root	usr/man/man7/
+-rw-r--r--	root/root	usr/man/man7/soxeffect.7.gz
 -rw-r--r--	root/root	usr/man/man7/soxexam.7.gz
+-rw-r--r--	root/root	usr/man/man7/soxformat.7.gz

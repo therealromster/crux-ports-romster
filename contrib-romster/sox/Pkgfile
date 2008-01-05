@@ -3,9 +3,9 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
 # Depends on: libvorbis libmad lame alsa-lib libsndfile flac libsamplerate
-#12.18.2
+
 name=sox
-version=13.0.0
+version=14.0.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/sox/sox-$version.tar.gz)
 
@@ -14,8 +14,8 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--disable-static \
-		--with-gnu-ld
+		--mandir=$PKG/usr/man \
+		--disable-static
 		
 	make
 	make prefix=$PKG/usr install
