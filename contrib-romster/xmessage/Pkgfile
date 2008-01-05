@@ -1,8 +1,8 @@
 # Description: A program to display messages from the command line, a file or standard input in a window.
-# URL:         http://xorg.freedesktop.org/
-# Maintainer:  Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager:    Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on:  
+# URL: http://xorg.freedesktop.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
 
 name=xmessage
 version=1.0.1
