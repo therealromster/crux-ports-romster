@@ -5,7 +5,7 @@
 # Depends on: gnupg
 
 name=gpgme
-version=1.1.5
+version=1.1.6
 release=1
 source=(ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-$version.tar.gz)
 
@@ -20,6 +20,9 @@ build() {
 	make
 	make tests
 	make DESTDIR=$PKG install
-	rm -fr $PKG/usr/share/info
+
+	if pkginfo -i |grep '^texinfo ' > /dev/null; then
+		rm -r $PKG/usr/share/info
+	fi
 }
 
