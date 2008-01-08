@@ -14,17 +14,6 @@ build() {
 	unset CFLAGS
 	cd qemu-$version
 
-	# don't use distcc as it wont compile but use ccache if installed
-	if pkginfo -i |grep '^distcc ' > /dev/null; then
-		if pkginfo -i |grep '^ccache ' > /dev/null; then
-			if [ $CCACHE_PREFIX = distcc ]; then
-				unset CCACHE_PREFIX
-			fi
-		else
-			export PATH="$(echo $PATH |sed -e 's|/usr/lib/distcc:||')"
-		fi
-	fi
-
 	./configure \
 		--prefix=/usr \
 		--enable-alsa
