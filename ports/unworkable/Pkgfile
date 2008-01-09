@@ -1,0 +1,19 @@
+# Description: A single threaded and asynchronous BitTorrent client.
+# URL: http://niallohiggins.com/unworkable/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: scons libevent openssl
+
+name=unworkable
+version=0.4
+date=20080108
+release=1
+source=(http://niallohiggins.com/unworkable/dist/unworkable-$date.tar.gz)
+
+build() {
+	cd unworkable
+	scons
+	install -D -m 0755 unworkable $PKG/usr/bin/unworkable
+	install -D -m 0644 unworkable.1 $PKG/usr/man/man1/unworkable.1
+}
+
