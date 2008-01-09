@@ -71,6 +71,7 @@ drwxr-xr-x	root/root	usr/include/mjpegtools/
 -rw-r--r--	root/root	usr/include/mjpegtools/liblavrec.h
 -rw-r--r--	root/root	usr/include/mjpegtools/mjpeg_logging.h
 -rw-r--r--	root/root	usr/include/mjpegtools/mjpeg_types.h
+-rw-r--r--	root/root	usr/include/mjpegtools/motionsearch.h
 drwxr-xr-x	root/root	usr/include/mjpegtools/mpeg2enc/
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/elemstrmwriter.hh
 -rw-r--r--	root/root	usr/include/mjpegtools/mpeg2enc/encoderparams.hh

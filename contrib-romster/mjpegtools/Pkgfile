@@ -2,10 +2,10 @@
 # URL: http://mjpeg.sourceforge.net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: bashy, ronny kornexl at online de
-# Depends on: libquicktime xorg
+# Depends on: libquicktime xorg-libxxf86dga
 
 name=mjpegtools
-version=1.9.0rc2
+version=1.9.0rc3
 release=1
 source=(http://dl.sourceforge.net/sourceforge/mjpeg/mjpegtools-$version.tar.gz)
 
@@ -21,6 +21,9 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	rm -rf $PKG/usr/info
+
+	if pkginfo -i |grep '^texinfo ' > /dev/null; then
+		rm -r $PKG/usr/info
+	fi
 }
 
