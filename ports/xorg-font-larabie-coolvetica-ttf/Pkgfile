@@ -1,0 +1,15 @@
+# Description: A font that is similar to Helvetica.
+# URL: http://www.larabiefonts.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg-mkfontdir xorg-mkfontscale
+
+name=xorg-font-larabie-coolvetica-ttf
+version=1
+release=1
+source=(http://desktoppub.about.com/library/fonts/tx/coolveti.zip)
+
+build() {
+	install -D -m 0644 $SRC/COOLVETI.TTF $PKG/usr/lib/X11/fonts/TTF/coolveti.ttf
+}
+
