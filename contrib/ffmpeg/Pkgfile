@@ -5,7 +5,7 @@
 # Depends on: liba52 faac imlib2 lame libsdl libtheora libxvid x264 lzma
 
 name=ffmpeg
-version=r11067
+version=r11441
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.lzma)
 
@@ -43,10 +43,11 @@ build() {
 		--arch=$(uname -m) \
 		--cpu=$(uname -p)
 	
+	# disable ldconfig
 	sed -i -e '175s/ifeq ($(BUILD_SHARED),yes)/ifeq ($(BUILD_SHARED),no)/' Makefile
 
 	make all
-	echo $?
+	#echo $?
 	#make -C doc ffmpeg.1 ffserver.1 ffplay.1
 	make DESTDIR=$PKG install
 }
