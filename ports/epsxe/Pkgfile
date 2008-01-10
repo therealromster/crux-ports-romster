@@ -1,0 +1,44 @@
+# Description: Enhanced PSX (Playstation) Emulator.
+# URL: http://www.epsxe.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: gtk1 mesa3d
+
+name=epsxe
+version=1.6.0
+release=1
+source=(http://www.epsxe.com/files/epsxe160lin.zip \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/cdrmooby2.8.tgz \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/gpupeopssoftx117.tar.gz \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/gpupetemesagl176.tar.gz \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/gpupetexgl208.tar.gz \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/omnijoy-1.0.0-beta2.tar.bz2 \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/padJoy082.tgz \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/spuEternal141_linux.tgz \
+	http://romster.shortcircuit.net.au/crux/source/epsxe/spupeopsoss109.tar.gz \
+	epsxe.sh)
+
+#http://romster.shortcircuit.net.au/crux/source/epsxe/gpupeopssoftsdl116.tar.gz \
+
+build() {
+	find $SRC -name "*.me" -exec rm -f '{}' \;
+	install -d $PKG/usr/lib/epsxe
+
+	cp -a bios cfg cheats memcards patches plugins snap sstates keycodes.lst epsxe \
+		$PKG/usr/lib/epsxe/
+
+	(
+		cd omnijoy-1.0.0-beta2
+		make
+	)
+
+	install -m 0755 cfgP* {padJoy,omnijoy-1.0.0-beta2}/bin/cfg* $PKG/usr/lib/$name/cfg/
+	install -m 0644 *.cfg $PKG/usr/lib/epsxe/cfg/
+
+	install -m 0755 lib*.so* {padJoy,omnijoy-1.0.0-beta2}/bin/lib*.so* \
+		$PKG/usr/lib/epsxe/plugins/
+
+	chmod 0755 $PKG/usr/lib/epsxe/epsxe
+	install -D -m 0755 epsxe.sh $PKG/usr/bin/epsxe
+}
+
