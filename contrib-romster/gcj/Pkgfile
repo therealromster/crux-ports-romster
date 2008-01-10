@@ -2,11 +2,11 @@
 # URL: http://gcc.gnu.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Aaron Marks, nymacro at gmail dot com
-# Depends On: texinfo
+# Depends On: alsa-lib
 
 name=gcj
 version=4.2.2
-release=1
+release=2
 source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-{core,g++,java}-$version.tar.bz2 \
 	gcj-$version-nocheck-fixincludes.patch \
 	gcj-$version-fixinc.patch)
@@ -35,7 +35,7 @@ build() {
 
 	make bootstrap
 	make check
-	make -j1 prefix=$PKG/usr install
+	make prefix=$PKG/usr install
 
 	ln -sf /usr/libexec/gcc/i686-pc-linux-gnu/$version/jc1 $PKG/usr/bin/jc1
 	
@@ -53,9 +53,11 @@ build() {
 		$PKG/usr/lib/gcc/*/$version/install-tools
 
 	# remove files already on the system out of the port
-	for i in $(find $PKG | sed -e "s|$PKG|/|"); do
-		if [ -e "$i" ] && [ ! -d "$i" ] ; then
-			rm $PKG/$i
+	for i in $(pkginfo -l gcc |sed -e "s|^|/|"); do
+		if [ -e "$i" ] && [ ! -d "$i" ]; then
+			if [ -e "$PKG$i" ]; then
+				rm "$PKG$i"
+			fi
 		fi
 	done
 

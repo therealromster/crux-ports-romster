@@ -11,15 +11,11 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/gkeytool
 -rwxr-xr-x	root/root	usr/bin/grmic
 -rwxr-xr-x	root/root	usr/bin/grmiregistry
--rwxr-xr-x	root/root	usr/bin/jar
 lrwxrwxrwx	root/root	usr/bin/jc1 -> /usr/libexec/gcc/i686-pc-linux-gnu/4.2.2/jc1
 -rwxr-xr-x	root/root	usr/bin/jcf-dump
 -rwxr-xr-x	root/root	usr/bin/jv-convert
 -rwxr-xr-x	root/root	usr/bin/jv-scan
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/distcc/
-lrwxrwxrwx	root/root	usr/lib/distcc/gcj -> ../../bin/distcc
-lrwxrwxrwx	root/root	usr/lib/distcc/jc1 -> ../../bin/distcc
 drwxr-xr-x	root/root	usr/lib/gcc/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.2.2/
@@ -4428,6 +4424,8 @@ lrwxrwxrwx	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.2.2/libstdc++.so.6 -> libst
 -rwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/4.2.2/libsupc++.la
 drwxr-xr-x	root/root	usr/lib/gcj-4.2.2/
 -rw-r--r--	root/root	usr/lib/gcj-4.2.2/classmap.db
+-rwxr-xr-x	root/root	usr/lib/gcj-4.2.2/libgjsmalsa.la
+-rwxr-xr-x	root/root	usr/lib/gcj-4.2.2/libgjsmalsa.so
 -rw-r--r--	root/root	usr/lib/gcj-4.2.2/libjvm.a
 -rwxr-xr-x	root/root	usr/lib/gcj-4.2.2/libjvm.la
 -rwxr-xr-x	root/root	usr/lib/gcj-4.2.2/libjvm.so
