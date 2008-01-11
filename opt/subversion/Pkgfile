@@ -1,7 +1,8 @@
-# Maintainer:  Simone Rota, sip at crux dot nu
-# Description: A version control system (CVS replacement)
-# URL:         http://subversion.tigris.org
-# Depends on:  apr neon expat
+# Description: A version control system (CVS replacement).
+# URL: http://subversion.tigris.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Simone Rota, sip at crux dot nu
+# Depends on: apr neon expat
 
 name=subversion
 version=1.4.6
@@ -31,11 +32,5 @@ build() {
 
 	# fix paths in *.la files
 	sed -i -e "s|-L$PKG/usr/lib||g" $PKG/usr/lib/*.la
-
-	# info pages seem to get generated when makeinfo is available
-	if pkginfo -i |grep '^texinfo '; then
-		echo 'no dir'
-		#rmdir $PKG/usr/info
-	fi
 }
 
