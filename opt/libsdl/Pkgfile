@@ -5,19 +5,20 @@
 # Depends on: alsa-lib xorg-libxt
 
 name=libsdl
-version=1.2.12
+version=1.2.13
 release=1
 source=(http://www.libsdl.org/release/SDL-$version.tar.gz) 
 
 build () {
 	cd SDL-$version
 
-	#patch -p1 -i $SRC/$name-$version-gcc4.patch
-
 	./configure \
 		--prefix=/usr \
-		--enable-alsa 
+		--mandir=/usr/man \
+		--enable-alsa \
+		--disable-static
 
 	make 
 	make DESTDIR=$PKG install
 }
+
