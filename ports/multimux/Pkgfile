@@ -5,14 +5,14 @@
 # Depends on:
 
 name=multimux
-version=0.2.5
+version=0.2.5.2
 release=1
 source=(http://www.ibiblio.org/pub/linux/apps/video/multimux-$version.tgz)
 
 build() {
 	cd multimux-$version
 	make
-	install -D -m755 multimux $PKG/usr/bin/multimux
-	install -D -m644 multimux.h $PKG/include/multimux.h
+	install -D -m 0755 multimux $PKG/usr/bin/multimux
+	install -D -m 0644 multimux.h $PKG/include/multimux.h
 }
 
