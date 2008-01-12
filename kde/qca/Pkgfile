@@ -1,0 +1,25 @@
+# Description: QCA aims to provide a straightforward and cross-platform crypto API, using Qt.
+# URL: http://delta.affinix.com/qca/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jose V Beneyto, sepen at users dot sourceforge dot net
+# Depends on: qt4
+
+name=qca
+version=2.0.0
+release=1
+source=(http://delta.affinix.com/download/qca/${version%.*}/qca-$version.tar.bz2)
+
+build() {
+	cd qca-$version
+
+	./configure --prefix=/usr
+
+	make
+	make INSTALL_ROOT=$PKG install
+	mv $PKG/usr/share/man $PKG/usr/man
+
+	find $PKG -type f \( \
+		-name '*.debug' -o \
+		-name 'README' \) -print0 |xargs -0 rm -rf
+}
+
