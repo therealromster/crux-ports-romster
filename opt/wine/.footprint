@@ -139,6 +139,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx8math.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx8math.inl
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9.h
+-rw-r--r--	root/root	usr/include/wine/windows/d3dx9core.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9math.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9math.inl
 -rw-r--r--	root/root	usr/include/wine/windows/dbghelp.h
@@ -779,6 +780,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/mmdevldr.vxd.so
 -rw-r--r--	root/root	usr/lib/wine/mmsystem.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/monodebg.vxd.so
+-rwxr-xr-x	root/root	usr/lib/wine/mountmgr.sys.so
 -rw-r--r--	root/root	usr/lib/wine/mouse.drv16
 -rwxr-xr-x	root/root	usr/lib/wine/mpr.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mprapi.dll.so
