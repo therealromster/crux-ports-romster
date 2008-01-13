@@ -6,14 +6,16 @@
 
 name=kdelibs3
 version=3.5.8
-release=1
+release=2
 source=(http://download.kde.org/stable/$version/src/kdelibs-$version.tar.bz2 \
 	http://www.kde-look.org/CONTENT/content-files/10888-bt.tar.gz \
-	cups-1.3.patch)
+	httpkio.patch)
 
 build() {
 	cd kdelibs-$version
-	#patch -p1 < $SRC/cups-1.3.patch
+	
+	# http://websvn.kde.org/?view=rev&revision=726539
+	patch -p1 -i $SRC/httpkio.patch
 
 	./configure	\
 		--prefix=/usr \

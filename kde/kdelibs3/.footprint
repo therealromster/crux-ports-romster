@@ -17,7 +17,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/dcopserver_shutdown
 -rwxr-xr-x	root/root	usr/bin/dcopstart
 lrwxrwxrwx	root/root	usr/bin/filesharelist -> fileshareset
--rwxr-xr-x	root/root	usr/bin/fileshareset
+-rwsr-xr-x	root/root	usr/bin/fileshareset
 -rwxr-xr-x	root/root	usr/bin/imagetops
 -rwxr-xr-x	root/root	usr/bin/kab2kabc
 -rwxr-xr-x	root/root	usr/bin/kaddprinterwizard
@@ -46,7 +46,7 @@ lrwxrwxrwx	root/root	usr/bin/kfmexec -> kioexec
 -rwxr-xr-x	root/root	usr/bin/kioslave
 -rwxr-xr-x	root/root	usr/bin/klauncher
 -rwxr-xr-x	root/root	usr/bin/kmailservice
--rwxr-xr-x	root/root	usr/bin/kpac_dhcp_helper
+-rwsr-xr-x	root/root	usr/bin/kpac_dhcp_helper
 -rwxr-xr-x	root/root	usr/bin/ksendbugmail
 -rwxr-xr-x	root/root	usr/bin/kshell
 -rwxr-xr-x	root/root	usr/bin/kstartupconfig
@@ -68,17 +68,6 @@ drwxr-xr-x	root/root	usr/etc/xdg/
 drwxr-xr-x	root/root	usr/etc/xdg/menus/
 -rw-r--r--	root/root	usr/etc/xdg/menus/applications.menu
 drwxr-xr-x	root/root	usr/include/
-drwxr-xr-x	root/root	usr/include/arts/
--rw-r--r--	root/root	usr/include/arts/artskde.h
--rw-r--r--	root/root	usr/include/arts/kartsdispatcher.h
--rw-r--r--	root/root	usr/include/arts/kartsfloatwatch.h
--rw-r--r--	root/root	usr/include/arts/kartsserver.h
--rw-r--r--	root/root	usr/include/arts/kaudiomanagerplay.h
--rw-r--r--	root/root	usr/include/arts/kaudioplaystream.h
--rw-r--r--	root/root	usr/include/arts/kaudiorecordstream.h
--rw-r--r--	root/root	usr/include/arts/kplayobject.h
--rw-r--r--	root/root	usr/include/arts/kplayobjectfactory.h
--rw-r--r--	root/root	usr/include/arts/kvideowidget.h
 -rw-r--r--	root/root	usr/include/dcopclient.h
 -rw-r--r--	root/root	usr/include/dcopobject.h
 -rw-r--r--	root/root	usr/include/dcopref.h
@@ -840,8 +829,6 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/kdeprint_rlpr.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kdeprint_tool_escputil.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kdeprint_tool_escputil.so
--rwxr-xr-x	root/root	usr/lib/kde3/kfileaudiopreview.la
--rwxr-xr-x	root/root	usr/lib/kde3/kfileaudiopreview.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kgzipfilter.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kgzipfilter.so
 -rwxr-xr-x	root/root	usr/lib/kde3/khtmlimagepart.la
@@ -892,8 +879,6 @@ drwxr-xr-x	root/root	usr/lib/kde3/
 -rwxr-xr-x	root/root	usr/lib/kde3/kjavaappletviewer.so
 -rwxr-xr-x	root/root	usr/lib/kde3/klauncher.la
 -rwxr-xr-x	root/root	usr/lib/kde3/klauncher.so
--rwxr-xr-x	root/root	usr/lib/kde3/knotify.la
--rwxr-xr-x	root/root	usr/lib/kde3/knotify.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kspell_aspell.la
 -rwxr-xr-x	root/root	usr/lib/kde3/kspell_aspell.so
 -rwxr-xr-x	root/root	usr/lib/kde3/kspell_ispell.la
@@ -943,10 +928,6 @@ drwxr-xr-x	root/root	usr/lib/kde3/plugins/styles/
 lrwxrwxrwx	root/root	usr/lib/libDCOP.so -> libDCOP.so.4.2.0
 lrwxrwxrwx	root/root	usr/lib/libDCOP.so.4 -> libDCOP.so.4.2.0
 -rwxr-xr-x	root/root	usr/lib/libDCOP.so.4.2.0
--rwxr-xr-x	root/root	usr/lib/libartskde.la
-lrwxrwxrwx	root/root	usr/lib/libartskde.so -> libartskde.so.1.2.0
-lrwxrwxrwx	root/root	usr/lib/libartskde.so.1 -> libartskde.so.1.2.0
--rwxr-xr-x	root/root	usr/lib/libartskde.so.1.2.0
 -rwxr-xr-x	root/root	usr/lib/libkabc.la
 lrwxrwxrwx	root/root	usr/lib/libkabc.so -> libkabc.so.1.2.0
 lrwxrwxrwx	root/root	usr/lib/libkabc.so.1 -> libkabc.so.1.2.0
@@ -5704,7 +5685,6 @@ drwxr-xr-x	root/root	usr/share/services/kded/
 -rw-r--r--	root/root	usr/share/services/kjavaappletviewer.desktop
 -rw-r--r--	root/root	usr/share/services/kmailservice.protocol
 -rw-r--r--	root/root	usr/share/services/kmultipart.desktop
--rw-r--r--	root/root	usr/share/services/knotify.desktop
 drwxr-xr-x	root/root	usr/share/services/kresources/
 drwxr-xr-x	root/root	usr/share/services/kresources/kabc/
 -rw-r--r--	root/root	usr/share/services/kresources/kabc/dir.desktop
