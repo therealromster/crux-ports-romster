@@ -1,5 +1,5 @@
 # Description: Utility for incremental file transfers over networks.
-# URL: http://rsync.samba.org
+# URL: http://rsync.samba.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
 # Depends on: openssh
@@ -17,10 +17,10 @@ build() {
 	patch -p1 -i $SRC/rsync-$version-fname-obo.diff
 
 	./configure \
-	--prefix=/usr \
-	--mandir=/usr/man \
-	--with-rsh=ssh \
-	--with-included-popt
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--with-rsh=ssh \
+		--with-included-popt
 
 	make
 	make DESTDIR=$PKG install
