@@ -5,7 +5,7 @@
 # Depends on: libdvdnav
 
 name=vobcopy
-version=1.0.2
+version=1.1.0
 release=1
 source=(http://lpn.rnbhq.org/download/vobcopy-$version.tar.bz2)
 
@@ -15,6 +15,6 @@ build() {
     install -d $PKG/usr/{bin,man/man1}
     make
     make install
-    rm -rf $PKG/usr/man/de/
+    rm -r $PKG/usr/man/de/
 }
 
