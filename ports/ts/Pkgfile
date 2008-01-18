@@ -1,0 +1,20 @@
+# Description: Task Spooler, queue jobs in a console.
+# URL: http://vicerveza.homeunix.net/~viric/soft/ts/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=ts
+version=0.5
+release=1
+source=(http://vicerveza.homeunix.net/~viric/soft/ts/ts-$version.tar.gz)
+
+build() {
+	cd ts-$version
+	sed -i \
+		-e 's|/share/man|/man|' \
+		-e "/^CFLAGS=/s|-pedantic -ansi -Wall -g -O0|-pedantic -ansi -Wall $CFLAGS|" Makefile
+	make PREFIX=/usr
+	make PREFIX=$PKG/usr install
+}
+
