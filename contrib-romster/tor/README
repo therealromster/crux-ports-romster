@@ -7,8 +7,9 @@ PRECAUTION:
 
 PRE-INSTALL:
 
-	Tor expects to have a user and group dedicated to it, a pre-install script has
-	been added to the port which takes care of this.
+	Tor expects to have a user and group dedicated to it, a 
+	pre-install script has been added to the port which takes 
+	care of this.
 
 POST-INSTALL:
 
@@ -18,5 +19,6 @@ POST-REMOVE:
 
 NOTES:
 
-	Please edit /etc/tor/torrc and add "tor" to the SERVICES array in /etc/rc.conf
+	Please edit /etc/tor/torrc and add "tor" to the SERVICES 
+	array in /etc/rc.conf
 
