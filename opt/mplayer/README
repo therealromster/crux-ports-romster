@@ -1,0 +1,9 @@
+NOTE:
+	If you get no alsa sound check with this command:
+	ldd /usr/bin/mplayer | grep asound
+
+	and if no asound.so shows up then make sure you install 
+	alsa-lib and do a force rebuild of mplayer.
+
+	prt-get update -fr mplayer
+
