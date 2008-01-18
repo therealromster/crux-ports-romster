@@ -4,6 +4,7 @@ drwx------	root/root	etc/lvm/archive/
 drwx------	root/root	etc/lvm/backup/
 -rw-r--r--	root/root	etc/lvm/lvm.conf
 drwxr-xr-x	root/root	sbin/
+-r-xr-xr-x	root/root	sbin/fsadm
 lrwxrwxrwx	root/root	sbin/lvchange -> lvm
 lrwxrwxrwx	root/root	sbin/lvconvert -> lvm
 lrwxrwxrwx	root/root	sbin/lvcreate -> lvm
