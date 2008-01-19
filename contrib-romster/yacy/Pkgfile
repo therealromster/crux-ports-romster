@@ -5,9 +5,10 @@
 # Depends on: ant
 
 name=yacy
-version=0.55_20071004_4145
+version=0.56
+date=20071222_4290
 release=1
-source=(http://www.yacy.net/release/yacy_v$version.tar.gz \
+source=(http://www.yacy.net/release/yacy_pro_v${version}_$date.tar.gz \
 	yacy-start.sh yacy-stop.sh yacy.rc)
 
 build() {
@@ -20,30 +21,32 @@ build() {
 	ant
 
 	# remove un-needed files
-	find $SRC/yacy -type f \
-		-name '*.bat' -delete -or \
-		-name '*.txt' -delete -or \
-		-name '*.css.old' -delete -or \
-		-name '*.readme' -delete
+	find $SRC/yacy -type f \( \
+		-name '*.bat' -o \
+		-name '*.txt' -o \
+		-name '*.css.old' -o \
+		-name '*.readme' -o \
+		-name '*.License' -o \
+		-name '*.java'	\) -delete
 
 	rm -r \
 		source \
-		htroot/locale \
-		locales
-		#classes/de
-		#RELEASE/EXT/{source,classes}/de
+		locales \
+		RELEASE
 	
 	rm \
 		build.xml \
-		htroot/CacheAdmin_p.java.ThomasBockig \
-		htroot/.nbattrs
+		build.properties \
+		lib/tar.license \
+		addon/jsmooth/skeletons/console-wrapper/consolewrapper.exe \
+		addon/jsmooth/skeletons/windowed-wrapper/jwrap.exe
 
 	# install
-	install -d $PKG/usr/share/yacy
-	cp -R * $PKG/usr/share/yacy/
+	install -d $PKG/usr/lib/yacy
+	cp -R * $PKG/usr/lib/yacy/
 
 	# add some protection by limitng what and who can access the p2p files.
-	chown -R _yacy:daemon $PKG/usr/share/yacy
+	chown -R _yacy:daemon $PKG/usr/lib/yacy
 	
 	install -D -m 0755 $SRC/yacy-start.sh $PKG/usr/sbin/yacy-start
 	install -D -m 0755 $SRC/yacy-stop.sh $PKG/usr/sbin/yacy-stop

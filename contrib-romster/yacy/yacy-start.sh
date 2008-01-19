@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cd /usr/share/yacy
+cd /usr/lib/yacy
 ./startYACY.sh
 
