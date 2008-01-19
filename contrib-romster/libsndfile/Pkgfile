@@ -3,10 +3,10 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
 # Depends on: flac alsa-lib
-# Nice to have: sqlite3
+# Optional: sqlite3
 
 name=libsndfile
-version=1.0.18pre19
+version=1.0.18pre20
 release=1
 source=(http://www.mega-nerd.com/tmp/libsndfile-$version.tar.gz)
 
