@@ -5,7 +5,7 @@
 # Depends on: fontconfig glitz libpng xorg-libxrender
 
 name=cairo
-version=1.4.12
+version=1.4.14
 release=1
 source=(http://cairographics.org/releases/cairo-$version.tar.gz)
 
@@ -17,7 +17,8 @@ build() {
 		--enable-ps \
 		--enable-pdf \
 		--enable-glitz \
-		--disable-gtk-doc
+		--disable-gtk-doc \
+		--disable-static
 
 	make
 	make DESTDIR=$PKG install
