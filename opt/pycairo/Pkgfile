@@ -1,0 +1,18 @@
+# Description: A set of python bindings for cairo.
+# URL: http://cairographics.org/pycairo
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: cairo python
+
+name=pycairo
+version=1.2.6
+release=1
+source=(http://cairographics.org/releases/pycairo-$version.tar.gz)
+
+build() {
+	cd pycairo-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
