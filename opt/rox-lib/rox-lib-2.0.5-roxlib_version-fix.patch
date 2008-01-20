@@ -1,0 +1,12 @@
+diff -pruN rox-lib2-2.0.5.orig/ROX-Lib2/python/rox/__init__.py rox-lib2-2.0.5/ROX-Lib2/python/rox/__init__.py
+--- rox-lib2-2.0.5.orig/ROX-Lib2/python/rox/__init__.py	2008-01-21 05:38:14.762086944 +1100
++++ rox-lib2-2.0.5/ROX-Lib2/python/rox/__init__.py	2008-01-21 05:40:52.416119888 +1100
+@@ -33,7 +33,7 @@ import sys, os, codecs
+ 
+ _to_utf8 = codecs.getencoder('utf-8')
+ 
+-roxlib_version = (2, 0, 4)
++roxlib_version = (2, 0, 5)
+ 
+ _path = os.path.realpath(sys.argv[0])
+ app_dir = os.path.dirname(_path)
