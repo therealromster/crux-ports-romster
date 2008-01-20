@@ -17,9 +17,15 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/__init__.pyo
 -rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/_gobject.la
 -rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/_gobject.so
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/constants.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/constants.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/constants.pyo
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/option.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/option.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/option.pyo
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/propertyhelper.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/propertyhelper.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/gtk-2.0/gobject/propertyhelper.pyo
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/pygtk.pth
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/pygtk.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/pygtk.pyc
