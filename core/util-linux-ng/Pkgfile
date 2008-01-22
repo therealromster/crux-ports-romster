@@ -5,9 +5,9 @@
 # Depends on: e2fsprogs ncurses zlib
 
 name=util-linux-ng
-version=2.13.0.1
+version=2.13.1
 release=1
-source=(ftp://ftp.kernel.org/pub/linux/utils/util-linux-ng/v2.13/util-linux-ng-$version.tar.bz2)
+source=(ftp://ftp.kernel.org/pub/linux/utils/util-linux-ng/v${version%.*}/util-linux-ng-$version.tar.bz2)
 
 build() {
 	cd util-linux-ng-$version
