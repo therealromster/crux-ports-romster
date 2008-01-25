@@ -1,0 +1,22 @@
+# Description: Dumps detailed information about the CPU(s) gathered from the CPUID instruction, and also determines the exact model of CPU(s).
+# URL: http://www.etallen.com/cpuid.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=cpuid
+version=20060917
+release=1
+source=(http://www.etallen.com/cpuid/cpuid-$version.src.tar.gz)
+
+build() {
+	cd cpuid-$version
+
+	sed -i \
+		-e "s|-g|$CFLAGS|" \
+		-e 's|/share/man|/man|g' Makefile
+
+	make
+	make BUILDROOT=$PKG install
+}
+
