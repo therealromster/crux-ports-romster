@@ -567,6 +567,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/d3dim.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3drm.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx8.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/d3dx9_36.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dxof.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dbghelp.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dciman32.dll.so
@@ -695,6 +696,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libmshtml.def
 -rw-r--r--	root/root	usr/lib/wine/libmsi.def
 -rw-r--r--	root/root	usr/lib/wine/libmsimg32.def
+-rw-r--r--	root/root	usr/lib/wine/libmsvcr71.def
 -rw-r--r--	root/root	usr/lib/wine/libmsvcrt.def
 -rw-r--r--	root/root	usr/lib/wine/libmsvcrt20.def
 -rw-r--r--	root/root	usr/lib/wine/libmsvcrt40.def
@@ -804,6 +806,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/msnet32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msrle32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcirt.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/msvcr71.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcrt.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcrt20.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcrt40.dll.so
@@ -847,6 +850,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/powrprof.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/printui.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/progman.exe.so
+-rwxr-xr-x	root/root	usr/lib/wine/propsys.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/psapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/pstorec.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/qcap.dll.so
@@ -967,6 +971,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/wintrust.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/winver.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/wldap32.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/wmi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wnaspi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wordpad.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/wow32.dll.so
