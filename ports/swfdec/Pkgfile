@@ -3,10 +3,10 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Stefan Lohmaier noneus at noneus dor de
 # Depends on: cairo alsa-lib glib gtk pango liboil zlib ffmpeg libmad libdca
+# Optional: gthread freetype gstreamer libxml2 libpng gnutls
 
-# gthread gst freetype gstreamer libxml2 libpng gnutls
 name=swfdec
-version=0.5.3
+version=0.5.5
 release=1
 source=(http://swfdec.freedesktop.org/download/swfdec/${version%.*}/swfdec-$version.tar.gz)
 
