@@ -2,10 +2,10 @@
 # URL: http://www.nvidia.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: xorg, gl-select
+# Depends on: xorg gl-select
 
 name=nvidia
-version=100.14.19
+version=169.09
 release=1
 source=(http://download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run \
 	$name-makefile.patch)
