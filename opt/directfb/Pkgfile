@@ -5,16 +5,15 @@
 # Depends on: zlib
 
 name=directfb
-version=1.1.1
+version=1.0.1
 release=1
 source=(http://www.directfb.org/downloads/Core/DirectFB-$version.tar.gz)
 
 build() {
 	local EXTRA_ARGS
 
-	export \
-		CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')" \
-		CXXFLAGS="-O3 $(echo $CXXFLAGS |sed -e 's/-O[s0-3] //')"
+	export CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')" \
+	export CXXFLAGS="-O3 $(echo $CXXFLAGS |sed -e 's/-O[s0-3] //')"
 
 	# uncomment the following line to build with support for the multi
 	# app core:
