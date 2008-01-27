@@ -40,8 +40,8 @@ build() {
 		--enable-swscaler \
 		--enable-gpl \
 		--disable-debug \
-		--arch=$(uname -m) \
-		--cpu=$(uname -p)
+		--arch=native \
+		--cpu=native
 	
 	# disable ldconfig
 	sed -i -e '175s/ifeq ($(BUILD_SHARED),yes)/ifeq ($(BUILD_SHARED),no)/' Makefile
