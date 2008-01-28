@@ -1,0 +1,26 @@
+# Description: Binary diff, differential compression tools.
+# URL: http://xdelta.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: swig
+
+name=xdelta-python
+version=3.0t
+release=1
+source=(http://xdelta.googlecode.com/files/xdelta$version.tar.gz)
+
+build() {
+	cd xdelta$version
+
+	local swig_version="$(swig -version |grep Version |cut -d ' ' -f 3)"
+	local python_version="$(python -c "import sys; print \"%s.%s\" % (sys.version_info[0], sys.version_info[1]);")"
+	
+	sed -i -e "s|	\$(PYTHON) setup.py install --verbose --compile --force|	\$(PYTHON) setup.py install --root=$PKG --verbose --compile --force|" Makefile
+
+	make all-py
+	python -mcompileall $SRC
+	install -d $PKG/usr/share/swig/$swig_version/python
+	install -m 0644 xdelta3.py xdelta3.pyc -t $PKG/usr/lib/python$python_version/site-packages/
+	install -m 0644 xdelta3.swig $PKG/usr/share/swig/$swig_version/python/
+}
+
