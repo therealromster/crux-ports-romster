@@ -1,31 +1,30 @@
-# $Id:
 # Description: A popular Breakout clone for SDL.
 # URL: http://lgames.sourceforge.net/index.php?project=LBreakout2
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: libpng, sdl_mixer, sdl_net
+# Depends on: libpng sdl_mixer sdl_net
 
 name=lbreakout2
 version=2.6beta-7
 release=1
-source=(http://dl.sourceforge.net/sourceforge/lgames/$name-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/lgames/lbreakout2-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd lbreakout2-$version
 
 	./configure \
 		--prefix=/usr \
 		--localstatedir=/var/lib/lbreakout2 \
 		--disable-nls
 
-	find $PKG \
-		-name 'README' -or \
-		-name 'LICENSE' -or \
-		-name 'COPYRIGHT' -or \
-		-name 'ABOUT' | xargs rm
-
-	make && make DESTDIR=$PKG install
+	make
+	make DESTDIR=$PKG install
 	rm -r $PKG/usr/doc
-	chown -R root:root $PKG
+
+	find $PKG -type f \
+		\( -name 'README' -o \
+		-name 'LICENSE' -o \
+		-name 'COPYRIGHT' -o \
+		-name 'ABOUT' \) -delete
 }
 
