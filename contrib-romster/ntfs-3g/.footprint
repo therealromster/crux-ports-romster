@@ -1,13 +1,14 @@
 drwxr-xr-x	root/root	bin/
 -rwxr-xr-x	root/root	bin/ntfs-3g
 drwxr-xr-x	root/root	lib/
--rwxr-xr-x	root/root	lib/libntfs-3g.la
-lrwxrwxrwx	root/root	lib/libntfs-3g.so -> libntfs-3g.so.16.0.0
-lrwxrwxrwx	root/root	lib/libntfs-3g.so.16 -> libntfs-3g.so.16.0.0
--rwxr-xr-x	root/root	lib/libntfs-3g.so.16.0.0
+lrwxrwxrwx	root/root	lib/libntfs-3g.so -> libntfs-3g.so.21.0.0
+lrwxrwxrwx	root/root	lib/libntfs-3g.so.21 -> libntfs-3g.so.21.0.0
+-rwxr-xr-x	root/root	lib/libntfs-3g.so.21.0.0
 drwxr-xr-x	root/root	sbin/
-lrwxrwxrwx	root/root	sbin/mount.ntfs-3g -> //bin/ntfs-3g
+lrwxrwxrwx	root/root	sbin/mount.ntfs-3g -> /bin/ntfs-3g
 drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ntfs-3g.probe
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/ntfs-3g/
 -rw-r--r--	root/root	usr/include/ntfs-3g/attrib.h
@@ -29,6 +30,7 @@ drwxr-xr-x	root/root	usr/include/ntfs-3g/
 -rw-r--r--	root/root	usr/include/ntfs-3g/logfile.h
 -rw-r--r--	root/root	usr/include/ntfs-3g/logging.h
 -rw-r--r--	root/root	usr/include/ntfs-3g/mft.h
+-rw-r--r--	root/root	usr/include/ntfs-3g/misc.h
 -rw-r--r--	root/root	usr/include/ntfs-3g/mst.h
 -rw-r--r--	root/root	usr/include/ntfs-3g/ntfstime.h
 -rw-r--r--	root/root	usr/include/ntfs-3g/runlist.h
@@ -38,7 +40,13 @@ drwxr-xr-x	root/root	usr/include/ntfs-3g/
 -rw-r--r--	root/root	usr/include/ntfs-3g/unistr.h
 -rw-r--r--	root/root	usr/include/ntfs-3g/version.h
 -rw-r--r--	root/root	usr/include/ntfs-3g/volume.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libntfs-3g.la
+lrwxrwxrwx	root/root	usr/lib/libntfs-3g.so -> /lib/libntfs-3g.so
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libntfs-3g.pc
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man8/
 lrwxrwxrwx	root/root	usr/man/man8/mount.ntfs-3g.8.gz -> ntfs-3g.8.gz
 -rw-r--r--	root/root	usr/man/man8/ntfs-3g.8.gz
+-rw-r--r--	root/root	usr/man/man8/ntfs-3g.probe.8.gz
