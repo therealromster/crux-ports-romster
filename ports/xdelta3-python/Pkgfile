@@ -4,7 +4,7 @@
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: swig
 
-name=xdelta-python
+name=xdelta3-python
 version=3.0t
 release=1
 source=(http://xdelta.googlecode.com/files/xdelta$version.tar.gz)
