@@ -35,6 +35,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gst-0.10/gst/extend/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/gst-0.10/gst/extend/utils.pyo
 -rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gst-0.10/gst/interfaces.la
 -rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gst-0.10/gst/interfaces.so
+-rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gst-0.10/gst/pbutils.la
+-rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gst-0.10/gst/pbutils.so
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/pygst.pth
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/pygst.py
 drwxr-xr-x	root/root	usr/share/
@@ -45,6 +47,7 @@ drwxr-xr-x	root/root	usr/share/gst-python/0.10/defs/
 -rw-r--r--	root/root	usr/share/gst-python/0.10/defs/gst-extrafuncs.defs
 -rw-r--r--	root/root	usr/share/gst-python/0.10/defs/gst-types.defs
 -rw-r--r--	root/root	usr/share/gst-python/0.10/defs/libs.defs
+-rw-r--r--	root/root	usr/share/gst-python/0.10/defs/pbutils.defs
 drwxr-xr-x	root/root	usr/share/gst-python/0.10/examples/
 -rw-r--r--	root/root	usr/share/gst-python/0.10/examples/audio-controller.py
 -rw-r--r--	root/root	usr/share/gst-python/0.10/examples/audioconcat.py
