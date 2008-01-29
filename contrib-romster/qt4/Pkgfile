@@ -7,13 +7,16 @@
 
 name=qt4
 version=4.3.2
-release=1
-source=(ftp://ftp.trolltech.com/pub/qt/source/qt-x11-opensource-src-$version.tar.gz)
+release=2
+source=(ftp://ftp.trolltech.com/pub/qt/source/qt-x11-opensource-src-$version.tar.gz \
+	qt4-$version-x11-path-fix.patch)
 
 mirror=(ftp://ftp.tu-chemnitz.de/pub/Qt/qt/source/qt-x11-opensource-src-$version.tar.gz)
 
 build() {
 	cd qt-x11-opensource-src-$version
+
+	patch -p1 -i $SRC/qt4-$version-x11-path-fix.patch
 
 	# don't use distcc as it wont compile but use ccache if installed
 	if pkginfo -i |grep '^distcc ' > /dev/null; then
@@ -39,9 +42,9 @@ build() {
 	export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$(pwd)/lib"
 
 	# we don't want docs, sample code; please use our optimization flags
-	sed -i "s|-O2|$CXXFLAGS|" mkspecs/linux-g++/qmake.conf
-	sed -i "s|-I. |$CXXFLAGS -I. |" qmake/Makefile.unix
-	sed -i 's|read acceptance|acceptance=yes|' configure
+	sed -i -e "s|-O2|$CXXFLAGS|" mkspecs/common/g++.conf
+	sed -i -e "s|-I. |$CXXFLAGS -I. |" qmake/Makefile.unix
+	sed -i -e 's|read acceptance|acceptance=yes|' configure
 
 	./configure \
 		-prefix /usr/share/qt4 \
@@ -60,7 +63,7 @@ build() {
 	make
 	make INSTALL_ROOT=$PKG install_subtargets install_qmake
 
-	# install mkspecs without having to deleate more junk than it's worth using make install
+	# install mkspecs without having to delete more junk than it's worth using make install
 	install -d $PKG/usr/share/qt4/mkspecs
 	mv mkspecs/{linux-g++{,-32,-64},common,features} $PKG/usr/share/qt4/mkspecs/
 	ln -s linux-g++ $PKG/usr/share/qt4/mkspecs/default
