@@ -1,4 +1,4 @@
-# Description: Library fo AVI video files.
+# Description: Library for AVI video files.
 # URL: http://avifile.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
@@ -15,7 +15,7 @@ build() {
 
 	patch -p1 -i $SRC/avifile-$version-gcc4.patch
 
-	# temp fix remove samples dosn't build on current gcc
+	# remove samples dosn't build on current gcc
 	sed -i -e 's/^ doc include debian libavqt player samples$/ doc include debian libavqt player/' Makefile.in
 
 	./configure \
@@ -26,6 +26,8 @@ build() {
       --disable-xvid \
 		--disable-ffmpeg-risky \
 		--with-linux-prefix='/usr/include/linux'
+
+	sed -i -e 's/-O4/-O3/' Makefile
 
 	make
 	make DESTDIR=$PKG install
