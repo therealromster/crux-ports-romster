@@ -39,9 +39,7 @@ build() {
 		--enable-x11grab \
 		--enable-swscaler \
 		--enable-gpl \
-		--disable-debug \
-		--arch=$(uname -m) \
-		--cpu=$(uname -p)
+		--disable-debug
 	
 	# disable ldconfig
 	sed -i -e '175s/ifeq ($(BUILD_SHARED),yes)/ifeq ($(BUILD_SHARED),no)/' Makefile
