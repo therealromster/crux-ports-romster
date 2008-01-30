@@ -1,0 +1,83 @@
+drwxr-xr-x	root/root	dev/
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/scsi_id.config
+drwxr-xr-x	root/root	etc/udev/
+drwxr-xr-x	root/root	etc/udev/rules.d/
+-rw-r--r--	root/root	etc/udev/rules.d/05-udev-early.rules
+-rw-r--r--	root/root	etc/udev/rules.d/25-lfs.rules
+-rw-r--r--	root/root	etc/udev/rules.d/26-modprobe.rules
+-rw-r--r--	root/root	etc/udev/rules.d/27-firmware.rules
+-rw-r--r--	root/root	etc/udev/rules.d/50-udev-default.rules
+-rw-r--r--	root/root	etc/udev/rules.d/60-cdrom_id.rules
+-rw-r--r--	root/root	etc/udev/rules.d/60-persistent-input.rules
+-rw-r--r--	root/root	etc/udev/rules.d/60-persistent-storage-tape.rules
+-rw-r--r--	root/root	etc/udev/rules.d/60-persistent-storage.rules
+-rw-r--r--	root/root	etc/udev/rules.d/61-persistent-storage-edd.rules
+-rw-r--r--	root/root	etc/udev/rules.d/80-drivers.rules
+-rw-r--r--	root/root	etc/udev/rules.d/81-cdrom.rules
+-rw-r--r--	root/root	etc/udev/rules.d/95-udev-late.rules
+-rw-r--r--	root/root	etc/udev/udev.conf
+drwxr-xr-x	root/root	lib/
+drwxr-xr-x	root/root	lib/firmware/
+lrwxrwxrwx	root/root	lib/libvolume_id.so.0 -> libvolume_id.so.0.82.0
+-rwxr-xr-x	root/root	lib/libvolume_id.so.0.82.0
+drwxr-xr-x	root/root	lib/udev/
+-rwxr-xr-x	root/root	lib/udev/ata_id
+-rwxr-xr-x	root/root	lib/udev/cdrom_id
+-rwxr-xr-x	root/root	lib/udev/cdsymlinks
+-rwxr-xr-x	root/root	lib/udev/create_floppy_devices
+drwxr-xr-x	root/root	lib/udev/devices/
+crw-------	root/root	lib/udev/devices/console (5, 1)
+lrwxrwxrwx	root/root	lib/udev/devices/core -> /proc/kcore
+lrwxrwxrwx	root/root	lib/udev/devices/fd -> /proc/self/fd
+crw-rw-rw-	root/root	lib/udev/devices/null (1, 3)
+drwxr-xr-x	root/root	lib/udev/devices/pts/
+drwxr-xr-x	root/root	lib/udev/devices/shm/
+lrwxrwxrwx	root/root	lib/udev/devices/stderr -> /proc/self/fd/2
+lrwxrwxrwx	root/root	lib/udev/devices/stdin -> /proc/self/fd/0
+lrwxrwxrwx	root/root	lib/udev/devices/stdout -> /proc/self/fd/1
+crw-rw-rw-	root/root	lib/udev/devices/zero (1, 5)
+-rwxr-xr-x	root/root	lib/udev/edd_id
+-rwxr-xr-x	root/root	lib/udev/firmware.sh
+-rwxr-xr-x	root/root	lib/udev/path_id
+-rwxr-xr-x	root/root	lib/udev/scsi_id
+-rwxr-xr-x	root/root	lib/udev/usb_id
+-rwxr-xr-x	root/root	lib/udev/vol_id
+drwxr-xr-x	root/root	sbin/
+-rwxr-xr-x	root/root	sbin/start_udev
+-rwxr-xr-x	root/root	sbin/udevadm
+lrwxrwxrwx	root/root	sbin/udevcontrol -> udevadm
+-rwxr-xr-x	root/root	sbin/udevd
+lrwxrwxrwx	root/root	sbin/udevsettle -> udevadm
+lrwxrwxrwx	root/root	sbin/udevtrigger -> udevadm
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/udevinfo -> /sbin/udevadm
+lrwxrwxrwx	root/root	usr/bin/udevtest -> /sbin/udevadm
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libvolume_id.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libvolume_id.so -> /lib/libvolume_id.so.0.82.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libvolume_id.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man7/
+-rw-r--r--	root/root	usr/man/man7/udev.7.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/ata_id.8.gz
+-rw-r--r--	root/root	usr/man/man8/cdrom_id.8.gz
+-rw-r--r--	root/root	usr/man/man8/create_floppy_devices.8.gz
+-rw-r--r--	root/root	usr/man/man8/edd_id.8.gz
+-rw-r--r--	root/root	usr/man/man8/path_id.8.gz
+-rw-r--r--	root/root	usr/man/man8/scsi_id.8.gz
+-rw-r--r--	root/root	usr/man/man8/udevadm.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/udevcontrol.8.gz -> udevadm.8.gz
+-rw-r--r--	root/root	usr/man/man8/udevd.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/udevinfo.8.gz -> udevadm.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/udevmonitor.8.gz -> udevadm.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/udevsettle.8.gz -> udevadm.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/udevtest.8.gz -> udevadm.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/udevtrigger.8.gz -> udevadm.8.gz
+-rw-r--r--	root/root	usr/man/man8/vol_id.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+lrwxrwxrwx	root/root	usr/sbin/udevmonitor -> /sbin/udevadm

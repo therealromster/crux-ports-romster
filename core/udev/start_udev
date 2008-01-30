@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# mount /dev as a tmpfs; note: some video drivers require exec access in /dev
+/bin/mount -n -t tmpfs udev /dev -o exec,nosuid,mode=0755
+
+# unset hotplugger
+echo > /proc/sys/kernel/hotplug
+
+# populate /dev with static nodes and directories
+/bin/cp -a /lib/udev/devices/* /dev/
+
+# launch udev daemon
+/sbin/udevd --daemon
+
+# coldplug devices and wait for the queue to be processed
+/sbin/udevtrigger
+/sbin/udevsettle
