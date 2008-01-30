@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=lzma
-version=4.32.4
+version=4.32.5
 release=1
 source=(http://tukaani.org/lzma/lzma-$version.tar.gz)
 
