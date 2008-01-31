@@ -5,7 +5,7 @@
 # Depends on: libxml2
 
 name=gstreamer
-version=0.10.16
+version=0.10.17
 release=1
 source=(http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-$version.tar.gz)
 
