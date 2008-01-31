@@ -5,7 +5,7 @@
 # Depends on: alsa-lib libsndfile
 
 name=jack-audio-connection-kit
-version=0.109.0
+version=0.109.2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/jackit/jack-audio-connection-kit-$version.tar.gz)
 
