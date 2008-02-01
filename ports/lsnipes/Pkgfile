@@ -1,0 +1,23 @@
+# Description: Linux Snipes is a reimplementation of an old text-mode DOS game.
+# URL: http://www.ugcs.caltech.edu/~boultonj/snipes.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: ncurses xorg-libx11
+
+name=lsnipes
+version=0.9.4
+release=1
+source=(http://www.ugcs.caltech.edu/~boultonj/snipes/lsnipes-$version.tgz)
+
+build() {
+	cd lsnipes-$version
+
+	sed -i \
+		-e 's|-L/usr/X11R6/lib|-L/usr/lib/X11|' \
+		-e "s|-O2|$CFLAGS|" Makefile
+
+	make
+	install -D -m 0755 snipes $PKG/usr/bin/snipes
+	install -D -m 0644 snipes.6 $PKG/usr/man/man6/snipes.6
+}
+
