@@ -7,7 +7,7 @@
 name=libgd
 version=2.0.35
 release=1
-source=(http://www.libgd.org/releases/gd-$version.tar.gz)
+source=(http://www.libgd.org/releases/gd-$version.tar.bz2)
 
 build() {
 	cd gd-$version
