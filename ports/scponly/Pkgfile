@@ -5,9 +5,9 @@
 # Depends on:
 
 name=scponly
-version=4.6
+version=4.8
 release=1
-source=(http://www.sublimation.org/scponly/scponly-$version.tgz)
+source=(http://dl.sourceforge.net/sourceforge/scponly/scponly-$version.tgz)
 
 build() {
 	cd scponly-$version
