@@ -1,0 +1,25 @@
+# Description: A free alternative to the OpenGL Utility Toolkit (GLUT) library.
+# URL: http://freeglut.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: mesa3d
+
+name=freeglut
+version=2.4.0
+release=2
+source=(http://dl.sourceforge.net/sourceforge/freeglut/freeglut-$version.tar.gz \
+    freeglut-2.4.0.patch)
+
+build() {
+	patch -p0 -i $SRC/freeglut-2.4.0.patch
+	cd freeglut-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-warnings \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+}
+
