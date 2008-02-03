@@ -2,7 +2,7 @@
 # Description: Image manipulation wizard.
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: danm, maol, jaeger
-# Depends on: lzma freetype ghostscript lcms libungif libxml2
+# Depends on: ghostscript jasper lcms librsvg libungif openexr
 
 name=imagemagick
 version=6.3.8-3
