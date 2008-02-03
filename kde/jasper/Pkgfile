@@ -2,7 +2,7 @@
 # URL: http://www.ece.uvic.ca/~mdadams/jasper/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: mesa3d libjpeg
+# Depends on: mesa3d libjpeg freeglut
 
 name=jasper
 version=1.900.1
