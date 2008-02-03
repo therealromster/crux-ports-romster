@@ -1,5 +1,3 @@
-# $Id:
-
 REQUIREMENTS:
 
 PRECAUTION:
@@ -8,16 +6,17 @@ PRE-INSTALL:
 
 POST-INSTALL:
 
-	For this application to work properly with SVG-based themes, you must update 
-	your gdk-pixbuf.loaders.
+	For this application to work properly with SVG-based themes, you 
+	must update your gdk-pixbuf.loaders a post-install script is 
+	included todo this.
 
 
 PRE-REMOVE:
 
 POST-REMOVE:
 
-	Remove the svg loaders from your gdk-pixbuf.loaders.
+	Remove the svg loaders from your gdk-pixbuf.loaders, a post-remove 
+	script is included todo this.
 
 NOTES:
 
-Danny Rawlins, <romster@shortcircuit.net.au>

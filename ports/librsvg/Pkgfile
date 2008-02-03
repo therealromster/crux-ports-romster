@@ -2,14 +2,12 @@
 # URL: http://librsvg.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: gdk-pixbuf gtk libsvg
+# Depends on: gtk libgsf libcroco
+# Optional:	gnome-vfs
 
-# Recommended:	
-# Optional:	firefox, gnome-vfs, libgsf, libcroco
-# Category:	library
 
 name=librsvg
-version=2.18.2
+version=2.20.0
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/librsvg/${version%.*}/librsvg-$version.tar.bz2)
 
@@ -19,14 +17,10 @@ build() {
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
-		--enable-gtk-theme \
-		--enable-pixbuf-loader \
-		--disable-gtk-doc \
-		--disable-gnome-vfs \
 		--disable-static \
+		--disable-mozilla-plugin \
 		--with-svgz \
-		--with-croco \
-		--with-cairo
+		--with-croco
 
 	make
 	make DESTDIR=$PKG install
