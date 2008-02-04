@@ -1,0 +1,12 @@
+diff -pruN sqlite-3.5.5.orig/Makefile.in sqlite-3.5.5/Makefile.in
+--- sqlite-3.5.5.orig/Makefile.in	2008-02-05 00:50:24.257359496 +1100
++++ sqlite-3.5.5/Makefile.in	2008-02-05 00:47:58.356539792 +1100
+@@ -591,6 +591,8 @@ install:	sqlite3$(BEXE) libsqlite3.la sq
+ 	$(INSTALL) -m 0644 $(TOP)/src/sqlite3ext.h $(DESTDIR)$(prefix)/include
+ 	$(INSTALL) -d $(DESTDIR)$(libdir)/pkgconfig; 
+ 	$(INSTALL) -m 0644 sqlite3.pc $(DESTDIR)$(libdir)/pkgconfig; 
++	$(INSTALL) -d $(DESTDIR)$(prefix)$(mandir)/man1
++	$(INSTALL) -m 0644 sqlite3.1 $(DESTDIR)$(prefix)$(mandir)/man1
+ 
+ tcl_install:	libtclsqlite3.la
+ 	tclsh $(TOP)/tclinstaller.tcl $(VERSION)
