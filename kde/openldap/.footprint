@@ -41,23 +41,23 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/ldap_utf8.h
 -rw-r--r--	root/root	usr/include/slapi-plugin.h
 drwxr-xr-x	root/root	usr/lib/
-lrwxrwxrwx	root/root	usr/lib/liblber-2.3.so.0 -> liblber-2.3.so.0.2.20
--rw-r--r--	root/root	usr/lib/liblber-2.3.so.0.2.20
+lrwxrwxrwx	root/root	usr/lib/liblber-2.3.so.0 -> liblber-2.3.so.0.2.27
+-rw-r--r--	root/root	usr/lib/liblber-2.3.so.0.2.27
 -rw-r--r--	root/root	usr/lib/liblber.a
 -rw-r--r--	root/root	usr/lib/liblber.la
-lrwxrwxrwx	root/root	usr/lib/liblber.so -> liblber-2.3.so.0.2.20
+lrwxrwxrwx	root/root	usr/lib/liblber.so -> liblber-2.3.so.0.2.27
 lrwxrwxrwx	root/root	usr/lib/liblber.so.2 -> liblber.so
-lrwxrwxrwx	root/root	usr/lib/libldap-2.3.so.0 -> libldap-2.3.so.0.2.20
--rw-r--r--	root/root	usr/lib/libldap-2.3.so.0.2.20
+lrwxrwxrwx	root/root	usr/lib/libldap-2.3.so.0 -> libldap-2.3.so.0.2.27
+-rw-r--r--	root/root	usr/lib/libldap-2.3.so.0.2.27
 -rw-r--r--	root/root	usr/lib/libldap.a
 -rw-r--r--	root/root	usr/lib/libldap.la
-lrwxrwxrwx	root/root	usr/lib/libldap.so -> libldap-2.3.so.0.2.20
+lrwxrwxrwx	root/root	usr/lib/libldap.so -> libldap-2.3.so.0.2.27
 lrwxrwxrwx	root/root	usr/lib/libldap.so.2 -> libldap.so
-lrwxrwxrwx	root/root	usr/lib/libldap_r-2.3.so.0 -> libldap_r-2.3.so.0.2.20
--rw-r--r--	root/root	usr/lib/libldap_r-2.3.so.0.2.20
+lrwxrwxrwx	root/root	usr/lib/libldap_r-2.3.so.0 -> libldap_r-2.3.so.0.2.27
+-rw-r--r--	root/root	usr/lib/libldap_r-2.3.so.0.2.27
 -rw-r--r--	root/root	usr/lib/libldap_r.a
 -rw-r--r--	root/root	usr/lib/libldap_r.la
-lrwxrwxrwx	root/root	usr/lib/libldap_r.so -> libldap_r-2.3.so.0.2.20
+lrwxrwxrwx	root/root	usr/lib/libldap_r.so -> libldap_r-2.3.so.0.2.27
 lrwxrwxrwx	root/root	usr/lib/libldap_r.so.2 -> libldap_r.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
