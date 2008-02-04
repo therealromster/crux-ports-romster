@@ -1,0 +1,11 @@
+--- dbus-protocol.c.orig	2006-12-05 22:27:05.409994516 -0600
++++ dbus-protocol.c	2006-12-05 22:27:42.887277120 -0600
+@@ -1067,7 +1067,7 @@
+     if (dbus_bus_request_name(
+             server->bus,
+             AVAHI_DBUS_NAME,
+-#if (DBUS_VERSION_MAJOR == 0) && (DBUS_VERSION_MINOR >= 60)
++#if (DBUS_VERSION_MAJOR >= 1) || ((DBUS_VERSION_MAJOR == 0) && (DBUS_VERSION_MINOR >= 60))
+             DBUS_NAME_FLAG_DO_NOT_QUEUE,
+ #else
+             DBUS_NAME_FLAG_PROHIBIT_REPLACEMENT,

@@ -1,0 +1,39 @@
+# Description: A system that facilitates service discovery on local networks.
+# URL: http://avahi.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at crux dot nu
+# Depends on: libdaemon dbus dbus-python pygtk libglade
+
+name=avahi
+version=0.6.22
+release=1
+source=(http://avahi.org/download/avahi-$version.tar.gz \
+	rc.avahi avahi-dbus-major-version.patch)
+
+build() {
+	cd avahi-$version
+
+	./configure \
+		--prefix=/usr \
+		--localstatedir=/var \
+		--mandir=/usr/man \
+		--disable-qt3 \
+		--disable-qt4 \
+		--disable-doxygen-doc \
+		--disable-doxygen-dot \
+		--with-avahi-user=avahi \
+		--with-avahi-group=avahi \
+		--with-distro=none \
+		--disable-mono \
+		--disable-monodoc \
+		--enable-compat-howl \
+		--enable-compat-libdns_sd \
+		--with-dbus-sys=/usr/etc/dbus-1/system.d
+
+	make
+	make DESTDIR=$PKG install
+
+	install -D -o root -g root -m 0755 $SRC/rc.avahi $PKG/etc/rc.d/avahi/
+	rm -rf $PKG/usr/share/locale
+}
+

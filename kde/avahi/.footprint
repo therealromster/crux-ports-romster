@@ -1,0 +1,214 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/avahi
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/avahi-bookmarks
+-rwxr-xr-x	root/root	usr/bin/avahi-browse
+lrwxrwxrwx	root/root	usr/bin/avahi-browse-domains -> avahi-browse
+-rwxr-xr-x	root/root	usr/bin/avahi-discover
+-rwxr-xr-x	root/root	usr/bin/avahi-discover-standalone
+-rwxr-xr-x	root/root	usr/bin/avahi-publish
+lrwxrwxrwx	root/root	usr/bin/avahi-publish-address -> avahi-publish
+lrwxrwxrwx	root/root	usr/bin/avahi-publish-service -> avahi-publish
+-rwxr-xr-x	root/root	usr/bin/avahi-resolve
+lrwxrwxrwx	root/root	usr/bin/avahi-resolve-address -> avahi-resolve
+lrwxrwxrwx	root/root	usr/bin/avahi-resolve-host-name -> avahi-resolve
+-rwxr-xr-x	root/root	usr/bin/avahi-set-host-name
+lrwxrwxrwx	root/root	usr/bin/bshell -> bssh
+-rwxr-xr-x	root/root	usr/bin/bssh
+lrwxrwxrwx	root/root	usr/bin/bvnc -> bssh
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/avahi/
+-rwxr-xr-x	root/root	usr/etc/avahi/avahi-autoipd.action
+-rw-r--r--	root/root	usr/etc/avahi/avahi-daemon.conf
+-rwxr-xr-x	root/root	usr/etc/avahi/avahi-dnsconfd.action
+-rw-r--r--	root/root	usr/etc/avahi/hosts
+drwxr-xr-x	root/root	usr/etc/avahi/services/
+-rw-r--r--	root/root	usr/etc/avahi/services/sftp-ssh.service
+-rw-r--r--	root/root	usr/etc/avahi/services/ssh.service
+drwxr-xr-x	root/root	usr/etc/dbus-1/
+drwxr-xr-x	root/root	usr/etc/dbus-1/system.d/
+-rw-r--r--	root/root	usr/etc/dbus-1/system.d/avahi-dbus.conf
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/avahi-client/
+-rw-r--r--	root/root	usr/include/avahi-client/client.h
+-rw-r--r--	root/root	usr/include/avahi-client/lookup.h
+-rw-r--r--	root/root	usr/include/avahi-client/publish.h
+drwxr-xr-x	root/root	usr/include/avahi-common/
+-rw-r--r--	root/root	usr/include/avahi-common/address.h
+-rw-r--r--	root/root	usr/include/avahi-common/alternative.h
+-rw-r--r--	root/root	usr/include/avahi-common/cdecl.h
+-rw-r--r--	root/root	usr/include/avahi-common/defs.h
+-rw-r--r--	root/root	usr/include/avahi-common/domain.h
+-rw-r--r--	root/root	usr/include/avahi-common/error.h
+-rw-r--r--	root/root	usr/include/avahi-common/gccmacro.h
+-rw-r--r--	root/root	usr/include/avahi-common/llist.h
+-rw-r--r--	root/root	usr/include/avahi-common/malloc.h
+-rw-r--r--	root/root	usr/include/avahi-common/rlist.h
+-rw-r--r--	root/root	usr/include/avahi-common/simple-watch.h
+-rw-r--r--	root/root	usr/include/avahi-common/strlst.h
+-rw-r--r--	root/root	usr/include/avahi-common/thread-watch.h
+-rw-r--r--	root/root	usr/include/avahi-common/timeval.h
+-rw-r--r--	root/root	usr/include/avahi-common/watch.h
+drwxr-xr-x	root/root	usr/include/avahi-compat-howl/
+drwxr-xr-x	root/root	usr/include/avahi-compat-howl/corby/
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/corby/buffer.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/corby/channel.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/corby/corby.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/corby/message.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/corby/object.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/corby/orb.h
+drwxr-xr-x	root/root	usr/include/avahi-compat-howl/discovery/
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/discovery/discovery.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/discovery/text_record.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/howl.h
+drwxr-xr-x	root/root	usr/include/avahi-compat-howl/rendezvous/
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/rendezvous/rendezvous.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/rendezvous/text_record.h
+drwxr-xr-x	root/root	usr/include/avahi-compat-howl/salt/
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/address.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/debug.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/interface.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/platform.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/salt.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/signal.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/socket.h
+-rw-r--r--	root/root	usr/include/avahi-compat-howl/salt/time.h
+drwxr-xr-x	root/root	usr/include/avahi-compat-libdns_sd/
+-rw-r--r--	root/root	usr/include/avahi-compat-libdns_sd/dns_sd.h
+drwxr-xr-x	root/root	usr/include/avahi-core/
+-rw-r--r--	root/root	usr/include/avahi-core/core.h
+-rw-r--r--	root/root	usr/include/avahi-core/log.h
+-rw-r--r--	root/root	usr/include/avahi-core/lookup.h
+-rw-r--r--	root/root	usr/include/avahi-core/publish.h
+-rw-r--r--	root/root	usr/include/avahi-core/rr.h
+drwxr-xr-x	root/root	usr/include/avahi-glib/
+-rw-r--r--	root/root	usr/include/avahi-glib/glib-malloc.h
+-rw-r--r--	root/root	usr/include/avahi-glib/glib-watch.h
+drwxr-xr-x	root/root	usr/include/avahi-gobject/
+-rw-r--r--	root/root	usr/include/avahi-gobject/ga-client.h
+-rw-r--r--	root/root	usr/include/avahi-gobject/ga-entry-group.h
+-rw-r--r--	root/root	usr/include/avahi-gobject/ga-enums.h
+-rw-r--r--	root/root	usr/include/avahi-gobject/ga-error.h
+-rw-r--r--	root/root	usr/include/avahi-gobject/ga-record-browser.h
+-rw-r--r--	root/root	usr/include/avahi-gobject/ga-service-browser.h
+-rw-r--r--	root/root	usr/include/avahi-gobject/ga-service-resolver.h
+drwxr-xr-x	root/root	usr/include/avahi-ui/
+-rw-r--r--	root/root	usr/include/avahi-ui/avahi-ui.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/avahi/
+-rw-r--r--	root/root	usr/lib/avahi/service-types.db
+-rw-r--r--	root/root	usr/lib/libavahi-client.a
+-rwxr-xr-x	root/root	usr/lib/libavahi-client.la
+lrwxrwxrwx	root/root	usr/lib/libavahi-client.so -> libavahi-client.so.3.2.4
+lrwxrwxrwx	root/root	usr/lib/libavahi-client.so.3 -> libavahi-client.so.3.2.4
+-rwxr-xr-x	root/root	usr/lib/libavahi-client.so.3.2.4
+-rw-r--r--	root/root	usr/lib/libavahi-common.a
+-rwxr-xr-x	root/root	usr/lib/libavahi-common.la
+lrwxrwxrwx	root/root	usr/lib/libavahi-common.so -> libavahi-common.so.3.5.0
+lrwxrwxrwx	root/root	usr/lib/libavahi-common.so.3 -> libavahi-common.so.3.5.0
+-rwxr-xr-x	root/root	usr/lib/libavahi-common.so.3.5.0
+-rw-r--r--	root/root	usr/lib/libavahi-core.a
+-rwxr-xr-x	root/root	usr/lib/libavahi-core.la
+lrwxrwxrwx	root/root	usr/lib/libavahi-core.so -> libavahi-core.so.5.0.4
+lrwxrwxrwx	root/root	usr/lib/libavahi-core.so.5 -> libavahi-core.so.5.0.4
+-rwxr-xr-x	root/root	usr/lib/libavahi-core.so.5.0.4
+-rw-r--r--	root/root	usr/lib/libavahi-glib.a
+-rwxr-xr-x	root/root	usr/lib/libavahi-glib.la
+lrwxrwxrwx	root/root	usr/lib/libavahi-glib.so -> libavahi-glib.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libavahi-glib.so.1 -> libavahi-glib.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libavahi-glib.so.1.0.1
+-rw-r--r--	root/root	usr/lib/libavahi-gobject.a
+-rwxr-xr-x	root/root	usr/lib/libavahi-gobject.la
+lrwxrwxrwx	root/root	usr/lib/libavahi-gobject.so -> libavahi-gobject.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libavahi-gobject.so.0 -> libavahi-gobject.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libavahi-gobject.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libavahi-ui.a
+-rwxr-xr-x	root/root	usr/lib/libavahi-ui.la
+lrwxrwxrwx	root/root	usr/lib/libavahi-ui.so -> libavahi-ui.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libavahi-ui.so.0 -> libavahi-ui.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libavahi-ui.so.0.1.0
+-rw-r--r--	root/root	usr/lib/libdns_sd.a
+-rwxr-xr-x	root/root	usr/lib/libdns_sd.la
+lrwxrwxrwx	root/root	usr/lib/libdns_sd.so -> libdns_sd.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libdns_sd.so.1 -> libdns_sd.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libdns_sd.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libhowl.a
+-rwxr-xr-x	root/root	usr/lib/libhowl.la
+lrwxrwxrwx	root/root	usr/lib/libhowl.so -> libhowl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libhowl.so.0 -> libhowl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libhowl.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/avahi-client.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/avahi-compat-howl.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/avahi-compat-libdns_sd.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/avahi-core.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/avahi-glib.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/avahi-gobject.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/avahi-ui.pc
+drwxr-xr-x	root/root	usr/lib/python2.5/
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/avahi/
+-rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/avahi/ServiceTypeDatabase.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi/__init__.pyo
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/avahi_discover/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi_discover/SimpleGladeApp.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi_discover/SimpleGladeApp.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi_discover/SimpleGladeApp.pyo
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi_discover/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi_discover/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/avahi_discover/__init__.pyo
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/avahi-bookmarks.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/avahi-browse-domains.1.gz -> avahi-browse.1.gz
+-rw-r--r--	root/root	usr/man/man1/avahi-browse.1.gz
+-rw-r--r--	root/root	usr/man/man1/avahi-discover.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/avahi-publish-address.1.gz -> avahi-publish.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/avahi-publish-service.1.gz -> avahi-publish.1.gz
+-rw-r--r--	root/root	usr/man/man1/avahi-publish.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/avahi-resolve-address.1.gz -> avahi-resolve.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/avahi-resolve-host-name.1.gz -> avahi-resolve.1.gz
+-rw-r--r--	root/root	usr/man/man1/avahi-resolve.1.gz
+-rw-r--r--	root/root	usr/man/man1/avahi-set-host-name.1.gz
+-rw-r--r--	root/root	usr/man/man1/bssh.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/bvnc.1.gz -> bssh.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/avahi-daemon.conf.5.gz
+-rw-r--r--	root/root	usr/man/man5/avahi.hosts.5.gz
+-rw-r--r--	root/root	usr/man/man5/avahi.service.5.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/avahi-autoipd.8.gz
+-rw-r--r--	root/root	usr/man/man8/avahi-autoipd.action.8.gz
+-rw-r--r--	root/root	usr/man/man8/avahi-daemon.8.gz
+-rw-r--r--	root/root	usr/man/man8/avahi-dnsconfd.8.gz
+-rw-r--r--	root/root	usr/man/man8/avahi-dnsconfd.action.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/avahi-autoipd
+-rwxr-xr-x	root/root	usr/sbin/avahi-daemon
+-rwxr-xr-x	root/root	usr/sbin/avahi-dnsconfd
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/avahi-discover.desktop
+-rw-r--r--	root/root	usr/share/applications/bssh.desktop
+-rw-r--r--	root/root	usr/share/applications/bvnc.desktop
+drwxr-xr-x	root/root	usr/share/avahi/
+-rw-r--r--	root/root	usr/share/avahi/avahi-service.dtd
+drwxr-xr-x	root/root	usr/share/avahi/interfaces/
+-rw-r--r--	root/root	usr/share/avahi/interfaces/avahi-discover.glade
+drwxr-xr-x	root/root	usr/share/avahi/introspection/
+-rw-r--r--	root/root	usr/share/avahi/introspection/AddressResolver.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/DomainBrowser.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/EntryGroup.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/HostNameResolver.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/RecordBrowser.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/Server.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/ServiceBrowser.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/ServiceResolver.introspect
+-rw-r--r--	root/root	usr/share/avahi/introspection/ServiceTypeBrowser.introspect
+-rw-r--r--	root/root	usr/share/avahi/service-types
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/run/
