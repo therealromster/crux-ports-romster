@@ -37,9 +37,9 @@ lrwxrwxrwx	root/root	usr/lib/libexslt.so.0 -> libexslt.so.0.8.13
 drwxr-xr-x	root/root	usr/lib/libxslt-plugins/
 -rw-r--r--	root/root	usr/lib/libxslt.a
 -rwxr-xr-x	root/root	usr/lib/libxslt.la
-lrwxrwxrwx	root/root	usr/lib/libxslt.so -> libxslt.so.1.1.20
-lrwxrwxrwx	root/root	usr/lib/libxslt.so.1 -> libxslt.so.1.1.20
--rwxr-xr-x	root/root	usr/lib/libxslt.so.1.1.20
+lrwxrwxrwx	root/root	usr/lib/libxslt.so -> libxslt.so.1.1.22
+lrwxrwxrwx	root/root	usr/lib/libxslt.so.1 -> libxslt.so.1.1.22
+-rwxr-xr-x	root/root	usr/lib/libxslt.so.1.1.22
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libexslt.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libxslt.pc
