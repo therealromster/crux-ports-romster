@@ -1,0 +1,31 @@
+# Description: XSL Transformations library.
+# URL: http://xmlsoft.org/XSLT/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at crux dot nu
+# Depends on: libxml2
+
+name=libxslt
+version=1.1.20
+release=1
+source=(ftp://xmlsoft.org/libxml2/libxslt-$version.tar.gz)
+
+build() {
+	cd libxslt-$version
+
+	./configure \
+		--prefix=/usr \
+		--without-python
+
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/doc $PKG/usr/share
+
+	# move manpages
+	if [ -e $PKG/usr/man/man4/libxslt.4 ]; then
+		pushd $PKG/usr/man
+		mkdir man3
+		mv man4/libxslt.4 man3/libxslt.3
+		popd
+	fi
+}
+
