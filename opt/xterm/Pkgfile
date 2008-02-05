@@ -1,0 +1,28 @@
+# Description: The standard termulator.
+# URL: http://dickey.his.com/xterm/xterm.html
+# Maintainer: Simone Rota, sip at crux dot nu
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: xorg-libxaw
+
+name=xterm
+version=229
+release=1
+source=(ftp://invisible-island.net/xterm/xterm-$version.tgz \
+	configure.diff)
+
+build() {
+	cd xterm-$version
+
+	[ -z "$BASH_VERSION" ] && patch -p0 -i $SRC/configure.diff
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--enable-256-color \
+		--enable-wide-chars
+
+	make
+	make install DESTDIR=$PKG
+	chmod 0755 $PKG/usr/bin/xterm
+}
+
