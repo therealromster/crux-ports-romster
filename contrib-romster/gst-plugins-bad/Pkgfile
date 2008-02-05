@@ -6,7 +6,7 @@
 
 name=gst-plugins-bad
 version=0.10.5
-release=1
+release=2
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-$version.tar.gz)
 
 build() {
@@ -20,6 +20,7 @@ build() {
 		--disable-debug \
 		--disable-examples \
 		--disable-sdltest \
+		--disable-neon \
 		--with-x
 
 	make
