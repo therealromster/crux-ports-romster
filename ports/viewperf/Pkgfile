@@ -1,13 +1,8 @@
-# $Id: 
 # Description: ViewPerf is an industry standard OpenGL graphics benchmark application.
 # URL: http://sourceforge.net/projects/viewperf
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on: x11
-
-# Recommended:	
-# Optional:	
-# Category:	benchmark, video, graphics, tests, performance
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg-libx11
 
 name=viewperf
 version=81
@@ -63,18 +58,18 @@ build() {
 
 	# install exec and symlink
 	if [ $PORT_OS = 1 ]; then
-		install -D -m755 pngxor/Linux32/pngxor $PKG/usr/share/$name/pngxor
-		install -D -m755 vpost/Linux32/vpost $PKG/usr/share/$name/vpost
-		install -D -m755 $name/Linux32/$name $PKG/usr/share/$name/$name
+		install -D -m 0755 pngxor/Linux32/pngxor $PKG/usr/share/$name/pngxor
+		install -D -m 0755 vpost/Linux32/vpost $PKG/usr/share/$name/vpost
+		install -D -m 0755 $name/Linux32/$name $PKG/usr/share/$name/$name
 
 		ln -sf /usr/share/$name/pngxor $PKG/usr/bin/pngxor
 		ln -sf /usr/share/$name/vpost $PKG/usr/bin/vpost
 		ln -sf /usr/share/$name/$name $PKG/usr/bin/$name
 
 	elif [ $PORT_OS = 3 ]; then
-		install -D -m755 pngxor/Linux64/pngxor $PKG/usr/share/$name/pngxor
-		install -D -m755 vpost/Linux64/vpost $PKG/usr/share/$name/vpost
-		install -D -m755 $name/Linux64/$name $PKG/usr/share/$name/$name
+		install -D -m 0755 pngxor/Linux64/pngxor $PKG/usr/share/$name/pngxor
+		install -D -m 0755 vpost/Linux64/vpost $PKG/usr/share/$name/vpost
+		install -D -m 0755 $name/Linux64/$name $PKG/usr/share/$name/$name
 
 		ln -sf /usr/share/$name/pngxor $PKG/usr/bin/pngxor
 		ln -sf /usr/share/$name/vpost $PKG/usr/bin/vpost
@@ -106,3 +101,4 @@ build() {
 	#make DESTDIR=$PKG install
 	chown -R root.root $PKG
 }
+
