@@ -5,9 +5,9 @@
 # Depends on: ghostscript jasper lcms librsvg libungif openexr
 
 name=imagemagick
-version=6.3.8-3
+version=6.3.8-5
 release=1
-source=(http://dl.sourceforge.net/sourceforge/imagemagick/ImageMagick-$version.tar.lzma)
+source=(ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-$version.tar.lzma)
 
 build () {
 	# temp fix untill/if pkgutils supports lzma
