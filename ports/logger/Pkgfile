@@ -1,0 +1,18 @@
+# Description: Utility to take control of system logs.
+# URL: http://tanaya.net/Logger/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=logger
+version=08037.1621
+release=1
+source=(http://romster.shortcircuit.net.au/crux/source/logger/logger-$version.tar.lzma)
+
+build() {
+	./COMPILE
+	install -d $PKG/sbin $PKG/etc
+	install -m 0755 -t $PKG/sbin Logger LogPipe 
+	install -m 0644 Logger.conf $PKG/etc/
+}
+
