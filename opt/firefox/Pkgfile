@@ -5,9 +5,9 @@
 # Depends on: libidl gtk libpng libjpeg zlib
 
 name=firefox
-version=2.0.0.11
+version=2.0.0.12
 release=1
-source=(ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/$version/source/firefox-$version-source.tar.bz2 \
+source=(http://romster.shortcircuit.net.au/crux/source/firefox/firefox-$version-source.tar.bz2 \
 	firefox-2.0-add-ldflags.patch \
 	http://crux.nu/files/firefox/firefox.desktop \
 	http://crux.nu/files/firefox/firefox.png \
