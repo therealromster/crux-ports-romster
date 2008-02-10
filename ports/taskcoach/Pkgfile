@@ -1,0 +1,16 @@
+# Description: Simple todo manager to manage personal tasks and todo lists.
+# URL: http://www.taskcoach.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: wxpython
+
+name=taskcoach
+version=0.69.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/taskcoach/TaskCoach-$version.tar.gz)
+
+build() {
+	cd TaskCoach-$version
+	python setup.py install --root=$PKG
+}
+
