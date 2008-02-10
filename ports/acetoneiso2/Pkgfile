@@ -1,0 +1,21 @@
+# Description: CD/DVD image conversion.
+# URL: http://www.acetoneiso.netsons.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: fuseiso qt4
+# Optional: mkisofs cdrdao p7zip gnupg pinentry
+
+#konqueror or nautilus
+
+name=acetoneiso2
+version=2.0.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/acetoneiso2/acetoneiso2_$version-source.tar.gz)
+
+build() {
+	cd acetoneiso2/src
+	qmake-qt4
+	make
+	make INSTALL_ROOT=$PKG install
+}
+
