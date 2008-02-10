@@ -5,7 +5,7 @@
 # Depends on: xorg-libxft tcl
 
 name=tk
-version=8.5.0
+version=8.5.1
 release=1
 source=(http://dl.sourceforge.net/sourceforge/tcl/tk$version-src.tar.gz)
 
