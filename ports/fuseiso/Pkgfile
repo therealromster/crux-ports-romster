@@ -1,0 +1,18 @@
+# Description: FUSE module to mount ISO images.
+# URL: http://fuse.sourceforge.net/wiki/index.php/FuseIso
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jukka Heino, jukka dot heino at gmail dot com
+# Depends on: fuse
+
+name=fuseiso
+version=20070708
+release=1
+source=(http://ubiz.ru/dm/fuseiso-$version.tar.bz2)
+
+build() {
+	cd fuseiso-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
