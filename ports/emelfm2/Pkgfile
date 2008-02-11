@@ -6,13 +6,13 @@
 
 name=emelfm2
 version=0.3.5
-release=1
+release=2
 source=(http://emelfm2.net/rel/emelfm2-$version.tar.gz)
 
 build() {
 	cd emelfm2-$version
-	make PREFIX=/usr MAN_DIR=$PKG/man/man1/
-	make PREFIX=$PKG/usr MAN_DIR=$PKG/man/man1/ install
+	make PREFIX=/usr MAN_DIR=/usr/man/man1
+	make PREFIX=$PKG/usr MAN_DIR=$PKG/usr/man/man1 install
 	rm -r $PKG/usr/share/doc
 }
 

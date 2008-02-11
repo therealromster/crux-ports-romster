@@ -1,6 +1,3 @@
-drwxr-xr-x	root/root	man/
-drwxr-xr-x	root/root	man/man1/
--rw-r--r--	root/root	man/man1/emelfm2.1.bz2.gz
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/emelfm2
@@ -24,6 +21,9 @@ drwxr-xr-x	root/root	usr/lib/emelfm2/plugins/
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_unpack.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_upgrade.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_view.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/emelfm2.1.bz2.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/application-registry/
 -rw-r--r--	root/root	usr/share/application-registry/emelfm2.applications
