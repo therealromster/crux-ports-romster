@@ -1,0 +1,23 @@
+# Description: A fast image manipulation library.
+# URL: http://docs.enlightenment.org/api/imlib2/html/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: libid3tag libpng libtiff libungif xorg-libsm xorg-libxext
+
+name=imlib2
+version=1.4.0
+release=2
+source=(http://dl.sourceforge.net/sourceforge/enlightenment/imlib2-$version.tar.gz)
+
+build() {
+	cd imlib2-$version
+
+	./configure \
+		--prefix=/usr \
+		--x-includes=/usr/include/X11 \
+		--x-libraries=/usr/lib
+
+	make
+	make DESTDIR=$PKG install
+}
+
