@@ -6,16 +6,18 @@
 
 name=pkgutils
 version=5.31.0
-release=2
+release=3
 source=(http://crux.nu/files/pkgutils-$version.tar.gz \
 	pkgutils-$version-lzma-decompress.patch \
-	pkgutils-$version-lzma-compress-package.patch)
+	pkgutils-$version-lzma-compress-package.patch \
+	pkgutils-$version-warn-on-footprint-new-files.patch)
 
 build() {
 	cd pkgutils-$version
 
 	patch -p1 -i $SRC/pkgutils-$version-lzma-decompress.patch
 	#patch -p1 -i $SRC/pkgutils-$version-lzma-compress-package.patch
+	patch -p1 -i $SRC/pkgutils-$version-warn-on-footprint-new-files.patch
 	
 	make DESTDIR=$PKG install
 }
