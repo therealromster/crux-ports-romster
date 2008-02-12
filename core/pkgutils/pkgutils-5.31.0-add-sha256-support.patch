@@ -1,0 +1,183 @@
+diff -Nurp pkgutils-5.31.0/pkgmk.in pkgutils-5.31.0-sha256sum/pkgmk.in
+--- pkgutils-5.31.0/pkgmk.in	2007-12-02 13:39:44.000000000 -0500
++++ pkgutils-5.31.0-sha256sum/pkgmk.in	2008-02-11 23:11:33.000000000 -0500
+@@ -193,17 +193,63 @@ make_md5sum() {
+ 	fi
+ }
+ 
++make_sha256sum() {
++	local FILE LOCAL_FILENAMES
++
++	if [ "$source" ]; then
++		for FILE in ${source[@]}; do
++			LOCAL_FILENAMES="$LOCAL_FILENAMES `get_filename $FILE`"
++		done
++
++		sha256sum $LOCAL_FILENAMES | sed -e 's|  .*/|  |' | sort -k 2
++	fi
++}
++
+ make_footprint() {
+ 	pkginfo --footprint $TARGET | \
+ 		sed "s|\tlib/modules/`uname -r`/|\tlib/modules/<kernel-version>/|g" | \
+ 		sort -k 3
+ }
+ 
+-check_md5sum() {
++check_sum() {
+ 	local FILE="$PKGMK_WORK_DIR/.tmp"
+ 
+ 	cd $PKGMK_ROOT
+ 	
++	if [ -f $PKGMK_SHA256SUM ]; then
++		make_sha256sum > $FILE.sha256sum
++		sort -k 2 $PKGMK_SHA256SUM > $FILE.sha256sum.orig
++		diff -w -t -U 0 $FILE.sha256sum.orig $FILE.sha256sum | \
++			sed '/^@@/d' | \
++			sed '/^+++/d' | \
++			sed '/^---/d' | \
++			sed 's/^+/NEW       /g' | \
++			sed 's/^-/MISSING   /g' > $FILE.sha256sum.diff
++		if [ -s $FILE.sha256sum.diff ]; then
++			error "Sha256sum mismatch found:"
++			cat $FILE.sha256sum.diff >&2
++
++			if [ "$PKGMK_CHECK_SUM" = "yes" ]; then
++				error "Sha256sum not ok."
++				exit 1
++			fi
++
++			error "Building '$TARGET' failed."
++			exit 1
++		fi
++	else
++		if [ "$PKGMK_CHECK_SUM" = "yes" ]; then
++			if [ "$PKGMK_KEEP_WORK" = "no" ]; then
++				rm -rf $PKGMK_WORK_DIR
++			fi
++			warning "Sha256sum not found."
++			exit 1
++		fi
++
++		warning "Sha256sum not found, creating new."
++		make_sha256sum > $PKGMK_SHA256SUM
++	fi
++			
+ 	if [ -f $PKGMK_MD5SUM ]; then
+ 		make_md5sum > $FILE.md5sum
+ 		sort -k 2 $PKGMK_MD5SUM > $FILE.md5sum.orig
+@@ -221,7 +267,7 @@ check_md5sum() {
+ 				rm -rf $PKGMK_WORK_DIR
+ 			fi
+ 
+-			if [ "$PKGMK_CHECK_MD5SUM" = "yes" ]; then
++			if [ "$PKGMK_CHECK_SUM" = "yes" ]; then
+ 				error "Md5sum not ok."
+ 				exit 1
+ 			fi
+@@ -230,7 +276,7 @@ check_md5sum() {
+ 			exit 1
+ 		fi
+ 	else
+-		if [ "$PKGMK_CHECK_MD5SUM" = "yes" ]; then
++		if [ "$PKGMK_CHECK_SUM" = "yes" ]; then
+ 			if [ "$PKGMK_KEEP_WORK" = "no" ]; then
+ 				rm -rf $PKGMK_WORK_DIR
+ 			fi
+@@ -242,11 +288,11 @@ check_md5sum() {
+ 		make_md5sum > $PKGMK_MD5SUM
+ 	fi
+ 
+-	if [ "$PKGMK_CHECK_MD5SUM" = "yes" ]; then
++	if [ "$PKGMK_CHECK_SUM" = "yes" ]; then
+ 		if [ "$PKGMK_KEEP_WORK" = "no" ]; then
+ 			rm -rf $PKGMK_WORK_DIR
+ 		fi
+-		info "Md5sum ok."
++		info "Checksums ok."
+ 		exit 0
+ 	fi
+ }
+@@ -342,8 +388,8 @@ build_package() {
+ 	rm -rf $PKGMK_WORK_DIR
+ 	mkdir -p $SRC $PKG
+ 	
+-	if [ "$PKGMK_IGNORE_MD5SUM" = "no" ]; then
+-		check_md5sum
++	if [ "$PKGMK_IGNORE_SUM" = "no" ]; then
++		check_sum
+ 	fi
+ 
+ 	if [ "$UID" != "0" ]; then
+@@ -501,9 +547,9 @@ print_help() {
+ 	echo "  -utd, --up-to-date          do not build, only check if package is up to date"
+ 	echo "  -uf,  --update-footprint    update footprint using result from last build"
+ 	echo "  -if,  --ignore-footprint    build package without checking footprint"
+-	echo "  -um,  --update-md5sum       update md5sum"
+-	echo "  -im,  --ignore-md5sum       build package without checking md5sum"
+-	echo "  -cm,  --check-md5sum        do not build, only check md5sum"
++	echo "  -um,  --update-md5sum       update checksums"
++	echo "  -im,  --ignore-md5sum       build package without checking checksums"
++	echo "  -cm,  --check-md5sum        do not build, only check checksums"
+ 	echo "  -ns,  --no-strip            do not strip executable binaries or libraries"
+ 	echo "  -f,   --force               build package even if it appears to be up to date"
+ 	echo "  -c,   --clean               remove package and downloaded files"
+@@ -534,11 +580,11 @@ parse_options() {
+ 			-if|--ignore-footprint)
+ 				PKGMK_IGNORE_FOOTPRINT="yes" ;;
+ 			-um|--update-md5sum)
+-				PKGMK_UPDATE_MD5SUM="yes" ;;
++				PKGMK_UPDATE_SUM="yes" ;;
+ 			-im|--ignore-md5sum)
+-				PKGMK_IGNORE_MD5SUM="yes" ;;
++				PKGMK_IGNORE_SUM="yes" ;;
+ 			-cm|--check-md5sum)
+-				PKGMK_CHECK_MD5SUM="yes" ;;
++				PKGMK_CHECK_SUM="yes" ;;
+ 			-ns|--no-strip)
+ 				PKGMK_NO_STRIP="yes" ;;
+ 			-f|--force)
+@@ -604,10 +650,12 @@ main() {
+ 		exit 0
+ 	fi
+ 	
+-	if [ "$PKGMK_UPDATE_MD5SUM" = "yes" ]; then
++	if [ "$PKGMK_UPDATE_SUM" = "yes" ]; then
+ 		download_source
+ 		make_md5sum > $PKGMK_MD5SUM
+ 		info "Md5sum updated."
++		make_sha256sum > $PKGMK_SHA256SUM
++		info "Sha256sum updated."
+ 		exit 0
+ 	fi
+ 	
+@@ -625,7 +673,7 @@ main() {
+ 		exit 0
+ 	fi
+ 	
+-	if [ "`build_needed`" = "no" ] && [ "$PKGMK_FORCE" = "no" ] && [ "$PKGMK_CHECK_MD5SUM" = "no" ]; then
++	if [ "`build_needed`" = "no" ] && [ "$PKGMK_FORCE" = "no" ] && [ "$PKGMK_CHECK_SUM" = "no" ]; then
+ 		info "Package '$TARGET' is up to date."
+ 	else
+ 		download_source
+@@ -651,6 +699,7 @@ PKGMK_CONFFILE="/etc/pkgmk.conf"
+ PKGMK_PKGFILE="Pkgfile"
+ PKGMK_FOOTPRINT=".footprint"
+ PKGMK_MD5SUM=".md5sum"
++PKGMK_SHA256SUM=".sha256sum"
+ PKGMK_NOSTRIP=".nostrip"
+ 
+ PKGMK_SOURCE_MIRRORS=()
+@@ -667,9 +716,9 @@ PKGMK_UPDATE_FOOTPRINT="no"
+ PKGMK_IGNORE_FOOTPRINT="no"
+ PKGMK_FORCE="no"
+ PKGMK_KEEP_WORK="no"
+-PKGMK_UPDATE_MD5SUM="no"
+-PKGMK_IGNORE_MD5SUM="no"
+-PKGMK_CHECK_MD5SUM="no"
++PKGMK_UPDATE_SUM="no"
++PKGMK_IGNORE_SUM="no"
++PKGMK_CHECK_SUM="no"
+ PKGMK_NO_STRIP="no"
+ PKGMK_CLEAN="no"
+ 

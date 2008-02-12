@@ -6,11 +6,12 @@
 
 name=pkgutils
 version=5.31.0
-release=3
+release=4
 source=(http://crux.nu/files/pkgutils-$version.tar.gz \
 	pkgutils-$version-lzma-decompress.patch \
 	pkgutils-$version-lzma-compress-package.patch \
-	pkgutils-$version-warn-on-footprint-new-files.patch)
+	pkgutils-$version-warn-on-footprint-new-files.patch \
+	pkgutils-$version-add-sha256-support.patch)
 
 build() {
 	cd pkgutils-$version
@@ -18,6 +19,10 @@ build() {
 	patch -p1 -i $SRC/pkgutils-$version-lzma-decompress.patch
 	#patch -p1 -i $SRC/pkgutils-$version-lzma-compress-package.patch
 	patch -p1 -i $SRC/pkgutils-$version-warn-on-footprint-new-files.patch
+
+	# predatorfreak's patch.
+	# http://dcaf-security.org/ports/pkgutils/pkgutils-5.31.0-add-sha256-support.patch
+	patch -p1 -i $SRC/pkgutils-$version-add-sha256-support.patch 
 	
 	make DESTDIR=$PKG install
 }
