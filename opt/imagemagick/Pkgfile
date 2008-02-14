@@ -5,9 +5,11 @@
 # Depends on: ghostscript jasper lcms librsvg libungif openexr
 
 name=imagemagick
-version=6.3.8-6
+diff_version=6.3.8-6
+version=6.3.8-7
 release=1
 source=(ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-$version.tar.lzma)
+diff=(http://romster.shortcircuit.net.au/crux/source/imagemagick/ImageMagick-$diff_version.tar-ImageMagick-$version.tar.xdelta)
 
 build () {
 	# temp fix untill/if pkgutils supports lzma
@@ -22,7 +24,6 @@ build () {
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--disable-static \
-		--enable-lzw \
 		--with-perl
 
 	make
