@@ -1,0 +1,16 @@
+# Description: SDL graphics drawing primitives and other support functions.
+# URL: http://www.ferzkopp.net/Software/SDL_gfx-2.0/index.html
+# Maintainer: Simone Rota, sip at crux dot nu
+# Depends on: libsdl
+
+name=sdl_gfx
+version=2.0.13
+release=1
+source=(http://www.ferzkopp.net/Software/SDL_gfx-2.0/SDL_gfx-$version.tar.gz)
+
+build() {
+	cd SDL_gfx-$version
+	./configure	--prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
