@@ -1,0 +1,37 @@
+diff -aur giFTcurs-0.6.2.orig/src/screen.c giFTcurs-0.6.2/src/screen.c
+--- giFTcurs-0.6.2.orig/src/screen.c	2003-11-05 00:40:44.000000000 +0100
++++ giFTcurs-0.6.2/src/screen.c	2005-05-01 13:38:22.000000000 +0200
+@@ -142,20 +142,6 @@
+ #endif
+ }
+ 
+-/* is_xterm is stolen from links */
+-static gboolean is_xterm(void)
+-{
+-#if defined(__EMX__)			/* OS2 */
+-	return !!g_getenv("WINDOWID");
+-#elif defined(__BEOS__)
+-	return FALSE;
+-#elif defined(__riscos__)
+-	return TRUE;
+-#else
+-	return g_getenv("DISPLAY") && *g_getenv("DISPLAY");
+-#endif
+-}
+-
+ int get_item_number(char *color)
+ {
+ 	int i;
+@@ -250,12 +236,6 @@
+ 
+ 	load_color_config();
+ 
+-	if (is_xterm()) {
+-		/* Set xterm title and icon */
+-		printf("\033]1;%s\a", PACKAGE);
+-		printf("\033]2;%s %s\a", PACKAGE, VERSION);
+-		fflush(stdout);
+-	}
+ 	INVERT_SEL = atoi(get_config("set", "invert-selection", "0"));
+ 
+ 	g_atexit(screen_deinit);
