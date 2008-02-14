@@ -5,7 +5,7 @@
 # Depends on: xorg gl-select
 
 name=nvidia-legacy-96xx
-version=96.43.01
+version=96.43.05
 release=1
 source=(http://download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run \
 	nvidia-makefile.patch)
