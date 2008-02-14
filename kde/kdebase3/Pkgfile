@@ -3,17 +3,20 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
 # Depends on: kdelibs3 ghostscript cdparanoia lame hal dbus-qt3
-# Optional: samba
+# Optional: samba lm_sensors
 
 name=kdebase3
 version=3.5.8
-release=1
+release=2
 source=(http://download.kde.org/stable/$version/src/kdebase-$version.tar.bz2 \
+	kdebase-$version-lm-sensors-3.x.patch
 	kdm \
 	crux.desktop)
 
 build() {
 	cd kdebase-$version
+
+	patch -p1 -i $SRC/kdebase-$version-lm-sensors-3.x.patch
 
 	./configure	\
 		--prefix=/usr \
