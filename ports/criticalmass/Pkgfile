@@ -1,19 +1,18 @@
-# $Id:
 # Description: An SDL/OpenGL space shoot'em up game.
 # URL: http://criticalmass.sourceforge.net/critter.php
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: sdl_image, sdl_mixer, x11
+# Depends on: sdl_image sdl_mixer xorg-libx11
 
 name=criticalmass
 version=1.0.2
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/CriticalMass-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/criticalmass/CriticalMass-$version.tar.bz2)
 
 build() {
 	cd CriticalMass-$version
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
 
