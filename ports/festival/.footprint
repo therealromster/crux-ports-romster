@@ -351,9 +351,7 @@ drwxr-xr-x	root/root	usr/share/festival/lib/
 -r--r--r--	root/root	usr/share/festival/lib/cstr.scm
 -rw-r--r--	root/root	usr/share/festival/lib/darpa_phones.scm
 drwxr-xr-x	root/root	usr/share/festival/lib/dicts/
--rw-r--r--	root/root	usr/share/festival/lib/dicts/COPYING.poslex
 drwxr-xr-x	root/root	usr/share/festival/lib/dicts/cmu/
--rw-r--r--	root/root	usr/share/festival/lib/dicts/cmu/COPYING
 -rw-r--r--	root/root	usr/share/festival/lib/dicts/cmu/allowables.scm
 -rwxr-xr-x	root/root	usr/share/festival/lib/dicts/cmu/cmu2ft
 -rw-r--r--	root/root	usr/share/festival/lib/dicts/cmu/cmu_lts_rules.scm
@@ -363,8 +361,6 @@ drwxr-xr-x	root/root	usr/share/festival/lib/dicts/cmu/
 -rw-r--r--	root/root	usr/share/festival/lib/dicts/cmu/cmudict_extensions.scm
 -rw-r--r--	root/root	usr/share/festival/lib/dicts/cmu/cmulex.scm
 drwxr-xr-x	root/root	usr/share/festival/lib/dicts/oald/
--rw-r--r--	root/root	usr/share/festival/lib/dicts/oald/COPYING
--rw-r--r--	root/root	usr/share/festival/lib/dicts/oald/README.oald
 -rw-r--r--	root/root	usr/share/festival/lib/dicts/oald/cuvoald710-0.2.scm
 -rw-r--r--	root/root	usr/share/festival/lib/dicts/oald/oald-0.4.out
 -rw-r--r--	root/root	usr/share/festival/lib/dicts/oald/oald2ft.tar.gz
@@ -438,14 +434,12 @@ drwxr-xr-x	root/root	usr/share/festival/lib/multisyn/
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/kal_diphone/
--rw-r--r--	root/root	usr/share/festival/lib/voices/english/kal_diphone/COPYING
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/kal_diphone/festvox/
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/kal_diphone/festvox/kal_diphone.scm
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/kal_diphone/festvox/kaldurtreeZ.scm
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/kal_diphone/group/
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/kal_diphone/group/kallpc16k.group
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/ked_diphone/
--rw-r--r--	root/root	usr/share/festival/lib/voices/english/ked_diphone/COPYING
 drwxr-xr-x	root/root	usr/share/festival/lib/voices/english/ked_diphone/festvox/
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/ked_diphone/festvox/kddurtreeZ.scm
 -rw-r--r--	root/root	usr/share/festival/lib/voices/english/ked_diphone/festvox/ked_diphone.scm

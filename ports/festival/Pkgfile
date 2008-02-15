@@ -6,7 +6,7 @@
 
 name=festival
 version=1.96
-release=3
+release=4
 source=(http://www.festvox.org/packed/festival/$version/festival-$version-beta.tar.gz \
 	http://www.festvox.org/packed/festival/$version/festlex_{CMU,OALD,POSLEX}.tar.gz \
 	http://www.festvox.org/packed/festival/$version/festvox_{kallpc16k,kedlpc8k,kedlpc16k}.tar.gz \
@@ -88,6 +88,12 @@ build() {
 	rm -r \
 		$PKG/usr/share/festival/lib/etc \
 		$PKG/usr/include/EST/win32
+	
+	find $PKG -type f \
+		\( -name 'README' -o \
+			-name 'README.*' -o \
+			-name 'COPYING' -o \
+			-name 'COPYING.*' \) -delete
 
 	sed -i -e 's|/projects/festival/lib|/usr/share/festival|g' $PKG/usr/share/festival/lib/lexicons.scm
 	
