@@ -3,7 +3,7 @@ drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/play -> sox
 lrwxrwxrwx	root/root	usr/bin/rec -> sox
 -rwxr-xr-x	root/root	usr/bin/sox
-lrwxrwxrwx	root/root	usr/bin/soxmix -> /usr/bin/sox
+lrwxrwxrwx	root/root	usr/bin/soxmix -> sox
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/sox.h
 -rw-r--r--	root/root	usr/include/soxstdint.h

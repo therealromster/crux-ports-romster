@@ -5,7 +5,7 @@
 # Depends on: libvorbis libmad lame alsa-lib libsndfile flac libsamplerate
 
 name=sox
-version=14.0.0
+version=14.0.1
 release=1
 source=(http://dl.sourceforge.net/sourceforge/sox/sox-$version.tar.gz)
 
@@ -19,6 +19,9 @@ build() {
 		
 	make
 	make prefix=$PKG/usr install
-	ln -fs /usr/bin/sox $PKG/usr/bin/soxmix
+
+	pushd $PKG/usr/bin
+	ln -s sox $PKG/usr/bin/soxmix
+	popd
 }
 
