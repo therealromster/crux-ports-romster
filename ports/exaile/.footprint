@@ -8,6 +8,9 @@ drwxr-xr-x	root/root	usr/lib/exaile/lib/
 -rw-r--r--	root/root	usr/lib/exaile/lib/__init__.py (EMPTY)
 -rw-r--r--	root/root	usr/lib/exaile/lib/__init__.pyc
 -rw-r--r--	root/root	usr/lib/exaile/lib/__init__.pyo
+-rw-r--r--	root/root	usr/lib/exaile/lib/feedparser.py
+-rw-r--r--	root/root	usr/lib/exaile/lib/feedparser.pyc
+-rw-r--r--	root/root	usr/lib/exaile/lib/feedparser.pyo
 -rw-r--r--	root/root	usr/lib/exaile/lib/wmainfo.py
 -rw-r--r--	root/root	usr/lib/exaile/lib/wmainfo.pyc
 -rw-r--r--	root/root	usr/lib/exaile/lib/wmainfo.pyo
@@ -74,9 +77,15 @@ drwxr-xr-x	root/root	usr/lib/exaile/xl/gui/
 -rw-r--r--	root/root	usr/lib/exaile/xl/gui/playlist.py
 -rw-r--r--	root/root	usr/lib/exaile/xl/gui/playlist.pyc
 -rw-r--r--	root/root	usr/lib/exaile/xl/gui/playlist.pyo
+-rw-r--r--	root/root	usr/lib/exaile/xl/gui/statsdialog.py
+-rw-r--r--	root/root	usr/lib/exaile/xl/gui/statsdialog.pyc
+-rw-r--r--	root/root	usr/lib/exaile/xl/gui/statsdialog.pyo
 -rw-r--r--	root/root	usr/lib/exaile/xl/library.py
 -rw-r--r--	root/root	usr/lib/exaile/xl/library.pyc
 -rw-r--r--	root/root	usr/lib/exaile/xl/library.pyo
+-rw-r--r--	root/root	usr/lib/exaile/xl/logger.py
+-rw-r--r--	root/root	usr/lib/exaile/xl/logger.pyc
+-rw-r--r--	root/root	usr/lib/exaile/xl/logger.pyo
 drwxr-xr-x	root/root	usr/lib/exaile/xl/media/
 -rw-r--r--	root/root	usr/lib/exaile/xl/media/__init__.py
 -rw-r--r--	root/root	usr/lib/exaile/xl/media/__init__.pyc
@@ -146,6 +155,9 @@ drwxr-xr-x	root/root	usr/lib/exaile/xl/plugins/
 -rw-r--r--	root/root	usr/lib/exaile/xl/prefs.py
 -rw-r--r--	root/root	usr/lib/exaile/xl/prefs.pyc
 -rw-r--r--	root/root	usr/lib/exaile/xl/prefs.pyo
+-rw-r--r--	root/root	usr/lib/exaile/xl/version.py (EMPTY)
+-rw-r--r--	root/root	usr/lib/exaile/xl/version.pyc
+-rw-r--r--	root/root	usr/lib/exaile/xl/version.pyo
 -rw-r--r--	root/root	usr/lib/exaile/xl/xlmisc.py
 -rw-r--r--	root/root	usr/lib/exaile/xl/xlmisc.pyc
 -rw-r--r--	root/root	usr/lib/exaile/xl/xlmisc.pyo
@@ -194,9 +206,11 @@ drwxr-xr-x	root/root	usr/share/exaile/images/default_theme/
 -rw-r--r--	root/root	usr/share/exaile/images/star.png
 -rw-r--r--	root/root	usr/share/exaile/images/track.png
 -rw-r--r--	root/root	usr/share/exaile/images/trayicon.png
+-rw-r--r--	root/root	usr/share/exaile/images/year.png
 drwxr-xr-x	root/root	usr/share/exaile/sql/
 -rw-r--r--	root/root	usr/share/exaile/sql/changes0001.sql
 -rw-r--r--	root/root	usr/share/exaile/sql/changes0002.sql
+-rw-r--r--	root/root	usr/share/exaile/sql/changes0003.sql
 -rw-r--r--	root/root	usr/share/exaile/sql/db.sql
 drwxr-xr-x	root/root	usr/share/exaile/xl/
 drwxr-xr-x	root/root	usr/share/exaile/xl/plugins/

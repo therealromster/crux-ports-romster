@@ -5,7 +5,7 @@
 # Depends on: pygtk gst-python gst-plugins-good gst-plugins-ugly gst-plugins-bad cddb-py dbus-python mutagen sqlite3 gnome-python-extras
 
 name=exaile
-version=0.2.11.1
+version=0.2.12b
 release=1
 source=(http://www.exaile.org/files/${name}_$version.tar.gz)
 
