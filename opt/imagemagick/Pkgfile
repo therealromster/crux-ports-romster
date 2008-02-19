@@ -12,9 +12,9 @@ diff=(http://romster.shortcircuit.net.au/crux/source/imagemagick/)
 
 build () {
 	# temp fix untill/if pkgutils supports lzma
-	if [ -e $SRC/$name-snapshot-$version.tar.lzma ]; then
-		tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
-		rm $name-snapshot-$version.tar.lzma
+	if [ -e $SRC/ImageMagick-$version.tar.lzma ]; then
+		tar --use-compress-program=lzma -xf ImageMagick-$version.tar.lzma
+		rm ImageMagick-$version.tar.lzma
 	fi
 
 	cd ImageMagick-${version/-*/}
