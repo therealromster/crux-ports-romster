@@ -1,0 +1,31 @@
+# Description: Small, easy-to-configure FTP server.
+# URL: http://bftpd.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Simone Rota, sip at crux dot nu
+# Depends on: zlib
+
+name=bftpd
+version=2.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/bftpd/bftpd-$version.tar.gz \
+	bftpd-config.patch bftpd-destdir.patch ftpd.rc)
+
+build() {
+	cd bftpd
+	patch -p1 -i ../bftpd-config.patch
+	patch -p1 -i ../bftpd-destdir.patch
+
+	./configure \
+		--prefix=/usr \
+		--enable-libz
+
+	make
+	install -d $PKG/usr/sbin $PKG/usr/man/man8 $PKG/etc/rc.d
+	make DESTDIR=$PKG install
+	install -m 0755 ../ftpd.rc $PKG/etc/rc.d/ftpd
+	chmod 600 $PKG/etc/bftpd.conf
+	pushd $PKG/usr/sbin
+	ln -s bftpd in.ftpd
+	popd
+}
+

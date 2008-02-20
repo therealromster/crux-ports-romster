@@ -1,0 +1,17 @@
+diff -ur bftpd-1.3.orig/Makefile.in bftpd-1.3/Makefile.in
+--- bftpd-1.3.orig/Makefile.in	2006-03-26 21:58:51.000000000 +0200
++++ bftpd-1.3/Makefile.in	2006-03-30 20:12:52.000000000 +0200
+@@ -30,10 +30,9 @@
+ 	$(INSTALL) -g 0 -m 644 -o 0 bftpd.8 $(DESTDIR)/$(mandir)/man8
+ 	[ -f $(DESTDIR)/etc/bftpd.conf ] || \
+ 		$(INSTALL) -g 0 -m 600 -o 0 bftpd.conf $(DESTDIR)/etc
+-	touch /var/log/bftpd.log
+-	chmod 644 /var/log/bftpd.log
+-	mkdir -p /var/run/bftpd
+-	chmod 755 /var/run/bftpd
++	install -d $(DESTDIR)/var/{log,run}
++	touch $(DESTDIR)/var/{log/bftpd,run/bftpdutmp}
++	chmod 0644 $(DESTDIR)/var/{log/bftpd,run/bftpdutmp}
+ 
+ clean distclean:
+ 	rm -f *~ $(OBJS) bftpd mksources.finished

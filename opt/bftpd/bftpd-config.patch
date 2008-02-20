@@ -1,0 +1,62 @@
+diff -ur bftpd-1.3.orig/bftpd.conf bftpd-1.3/bftpd.conf
+--- bftpd-1.3.orig/bftpd.conf	2006-03-10 01:53:52.000000000 +0100
++++ bftpd-1.3/bftpd.conf	2006-03-30 20:23:32.000000000 +0200
+@@ -1,5 +1,6 @@
+-#Configuration file for bftpd.
+-#The given values are only examples, modify this file for your own needs.
++#
++# /etc/bftpd.conf: bftpd(8) configuration
++#
+ 
+ global {
+ 
+@@ -53,7 +54,7 @@
+   #Note that the directory in which the file resides must already exist.
+   #Set the option to "" if you do not want that. This is discouraged for normal
+   #use, but can be helpful if you want to create a boot floppy or something.
+-  PATH_BFTPDUTMP="/var/run/bftpd/bftpdutmp"
++  PATH_BFTPDUTMP="/var/run/bftpdutmp"
+ 
+   #This option controls the buffer size while transferring files.
+   #If you are on a very fast network (fast meaning 100 Mbit/s or more),
+@@ -86,11 +87,11 @@
+   ALLOW_FXP="no"
+ 
+   #After how many seconds of idle time should a user be kicked from the server?
+-  CONTROL_TIMEOUT="300"
++  CONTROL_TIMEOUT="0"
+ 
+   #After how many seconds of idle time should a user be kicked from the server
+   #during a file transfer?
+-  DATA_TIMEOUT="30"
++  DATA_TIMEOUT="60"
+ 
+   #Use Ratio if you want the client to send a file before he can get a file.
+   #Usage: RATIO=send/receive or RATIO=none. Example: RATIO=2/1 lets the client
+@@ -106,7 +107,7 @@
+ 
+   #Name of the log file. Say "syslog" to log into syslog.
+   #Say "" for no logging.
+-  LOGFILE="/var/log/bftpd.log"
++  LOGFILE="/var/log/bftpd"
+ 
+   #Use %v for version, %h for the server FQDN and %i for the server IP address.
+   # Note: If you use the "%h" option and you do an inital CHROOT, then
+@@ -205,7 +206,7 @@
+ 
+ user ftp {
+   #Any password fits.
+-  ANONYMOUS_USER="yes"
++  ANONYMOUS_USER="no"
+ }
+ 
+ user anonymous {
+@@ -214,7 +215,5 @@
+ }
+ 
+ user root {
+-  DENY_LOGIN="Root login not allowed."
++  DENY_LOGIN="root login not allowed."
+ }
+-
+-
