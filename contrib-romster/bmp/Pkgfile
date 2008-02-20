@@ -1,0 +1,26 @@
+# Description: GTK XMMS look audio player.
+# URL: http://beepmp.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: libglade libogg libvorbis
+
+name=bmp
+version=0.9.7.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/beepmp/bmp-$version.tar.gz \
+	beep-config)
+
+build() {
+	cd bmp-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+	ln -s beep-media-player $PKG/usr/bin/beep
+	install -m 0755 $SRC/beep-config $PKG/usr/bin
+	install -D -m 0644 beep/beep_logo.xpm $PKG/usr/share/pixmaps/beep.xpm
+}
+
