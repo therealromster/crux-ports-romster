@@ -1,0 +1,29 @@
+# Description: A SDL MPEG player library.
+# URL: http://www.lokigames.com/development/smpeg.php3
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Matt Housh, jaeger at crux dot nu
+# Depends on: libsdl
+
+name=smpeg
+version=0.4.4
+release=2
+source=(http://gentoo.osuosl.org/distfiles/smpeg-$version.tar.gz \
+	smpeg-mpegaudiosdl.patch)
+
+build() {
+	cd smpeg-$version
+	patch -p1 -i $SRC/smpeg-mpegaudiosdl.patch
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--enable-gtk-player=no
+
+	sed -i -e 's|\(libsmpeg_la_LDFLAGS = .*\)|\1 -lstdc++|' Makefile
+
+	make
+	make install DESTDIR=$PKG
+
+	rm $PKG/usr/man/man1/gtv.1
+}
+
