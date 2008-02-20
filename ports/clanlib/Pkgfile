@@ -2,7 +2,7 @@
 # URL: http://clanlib.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Tim Biermann, tim_biermann at web dot de
-# Depends on: zlib libjpeg libpng libmikmod libogg libvorbis
+# Depends on: libjpeg libpng libmikmod libvorbis
 
 name=clanlib
 version=0.8.0
@@ -21,6 +21,9 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	ln -sf ClanLib-${version%.*}/ClanLib $PKG/usr/include/ClanLib
+
+	pushd $PKG/usr/include
+	ln -s ClanLib-${version%.*}/ClanLib ClanLib
+	popd
 }
 

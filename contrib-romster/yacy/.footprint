@@ -2,9 +2,18 @@ drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/yacy
 drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/etc/
+drwxr-x---	_yacy/daemon	usr/etc/yacy/
+drwxr-x---	_yacy/daemon	usr/etc/yacy/DATA/
+-rw-r-----	_yacy/daemon	usr/etc/yacy/yacy.init
+-rw-r-----	_yacy/daemon	usr/etc/yacy/yacy.logging
+-rw-r-----	_yacy/daemon	usr/etc/yacy/yacy.network.group
+-rw-r-----	_yacy/daemon	usr/etc/yacy/yacy.network.unit
+-rw-r-----	_yacy/daemon	usr/etc/yacy/yacy.stopwords (EMPTY)
+-rw-r-----	_yacy/daemon	usr/etc/yacy/yacy.yellow
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	_yacy/daemon	usr/lib/yacy/
-drwxr-xr-x	_yacy/daemon	usr/lib/yacy/DATA/
+lrwxrwxrwx	_yacy/daemon	usr/lib/yacy/DATA -> /usr/etc/yacy/DATA
 drwxr-xr-x	_yacy/daemon	usr/lib/yacy/addon/
 drwxr-xr-x	_yacy/daemon	usr/lib/yacy/addon/Notepad++/
 -rw-r--r--	_yacy/daemon	usr/lib/yacy/addon/Notepad++/userDefineLang.xml
@@ -941,12 +950,12 @@ drwxr-xr-x	_yacy/daemon	usr/lib/yacy/skins/
 -rwxr-xr-x	_yacy/daemon	usr/lib/yacy/stopYACY.command
 -rwxr-xr-x	_yacy/daemon	usr/lib/yacy/stopYACY.sh
 -rw-r--r--	_yacy/daemon	usr/lib/yacy/yacy.badwords.example
--rw-r--r--	_yacy/daemon	usr/lib/yacy/yacy.init
--rw-r--r--	_yacy/daemon	usr/lib/yacy/yacy.logging
--rw-r--r--	_yacy/daemon	usr/lib/yacy/yacy.network.group
--rw-r--r--	_yacy/daemon	usr/lib/yacy/yacy.network.unit
--rw-r--r--	_yacy/daemon	usr/lib/yacy/yacy.stopwords (EMPTY)
--rw-r--r--	_yacy/daemon	usr/lib/yacy/yacy.yellow
+lrwxrwxrwx	_yacy/daemon	usr/lib/yacy/yacy.init -> /usr/etc/yacy/yacy.init
+lrwxrwxrwx	_yacy/daemon	usr/lib/yacy/yacy.logging -> /usr/etc/yacy/yacy.logging
+lrwxrwxrwx	_yacy/daemon	usr/lib/yacy/yacy.network.group -> /usr/etc/yacy/yacy.network.group
+lrwxrwxrwx	_yacy/daemon	usr/lib/yacy/yacy.network.unit -> /usr/etc/yacy/yacy.network.unit
+lrwxrwxrwx	_yacy/daemon	usr/lib/yacy/yacy.stopwords -> /usr/etc/yacy/yacy.stopwords
+lrwxrwxrwx	_yacy/daemon	usr/lib/yacy/yacy.yellow -> /usr/etc/yacy/yacy.yellow
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/yacy-start
 -rwxr-xr-x	root/root	usr/sbin/yacy-stop

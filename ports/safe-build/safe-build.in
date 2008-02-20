@@ -1,17 +1,17 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
 # Script to test own ports under a fresh install chroot enviroment or using the official image.
 
 init() {
 
    	mkdir -p \
         $SAFE_BUILD_DIR/var/lib/pkg/rejected \
-        $SAFE_BUILD_DIR/usr/ports/{distfiles,packages}
+        $SAFE_BUILD_DIR/usr/ports/{distfiles,packages,work}
 
     touch $SAFE_BUILD_DIR/var/lib/pkg/db
 }
 
 setup_system() {
-
     local p
 
     init
@@ -84,7 +84,7 @@ setup_image() {
 
     init
 
-   	echo 'setting up environment type: CD image.'
+   	echo 'Setting up environment type: CD image.'
     if [ -f "$SAFE_BUILD_CD_IMAGE.iso" ]; then
         mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
     else
@@ -111,17 +111,10 @@ setup_image() {
        cd '/usr/share/safe-build/packages'
 
     	for p in *; do
-    		#cd $p
-            #if [ -f Pkgfile ]; then
-            #    . Pkgfile
-
             if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
-    		    #cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
-                pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/share/safe-build/packages/$p"
+    		    pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/share/safe-build/packages/$p"
                 echo -n '.'
             fi
-            #fi
-	    	#cd ..
     	done
         echo ''
     else
@@ -330,7 +323,6 @@ shutdown_umount() {
 }
 
 backup_ports() {
-
     local file
 
     echo -n 'Backing up ports'
@@ -341,7 +333,6 @@ backup_ports() {
     if [ ! -d "$SAFE_BUILD_DIR/usr/ports/packages/$CRUX_VERSION" ]; then
         mkdir $CRUX_VERSION
     fi
-
 
     for file in *; do
         if [ ! -f "/usr/share/safe-build/packages/$CRUX_VERSION/$file" ]; then
@@ -380,32 +371,33 @@ restore_ports() {
 }
 
 clean() {
-    local required=($(ls --color=never /usr/ports/core/ |xargs) safe-build)
-    local recomended=(popt distcc prtverify fakeroot)
-    local optional=()
+    local FILE LIST PKG TOTAL COUNT LINE I REQUIRED RECOMENDED OPTIONAL 
 
-    local list=(${required[@]} ${recomended[@]} ${optional[@]})
+    FILE='/tmp/.safe-build' #TODO make global
+    REQUIRED=(`ls --color=never /usr/ports/core/ |xargs` safe-build) #TODO fix hard coded path
+    RECOMENDED=(popt distcc prtverify fakeroot)
+    OPTIONAL=()
+    LIST=(${REQUIRED[@]} ${RECOMENDED[@]} ${OPTIONAL[@]})
 
-    local tmpfile='/tmp/.safe-build_clean'
-
-    pkginfo -i |awk '{print $1}' > $tmpfile
-
-    for p in "${list[@]}"; do
-       	sed -i -e "/^$p$/d" $tmpfile
+    pkginfo -i |awk '{print $1}' > $FILE.clean
+    for PKG in "${LIST[@]}"; do
+       	sed -i -e "/^$PKG$/d" $FILE.clean
     done
-
-    total=$(cat $tmpfile |wc -w)
-    count=1
-
-    cat $tmpfile |while read line; do
-    	z=`printf  "%.0f\n" $(bc -l <<< "($count / $total) * 100")`
-    	echo "[$z%] Removing: $line"
-    	count=$[$count+1]
-    	pkgrm "$line"
+    TOTAL=`cat $FILE.clean |wc -w`
+    COUNT=1
+    cat $FILE.clean |while read LINE; do
+        I=`printf  "%.0f\n" $(bc -l <<< "($COUNT / $TOTAL) * 100")`
+        if [ $I < 9 ]; then
+            echo "[$I%  ] Removing: $LINE"
+        elif [ $I < 100 ]; then
+            echo "[$I% ] Removing: $LINE"
+        else
+            echo "[$I%] Removing: $LINE"
+        fi
+        COUNT=$[$COUNT+1]
+        pkgrm "$LINE"
     done
-
-    unset total count z
-    rm $tmpfile
+    rm $FILE.clean
 }
 
 print_help() {
