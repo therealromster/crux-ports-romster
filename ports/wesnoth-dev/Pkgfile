@@ -6,7 +6,7 @@
 # Optional: upx
 
 name=wesnoth-dev
-version=1.3.17
+version=1.3.18
 release=1
 source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2)
 diff=(http://dl.sourceforge.net/sourceforge/wesnoth/)
