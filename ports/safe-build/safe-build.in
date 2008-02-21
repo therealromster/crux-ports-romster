@@ -251,7 +251,7 @@ rest() {
 	cp /etc/resolv.conf "$SAFE_BUILD_DIR/etc/"
 
 	# copy port settings
-	cp /etc/prt-get.conf "$SAFE_BUILD_DIR/etc/"
+	#cp /etc/prt-get.conf "$SAFE_BUILD_DIR/etc/"
 
 	# activate contrib ports and copy over existing repos
 	sed -i \
@@ -387,9 +387,9 @@ clean() {
     COUNT=1
     cat $FILE.clean |while read LINE; do
         I=`printf  "%.0f\n" $(bc -l <<< "($COUNT / $TOTAL) * 100")`
-        if [ $I < 9 ]; then
+        if (( $I < 9 )); then
             echo "[$I%  ] Removing: $LINE"
-        elif [ $I < 100 ]; then
+        elif (( $I < 100 )); then
             echo "[$I% ] Removing: $LINE"
         else
             echo "[$I%] Removing: $LINE"
@@ -401,17 +401,17 @@ clean() {
 }
 
 print_help() {
-	echo "usage: ${SAFE_BUILD_COMMAND##*/} [options]"
-	echo "options:"
-	echo "  -b,   --backup              backup the newly built ports"
+    echo "usage: ${SAFE_BUILD_COMMAND##*/} [options]"
+    echo "options:"
+    echo "  -b,   --backup              backup the newly built ports"
     echo "  -i,   --image               use CRUX offical iso"
     #echo "  -r,   --restore             restore backed up ports (reverse of -b)"
-	echo "  -s,   --system              use working system ports"
+    echo "  -s,   --system              use working system ports"
     echo "  -c    --chroot              chroot back into the directory"
     echo "  -C    --clean               uninstall packages to a clean state"
     echo "  -u    --umount              unmount the chroot (shutdown)"
-	echo "  -v,   --version             print version and exit"
-	echo "  -h,   --help                print help and exit"
+    echo "  -v,   --version             print version and exit"
+    echo "  -h,   --help                print help and exit"
 }
 
 parse_options() {
@@ -432,7 +432,7 @@ parse_options() {
 			-C|--clean)
 				CLEAN='yes' ;;
 			-v|--version)
-				echo "${SAFE_BUILD_COMMAND##*/} (chroot) $SAFE_BUILD_VERSION"
+				echo "${SAFE_BUILD_COMMAND##*/} chroot wrapper $SAFE_BUILD_VERSION Copyright (c) 2008 by Danny Rawlins "
 				exit 0 ;;
 			-h|--help)
 				print_help
