@@ -34,6 +34,8 @@ build() {
 	if pkginfo -i |grep '^gnome ' > /dev/null; then
 		config='--with-gnome'
 	fi
+	
+	sed -i icons/wesnoth.desktop -e '/^Exec/s/wesnoth/wesnoth-dev/'
 
 	./configure \
 		--prefix=/usr \
