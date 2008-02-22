@@ -79,7 +79,6 @@ setup_system() {
 }
 
 setup_image() {
-
     local p
 
     init
@@ -217,13 +216,15 @@ setup_image() {
 }
 
 install_additional_ports() {
+    local PKG
+
 	if [ "$SAFE_BUILD_ADDITIONAL_PORTS" ]; then
         echo -n 'Installing additional ports'
         cd '/usr/ports/'
 
-	    for p in $SAFE_BUILD_ADDITIONAL_PORTS; do
-	        if [ -f $p/Pkgfile ]; then
-                cd $p
+	    for PKG in $SAFE_BUILD_ADDITIONAL_PORTS; do
+	        if [ -f $PKG/Pkgfile ]; then
+                cd $PKG
                 . Pkgfile
 
 	        	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
@@ -236,7 +237,7 @@ install_additional_ports() {
 	        	cd ..
             else
                 echo ''
-                echo -n "Warning $p/Pkgfile is missing, skiping."
+                echo -n "Warning $PKG/Pkgfile is missing, skipping."
             fi
     	done
         echo ''
@@ -247,31 +248,31 @@ install_additional_ports() {
 
 
 rest() {
+    local REPO FILE
+
 	# copy DNS settings
 	cp /etc/resolv.conf "$SAFE_BUILD_DIR/etc/"
 
 	# copy port settings
 	#cp /etc/prt-get.conf "$SAFE_BUILD_DIR/etc/"
 
-	# activate contrib ports and copy over existing repos
-	sed -i \
-		-e 's|# PKGMK_SOURCE_DIR="$PWD"|PKGMK_SOURCE_DIR="/usr/ports/distfiles"|' \
-		-e 's|# PKGMK_PACKAGE_DIR="$PWD"|PKGMK_PACKAGE_DIR="/usr/ports/packages"|' \
-			"$SAFE_BUILD_DIR/etc/pkgmk.conf"
-
-	if [ -e "$SAFE_BUILD_DIR/etc/ports/contrib.rsync.inactive" ]; then
+    if [ -e "$SAFE_BUILD_DIR/etc/ports/contrib.rsync.inactive" ]; then
 		mv $SAFE_BUILD_DIR/etc/ports/contrib.rsync.inactive $SAFE_BUILD_DIR/etc/ports/contrib.rsync
 	fi
 
-    echo -n 'Installing ports tree'
-	#cp /etc/ports/{*.httpup,*.rsync} "$SAFE_BUILD_DIR/etc/ports/"
-    #cp /etc/ports/{core,opt,contrib,contrib-old,xorg}.rsync "$SAFE_BUILD_DIR/etc/ports/"
-    for p in $SAFE_BUILD_PORTS_TREE; do
-        if [ -f "/etc/ports/$P.sync" ] && [ ! -f "$SAFE_BUILD_DIR/etc/ports/$P.sync" ]; then
-           ln "/etc/ports/$P.sync" "$SAFE_BUILD_DIR/etc/ports/"
+	# activate contrib ports and copy over existing repos
+	sed -i "$SAFE_BUILD_DIR/etc/pkgmk.conf" \
+		-e 's|# PKGMK_SOURCE_DIR="$PWD"|PKGMK_SOURCE_DIR="/usr/ports/distfiles"|' \
+		-e 's|# PKGMK_PACKAGE_DIR="$PWD"|PKGMK_PACKAGE_DIR="/usr/ports/packages"|' \
+        -e 's|# PKGMK_WORK_DIR="$PWD"|PKGMK_WORK_DIR="/usr/ports/work/$name"|'			
+
+	echo -n 'Installing ports tree'
+	for REPO in $SAFE_BUILD_PORTS_TREE; do
+        if [ -f "/etc/ports/$REPO.sync" ] && [ ! -f "$SAFE_BUILD_DIR/etc/ports/$REPO.sync" ]; then
+           ln "/etc/ports/$REPO.sync" "$SAFE_BUILD_DIR/etc/ports/"
            echo -n '.'
-        elif [ -f "/etc/ports/$P.httpup" ] && [ ! -f "$SAFE_BUILD_DIR/etc/ports/$P.httpup" ]; then
-            ln "/etc/ports/$P.httpup" "$SAFE_BUILD_DIR/etc/ports/"
+        elif [ -f "/etc/ports/$REPO.httpup" ] && [ ! -f "$SAFE_BUILD_DIR/etc/ports/$REPO.httpup" ]; then
+            ln "/etc/ports/$REPO.httpup" "$SAFE_BUILD_DIR/etc/ports/"
             echo -n '.'
         fi
     done    
@@ -279,9 +280,9 @@ rest() {
     # copy files over so a 'ports -u' dosn't take so long to do
 	cd '/usr/ports/'
     
-    for repo in $SAFE_BUILD_PORTS_TREE; do
-		if [ $repo	!= distfiles ] && [ $repo != packages ]; then
-            cp -R $repo "$SAFE_BUILD_DIR/usr/ports/"
+    for REPO in $SAFE_BUILD_PORTS_TREE; do
+		if [ $REPO	!= distfiles ] && [ $REPO != packages ] && [ $REPO != work ]; then
+            cp -R $REPO "$SAFE_BUILD_DIR/usr/ports/"
             echo -n '.'
 		fi
 	done
@@ -290,9 +291,9 @@ rest() {
 	echo -n 'Hardlinking source files'
 	cd '/usr/ports/distfiles'
 
-    for f in *; do
-        if [ -f $f ]; then
-            ln $f "$SAFE_BUILD_DIR/usr/ports/distfiles/"
+    for FILE in *; do
+        if [ -f $FILE ]; then
+            ln $FILE "$SAFE_BUILD_DIR/usr/ports/distfiles/"
             echo -n '.'
         fi
 	done
@@ -319,33 +320,31 @@ shutdown_umount() {
    umount /dev/pts
    umount /dev
    umount /proc
-   rm "$SAFE_BUILD_DIR/dev/console"
+   #rm "$SAFE_BUILD_DIR/dev/console"
 }
 
 backup_ports() {
-    local file
+    local FILE
 
     echo -n 'Backing up ports'
-    
-    # backup built packages
     cd "$SAFE_BUILD_DIR/usr/ports/packages"
 
     if [ ! -d "$SAFE_BUILD_DIR/usr/ports/packages/$CRUX_VERSION" ]; then
         mkdir $CRUX_VERSION
     fi
 
-    for file in *; do
-        if [ ! -f "/usr/share/safe-build/packages/$CRUX_VERSION/$file" ]; then
-            ln "$SAFE_BUILD_DIR/usr/ports/packages/$file" "/usr/share/safe-build/packages/$CRUX_VERSION/$file"
+    for FILE in *; do
+        if [ ! -f "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" ]; then
+            ln "$SAFE_BUILD_DIR/usr/ports/packages/$FILE" "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE"
             echo -n '.'
         fi
     done
 
     # hardlink downloaded source files    
     cd "$SAFE_BUILD_DIR/usr/ports/distfiles"
-    for file in *; do
-        if [ ! -f "/usr/ports/distfiles/$file" ]; then
-            ln "$SAFE_BUILD_DIR/usr/ports/distfiles/$file" "/usr/ports/distfiles/$file"
+    for FILE in *; do
+        if [ ! -f "/usr/ports/distfiles/$FILE" ]; then
+            ln "$SAFE_BUILD_DIR/usr/ports/distfiles/$FILE" "/usr/ports/distfiles/$FILE"
             echo -n '.'
         fi
     done
@@ -354,13 +353,13 @@ backup_ports() {
 }
 
 restore_ports() {
-    local file=''
+    local FILE=''
     echo 'Restoring backed up ports'
     cd "/usr/share/safe-build/packages/$CRUX_VERSION"
 
-    for file in *; do
-        if [ -f "/usr/share/safe-build/packages/$CRUX_VERSION/$file" ]; then
-            ln "/usr/share/safe-build/packages/$CRUX_VERSION/$file" "$SAFE_BUILD_DIR/usr/ports/packages/$file"
+    for FILE in *; do
+        if [ -f "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" ]; then
+            ln "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" "$SAFE_BUILD_DIR/usr/ports/packages/$FILE"
             echo -n '.'
         fi
     done
@@ -370,11 +369,11 @@ restore_ports() {
     start_chroot
 }
 
-clean() {
+clean_chroot() {
     local FILE LIST PKG TOTAL COUNT LINE I REQUIRED RECOMENDED OPTIONAL 
 
     FILE='/tmp/.safe-build' #TODO make global
-    REQUIRED=(`ls --color=never /usr/ports/core/ |xargs` safe-build) #TODO fix hard coded path
+    REQUIRED=(`ls --color=never /usr/ports/core/ |xargs` safe-build)
     RECOMENDED=(popt distcc prtverify fakeroot)
     OPTIONAL=()
     LIST=(${REQUIRED[@]} ${RECOMENDED[@]} ${OPTIONAL[@]})
@@ -387,7 +386,7 @@ clean() {
     COUNT=1
     cat $FILE.clean |while read LINE; do
         I=`printf  "%.0f\n" $(bc -l <<< "($COUNT / $TOTAL) * 100")`
-        if (( $I < 9 )); then
+        if (( $I < 10 )); then
             echo "[$I%  ] Removing: $LINE"
         elif (( $I < 100 )); then
             echo "[$I% ] Removing: $LINE"
@@ -466,7 +465,7 @@ main() {
     fi
 
     if [ "$CLEAN" = 'yes' ]; then
-        clean
+        clean_chroot
     fi
 
     if [ "$SAFE_BUILD_SHUTDOWN_SYSTEM" = 'yes' ]; then
