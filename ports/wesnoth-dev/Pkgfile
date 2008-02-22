@@ -2,7 +2,7 @@
 # URL: http://www.wesnoth.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_net freetype python
+# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_net freetype python boost
 # Optional: upx
 
 name=wesnoth-dev
