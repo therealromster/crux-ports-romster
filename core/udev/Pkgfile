@@ -6,11 +6,11 @@
 
 name=udev
 version=118
-config_version=20070731
-release=1
+config_version=20080217
+release=2
 source=(ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug/udev-$version.tar.bz2 \
 	http://www.linuxfromscratch.org/lfs/downloads/development/udev-config-$config_version.tar.bz2 \
-	start_udev 81-cdrom.rules 60-cdrom_id.rules cdsymlinks)
+	start_udev 61-cdrom.rules 60-cdrom_id.rules cdsymlinks)
 
 build() {
 	local extras="extras/ata_id \
@@ -47,11 +47,13 @@ build() {
 	install -m 0755 $SRC/start_udev         $PKG/sbin
 	install -m 0755 $SRC/cdsymlinks         $PKG/lib/udev/
 	install -m 0644 etc/udev/rules.d/[0-9]* $PKG/etc/udev/rules.d/
-	install -m 0644 $SRC/81-cdrom.rules     $PKG/etc/udev/rules.d/
+	install -m 0644 $SRC/61-cdrom.rules     $PKG/etc/udev/rules.d/
 
 	# override this file in udev-config for cd/dvd permissions
 	install -m 0644 $SRC/60-cdrom_id.rules  $PKG/etc/udev/rules.d/
 
-	# Comment uucp lines in default rules
+	# Comment uucp lines
 	sed -i 's|.*uucp.*|#&|g' $PKG/etc/udev/rules.d/50-udev-default.rules
+	sed -i 's|.*uucp.*|#&|g' $PKG/etc/udev/rules.d/55-lfs.rules
 }
+
