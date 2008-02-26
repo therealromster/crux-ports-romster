@@ -2,7 +2,7 @@
 # URL: http://beepmp.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: libglade libogg libvorbis
+# Depends on: alsa-lib libglade libvorbis_autov
 
 name=bmp
 version=0.9.7.1
@@ -15,7 +15,8 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--disable-nls
+		--disable-nls \
+		--disable-oss
 
 	make
 	make DESTDIR=$PKG install
