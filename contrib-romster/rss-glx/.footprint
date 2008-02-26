@@ -19,8 +19,6 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/solarwinds
 -rwxr-xr-x	root/root	usr/bin/spirographx
 -rwxr-xr-x	root/root	usr/bin/sundancer2
-drwxr-xr-x	root/root	usr/sbin/
--rwxr-xr-x	root/root	usr/sbin/rss-glx_install
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libImplicit.a
 -rwxr-xr-x	root/root	usr/lib/libImplicit.la
@@ -42,7 +40,6 @@ lrwxrwxrwx	root/root	usr/lib/xscreensaver/hyperspace -> /usr/bin/hyperspace
 lrwxrwxrwx	root/root	usr/lib/xscreensaver/lattice -> /usr/bin/lattice
 lrwxrwxrwx	root/root	usr/lib/xscreensaver/matrixview -> /usr/bin/matrixview
 lrwxrwxrwx	root/root	usr/lib/xscreensaver/plasma -> /usr/bin/plasma
-lrwxrwxrwx	root/root	usr/lib/xscreensaver/rss-glx_install.pl -> /usr/bin/rss-glx_install.pl
 lrwxrwxrwx	root/root	usr/lib/xscreensaver/skyrocket -> /usr/bin/skyrocket
 lrwxrwxrwx	root/root	usr/lib/xscreensaver/solarwinds -> /usr/bin/solarwinds
 lrwxrwxrwx	root/root	usr/lib/xscreensaver/spirographx -> /usr/bin/spirographx
@@ -67,6 +64,8 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/solarwinds.1.gz
 -rw-r--r--	root/root	usr/man/man1/spirographx.1.gz
 -rw-r--r--	root/root	usr/man/man1/sundancer2.1.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/rss-glx_install
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/xscreensaver/
 drwxr-xr-x	root/root	usr/share/xscreensaver/config/
