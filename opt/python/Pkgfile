@@ -1,0 +1,37 @@
+# Description: Python interpreter.
+# URL: http://www.python.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: db gdbm ncurses openssl readline zlib
+
+name=python
+version=2.5.1
+release=1
+source=(http://www.python.org/ftp/python/$version/Python-$version.tar.bz2 \
+        python-$version.patch)
+
+build () {
+	cd Python-$version
+ 
+	patch -p1 -i ../python-$version.patch
+
+	./configure \
+		--prefix=/usr \
+		--enable-shared \
+		--with-threads \
+		--enable-ipv6 
+
+	make 
+	make -j1 DESTDIR=$PKG install
+    
+	ln -sf python2.5 $PKG/usr/bin/python
+	ln -sf python2.5 $PKG/usr/lib/python
+	ln -sf python2.5 $PKG/usr/include/python
+    
+	rm -r $PKG/usr/lib/python/{bsddb,ctypes,email,sqlite3}/test
+	rm -r $PKG/usr/lib/python/distutils/tests
+	rm $PKG/usr/lib/python/{distutils,site-packages,test}/README
+	rm $PKG/usr/lib/python/idlelib/{ChangeLog,{NEWS,README,TODO}.txt}
+	rm $PKG/usr/lib/python/ctypes/macholib/README.ctypes
+}
+

@@ -1,0 +1,42 @@
+diff -Nru Python-2.5.1.orig/Lib/cgi.py Python-2.5.1/Lib/cgi.py
+--- Python-2.5.1.orig/Lib/cgi.py	2007-04-18 16:48:34.000000000 +0200
++++ Python-2.5.1/Lib/cgi.py	2007-04-18 16:48:47.000000000 +0200
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/python
++#! /usr/bin/python
+ 
+ # NOTE: the above "/usr/local/bin/python" is NOT a mistake.  It is
+ # intentionally NOT "/usr/bin/env python".  On many systems
+diff -Nru Python-2.5.1.orig/Modules/Setup.dist Python-2.5.1/Modules/Setup.dist
+--- Python-2.5.1.orig/Modules/Setup.dist	2007-04-18 16:48:34.000000000 +0200
++++ Python-2.5.1/Modules/Setup.dist	2007-04-18 16:48:47.000000000 +0200
+@@ -149,7 +149,7 @@
+ # modules are to be built as shared libraries (see above for more
+ # detail; also note that *static* reverses this effect):
+ 
+-#*shared*
++*shared*
+ 
+ # GNU readline.  Unlike previous Python incarnations, GNU readline is
+ # now incorporated in an optional module, configured in the Setup file
+@@ -381,7 +381,7 @@
+ #
+ # First, look at Setup.config; configure may have set this for you.
+ 
+-#dbm dbmmodule.c 	# dbm(3) may require -lndbm or similar
++dbm dbmmodule.c -DHAVE_NDBM_H -lgdbm_compat -lgdbm	# dbm(3) may require -lndbm or similar
+ 
+ # Anthony Baxter's gdbm module.  GNU dbm(3) will require -lgdbm:
+ #
+diff -Nru Python-2.5.1.orig/configure Python-2.5.1/configure
+--- Python-2.5.1.orig/configure	2007-04-18 16:48:34.000000000 +0200
++++ Python-2.5.1/configure	2007-04-18 16:48:47.000000000 +0200
+@@ -3805,7 +3805,7 @@
+ 		# debug builds.
+ 		OPT="-g -Wall $STRICT_PROTO"
+ 	    else
+-		OPT="-g -O3 -Wall $STRICT_PROTO"
++		OPT="$CFLAGS -Wall $STRICT_PROTO"
+ 	    fi
+ 	    ;;
+ 	*)
