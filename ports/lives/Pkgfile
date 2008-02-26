@@ -2,8 +2,8 @@
 # URL: http://lives.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: win32-essential-codecs mplayer imagemagick gtk libjpeg sox
-# Optional:	xmms dvdrtools python libsdl mencoder libmjpeg-tools libtheora jack-audio-connection-kit
+# Depends on: mplayer imagemagick gtk libjpeg sox
+# Optional:	win32-essential-codecs xmms dvdrtools python libsdl mencoder libmjpeg-tools libtheora jack-audio-connection-kit
 
 name=lives
 version=0.9.8.7
