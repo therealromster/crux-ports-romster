@@ -2,32 +2,34 @@
 # URL: http://www.python.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
-# Depends on: db gdbm ncurses openssl readline zlib
+# Depends on: db gdbm ncurses openssl readline zlib sqlite3
 
 name=python
-version=2.5.1
+version=2.5.2
 release=1
 source=(http://www.python.org/ftp/python/$version/Python-$version.tar.bz2 \
         python-$version.patch)
 
-build () {
+build() {
 	cd Python-$version
  
 	patch -p1 -i ../python-$version.patch
+	export CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')"
 
 	./configure \
 		--prefix=/usr \
+		--mandir=/usr/man \
 		--enable-shared \
 		--with-threads \
 		--enable-ipv6 
 
 	make 
 	make -j1 DESTDIR=$PKG install
-    
+
 	ln -sf python2.5 $PKG/usr/bin/python
 	ln -sf python2.5 $PKG/usr/lib/python
 	ln -sf python2.5 $PKG/usr/include/python
-    
+
 	rm -r $PKG/usr/lib/python/{bsddb,ctypes,email,sqlite3}/test
 	rm -r $PKG/usr/lib/python/distutils/tests
 	rm $PKG/usr/lib/python/{distutils,site-packages,test}/README
