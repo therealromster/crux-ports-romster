@@ -9,7 +9,7 @@ version=0.109.2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/jackit/jack-audio-connection-kit-$version.tar.gz)
 
-build(){
+build() {
 	cd jack-audio-connection-kit-$version
 
 	./configure \
@@ -19,6 +19,8 @@ build(){
 
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/share
+	if pkginfo -i |grep '^doxygen ' > /dev/null; then
+		rm -r $PKG/usr/share
+	fi
 }
 
