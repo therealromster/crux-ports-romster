@@ -2,14 +2,11 @@
 # URL: http://lives.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: win32-essential-codecs mplayer imagemagick gtk libjpeg gdk-pixbuf sox
-
-# Recommended:	python, libsdl, mencoder, libmjpeg-tools, libtheora, jack-audio-connection-kit
-# Optional:	xmms, dvdrtools
-# Category:	Multimedia, Editor, Video
+# Depends on: win32-essential-codecs mplayer imagemagick gtk libjpeg sox
+# Optional:	xmms dvdrtools python libsdl mencoder libmjpeg-tools libtheora jack-audio-connection-kit
 
 name=lives
-version=0.9.8.4
+version=0.9.8.7
 release=1
 source=(http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-$version.tar.bz2)
 
@@ -22,7 +19,7 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/{bin/lives,share/doc}
+	rm -r $PKG/usr/bin/lives
 	ln -sf /usr/bin/lives-exe $PKG/usr/bin/lives
 }
 

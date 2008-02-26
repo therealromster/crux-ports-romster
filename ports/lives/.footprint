@@ -21,6 +21,7 @@ drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/lives/
 -rw-r--r--	root/root	usr/share/lives/default.keymap
 drwxr-xr-x	root/root	usr/share/lives/icons/
+-rw-r--r--	root/root	usr/share/lives/icons/audio.png
 -rw-r--r--	root/root	usr/share/lives/icons/fullscreen.png
 -rw-r--r--	root/root	usr/share/lives/icons/loop.png
 -rw-r--r--	root/root	usr/share/lives/icons/playsel.png
@@ -91,6 +92,7 @@ drwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/edge.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/fg_bg_removal.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/fireTV.wo
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/gdk_fast_resize.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/haip.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/layout_blends.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/libvis.wo
@@ -106,9 +108,10 @@ drwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/rotozoom.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/simple_blend.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/slide_over.wo
--rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/targetted_zoom.wo
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/targeted_zoom.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/textfun.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/vertigo.wo
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/videowall.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/warpTV.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/xeffect.wo
 drwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/
