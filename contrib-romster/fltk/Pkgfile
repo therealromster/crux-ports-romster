@@ -2,7 +2,7 @@
 # URL: http://www.fltk.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Ivan Lyanguzov, tzong at tzong dot spb dot ru
-# Depends on: xorg-libx11 xorg-libsm xorg-libice
+# Depends on: alsa-lib libjpeg libpng mesa3d xorg-libxft xorg-libxinerama
 
 name=fltk
 version=1.1.7
@@ -11,6 +11,9 @@ source=(http://ftp.easysw.com/pub/fltk/$version/fltk-$version-source.tar.bz2)
 
 build() {
 	cd fltk-$version
+
+	export CFLAGS="$CFLAGS -fno-strict-aliasing"
+	export CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
 
 	./configure \
 		--prefix=/usr \
