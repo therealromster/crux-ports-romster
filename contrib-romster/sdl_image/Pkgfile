@@ -2,7 +2,7 @@
 # URL: http://www.libsdl.org/projects/SDL_image
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: libjpeg libpng libsdl
+# Depends on: libtiff libpng libsdl
 
 name=sdl_image
 version=1.2.6
