@@ -240,16 +240,6 @@ drwxr-xr-x	root/root	usr/include/c++/3.4.6/i686-pc-linux-gnu/bits/stdc++.h.gch/
 -rw-r--r--	root/root	usr/include/c++/3.4.6/valarray
 -rw-r--r--	root/root	usr/include/c++/3.4.6/vector
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/ccache/
-lrwxrwxrwx	root/root	usr/lib/ccache/c++-3.4 -> ../../bin/ccache
-lrwxrwxrwx	root/root	usr/lib/ccache/cc-3.4 -> ../../bin/ccache
-lrwxrwxrwx	root/root	usr/lib/ccache/g++-3.4 -> ../../bin/ccache
-lrwxrwxrwx	root/root	usr/lib/ccache/gcc-3.4 -> ../../bin/ccache
-drwxr-xr-x	root/root	usr/lib/distcc/
-lrwxrwxrwx	root/root	usr/lib/distcc/c++-3.4 -> ../../bin/distcc
-lrwxrwxrwx	root/root	usr/lib/distcc/cc-3.4 -> ../../bin/distcc
-lrwxrwxrwx	root/root	usr/lib/distcc/g++-3.4 -> ../../bin/distcc
-lrwxrwxrwx	root/root	usr/lib/distcc/gcc-3.4 -> ../../bin/distcc
 drwxr-xr-x	root/root	usr/lib/gcc/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/
@@ -263,28 +253,24 @@ drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/crtend.o
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/crtendS.o
 drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/c/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/c/zlib/
--rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/d/4.1.2/etc/c/zlib/zutil.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/emmintrin.h
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/firefox/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/firefox/dbm/
--rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/firefox/dbm/ncompat.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/float.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/iso646.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/limits.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/mmintrin.h
+drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/NXConstStr.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/Object.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/Protocol.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/encoding.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/hash.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/objc-api.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/objc-list.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/objc.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/sarray.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/thr.h
+-rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/objc/typedstream.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/pmmintrin.h
-lrwxrwxrwx	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python -> python2.5
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python2.4/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python2.4/pyro/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python2.4/pyro/simulators/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python2.5/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python2.5/pyro/
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python2.5/pyro/simulators/
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/stdarg.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/stdbool.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/stddef.h
@@ -292,9 +278,6 @@ drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/python2.5/pyro/
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/unwind.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/varargs.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/xmmintrin.h
-drwxr-xr-x	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/xorg/
--rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/xorg/compiler.h
--rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/include/xorg/edid.h
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/libgcc.a
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/libgcc_eh.a
 -rw-r--r--	root/root	usr/lib/gcc/i686-pc-linux-gnu/3.4.6/libgcov.a
