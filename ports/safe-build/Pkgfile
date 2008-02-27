@@ -1,22 +1,19 @@
-# Description: Wrapper for chroot, to build ports in a safe environment on CRUX.
+# Description: Chroot wrapper, to build ports in a safe environment.
 # URL: http://romster.shortcircuit.net.au/crux/projects/safe-build/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
+# Core: coreutils pkgutils sed
+
 name=safe-build
-version=0.0.0-a39
+version=0.0.1b1
 release=1
-source=($name.in $name.conf)
+source=(http://romster.shortcircuit.net.au/crux/safe-build/safe_build-$version.tar.bz2)
 
 build() {
-	#cd $name-$version
-	#./configure --prefix=/usr
-	#make && make DESTDIR=$PKG install
-	#rm -r $PKG/usr/share/doc
-	sed -i -e "s|@VERSION@|$version|g" $name.in
-	install -d $PKG/usr/share/safe-build/packages
-	install -D -m 0755 $name.in $PKG/usr/sbin/$name
-	install -D -m 0644 $name.conf $PKG/etc/$name.conf
+	cd safe_build-$version
+	make VERSION=$version
+	make DESTDIR=$PKG install
 }
 

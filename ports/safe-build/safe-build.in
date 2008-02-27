@@ -56,7 +56,7 @@ setup_system() {
     echo ''
 
     if [ "$SAFE_BUILD_OPT_PORTS" = 'yes' ]; then
-        echo -n 'Installing Opt ports'
+        echo -n 'Installing opt ports'
         cd '/usr/ports/'
 
         for p in opt/*; do
@@ -79,15 +79,20 @@ setup_system() {
 }
 
 setup_image() {
-    local p
+    local p PKG IMAGE FILE
+
+    SAFE_BUILD_IMAGE_PATH="`echo $SAFE_BUILD_IMAGE |sed -e "s/^\(.*\)\/\(.*\)-\(.*\)\.iso.*$/\1/"`"
+    SAFE_BUILD_IMAGE_NAME="`echo $SAFE_BUILD_IMAGE |sed -e "s/^\(.*\)\/\(.*\)-\(.*\)\.iso.*$/\2/"`"
+    SAFE_BUILD_IMAGE_VERSION="`echo $SAFE_BUILD_IMAGE |sed -e "s/^\(.*\)\/\(.*\)-\(.*\)\.iso.*$/\3/"`"
+    IMAGE="$SAFE_BUILD_IMAGE_PATH/$SAFE_BUILD_IMAGE_NAME-$SAFE_BUILD_IMAGE_VERSION.iso"
 
     init
 
    	echo 'Setting up environment type: CD image.'
-    if [ -f "$SAFE_BUILD_CD_IMAGE.iso" ]; then
-        mount -o loop "$SAFE_BUILD_CD_IMAGE.iso" "$SAFE_BUILD_CD_MOUNT"
+    if [ -f "$IMAGE" ]; then
+        mount -o loop "$IMAGE" "$SAFE_BUILD_CD_MOUNT"
     else
-        echo "Can not find $SAFE_BUILD_CD_IMAGE.iso"
+        echo "Error can not find '$IMAGE'."
         exit 1
     fi
 	
@@ -96,29 +101,27 @@ setup_image() {
 	echo -n 'Installing core ports'
     cd "$SAFE_BUILD_CD_MOUNT/crux"
 
-    for p in core/*; do
-		pkgadd -r "$SAFE_BUILD_DIR" "$p"
-        cp "$p" "$SAFE_BUILD_DIR/usr/ports/packages/"
+    for PKG in core/*; do
+		pkgadd -r "$SAFE_BUILD_DIR" "$PKG"
+        cp "$PKG" "$SAFE_BUILD_DIR/usr/ports/packages/"
         echo -n '.'
 	done
-
     echo ''
 
     if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE" = 'yes' ]; then
        echo -n 'Updating available upto date packages for core'
-       #cd /usr/ports/core
-       cd '/usr/share/safe-build/packages'
-
-    	for p in *; do
-            if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
-    		    pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/share/safe-build/packages/$p"
+       cd '/usr/ports/core'
+    	for PKG in *; do
+            cd $PKG
+            . Pkgfile
+            FILE="$name#$version-$release.pkg.tar.gz"
+            if [ -f "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" ]; then
+    		    pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/share/safe-build/packages/$FILE"
                 echo -n '.'
             fi
+            cd ..
     	done
         echo ''
-    else
-        cd "$SAFE_BUILD_CD_MOUNT/crux"
-        #cp core/* "$SAFE_BUILD_DIR/usr/ports/packages/"
     fi
 
     ###########################################################################
@@ -127,25 +130,22 @@ setup_image() {
         echo -n 'Installing opt ports'
         cd "$SAFE_BUILD_CD_MOUNT/crux"
 
-        for p in opt/*; do
-    		pkgadd -r "$SAFE_BUILD_DIR" "$p"
+        for PKG in opt/*; do
+    		pkgadd -r "$SAFE_BUILD_DIR" "$PKG"
             echo -n '.'
     	done
-
         echo ''
         
         if [ "$SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_OPT" = 'yes' ]; then
             echo -n 'Installing available upto date packages for opt'
-            cd '/usr/ports'
-
-            for p in opt/*; do
-		        cd $p
+            cd '/usr/ports/opt'
+            for PKG in *; do
+		        cd $PKG
                 if [ -f Pkgfile ]; then
-		            . Pkgfile
-
-                    if [ -f "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
-		                #cp  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
-                        pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
+                    . Pkgfile
+                    FILE="$name#$version-$release.pkg.tar.gz"
+                    if [ -f "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" ]; then
+		                pkgadd -u -r "$SAFE_BUILD_DIR" "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE"
                         echo -n '.'
                     fi
                 fi
@@ -186,32 +186,7 @@ setup_image() {
 
     ###########################################################################
 
-#    echo -n 'Installing Core current source files'
-#    ports -u core > /dev/null
-#    echo -n '.'
-#    prt-get cache
-#    echo -n '.'
-#    cd /usr/ports/core
-
-#	for p in *; do
-#		if [ $p != "$(echo "$SAFE_BUILD_TOOLCHAIN" | grep --only-matching $p)" ]; then
-		
-#            cd $p
-#			. Pkgfile
-
-#            for file in ${source[@]}; do
-#                if [ -e "/usr/ports/distfiles/$file" ]; then
-#				    ln "/usr/ports/distfiles/$file" "$SAFE_BUILD_DIR/usr/ports/distfiles/"
-#		    	fi
-#            done
-#            echo -n '.'
-#            cd ..
-#		fi
-#	done
-#    echo ''
-
     umount "$SAFE_BUILD_CD_MOUNT"
-
     install_additional_ports
 }
 
@@ -226,13 +201,10 @@ install_additional_ports() {
 	        if [ -f $PKG/Pkgfile ]; then
                 cd $PKG
                 . Pkgfile
-
 	        	if [ ! -e "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" ]; then
 	        		pkgmk -f
 	        	fi
-
 	        	pkgadd -r "$SAFE_BUILD_DIR" "/usr/ports/packages/$name#$version-$release.pkg.tar.gz"
-                #ln  "/usr/ports/packages/$name#$version-$release.pkg.tar.gz" "$SAFE_BUILD_DIR/usr/ports/packages/"
                 echo -n '.'
 	        	cd ..
             else
@@ -245,7 +217,6 @@ install_additional_ports() {
 
     rest
 }
-
 
 rest() {
     local REPO FILE
@@ -279,10 +250,11 @@ rest() {
     
     # copy files over so a 'ports -u' dosn't take so long to do
 	cd '/usr/ports/'
-    
     for REPO in $SAFE_BUILD_PORTS_TREE; do
 		if [ $REPO	!= distfiles ] && [ $REPO != packages ] && [ $REPO != work ]; then
-            cp -R $REPO "$SAFE_BUILD_DIR/usr/ports/"
+            if [ ! -e "$SAFE_BUILD_DIR/usr/ports/" ]; then
+                cp -R $REPO "$SAFE_BUILD_DIR/usr/ports/"
+            fi
             echo -n '.'
 		fi
 	done
@@ -292,17 +264,15 @@ rest() {
 	cd '/usr/ports/distfiles'
 
     for FILE in *; do
-        if [ -f $FILE ]; then
+        if [ ! -e "$SAFE_BUILD_DIR/usr/ports/distfiles/" ]; then
             ln $FILE "$SAFE_BUILD_DIR/usr/ports/distfiles/"
             echo -n '.'
         fi
 	done
-
     echo ''
 
     # install script to chroot
     cp "/usr/sbin/${SAFE_BUILD_COMMAND##*/}" "$SAFE_BUILD_DIR/usr/sbin/"
-
     #start_chroot
     restore_ports
 }
@@ -312,12 +282,12 @@ start_chroot() {
 	cd "$SAFE_BUILD_DIR"
 	mount -t proc proc "$SAFE_BUILD_DIR/proc"
 	mount --bind /dev "$SAFE_BUILD_DIR/dev"
-	mount -t devpts devpts "$SAFE_BUILD_DIR/dev/pts"
+	#mount -t devpts devpts "$SAFE_BUILD_DIR/dev/pts"
 	chroot "$SAFE_BUILD_DIR" /bin/sh
 }
 
 shutdown_umount() {
-   umount /dev/pts
+   #umount /dev/pts
    umount /dev
    umount /proc
    #rm "$SAFE_BUILD_DIR/dev/console"
@@ -328,19 +298,15 @@ backup_ports() {
 
     echo -n 'Backing up ports'
     cd "$SAFE_BUILD_DIR/usr/ports/packages"
-
     if [ ! -d "$SAFE_BUILD_DIR/usr/ports/packages/$CRUX_VERSION" ]; then
         mkdir $CRUX_VERSION
     fi
-
     for FILE in *; do
         if [ ! -f "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" ]; then
             ln "$SAFE_BUILD_DIR/usr/ports/packages/$FILE" "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE"
             echo -n '.'
         fi
     done
-
-    # hardlink downloaded source files    
     cd "$SAFE_BUILD_DIR/usr/ports/distfiles"
     for FILE in *; do
         if [ ! -f "/usr/ports/distfiles/$FILE" ]; then
@@ -348,35 +314,29 @@ backup_ports() {
             echo -n '.'
         fi
     done
-    
     echo ''
 }
 
 restore_ports() {
-    local FILE=''
+    local FILE
     echo 'Restoring backed up ports'
     cd "/usr/share/safe-build/packages/$CRUX_VERSION"
-
     for FILE in *; do
-        if [ -f "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" ]; then
+        if [ ! -e "$SAFE_BUILD_DIR/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" ]; then
             ln "/usr/share/safe-build/packages/$CRUX_VERSION/$FILE" "$SAFE_BUILD_DIR/usr/ports/packages/$FILE"
             echo -n '.'
         fi
     done
-    
     echo ''
-
     start_chroot
 }
 
 clean_chroot() {
-    local FILE LIST PKG TOTAL COUNT LINE I REQUIRED RECOMENDED OPTIONAL 
+    local FILE LIST PKG TOTAL COUNT LINE I REQUIRED
 
     FILE='/tmp/.safe-build' #TODO make global
     REQUIRED=(`ls --color=never /usr/ports/core/ |xargs` safe-build)
-    RECOMENDED=(popt distcc prtverify fakeroot)
-    OPTIONAL=()
-    LIST=(${REQUIRED[@]} ${RECOMENDED[@]} ${OPTIONAL[@]})
+    LIST=(${REQUIRED[@]} ${SAFE_BUILD_CLEAN_RECOMENDED[@]} ${SAFE_BUILD_CLEAN_OPTIONAL[@]})
 
     pkginfo -i |awk '{print $1}' > $FILE.clean
     for PKG in "${LIST[@]}"; do
@@ -406,6 +366,7 @@ print_help() {
     echo "  -i,   --image               use CRUX offical iso"
     #echo "  -r,   --restore             restore backed up ports (reverse of -b)"
     echo "  -s,   --system              use working system ports"
+    echo "        --crux=version        use said version defaults to system version"
     echo "  -c    --chroot              chroot back into the directory"
     echo "  -C    --clean               uninstall packages to a clean state"
     echo "  -u    --umount              unmount the chroot (shutdown)"
@@ -428,8 +389,11 @@ parse_options() {
 				SAFE_BUILD_SHUTDOWN_SYSTEM='yes' ;;
             -c|--chroot)
                 SAFE_BUILD_SETUP_CHROOT='yes' ;;
+            --crux=*)
+                SAFE_BUILD_CRUX_VERSION="`echo $1 | sed -e 's|^--crux=\([0-9.]*\)|\1|'`" || exit 1
+                SAFE_BUILD_SETUP_IMAGE='yes' ;;
 			-C|--clean)
-				CLEAN='yes' ;;
+				SAFE_BUILD_CLEAN='yes' ;;
 			-v|--version)
 				echo "${SAFE_BUILD_COMMAND##*/} chroot wrapper $SAFE_BUILD_VERSION Copyright (c) 2008 by Danny Rawlins "
 				exit 0 ;;
@@ -464,7 +428,7 @@ main() {
         start_chroot
     fi
 
-    if [ "$CLEAN" = 'yes' ]; then
+    if [ "$SAFE_BUILD_CLEAN" = 'yes' ]; then
         clean_chroot
     fi
 
@@ -474,7 +438,7 @@ main() {
 
     if [ "$SAFE_BUILD_BACKUP_PORTS" = 'yes' ]; then
         backup_ports
-        #echo 'not implemented for argument, currently automated'
+        #echo 'not implemented for argument, currently automated
     
     elif [ "$SAFE_BUILD_RESTORE_PORTS" = 'yes' ]; then
         #restore_ports
@@ -500,7 +464,7 @@ SAFE_BUILD_SETUP_CHROOT='no'
 SAFE_BUILD_SHUTDOWN_SYSTEM='no'
 SAFE_BUILD_BACKUP_PORTS='no'
 SAFE_BUILD_RESTORE_PORTS='no'
-CLEAN='no'
+SAFE_BUILD_CLEAN='no'
 
 SAFE_BUILD_CDIMAGE_PORTS_OPT='no'
 SAFE_BUILD_CDIMAGE_PACKAGES_UPDATE_CORE='no'
@@ -510,9 +474,15 @@ SAFE_BUILD_CDIMAGE_PACKAGES_INSTALL_XORG='no'
 [ -f '/etc/safe-build.conf' ] && . /etc/safe-build.conf
 
 [ -z "${SAFE_BUILD_CD_MOUNT}" ] && SAFE_BUILD_CD_MOUNT='/mnt/cdrom'
-[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_CD_IMAGE='/var/crux-2.3'
-[ -z "${CRUX_VERSION}" ] && CRUX_VERSION='2.3'
-[ -z "${SAFE_BUILD_CD_IMAGE}" ] && SAFE_BUILD_PORTS_TREE='core opt contrib xorg'
+[ -z "${SAFE_BUILD_CRUX_VERSION}" ] && SAFE_BUILD_CRUX_VERSION='@CRUX_VERSION@'
+
+[ -z "${SAFE_BUILD_IMAGE}" ] && SAFE_BUILD_IMAGE="/var/crux-$SAFE_BUILD_CRUX_VERSION.iso"
+[ -z "${SAFE_BUILD_IMAGE_CD_PATH}" ] && SAFE_BUILD_IMAGE_CD_PATH='/var'
+
+[ -z "${SAFE_BUILD_PORTS_TREE}" ] && SAFE_BUILD_PORTS_TREE='core opt contrib xorg'
+
+[ -z "${SAFE_BUILD_CLEAN_RECOMENDED}" ] && SAFE_BUILD_CLEAN_RECOMENDED=()
+[ -z "${SAFE_BUILD_CLEAN_OPTIONAL}" ] && SAFE_BUILD_CLEAN_OPTIONAL=()
 
 main "$@"
 
