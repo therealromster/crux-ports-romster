@@ -5,8 +5,8 @@
 # Depends on: qt3
 
 name=opera
-version=9.25
-date=20071214.6
+version=9.26
+date=20080218.6
 release=1
 source=(http://opera.nsc.no/linux/${version/./}/final/en/i386/shared/opera-$version-$date-shared-qt.i386-en.tar.bz2)
 
