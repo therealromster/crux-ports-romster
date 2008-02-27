@@ -5,10 +5,10 @@
 # Depends on: xorg gl-select
 
 name=nvidia
-version=169.09
+version=100.14.19
 release=1
 source=(http://download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run \
-	$name-makefile.patch)
+	nvidia-makefile.patch)
 
 build() {
 	sh NVIDIA-Linux-x86-$version-pkg0.run --extract-only
