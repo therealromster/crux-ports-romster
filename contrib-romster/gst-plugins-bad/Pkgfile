@@ -5,8 +5,8 @@
 # Depends on: gst-plugins-base ladspa libmms libmodplug libmpcdec libmusicbrainz libshout mpeg2dec swfdec wavpack 
 
 name=gst-plugins-bad
-version=0.10.5
-release=2
+version=0.10.6
+release=1
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-$version.tar.gz)
 
 build() {
