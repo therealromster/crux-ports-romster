@@ -2,10 +2,10 @@
 # URL: http://nasm.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: CRUX System Team, core-ports at crux dot nu
-# Depends on: 
+# Depends on: groff
 
 name=nasm
-version=2.01
+version=2.02
 release=1
 source=(http://dl.sourceforge.net/nasm/nasm-$version.tar.bz2)
 
