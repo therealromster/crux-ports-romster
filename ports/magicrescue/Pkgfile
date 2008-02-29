@@ -2,10 +2,10 @@
 # URL: http://jbj.rapanden.dk/magicrescue/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: pearl
+# Depends on: perl
 
 name=magicrescue
-version=1.1.4
+version=1.1.5
 release=1
 source=(http://jbj.rapanden.dk/magicrescue/release/magicrescue-$version.tar.gz)
 
