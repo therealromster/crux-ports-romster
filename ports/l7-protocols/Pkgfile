@@ -5,12 +5,12 @@
 # Depends on:
 
 name=l7-protocols
-version=2007-11-22
+version=20080220
 release=1
-source=(http://dl.sourceforge.net/sourceforge/l7-filter/l7-protocols-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/l7-filter/l7-protocols-${version:0:4}-${version:4:2}-${version:6:2}.tar.gz)
 
 build() {
-	cd l7-protocols-$version
+	cd l7-protocols-${version:0:4}-${version:4:2}-${version:6:2}
 	make PREFIX=$PKG/usr install
 
 	find $PKG \
