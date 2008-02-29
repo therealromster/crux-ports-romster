@@ -4,12 +4,8 @@
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: 
 
-# Recommended:	
-# Optional:	
-# Category:	library
-
 name=libstatgrab
-version=0.14
+version=0.15
 release=1
 source=(ftp://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-$version.tar.gz)
 
