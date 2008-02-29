@@ -12,3 +12,6 @@ drwxr-xr-x	root/root	usr/share/mkinitramfs/
 -rw-r--r--	root/root	usr/share/mkinitramfs/init.functions
 -rw-r--r--	root/root	usr/share/mkinitramfs/init.in
 -rw-r--r--	root/root	usr/share/mkinitramfs/init.stubs
+-rw-r--r--	root/root	usr/share/mkinitramfs/lvm2
+-rw-r--r--	root/root	usr/share/mkinitramfs/mdraid
+-rw-r--r--	root/root	usr/share/mkinitramfs/raidify

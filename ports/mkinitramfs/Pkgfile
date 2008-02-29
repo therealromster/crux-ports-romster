@@ -5,7 +5,7 @@
 # Depends on: libbash
 
 name=mkinitramfs
-version=0.9.9
+version=0.9.11
 release=1
 source=(http://dl.sourceforge.net/sourceforge/mkinitramfs/mkinitramfs-$version.tar.bz2)
 
