@@ -5,7 +5,7 @@
 # Depends on: gst-plugins-base flac
 
 name=gst-plugins-good
-version=0.10.7
+version=0.10.6
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-$version.tar.gz)
 
