@@ -2,7 +2,8 @@
 # URL: http://moc.daper.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Stoyan Zhekov, zhware at hotpop dot com
-# Depends on: ncurses libmad libvorbis libid3tag flac
+# Depends on: ffmpeg libmad
+# Optional: speex libmpcdec
 
 name=moc
 version=2.4.3
