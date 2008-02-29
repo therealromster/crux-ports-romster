@@ -5,8 +5,8 @@
 # Depends on: libpcre
 
 name=privoxy
-version=3.0.6
-release=2
+version=3.0.8
+release=1
 source=(http://dl.sourceforge.net/sourceforge/ijbswa/privoxy-$version-stable-src.tar.gz \
 	privoxy.rc)
 
@@ -30,11 +30,11 @@ build() {
 		$PKG/usr/share \
 		$PKG/var/log/privoxy
 
-	install -D -m755 privoxy $PKG/usr/sbin/privoxy
-	install -D -m644 privoxy.1 $PKG/usr/man/man1/privoxy.1
-	install -D -m755 $SRC/privoxy.rc $PKG/etc/rc.d/privoxy
-	install -m644 *.action config default.filter $PKG/etc/privoxy/
-	install -m644 templates/* $PKG/etc/privoxy/templates/
+	install -D -m 0755 privoxy $PKG/usr/sbin/privoxy
+	install -D -m 0644 privoxy.1 $PKG/usr/man/man1/privoxy.1
+	install -D -m 0755 $SRC/privoxy.rc $PKG/etc/rc.d/privoxy
+	install -m 0644 -t $PKG/etc/privoxy/ *.action config default.filter
+	install -m 0644 -t $PKG/etc/privoxy/templates/ templates/* 
 	
 }
 

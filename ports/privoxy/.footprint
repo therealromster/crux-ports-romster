@@ -3,6 +3,7 @@ drwxr-xr-x	root/root	etc/privoxy/
 -rw-r--r--	root/root	etc/privoxy/config
 -rw-r--r--	root/root	etc/privoxy/default.action
 -rw-r--r--	root/root	etc/privoxy/default.filter
+-rw-r--r--	root/root	etc/privoxy/regression-tests.action
 -rw-r--r--	root/root	etc/privoxy/standard.action
 drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/blocked
@@ -25,6 +26,7 @@ drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/edit-actions-list-url
 -rw-r--r--	root/root	etc/privoxy/templates/edit-actions-remove-url-form
 -rw-r--r--	root/root	etc/privoxy/templates/edit-actions-url-form
+-rw-r--r--	root/root	etc/privoxy/templates/forwarding-failed
 -rw-r--r--	root/root	etc/privoxy/templates/mod-local-help
 -rw-r--r--	root/root	etc/privoxy/templates/mod-support-and-service
 -rw-r--r--	root/root	etc/privoxy/templates/mod-title
