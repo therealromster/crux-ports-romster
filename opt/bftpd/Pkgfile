@@ -7,7 +7,7 @@
 name=bftpd
 version=2.1.1
 release=1
-source=(http://bftpd.sourceforge.net/downloads/testing/bftpd-$version.tar.gz \
+source=(http://romster.shortcircuit.net.au/crux/source/bftpd/bftpd-$version.tar.gz \
 	bftpd-config.patch bftpd-destdir.patch ftpd.rc)
 diff=(http://romster.shortcircuit.net.au/crux/source/bftpd/)
 
