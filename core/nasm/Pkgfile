@@ -5,7 +5,7 @@
 # Depends on: groff
 
 name=nasm
-version=2.01
+version=2.02
 release=1
 source=(http://dl.sourceforge.net/nasm/nasm-$version.tar.bz2)
 
