@@ -35,13 +35,8 @@ build() {
 	make ROOT=$PKG install
 
 	install -D -m 0755 $SRC/gpm.rc $PKG/etc/rc.d/gpm
-
 	chmod 0755 $PKG/usr/lib/libgpm.so.*.*.*
-
 	rm -r $PKG/usr/etc
-
-	if pkginfo -i |grep '^texinfo ' > /dev/null; then
-		rm -r $PKG/usr/info
-	fi
+	rm -r $PKG/usr/info
 }
 
