@@ -33,8 +33,8 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.10/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstefence.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsteffectv.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsteffectv.so
--rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstesd.la
--rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstesd.so
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstequalizer.la
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstequalizer.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstflac.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstflac.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstflxdec.la
@@ -45,8 +45,6 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.10/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstgdkpixbuf.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstgoom.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstgoom.so
--rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsthalelements.la
--rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsthalelements.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsticydemux.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsticydemux.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstid3demux.la
@@ -59,12 +57,12 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.10/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstmatroska.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstmulaw.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstmulaw.so
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstmultifile.la
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstmultifile.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstmultipart.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstmultipart.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstnavigationtest.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstnavigationtest.so
--rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstossaudio.la
--rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstossaudio.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstpng.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstpng.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstqtdemux.la
@@ -77,6 +75,8 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.10/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstshout2.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstsmpte.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstsmpte.so
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstspectrum.la
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstspectrum.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstspeex.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstspeex.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsttaglib.la

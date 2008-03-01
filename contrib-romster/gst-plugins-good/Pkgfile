@@ -2,10 +2,11 @@
 # URL: http://gstreamer.freedesktop.org/modules/gst-plugins-good.html
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: gst-plugins-base flac
+# Depends on: gst-plugins-base ladspa libcdio libshout mjpegtools speex taglib wavpack
+# Optional: libdv
 
 name=gst-plugins-good
-version=0.10.6
+version=0.10.7
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-$version.tar.gz)
 
@@ -15,7 +16,8 @@ build() {
 	./configure \
 		--prefix=/usr \
 		--disable-nls \
-		--disable-static
+		--disable-static \
+		--disable-oss
 
 	make
 	make DESTDIR=$PKG install
