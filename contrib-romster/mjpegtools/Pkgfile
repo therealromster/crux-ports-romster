@@ -21,9 +21,6 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-
-	if pkginfo -i |grep '^texinfo ' > /dev/null; then
-		rm -r $PKG/usr/info
-	fi
+	rm -r $PKG/usr/info
 }
 
