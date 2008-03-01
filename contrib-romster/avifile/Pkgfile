@@ -2,7 +2,7 @@
 # URL: http://avifile.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: xorg-libxft xorg-libxv xorg-libxinerama libsdl liba52 libmad lame libdivx freetype libvorbis ffmpeg xorg-libxi xorg-libxxf86dga xorg-libxxf86vm libdivx-legacy
+# Depends on: ffmpeg liba52 libdivx libdivx-legacy libmad win32-essential-codecs xorg-libxft xorg-libxi xorg-libxinerama xorg-libxv xorg-libxxf86dga xorg-libxxf86vm
 
 name=avifile
 version=0.7-0.7.45
@@ -16,18 +16,18 @@ build() {
 	patch -p1 -i $SRC/avifile-$version-gcc4.patch
 
 	# remove samples dosn't build on current gcc
-	sed -i -e 's/^ doc include debian libavqt player samples$/ doc include debian libavqt player/' Makefile.in
+	sed -i Makefile.in  -e 's/^ doc include debian libavqt player samples$/ doc include debian libavqt player/'
 
 	./configure \
 		--prefix=/usr \
 		--enable-x86opt \
 		--without-qt \
-      --disable-xvidtest \
-      --disable-xvid \
+		--disable-xvidtest \
+		--disable-xvid \
 		--disable-ffmpeg-risky \
 		--with-linux-prefix='/usr/include/linux'
 
-	sed -i -e 's/-O4/-O3/' Makefile
+	sed -i Makefile -e 's/-O4/-O3/'
 
 	make
 	make DESTDIR=$PKG install
