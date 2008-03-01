@@ -5,14 +5,14 @@
 # Depends on: libarchive
 
 name=pkgutils
-version=5.31.0
-release=4
+version=5.32.0
+release=1
 source=(http://crux.nu/files/pkgutils-$version.tar.gz \
 	pkgutils-$version-lzma-decompress.patch \
 	pkgutils-$version-lzma-compress-package.patch \
 	pkgutils-$version-warn-on-footprint-new-files.patch \
-	pkgutils-$version-add-sha256-support.patch \
-	pkgutils-$version-source-diff-download.patch)
+	pkgutils-$version-add-sha256-support.patch)
+#	pkgutils-$version-source-diff-download.patch)
 
 build() {
 	cd pkgutils-$version
