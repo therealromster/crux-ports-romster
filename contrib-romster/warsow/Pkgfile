@@ -5,8 +5,8 @@
 # Depends on: zlib libjpeg libsdl libvorbis mesa3d
 
 name=warsow
-version=0.41
-release=2
+version=0.42
+release=1
 source=(http://www.speltips.org/~web1_mans/files/warsow_${version}_unified.zip
 	http://www.speltips.org/~web1_mans/files/warsow_${version}_sdk.zip \
 	warsow.sh)
@@ -34,10 +34,10 @@ build() {
 
 	install -d $PKG/usr/lib/warsow/libs $PKG/usr/bin/
 	install -m 0755 $SRC/warsow.sh $PKG/usr/bin/warsow
-	install -m 0755 ../warsow.i386 $PKG/usr/lib/warsow/
+	install -m 0755 ../warsow_${version}_unified/warsow.i386 $PKG/usr/lib/warsow/
 	mv source/release/basewsw/*.so $PKG/usr/lib/warsow/libs/
 	cp -r source/release/* $PKG/usr/lib/warsow/
-	cp -r ../basewsw/*.pk3 $PKG/usr/lib/warsow/basewsw/
+	cp -r ../warsow_${version}_unified/basewsw/*.pk3 $PKG/usr/lib/warsow/basewsw/
 	rm $PKG/usr/lib/warsow/warsow
 	
 	cd libsrcs/curl-*/
