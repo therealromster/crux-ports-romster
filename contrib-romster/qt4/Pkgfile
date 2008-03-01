@@ -3,17 +3,19 @@
 # Packager: Johannes Winkelmann, jw at tks6 dot net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: dbus freetype glib libmng libpng openssl xorg-libsm xorg-libxcursor xorg-libxinerama xorg-setxkbmap fontconfig xorg-libxi xorg-libxrandr
-# Optional: upx mysql sqlite nvidia gtk
+# Optional: mysql sqlite3 nvidia gtk
 
 name=qt4
-version=4.3.2
-release=2
+version=4.3.4
+release=1
 source=(ftp://ftp.trolltech.com/pub/qt/source/qt-x11-opensource-src-$version.tar.gz \
 	qt4-$version-x11-path-fix.patch)
 
 mirror=(ftp://ftp.tu-chemnitz.de/pub/Qt/qt/source/qt-x11-opensource-src-$version.tar.gz)
 
 build() {
+	local file SQL
+
 	cd qt-x11-opensource-src-$version
 
 	patch -p1 -i $SRC/qt4-$version-x11-path-fix.patch
@@ -25,12 +27,12 @@ build() {
 				unset CCACHE_PREFIX
 			fi
 		else
-			export PATH="$(echo $PATH |sed -e 's|/usr/lib/distcc:||')"
+			export PATH="`echo $PATH |sed -e 's|/usr/lib/distcc:||'`"
 		fi
 	fi
 
-	if [ "$(pkginfo -i |grep '^mysql ')" ]; then
-		local SQL='-qt-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql'
+	if [ "`pkginfo -i |grep '^mysql '`" ]; then
+		SQL='-qt-sql-mysql -I/usr/include/mysql -L/usr/lib/mysql'
 	fi
 	
 	if [ -d /usr/include/nvidia ]; then
@@ -39,12 +41,12 @@ build() {
 	fi
 
 	# don't link against our currently installed libraries
-	export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$(pwd)/lib"
+	export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:`pwd`/lib"
 
 	# we don't want docs, sample code; please use our optimization flags
-	sed -i -e "s|-O2|$CXXFLAGS|" mkspecs/common/g++.conf
-	sed -i -e "s|-I. |$CXXFLAGS -I. |" qmake/Makefile.unix
-	sed -i -e 's|read acceptance|acceptance=yes|' configure
+	sed -i mkspecs/common/g++.conf -e "s|-O2|$CXXFLAGS|"
+	sed -i qmake/Makefile.unix -e "s|-I. |$CXXFLAGS -I. |"
+	sed -i configure -e 's|read acceptance|acceptance=yes|'
 
 	./configure \
 		-prefix /usr/share/qt4 \
@@ -82,29 +84,23 @@ build() {
 	ln -s ../../lib/qt       $PKG/usr/share/qt4/plugins
 	
 	# fix paths
-	sed -i -e "s|-L$SRC/qt-x11-opensource-src-$version/lib ||g" $PKG/usr/lib/*.prl
-	sed -i -e "s|-L$SRC/qt-x11-opensource-src-$version/lib ||g" $PKG/usr/lib/pkgconfig/*.pc
-	sed -i -e "s|$SRC/qt-x11-opensource-src-$version/bin|/usr/share/qt4/bin|g" $PKG/usr/lib/pkgconfig/*.pc
+	sed -i $PKG/usr/lib/*.prl -e "s|-L$SRC/qt-x11-opensource-src-$version/lib ||g"
+
+	sed -i $PKG/usr/lib/pkgconfig/*.pc \
+		-e "s|-L$SRC/qt-x11-opensource-src-$version/lib ||g" \
+		-e "s|$SRC/qt-x11-opensource-src-$version/bin|/usr/share/qt4/bin|g"
 
 	# add symlinks for qt4 in /usr/bin
-	(
-		install -d $PKG/usr/bin
-		cd $PKG/usr/bin
-		for f in assistant designer linguist lrelease lupdate moc qmake qtconfig uic; do
-			ln -s ../share/qt4/bin/$f $f-qt4
-		done
+	install -d $PKG/usr/bin
+	pushd $PKG/usr/bin
 
-		for f in pixeltool qdbus qdbuscpp2xml qdbusxml2cpp qt3to4 rcc uic3; do
-			ln -s ../share/qt4/bin/$f $f
-		done
-	)
+	for file in assistant designer linguist lrelease lupdate moc qmake qtconfig uic; do
+		ln -s ../share/qt4/bin/$file $file-qt4
+	done
 
-	# compress binary files if upx is installed to save disk space
-	if pkginfo -i |grep '^upx ' > /dev/null; then
-		(
-			cd $PKG/usr/share/qt4/bin
-			upx -9 $(find . -type f ! -name assistant ! -name qt3to4 |xargs)
-		)
-	fi
+	for file in pixeltool qdbus qdbuscpp2xml qdbusxml2cpp qt3to4 rcc uic3; do
+		ln -s ../share/qt4/bin/$file $file
+	done
+	popd
 }
 
