@@ -2,7 +2,7 @@
 # URL: http://gstreamer.freedesktop.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: libxml2
+# Depends on: libxml2 glib python
 
 name=gstreamer
 version=0.10.17
@@ -16,15 +16,14 @@ build() {
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--disable-static \
-		--disable-dependency-tracking \
 		--disable-nls \
 		--disable-gst-debug \
 		--disable-debug \
 		--disable-examples \
-		--disable-failing-tests
+		--disable-valgrind
 
 	make
 	make DESTDIR=$PKG install
-	rm -rf $PKG/usr/share/gtk-doc
+	rm -r $PKG/usr/share/gtk-doc
 }
 
