@@ -249,7 +249,7 @@ drwxr-xr-x	root/root	usr/share/lbreakout2/sounds/
 -rw-r--r--	root/root	usr/share/lbreakout2/sounds/wall.wav
 -rw-r--r--	root/root	usr/share/lbreakout2/sounds/weak_ball.wav
 -rw-r--r--	root/root	usr/share/lbreakout2/sounds/wontgiveup.wav
-drwxr-xr-x	root/root	var/
-drwxr-xr-x	root/root	var/lib/
-drwxr-xr-x	root/root	var/lib/lbreakout2/
--rw-rw-rw-	root/root	var/lib/lbreakout2/lbreakout2.hscr
+drwxr-xr-x	root/root	usr/var/
+drwxr-xr-x	root/root	usr/var/lib/
+drwxr-xr-x	root/root	usr/var/lib/lbreakout2/
+-rw-rw-r--	root/users	usr/var/lib/lbreakout2/lbreakout2.hscr

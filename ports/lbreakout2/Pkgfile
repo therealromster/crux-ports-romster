@@ -2,11 +2,11 @@
 # URL: http://lgames.sourceforge.net/index.php?project=LBreakout2
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: libpng sdl_mixer sdl_net
+# Depends on: libpng sdl_mixer sdl_net zlib
 
 name=lbreakout2
 version=2.6beta-7
-release=1
+release=2
 source=(http://dl.sourceforge.net/sourceforge/lgames/lbreakout2-$version.tar.gz)
 
 build() {
@@ -14,12 +14,18 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--localstatedir=/var/lib/lbreakout2 \
+		--localstatedir=/usr/var/lib/lbreakout2 \
 		--disable-nls
+
+	# remove docs
+	sed -i Makefile.in -e '/^SUBDIRS = /s/intl m4 po common gui game server client docs/intl m4 po common gui game server client/'
 
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/doc
+
+	# restrict write access to highscore file
+	chmod 0664 $PKG/usr/var/lib/lbreakout2/lbreakout2.hscr
+	chown root:users $PKG/usr/var/lib/lbreakout2/lbreakout2.hscr
 
 	find $PKG -type f \
 		\( -name 'README' -o \
