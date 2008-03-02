@@ -12,10 +12,11 @@ source=(http://dl.sourceforge.net/sourceforge/rss-glx/rss-glx_$version.tar.bz2)
 build() {
 	cd rss-glx_$version
 	
-	./configure \
-		--prefix=/usr \
-		--with-configdir=/usr/share/xscreensaver/config \
-		--disable-sound
+	CPPFLAGS='-I/usr/include/ImageMagick' \
+		./configure \
+			--prefix=/usr \
+			--with-configdir=/usr/share/xscreensaver/config \
+			--disable-sound
 
 	make
 	make DESTDIR=$PKG install
