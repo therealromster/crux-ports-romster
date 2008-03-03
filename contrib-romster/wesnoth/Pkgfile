@@ -1,0 +1,43 @@
+# Description: The Battle for Wesnoth is a turn-based strategy game with a fantasy theme.
+# URL: http://www.wesnoth.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_net freetype python boost
+
+name=wesnoth
+version=1.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2)
+
+build() {
+	cd wesnoth-$version
+
+		if pkginfo -i |grep '^kdebase ' > /dev/null; then
+			local configure='--with-kde'
+		fi
+
+		if pkginfo -i |grep '^kdebase3 ' > /dev/null; then
+			local configure='--with-kde'
+		fi
+
+		if pkginfo -i |grep '^gnome ' > /dev/null; then
+			local configure='--with-gnome'
+		fi
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls \
+		--enable-python \
+		$configure
+
+	make
+	make DESTDIR=$PKG install
+
+	find $PKG/usr/man -maxdepth 0 -type d ! -regex 'man?' -exec rm -r {} \;
+
+	rm \
+		$PKG/usr/share/wesnoth/data/COPYING.txt \
+		$PKG/usr/share/wesnoth/fonts/COPYING
+}
+
