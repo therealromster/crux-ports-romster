@@ -5,7 +5,7 @@
 # Depends on: xorg-libx11 sdl_image sdl_mixer sdl_net freetype python boost
 # Optional: upx
 
-name=wesnoth
+name=wesnoth12
 version=1.2.8
 release=1
 source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2)
