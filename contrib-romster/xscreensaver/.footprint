@@ -54,6 +54,7 @@ drwxr-xr-x	root/root	usr/lib/xscreensaver/
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/cube21
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/cubenetic
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/cubestorm
+-rwxr-xr-x	root/root	usr/lib/xscreensaver/cubicgrid
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/cwaves
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/cynosure
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/dangerball
@@ -109,6 +110,7 @@ drwxr-xr-x	root/root	usr/lib/xscreensaver/
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/hyperball
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/hypercube
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/hypertorus
+-rwxr-xr-x	root/root	usr/lib/xscreensaver/hypnowheel
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/ifs
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/imsmap
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/interaggregate
@@ -125,6 +127,7 @@ drwxr-xr-x	root/root	usr/lib/xscreensaver/
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/lament
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/laser
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/lavalite
+-rwxr-xr-x	root/root	usr/lib/xscreensaver/lcdscrub
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/lightning
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/lisa
 -rwxr-xr-x	root/root	usr/lib/xscreensaver/lissie
@@ -276,6 +279,7 @@ drwxr-xr-x	root/root	usr/man/man6/
 -rw-r--r--	root/root	usr/man/man6/cube21.6.gz
 -rw-r--r--	root/root	usr/man/man6/cubenetic.6.gz
 -rw-r--r--	root/root	usr/man/man6/cubestorm.6.gz
+-rw-r--r--	root/root	usr/man/man6/cubicgrid.6.gz
 -rw-r--r--	root/root	usr/man/man6/cwaves.6.gz
 -rw-r--r--	root/root	usr/man/man6/cynosure.6.gz
 -rw-r--r--	root/root	usr/man/man6/dangerball.6.gz
@@ -332,6 +336,7 @@ drwxr-xr-x	root/root	usr/man/man6/
 -rw-r--r--	root/root	usr/man/man6/hyperball.6.gz
 -rw-r--r--	root/root	usr/man/man6/hypercube.6.gz
 -rw-r--r--	root/root	usr/man/man6/hypertorus.6.gz
+-rw-r--r--	root/root	usr/man/man6/hypnowheel.6.gz
 -rw-r--r--	root/root	usr/man/man6/ifs.6.gz
 -rw-r--r--	root/root	usr/man/man6/imsmap.6.gz
 -rw-r--r--	root/root	usr/man/man6/interaggregate.6.gz
@@ -348,6 +353,7 @@ drwxr-xr-x	root/root	usr/man/man6/
 -rw-r--r--	root/root	usr/man/man6/lament.6.gz
 -rw-r--r--	root/root	usr/man/man6/laser.6.gz
 -rw-r--r--	root/root	usr/man/man6/lavalite.6.gz
+-rw-r--r--	root/root	usr/man/man6/lcdscrub.gz
 -rw-r--r--	root/root	usr/man/man6/lightning.6.gz
 -rw-r--r--	root/root	usr/man/man6/lisa.6.gz
 -rw-r--r--	root/root	usr/man/man6/lissie.6.gz
@@ -495,6 +501,7 @@ drwxr-xr-x	root/root	usr/share/xscreensaver/config/
 -rw-r--r--	root/root	usr/share/xscreensaver/config/cube21.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/cubenetic.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/cubestorm.xml
+-rw-r--r--	root/root	usr/share/xscreensaver/config/cubicgrid.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/cwaves.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/cynosure.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/dangerball.xml
@@ -554,6 +561,7 @@ drwxr-xr-x	root/root	usr/share/xscreensaver/config/
 -rw-r--r--	root/root	usr/share/xscreensaver/config/hyperball.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/hypercube.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/hypertorus.xml
+-rw-r--r--	root/root	usr/share/xscreensaver/config/hypnowheel.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/ifs.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/imsmap.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/interaggregate.xml
@@ -570,6 +578,7 @@ drwxr-xr-x	root/root	usr/share/xscreensaver/config/
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lament.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/laser.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lavalite.xml
+-rw-r--r--	root/root	usr/share/xscreensaver/config/lcdscrub.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lightning.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lisa.xml
 -rw-r--r--	root/root	usr/share/xscreensaver/config/lissie.xml

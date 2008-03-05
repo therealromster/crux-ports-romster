@@ -5,21 +5,22 @@
 # Depends on: bc fortune libglade libungif netpbm xorg-libxmu
 
 name=xscreensaver
-version=5.04
+version=5.05
 release=1
 source=(http://www.jwz.org/xscreensaver/xscreensaver-$version.tar.gz)
 
 build() {
 	cd xscreensaver-$version
-
-	exp="s/USE_NLS=yes/USE_NLS=no/; s/ENABLE_NLS 1/ENABLE_NLS 0/"
-	sed -i "$exp" configure
+	
+	sed -i configure \
+	-e 's/USE_NLS=yes/USE_NLS=no/' \
+	-e 's/ENABLE_NLS 1/ENABLE_NLS 0/'
 
 	./configure \
 		--prefix=/usr \
 		--libexecdir=/usr/lib \
 		--mandir=/usr/man \
-		--with-x-app-defaults=/etc/X11/app-defaults \
+		--with-x-app-defaults='/etc/X11/app-defaults' \
 		--enable-locking \
 		--enable-root-passwd \
 		--with-dpms-ext \
