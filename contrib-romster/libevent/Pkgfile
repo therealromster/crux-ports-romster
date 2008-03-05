@@ -5,7 +5,7 @@
 # Depends on:
 
 name=libevent
-version=1.3e
+version=1.4.2-rc
 release=1
 source=(http://www.monkey.org/~provos/libevent-$version.tar.gz)
 
@@ -24,8 +24,7 @@ build() {
 	# the file
 	if [ -f $PKG/usr/bin/event_rpcgen.py ]; then
 		mv $PKG/usr/bin/event_rpcgen.py $PKG/usr/bin/event_rpcgen
+		sed -i $PKG/usr/bin/event_rpcgen -e '/_NAME = /s/"event_rpcgen.py"/"event_rpcgen"/'
 	fi
-
-	sed -i -e '/_NAME = /s/"event_rpcgen.py"/"event_rpcgen"/' $PKG/usr/bin/event_rpcgen
 }
 
