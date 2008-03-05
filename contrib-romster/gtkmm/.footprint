@@ -1,6 +1,4 @@
 drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/demo
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/atkmm-1.6/
 -rw-r--r--	root/root	usr/include/atkmm-1.6/atkmm.h
@@ -544,7 +542,3 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gtkmm-2.4.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/pangomm-1.4.pc
 drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/devhelp/
-drwxr-xr-x	root/root	usr/share/devhelp/books/
-drwxr-xr-x	root/root	usr/share/devhelp/books/gtkmm-2.4/
--rw-r--r--	root/root	usr/share/devhelp/books/gtkmm-2.4/gtkmm-2.4.devhelp

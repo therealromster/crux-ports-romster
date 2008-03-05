@@ -5,7 +5,7 @@
 # Depends on: glibmm cairomm
 
 name=gtkmm
-version=2.12.4
+version=2.12.5
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/gtkmm/${version%.*}/gtkmm-$version.tar.bz2)
 
@@ -14,8 +14,10 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--disable-fulldocs \
-		--disable-nls
+		--disable-nls \
+		--disable-examples \
+		--disable-demos \
+		--disable-docs
 
 	make
 	make DESTDIR=$PKG install
