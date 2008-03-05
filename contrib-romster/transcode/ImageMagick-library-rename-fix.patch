@@ -1,0 +1,47 @@
+diff -pruN transcode-1.0.5.orig/configure transcode-1.0.5/configure
+--- transcode-1.0.5.orig/configure	2008-03-03 20:36:05.000000000 +0000
++++ transcode-1.0.5/configure	2008-03-03 20:37:48.000000000 +0000
+@@ -1909,7 +1909,7 @@ Optional Packages:
+                           are installed (/usr/include)
+   --with-imagemagick-libs=DIR
+                           directory where imagemagick libararies
+-                          (libMagick.so) are installed (/usr/lib)
++                          (libMagickCore.so) are installed (/usr/lib)
+   --with-libjpegmmx-prefix=PFX
+                           prefix where libjpegmmx is installed (/usr)
+   --with-libjpegmmx-includes=DIR
+@@ -41233,7 +41233,7 @@ echo "${ECHO_T}default" >&6; }
+   for l in $imagemagick_ll ; do
+     case $l in
+       -L*) lpaths="$lpaths $l" ;;
+-      -l*) test x"$l" != x"-lMagick" && xlibs="$xlibs $l" ;;
++      -l*) test x"$l" != x"-lMagickCore" && xlibs="$xlibs $l" ;;
+         *) xlf="$xlf $l" ;;
+     esac
+   done
+@@ -41249,13 +41249,13 @@ echo "${ECHO_T}default" >&6; }
+   if test x"Magick" != x"none" ; then
+     save_LDFLAGS="$LDFLAGS"
+     LDFLAGS="$LDFLAGS $imagemagick_ll"
+-    { echo "$as_me:$LINENO: checking for InitializeMagick in -lMagick" >&5
+-echo $ECHO_N "checking for InitializeMagick in -lMagick... $ECHO_C" >&6; }
++    { echo "$as_me:$LINENO: checking for InitializeMagick in -lMagickCore" >&5
++echo $ECHO_N "checking for InitializeMagick in -lMagickCore... $ECHO_C" >&6; }
+ if test "${ac_cv_lib_Magick_InitializeMagick+set}" = set; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lMagick $IMAGEMAGICK_EXTRA_LIBS $LIBS"
++LIBS="-lMagickCore $IMAGEMAGICK_EXTRA_LIBS $LIBS"
+ cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+@@ -41311,7 +41311,7 @@ fi
+ { echo "$as_me:$LINENO: result: $ac_cv_lib_Magick_InitializeMagick" >&5
+ echo "${ECHO_T}$ac_cv_lib_Magick_InitializeMagick" >&6; }
+ if test $ac_cv_lib_Magick_InitializeMagick = yes; then
+-  IMAGEMAGICK_LIBS="$imagemagick_ll -lMagick $IMAGEMAGICK_EXTRA_LIBS"
++  IMAGEMAGICK_LIBS="$imagemagick_ll -lMagickCore $IMAGEMAGICK_EXTRA_LIBS"
+ else
+ 
+ tc_pkg_err="yes"

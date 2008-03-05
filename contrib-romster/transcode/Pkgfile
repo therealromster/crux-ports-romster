@@ -2,47 +2,82 @@
 # URL: http://www.transcoding.org/cgi-bin/transcode
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: imagemagick avifile libdvdnav libfame lzo mjpegtools mpeg2dec mplayer xorg-libxaw xorg-libxpm xorg-libxv
+# Depends on: ffmpeg mpeg2dec libdvdnav liba52 xorg-libxv
+# Optional: avifile libtheora libdv libquicktime lzo mjpegtools libfame imagemagick
 
 name=transcode
-version=20070625
+version=1.0.5
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/transcode-snapshot-$version.tar.bz2 \
-	http://dl.sourceforge.net/subtitleripper/subtitleripper-0.3-4.tgz)
+source=(http://transcode.kabewm.com/transcode-$version.tar.bz2 \
+	http://dl.sourceforge.net/subtitleripper/subtitleripper-0.3-4.tgz \
+	ImageMagick-library-rename-fix.patch)
 
 build() {
-	cd transcode
+	local config
+	
+	cd transcode-$version
 
-	./configure \
-		--prefix=/usr \
-		--disable-experimental \
-		--enable-alsa \
-		--enable-avifile \
-		--enable-ogg \
-		--enable-vorbis \
-		--enable-libdv \
-		--enable-libquicktime \
-		--enable-lzo \
-		--enable-a52 \
-		--enable-faac \
-		--enable-libxml2 \
-		--enable-mjpegtools \
-		--enable-libfame \
-		--enable-imagemagick \
-		--enable-netstream \
-		--enable-freetype2 \
-		--enable-libpostproc \
-		--enable-theora
+	patch -p1 -i ../ImageMagick-library-rename-fix.patch
+
+	if pkginfo -i |grep '^avifile ' > /dev/null; then
+		config="--enable-avifile"
+	fi
+
+	if pkginfo -i |grep '^libtheora ' > /dev/null; then
+                config="$config --enable-theora"
+        fi
+
+	if pkginfo -i |grep '^libdv ' > /dev/null; then
+                config="$config --enable-libdv"
+        fi
+
+	if pkginfo -i |grep '^libquicktime ' > /dev/null; then
+                config="$config --enable-libquicktime"
+        fi
+
+	if pkginfo -i |grep '^lzo ' > /dev/null; then
+                config="$config --enable-lzo"
+		#config="$config  --with-lzo-includes='/usr/include/lzo'" # doesn't work? have to use the line below.
+		export CPPFLAGS="-I/usr/include/lzo"
+        fi
+
+	if pkginfo -i |grep '^mjpegtools ' > /dev/null; then
+                config="$config --enable-mjpegtools"
+        fi
+
+	if pkginfo -i |grep '^libfame ' > /dev/null; then
+                config="$config --enable-fame"
+        fi
+
+	if pkginfo -i |grep '^imagemagick ' > /dev/null; then
+                config="$config --enable-imagemagick"
+		#config="$config --with-imagemagick-includes='/usr/include/ImageMagick'" # doesn't work? have to use the line below.
+		export CPPFLAGS="$CPPFLAGS `pkg-config ImageMagick --cflags-only-I`"
+        fi
+
+	CFLAGS="-O3 `echo $CFLAGS |sed -e 's/-O[s0-3] //'`" \
+		./configure \
+			--prefix=/usr \
+			--enable-libpostproc \
+			--enable-freetype2 \
+			--enable-a52 \
+			--enable-a52-default-decoder \
+			--enable-ogg \
+			--enable-vorbis \
+			--enable-libxml2 \
+			--enable-sdl \
+			$config
 
 	make
 	make DESTDIR=$PKG install
+	if [ -n "$CPPFLAGS" ]; then unset CPPFLAGS; fi
 	rm -r $PKG/usr/share
 
 	# Subtitle support (Han Boetes)
 	mkdir -p contrib/subrip
 	cd contrib/subrip
 	cp ../../../subtitleripper/* .
-	sed -i 's|.*ppm.*||i' Makefile
+	sed -i Makefile -e 's|.*ppm.*||i'
 	make clean all
 	install -D srttool subtitle2pgm subtitle2vobsub $PKG/usr/bin
 }
