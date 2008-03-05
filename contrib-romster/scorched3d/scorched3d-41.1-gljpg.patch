@@ -1,0 +1,13 @@
+--- GLJpg.cpp.orig	2008-01-11 16:04:25.000000000 -0600
++++ GLJpg.cpp	2008-01-11 16:04:40.000000000 -0600
+@@ -20,7 +20,9 @@
+ 
+ #include <stdio.h>
+ #include <math.h>
+-#include <jpeglib.h>
++extern "C" {
++	#include <jpeglib.h>
++}
+ #include <common/Defines.h>
+ #include <GLEXT/GLJpg.h>
+ 
