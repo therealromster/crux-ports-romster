@@ -7,13 +7,13 @@
 # Core: coreutils pkgutils sed
 
 name=safe-build
-version=0.0.1b1
+version=0.0.1b2
 release=1
 source=(http://romster.shortcircuit.net.au/crux/safe-build/safe_build-$version.tar.bz2)
 
 build() {
 	cd safe_build-$version
-	make VERSION=$version
+	make
 	make DESTDIR=$PKG install
 }
 
