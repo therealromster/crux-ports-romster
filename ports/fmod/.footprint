@@ -8,7 +8,7 @@ drwxr-xr-x	root/root	usr/include/fmodex/
 -r--r--r--	root/root	usr/include/fmodex/fmod_errors.h
 -r--r--r--	root/root	usr/include/fmodex/fmod_output.h
 drwxr-xr-x	root/root	usr/lib/
-lrwxrwxrwx	root/root	usr/lib/libfmodex.so -> /usr/lib/libfmodex.so.4.08.08
--rwxr-xr-x	root/root	usr/lib/libfmodex.so.4.08.08
-lrwxrwxrwx	root/root	usr/lib/libfmodexp.so -> /usr/lib/libfmodexp.so.4.08.08
--rwxr-xr-x	root/root	usr/lib/libfmodexp.so.4.08.08
+lrwxrwxrwx	root/root	usr/lib/libfmodex.so -> /usr/lib/libfmodex.so.4.12.03
+-rwxr-xr-x	root/root	usr/lib/libfmodex.so.4.12.03
+lrwxrwxrwx	root/root	usr/lib/libfmodexp.so -> /usr/lib/libfmodexp.so.4.12.03
+-rwxr-xr-x	root/root	usr/lib/libfmodexp.so.4.12.03
