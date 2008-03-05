@@ -8,8 +8,8 @@ DAEMON=tor
 RUN_AS_USER=_tor
 
 # Check for configuration files
-[ -f /etc/tor/tor-tsocks.conf ] || exit 0
-[ -f /etc/tor/torrc ] || exit 0
+[ -f /usr/etc/tor/tor-tsocks.conf ] || exit 1
+[ -f /usr/etc/tor/torrc ] || exit 1
 
 # If you have to edit this section for this or any other 
 # port useage let me know, with a patch or added lines, 

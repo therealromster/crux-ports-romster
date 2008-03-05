@@ -2,11 +2,11 @@
 # URL: http://tor.eff.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: libevent
+# Depends on: libevent openssl zlib
 
 name=tor
-version=0.1.2.19
-release=1
+version=0.2.0.21-rc
+release=2
 source=(http://tor.eff.org/dist/tor-$version.tar.gz \
 	tor.rc)
 
@@ -15,7 +15,7 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--sysconfdir=/etc \
+		--sysconfdir=/usr/etc \
 		--mandir=/usr/man
 
 	make
@@ -30,22 +30,24 @@ build() {
 	chown -R root:root $PKG
 
 	chown _tor:daemon \
-		$PKG/var/log/{tor,tor/notices.log} \
-		$PKG/etc/tor \
+		$PKG/var/log/tor \
+		$PKG/usr/etc/tor \
 		$PKG/usr/var/lib/tor
 
-	find $PKG/usr/bin/ -type f -exec chown _tor:daemon {} \;
-	find $PKG/etc/tor/ -type f -exec chown _tor:daemon {} \;
+	find $PKG/usr/bin -type f -exec chown _tor:daemon {} \;
+	find $PKG/usr/etc -type f -exec chown _tor:daemon {} \;
+	find $PKG/var/log/tor -type f -exec chown _tor:daemon {} \;
+	find $PKG/usr/bin -type f -exec chmod 0744 {} \;
+	find $PKG/usr/etc/tor -type f -exec chmod 0600 {} \;
 
-	chmod 640 $PKG/var/log/tor/notices.log
-	install -m755 $SRC/tor.rc $PKG/etc/rc.d/tor
+	chmod 0640 $PKG/var/log/tor/notices.log
+	install -m 0755 $SRC/tor.rc $PKG/etc/rc.d/tor
+	mv $PKG/usr/etc/tor/torrc.sample $PKG/usr/etc/tor/torrc
 	
 	# edit the config file
-	sed -i \
+	sed -i $PKG/usr/etc/tor/torrc \
 		-e's/#RunAsDaemon 1/RunAsDaemon 1/' \
 		-e 's:#Log notice file /usr/var/log/tor/notices.log:Log notice file /var/log/tor/notices.log:' \
-		-e 's:#DataDirectory /usr/var/lib/tor:DataDirectory /usr/var/lib/tor:' $PKG/etc/tor/torrc.sample
-
-	mv $PKG/etc/tor/torrc.sample $PKG/etc/tor/torrc
+		-e 's:#DataDirectory /usr/var/lib/tor:DataDirectory /usr/var/lib/tor:'
 }
 
