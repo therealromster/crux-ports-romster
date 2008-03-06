@@ -1,13 +1,13 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/certutil
+-rwxr-xr-x	root/root	usr/bin/modutil
 -rwxr-xr-x	root/root	usr/bin/nspr-config
 -rwxr-xr-x	root/root	usr/bin/nss-config
+-rwxr-xr-x	root/root	usr/bin/pk12util
+-rwxr-xr-x	root/root	usr/bin/signtool
+-rwxr-xr-x	root/root	usr/bin/ssltap
 drwxr-xr-x	root/root	usr/include/
-drwxr-xr-x	root/root	usr/include/dbm/
--rw-r--r--	root/root	usr/include/dbm/cdefs.h
--rw-r--r--	root/root	usr/include/dbm/mcom_db.h
--rw-r--r--	root/root	usr/include/dbm/ncompat.h
--rw-r--r--	root/root	usr/include/dbm/winfile.h
 drwxr-xr-x	root/root	usr/include/nspr/
 -rw-r--r--	root/root	usr/include/nspr/nspr.h
 drwxr-xr-x	root/root	usr/include/nspr/obsolete/
@@ -97,7 +97,6 @@ drwxr-xr-x	root/root	usr/include/nss/
 -rw-r--r--	root/root	usr/include/nss/nssb64t.h
 -rw-r--r--	root/root	usr/include/nss/nssbase.h
 -rw-r--r--	root/root	usr/include/nss/nssbaset.h
--rw-r--r--	root/root	usr/include/nss/nssck.api
 -rw-r--r--	root/root	usr/include/nss/nssckbi.h
 -rw-r--r--	root/root	usr/include/nss/nssckepv.h
 -rw-r--r--	root/root	usr/include/nss/nssckft.h
@@ -161,16 +160,26 @@ drwxr-xr-x	root/root	usr/include/nss/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libcrmf.a
 -rw-r--r--	root/root	usr/lib/libfreebl3.chk
--rwxr-xr-x	root/root	usr/lib/libfreebl3.so
--rwxr-xr-x	root/root	usr/lib/libnspr4.so
--rwxr-xr-x	root/root	usr/lib/libnss3.so
--rwxr-xr-x	root/root	usr/lib/libnssckbi.so
--rwxr-xr-x	root/root	usr/lib/libplc4.so
--rwxr-xr-x	root/root	usr/lib/libplds4.so
--rwxr-xr-x	root/root	usr/lib/libsmime3.so
+-rw-r--r--	root/root	usr/lib/libfreebl3.so
+-rw-r--r--	root/root	usr/lib/libnspr4.a
+lrwxrwxrwx	root/root	usr/lib/libnspr4.so -> libnspr4.so.7
+-rw-r--r--	root/root	usr/lib/libnspr4.so.7
+-rw-r--r--	root/root	usr/lib/libnss3.so
+-rw-r--r--	root/root	usr/lib/libnssb.a
+-rw-r--r--	root/root	usr/lib/libnssckbi.so
+-rw-r--r--	root/root	usr/lib/libnssckfw.a
+-rw-r--r--	root/root	usr/lib/libplc4.a
+lrwxrwxrwx	root/root	usr/lib/libplc4.so -> libplc4.so.7
+-rw-r--r--	root/root	usr/lib/libplc4.so.7
+-rw-r--r--	root/root	usr/lib/libplds4.a
+lrwxrwxrwx	root/root	usr/lib/libplds4.so -> libplds4.so.7
+-rw-r--r--	root/root	usr/lib/libplds4.so.7
+-rw-r--r--	root/root	usr/lib/libsmime3.so
 -rw-r--r--	root/root	usr/lib/libsoftokn3.chk
--rwxr-xr-x	root/root	usr/lib/libsoftokn3.so
--rwxr-xr-x	root/root	usr/lib/libssl3.so
+-rw-r--r--	root/root	usr/lib/libsoftokn3.so
+-rw-r--r--	root/root	usr/lib/libssl3.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
+lrwxrwxrwx	root/root	usr/lib/pkgconfig/mozilla-nspr.pc -> nspr.pc
+lrwxrwxrwx	root/root	usr/lib/pkgconfig/mozilla-nss.pc -> nss.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/nspr.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/nss.pc
