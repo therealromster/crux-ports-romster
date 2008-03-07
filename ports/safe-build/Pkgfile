@@ -7,7 +7,7 @@
 # Core: coreutils pkgutils sed
 
 name=safe-build
-version=0.0.1b2
+version=0.0.1b3
 release=1
 source=(http://romster.shortcircuit.net.au/crux/safe-build/safe_build-$version.tar.bz2)
 
