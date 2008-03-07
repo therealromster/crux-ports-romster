@@ -158,6 +158,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/imm.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/mountmgr.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/ntddcdvd.h
+-rw-r--r--	root/root	usr/include/wine/windows/ddk/ntddk.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/ntddser.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/ntddtape.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/wdm.h
@@ -387,6 +388,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/profinfo.h
 -rw-r--r--	root/root	usr/include/wine/windows/propidl.h
 -rw-r--r--	root/root	usr/include/wine/windows/propidl.idl
+-rw-r--r--	root/root	usr/include/wine/windows/propvarutil.h
 -rw-r--r--	root/root	usr/include/wine/windows/prsht.h
 -rw-r--r--	root/root	usr/include/wine/windows/psapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/pshpack1.h
@@ -655,6 +657,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/keyboard.drv16
 -rw-r--r--	root/root	usr/lib/wine/krnl386.exe16
 -rw-r--r--	root/root	usr/lib/wine/libactiveds.def
+-rw-r--r--	root/root	usr/lib/wine/libadsiid.a
 -rw-r--r--	root/root	usr/lib/wine/libadvapi32.def
 -rw-r--r--	root/root	usr/lib/wine/libadvpack.def
 -rw-r--r--	root/root	usr/lib/wine/libatl.def
@@ -679,6 +682,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libd3dim.def
 -rw-r--r--	root/root	usr/lib/wine/libd3drm.def
 -rw-r--r--	root/root	usr/lib/wine/libd3dx8.def
+-rw-r--r--	root/root	usr/lib/wine/libd3dx9.def
 -rw-r--r--	root/root	usr/lib/wine/libd3dxof.def
 -rw-r--r--	root/root	usr/lib/wine/libdbghelp.def
 -rw-r--r--	root/root	usr/lib/wine/libdciman32.def
@@ -898,6 +902,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/sane.ds.so
 -rwxr-xr-x	root/root	usr/lib/wine/sccbase.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/schannel.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/secedit.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/secur32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/security.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sensapi.dll.so
@@ -992,6 +997,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/winmm.dll.so
 -rw-r--r--	root/root	usr/lib/wine/winnls.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/winnls32.dll.so
+-rw-r--r--	root/root	usr/lib/wine/winoldap.mod16
 -rwxr-xr-x	root/root	usr/lib/wine/winscard.dll.so
 -rw-r--r--	root/root	usr/lib/wine/winsock.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/winspool.drv.so
