@@ -1,0 +1,16 @@
+# Description: Python HTML/XML Parser.
+# URL: http://www.crummy.com/software/BeautifulSoup/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: python
+
+name=beautifulsoup
+version=3.0.5
+release=1
+source=(http://www.crummy.com/software/BeautifulSoup/download/BeautifulSoup.tar.gz)
+
+build() {
+	cd BeautifulSoup-$version
+	python setup.py install --root=$PKG
+}
+
