@@ -5,7 +5,7 @@
 # Depends on: lzma
 
 name=x264
-version=r736
+version=r745
 release=1
 source=(http://romster.shortcircuit.net.au/crux/source/x264/x264-snapshot-$version.tar.lzma)
 
