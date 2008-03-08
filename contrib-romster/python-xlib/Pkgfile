@@ -1,0 +1,16 @@
+# Description: Python interface to xlib.
+# URL: http://python-xlib.sourceforge.net
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Johannes Winkelmann, jw at tks6 dot net
+# Depends on: python xorg-libx11
+
+name=python-xlib
+version=0.14
+release=1
+source=(http://dl.sourceforge.net/sourceforge/python-xlib/python-xlib-$version.tar.gz)
+
+build() {
+	cd python-xlib-$version
+	python setup.py install --root=$PKG --prefix=/usr
+}
+
