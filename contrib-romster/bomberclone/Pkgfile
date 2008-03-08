@@ -1,0 +1,25 @@
+# Description: A clone of Atomic Bomberman (SDL/MultiPlayer/Network).
+# URL: http://www.bomberclone.de/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: sdl_mixer sdl_image
+
+name=bomberclone
+version=0.11.8
+release=1
+source=(http://dl.sourceforge.net/sourceforge/bomberclone/bomberclone-$version.tar.bz2)
+
+build() {
+	cd bomberclone-$version
+
+	sed -i configure.in -e '/^packagedatadir=/s|share/games/${PACKAGE}|share/${PACKAGE}|'
+
+	./configure \
+		--prefix=/usr \
+		--disable-debug
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+}
+
