@@ -1,0 +1,16 @@
+# Description: Cross platform Python binding to OpenGL.
+# URL: http://pyopengl.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Younes Hafri ycrux at club-internet dot fr
+# Depends on: swig setuptools
+
+name=pyopengl
+version=3.0.0b1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/pyopengl/PyOpenGL-$version.tar.gz)
+
+build() {
+	cd PyOpenGL-$version
+	python setup.py install --root=$PKG
+}
+
