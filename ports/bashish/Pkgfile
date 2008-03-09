@@ -1,0 +1,22 @@
+# Description: Theme enviroment for text terminals. 
+# URL: http://bashish.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=bashish
+version=2.0.7
+release=1
+source=(http://dl.sourceforge.net/sourceforge/bashish/bashish-$version.tar.gz)
+
+build() {
+	cd bashish-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+}
+
