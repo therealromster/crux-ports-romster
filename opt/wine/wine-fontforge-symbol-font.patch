@@ -1,0 +1,16 @@
+diff --git a/fonts/Makefile.in b/fonts/Makefile.in
+index a6732db..4fdd6e4 100644
+--- a/fonts/Makefile.in
++++ b/fonts/Makefile.in
+@@ -60,6 +60,11 @@ all: $(FONTS)
+ 
+ @MAKE_RULES@
+ 
++# generates symbol ttf font file (needed for fonforge version newer then 20070831 and works also with version 20070831)
++marlett.ttf: marlett.sfd
++	$(FONTFORGE) -script $(TOPSRCDIR)/fonts/genttf.ff marlett.sfd marlett.sym.ttf
++	mv marlett.sym.ttf marlett.ttf
++
+ courier-1252-96-13.fnt: courier.ttf $(SFNT2FNT)
+ 	$(LDPATH) $(SFNT2FNT) courier.ttf 13 1252 96 128 8
+
