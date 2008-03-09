@@ -1,11 +1,11 @@
 # Description: The standard termulator.
 # URL: http://dickey.his.com/xterm/xterm.html
-# Maintainer: Simone Rota, sip at crux dot nu
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Han Boetes, han at mijncomputer dot nl
 # Depends on: xorg-libxaw
 
 name=xterm
-version=232
+version=234
 release=1
 source=(ftp://invisible-island.net/xterm/xterm-$version.tgz \
 	configure.diff)
@@ -23,6 +23,6 @@ build() {
 
 	make
 	make install DESTDIR=$PKG
-	chmod 0755 $PKG/usr/bin/xterm
+	#chmod 0755 $PKG/usr/bin/xterm
 }
 
