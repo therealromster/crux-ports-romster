@@ -8,7 +8,7 @@
 
 name=safe-build
 version=0.0.1b3
-release=1
+release=2
 source=(http://romster.shortcircuit.net.au/crux/safe-build/safe_build-$version.tar.bz2)
 
 build() {
