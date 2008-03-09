@@ -1,0 +1,92 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/fontforge
+-rwxr-xr-x	root/root	usr/bin/fontimage
+-rwxr-xr-x	root/root	usr/bin/fontlint
+-rwxr-xr-x	root/root	usr/bin/sfddiff
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/fontforge/
+-rw-r--r--	root/root	usr/include/fontforge/PfEd.h
+-rw-r--r--	root/root	usr/include/fontforge/autowidth.h
+-rw-r--r--	root/root	usr/include/fontforge/baseviews.h
+-rw-r--r--	root/root	usr/include/fontforge/basics.h
+-rw-r--r--	root/root	usr/include/fontforge/bezctx_ff.h
+-rw-r--r--	root/root	usr/include/fontforge/bitmapcontrol.h
+-rw-r--r--	root/root	usr/include/fontforge/chardata.h
+-rw-r--r--	root/root	usr/include/fontforge/charset.h
+-rw-r--r--	root/root	usr/include/fontforge/config.h
+-rw-r--r--	root/root	usr/include/fontforge/configure-pfaedit.h
+-rw-r--r--	root/root	usr/include/fontforge/dynamic.h
+-rw-r--r--	root/root	usr/include/fontforge/edgelist.h
+-rw-r--r--	root/root	usr/include/fontforge/edgelist2.h
+-rw-r--r--	root/root	usr/include/fontforge/encoding.h
+-rw-r--r--	root/root	usr/include/fontforge/fffreetype.h
+-rw-r--r--	root/root	usr/include/fontforge/ffpython.h
+-rw-r--r--	root/root	usr/include/fontforge/fileutil.h
+-rw-r--r--	root/root	usr/include/fontforge/fontforgevw.h
+-rw-r--r--	root/root	usr/include/fontforge/fvmetrics.h
+-rw-r--r--	root/root	usr/include/fontforge/gdraw.h
+-rw-r--r--	root/root	usr/include/fontforge/gfile.h
+-rw-r--r--	root/root	usr/include/fontforge/ggadget.h
+-rw-r--r--	root/root	usr/include/fontforge/gicons.h
+-rw-r--r--	root/root	usr/include/fontforge/gimage.h
+-rw-r--r--	root/root	usr/include/fontforge/gio.h
+-rw-r--r--	root/root	usr/include/fontforge/gkeysym.h
+-rw-r--r--	root/root	usr/include/fontforge/gprogress.h
+-rw-r--r--	root/root	usr/include/fontforge/gresource.h
+-rw-r--r--	root/root	usr/include/fontforge/groups.h
+-rw-r--r--	root/root	usr/include/fontforge/gwidget.h
+-rw-r--r--	root/root	usr/include/fontforge/gwwiconv.h
+-rw-r--r--	root/root	usr/include/fontforge/import.h
+-rw-r--r--	root/root	usr/include/fontforge/intl.h
+-rw-r--r--	root/root	usr/include/fontforge/libffstamp.h
+-rw-r--r--	root/root	usr/include/fontforge/lookups.h
+-rw-r--r--	root/root	usr/include/fontforge/mm.h
+-rw-r--r--	root/root	usr/include/fontforge/nonlineartrans.h
+-rw-r--r--	root/root	usr/include/fontforge/ofl.h
+-rw-r--r--	root/root	usr/include/fontforge/pfaedit.h
+-rw-r--r--	root/root	usr/include/fontforge/plugins.h
+-rw-r--r--	root/root	usr/include/fontforge/print.h
+-rw-r--r--	root/root	usr/include/fontforge/psfont.h
+-rw-r--r--	root/root	usr/include/fontforge/savefont.h
+-rw-r--r--	root/root	usr/include/fontforge/scriptfuncs.h
+-rw-r--r--	root/root	usr/include/fontforge/scripting.h
+-rw-r--r--	root/root	usr/include/fontforge/sd.h
+-rw-r--r--	root/root	usr/include/fontforge/search.h
+-rw-r--r--	root/root	usr/include/fontforge/sfd1.h
+-rw-r--r--	root/root	usr/include/fontforge/sflayoutP.h
+-rw-r--r--	root/root	usr/include/fontforge/splinefont.h
+-rw-r--r--	root/root	usr/include/fontforge/stemdb.h
+-rw-r--r--	root/root	usr/include/fontforge/ttf.h
+-rw-r--r--	root/root	usr/include/fontforge/ttfinstrs.h
+-rw-r--r--	root/root	usr/include/fontforge/uiinterface.h
+-rw-r--r--	root/root	usr/include/fontforge/unicoderange.h
+-rw-r--r--	root/root	usr/include/fontforge/ustring.h
+-rw-r--r--	root/root	usr/include/fontforge/utype.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libfontforge.la
+lrwxrwxrwx	root/root	usr/lib/libfontforge.so -> libfontforge.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libfontforge.so.1 -> libfontforge.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libfontforge.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libgdraw.la
+lrwxrwxrwx	root/root	usr/lib/libgdraw.so -> libgdraw.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libgdraw.so.3 -> libgdraw.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libgdraw.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libgunicode.la
+lrwxrwxrwx	root/root	usr/lib/libgunicode.so -> libgunicode.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libgunicode.so.3 -> libgunicode.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libgunicode.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libgutils.la
+lrwxrwxrwx	root/root	usr/lib/libgutils.so -> libgutils.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libgutils.so.1 -> libgutils.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libgutils.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/fontforge.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/fontforge.1.gz
+-rw-r--r--	root/root	usr/man/man1/fontimage.1.gz
+-rw-r--r--	root/root	usr/man/man1/fontlint.1.gz
+-rw-r--r--	root/root	usr/man/man1/sfddiff.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/fontforge/
