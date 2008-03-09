@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/mikmod.h
 drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/libmikmod.la
+-rwxr-xr-x	root/root	usr/lib/libmikmod.la
 lrwxrwxrwx	root/root	usr/lib/libmikmod.so -> libmikmod.so.2.0.4
 lrwxrwxrwx	root/root	usr/lib/libmikmod.so.2 -> libmikmod.so.2.0.4
 -rw-r--r--	root/root	usr/lib/libmikmod.so.2.0.4
