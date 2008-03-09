@@ -1,0 +1,22 @@
+# Description: A library for layout and rendering of text
+# URL: http://www.gtk.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: cairo glib xorg-libsm xorg-libxext xorg-libxft
+
+name=pango
+version=1.18.4
+release=1
+source=(http://download.gnome.org/sources/pango/${version%.*}/pango-$version.tar.bz2 \
+	pango.modules)
+
+build() {
+	cd pango-$version
+	./configure --prefix=/usr 
+	make
+	make DESTDIR=$PKG install
+	install -D -m 0644 $SRC/pango.modules $PKG/usr/etc/pango/pango.modules
+	rm -r $PKG/usr/share
+	chmod a+x $PKG/usr/lib/*.la
+}
+
