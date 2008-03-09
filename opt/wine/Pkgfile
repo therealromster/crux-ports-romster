@@ -6,14 +6,13 @@
 
 name=wine
 version=0.9.57
-release=2
+release=4
 source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2 \
-	compile-info.patch wine-fontforge-symbol-font.patch)
+	compile-info.patch)
 
 build() {
 	cd wine-$version
 
-	patch -p 1 -i ../wine-fontforge-symbol-font.patch
 	patch -p 1 -i ../compile-info.patch
 
 	export \
