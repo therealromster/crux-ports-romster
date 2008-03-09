@@ -6,14 +6,15 @@
 
 name=wine
 version=0.9.57
-release=1
+release=2
 source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2 \
-	compile-info.patch)
+	compile-info.patch wine-fontforge-symbol-font.patch)
 
 build() {
 	cd wine-$version
 
-	patch -p1 -i $SRC/compile-info.patch
+	patch -p 1 -i ../wine-fontforge-symbol-font.patch
+	patch -p 1 -i ../compile-info.patch
 
 	export \
 		CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')" \
