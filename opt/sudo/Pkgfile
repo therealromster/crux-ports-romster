@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=sudo
-version=1.6.9p13
+version=1.6.9p14
 release=1
 source=(http://www.sudo.ws/sudo/dist/sudo-$version.tar.gz)
 
@@ -20,8 +20,9 @@ build() {
 
 	make
 	install -d $PKG/{etc,usr/{bin,sbin}}
-	make -j1 DESTDIR=$PKG install
+	make DESTDIR=$PKG install
 	chmod a+x $PKG/usr/lib/*.la
+	pushd $PKG/usr/bin/
 	ln -sf sudo $PKG/usr/bin/sudoedit
 	ln -sf sudo.8.gz $PKG/usr/man/man8/sudoedit.8
 }
