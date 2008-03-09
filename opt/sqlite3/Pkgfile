@@ -5,19 +5,15 @@
 # Depends on: lzma ncurses readline
 
 name=sqlite3
-version=3.5.5
+version=3.5.6
 release=1
 
-source=(http://romster.shortcircuit.net.au/crux/source/sqlite3/sqlite-$version.tar.lzma \
-	sqlite3-$version-add-man-pages.patch)
-
+source=(http://romster.shortcircuit.net.au/crux/source/sqlite3/sqlite-$version.tar.lzma)
 #source=(http://www.sqlite.org/sqlite-$version.tar.gz)
 
-build () {
+build() {
 	cd sqlite-$version
 
-	#patch -p1 -i $SRC/sqlite3-$version-add-man-pages.patch
-	
 	./configure \
 		--prefix=/usr \
 		--enable-threadsafe \
