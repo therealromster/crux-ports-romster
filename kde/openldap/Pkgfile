@@ -13,7 +13,7 @@ source=(ftp://ftp.openldap.org/pub/OpenLDAP/openldap-stable/openldap-$distversio
 
 build(){
 	cd openldap-$version
-	patch -p0 -i $SRC/openldap-config.patch
+	patch -p0 -i ../openldap-config.patch
 
 	./configure \
 		--prefix=/usr \
@@ -53,7 +53,7 @@ build(){
 	make
 	make DESTDIR=$PKG install   
 
-	sed -i -e "s|-L${PKG}/usr/lib||g" $PKG/usr/lib/*.la
+	sed -i $PKG/usr/lib/*.la -e "s|-L$PKG/usr/lib||g" 
 	/sbin/ldconfig -n $PKG/usr/lib
 
 	# compatiblity links
@@ -66,6 +66,7 @@ build(){
 	install -d $PKG/etc/rc.d
 	install -m 0755 $SRC/slapd $PKG/etc/rc.d/slapd
 	install -m 0755 $SRC/slurpd $PKG/etc/rc.d/slurpd
+	chmod a+x $PKG/usr/lib/*.la
 
 	rm $PKG/etc/openldap/schema/README
 }
