@@ -5,16 +5,13 @@
 # Depends on: openssh
 
 name=rsync
-version=2.6.9
-release=3
+version=3.0.0
+release=1
 source=(http://rsync.samba.org/ftp/rsync/rsync-$version.tar.gz \
-	rsyncd.conf rsyncd rsync.driver \
-	rsync-$version-fname-obo.diff)
+	rsyncd.conf rsyncd rsync.driver)
 
 build() {
 	cd rsync-$version
-
-	patch -p1 -i $SRC/rsync-$version-fname-obo.diff
 
 	./configure \
 		--prefix=/usr \
@@ -25,9 +22,9 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	install -D -m 0755 $SRC/rsyncd $PKG/etc/rc.d/rsyncd
-	install -D -m 0644 $SRC/rsyncd.conf $PKG/etc/rsyncd.conf
-	install -D -m 0755 $SRC/rsync.driver $PKG/etc/ports/drivers/rsync
+	install -D -m 0755 ../rsyncd $PKG/etc/rc.d/rsyncd
+	install -D -m 0644 ../rsyncd.conf $PKG/etc/rsyncd.conf
+	install -D -m 0755 ../rsync.driver $PKG/etc/ports/drivers/rsync
 	install -d $PKG/var/log
 	touch $PKG/var/log/rsyncd.log
 }
