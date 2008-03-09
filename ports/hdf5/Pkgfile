@@ -2,10 +2,10 @@
 # URL: http://www.hdfgroup.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: acrux, acrux at linuxmail dot org
-# Depends on: szip zlib
+# Depends on: szip zlib openssl
 
 name=hdf5
-version=1.6.6
+version=1.8.0
 release=1
 source=(ftp://ftp.hdfgroup.org/HDF5/current/src/hdf5-$version.tar.gz)
 
@@ -13,9 +13,9 @@ build() {
 	cd hdf5-$version
 
 	./configure \
-		--prefix=$PKG/usr \
-		--mandir=$PKG/man \
-		--with-gnu-ld \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man \
+		--disable-static \
 		--enable-threadsafe \
 		--with-ssl \
 		--with-pthread \
@@ -24,6 +24,5 @@ build() {
 	 
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/doc
 }
 
