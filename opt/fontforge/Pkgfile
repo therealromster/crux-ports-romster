@@ -5,7 +5,7 @@
 # Depends on: freetype libpng libtiff libungif libxml2
 
 name=fontforge
-version=20080203
+version=20080302
 release=1
 source=(http://dl.sourceforge.net/sourceforge/fontforge/fontforge_full-$version.tar.bz2)
 
