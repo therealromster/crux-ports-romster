@@ -20,5 +20,6 @@ build() {
 
 	make
 	make prefix=$PKG/usr install
+	chmod a+x $PKG/usr/lib/*.la
 }
 
