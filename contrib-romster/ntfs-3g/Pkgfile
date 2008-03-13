@@ -5,7 +5,7 @@
 # Depends on: fuse
 
 name=ntfs-3g
-version=1.2216
+version=1.2310
 release=1
 source=(http://www.ntfs-3g.org/ntfs-3g-$version.tgz)
 
