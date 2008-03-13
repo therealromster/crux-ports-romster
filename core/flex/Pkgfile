@@ -2,10 +2,9 @@
 # URL: http://flex.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: CRUX System Team, core-ports at crux dot nu
-# Depends on: 
 
 name=flex
-version=2.5.33
+version=2.5.35
 release=1
 source=(http://dl.sourceforge.net/sourceforge/flex/flex-$version.tar.bz2)
 
@@ -19,15 +18,13 @@ build() {
     make
     make DESTDIR=$PKG install
 
-	(
-	 	cd $PKG/usr/bin
+	pushd $PKG/usr/bin
 		ln -s flex lex
-	)
-
-	(
-		cd $PKG/usr/man/man1
+	popd
+	
+	pushd $PKG/usr/man/man1
 		ln -s flex.1.gz lex.1.gz
-	)
+	popd
 
 	rm -r $PKG/usr/info
 }
