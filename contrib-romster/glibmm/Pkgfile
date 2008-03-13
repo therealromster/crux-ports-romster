@@ -5,7 +5,7 @@
 # Depends on: gtk libsigc++
 
 name=glibmm
-version=2.14.2
+version=2.16.0
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/glibmm/${version%.*}/glibmm-$version.tar.bz2)
 
