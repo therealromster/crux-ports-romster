@@ -1,0 +1,24 @@
+# Description: Real-time Worms game for Linux.
+# URL: http://wormsofprey.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: sdl_net sdl_mixer sdl_image sdl_ttf
+
+name=wop
+version=0.4.3
+release=1
+source=(http://wormsofprey.org/download/wop-$version-src.tar.bz2 \
+	http://wormsofprey.org/download/wopdata-2005-12-21.tar.bz2 \
+	wop-client wop-server)
+
+build() {
+	cd wop-$version
+	make clean
+	make
+	install -d $PKG/usr/share/$name
+	cp -r $SRC/wopdata-2005-12-21/* $PKG/usr/share/wop/
+	install -D -m 0755 bin/$name $PKG/usr/bin/wop
+	install -D -m 0755 $SRC/wop-client $PKG/usr/bin/wop-client
+	install -D -m 0755 $SRC/wop-server $PKG/usr/bin/wop-server
+}
+

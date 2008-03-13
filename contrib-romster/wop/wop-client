@@ -1,0 +1,3 @@
+#!/bin/sh
+
+wop m=client c=$HOME/.woprc d=/usr/share/wop v=fullscreen
