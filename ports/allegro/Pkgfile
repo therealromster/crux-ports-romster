@@ -2,11 +2,7 @@
 # URL: http://alleg.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: alsa-lib
-
-# When doing make I set MAKEINFO to be 'true' because then
-# the program will run and think it's making info pages, while
-# it really just executes exit(0) (or something)
+# Depends on: alsa-lib xorg-libxcursor xorg-libxpm xorg-libxxf86dga xorg-libxxf86vm
 
 name=allegro
 version=4.2.2
@@ -23,13 +19,7 @@ build() {
 		--enable-exclopts=i686 \
 		--enable-artsdigi=no
 
-	#make MAKEINFO="true" prefix="/usr" \
-	#	lib modules programs
-	
-	#make MAKEINFO="true" prefix="$PKG/usr" \
-	#	install-man install-headers install-programs install-lib
-	
-	make -j1
+	make -j 1
 	make DESTDIR=$PKG install install-man
 }
 
