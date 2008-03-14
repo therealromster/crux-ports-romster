@@ -68,10 +68,6 @@ drwxr-xr-x	root/root	usr/lib/
 lrwxrwxrwx	root/root	usr/lib/libfontforge.so -> libfontforge.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libfontforge.so.1 -> libfontforge.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libfontforge.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libgdraw.la
-lrwxrwxrwx	root/root	usr/lib/libgdraw.so -> libgdraw.so.3.0.0
-lrwxrwxrwx	root/root	usr/lib/libgdraw.so.3 -> libgdraw.so.3.0.0
--rwxr-xr-x	root/root	usr/lib/libgdraw.so.3.0.0
 -rwxr-xr-x	root/root	usr/lib/libgunicode.la
 lrwxrwxrwx	root/root	usr/lib/libgunicode.so -> libgunicode.so.3.0.0
 lrwxrwxrwx	root/root	usr/lib/libgunicode.so.3 -> libgunicode.so.3.0.0

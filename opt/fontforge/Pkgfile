@@ -3,14 +3,17 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
 # Depends on: freetype libpng libtiff libungif libxml2
+# Optional: python xorg-libice xorg-libsm xorg-libx11 xorg-libxau xorg-libxcb xorg-libxdmcp xorg-libxext xorg-libxi xorg-libxkbfile xorg-libxkbui xorg-libxt
 
 name=fontforge
 version=20080302
-release=3
-source=(http://dl.sourceforge.net/sourceforge/fontforge/fontforge_full-$version.tar.bz2)
+release=4
+source=(http://dl.sourceforge.net/sourceforge/fontforge/fontforge_full-$version.tar.bz2 \
+	fontforge-$version-marlett.patch)
 
 build() {
 	cd fontforge-$version
+	patch -p 0 -i ../fontforge-$version-marlett.patch
 
 	./configure	\
 		--prefix=/usr \
