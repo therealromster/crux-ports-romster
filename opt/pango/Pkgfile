@@ -5,7 +5,7 @@
 # Depends on: cairo glib xorg-libsm xorg-libxext xorg-libxft
 
 name=pango
-version=1.18.4
+version=1.20.0
 release=1
 source=(http://download.gnome.org/sources/pango/${version%.*}/pango-$version.tar.bz2 \
 	pango.modules)
