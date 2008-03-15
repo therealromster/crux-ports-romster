@@ -6,15 +6,13 @@
 # Optional: python xorg-libice xorg-libsm xorg-libx11 xorg-libxau xorg-libxcb xorg-libxdmcp xorg-libxext xorg-libxi xorg-libxkbfile xorg-libxkbui xorg-libxt
 
 name=fontforge
-version=20080302
-release=4
-source=(http://dl.sourceforge.net/sourceforge/fontforge/fontforge_full-$version.tar.bz2 \
-	fontforge-$version-marlett.patch)
+version=20080309
+release=1
+source=(http://dl.sourceforge.net/sourceforge/fontforge/fontforge_full-$version.tar.bz2)
 
 build() {
 	cd fontforge-$version
-	patch -p 0 -i ../fontforge-$version-marlett.patch
-
+	
 	./configure	\
 		--prefix=/usr \
 		--disable-nls \
