@@ -5,7 +5,7 @@
 # Depends on: fontconfig glitz libpng xorg-libxrender xorg-libpixman
 
 name=cairo
-version=1.5.10
+version=1.5.12
 release=1
 source=(http://cairographics.org/snapshots/cairo-$version.tar.gz)
 
