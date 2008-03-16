@@ -1,0 +1,22 @@
+# Description: Lightweight ZIP library.
+# URL: http://zziplib.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Aaron Marks, nymacro at gmail dot  com
+
+name=zziplib
+version=0.13.49
+release=1
+
+source=(http://dl.sourceforge.net/sourceforge/zziplib/zziplib-$version.tar.bz2)
+
+build() {
+	cd zziplib-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
+
