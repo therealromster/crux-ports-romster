@@ -1,22 +1,16 @@
-# $Id: 
 # Description: Python bindings for libstatgrab.
 # URL: http://www.i-scream.org/libstatgrab/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on: libstatgrab
-
-# Recommended:	
-# Optional:	
-# Category:	python binding
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: libstatgrab python
 
 name=pystatgrab
-version=0.4
+version=0.5
 release=1
-source=(ftp://ftp.i-scream.org/pub/i-scream/$name/$name-$version.tar.gz)
+source=(ftp://ftp.i-scream.org/pub/i-scream/pystatgrab/pystatgrab-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd pystatgrab-$version
 	python setup.py install --root=$PKG
-	chown -R root:root $PKG
 }
 
