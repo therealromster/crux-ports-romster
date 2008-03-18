@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=libstatgrab
-version=0.15
+version=0.16
 release=1
 source=(ftp://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-$version.tar.gz)
 
@@ -14,8 +14,10 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man
+		--mandir=/usr/man \
+		--disable-static
+
 	make
-	make DESTDIR=$PKG install
+	make -j 1 DESTDIR=$PKG install
 }
 

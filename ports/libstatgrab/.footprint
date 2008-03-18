@@ -8,7 +8,6 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/statgrab.h
 -rw-r--r--	root/root	usr/include/statgrab_deprecated.h
 drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/libstatgrab.a
 -rwxr-xr-x	root/root	usr/lib/libstatgrab.la
 lrwxrwxrwx	root/root	usr/lib/libstatgrab.so -> libstatgrab.so.6.2.2
 lrwxrwxrwx	root/root	usr/lib/libstatgrab.so.6 -> libstatgrab.so.6.2.2
