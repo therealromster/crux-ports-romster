@@ -1,0 +1,22 @@
+# Description: Generate cursors for the Xcursor library from a set of PNG files. 
+# URL: http://cgit.freedesktop.org/xorg/app/xcursorgen/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: libpng xorg-libxcursor
+
+name=xorg-xcursorgen
+version=1.0.2
+release=1
+source=(http://xorg.freedesktop.org/releases/individual/app/xcursorgen-$version.tar.gz)
+
+build() {
+	cd xcursorgen-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
+
