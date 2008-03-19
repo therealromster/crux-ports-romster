@@ -1,0 +1,17 @@
+# Description: A cursor theme inspired from Crystal icons by Mart - Blue version
+# URL: http://digilander.libero.it/m4rt/html/crystalcursors.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: 
+
+name=xorg-cursor-crystalblue
+version=1.1.1
+release=1
+source=(http://digilander.libero.it/m4rt/files/crystalblue.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/icons/crystalblue
+	cd crystalblue
+	cp -R * $PKG/usr/share/icons/crystalblue/
+}
+
