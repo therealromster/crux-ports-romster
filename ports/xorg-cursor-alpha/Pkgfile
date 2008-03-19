@@ -1,0 +1,21 @@
+# Description: True alpha-blended cursors.
+# URL: http://www.kde-look.org/content/show.php/Alpha+Cursors?content=22352
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg-xcursorgen
+
+name=xorg-cursor-alpha
+version=1.1
+release=1
+source=(http://www.kde-look.org/content/download.php?content=22352\&id=1\&tan=59729764 \
+	index.theme)
+
+build() {
+	unzip -qq download.php?content=22352\&id=1\&tan=59729764
+	install -d $PKG/usr/share/icons/alpha
+	cd alpha-cursors
+	./build.sh
+	cp -R cursors $PKG/usr/share/icons/alpha/
+	install -m 0644 ../index.theme $PKG/usr/share/icons/alpha/
+}
+
