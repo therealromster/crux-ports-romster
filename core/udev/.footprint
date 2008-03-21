@@ -26,16 +26,13 @@ drwxr-xr-x	root/root	lib/udev/
 -rwxr-xr-x	root/root	lib/udev/cdsymlinks
 -rwxr-xr-x	root/root	lib/udev/create_floppy_devices
 drwxr-xr-x	root/root	lib/udev/devices/
-crw-------	root/root	lib/udev/devices/console (5, 1)
 lrwxrwxrwx	root/root	lib/udev/devices/core -> /proc/kcore
 lrwxrwxrwx	root/root	lib/udev/devices/fd -> /proc/self/fd
-crw-rw-rw-	root/root	lib/udev/devices/null (1, 3)
 drwxr-xr-x	root/root	lib/udev/devices/pts/
 drwxr-xr-x	root/root	lib/udev/devices/shm/
 lrwxrwxrwx	root/root	lib/udev/devices/stderr -> /proc/self/fd/2
 lrwxrwxrwx	root/root	lib/udev/devices/stdin -> /proc/self/fd/0
 lrwxrwxrwx	root/root	lib/udev/devices/stdout -> /proc/self/fd/1
-crw-rw-rw-	root/root	lib/udev/devices/zero (1, 5)
 -rwxr-xr-x	root/root	lib/udev/edd_id
 -rwxr-xr-x	root/root	lib/udev/firmware.sh
 -rwxr-xr-x	root/root	lib/udev/path_id
