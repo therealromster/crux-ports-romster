@@ -1,0 +1,44 @@
+# Description: Glade-like GUI designer which can generate Python, Perl, C++ or XRC code.
+# URL: http://wxglade.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: wxpython
+
+name=wxglade
+version=0.6.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/wxglade/wxGlade-$version.tar.gz \
+	wxglade-$version-wxversion.patch)
+
+PYTHONVERSION=`python -c "import sys; print \"%s.%s\" % (sys.version_info[0], sys.version_info[1]);"`
+
+build() {
+	cd wxGlade-$version
+
+	patch -p 1 -i ../wxglade-$version-wxversion.patch
+
+	# install files
+	install -d $PKG/usr/lib/python$PYTHONVERSION/site-packages/wxglade
+	cp -a *.py codegen edit_sizers res widgets \
+		$PKG/usr/lib/python$PYTHONVERSION/site-packages/wxglade/
+	chmod 0755 $PKG/usr/lib/python$PYTHONVERSION/site-packages/wxglade/configUI.py
+
+	# install icons
+	install -d $PKG/usr/share/wxglade
+	cp -a icons $PKG/usr/share/wxglade/
+	ln -s /usr/share/wxglade/icons \
+		$PKG/usr/lib/python$PYTHONVERSION/site-packages/wxglade
+
+	# install binary link
+	install -d $PKG/usr/bin
+	echo "#!/bin/sh" > $PKG/usr/bin/wxglade
+	echo "exec python /usr/lib/python$PYTHONVERSION/site-packages/wxglade/wxglade.py \$*" >> $PKG/usr/bin/wxglade
+	chmod 0755 $PKG/usr/bin/wxglade
+	
+	# install man page
+	install -D -m 0644 debian/wxglade.1 $PKG/usr/man/man1/wxglade.1
+
+	# compile python files
+	python -mcompileall $PKG/usr/lib/python$PYTHONVERSION/site-packages/wxglade
+}
+
