@@ -2,12 +2,13 @@
 # URL: http://www.winehq.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: fontforge
-# Optional: openssl zlib alsa-lib cyrus-sasl lcms libxml2 libxslt openldap nvidia mesa3d xorg-libice xorg-libsm xorg-libx11 xorg-libxau xorg-libxcb xorg-libxdmcp xorg-libxext xorg-libxxf86vm xorg-font-msttcorefonts
+# Depends on: fontconfig fontforge hal-info lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
+
+# Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
 
 name=wine
-version=0.9.57
-release=4
+version=0.9.58
+release=1
 source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2 \
 	compile-info.patch)
 

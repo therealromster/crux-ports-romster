@@ -82,6 +82,8 @@ drwxr-xr-x	root/root	usr/include/wine/msvcrt/sys/
 drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/accctrl.h
 -rw-r--r--	root/root	usr/include/wine/windows/aclapi.h
+-rw-r--r--	root/root	usr/include/wine/windows/activaut.h
+-rw-r--r--	root/root	usr/include/wine/windows/activaut.idl
 -rw-r--r--	root/root	usr/include/wine/windows/activscp.h
 -rw-r--r--	root/root	usr/include/wine/windows/activscp.idl
 -rw-r--r--	root/root	usr/include/wine/windows/adshlp.h
@@ -102,6 +104,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/bcrypt.h
 -rw-r--r--	root/root	usr/include/wine/windows/bits.h
 -rw-r--r--	root/root	usr/include/wine/windows/bits.idl
+-rw-r--r--	root/root	usr/include/wine/windows/bits1_5.h
+-rw-r--r--	root/root	usr/include/wine/windows/bits1_5.idl
 -rw-r--r--	root/root	usr/include/wine/windows/bitsmsg.h
 -rw-r--r--	root/root	usr/include/wine/windows/cderr.h
 -rw-r--r--	root/root	usr/include/wine/windows/cfgmgr32.h
@@ -624,6 +628,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/expand.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/explorer.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/faultrep.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/fusion.dll.so
 -rw-r--r--	root/root	usr/lib/wine/gdi.exe16
 -rwxr-xr-x	root/root	usr/lib/wine/gdi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/gdiplus.dll.so
@@ -653,6 +658,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/iphlpapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/itircl.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/itss.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/jscript.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/kernel32.dll.so
 -rw-r--r--	root/root	usr/lib/wine/keyboard.drv16
 -rw-r--r--	root/root	usr/lib/wine/krnl386.exe16
@@ -889,6 +895,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/query.dll.so
 -rw-r--r--	root/root	usr/lib/wine/rasapi16.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/rasapi32.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/reg.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/regedit.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/regsvr32.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/resutils.dll.so
