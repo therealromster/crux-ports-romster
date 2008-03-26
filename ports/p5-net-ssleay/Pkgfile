@@ -19,7 +19,6 @@ build() {
 	find $PKG \( \
 		-name '.packlist' -or \
 		-name '*.bs' -or \
-		-name 'autosplit.ix' -or \
 		-name 'perllocal.pod' \) -delete
 
 	# Remove empty directories
