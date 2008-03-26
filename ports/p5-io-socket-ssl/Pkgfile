@@ -1,0 +1,28 @@
+# Description: Nearly transparent SSL encapsulation for IO::Socket::INET
+# URL: http://search.cpan.org/~sullr/IO-Socket-SSL/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Mikhail Kolesnik, mike at openbunker dot org
+# Depends on: p5-net-ssleay
+
+name=p5-io-socket-ssl
+version=1.13
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SU/SULLR/IO-Socket-SSL-$version.tar.gz)
+
+build() {
+	cd IO-Socket-SSL-$version
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	# Remove perlcrap
+	find $PKG \( \
+		-name '.packlist' -or \
+		-name '*.bs' -or \
+		-name 'autosplit.ix' -or \
+		-name 'perllocal.pod' \) -delete
+
+	# Remove empty directories
+	find $PKG -depth -empty -delete
+}
+
