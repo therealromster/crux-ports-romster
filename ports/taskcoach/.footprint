@@ -5,7 +5,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.5/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/TaskCoach-0.69.1-py2.5.egg-info
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/TaskCoach-0.69.2-py2.5.egg-info
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/buildlib/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/__init__.pyc
@@ -182,6 +182,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/es.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fr.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fr.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/gl.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/gl.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/he.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/he.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/hu.py
@@ -192,8 +194,12 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/it.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ja.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ja.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ko.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ko.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/lv.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/lv.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/nb.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/nb.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/nl.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/nl.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/pl.py
@@ -202,6 +208,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/pt.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/pt_BR.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/pt_BR.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ro.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ro.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ru.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/ru.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/sk.py
