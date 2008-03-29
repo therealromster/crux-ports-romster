@@ -5,12 +5,11 @@
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr
 
 name=imagemagick
-version=6.3.8-11
+version=6.3.9-10
 release=1
 source=(ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-$version.tar.lzma)
-diff=(http://romster.shortcircuit.net.au/crux/source/imagemagick/)
 
-build () {
+build() {
 	# temp fix untill/if pkgutils supports lzma
 	if [ -e $SRC/ImageMagick-$version.tar.lzma ]; then
 		tar --use-compress-program=lzma -xf ImageMagick-$version.tar.lzma
@@ -18,6 +17,9 @@ build () {
 	fi
 
 	cd ImageMagick-${version/-*/}
+
+	export CFLAGS="`echo $CFLAGS |sed -e 's/-O[s0-3]/-O3/'`"
+	export CXXFLAGS="`echo $CXXFLAGS |sed -e 's/-O[s0-3]/-O3/'`"
 
 	./configure \
 		--prefix=/usr \
@@ -31,10 +33,10 @@ build () {
 
 	rm -r $PKG/usr/lib/perl5/?.?.? # empty directory
 	rm -r $PKG/usr/share/doc
-	rm $PKG/usr/share/ImageMagick-${version/-*}/{ChangeLog,LICENSE,NEWS}
+	rm $PKG/usr/share/ImageMagick-${version/-*}/{ChangeLog,LICENSE,NEWS.txt}
 	
 	find $PKG -type f \
-  		\( -name perllocal.pod -o \
+		\( -name perllocal.pod -o \
 		-name .packlist \) -delete
 }
 
