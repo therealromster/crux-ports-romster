@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=sudo
-version=1.6.9p14
+version=1.6.9p15
 release=1
 source=(http://www.sudo.ws/sudo/dist/sudo-$version.tar.gz)
 
@@ -19,9 +19,7 @@ build() {
 		--without-pam
 
 	make
-	install -d $PKG/{etc,usr/{bin,sbin}}
-	make DESTDIR=$PKG install
-	chmod a+x $PKG/usr/lib/*.la
+	make -j 1 DESTDIR=$PKG install
 	ln -sf sudo $PKG/usr/bin/sudoedit
 	ln -sf sudo.8.gz $PKG/usr/man/man8/sudoedit.8
 }
