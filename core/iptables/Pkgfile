@@ -6,12 +6,19 @@
 
 name=iptables
 version=1.4.0
-release=2
+release=3
 source=(ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2)
 
 build() {
-    cd iptables-$version
-    make KERNEL_DIR=/usr PREFIX=/usr COPT_FLAGS="$CFLAGS"
-    make KERNEL_DIR=/usr PREFIX=/usr DESTDIR=$PKG install install-devel
+	cd iptables-$version
+
+	# we do not want/need these kernel-headers included
+	# in the iptables sources.
+	rm include/linux/netfilter_ipv4/ip_tables.h
+	rm include/linux/netfilter_ipv6/ip6_tables.h
+
+	# use the userland kernel-headers
+	make -j 1 PREFIX=/usr KERNEL_DIR=/usr KBUILD_OUTPUT=/usr COPT_FLAGS="$CFLAGS"
+	make PREFIX=/usr DESTDIR=$PKG install install-devel
 }
 
