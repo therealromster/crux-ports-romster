@@ -56,6 +56,7 @@ drwxr-xr-x	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/cl_assert.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/cl_library.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/clanstring.h
+-rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/clipboard.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/clonable.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/command_line.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Core/System/console_window.h
@@ -113,6 +114,7 @@ drwxr-xr-x	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Collision/
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Collision/outline_provider_bitmap.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Collision/outline_provider_file.h
 drwxr-xr-x	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Providers/
+-rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Providers/bmp_provider.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Providers/dc_buffer.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Providers/jpeg_provider.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/Display/Providers/pcx_provider.h
@@ -187,6 +189,7 @@ drwxr-xr-x	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/gui_manager.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/image.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/inputbox.h
+-rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/inputbox_stylebase.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/inputdialog.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/label.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/layout.h
@@ -199,6 +202,8 @@ drwxr-xr-x	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/progressbar.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/radiobutton.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/radiogroup.h
+-rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/richedit.h
+-rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/richedit_paragraph.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/scrollbar.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/setupgui.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUI/stylemanager.h
@@ -219,6 +224,7 @@ drwxr-xr-x	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/menu_silver.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/progressbar_silver.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/radiobutton_silver.h
+-rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/richedit_silver.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/scrollbar_silver.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/stylemanager_silver.h
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/GUIStyleSilver/treeitem_silver.h
@@ -315,51 +321,51 @@ drwxr-xr-x	root/root	usr/include/ClanLib-0.8/ClanLib/Vorbis/
 -rw-r--r--	root/root	usr/include/ClanLib-0.8/ClanLib/vorbis.h
 drwxr-xr-x	root/root	usr/lib/
 lrwxrwxrwx	root/root	usr/lib/libclanApp-0.8.so.1 -> libclanApp-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanApp-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanApp-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanApp.la
 lrwxrwxrwx	root/root	usr/lib/libclanApp.so -> libclanApp-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanCore-0.8.so.1 -> libclanCore-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanCore-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanCore-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanCore.la
 lrwxrwxrwx	root/root	usr/lib/libclanCore.so -> libclanCore-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanDisplay-0.8.so.1 -> libclanDisplay-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanDisplay-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanDisplay-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanDisplay.la
 lrwxrwxrwx	root/root	usr/lib/libclanDisplay.so -> libclanDisplay-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanGL-0.8.so.1 -> libclanGL-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanGL-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanGL-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanGL.la
 lrwxrwxrwx	root/root	usr/lib/libclanGL.so -> libclanGL-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanGUI-0.8.so.1 -> libclanGUI-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanGUI-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanGUI-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanGUI.la
 lrwxrwxrwx	root/root	usr/lib/libclanGUI.so -> libclanGUI-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanGUIStyleSilver-0.8.so.1 -> libclanGUIStyleSilver-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanGUIStyleSilver-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanGUIStyleSilver-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanGUIStyleSilver.la
 lrwxrwxrwx	root/root	usr/lib/libclanGUIStyleSilver.so -> libclanGUIStyleSilver-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanMikMod-0.8.so.1 -> libclanMikMod-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanMikMod-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanMikMod-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanMikMod.la
 lrwxrwxrwx	root/root	usr/lib/libclanMikMod.so -> libclanMikMod-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanNetwork-0.8.so.1 -> libclanNetwork-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanNetwork-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanNetwork-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanNetwork.la
 lrwxrwxrwx	root/root	usr/lib/libclanNetwork.so -> libclanNetwork-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanSDL-0.8.so.1 -> libclanSDL-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanSDL-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanSDL-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanSDL.la
 lrwxrwxrwx	root/root	usr/lib/libclanSDL.so -> libclanSDL-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanSignals-0.8.so.1 -> libclanSignals-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanSignals-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanSignals-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanSignals.la
 lrwxrwxrwx	root/root	usr/lib/libclanSignals.so -> libclanSignals-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanSound-0.8.so.1 -> libclanSound-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanSound-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanSound-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanSound.la
 lrwxrwxrwx	root/root	usr/lib/libclanSound.so -> libclanSound-0.8.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libclanVorbis-0.8.so.1 -> libclanVorbis-0.8.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libclanVorbis-0.8.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libclanVorbis-0.8.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libclanVorbis.la
 lrwxrwxrwx	root/root	usr/lib/libclanVorbis.so -> libclanVorbis-0.8.so.1.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
