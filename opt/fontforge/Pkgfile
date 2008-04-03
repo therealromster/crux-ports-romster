@@ -6,7 +6,7 @@
 # Optional: python xorg-libice xorg-libsm xorg-libx11 xorg-libxau xorg-libxcb xorg-libxdmcp xorg-libxext xorg-libxi xorg-libxkbfile xorg-libxkbui xorg-libxt
 
 name=fontforge
-version=20080309
+version=20080330
 release=1
 source=(http://dl.sourceforge.net/sourceforge/fontforge/fontforge_full-$version.tar.bz2)
 
@@ -18,7 +18,7 @@ build() {
 		--disable-nls \
 		--without-freetype-src
 
-	sed -i Makefile -e 's|^prefix.*|prefix ?= /usr|'
+	sed -i -e 's|^prefix.*|prefix ?= /usr|' Makefile
 	make
 	make install prefix=$PKG/usr
 	rm -r $PKG/usr/share/locale
