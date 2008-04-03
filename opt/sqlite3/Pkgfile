@@ -5,11 +5,11 @@
 # Depends on: lzma ncurses readline
 
 name=sqlite3
-version=3.5.6
+version=3.5.7
 release=1
 
-source=(http://romster.shortcircuit.net.au/crux/source/sqlite3/sqlite-$version.tar.lzma)
-#source=(http://www.sqlite.org/sqlite-$version.tar.gz)
+#source=(http://romster.shortcircuit.net.au/crux/source/sqlite3/sqlite-$version.tar.lzma)
+source=(http://www.sqlite.org/sqlite-$version.tar.gz)
 
 build() {
 	cd sqlite-$version
