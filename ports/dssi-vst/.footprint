@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/vsthost
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/dssi/
+-rwxr-xr-x	root/root	usr/lib/dssi/dssi-vst.so
+drwxr-xr-x	root/root	usr/lib/dssi/dssi-vst/
+-rwxr-xr-x	root/root	usr/lib/dssi/dssi-vst/dssi-vst-scanner
+-rwxr-xr-x	root/root	usr/lib/dssi/dssi-vst/dssi-vst-scanner.exe.so
+-rwxr-xr-x	root/root	usr/lib/dssi/dssi-vst/dssi-vst-server
+-rwxr-xr-x	root/root	usr/lib/dssi/dssi-vst/dssi-vst-server.exe.so
+-rwxr-xr-x	root/root	usr/lib/dssi/dssi-vst/dssi-vst_gui

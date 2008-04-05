@@ -1,0 +1,21 @@
+# Description: A wrapper plugin for Windows VSTs that enables them to be used by DSSI hosts
+# URL: http://dssi.sourceforge.net/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: dssi wine jack-audio-connection-kit
+
+name=dssi-vst
+version=0.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/dssi/dssi-vst-$version.tar.gz)
+
+build() {
+	cd dssi-vst-$version
+	sed -i \
+		-e "/^DSSIDIR.*/s|=|?=/usr/lib/dssi|" \
+		-e "/^BINDIR.*/s|=|?=/usr/bin|" Makefile
+
+	make -j 1
+	make DSSIDIR=$PKG/usr/lib/dssi BINDIR=$PKG/usr/bin install
+}
+
