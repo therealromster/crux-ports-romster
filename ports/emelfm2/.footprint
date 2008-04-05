@@ -7,6 +7,7 @@ drwxr-xr-x	root/root	usr/lib/emelfm2/plugins/
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_clone.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_config.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_cpbar.so
+-rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_crypt.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_dircmp.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_du.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_find.so
@@ -15,7 +16,7 @@ drwxr-xr-x	root/root	usr/lib/emelfm2/plugins/
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_mvbar.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_names_clip.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_pack.so
--rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_rename_ext.so
+-rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_rename.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_sort_by_ext.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_times.so
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_unpack.so
@@ -23,7 +24,7 @@ drwxr-xr-x	root/root	usr/lib/emelfm2/plugins/
 -rwxr-xr-x	root/root	usr/lib/emelfm2/plugins/e2p_view.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
--rw-r--r--	root/root	usr/man/man1/emelfm2.1.bz2.gz
+-rw-r--r--	root/root	usr/man/man1/emelfm2.1.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/application-registry/
 -rw-r--r--	root/root	usr/share/application-registry/emelfm2.applications
@@ -61,6 +62,7 @@ drwxr-xr-x	root/root	usr/share/pixmaps/emelfm2/
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_clone_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_config_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_copy_48.png
+-rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_crypt_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_dircmp_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_du_48.png
 -rw-r--r--	root/root	usr/share/pixmaps/emelfm2/plugin_extsort_48.png
