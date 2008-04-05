@@ -9,9 +9,9 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/GeoIPUpdate.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libGeoIP.la
-lrwxrwxrwx	root/root	usr/lib/libGeoIP.so -> libGeoIP.so.1.4.3
-lrwxrwxrwx	root/root	usr/lib/libGeoIP.so.1 -> libGeoIP.so.1.4.3
--rwxr-xr-x	root/root	usr/lib/libGeoIP.so.1.4.3
+lrwxrwxrwx	root/root	usr/lib/libGeoIP.so -> libGeoIP.so.1.4.4
+lrwxrwxrwx	root/root	usr/lib/libGeoIP.so.1 -> libGeoIP.so.1.4.4
+-rwxr-xr-x	root/root	usr/lib/libGeoIP.so.1.4.4
 -rwxr-xr-x	root/root	usr/lib/libGeoIPUpdate.la
 lrwxrwxrwx	root/root	usr/lib/libGeoIPUpdate.so -> libGeoIPUpdate.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libGeoIPUpdate.so.0 -> libGeoIPUpdate.so.0.0.0
