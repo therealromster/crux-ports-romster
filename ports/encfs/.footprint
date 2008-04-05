@@ -5,9 +5,9 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/encfssh
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libencfs.la
-lrwxrwxrwx	root/root	usr/lib/libencfs.so -> libencfs.so.1.1.1
-lrwxrwxrwx	root/root	usr/lib/libencfs.so.1 -> libencfs.so.1.1.1
--rwxr-xr-x	root/root	usr/lib/libencfs.so.1.1.1
+lrwxrwxrwx	root/root	usr/lib/libencfs.so -> libencfs.so.3.0.1
+lrwxrwxrwx	root/root	usr/lib/libencfs.so.3 -> libencfs.so.3.0.1
+-rwxr-xr-x	root/root	usr/lib/libencfs.so.3.0.1
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/encfs.1.gz
