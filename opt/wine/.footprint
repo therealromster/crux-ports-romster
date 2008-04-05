@@ -78,12 +78,16 @@ drwxr-xr-x	root/root	usr/include/wine/msvcrt/sys/
 -rw-r--r--	root/root	usr/include/wine/msvcrt/unistd.h
 -rw-r--r--	root/root	usr/include/wine/msvcrt/wchar.h
 -rw-r--r--	root/root	usr/include/wine/msvcrt/wctype.h
+-rw-r--r--	root/root	usr/include/wine/svcctl.h
+-rw-r--r--	root/root	usr/include/wine/svcctl.idl
 -rw-r--r--	root/root	usr/include/wine/unicode.h
 drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/accctrl.h
 -rw-r--r--	root/root	usr/include/wine/windows/aclapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/activaut.h
 -rw-r--r--	root/root	usr/include/wine/windows/activaut.idl
+-rw-r--r--	root/root	usr/include/wine/windows/activdbg.h
+-rw-r--r--	root/root	usr/include/wine/windows/activdbg.idl
 -rw-r--r--	root/root	usr/include/wine/windows/activscp.h
 -rw-r--r--	root/root	usr/include/wine/windows/activscp.idl
 -rw-r--r--	root/root	usr/include/wine/windows/adshlp.h
@@ -120,6 +124,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/control.h
 -rw-r--r--	root/root	usr/include/wine/windows/control.idl
 -rw-r--r--	root/root	usr/include/wine/windows/cor.h
+-rw-r--r--	root/root	usr/include/wine/windows/corerror.h
 -rw-r--r--	root/root	usr/include/wine/windows/cpl.h
 -rw-r--r--	root/root	usr/include/wine/windows/custcntl.h
 -rw-r--r--	root/root	usr/include/wine/windows/cvconst.h
@@ -231,6 +236,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/exdispid.h
 -rw-r--r--	root/root	usr/include/wine/windows/fci.h
 -rw-r--r--	root/root	usr/include/wine/windows/fdi.h
+-rw-r--r--	root/root	usr/include/wine/windows/fusion.h
+-rw-r--r--	root/root	usr/include/wine/windows/fusion.idl
 -rw-r--r--	root/root	usr/include/wine/windows/gdiplus.h
 -rw-r--r--	root/root	usr/include/wine/windows/gdipluscolormatrix.h
 -rw-r--r--	root/root	usr/include/wine/windows/gdiplusenums.h
@@ -592,6 +599,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_34.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_35.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_36.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/d3dx9_37.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dxof.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dbghelp.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dciman32.dll.so
@@ -914,6 +922,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/security.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sensapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/serialui.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/services.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/setupapi.dll.so
 -rw-r--r--	root/root	usr/lib/wine/setupx.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/sfc.dll.so
