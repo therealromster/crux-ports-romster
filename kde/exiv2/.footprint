@@ -26,9 +26,12 @@ drwxr-xr-x	root/root	usr/include/exiv2/
 -rw-r--r--	root/root	usr/include/exiv2/mrwimage.hpp
 -rw-r--r--	root/root	usr/include/exiv2/nikonmn.hpp
 -rw-r--r--	root/root	usr/include/exiv2/olympusmn.hpp
+-rw-r--r--	root/root	usr/include/exiv2/orfimage.hpp
 -rw-r--r--	root/root	usr/include/exiv2/panasonicmn.hpp
+-rw-r--r--	root/root	usr/include/exiv2/pentaxmn.hpp
 -rw-r--r--	root/root	usr/include/exiv2/pngchunk.hpp
 -rw-r--r--	root/root	usr/include/exiv2/pngimage.hpp
+-rw-r--r--	root/root	usr/include/exiv2/properties.hpp
 -rw-r--r--	root/root	usr/include/exiv2/rafimage.hpp
 -rw-r--r--	root/root	usr/include/exiv2/rcsid.hpp
 -rw-r--r--	root/root	usr/include/exiv2/sigmamn.hpp
@@ -42,10 +45,11 @@ drwxr-xr-x	root/root	usr/include/exiv2/
 -rw-r--r--	root/root	usr/include/exiv2/types.hpp
 -rw-r--r--	root/root	usr/include/exiv2/value.hpp
 -rw-r--r--	root/root	usr/include/exiv2/version.hpp
+-rw-r--r--	root/root	usr/include/exiv2/xmp.hpp
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libexiv2.la
-lrwxrwxrwx	root/root	usr/lib/libexiv2.so -> libexiv2.so.0.1.0
-lrwxrwxrwx	root/root	usr/lib/libexiv2.so.0 -> libexiv2.so.0.1.0
--rw-r--r--	root/root	usr/lib/libexiv2.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libexiv2.so -> libexiv2.so.2.1.0
+lrwxrwxrwx	root/root	usr/lib/libexiv2.so.2 -> libexiv2.so.2.1.0
+-rw-r--r--	root/root	usr/lib/libexiv2.so.2.1.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/exiv2.pc
