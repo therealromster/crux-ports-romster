@@ -5,7 +5,7 @@
 # Depends on: sqlite3 rasqal openssl libxml2
 
 name=redland
-version=1.0.6
+version=1.0.7
 release=1
 source=(http://download.librdf.org/source/redland-$version.tar.gz)
 
