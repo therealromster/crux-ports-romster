@@ -1,3 +1,5 @@
+lrwxrwxrwx	root/root	gv.pm -> /usr/lib/graphviz/perl/gv.pm
+lrwxrwxrwx	root/root	gv.so -> /usr/lib/graphviz/perl/libgv_perl.so
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/acyclic
@@ -15,7 +17,6 @@ lrwxrwxrwx	root/root	usr/bin/fdp -> dot
 -rwxr-xr-x	root/root	usr/bin/gvpack
 -rwxr-xr-x	root/root	usr/bin/gvpr
 -rwxr-xr-x	root/root	usr/bin/gxl2dot
--rwxr-xr-x	root/root	usr/bin/lefty
 -rwxr-xr-x	root/root	usr/bin/lneato
 lrwxrwxrwx	root/root	usr/bin/neato -> dot
 -rwxr-xr-x	root/root	usr/bin/nop
@@ -78,6 +79,7 @@ drwxr-xr-x	root/root	usr/include/graphviz/
 -rw-r--r--	root/root	usr/include/graphviz/pointset.h
 -rw-r--r--	root/root	usr/include/graphviz/ps.h
 -rw-r--r--	root/root	usr/include/graphviz/ps_font_equiv.h
+-rw-r--r--	root/root	usr/include/graphviz/regex_win32.h
 -rw-r--r--	root/root	usr/include/graphviz/render.h
 -rw-r--r--	root/root	usr/include/graphviz/textpara.h
 -rw-r--r--	root/root	usr/include/graphviz/triefa.h
@@ -88,6 +90,7 @@ drwxr-xr-x	root/root	usr/include/graphviz/
 -rw-r--r--	root/root	usr/include/graphviz/y.tab.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/graphviz/
+drwxr-xr-x	root/root	usr/lib/graphviz/R/
 drwxr-xr-x	root/root	usr/lib/graphviz/guile/
 drwxr-xr-x	root/root	usr/lib/graphviz/io/
 drwxr-xr-x	root/root	usr/lib/graphviz/java/
@@ -124,7 +127,6 @@ lrwxrwxrwx	root/root	usr/lib/graphviz/libgvplugin_xlib.so -> libgvplugin_xlib.so
 lrwxrwxrwx	root/root	usr/lib/graphviz/libgvplugin_xlib.so.5 -> libgvplugin_xlib.so.5.0.0
 -rwxr-xr-x	root/root	usr/lib/graphviz/libgvplugin_xlib.so.5.0.0
 drwxr-xr-x	root/root	usr/lib/graphviz/lua/
-lrwxrwxrwx	root/root	usr/lib/graphviz/lua/gv.so -> libgv_lua.so
 drwxr-xr-x	root/root	usr/lib/graphviz/ocaml/
 drwxr-xr-x	root/root	usr/lib/graphviz/perl/
 -rw-r--r--	root/root	usr/lib/graphviz/perl/gv.pm
@@ -132,23 +134,17 @@ lrwxrwxrwx	root/root	usr/lib/graphviz/perl/gv.so -> libgv_perl.so
 -rwxr-xr-x	root/root	usr/lib/graphviz/perl/libgv_perl.la
 -rwxr-xr-x	root/root	usr/lib/graphviz/perl/libgv_perl.so
 drwxr-xr-x	root/root	usr/lib/graphviz/php/
--rw-r--r--	root/root	usr/lib/graphviz/pkgIndex.tcl
 drwxr-xr-x	root/root	usr/lib/graphviz/python/
 lrwxrwxrwx	root/root	usr/lib/graphviz/python/_gv.so -> libgv_python.so
 -rw-r--r--	root/root	usr/lib/graphviz/python/gv.py
 -rwxr-xr-x	root/root	usr/lib/graphviz/python/libgv_python.la
 -rwxr-xr-x	root/root	usr/lib/graphviz/python/libgv_python.so
 drwxr-xr-x	root/root	usr/lib/graphviz/python23/
-lrwxrwxrwx	root/root	usr/lib/graphviz/python23/_gv.so -> libgv_python23.so
 drwxr-xr-x	root/root	usr/lib/graphviz/python24/
-lrwxrwxrwx	root/root	usr/lib/graphviz/python24/_gv.so -> libgv_python24.so
 drwxr-xr-x	root/root	usr/lib/graphviz/python25/
-lrwxrwxrwx	root/root	usr/lib/graphviz/python25/_gv.so -> libgv_python25.so
 drwxr-xr-x	root/root	usr/lib/graphviz/ruby/
-lrwxrwxrwx	root/root	usr/lib/graphviz/ruby/gv.so -> libgv_ruby.so
 drwxr-xr-x	root/root	usr/lib/graphviz/sharp/
 drwxr-xr-x	root/root	usr/lib/graphviz/tcl/
-lrwxrwxrwx	root/root	usr/lib/graphviz/tcl/gv.so -> libgv_tcl.so
 -rwxr-xr-x	root/root	usr/lib/libagraph.la
 lrwxrwxrwx	root/root	usr/lib/libagraph.so -> libagraph.so.4.0.0
 lrwxrwxrwx	root/root	usr/lib/libagraph.so.4 -> libagraph.so.4.0.0
@@ -185,6 +181,10 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgvc.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgvc_builtins.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpathplan.pc
+drwxr-xr-x	root/root	usr/lib/python2.5/
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
+lrwxrwxrwx	root/root	usr/lib/python2.5/site-packages/_gv.so -> /usr/lib/graphviz/python/libgv_python.so
+lrwxrwxrwx	root/root	usr/lib/python2.5/site-packages/gv.py -> /usr/lib/graphviz/python/gv.py
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/acyclic.1.gz
@@ -201,7 +201,6 @@ lrwxrwxrwx	root/root	usr/man/man1/fdp.1.gz -> dot.1.gz
 -rw-r--r--	root/root	usr/man/man1/gvpack.1.gz
 -rw-r--r--	root/root	usr/man/man1/gvpr.1.gz
 -rw-r--r--	root/root	usr/man/man1/gxl2dot.1.gz
--rw-r--r--	root/root	usr/man/man1/lefty.1.gz
 -rw-r--r--	root/root	usr/man/man1/lneato.1.gz
 lrwxrwxrwx	root/root	usr/man/man1/neato.1.gz -> dot.1.gz
 -rw-r--r--	root/root	usr/man/man1/nop.1.gz
@@ -225,7 +224,10 @@ drwxr-xr-x	root/root	usr/man/mann/
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/graphviz/
 drwxr-xr-x	root/root	usr/share/graphviz/demo/
+-rwxr-xr-x	root/root	usr/share/graphviz/demo/modgraph.pl
+-rwxr-xr-x	root/root	usr/share/graphviz/demo/modgraph.py
 drwxr-xr-x	root/root	usr/share/graphviz/demo/pathplan_data/
+drwxr-xr-x	root/root	usr/share/graphviz/examples/
 drwxr-xr-x	root/root	usr/share/graphviz/graphs/
 drwxr-xr-x	root/root	usr/share/graphviz/graphs/directed/
 -rw-r--r--	root/root	usr/share/graphviz/graphs/directed/KW91.dot
@@ -285,6 +287,8 @@ drwxr-xr-x	root/root	usr/share/graphviz/graphs/undirected/
 -rw-r--r--	root/root	usr/share/graphviz/graphs/undirected/Petersen.dot
 -rw-r--r--	root/root	usr/share/graphviz/graphs/undirected/ngk10_4.dot
 -rw-r--r--	root/root	usr/share/graphviz/graphs/undirected/process.dot
+drwxr-xr-x	root/root	usr/share/graphviz/gui/
+drwxr-xr-x	root/root	usr/share/graphviz/icons/
 drwxr-xr-x	root/root	usr/share/graphviz/lefty/
 -rw-r--r--	root/root	usr/share/graphviz/lefty/box.lefty
 -rw-r--r--	root/root	usr/share/graphviz/lefty/def.lefty
