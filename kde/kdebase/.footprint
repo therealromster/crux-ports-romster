@@ -9,6 +9,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/keditfiletype
 -rwxr-xr-x	root/root	usr/bin/kfind
 -rwxr-xr-x	root/root	usr/bin/kfmclient
+-rwxr-xr-x	root/root	usr/bin/kinfocenter
 -rwxr-xr-x	root/root	usr/bin/konqueror
 -rwxr-xr-x	root/root	usr/bin/konsole
 -rwxr-xr-x	root/root	usr/bin/konsoleprofile
@@ -20,12 +21,10 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/konq_defaults.h
 -rw-r--r--	root/root	usr/include/konq_events.h
 -rw-r--r--	root/root	usr/include/konq_filetip.h
--rw-r--r--	root/root	usr/include/konq_historyentry.h
--rw-r--r--	root/root	usr/include/konq_historymgr.h
+-rw-r--r--	root/root	usr/include/konq_fileundomanager.h
 -rw-r--r--	root/root	usr/include/konq_menuactions.h
 -rw-r--r--	root/root	usr/include/konq_operations.h
 -rw-r--r--	root/root	usr/include/konq_popupmenu.h
--rw-r--r--	root/root	usr/include/konq_undo.h
 -rw-r--r--	root/root	usr/include/konqmimedata.h
 -rw-r--r--	root/root	usr/include/konqsidebarplugin.h
 -rw-r--r--	root/root	usr/include/libkonq_export.h
@@ -35,11 +34,14 @@ drwxr-xr-x	root/root	usr/lib/kde4/
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_css.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_filetypes.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_history.so
+-rwxr-xr-x	root/root	usr/lib/kde4/kcm_info.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_kio.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_konq.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_konqhtml.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_kurifilt.so
+-rwxr-xr-x	root/root	usr/lib/kde4/kcm_nic.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_performance.so
+-rwxr-xr-x	root/root	usr/lib/kde4/kcm_usb.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_useraccount.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kded_favicons.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kded_konqy_preloader.so
@@ -59,11 +61,12 @@ drwxr-xr-x	root/root	usr/lib/kde4/
 -rwxr-xr-x	root/root	usr/lib/kde4/libkhtmlkttsdplugin.so
 -rwxr-xr-x	root/root	usr/lib/kde4/libkonsolepart.so
 -rwxr-xr-x	root/root	usr/lib/kde4/libnsplugin.so
-lrwxrwxrwx	root/root	usr/lib/libdolphinprivate.so -> libdolphinprivate.so.1
-lrwxrwxrwx	root/root	usr/lib/libdolphinprivate.so.1 -> libdolphinprivate.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libdolphinprivate.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libdolphinprivate.so -> libdolphinprivate.so.4
+lrwxrwxrwx	root/root	usr/lib/libdolphinprivate.so.4 -> libdolphinprivate.so.4.0.0
+-rwxr-xr-x	root/root	usr/lib/libdolphinprivate.so.4.0.0
 -rwxr-xr-x	root/root	usr/lib/libkdeinit4_keditbookmarks.so
 -rwxr-xr-x	root/root	usr/lib/libkdeinit4_kfmclient.so
+-rwxr-xr-x	root/root	usr/lib/libkdeinit4_kinfocenter.so
 -rwxr-xr-x	root/root	usr/lib/libkdeinit4_konqueror.so
 -rwxr-xr-x	root/root	usr/lib/libkdeinit4_konsole.so
 -rwxr-xr-x	root/root	usr/lib/libkdeinit4_kwrite.so
@@ -73,6 +76,9 @@ lrwxrwxrwx	root/root	usr/lib/libkonq.so.5 -> libkonq.so.5.0.0
 lrwxrwxrwx	root/root	usr/lib/libkonqsidebarplugin.so -> libkonqsidebarplugin.so.4
 lrwxrwxrwx	root/root	usr/lib/libkonqsidebarplugin.so.4 -> libkonqsidebarplugin.so.4.0.0
 -rwxr-xr-x	root/root	usr/lib/libkonqsidebarplugin.so.4.0.0
+lrwxrwxrwx	root/root	usr/lib/libkonquerorprivate.so -> libkonquerorprivate.so.4
+lrwxrwxrwx	root/root	usr/lib/libkonquerorprivate.so.4 -> libkonquerorprivate.so.4.0.0
+-rwxr-xr-x	root/root	usr/lib/libkonquerorprivate.so.4.0.0
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 drwxr-xr-x	root/root	usr/share/applications/kde4/
@@ -85,12 +91,11 @@ drwxr-xr-x	root/root	usr/share/applications/kde4/
 -rw-r--r--	root/root	usr/share/applications/kde4/kfmclient_dir.desktop
 -rw-r--r--	root/root	usr/share/applications/kde4/kfmclient_html.desktop
 -rw-r--r--	root/root	usr/share/applications/kde4/kfmclient_war.desktop
+-rw-r--r--	root/root	usr/share/applications/kde4/kinfocenter.desktop
 -rw-r--r--	root/root	usr/share/applications/kde4/konqbrowser.desktop
 -rw-r--r--	root/root	usr/share/applications/kde4/konquerorsu.desktop
 -rw-r--r--	root/root	usr/share/applications/kde4/konsole.desktop
--rw-r--r--	root/root	usr/share/applications/kde4/konsolesu.desktop
 -rw-r--r--	root/root	usr/share/applications/kde4/kwrite.desktop
--rw-r--r--	root/root	usr/share/applications/kde4/quick-access-konsole.desktop
 drwxr-xr-x	root/root	usr/share/apps/
 drwxr-xr-x	root/root	usr/share/apps/dolphin/
 -rw-r--r--	root/root	usr/share/apps/dolphin/dolphinui.rc
@@ -114,6 +119,22 @@ drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/hicolor/48x48/actions/
 drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/hicolor/64x64/
 drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/hicolor/64x64/actions/
 -rw-r--r--	root/root	usr/share/apps/dolphin/icons/hicolor/64x64/actions/preview.png
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/16x16/
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/16x16/actions/
+-rw-r--r--	root/root	usr/share/apps/dolphin/icons/oxygen/16x16/actions/view-file-columns.png
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/22x22/
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/22x22/actions/
+-rw-r--r--	root/root	usr/share/apps/dolphin/icons/oxygen/22x22/actions/view-file-columns.png
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/32x32/
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/32x32/actions/
+-rw-r--r--	root/root	usr/share/apps/dolphin/icons/oxygen/32x32/actions/view-file-columns.png
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/48x48/
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/48x48/actions/
+-rw-r--r--	root/root	usr/share/apps/dolphin/icons/oxygen/48x48/actions/view-file-columns.png
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/scalable/
+drwxr-xr-x	root/root	usr/share/apps/dolphin/icons/oxygen/scalable/actions/
+-rw-r--r--	root/root	usr/share/apps/dolphin/icons/oxygen/scalable/actions/view-file-columns.svgz
 drwxr-xr-x	root/root	usr/share/apps/dolphinpart/
 -rw-r--r--	root/root	usr/share/apps/dolphinpart/dolphinpart.rc
 drwxr-xr-x	root/root	usr/share/apps/kappfinder/
@@ -370,6 +391,8 @@ drwxr-xr-x	root/root	usr/share/apps/kbookmark/
 -rw-r--r--	root/root	usr/share/apps/kbookmark/directory_bookmarkbar.desktop
 drwxr-xr-x	root/root	usr/share/apps/kcmcss/
 -rw-r--r--	root/root	usr/share/apps/kcmcss/template.css
+drwxr-xr-x	root/root	usr/share/apps/kcmusb/
+-rw-r--r--	root/root	usr/share/apps/kcmusb/usb.ids
 drwxr-xr-x	root/root	usr/share/apps/kconf_update/
 -rw-r--r--	root/root	usr/share/apps/kconf_update/favicons.upd
 -rw-r--r--	root/root	usr/share/apps/kconf_update/kfmclient_3_2.upd
@@ -420,6 +443,12 @@ drwxr-xr-x	root/root	usr/share/apps/khtml/
 drwxr-xr-x	root/root	usr/share/apps/khtml/kpartplugins/
 -rw-r--r--	root/root	usr/share/apps/khtml/kpartplugins/khtmlkttsd.desktop
 -rw-r--r--	root/root	usr/share/apps/khtml/kpartplugins/khtmlkttsd.rc
+drwxr-xr-x	root/root	usr/share/apps/kinfocenter/
+drwxr-xr-x	root/root	usr/share/apps/kinfocenter/about/
+-rw-r--r--	root/root	usr/share/apps/kinfocenter/about/kinfocenter.css
+-rw-r--r--	root/root	usr/share/apps/kinfocenter/about/main.html
+-rw-r--r--	root/root	usr/share/apps/kinfocenter/about/top-right-kinfocenter.png
+-rw-r--r--	root/root	usr/share/apps/kinfocenter/kinfocenterui.rc
 drwxr-xr-x	root/root	usr/share/apps/konqiconview/
 drwxr-xr-x	root/root	usr/share/apps/konqiconview/kpartplugins/
 -rw-r--r--	root/root	usr/share/apps/konqiconview/kpartplugins/kremoteencodingplugin.desktop
@@ -448,13 +477,6 @@ drwxr-xr-x	root/root	usr/share/apps/konqsidebartng/entries/
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/entries/remote.desktop
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/entries/root.desktop
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/entries/services.desktop
-drwxr-xr-x	root/root	usr/share/apps/konqsidebartng/kicker_entries/
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/kicker_entries/bookmarks.desktop
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/kicker_entries/history.desktop
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/kicker_entries/home.desktop
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/kicker_entries/remote.desktop
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/kicker_entries/root.desktop
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/kicker_entries/services.desktop
 drwxr-xr-x	root/root	usr/share/apps/konqsidebartng/virtual_folders/
 drwxr-xr-x	root/root	usr/share/apps/konqsidebartng/virtual_folders/remote/
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/virtual_folders/remote/.directory
@@ -471,8 +493,6 @@ drwxr-xr-x	root/root	usr/share/apps/konqsidebartng/virtual_folders/services/
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/virtual_folders/services/.directory
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/virtual_folders/services/applications.desktop
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/virtual_folders/services/audiocd.desktop
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/virtual_folders/services/printsystem.desktop
--rw-r--r--	root/root	usr/share/apps/konqsidebartng/virtual_folders/services/settings.desktop
 drwxr-xr-x	root/root	usr/share/apps/konqsidebartng/websidebar/
 -rw-r--r--	root/root	usr/share/apps/konqsidebartng/websidebar/websidebar.html
 drwxr-xr-x	root/root	usr/share/apps/konqueror/
@@ -509,21 +529,12 @@ drwxr-xr-x	root/root	usr/share/apps/konqueror/pics/
 -rw-r--r--	root/root	usr/share/apps/konqueror/pics/indicator_empty.png
 -rw-r--r--	root/root	usr/share/apps/konqueror/pics/indicator_noconnect.png
 -rw-r--r--	root/root	usr/share/apps/konqueror/pics/indicator_viewactive.png
--rw-r--r--	root/root	usr/share/apps/konqueror/pics/thumbnailfont_7x4.png
 drwxr-xr-x	root/root	usr/share/apps/konqueror/profiles/
 -rw-r--r--	root/root	usr/share/apps/konqueror/profiles/filemanagement
 -rw-r--r--	root/root	usr/share/apps/konqueror/profiles/kde_devel
 -rw-r--r--	root/root	usr/share/apps/konqueror/profiles/midnightcommander
 -rw-r--r--	root/root	usr/share/apps/konqueror/profiles/tabbedbrowsing
 -rw-r--r--	root/root	usr/share/apps/konqueror/profiles/webbrowsing
-drwxr-xr-x	root/root	usr/share/apps/konqueror/tiles/
--rw-r--r--	root/root	usr/share/apps/konqueror/tiles/bluemorning.png
--rw-r--r--	root/root	usr/share/apps/konqueror/tiles/canvas.png
--rw-r--r--	root/root	usr/share/apps/konqueror/tiles/kde4ever.png
--rw-r--r--	root/root	usr/share/apps/konqueror/tiles/kenwimer.png
--rw-r--r--	root/root	usr/share/apps/konqueror/tiles/noise.png
--rw-r--r--	root/root	usr/share/apps/konqueror/tiles/paper_flieder.png
--rw-r--r--	root/root	usr/share/apps/konqueror/tiles/redfiber.png
 drwxr-xr-x	root/root	usr/share/apps/konsole/
 -rw-r--r--	root/root	usr/share/apps/konsole/BlackOnLightYellow.schema
 -rw-r--r--	root/root	usr/share/apps/konsole/BlackOnRandomLight.colorscheme
@@ -534,31 +545,10 @@ drwxr-xr-x	root/root	usr/share/apps/konsole/
 -rw-r--r--	root/root	usr/share/apps/konsole/Shell.profile
 -rw-r--r--	root/root	usr/share/apps/konsole/WhiteOnBlack.schema
 -rw-r--r--	root/root	usr/share/apps/konsole/default.keytab
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/crystalsvg/
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/actions/
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/actions/activity.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/actions/konsoleblue.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/actions/konsolered.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/actions/opentermblue.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/actions/opentermred.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/16x16/actions/silence.png
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/crystalsvg/22x22/
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/crystalsvg/22x22/actions/
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/22x22/actions/konsoleblue.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/22x22/actions/konsolered.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/22x22/actions/opentermblue.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/22x22/actions/opentermred.png
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/crystalsvg/32x32/
-drwxr-xr-x	root/root	usr/share/apps/konsole/icons/crystalsvg/32x32/actions/
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/32x32/actions/konsoleblue.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/32x32/actions/konsolered.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/32x32/actions/opentermblue.png
--rw-r--r--	root/root	usr/share/apps/konsole/icons/crystalsvg/32x32/actions/opentermred.png
 -rw-r--r--	root/root	usr/share/apps/konsole/konsole.notifyrc
 -rw-r--r--	root/root	usr/share/apps/konsole/konsoleui.rc
 -rw-r--r--	root/root	usr/share/apps/konsole/linux.keytab
+-rw-r--r--	root/root	usr/share/apps/konsole/partui.rc
 -rw-r--r--	root/root	usr/share/apps/konsole/sessionui.rc
 -rw-r--r--	root/root	usr/share/apps/konsole/solaris.keytab
 -rw-r--r--	root/root	usr/share/apps/konsole/tips
@@ -587,8 +577,7 @@ drwxr-xr-x	root/root	usr/share/dbus-1/interfaces/
 -rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.Konqueror.MainWindow.xml
 -rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.kdialog.ProgressDialog.xml
 -rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.konqueror.Preloader.xml
--rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.libkonq.KonqHistoryManager.xml
--rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.libkonq.UndoManager.xml
+-rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.libkonq.FileUndoManager.xml
 -rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.nsplugins.CallBack.xml
 -rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.nsplugins.class.xml
 -rw-r--r--	root/root	usr/share/dbus-1/interfaces/org.kde.nsplugins.instance.xml
@@ -601,6 +590,7 @@ drwxr-xr-x	root/root	usr/share/doc/HTML/en/dolphin/
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/bookmarksidebar.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/breadcrumb.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/browsebutton.png
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/dolphin/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/configurationwindow.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/configurationwindow2.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/configurationwindow3.png
@@ -615,15 +605,89 @@ drwxr-xr-x	root/root	usr/share/doc/HTML/en/dolphin/
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/toolbarbuttons.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/dolphin/workspacebuttons.png
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/kfind/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kfind/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kfind/index.cache.bz2
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kfind/index.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kfind/man-kfind.1.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/common -> /usr/share/doc/HTML/en/common
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/devices/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/devices/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/devices/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/devices/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/dma/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/dma/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/dma/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/dma/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/interrupts/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/ioports/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/memory/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/memory/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/memory/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/memory/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/nics/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/nics/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/nics/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/nics/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/opengl/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/partitions/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/pci/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/pci/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pci/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pci/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/pcmcia/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/processor/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/processor/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/processor/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/processor/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/protocols/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/samba/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/samba/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/samba/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/samba/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/scsi/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/sound/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/sound/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/sound/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/sound/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/usb/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/usb/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/usb/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/usb/index.docbook
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kinfocenter/xserver/index.docbook
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/konqueror/
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/basics.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/bookmarks.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/browser.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/cmndline.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/commands.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/konqueror/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/config.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/credits.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/dirtree.png
@@ -643,11 +707,13 @@ drwxr-xr-x	root/root	usr/share/doc/HTML/en/konqueror/
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/shortcut2.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konqueror/sidebar.docbook
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/konsole/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/konsole/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/index.cache.bz2
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/index.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/konsole.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/konsole/tabbar.png
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/kwrite/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kwrite/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kwrite/index.cache.bz2
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kwrite/index.docbook
 drwxr-xr-x	root/root	usr/share/icons/
@@ -661,37 +727,30 @@ drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/kappfinder.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/kfind.png
--rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/kfm.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/konqueror.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/konsole.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/
-drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/actions/
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kde.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/kappfinder.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/kfind.png
--rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/kfm.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/konqueror.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/22x22/apps/konsole.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/kappfinder.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/kfind.png
--rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/kfm.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/konqueror.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/konsole.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/kappfinder.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/kfind.png
--rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/kfm.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/konqueror.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/konsole.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/
 drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/apps/
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/kappfinder.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/kfind.png
--rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/kfm.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/konqueror.png
 -rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/konsole.png
 drwxr-xr-x	root/root	usr/share/icons/hicolor/scalable/
@@ -917,17 +976,22 @@ drwxr-xr-x	root/root	usr/share/kde4/services/ServiceMenus/
 -rw-r--r--	root/root	usr/share/kde4/services/cache.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/cookies.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/desktoppath.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/devices.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/dma.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/dolphinpart.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/ebrowsing.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/filebehavior.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/filebrowser.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/filepreviews.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/filetypes.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/interrupts.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/ioports.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/kcm_useraccount.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/kcmcss.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/kcmhistory.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/kcmkonqyperformance.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/kcmperformance.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/kcmusb.desktop
 drwxr-xr-x	root/root	usr/share/kde4/services/kded/
 -rw-r--r--	root/root	usr/share/kde4/services/kded/favicons.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/kded/konqy_preloader.desktop
@@ -946,9 +1010,17 @@ drwxr-xr-x	root/root	usr/share/kde4/services/kded/
 -rw-r--r--	root/root	usr/share/kde4/services/konsole-script.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/konsolepart.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/lanbrowser.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/memory.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/netpref.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/nic.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/opengl.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/partitions.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/pci.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/processor.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/proxy.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/scsi.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/smb.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/sound.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/useragent.desktop
 drwxr-xr-x	root/root	usr/share/kde4/services/useragentstrings/
 -rw-r--r--	root/root	usr/share/kde4/services/useragentstrings/firefox15oncurrent.desktop
@@ -975,6 +1047,7 @@ drwxr-xr-x	root/root	usr/share/kde4/services/useragentstrings/
 -rw-r--r--	root/root	usr/share/kde4/services/useragentstrings/safari20.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/useragentstrings/w3moncurrent.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/useragentstrings/wgetoncurrent.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/xserver.desktop
 drwxr-xr-x	root/root	usr/share/kde4/servicetypes/
 -rw-r--r--	root/root	usr/share/kde4/servicetypes/findpart.desktop
 -rw-r--r--	root/root	usr/share/kde4/servicetypes/konqaboutpage.desktop
