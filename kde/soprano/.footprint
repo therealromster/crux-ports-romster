@@ -67,6 +67,7 @@ drwxr-xr-x	root/root	usr/include/Soprano/Vocabulary/
 -rw-r--r--	root/root	usr/include/Soprano/Vocabulary/RDFS
 -rw-r--r--	root/root	usr/include/Soprano/Vocabulary/SIL
 -rw-r--r--	root/root	usr/include/Soprano/Vocabulary/XMLSchema
+-rw-r--r--	root/root	usr/include/Soprano/Vocabulary/Xesam
 drwxr-xr-x	root/root	usr/include/soprano/
 -rw-r--r--	root/root	usr/include/soprano/backend.h
 -rw-r--r--	root/root	usr/include/soprano/bindingset.h
@@ -117,7 +118,8 @@ drwxr-xr-x	root/root	usr/include/soprano/
 -rw-r--r--	root/root	usr/include/soprano/unixsocketclient.h
 -rw-r--r--	root/root	usr/include/soprano/version.h
 -rw-r--r--	root/root	usr/include/soprano/vocabulary.h
--rw-r--r--	root/root	usr/include/soprano/xmls.h
+-rw-r--r--	root/root	usr/include/soprano/xesam.h
+-rw-r--r--	root/root	usr/include/soprano/xsd.h
 drwxr-xr-x	root/root	usr/lib/
 lrwxrwxrwx	root/root	usr/lib/libsoprano.so -> libsoprano.so.4
 lrwxrwxrwx	root/root	usr/lib/libsoprano.so.4 -> libsoprano.so.4.0.0
