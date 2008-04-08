@@ -281,9 +281,9 @@ drwxr-xr-x	root/root	usr/include/syndication/rss2/
 -rw-r--r--	root/root	usr/include/syndication/syndication.h
 -rw-r--r--	root/root	usr/include/syndication/tools.h
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/Gpgmepp/
--rw-r--r--	root/root	usr/lib/Gpgmepp/GpgmeppConfig.cmake
--rw-r--r--	root/root	usr/lib/Gpgmepp/GpgmeppLibraryDepends.cmake
+drwxr-xr-x	root/root	usr/lib/gpgmepp/
+-rw-r--r--	root/root	usr/lib/gpgmepp/GpgmeppConfig.cmake
+-rw-r--r--	root/root	usr/lib/gpgmepp/GpgmeppLibraryDepends.cmake
 drwxr-xr-x	root/root	usr/lib/kde4/
 -rwxr-xr-x	root/root	usr/lib/kde4/kabc_directory.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kabc_file.so

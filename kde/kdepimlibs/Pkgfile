@@ -2,12 +2,12 @@
 # URL: 
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: gpgme boost
+# Depends on: gpgme boost kdelibs
 
 name=kdepimlibs
-version=3.96.0
+version=4.0.3
 release=1
-source=(http://download.kde.org/unstable/${version%.*}/src/kdepimlibs-$version.tar.bz2)
+source=(http://download.kde.org/stable/$version/src/kdepimlibs-$version.tar.bz2)
 
 build() {
 	cd kdepimlibs-$version
