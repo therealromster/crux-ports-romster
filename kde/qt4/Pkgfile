@@ -2,12 +2,12 @@
 # URL: http://trolltech.com/
 # Packager: Johannes Winkelmann, jw at tks6 dot net
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: dbus freetype glib libmng libpng openssl xorg-libsm xorg-libxcursor xorg-libxinerama xorg-setxkbmap
+# Depends on: dbus freetype glib libmng libpng openssl xorg-libsm xorg-libxcursor xorg-libxinerama xorg-setxkbmap xorg-libxrandr mesa3d sqlite3 fontconfig xorg-libxi
 # Optional: upx ccache mysql sqlite nvidia
 
 name=qt4
-version=4.3.2
-release=2
+version=4.3.4
+release=1
 source=(ftp://ftp.trolltech.com/pub/qt/source/qt-x11-opensource-src-$version.tar.gz)
 
 mirror=(ftp://ftp.tu-chemnitz.de/pub/Qt/qt/source/qt-x11-opensource-src-$version.tar.gz)
