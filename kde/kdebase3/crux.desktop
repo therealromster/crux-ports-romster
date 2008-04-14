@@ -1,7 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Service
-Name=CRUX Ports
-ServiceTypes=SearchProvider
-Keys=crux
-Query=http://crux.nu/portdb/?a=search&q=\{@}
