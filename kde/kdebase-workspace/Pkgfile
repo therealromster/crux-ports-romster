@@ -1,0 +1,22 @@
+# Description: KDE4 workspace.
+# URL: 
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: lm_sensors qt4 xorg-libxcomposite xorg-libxtst
+
+name=kdebase-workspace
+version=4.0.3
+release=1
+source=(http://download.kde.org/stable/$version/src/kdebase-workspace-$version.tar.bz2)
+
+build() {
+	cd kdebase-workspace-$version
+
+	install -d build
+	cd build
+
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make
+	make DESTDIR=$PKG install
+}
+
