@@ -2,7 +2,7 @@
 # URL: 
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: kdepimlibs
+# Depends on: kdepimlibs kdebase-workspace kdebase-runtime
 
 name=kdebase
 version=4.0.3
