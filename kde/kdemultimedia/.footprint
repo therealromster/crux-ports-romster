@@ -6,6 +6,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/kscd
 -rwxr-xr-x	root/root	usr/bin/workman2cddb.pl
 drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/audiocdencoder.h
 drwxr-xr-x	root/root	usr/include/libkcddb/
 -rw-r--r--	root/root	usr/include/libkcddb/cdinfo.h
 -rw-r--r--	root/root	usr/include/libkcddb/cdinfodialog.h
@@ -19,7 +20,16 @@ drwxr-xr-x	root/root	usr/include/libkcompactdisc/
 -rw-r--r--	root/root	usr/include/libkcompactdisc/kcompactdisc.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/kde4/
+-rwxr-xr-x	root/root	usr/lib/kde4/kcm_audiocd.so
 -rwxr-xr-x	root/root	usr/lib/kde4/kcm_cddb.so
+-rwxr-xr-x	root/root	usr/lib/kde4/kio_audiocd.so
+-rwxr-xr-x	root/root	usr/lib/kde4/libaudiocd_encoder_flac.so
+-rwxr-xr-x	root/root	usr/lib/kde4/libaudiocd_encoder_lame.so
+-rwxr-xr-x	root/root	usr/lib/kde4/libaudiocd_encoder_vorbis.so
+-rwxr-xr-x	root/root	usr/lib/kde4/libaudiocd_encoder_wav.so
+lrwxrwxrwx	root/root	usr/lib/libaudiocdplugins.so -> libaudiocdplugins.so.4
+lrwxrwxrwx	root/root	usr/lib/libaudiocdplugins.so.4 -> libaudiocdplugins.so.4.0.0
+-rwxr-xr-x	root/root	usr/lib/libaudiocdplugins.so.4.0.0
 lrwxrwxrwx	root/root	usr/lib/libkcddb.so -> libkcddb.so.4
 lrwxrwxrwx	root/root	usr/lib/libkcddb.so.4 -> libkcddb.so.4.0.0
 -rwxr-xr-x	root/root	usr/lib/libkcddb.so.4.0.0
@@ -43,7 +53,9 @@ drwxr-xr-x	root/root	usr/share/apps/juk/pics/
 -rw-r--r--	root/root	usr/share/apps/juk/pics/splash.png
 -rw-r--r--	root/root	usr/share/apps/juk/pics/yahoo_credit.png
 drwxr-xr-x	root/root	usr/share/apps/kconf_update/
+-rw-r--r--	root/root	usr/share/apps/kconf_update/audiocd.upd
 -rw-r--r--	root/root	usr/share/apps/kconf_update/kcmcddb-emailsettings.upd
+-rwxr-xr-x	root/root	usr/share/apps/kconf_update/upgrade-metadata.sh
 drwxr-xr-x	root/root	usr/share/apps/kmix/
 -rw-r--r--	root/root	usr/share/apps/kmix/kmixui.rc
 drwxr-xr-x	root/root	usr/share/apps/kmix/pics/
@@ -74,6 +86,8 @@ drwxr-xr-x	root/root	usr/share/apps/profiles/
 drwxr-xr-x	root/root	usr/share/autostart/
 -rw-r--r--	root/root	usr/share/autostart/restore_kmix_volumes.desktop
 drwxr-xr-x	root/root	usr/share/config.kcfg/
+-rw-r--r--	root/root	usr/share/config.kcfg/audiocd_lame_encoder.kcfg
+-rw-r--r--	root/root	usr/share/config.kcfg/audiocd_vorbis_encoder.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/kscd.kcfg
 -rw-r--r--	root/root	usr/share/config.kcfg/libkcddb.kcfg
 drwxr-xr-x	root/root	usr/share/dbus-1/
@@ -86,6 +100,7 @@ drwxr-xr-x	root/root	usr/share/doc/
 drwxr-xr-x	root/root	usr/share/doc/HTML/
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/juk/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/juk/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/juk/history-playlist.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/juk/index.cache.bz2
 -rw-r--r--	root/root	usr/share/doc/HTML/en/juk/index.docbook
@@ -97,6 +112,7 @@ drwxr-xr-x	root/root	usr/share/doc/HTML/en/juk/
 -rw-r--r--	root/root	usr/share/doc/HTML/en/juk/search-playlist.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/juk/toolbar.png
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/kmix/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kmix/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kmix/index.cache.bz2
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kmix/index.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kmix/kmix-channel-playback.png
@@ -104,6 +120,7 @@ drwxr-xr-x	root/root	usr/share/doc/HTML/en/kmix/
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kmix/kmix-channel-switches.png
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kmix/kmix-window.png
 drwxr-xr-x	root/root	usr/share/doc/HTML/en/kscd/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kscd/common -> /usr/share/doc/HTML/en/common
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kscd/index.cache.bz2
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kscd/index.docbook
 -rw-r--r--	root/root	usr/share/doc/HTML/en/kscd/kscd.png
@@ -152,5 +169,7 @@ drwxr-xr-x	root/root	usr/share/kde4/services/
 drwxr-xr-x	root/root	usr/share/kde4/services/ServiceMenus/
 -rw-r--r--	root/root	usr/share/kde4/services/ServiceMenus/audiocd_play.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/ServiceMenus/jukservicemenu.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/audiocd.desktop
+-rw-r--r--	root/root	usr/share/kde4/services/audiocd.protocol
 -rw-r--r--	root/root	usr/share/kde4/services/kmixctrl_restore.desktop
 -rw-r--r--	root/root	usr/share/kde4/services/libkcddb.desktop
