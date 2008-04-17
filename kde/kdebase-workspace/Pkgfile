@@ -2,7 +2,7 @@
 # URL: 
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: lm_sensors qt4 xorg-libxcomposite xorg-libxtst
+# Depends on: lm_sensors qt4 xorg-libxcomposite xorg-libxtst kdelibs
 
 name=kdebase-workspace
 version=4.0.3
