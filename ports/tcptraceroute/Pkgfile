@@ -1,0 +1,20 @@
+# Description: A traceroute implementation using TCP packets.
+# URL: http://michael.toren.net/code/tcptraceroute/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libpcap libnet
+
+name=tcptraceroute
+version=1.5beta7
+release=1
+source=(http://michael.toren.net/code/tcptraceroute/tcptraceroute-$version.tar.gz)
+
+build() {
+	cd tcptraceroute-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share
+}
+
