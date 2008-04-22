@@ -1,0 +1,20 @@
+# Description: Natural Language Processing Toolkit for Python.
+# URL:         http://nltk.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  numarray, pywordnet
+
+name=nltk_lite
+version=0.6.4
+release=2
+source=(http://dl.sourceforge.net/nltk/$name-$version.tar.gz \
+   http://dl.sourceforge.net/nltk/$name-corpora-$version.zip)
+
+build() {
+   cd $name-$version
+   python setup.py install --root=$PKG
+   mkdir -p $PKG/usr/share/$name
+   mv $SRC/corpora $PKG/usr/share/$name
+   chown -R root:root $PKG
+}

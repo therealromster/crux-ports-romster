@@ -1,0 +1,20 @@
+# Description: PyQt is a set of Python bindings for the Qt toolkit.
+# URL:			http://www.riverbankcomputing.co.uk/pyqt/
+# Maintainer: unmaintained
+# Packager:		Rouven Schuerch, rs at tegonal dot com
+#
+# Depends on:	sip
+
+name=pyqt
+version=3.17
+release=1
+source=(http://www.riverbankcomputing.com/Downloads/PyQt3/GPL/PyQt-x11-gpl-${version}.tar.gz)
+
+build() {
+	cd PyQt-x11-gpl-$version
+	export QTDIR=/usr/share/qt
+	yes yes | python configure.py
+	make
+	make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}

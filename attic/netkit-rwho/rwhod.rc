@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# /etc/rc.d/rwhod: start/stop rwho daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/rwhod
+	;;
+stop)
+	killall -q /usr/sbin/rwhod
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

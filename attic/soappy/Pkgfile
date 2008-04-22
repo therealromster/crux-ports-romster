@@ -1,0 +1,24 @@
+# Description:	Python SOAP Library
+# URL:			http://pywebsvcs.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:		James Mills, prologic at shortcircuit dot net dot au
+# 
+# Depends on:	fpconst
+
+name=soappy
+version=0.12.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/pywebsvcs/SOAPpy-$version.tar.gz
+			soappy-$version-python-2.5-compat.patch)
+PYTHONVERSION=`python -c "import sys; print \"%s.%s\" % (sys.version_info[0], sys.version_info[1]);"`
+
+build() {
+	cd SOAPpy-$version
+
+	if [ "$PYTHONVERSION" == "2.5" ]; then
+		patch -p0 < $SRC/soappy-$version-python-2.5-compat.patch
+	fi
+
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}

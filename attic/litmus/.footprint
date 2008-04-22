@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/litmus
+drwxr-xr-x	root/root	usr/libexec/
+drwxr-xr-x	root/root	usr/libexec/litmus/
+-rwxr-xr-x	root/root	usr/libexec/litmus/basic
+-rwxr-xr-x	root/root	usr/libexec/litmus/copymove
+-rwxr-xr-x	root/root	usr/libexec/litmus/http
+-rwxr-xr-x	root/root	usr/libexec/litmus/locks
+-rwxr-xr-x	root/root	usr/libexec/litmus/props
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/litmus/
+drwxr-xr-x	root/root	usr/share/litmus/htdocs/
+-rw-r--r--	root/root	usr/share/litmus/htdocs/foo

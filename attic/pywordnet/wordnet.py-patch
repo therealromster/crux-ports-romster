@@ -1,0 +1,11 @@
+--- wordnet.py.old	2006-07-07 02:02:34.000000000 +1000
++++ wordnet.py	2006-07-07 02:02:46.000000000 +1000
+@@ -53,7 +53,7 @@
+     'mac': ":",
+     'dos': "C:\\wn16",
+     'nt': "C:\\Program Files\\WordNet\\2.0"}
+-                     .get(os.name, "/usr/local/wordnet2.0"))
++                     .get(os.name, "/usr/share/wordnet"))
+ 
+ WNSEARCHDIR = environ.get('WNSEARCHDIR', os.path.join(WNHOME, {'mac': "Database"}.get(os.name, "dict")))
+ 

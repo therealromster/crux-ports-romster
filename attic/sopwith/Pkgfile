@@ -1,0 +1,21 @@
+# Description: Port of the classic computer game "Sopwith"
+# URL:         http://sdl-sopwith.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  libsdl
+#
+# Optional:    gtk
+
+name=sopwith
+version=1.7.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/sdl-$name/sdl_$name-$version.tar.gz)
+
+build() {
+   cd sdl_$name-$version
+   ./configure --prefix=/usr
+   make && make DESTDIR=$PKG install
+   rm -rf $PKG/usr/share
+   chown -R root:root $PKG
+}

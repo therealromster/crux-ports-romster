@@ -1,0 +1,21 @@
+# Description: Database of pre-compiled PPD files used by foomatic-db-engine.
+# URL:         http://linuxprinting.org/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  foomatic-db-engine, curl
+
+name=foomatic-db
+version=3.1
+release=1
+source=()
+
+build() {
+   curl -O http://linuxprinting.org/download/foomatic/unstable/$name-$version-current.tar.gz
+   cp $name-$version-current.tar.gz $PKGMK_SOURCE_DIR
+   tar zxvf $name-$version-current.tar.gz
+   cd $name-20060623
+   ./configure --prefix=/usr
+   make && make DESTDIR=$PKG install
+   chown -R root:root $PKG
+}

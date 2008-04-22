@@ -1,0 +1,19 @@
+# Description: A ncurses based file manager with vi like keybindings
+# URL:         http://vifm.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    Vincenzo Colosimo, vico at bicisport dot de
+# 
+# Depends on:
+
+name=vifm
+version=0.3a
+release=1
+source=(http://dl.sourceforge.net/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --disable-nls
+	make
+	make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}

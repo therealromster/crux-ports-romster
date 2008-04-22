@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# /etc/rc.d/vmware: start/stop vmware services
+#
+
+case $1 in
+start)
+	/etc/vmware/init.d/vmware start 
+	;;
+stop)
+	/etc/vmware/init.d/vmware stop
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# vim: syntax=sh

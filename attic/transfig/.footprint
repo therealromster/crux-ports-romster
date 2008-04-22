@@ -1,0 +1,87 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/X11R6/
+drwxr-xr-x	root/root	usr/X11R6/bin/
+-rwxr-xr-x	root/root	usr/X11R6/bin/fig2dev
+-rwxr-xr-x	root/root	usr/X11R6/bin/fig2ps2tex
+-rwxr-xr-x	root/root	usr/X11R6/bin/fig2ps2tex.sh
+-rwxr-xr-x	root/root	usr/X11R6/bin/pic2tpic
+-rwxr-xr-x	root/root	usr/X11R6/bin/transfig
+drwxr-xr-x	root/root	usr/X11R6/man/
+drwxr-xr-x	root/root	usr/X11R6/man/man1/
+-r--r--r--	root/root	usr/X11R6/man/man1/fig2dev.1x.gz
+-r--r--r--	root/root	usr/X11R6/man/man1/fig2ps2tex.1x.gz
+-r--r--r--	root/root	usr/X11R6/man/man1/pic2tpic.1x.gz
+-r--r--r--	root/root	usr/X11R6/man/man1/transfig.1x.gz
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/fig2dev/
+-rwxr-xr-x	root/root	usr/lib/fig2dev/cs_CZ.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/hr_HR.ps -> cs_CZ.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/hu_HU.ps -> cs_CZ.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ja.ps -> japanese.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ja_JP.EUC.ps -> japanese.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ja_JP.eucJP.ps -> japanese.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ja_JP.ps -> japanese.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ja_JP.ujis.ps -> japanese.ps
+-rwxr-xr-x	root/root	usr/lib/fig2dev/japanese.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ko.ps -> korean.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ko_KR.EUC.ps -> korean.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ko_KR.eucKR.ps -> korean.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ko_KR.ps -> korean.ps
+-rwxr-xr-x	root/root	usr/lib/fig2dev/korean.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/pl_PL.ps -> cs_CZ.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/ro_RO.ps -> cs_CZ.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/sk_SK.ps -> cs_CZ.ps
+lrwxrwxrwx	root/root	usr/lib/fig2dev/sl_SI.ps -> cs_CZ.ps
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/xfig/
+drwxr-xr-x	root/root	usr/share/xfig/Libraries/
+drwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/bricks.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/circles.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/crosshatch.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/crosshatch30.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/crosshatch45.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/dash.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/dashDot.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/dashDotDot.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/dashDotDotDot.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/dot.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/fishscales.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/hexagons.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/horiz_saw.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/horizontal.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/left30.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/left45.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/leftshingle.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/octagons.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/p13.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/right30.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/right45.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/rightshingle.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/small_fishscales.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp0.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp1.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp10.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp11.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp12.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp13.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp14.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp15.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp16.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp17.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp18.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp19.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp2.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp20.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp3.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp4.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp5.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp6.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp7.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp8.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/sp9.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/vert_bricks.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/vert_leftshingle.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/vert_rightshingle.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/vert_saw.bmp
+-rwxr-xr-x	root/root	usr/share/xfig/Libraries/bitmaps/vertical.bmp

@@ -1,0 +1,17 @@
+# Description: Python Multimedia Library
+# URL:         http://pymedia.org/index.html
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  python, libvorbis, faad2, lame
+
+name=pymedia
+version=1.3.7.3
+release=3
+source=(http://dl.sourceforge.net/$name/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+   yes | python setup.py install --root=$PKG
+   chown -R root:root $PKG
+}

@@ -1,0 +1,17 @@
+# Description: James Mills, Python Library.
+# URL:         http://shortcircuit.net.au/~prologic/
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on:  python
+
+name=pymills
+version=3.2.11-git1
+release=1
+source=(http://shortcircuit.net.au/~prologic/downloads/software/$name-$version.tar.gz)
+
+build () {
+   cd $name-$version
+   python setup.py install --root=$PKG
+   chown -R root:root $PKG
+}

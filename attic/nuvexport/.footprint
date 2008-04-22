@@ -1,0 +1,52 @@
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/nuvexportrc
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-asf -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-divx -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-dvcd -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-dvd -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-mp3 -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-nuvsql -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-svcd -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-vcd -> nuvexport
+lrwxrwxrwx	root/root	usr/bin/nuvexport-xvid -> nuvexport
+-rwxr-xr-x	root/root	usr/bin/nuvinfo
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/nuvexport/
+drwxr-xr-x	root/root	usr/share/nuvexport/export/
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/NUV_SQL.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg.pm
+drwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/ASF.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/DVCD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/DVD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/DivX.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/MP3.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/MP4.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/PSP.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/SVCD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/VCD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/ffmpeg/XviD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/generic.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/mencoder.pm
+drwxr-xr-x	root/root	usr/share/nuvexport/export/mencoder/
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/mencoder/XviD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/transcode.pm
+drwxr-xr-x	root/root	usr/share/nuvexport/export/transcode/
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/transcode/DVCD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/transcode/DVD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/transcode/SVCD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/transcode/VCD.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/export/transcode/XviD.pm
+drwxr-xr-x	root/root	usr/share/nuvexport/mythtv/
+-rwxr-xr-x	root/root	usr/share/nuvexport/mythtv/db.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/mythtv/nuvinfo.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/mythtv/recordings.pm
+drwxr-xr-x	root/root	usr/share/nuvexport/nuv_export/
+-rwxr-xr-x	root/root	usr/share/nuvexport/nuv_export/cli.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/nuv_export/help.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/nuv_export/shared_utils.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/nuv_export/task.pm
+-rwxr-xr-x	root/root	usr/share/nuvexport/nuv_export/ui.pm

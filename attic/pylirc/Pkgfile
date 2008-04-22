@@ -1,0 +1,17 @@
+# Description: Python module for interaction with LIRC.
+# URL:         http://pylirc.mccabe.nu/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  python, lirc
+
+name=pylirc
+version=0.0.5
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+   python setup.py install --root=$PKG
+   chown root:root $PKG
+}

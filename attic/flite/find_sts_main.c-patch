@@ -1,0 +1,15 @@
+--- flite-1.2-release/tools/find_sts_main.c	2002-12-27 03:18:30.000000000 +1000
++++ find_sts_main.c	2005-04-07 00:30:26.000000000 +1000
+@@ -40,10 +40,12 @@
+ #include <stdio.h>
+ #include <math.h>
+ #include <string.h>
++#define const
+ #include "cst_wave.h"
+ #include "cst_track.h"
+ #include "cst_sigpr.h"
+ 
++
+ float lpc_min;
+ float lpc_range;
+ 

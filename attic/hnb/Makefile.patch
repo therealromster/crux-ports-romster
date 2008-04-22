@@ -1,0 +1,22 @@
+--- Makefile	2003-03-10 12:22:23.000000000 +1000
++++ Makefile	2004-09-01 09:56:52.253390240 +1000
+@@ -1,9 +1,17 @@
+ 
++prefix = /usr/local
++exec_prefix = ${prefix}
++
++bindir = ${exec_prefix}/bin
++mandir = ${prefix}/man
++
+ src/hnb: src/*.c src/*.h src/*.inc src/hnbrc.inc
+ 	(cd src;make)
++
+ install: src/hnb
+-	install -D src/hnb /usr/local/bin/hnb
+-	install -D -m444 doc/hnb.1 /usr/local/man/man1/hnb.1
++	install -D src/hnb ${bindir}/hnb
++	install -D -m444 doc/hnb.1 ${mandir}/man1/hnb.1
++
+ clean:
+ 	(cd src;make clean)
+ 	(cd util;make clean)

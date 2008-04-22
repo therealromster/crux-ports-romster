@@ -1,0 +1,50 @@
+# Description: Python 3000 Interpreter
+# URL:			http://www.python.org
+# Maintainer: unmaintained
+#
+# Depends on:	db, gdbm, ncurses, openssl, readline, zlib
+
+name=python3k
+version=3.0a2
+release=1
+source=(http://www.python.org/ftp/python/3.0/Python-$version.tgz)
+
+build () {
+	cd Python-$version
+
+	./configure --prefix=/usr \
+		--enable-shared \
+		--with-threads \
+		--enable-ipv6  \
+	make 
+	make -j1 DESTDIR=$PKG install
+
+	rm -r $PKG/usr/lib/python3.0/{bsddb,ctypes,email,sqlite3}/test
+	rm -r $PKG/usr/lib/python3.0/distutils/tests
+	rm $PKG/usr/lib/python3.0/{distutils,site-packages,test}/README
+	rm $PKG/usr/lib/python3.0/idlelib/{ChangeLog,{NEWS,README,TODO}.txt}
+	rm $PKG/usr/lib/python3.0/ctypes/macholib/README.ctypes
+
+	# Don't conflict with an existing installation
+	if [ -f /usr/bin/idle ]; then
+		mv $PKG/usr/bin/idle $PKG/usr/bin/idle3.0
+	fi
+	if [ -f /usr/bin/pydoc ]; then
+		mv $PKG/usr/bin/pydoc $PKG/usr/bin/pydoc3.0
+	fi
+	if [ -x /usr/bin/python ]; then
+		rm $PKG/usr/bin/python
+	fi
+	if [ -x /usr/bin/python-config ]; then
+		rm $PKG/usr/bin/python-config
+	fi
+	if [ -f /usr/bin/smtpd.py ]; then
+		rm $PKG/usr/bin/smtpd.py
+	fi
+
+	mkdir -p $PKG/usr/man/man1/
+	mv $PKG/usr/share/man/man1/python.1 $PKG/usr/man/man1/python3.1
+	rm -rf $PKG/usr/share/
+
+	chown -R root:root $PKG
+}

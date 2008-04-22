@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/pauseme
+-rwxr-xr-x	root/root	usr/bin/screen-open-region-with-program
+-rwxr-xr-x	root/root	usr/bin/screen-run-program-in-region
+-rwxr-xr-x	root/root	usr/bin/vifm
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/vifm/
+-rw-r--r--	root/root	usr/share/vifm/vifm-0.2.help.txt
+-rw-r--r--	root/root	usr/share/vifm/vifm.txt
+-rw-r--r--	root/root	usr/share/vifm/vifm.vim

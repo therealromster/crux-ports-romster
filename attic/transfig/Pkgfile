@@ -1,0 +1,24 @@
+# Description: Conversion tool for xfig.
+# URL:         http://www.xfig.org/
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on:  xfig
+
+name=transfig
+version=3.2.4
+release=3
+source=(http://xfig.org/software/xfig/$version/$name.$version.tar.gz \
+   $name.$version-patch)
+
+build () {
+   cd $name.$version
+   patch -p1 -i $SRC/$name.$version-patch
+   xmkmf
+   make Makefiles
+   make
+   install -d $PKG/usr/lib/fig2dev
+   make DESTDIR=$PKG install
+   make DESTDIR=$PKG install.man
+   chown -R root:root $PKG
+}

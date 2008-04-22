@@ -1,0 +1,69 @@
+# Description: Virtual Machine Emulator from vmware.com
+# URL:         http://www.vmware.com
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on:  pciutils
+
+name=vmware-workstation
+version=4.5.3-19414
+release=2
+source=(http://download3.vmware.com/software/wkst/VMware-workstation-$version.tar.gz
+			vmware-any-any-update105.tar.gz vmware.rc)
+
+build() {
+   cd vmware-distrib
+   mkdir -p $PKG/opt/vmware/bin
+   cp -a bin/* $PKG/opt/vmware/bin/
+
+   mkdir -p $PKG/opt/vmware/lib
+   cp -r lib/* $PKG/opt/vmware/lib/
+
+   mkdir -p $PKG/etc/vmware/
+   cp -a etc/* $PKG/etc/vmware/
+
+   mkdir -p $PKG/opt/vmware/man
+   cp -a man/* $PKG/opt/vmware/man
+
+   mkdir -p $PKG/etc/rc.d
+   install -m 755 $SRC/vmware.rc $PKG/etc/rc.d/vmware 
+
+   mkdir -p $PKG/etc/vmware/init.d
+   mkdir $PKG/etc/vmware/init.d/rc0.d
+   mkdir $PKG/etc/vmware/init.d/rc1.d
+   mkdir $PKG/etc/vmware/init.d/rc2.d
+   mkdir $PKG/etc/vmware/init.d/rc3.d
+   mkdir $PKG/etc/vmware/init.d/rc4.d
+   mkdir $PKG/etc/vmware/init.d/rc5.d
+   mkdir $PKG/etc/vmware/init.d/rc6.d
+   cp -a installer/services.sh $PKG/etc/vmware/init.d/vmware || die
+
+   mkdir -p $PKG/etc/vmware
+   locations="$PKG/etc/vmware/locations"
+   echo "answer BINDIR /opt/vmware/bin" >> ${locations}
+   echo "answer LIBDIR /opt/vmware/lib" >> ${locations}
+   echo "answer MANDIR /opt/vmware/man" >> ${locations}
+   echo "answer DOCDIR /opt/vmware" >> ${locations}       # :-)
+   echo "answer RUN_CONFIGURATOR no" >> ${locations}
+   echo "answer INITDIR /etc/vmware/init.d" >> ${locations}
+   echo "answer INITSCRIPTSDIR /etc/vmware/init.d" >> ${locations}
+
+   mkdir -p $PKG/usr/bin
+   cd $PKG/usr/bin && ln -s ../../opt/vmware/bin/vmware vmware
+
+   chmod u+s $PKG/opt/vmware/lib/bin/vmware-vmx
+
+   # FROM the gentoo ebuild:
+   # This is to fix the problem where the not_configured file doesn't get
+   # removed when the configuration is run. This doesn't remove the file
+   # It just tells the vmware-config.pl script it can delete it.
+   for f in $PKG/etc/vmware/._cfg????_locations ; do
+      if [ -f $f ]; then
+         cat $f >> $PKG/etc/vmware/locations
+         rm $f
+      fi
+   done
+
+   chown root:root -R $PKG
+   chmod o+w -R $PKG/opt/vmware/lib/ 
+}

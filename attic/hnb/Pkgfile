@@ -1,0 +1,22 @@
+# Description: Hierarchical notebook editor.
+# URL:         http://hnb.sourceforge.net/
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on:   
+
+name=hnb
+version=1.9.18
+release=2
+source=(http://hnb.sourceforge.net/.files/$name-$version.tar.gz \
+   Makefile.patch)
+
+build () {
+   cd $name-$version
+   patch -i $SRC/Makefile.patch
+   sed -i "/^CFLAGS/s/-O2 -pipe/$CFLAGS/" Makefile
+   make 
+   mkdir -p $PKG/usr/{bin,man/man1}
+   make prefix=$PKG/usr install
+   sed "s|$PKG||g" $SRC/$name-$version/doc/$name.1 > $PKG/usr/man/man1/$name.1
+}

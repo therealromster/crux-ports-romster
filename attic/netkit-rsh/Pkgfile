@@ -1,0 +1,31 @@
+# Description: BSD R-Tools
+# URL:         http://www.hcs.harvard.edu/~dholland/computers/netkit.html
+# Maintainer: unmaintained
+# Packager:    Daniel Mueller, daniel at danm dot de
+#
+# Depends on:
+
+name=netkit-rsh
+version=0.17
+release=3
+source=(ftp://ftp.gwdg.de/pub/linux/suse/people/kukuk/ipv6/$name-$version.tar.bz2)
+
+build() {
+   cd $name-$version
+
+   install -d \
+      $PKG/usr/{bin,sbin,man} \
+      $PKG/etc/pam.d \
+      $PKG/usr/man/{man1,man5,man8}
+
+   ./configure \
+      --prefix=/usr \
+      --without-pam \
+      --installroot=$PKG
+
+   make CFLAGS="$CFLAGS"
+   make install
+
+   rm -rf $PKG/etc
+   chown -R root:root $PKG
+}

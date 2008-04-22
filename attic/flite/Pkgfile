@@ -1,0 +1,20 @@
+# Description: Small, fast run-time synthesis engine.
+# URL:         http://www.speech.cs.cmu.edu/flite/
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on: 
+
+name=flite
+version=1.2
+release=1
+source=(http://www.speech.cs.cmu.edu/flite/packed/$name-$version/$name-$version-release.tar.bz2 \
+   find_sts_main.c-patch)
+
+build() {
+   cd $name-$version-release
+   patch -i $SRC/find_sts_main.c-patch tools/find_sts_main.c
+   ./configure --prefix=$PKG/usr
+   make && make prefix=$PKG/usr install
+   chown -R root:root $PKG
+}

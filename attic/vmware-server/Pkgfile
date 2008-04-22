@@ -1,0 +1,38 @@
+# Description:  VmWare Server
+# URL:          http://www.vmware.com/
+# Maintainer: unmaintained
+# Packager:     James Mills, prologic at shortcircuit dot net dot au
+# Depends on: linux-pam
+
+name=vmware-server
+version=1.0.5-80187
+release=1
+source=(http://download3.vmware.com/software/vmserver/VMware-server-$version.tar.gz
+      locations vmware.rc
+      vmware-any-any-update110.tar.gz)
+
+build() {
+  cd $name-distrib
+
+  mkdir -p $PKG/etc/{vmware/init.d,rc.d,pam.d}
+  mkdir -p $PKG/usr/{bin,sbin,lib/vmware,share/vmware/}
+
+  cp -r etc/* $PKG/etc/vmware/
+  sed -i -e "s/_TS_/`date +%s`/g" $SRC/locations
+
+   install -m 755 $SRC/vmware.rc $PKG/etc/rc.d/vmware 
+
+   mkdir $PKG/etc/vmware/init.d/{rc0.d,rc1.d,rc2.d,rc3.d,rc4.d,rc5.d,rc6.d}
+   cp -a installer/services.sh $PKG/etc/vmware/init.d/vmware
+
+  cp $SRC/locations $PKG/etc/vmware/
+  cp -r bin $PKG/usr/
+  cp -r sbin $PKG/usr/
+  cp -r lib/* $PKG/usr/lib/vmware/
+  cp -r doc $PKG/usr/share/vmware/
+  
+  rm $PKG/usr/share/vmware/doc/README
+  rm $PKG/usr/lib/vmware/perl5/site_perl/5.005/i386-linux/XML/Parser/Encodings/README
+
+  chown -R root:root $PKG
+}

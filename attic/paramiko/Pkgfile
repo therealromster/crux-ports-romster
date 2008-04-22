@@ -1,0 +1,17 @@
+# Description: SSH2 protocol for python.
+# URL:         http://www.lag.net/paramiko/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  pycrypto
+
+name=paramiko
+version=1.7.1
+release=1
+source=(http://www.lag.net/$name/download/$name-$version.zip)
+
+build() {
+   cd $name-$version
+   python setup.py install --root=$PKG --prefix=/usr
+   chown -R root:root $PKG
+}

@@ -1,0 +1,17 @@
+# Description: Python bindings for The Open Dynamics Engine,
+# URL:         http://pyode.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  ode
+
+name=pyode
+version=1.2.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/PyODE-$version.tar.bz2)
+
+build() {
+	cd PyODE-$version
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}

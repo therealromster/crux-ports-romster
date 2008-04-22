@@ -1,0 +1,21 @@
+# Description: Application for PDE compatible devices. Creative Zen, Dell DJ
+# URL:         http://gnomad2.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  libnjb, libmtp, libid3tag, gtk
+
+name=gnomad2
+version=2.8.9
+release=3
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+   ./configure --prefix=/usr \
+      --disable-nls
+   make
+   make DESTDIR=$PKG install
+   rm -rf $PKG/usr/share/locale
+   chown -R root:root $PKG
+}

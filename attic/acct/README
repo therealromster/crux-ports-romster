@@ -1,0 +1,35 @@
+$Id: README 1276 2006-10-03 00:37:19Z romster $
+
+REQUIREMENTS:
+
+	1. Kernel with "BSD Process Accounting" enabled.
+	Note: Do _NOT_ Enable the new format. This is not supported
+			by the current version of the GNU Accounting Utilities.
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+	In order for this to work you need to:
+	a. Enable "BSD Process Accounting" in your kernel
+
+POST-INSTALL:
+
+	1. Make the directory /var/account/
+	2. Touch the file /var/account/pacct
+	3. Run: accton /var/account/pacct
+
+	Just run the post-install script or --install-scripts
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+	1. This somehow conflicts with base/sysvinit's last binary
+		which I think accomplishses the same thing anyway.
+		So I have deliberately removed it from the port.
+	2. I don't think this is _meant_ to replace sysvinit at all :)
+
+James Mills <prologic@shortcircuit.net.au>

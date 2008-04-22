@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ac
+-rwxr-xr-x	root/root	usr/bin/lastcomm
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/ac.1.gz
+-rw-r--r--	root/root	usr/man/man1/lastcomm.1.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/accton.8.gz
+-rw-r--r--	root/root	usr/man/man8/sa.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/accton
+-rwxr-xr-x	root/root	usr/sbin/dump-acct
+-rwxr-xr-x	root/root	usr/sbin/dump-utmp
+-rwxr-xr-x	root/root	usr/sbin/sa

@@ -1,0 +1,46 @@
+$Id: README 1276 2006-10-03 00:37:19Z romster $
+
+REQUIREMENTS:
+
+*** This must be built as 'root'.
+
+PRECAUTION:
+
+!!! WARNING !!! -
+
+Please be carefull with the configuration of this software.
+I have just discovered (and it was mentioned many times in the
+author's documents) that misconfiguring this software can
+really screw up your system.
+
+You have been warned!
+
+PRE-INSTALL:
+
+Please remove libtrash-latest.tar.gz from your sources.
+Since the author of this software doesn't name his archives
+properly, pkgmk will think you already have the latest source
+and the latest build will not work.
+
+POST-INSTALL:
+
+libtrash needs to be activated in order for it to take over the libc functions which are responsible for removing files... There are two ways of doing this. Always-On (System-Wide) or Manual (Per-User).
+
+Either set your environment up as follows:
+
+export LD_PRELOAD=/usr/lib/libtrash.so
+
+Or append this to your /etc/profile
+
+This method works flawlessly and causes no problems.
+The other method (please consult the README file in the source archive) is risky and _can_ cause problems if configured incorrectly.
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+I will later provide an appropiate config file and rc to implement the first method for CRUX systems, but for now the above method, using an environment variable works fine :)
+
+James Mills <prologic@shortcircuit.net.au>

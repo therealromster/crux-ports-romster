@@ -1,0 +1,17 @@
+# Description:	Utilities for handling IEEE 754 floating point special values
+# URL:			http://cheeseshop.python.org/pypi/fpconst/
+# Maintainer: unmaintained
+# Packager:		James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:	python
+
+name=fpconst
+version=0.7.2
+release=1
+source=(http://cheeseshop.python.org/packages/source/f/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}

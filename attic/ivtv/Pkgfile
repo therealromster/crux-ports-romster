@@ -1,0 +1,19 @@
+# Description: IVTV Driver for IVTV-based TV Cards (PVR-...).
+# URL:         http://ivtvdriver.org
+# Maintainer: unmaintained
+# Packager:    Matt Housh <jaeger@morpheus.net>
+#
+# Depends on:
+
+name=ivtv
+version=0.10.1
+release=1
+source=(http://dl.ivtvdriver.org/$name/stable/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+   cd driver
+   make && make PREFIX=$PKG install
+   cd ../utils
+   make && make PREFIX=$PKG/usr install
+}

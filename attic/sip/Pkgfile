@@ -1,0 +1,23 @@
+# Description: A tool for creating Python bindings for C and C++ libraries
+# URL:			http://www.riverbankcomputing.co.uk/sip/
+# Maintainer: unmaintained
+# Packager:		Younes Hafri, ycrux at club-internet dot fr
+#
+# Depends on:	python, qt3
+
+name=sip
+version=4.5.2
+release=1
+source=(http://www.riverbankcomputing.com/Downloads/${name}4/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	export QTDIR=/usr/share/qt/
+
+	python configure.py CXXFLAGS+=-lqt-mt
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

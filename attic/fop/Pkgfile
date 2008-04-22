@@ -1,0 +1,20 @@
+# Description: Formatting Objects Processor.
+# URL:         http://xml.apache.org/fop/
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on:  j2re
+
+name=fop
+version=0.92beta
+release=1
+source=(http://apache.ausgamers.com/xmlgraphics/$name/$name-$version-bin-jdk1.3.tar.gz)
+
+build () {
+   cd $name-$version
+   install -d $PKG/usr/{bin, lib/$name/{build,lib}}
+   cp build/*.jar $PKG/usr/lib/$name/build/
+   cp lib/*.jar $PKG/usr/lib/$name/lib/
+   cp fop $PKG/usr/bin/fop
+   chown -R root:root $PKG
+}

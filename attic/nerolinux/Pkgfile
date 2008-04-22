@@ -1,0 +1,17 @@
+# Description: CD Burning Program.
+# URL:         http://www.ahead.de
+# Maintainer: unmaintained
+# Packager:    Olle Gustafsson <ogg at linux dot se>
+#
+# Depends on:  gtk1
+
+name=nerolinux
+version=2.0.0.5
+release=2
+source=(ftp://ftp.nero.com/$name-$version-x86.rpm)
+
+build() {
+   rpm2targz $name-$version-x86.rpm
+   tar -zxvf $SRC/$name-$version-x86.tar.gz -C $PKG
+   chown -R root:root $PKG
+}

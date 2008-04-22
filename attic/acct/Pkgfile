@@ -1,0 +1,24 @@
+# Description: GNU Accounting Utils.
+# URL:         http://savannah.gnu.org/projects/acct/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:
+
+name=acct
+version=6.3.2
+release=2
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+   ./configure --prefix=$PKG/usr
+   make && make install
+
+   rm -fr \
+      $PKG/usr/info \
+      $PKG/usr/bin/last \
+      $PKG/usr/man/man1/last.1
+
+   chown -R root:root $PKG
+}

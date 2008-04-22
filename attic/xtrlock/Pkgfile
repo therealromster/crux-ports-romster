@@ -1,0 +1,20 @@
+# Description: Minimal X Display Lock Program
+# URL:         http://packages.debian.org/xtrlock
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  x11
+
+name=xtrlock
+version=2.0
+release=1
+source=(http://ftp.debian.org/debian/pool/main/x/$name/$name\_$version-12.tar.gz)
+
+build() {
+	cd $name-$version
+	xmkmf
+	make
+	make DESTDIR=$PKG install
+	make DESTDIR=$PKG install.man
+	chown -R root:root $PKG
+}

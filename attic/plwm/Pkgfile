@@ -1,0 +1,17 @@
+# Description: PointLess Window Manager written in Python.
+# URL:         http://plwm.sourceforge.net/
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on:  python
+
+name=plwm
+version=2.6a
+release=4
+source=(http://dl.sourceforge.net/sourceforge/$name/PLWM-$version.tar.gz)
+
+build () {
+   cd PLWM-$version
+   python ./setup.py install --root=$PKG
+   chown root:root $PKG
+}

@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# /etc/rc.d/gnump3d: start/stop gnump3d daemon
+#
+
+case $1 in
+start)
+  /usr/bin/gnump3d-index
+  /usr/bin/gnump3d --background &
+  ;;
+stop)
+  kill -9 `pidof -o $$ -x gnump3d` &> /dev/null
+  ;;
+restart)
+  kill -9 `pidof -o $$ -x gnump3d` &> /dev/null
+  sleep 2
+  $0 start
+  ;;
+*)
+  echo "usage: $0 [start|stop|restart]"
+  ;;
+esac
+
+# End of file

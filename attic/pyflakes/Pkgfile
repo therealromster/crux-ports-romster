@@ -1,0 +1,17 @@
+# Description: Checks python source files for errors.
+# URL:         http://divmod.org/projects/pyflakes
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  python
+
+name=pyflakes
+version=0.2.1
+release=2
+source=(http://divmod.org/static/projects/$name/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+   python ./setup.py install --prefix=/usr --root=$PKG
+   chown -R root:root $PKG
+}

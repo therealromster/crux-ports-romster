@@ -1,0 +1,18 @@
+# Description: flat assembler
+# URL:         http://flatassembler.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:
+
+name=fasm
+version=1.67
+release=1
+source=(http://flatassembler.net/$name-$version.tgz)
+
+build() {
+	cd $name
+	mkdir -p $PKG/usr/bin/
+	install -m755 fasm $PKG/usr/bin/fasm
+	chown -R root:root $PKG
+}

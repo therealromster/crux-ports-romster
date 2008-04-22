@@ -1,0 +1,71 @@
+diff -Nru netkit-rsh-0.17.old/configure netkit-rsh-0.17/configure
+--- netkit-rsh-0.17.old/configure	2002-06-21 13:01:08.000000000 +0200
++++ netkit-rsh-0.17/configure	2002-06-21 13:02:47.000000000 +0200
+@@ -62,7 +62,7 @@
+ 
+ BINDIR="$EXECPREFIX/bin"
+ SBINDIR="$EXECPREFIX/sbin"
+-MANDIR="$PREFIX/share/man"
++MANDIR="$PREFIX/man"
+ 
+ echo "Directories: $BINDIR $SBINDIR $MANDIR "
+ 
+@@ -120,39 +120,7 @@
+      echo 'no'
+ fi
+ 
+-if [ x$DEBUG = x ]; then
+-    echo -n "Checking if $CC accepts -O2... "
+-    if (
+-         $CC -O2 __conftest.c -o __conftest
+-       ) >/dev/null 2>&1; then
+-         echo 'yes'
+-         CFLAGS="$CFLAGS -O2"
+-    else
+-         echo 'no'
+-         echo -n "Checking if $CC accepts -O... "
+-         if (
+-              $CC -O __conftest.c -o __conftest
+-            ) >/dev/null 2>&1; then
+-              echo 'yes'
+-              CFLAGS="$CFLAGS -O"
+-         else
+-              echo 'no'
+-         fi
+-    fi
+-
+-else
+-    echo -n "Checking if $CC accepts -g... "
+-    if (
+-         $CC -g __conftest.c -o __conftest
+-       ) >/dev/null 2>&1; then
+-         echo 'yes'
+-         CFLAGS="$CFLAGS -g"
+-    else
+-         echo 'no'
+-    fi
+-
+-fi
+-
++CFLAGS=
+ LDFLAGS=
+ LIBS=
+ 
+diff -Nru netkit-rsh-0.17.old/rlogind/Makefile netkit-rsh-0.17/rlogind/Makefile
+--- netkit-rsh-0.17.old/rlogind/Makefile	2002-06-21 13:01:08.000000000 +0200
++++ netkit-rsh-0.17/rlogind/Makefile	2002-06-21 13:04:47.000000000 +0200
+@@ -3,10 +3,13 @@
+ include ../MCONFIG
+ include ../MRULES
+ 
++ifeq ($(USE_PAM),1)
+ OBJS = rlogind.o network.o auth.o sockconv.o
+-
+ CFLAGS += -DUSE_PAM
+ LIBS += -ldl -lpam
++else
++OBJS = rlogind.o network.o auth.o 
++endif
+ 
+ LIBS += -lutil $(LIBTERMCAP)
+ 

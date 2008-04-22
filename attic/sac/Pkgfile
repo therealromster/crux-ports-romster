@@ -1,0 +1,20 @@
+# Description: System Accounting Tool.
+# URL:         http://mama.indstate.edu/users/ice/sac/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:
+
+name=sac
+version=1.9b5
+release=1
+source=(ftp://mama.indstate.edu/linux/$name/$name-$version.tgz)
+
+build() {
+   cd $name-1.9
+   make
+   install -d $PKG/usr/{bin,man/man8}
+   install -m755 -groot -oroot sac rawtmp writetmp -t $PKG/usr/bin/sac
+   install -m755 -groot -oroot sac.8 writetmp.8 -t $PKG/usr/man/man8/sac.8
+   install -D -m755 -groot -oroot rawtmp.1 $PKG/usr/man/man1/rawtmp.1
+}

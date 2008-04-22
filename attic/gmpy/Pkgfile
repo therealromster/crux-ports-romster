@@ -1,0 +1,17 @@
+# Description: Python modules providing multiprecision arithmetic functionality
+# URL:         http://code.google.com/p/gmpy/
+# Maintainer: unmaintained
+# Packager:    Younes Hafri, ycrux at club-internet dot fr
+#
+# Depends on:  python, libgmp
+
+name=gmpy
+version=1.02
+release=2
+source=(http://gmpy.googlecode.com/files/$name-$version.zip)
+
+build () {
+	cd $name-$version
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}

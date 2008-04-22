@@ -1,0 +1,17 @@
+# Description: Python Bindings for Berkeley DB
+# URL:         http://pybsddb.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  db
+
+name=pybsddb
+version=4.5.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/bsddb3-$version.tar.gz)
+
+build() {
+	cd bsddb3-$version
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}

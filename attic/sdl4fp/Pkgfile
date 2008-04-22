@@ -1,0 +1,21 @@
+# Description: FPC Bindings for the SDL Library.
+# URL:         http://sdl4fp.sourceforge.net
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  fpc
+
+name=sdl4fp
+version=1.2.0.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/SDL4Freepascal-$version.tar.gz)
+
+build() {
+   cd SDL4Freepascal-$version
+
+   ./build.sh
+
+   mkdir -p $PKG/usr/lib/fpc/`fpc -iV`/units/linux/$name/
+   cp *.o *.ppu $PKG/usr/lib/fpc/`fpc -iV`/units/linux/$name/
+}
+

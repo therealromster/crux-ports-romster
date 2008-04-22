@@ -1,0 +1,22 @@
+# Description:	Python extension interfacing with libiw
+# URL:			http://www.emperorlinux.com/etc/contrib/?page=pyiw
+# Maintainer: unmaintained
+# Packager:		James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:	wireless-tools, python
+
+name=pyiw
+version=0.3.3
+release=1
+source=(http://downloads.emperorlinux.com/contrib/$name/$name-$version.tbz2)
+
+PYTHONVERSION=`python -c "import sys; print \"%s.%s\" % (sys.version_info[0], sys.version_info[1]);"`
+
+build() {
+	tar jxvf $name-$version.tbz2
+	cd $name-$version
+	sed -i -e "s/python2.4/python$PYTHONVERSION/g" Makefile
+	make
+	install -D -m 755 pyiw.so $PKG/usr/lib/python$PYTHONVERSION/site-packages/pyiw.so
+	chown -R root:root $PKG
+}

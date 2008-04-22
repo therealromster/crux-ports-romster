@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd $SRC/vmware-any-any-update110/
+./runme.pl
+chmod u+s /usr/lib/vmware/bin/vmware-vmx

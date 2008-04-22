@@ -1,0 +1,15 @@
+# Description: Bandwidth Monitor using Urwid.
+# URL:         http://excess.org/speedometer/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  urwid
+
+name=speedometer
+version=2.4
+release=1
+source=(http://excess.org/$name/$name.py)
+
+build() {
+   install -D -m755 -oroot -groot $name.py $PKG/usr/bin/$name
+}

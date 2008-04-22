@@ -1,0 +1,53 @@
+diff -pruN transfig.3.2.4-orig/fig2dev/Imakefile transfig.3.2.4/fig2dev/Imakefile
+--- transfig.3.2.4-orig/fig2dev/Imakefile	2002-12-20 03:33:44.000000000 +1000
++++ transfig.3.2.4/fig2dev/Imakefile	2005-08-25 03:27:12.000000000 +1000
+@@ -20,7 +20,7 @@ XCOMM ******
+ XCOMM You should point XFIGLIBDIR to the same directory you did when you compiled
+ XCOMM and installed xfig.
+ 
+-XFIGLIBDIR =	/usr/local/lib/X11/xfig
++XFIGLIBDIR =	/usr/share/xfig/Libraries/
+ 
+ XCOMM ******
+ XCOMM If your system has the strerror() function (doesn't have sys_errlist) then
+@@ -126,7 +126,7 @@ XCOMM Comment out the next line if you h
+ 
+ #ifdef I18N
+ I18N_DEFS = -DI18N 
+-FIG2DEV_LIBDIR = /usr/local/lib/fig2dev
++FIG2DEV_LIBDIR = /usr/lib/fig2dev
+ I18N_DEV_DEFS = $(I18N_DEFS) -DFIG2DEV_LIBDIR=\\\"$(FIG2DEV_LIBDIR)\\\"
+ 
+ install::
+diff -pruN transfig.3.2.4-orig/fig2dev/dev/gensvg.c transfig.3.2.4/fig2dev/dev/gensvg.c
+--- transfig.3.2.4-orig/fig2dev/dev/gensvg.c	2002-12-19 08:38:18.000000000 +1000
++++ transfig.3.2.4/fig2dev/dev/gensvg.c	2005-08-25 03:30:11.000000000 +1000
+@@ -692,7 +692,7 @@ gensvg_text (t)
+     if (t->angle != 0) {
+ 	fprintf (tfp, "<g transform=\"translate(%d,%d) rotate(%d)\" >\n",
+ 		 (int) (t->base_x * mag), (int) (t->base_y * mag), degrees (t->angle));
+-	fprintf (tfp, "<text x=\"0\" y=\"0\" fill=\"#%6.6x\"  font-family=\"%s\" 
++	fprintf (tfp, "<text x=\"0\" y=\"0\" fill=\"#%6.6x\"  font-family=\"%s\" \
+ 		 font-style=\"%s\" font-weight=\"%s\" font-size=\"%d\" text-anchor=\"%s\" >\n",
+ 		 rgbColorVal (t->color), family[(int) ceil ((t->font + 1) / 4)],
+ 		 (t->font % 2 == 0 ? "normal" : "italic"),
+@@ -700,7 +700,7 @@ gensvg_text (t)
+ 		 anchor[t->type]);
+     }
+     else
+-	fprintf (tfp, "<text x=\"%d\" y=\"%d\" fill=\"#%6.6x\"  font-family=\"%s\" 
++	fprintf (tfp, "<text x=\"%d\" y=\"%d\" fill=\"#%6.6x\"  font-family=\"%s\" \
+ 		 font-style=\"%s\" font-weight=\"%s\" font-size=\"%d\" text-anchor=\"%s\" >\n",
+ 		 (int) (t->base_x * mag), (int) (t->base_y * mag), rgbColorVal (t->color),
+ 		 family[(int) ceil ((t->font + 1) / 4)],
+diff -pruN transfig.3.2.4-orig/fig2dev/fig2dev.h transfig.3.2.4/fig2dev/fig2dev.h
+--- transfig.3.2.4-orig/fig2dev/fig2dev.h	2002-12-19 08:45:28.000000000 +1000
++++ transfig.3.2.4/fig2dev/fig2dev.h	2005-08-25 03:28:15.000000000 +1000
+@@ -22,7 +22,6 @@
+ #include <sys/file.h>
+ #include <signal.h>
+ #include <string.h>
+-#include <varargs.h>
+ #include <pwd.h>
+ #include <errno.h>
+ #include <time.h>

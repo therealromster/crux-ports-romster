@@ -1,0 +1,13 @@
+directory /etc/vmware
+file /etc/vmware/locations
+directory /etc/vmware/pam.d
+file /etc/vmware/pam.d/vmware-authd _TS_
+file /etc/vmware/signing-key.pub _TS_
+file /etc/vmware/installer.sh _TS_
+file /etc/vmware/not_configured _TS_
+answer BINDIR /usr/bin
+answer SBINDIR /usr/sbin
+answer LIBDIR /usr/lib/vmware
+answer INITDIR /etc/vmware/init.d
+answer INITSCRIPTSDIR /etc/vmware/init.d
+answer DOCDIR /usr/share/vmware/doc

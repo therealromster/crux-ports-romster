@@ -1,0 +1,32 @@
+# Description: System status server (rwho, rwhod).
+# URL:         http://www.hcs.harvard.edu/~dholland/computers/old-netkit.html
+# Packager:    James Mills <prologic@shortcircuit.net.au>
+# Maintainer: unmaintained
+#
+# Depends on:	
+
+name=netkit-rwho
+version=0.17
+release=2
+source=(ftp://ftp.uk.linux.org/pub/linux/Networking/netkit/$name-$version.tar.gz
+        $name-$version.diff
+        rwhod.rc)
+
+build() {
+	cd $name-$version
+
+	patch -p1 < $SRC/$name-$version.diff
+
+	./configure --prefix=$PKG/usr
+	sed -i "/^CFLAGS/s/-O2 -pipe/$CFLAGS/" Makefile
+		
+	install -d \
+		$PKG/usr/{bin,man/man1,man/man8,sbin} \
+		$PKG/var/spool/rwho
+
+	make && make prefix=$PKG/usr install
+	install -D -m755 $SRC/rwhod.rc $PKG/etc/rc.d/rwhod
+	chmod +x $PKG/etc/rc.d/rwhod
+	chown -R root:root $PKG
+}
+

@@ -1,0 +1,33 @@
+# $Id:
+
+REQUIREMENTS:
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+POST-INSTALL:
+
+Run the post-install script after installation, or
+Run /opt/vmware/bin/vmware-config.pl
+
+This will configure vmware and setup appropiate kernel modules.
+
+*** 2.6.x Linux Kernel ***
+
+If you are running a linux 2.6.x kernel please use
+the provided pathces found in "vmware-any-any-update105.tar.gz".
+
+1 Extract
+2. Run: runme.pl
+3. Run /opt/vmware/bin/vmware-config.pl
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+Remove the /etc/vmware/not_configured after configuring vmware.
+This file remains even after configuring it :)
+

@@ -1,0 +1,36 @@
+# Description: A comprehensive Free Software Prolog environment
+# URL:         http://www.swi-prolog.org/
+# Packager:    Younes Hafri <ycrux@club-internet.fr>
+# Maintainer: unmaintained
+#
+# Depends on:  x11, jdk
+
+name=swi-prolog
+version=5.6.12
+release=1
+source=(http://gollem.science.uva.nl/cgi-bin/nph-download/SWI-Prolog/pl-$version.tar.gz \
+   http://turing.ubishops.ca/home/bruda/emacs-prolog/prolog.el.gz)
+
+build () {
+   cd pl-$version/src
+
+   ./configure \
+      --prefix=/usr \
+      --enable-mt \
+      --with-world\
+      --enable-readline \
+      --enable-largefile
+
+   make && make prefix=$PKG/usr install
+   cd ../packages
+
+   ./configure \
+      --prefix=/usr \
+      --enable-mt \
+      --with-world\
+      --enable-readline \
+      --enable-largefile
+
+   make && make prefix=$PKG/usr install
+   chown -R root:root $PKG
+}

@@ -1,0 +1,17 @@
+# Description:	Python graphics package for PDF and PostScript creation.
+# URL:			http://pyx.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:		James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:	python, tetex
+
+name=pyx
+version=0.9
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/PyX-$version.tar.gz)
+
+build() {
+	cd PyX-$version
+	python setup.py install --root=$PKG
+	chown -R root:root $PKG
+}

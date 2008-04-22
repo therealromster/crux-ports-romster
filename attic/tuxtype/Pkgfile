@@ -1,0 +1,20 @@
+# Description: Tux Typing (game) for learning to type!
+# URL:         http://tuxtype.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  sdl_mixer, sdl_image, sdl_ttf
+
+name=tuxtype
+version=1.5.3
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/${name}2-$version.tar.bz2)
+
+build() {
+   cd $name\2-$version
+   ./configure --prefix=/usr
+   make && make DESTDIR=$PKG install
+   rm -rf $PKG/usr/doc
+   ln -sf /usr/bin/tuxtype2 $PKG/usr/bin/tuxtype
+   chown -R root:root $PKG
+}

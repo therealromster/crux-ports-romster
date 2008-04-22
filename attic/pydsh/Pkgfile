@@ -1,0 +1,30 @@
+# Description: Python Distributed Shell.
+# URL:         http://pydsh.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  pexpect
+
+name=pydsh
+version=0.5.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+
+   sed -i -e "s/python2.3/python/" SRC/pydsh.py
+   sed -i -e "s/use_pdb = \"yes\"/use_pdb = \"no\"/" SRC/pydsh.py
+   sed -i -e "s/allgroup_file = \"\\/usr\\/local\\/etc\\/pydsh\\/groups\\/all\"/allgroup_file = \"\\/etc\\/pydsh\\/groups\\/all\"/" SRC/pydsh.py
+
+   install -D -m755 SRC/pydsh.py $PKG/usr/bin/pydsh
+   ln -sf /usr/bin/pydsh $PKG/usr/bin/pydcp
+
+   install -D -m644 DOC/pydsh.8.gz $PKG/usr/man/man8/pydsh.8.gz
+   install -D -m644 DOC/pydsh.8.gz $PKG/usr/man/man8/pydcp.8.gz
+
+   mkdir -p $PKG/etc/pydsh/groups
+   echo "localhost" > $PKG/etc/pydsh/groups/all
+
+   chown -R root:root $PKG
+}

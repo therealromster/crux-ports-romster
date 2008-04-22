@@ -1,0 +1,18 @@
+# Description: Export your MythTV recordings into other formats.
+# URL:         https://svn.forevermore.net/nuvexport/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  ffmpeg, p5-dbd-mysql
+
+name=nuvexport
+version=0.4-0.20070211.svn
+release=1
+source=(http://forevermore.net/files/$name/$name-$version.tar.bz2)
+
+build() {
+   cd $name-0.4
+   make prefix=$PKG/usr install
+   install -D -m644 nuvexportrc $PKG/etc/nuvexportrc
+   chown -R root:root $PKG
+}

@@ -1,0 +1,17 @@
+# Description: Python Library to OpenSSH (ssh, scp).
+# URL:         http://pyssh.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  python
+
+name=pyssh
+version=0.3
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-source.tar.gz)
+
+build() {
+   cd $name
+   python setup.py install --root=$PKG
+   chown -R root:root $PKG
+}

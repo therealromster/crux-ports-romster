@@ -1,0 +1,39 @@
+# Description: The GNU Streaming MP3 / Media Server
+# URL:         http://www.gnump3d.org
+# Maintainer: unmaintained
+# Packager:    Olle Gustafsson, ogg at linux dot se
+#
+# Depends on:  perl
+
+name=gnump3d
+version=2.9.9.9
+release=1
+source=(http://savannah.gnu.org/download/$name/$name-$version.tar.bz2
+        gnump3d.rc)
+
+build () {
+	PERLLIBDIR=`perl $SRC/$name-$version/bin/getlibdir`
+	echo $PERLLIBDIR
+	cd $name-$version
+	mkdir -p $PKG/usr/lib/$name/plugins \
+		$PKG/usr/{bin,share/$name} \
+		$PKG/usr/man/man1 \
+		$PKG/var/log/$name \
+		$PKG/var/cache/{$name,$name/serving} \
+		$PKG/etc/$name \
+		$PKG/etc/rc.d \
+		$PKG/$PERLLIBDIR/{$name,$name/lang}
+	install -m 644 lib/$name/*.pm $PKG/$PERLLIBDIR/$name
+	install -m 644 lib/$name/plugins/*.pm $PKG/usr/lib/$name/plugins
+	install -m 644 lib/$name/lang/*.pm $PKG/$PERLLIBDIR/$name/lang
+	install -m 755 bin/* $PKG/usr/bin
+	install -m 644 man/* $PKG/usr/man/man1
+	install -m 644 etc/mime.types $PKG/etc/$name
+	cp -R templates/* $PKG/usr/share/$name
+	cd $PKG/usr/bin/ && ln -s gnump3d2 gnump3d
+	chmod 777 $PKG/var/cache/{$name,$name/serving}
+	sed "s#PLUGINDIR#/usr/lib#g" $SRC/$name-$version/etc/$name.conf > $PKG/etc/$name/$name.conf
+	touch $PKG/var/cache/gnump3d/song.tags
+	install -m 755 $SRC/gnump3d.rc $PKG/etc/rc.d/$name
+	chown -R root:root $PKG
+}

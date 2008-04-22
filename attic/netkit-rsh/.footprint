@@ -1,0 +1,24 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/rcp
+-rwxr-xr-x	root/root	usr/bin/rexec
+-rwxr-xr-x	root/root	usr/bin/rlogin
+-rwxr-xr-x	root/root	usr/bin/rsh
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/rcp.1.gz
+-rw-r--r--	root/root	usr/man/man1/rexec.1.gz
+-rw-r--r--	root/root	usr/man/man1/rlogin.1.gz
+-rw-r--r--	root/root	usr/man/man1/rsh.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/in.rexecd.8.gz
+-rw-r--r--	root/root	usr/man/man8/in.rlogind.8.gz
+-rw-r--r--	root/root	usr/man/man8/in.rshd.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/rexecd.8.gz -> in.rexecd.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/rlogind.8.gz -> in.rlogind.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/rshd.8.gz -> in.rshd.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/in.rexecd
+-rwxr-xr-x	root/root	usr/sbin/in.rlogind
+-rwxr-xr-x	root/root	usr/sbin/in.rshd

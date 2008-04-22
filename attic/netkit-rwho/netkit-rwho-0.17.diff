@@ -1,0 +1,1271 @@
+--- netkit-rwho-0.17.orig/rwho/Makefile
++++ netkit-rwho-0.17/rwho/Makefile
+@@ -3,8 +3,6 @@
+ include ../MCONFIG
+ include ../MRULES
+ 
+-CFLAGS += -I../include
+-
+ rwho: rwho.o
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+ 
+--- netkit-rwho-0.17.orig/ruptime/ruptime.c
++++ netkit-rwho-0.17/ruptime/ruptime.c
+@@ -212,7 +212,7 @@
+ 	static char resbuf[32];
+ 	int days, hours, minutes;
+ 
+-	if (tval < 0 || tval > 999*24*60*60) {
++	if (tval < 0) {
+ 		(void)snprintf(resbuf, sizeof(resbuf), "%s     ??:??", updown);
+ 		return(resbuf);
+ 	}
+@@ -220,10 +220,10 @@
+ 	hours = minutes / 60; minutes %= 60;
+ 	days = hours / 24; hours %= 24;
+ 	if (days)
+-		(void)snprintf(resbuf, sizeof(resbuf), "%s %3d+%02d:%02d",
++		(void)snprintf(resbuf, sizeof(resbuf), "%s %4d+%02d:%02d",
+ 		    updown, days, hours, minutes);
+ 	else
+-		(void)snprintf(resbuf, sizeof(resbuf), "%s     %2d:%02d",
++		(void)snprintf(resbuf, sizeof(resbuf), "%s      %2d:%02d",
+ 		    updown, hours, minutes);
+ 	return(resbuf);
+ }
+--- netkit-rwho-0.17.orig/rwhod/Makefile
++++ netkit-rwho-0.17/rwhod/Makefile
+@@ -3,8 +3,11 @@
+ include ../MCONFIG
+ include ../MRULES
+ 
+-CFLAGS += -I../include
+-OBJS = rwhod.o daemon.o
++ifneq ($(USE_GLIBC),1)
++CFLAGS += -D_GNU_SOURCE
++endif
++
++OBJS = rwhod.o
+ 
+ rwhod: $(OBJS)
+ 	$(CC) $(LDFLAGS) $^ $(LIBS) -o $@
+--- netkit-rwho-0.17.orig/rwhod/rwhod.8
++++ netkit-rwho-0.17/rwhod/rwhod.8
+@@ -32,7 +32,10 @@
+ .\"     from: @(#)rwhod.8	6.5 (Berkeley) 3/16/91
+ .\"	$Id: rwhod.8,v 1.16 2000/07/30 23:57:06 dholland Exp $
+ .\"
+-.Dd May 13, 1997
++.\" Modified by Philippe Troin <phil@fifi.org>: added interface
++.\" options and forwarding.
++
++.Dd March 10, 1999
+ .Dt RWHOD 8
+ .Os "Linux NetKit (0.17)"
+ .Sh NAME
+@@ -40,7 +43,8 @@
+ .Nd system status server
+ .Sh SYNOPSIS
+ .Nm rwhod
+-.Op Fl bpa
++.Op Fl bpaf
++.Op -i <if>...
+ .Op Fl u Ar user
+ .Sh DESCRIPTION
+ .Nm Rwhod
+@@ -67,22 +71,6 @@
+ in the ``rwho'' service specification; see 
+ .Xr services 5 . 
+ .Pp
+-If the
+-.Fl b
+-flag is supplied, only broadcast interfaces, such as ethernets, will
+-be used.  
+-If the
+-.Fl p
+-flag is supplied, only point-to-point interfaces will be used. If the
+-.Fl a
+-flag is supplied, or no flags are supplied, all interfaces will be
+-used.
+-.Pp
+-If the
+-.Fl u
+-flag is supplied, rwhod will run as the specified user instead of as
+-root.
+-.Pp
+ The messages sent and received, are of the form:
+ .Bd -literal -offset indent
+ struct	outmp {
+@@ -145,16 +133,78 @@
+ .Nm Rwhod
+ recomputes the system boot time every 30 minutes because on
+ some (non-Linux) systems it is not a totally reliable process.
++.Sh FLAGS
++If the
++.Fl b
++flag is supplied, only broadcast interfaces, such as ethernets, will
++be used.  
++If the
++.Fl p
++flag is supplied, only point-to-point interfaces will be used. If the
++.Fl a
++flag is supplied, or no flags are supplied, all interfaces will be
++used.
++.Pp
++Alternately, you may specify interfaces by name by providing one or
++more
++.Fl i
++options followed by the interface name.
++.Pp
++If the
++.Fl u
++flag is supplied, rwhod will run as the specified user instead of as
++root.
++.Pp
++.Nm Rwhod
++can also forward packets between interfaces if started with
++.Fl f.
++Please read the
++.Xr CAVEATS
++section before enabling
++.Xr rwhod
++forwarding.
++.Sh CAVEATS
++While 
++.Xr rwhod
++listens on any interface present on the host, it will only send (or
++forward) to the interfaces determined by the 
++.Fl a b p i
++flags.
++.Pp
++When operating in forwarding mode (with
++.Fl f
++), 
++.Xr rwhod
++forwards all correct rwhod packets received on an interface to all the
++other interfaces. You can create a broadcast storm if there is a
++loop in your network and all the routers in the loop run in forwarding
++mode. To prevent this from happenning,
++.Xr rwhod
++will shut down forwarding (and log the event to the syslog) if more
++than one 
++.Xr rwhod
++packet is forwarded per second on average over the last three
++minutes. If this happens, you must break the loop of forwarding routers.
+ .Sh SEE ALSO
+ .Xr rwho 1 ,
+ .Xr ruptime 1
+ .Sh BUGS
+-There should be a way to relay status information between networks. 
++Some kind of proxying feature might be useful if your router doesn't
++run
++.Xr rwhod.
++.Pp
+ People often interpret the server dying
+-or network communtication failures
++or network communication failures
+ as a machine going down.
++.Pp
++.Xr Rwhod
++doesn't refresh its interface list, which might be useful when using
++.Fl a b p.
+ .Sh HISTORY
+ The
+ .Nm
+ command appeared in
+ .Bx 4.2 .
++.Pp
++Philippe Troin <phil@fifi.org> implemented forwarding and interface
++selection flags.
+--- netkit-rwho-0.17.orig/rwhod/rwhod.c
++++ netkit-rwho-0.17/rwhod/rwhod.c
+@@ -29,6 +29,10 @@
+  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  * SUCH DAMAGE.
++
++ * Modified by Philippe Troin <phil@fifi.org> (added options & implemented 
++ * them.
++
+  */
+ 
+ char copyright[] =
+@@ -47,6 +51,7 @@
+ #include <signal.h>
+ #include <sys/ioctl.h>
+ #include <sys/file.h>
++#include <sys/types.h>
+ 
+ #include <net/if.h>
+ #include <netinet/in.h>
+@@ -69,11 +74,13 @@
+ #include <arpa/inet.h>
+ #include <pwd.h>
+ #include <grp.h>
+-
+-#include "daemon.h"
++#include <time.h>
++#include <stdint.h>
+ 
+ #include "../version.h"
+ 
++typedef struct sockaddr_in SA;
++
+ #define ENDIAN	LITTLE_ENDIAN
+ 
+ /*
+@@ -95,7 +102,16 @@
+ static void	broadcaster(void);
+ static int	configure(int s);
+ static int	verify(const char *name);
++#if __GLIBC__ < 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ < 2)
+ static int	getloadavg(double ptr[3], int n);
++#endif
++
++/* This is the list of interface we want to listen on */
++struct wanted_neigh {
++	struct wanted_neigh *w_next;
++  	char                *w_ifname;
++  	enum { W_USED_NOT, W_USED_ONCE, W_USED_MULTI } w_used;
++};
+ 
+ /*
+  * We communicate with each neighbor in
+@@ -103,21 +119,30 @@
+  * started up.  Neighbors are currently
+  * directly connected via a hardware interface.
+  */
+-struct	neighbor {
++struct neighbor {
+ 	struct	neighbor *n_next;
+ 	char	*n_name;		/* interface name */
+-	char	*n_addr;		/* who to send to */
++	SA	*n_myaddr;              /* My address on this i/f */
++  	SA	*n_mask;                /* Netmask on this i/f */
++	SA	*n_dstaddr;		/* who to send to */
+ 	int	n_addrlen;		/* size of address */
+ 	int	n_flags;		/* should forward?, interface flags */
+ };
+ 
++static struct wanted_neigh *wanted_neigh;
+ static struct neighbor *neighbors;
+ static struct servent *sp;
+ static int sk;
+-static int use_pointopoint = 0;
+-static int use_broadcast = 0;
++static int use_pointopoint;
++static int use_broadcast;
+ static int need_init = 1;
+-static int child_pid = 0;
++static int child_pid;
++static int use_forwarding;
++static int forwarded_packets;
++
++/* Max number of packets to forward between each alarm() tick.
++   If this number is exceeded, then the forwarding is switched off. */
++#define MAX_FWD_PACKETS (AL_INTERVAL)
+ 
+ #define WHDRSIZE	(((caddr_t) &((struct whod *) 0)->wd_we) \
+ 			- ((caddr_t) 0))
+@@ -126,24 +151,48 @@
+ static void termhandler(int);
+ static void sendpacket(struct whod *);
+ static void getboottime(struct whod *);
++static void forward(const SA *, const struct whod *, int cc);
++static void usage(void);
+ 
+ int
+ main(int argc, char *argv[])
+ {
++  	struct wanted_neigh *wn;
++	int wn_dup;
+ 	struct sockaddr_in from;
+-	struct passwd *pw = 0;
++	struct passwd *pw;
+ 	struct stat st;
+ 	char path[64];
+-	char *user = NULL;
++	char *user = "rwhod";
+ 	int on = 1;
+ 	int opt;
++	time_t before;
+ 
+ 	if (getuid()) {
+ 		fprintf(stderr, "rwhod: not super user\n");
++	}
++	openlog("rwhod", LOG_PID, LOG_DAEMON);
++	sp = getservbyname("who", "udp");
++	if (sp == 0) {
++		fprintf(stderr, "rwhod: udp/who: unknown service\n");
++		exit(1);
++	}
++	if ((sk = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
++		syslog(LOG_ERR, "socket: %m");
++		exit(1);
++	}
++	if (setsockopt(sk, SOL_SOCKET, SO_BROADCAST, &on, sizeof (on)) < 0) {
++		syslog(LOG_ERR, "setsockopt SO_BROADCAST: %m");
++		exit(1);
++	}
++	sine.sin_family = AF_INET;
++	sine.sin_port = sp->s_port;
++	if (bind(sk, (struct sockaddr *)&sine, sizeof(sine)) < 0) {
++		syslog(LOG_ERR, "bind: %m");
+ 		exit(1);
+ 	}
+ 
+-	while ((opt = getopt(argc, argv, "bpau:")) != EOF) {
++	while ((opt = getopt(argc, argv, "bpai:fu:")) != EOF) {
+ 	    switch (opt) {
+ 	      case 'b':
+ 		  use_broadcast = 1;
+@@ -155,31 +204,60 @@
+ 		  use_broadcast = 1;
+ 		  use_pointopoint = 1;
+ 		  break;
++	      case 'f':
++		  use_forwarding = 1;
++		  break;
++	      case 'i':
++		  wn_dup = 0;
++		  for (wn = wanted_neigh; wn; wn = wn->w_next) {
++			if (strcmp(wn->w_ifname, optarg)== 0) {
++				wn_dup = 1;
++				break;
++			}
++		  }
++		  if (wn_dup) {
++			fprintf(stderr, "rwhod: warning: "
++				"duplicate interface %s in arguments\n",
++				optarg);
++		  } else {
++			wn = malloc(sizeof(struct wanted_neigh));
++			if (wn == NULL) {
++				fprintf(stderr, "rwhod: out of memory\n");
++				exit(2);
++			}
++			wn->w_next = wanted_neigh;
++			wn->w_ifname = malloc(strlen(optarg)+1);
++			wn->w_used = W_USED_NOT;
++			if (wn->w_ifname == NULL) {
++				fprintf(stderr, "rwhod: out of memory\n");
++				exit(2);
++			}
++			strcpy(wn->w_ifname, optarg);
++			wanted_neigh = wn;
++		  }
++		  break;
+ 	      case 'u':
+ 	      	  user = optarg;
+ 		  break;
+ 	      case '?':
+ 	      default:
+-		  fprintf(stderr, "usage: rwhod [-bpa] [-u user]\n");
+-		  exit(1);
+-		  break;
++		  usage();
+ 	    }
+ 	}
+ 	if (optind<argc) {
+-	    fprintf(stderr, "usage: rwhod [-bpa] [-u user]\n");
+-	    exit(1);
++		usage();
+ 	}
+-	if (!use_pointopoint && !use_broadcast) {
++	if (!use_pointopoint && !use_broadcast && !wanted_neigh) {
+ 		/* use none is nonsensical; default to all */
+ 		use_pointopoint = 1;
+ 		use_broadcast = 1;
+ 	}
+-	
+-	sp = getservbyname("who", "udp");
+-	if (sp == 0) {
+-		fprintf(stderr, "rwhod: udp/who: unknown service\n");
++	if ((use_pointopoint || use_broadcast) && wanted_neigh) {
++		fprintf(stderr, "rwhod: cannot specify both -i and one of -b "
++			"-p -a\n");
+ 		exit(1);
+ 	}
++
+ #ifndef DEBUG
+ 	daemon(1, 0);
+ #endif
+@@ -189,53 +267,20 @@
+ 		exit(1);
+ 	}
+ 	(void) signal(SIGHUP, huphandler);
+-	openlog("rwhod", LOG_PID, LOG_DAEMON);
+-
+-	if ((sk = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+-		syslog(LOG_ERR, "socket: %m");
+-		exit(1);
+-	}
+-	if (setsockopt(sk, SOL_SOCKET, SO_BROADCAST, &on, sizeof (on)) < 0) {
+-		syslog(LOG_ERR, "setsockopt SO_BROADCAST: %m");
+-		exit(1);
+-	}
+-	sine.sin_family = AF_INET;
+-	sine.sin_port = sp->s_port;
+-	if (bind(sk, (struct sockaddr *)&sine, sizeof(sine)) < 0) {
+-		syslog(LOG_ERR, "bind: %m");
+-		exit(1);
+-	}
+ 
+ 	(void) umask(022);
+ 
+ 	signal(SIGTERM, termhandler);
+-	child_pid = fork();
+-	if (child_pid < 0) {
+-		syslog(LOG_ERR, "fork: %m");
+-		exit(1);
+-	}
+-	if (child_pid == 0) {
+-		broadcaster();
+-		exit(0);
+-	}
+ 
+ 	/* We have to drop privs in two steps--first get the
+ 	 * account info, then drop privs after chroot */
+-	if (user && (pw = getpwnam(user)) == NULL) {
++	if ((pw = getpwnam(user)) == NULL) {
+ 		syslog(LOG_ERR, "unknown user: %s", user);
+ 		exit(1);
+ 	}
+ 
+-	/* Chroot to the spool directory
+-	 * (note this is already our $cwd) */
+-	if (chroot(_PATH_RWHODIR) < 0) {
+-		syslog(LOG_ERR, "chroot(%s): %m", _PATH_RWHODIR);
+-		kill(child_pid, SIGTERM);
+-		exit(1);
+-	}
+-
+ 	/* Now drop privs */
+-	if (pw) {
++	if (pw->pw_uid) {
+ 		if (setgroups(1, &pw->pw_gid) < 0
+ 		 || setgid(pw->pw_gid) < 0
+ 		 || setuid(pw->pw_uid) < 0) {
+@@ -244,10 +289,28 @@
+ 		}
+ 	}
+ 
++	if (!configure(sk))
++		exit(1);
++
++	child_pid = fork();
++	if (child_pid < 0) {
++		syslog(LOG_ERR, "fork: %m");
++		exit(1);
++	}
++	if (child_pid == 0) {
++		broadcaster();
++		exit(0);
++	}
++
++	before = 0;
+ 	for (;;) {
+ 		struct whod wd;
+ 		int cc, whod;
++#ifdef __GLIBC__
++		socklen_t len = sizeof(from);
++#else
+ 		size_t len = sizeof(from);
++#endif
+ 
+ 		memset(&wd, 0, sizeof(wd));
+ 		cc = recvfrom(sk, (char *)&wd, sizeof(struct whod), 0,
+@@ -257,6 +320,8 @@
+ 				syslog(LOG_WARNING, "recv: %m");
+ 			continue;
+ 		}
++		if (cc < WHDRSIZE)
++			continue;
+ 		if (from.sin_port != sp->s_port) {
+ 			syslog(LOG_WARNING, "%d: bad from port",
+ 				ntohs(from.sin_port));
+@@ -266,14 +331,24 @@
+ 			continue;
+ 		if (wd.wd_type != WHODTYPE_STATUS)
+ 			continue;
++
++		if (use_forwarding) {
++			time_t now = time(NULL);
++			if ((uintmax_t) (now - before) >= AL_INTERVAL) {
++				before = now;
++				forwarded_packets = 0;
++			}
++			forward(&from, &wd, cc);
++		}
++
+ 		/* 
+ 		 * Ensure null termination of the name within the packet.
+ 		 * Otherwise we might overflow or read past the end.
+ 		 */
+ 		wd.wd_hostname[sizeof(wd.wd_hostname)-1] = 0;
+ 		if (!verify(wd.wd_hostname)) {
+-			syslog(LOG_WARNING, "malformed host name from %x",
+-				from.sin_addr);
++			syslog(LOG_WARNING, "malformed host name from %s",
++				inet_ntoa(from.sin_addr));
+ 			continue;
+ 		}
+ 		snprintf(path, sizeof(path), "whod.%s", wd.wd_hostname);
+@@ -306,7 +381,7 @@
+ 		}
+ #endif
+ 		wd.wd_recvtime = time(NULL);
+-		write(whod, (char *)&wd, cc);
++		write(whod, &wd, cc);
+ 		if (fstat(whod, &st) < 0 || st.st_size > cc)
+ 			ftruncate(whod, cc);
+ 		(void) close(whod);
+@@ -345,9 +420,6 @@
+ 	size_t		mynamelen;
+ 	struct whod	mywd;
+ 
+-	if (!configure(sk))
+-		exit(1);
+-
+ 	/*
+ 	 * Establish host name as returned by system.
+ 	 */
+@@ -357,7 +429,7 @@
+ 	}
+ 	if ((cp = index(myname, '.')) != NULL)
+ 		*cp = '\0';
+-	mynamelen = strlen(myname);
++	mynamelen = strlen(myname) + 1;
+ 	if (mynamelen > sizeof(mywd.wd_hostname)) 
+ 		mynamelen = sizeof(mywd.wd_hostname);
+ 	strncpy(mywd.wd_hostname, myname, mynamelen);
+@@ -448,7 +520,9 @@
+ 	}
+ 	we = wd->wd_we;
+ 	for (i = 0; i < nutmps; i++) {
+-		if (stat(we->we_utmp.out_line, &stb) >= 0)
++		const char *p = we->we_utmp.out_line;
++
++		if (!strchr(p, ':') && stat(p, &stb) >= 0)
+ 			we->we_idle = htonl(now - stb.st_atime);
+ 		we++;
+ 	}
+@@ -460,10 +534,10 @@
+ 	wd->wd_vers = WHODVERSION;
+ 	wd->wd_type = WHODTYPE_STATUS;
+ 	for (np = neighbors; np != NULL; np = np->n_next) {
+-		if (sendto(sk, (char *)wd, cc, 0,
+-			   (struct sockaddr *) np->n_addr, np->n_addrlen) < 0) 
++		if (sendto(sk, wd, cc, 0,
++			   (struct sockaddr *) np->n_dstaddr, np->n_addrlen) < 0) 
+ 		  syslog(LOG_ERR, "sendto(%s): %m",
+-			 inet_ntoa(((struct sockaddr_in *)np->n_addr)->sin_addr));
++			 inet_ntoa(np->n_dstaddr->sin_addr));
+ 	}
+ 
+ 	if (nutmps && chdir(_PATH_RWHODIR)) {
+@@ -472,6 +546,7 @@
+ 	}
+ }
+ 
++#if __GLIBC__ < 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ < 2)
+ /*
+  * Taken from:
+  *
+@@ -518,6 +593,7 @@
+ 	fclose(fp);
+ 	return 0;
+ }
++#endif	/* __GLIBC__ < 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ < 2) */
+ 
+ 
+ void
+@@ -566,7 +642,7 @@
+ 		exit(1);
+ 	}
+ 	(void) lseek(kmemf, (long)nl[NL_BOOTTIME].n_value, L_SET);
+-	(void) read(kmemf, (char *)&wd->wd_boottime,
++	(void) read(kmemf, &wd->wd_boottime,
+ 	    sizeof (wd->wd_boottime));
+ 	wd->wd_boottime = htonl(wd->wd_boottime);
+ #endif
+@@ -584,10 +660,11 @@
+ 	struct ifreq ifreq, *ifr;
+ 	struct sockaddr_in *sn;
+ 	register struct neighbor *np;
++	struct wanted_neigh *wn;
+ 
+ 	ifc.ifc_len = sizeof (buf);
+ 	ifc.ifc_buf = buf;
+-	if (ioctl(s, SIOCGIFCONF, (char *)&ifc) < 0) {
++	if (ioctl(s, SIOCGIFCONF, &ifc) < 0) {
+ 		syslog(LOG_ERR, "ioctl (get interface configuration)");
+ 		return (0);
+ 	}
+@@ -600,7 +677,11 @@
+ #endif
+ 	cplim = buf + ifc.ifc_len; /*skip over if's with big ifr_addr's */
+ 	for (cp = buf; cp < cplim;
++#ifdef linux
++			cp += sizeof(struct ifreq)) {
++#else
+ 			cp += sizeof (ifr->ifr_name) + size(ifr->ifr_addr)) {
++#endif
+ 		ifr = (struct ifreq *)cp;
+ 		for (np = neighbors; np != NULL; np = np->n_next)
+ 			if (np->n_name &&
+@@ -614,63 +695,170 @@
+ 			continue;
+ 		np->n_name = malloc(strlen(ifr->ifr_name) + 1);
+ 		if (np->n_name == NULL) {
+-			free((char *)np);
++			free(np);
+ 			continue;
+ 		}
+ 		strcpy(np->n_name, ifr->ifr_name);
+ 		np->n_addrlen = sizeof (ifr->ifr_addr);
+-		np->n_addr = malloc(np->n_addrlen);
+-		if (np->n_addr == NULL) {
++
++		np->n_dstaddr = malloc(np->n_addrlen);
++		if (np->n_dstaddr == NULL) {
++			free(np->n_name);
++			free(np);
++			continue;
++		}
++		bzero(np->n_dstaddr, np->n_addrlen);
++
++		np->n_myaddr = malloc(np->n_addrlen);
++		if (np->n_myaddr == NULL) {
++		        free(np->n_dstaddr);
+ 			free(np->n_name);
+-			free((char *)np);
++			free(np);
+ 			continue;
+ 		}
+-		bcopy((char *)&ifr->ifr_addr, np->n_addr, np->n_addrlen);
+-		if (ioctl(s, SIOCGIFFLAGS, (char *)&ifreq) < 0) {
++		bzero(np->n_myaddr, np->n_addrlen);
++
++		np->n_mask = malloc(np->n_addrlen);
++		if (np->n_mask == NULL) {
++		        free(np->n_myaddr);
++		        free(np->n_dstaddr);
++			free(np->n_name);
++			free(np);
++			continue;
++		}
++		bzero(np->n_mask, np->n_addrlen);
++
++		/* Initialize both my address and destination address by
++		   the interface address. The destination address will be
++		   overwritten when the interface has IFF_BROADCAST or
++		   IFF_POINTOPOINT. */
++		bcopy(&ifr->ifr_addr, np->n_dstaddr, np->n_addrlen);
++		bcopy(&ifr->ifr_addr, np->n_myaddr, np->n_addrlen);
++
++		if (ioctl(s, SIOCGIFFLAGS, &ifreq) < 0) {
+ 			syslog(LOG_ERR, "ioctl (get interface flags)");
+-			free((char *)np);
++		        free(np->n_myaddr);
++		        free(np->n_dstaddr);
++			free(np->n_name);
++			free(np);
+ 			continue;
+ 		}
+ 		if ((ifreq.ifr_flags & IFF_UP) == 0 ||
+-		    (ifreq.ifr_flags & (IFF_BROADCAST|IFF_POINTOPOINT)) == 0) {
+-			free((char *)np);
++		    (ifreq.ifr_flags & (IFF_BROADCAST|IFF_POINTOPOINT)) == 0 ||
++		    (ifreq.ifr_flags & IFF_LOOPBACK) != 0) {
++		        free(np->n_myaddr);
++		        free(np->n_dstaddr);
++			free(np->n_name);
++			free(np);
+ 			continue;
+ 		}
++		if (wanted_neigh) {
++			int found = 0;
++			for (wn = wanted_neigh; wn; wn = wn->w_next)
++				if (strcmp(wn->w_ifname, ifreq.ifr_name)==0) {
++					found = 1;
++					break;
++				}
++			if (!found) {
++				free(np->n_mask);
++				free(np->n_myaddr);
++				free(np->n_dstaddr);
++				free(np->n_name);
++				free(np);
++				continue;
++			}
++			switch (wn->w_used) {
++			  case W_USED_NOT:
++			      wn->w_used = W_USED_ONCE;
++			      break;
++			  case W_USED_ONCE:
++			      syslog(LOG_ERR, 
++				     "specified interface %s more than once",
++				     wn->w_ifname);
++			      wn->w_used = W_USED_MULTI;
++			      break;
++			  case W_USED_MULTI:
++			      /* oh well... don't tell again... */
++			      break;
++			  default:
++			      syslog(LOG_CRIT, "w_used=%d on %s", 
++				     wn->w_used, wn->w_ifname);
++			      abort();
++			}
++		}
+ 		np->n_flags = ifreq.ifr_flags;
+ 		if (np->n_flags & IFF_POINTOPOINT) {
+-			if (ioctl(s, SIOCGIFDSTADDR, (char *)&ifreq) < 0) {
++			if (ioctl(s, SIOCGIFDSTADDR, &ifreq) < 0) {
+ 				syslog(LOG_ERR, "ioctl (get dstaddr)");
++				free(np->n_mask);
++				free(np->n_myaddr);
++				free(np->n_dstaddr);
++				free(np->n_name);
+ 				free(np);
+ 				continue;
+ 			}
+-			if (!use_pointopoint) {
++			if (!wanted_neigh && !use_pointopoint) {
++			        free(np->n_mask);
++			        free(np->n_myaddr);
++				free(np->n_dstaddr);
++				free(np->n_name);
+ 				free(np);
+ 				continue;
+ 			}
+ 			/* we assume addresses are all the same size */
+-			bcopy((char *)&ifreq.ifr_dstaddr,
+-			  np->n_addr, np->n_addrlen);
++			bcopy(&ifreq.ifr_dstaddr, np->n_dstaddr, np->n_addrlen);
+ 		}
+ 		if (np->n_flags & IFF_BROADCAST) {
+-			if (ioctl(s, SIOCGIFBRDADDR, (char *)&ifreq) < 0) {
++			if (ioctl(s, SIOCGIFBRDADDR, &ifreq) < 0) {
+ 				syslog(LOG_ERR, "ioctl (get broadaddr)");
++				free(np->n_mask);
++		                free(np->n_myaddr);
++				free(np->n_dstaddr);
++				free(np->n_name);
+ 				free(np);
+ 				continue;
+ 			}
+-			if (!use_broadcast) {
++			if (!wanted_neigh && !use_broadcast) {
++			        free(np->n_mask);
++		                free(np->n_myaddr);
++				free(np->n_dstaddr);
++				free(np->n_name);
+ 				free(np);
+ 				continue;
+ 			}
+ 			/* we assume addresses are all the same size */
+-			bcopy((char *)&ifreq.ifr_broadaddr,
+-			  np->n_addr, np->n_addrlen);
++			bcopy(&ifreq.ifr_broadaddr, np->n_dstaddr, np->n_addrlen);
++
++			/* Get netmask */
++			if (ioctl(s, SIOCGIFNETMASK, &ifreq) < 0) {
++				syslog(LOG_ERR, "ioctl (get netmask)");
++				free(np->n_mask);
++		                free(np->n_myaddr);
++				free(np->n_dstaddr);
++				free(np->n_name);
++				free(np);
++				continue;
++			}
++			bcopy((char*)&ifreq.ifr_netmask,
++			      np->n_mask, np->n_addrlen);
+ 		}
+ 		/* gag, wish we could get rid of Internet dependencies */
+-		sn = (struct sockaddr_in *)np->n_addr;
++		sn = (SA *)np->n_dstaddr;
+ 		sn->sin_port = sp->s_port;
+ 		np->n_next = neighbors;
+ 		neighbors = np;
+ 	}
++
++	/* Check for unfound i/f */
++	for (wn = wanted_neigh; wn; wn = wn->w_next)
++		if (wn->w_used == W_USED_NOT)
++			syslog(LOG_WARNING, "didn't find interface %s",
++			       wn->w_ifname);
++
++	/* Dump out used i/f */
++	for (np = neighbors; np; np = np->n_next)
++		syslog(LOG_INFO, "sending on interface %s", np->n_name);
++
+ 	return (1);
+ }
+ 
+@@ -692,7 +880,7 @@
+ {
+ 	register struct whod *w = (struct whod *)buf;
+ 	register struct whoent *we;
+-	struct sockaddr_in *sn = (struct sockaddr_in *)to;
++	struct sockaddr_in *sn = (SA *)to;
+ 	char *interval();
+ 
+ 	printf("sendto %x.%d\n", ntohl(sn->sin_addr.s_addr), ntohs(sn->sin_port));
+@@ -746,3 +934,63 @@
+ 	return (resbuf);
+ }
+ #endif
++
++/* Eventually forward the packet */
++static void
++forward(const SA *from, const struct whod *wd, int cc)
++{
++	struct neighbor *np;
++	int looped_back = 0;
++
++	/* Scan to see if the packet was sent by us */
++	for (np = neighbors; np != NULL; np = np->n_next) 
++		if (from->sin_addr.s_addr ==
++		    np->n_myaddr->sin_addr.s_addr) {
++			looped_back = 1;
++			break;
++		}
++
++	if (!looped_back) {
++		sigset_t saved_set;
++		sigset_t mask_set;
++
++		sigemptyset(&mask_set);
++		sigaddset(&mask_set, SIGALRM);
++		sigprocmask(SIG_BLOCK, &mask_set, &saved_set);
++
++		if (++forwarded_packets > MAX_FWD_PACKETS) {
++			syslog(LOG_ERR, "too many forward requests, "
++					"disabling forwarding");
++			use_forwarding = 0;
++		}
++
++		sigprocmask(SIG_SETMASK, &saved_set, NULL);
++
++		/* Re-broadcast packet on all interfaces... */
++		for (np = neighbors; np != NULL; np = np->n_next) {
++			/* .. but do not rebroadcast on the incoming interface */
++			if (((np->n_flags & IFF_BROADCAST) &&
++			     (from->sin_addr.s_addr &
++			      np->n_mask->sin_addr.s_addr) !=
++			     (np->n_myaddr->sin_addr.s_addr &
++			      np->n_mask->sin_addr.s_addr)) ||
++			    ((np->n_flags & IFF_POINTOPOINT) &&
++			     (from->sin_addr.s_addr) !=
++			      np->n_dstaddr->sin_addr.s_addr)) {
++				if (sendto(sk, wd, cc, 0,
++					   (struct sockaddr *)np->n_dstaddr, 
++					   np->n_addrlen) < 0)
++					syslog(LOG_ERR,
++					       "forwarding sendto(%s): %m",
++					       inet_ntoa(np->n_dstaddr->sin_addr));
++			}
++		}
++	}
++}
++
++static void
++usage()
++{
++	fprintf(stderr, "usage: rwhod [-bpaf] [-i <ifname>] [-u user]...\n");
++	exit(1);
++}
+--- netkit-rwho-0.17.orig/debian/changelog
++++ netkit-rwho-0.17/debian/changelog
+@@ -0,0 +1,122 @@
++netkit-rwho (0.17-8) unstable; urgency=high
++
++  * Security: Check for the packet size to fix denial of service 
++    [rwhod/rwhod.c, CAN-2004-1180]. Set urgency to high due to this.
++    Thanks Martin 'Joey' Schulze for the patch.
++  * Changed maintainer email address.
++
++ -- Alberto Gonzalez Iniesta <agi@inittab.org>  Fri, 11 Feb 2005 12:39:18 +0100
++
++netkit-rwho (0.17-7) unstable; urgency=low
++
++  * New Maintainer. (Closes: #249713)
++  * Added versioned Build-Depends on debhelper.
++  * Bumped Standards-Version to 3.6.1, no change.
++
++ -- Alberto Gonzalez Iniesta <agi@agi.as>  Wed, 19 May 2004 16:34:35 +0200
++
++netkit-rwho (0.17-6) unstable; urgency=low
++
++  * Fixed resetting of forwarded_packets counter.
++
++ -- Herbert Xu <herbert@debian.org>  Sun, 27 Oct 2002 21:16:49 +1100
++
++netkit-rwho (0.17-5) unstable; urgency=low
++
++  * Call configure before forking to fix forwarding (Jerome Petazzoni).
++
++ -- Herbert Xu <herbert@debian.org>  Sun,  1 Sep 2002 09:10:51 +1000
++
++netkit-rwho (0.17-4) unstable; urgency=low
++
++  * Clean up old rwho files (Philippe Troin, closes: #114337).
++
++ -- Herbert Xu <herbert@debian.org>  Sat,  6 Oct 2001 12:07:44 +1000
++
++netkit-rwho (0.17-3) unstable; urgency=low
++
++  * Don't stat tty devices with colons in it (closes: #95788).
++
++ -- Herbert Xu <herbert@debian.org>  Thu,  3 May 2001 19:27:57 +1000
++
++netkit-rwho (0.17-2) unstable; urgency=low
++
++  * Fixed pointless PREREQ check that caused the arm build to fail.
++
++ -- Herbert Xu <herbert@debian.org>  Sat, 17 Feb 2001 22:16:14 +1100
++
++netkit-rwho (0.17-1) unstable; urgency=low
++
++  * New upstream release.
++  * Turned chroot off since it stops logging.
++  * Fixed null termination bug with wd_hostname.
++  * Print numbers-and-dots instead of raw IP address (Peter Maydell,
++    closes: #77272).
++
++ -- Herbert Xu <herbert@debian.org>  Sun, 19 Nov 2000 19:06:59 +1100
++
++netkit-rwho (0.16-1) unstable; urgency=low
++
++  * New upstream release.
++  * Merged ruptime into the rwho package.
++  * Run rwhod with -b by default (closes: #59981).
++
++ -- Herbert Xu <herbert@debian.org>  Tue, 18 Jul 2000 22:23:23 +1000
++
++netkit-rwho (0.10-8) frozen unstable; urgency=low
++
++  * Fixed a typo in the init script that stopped rwhod from being restarted
++    (closes: #51375, #59283, #59363).
++
++ -- Herbert Xu <herbert@debian.org>  Wed,  8 Mar 2000 15:26:32 +1100
++
++netkit-rwho (0.10-7) unstable; urgency=low
++
++  * Modified init.d script so that rwhod is only started if it isn't already
++    running (closes: #50488).
++
++ -- Herbert Xu <herbert@debian.org>  Thu, 18 Nov 1999 14:13:28 +1100
++
++netkit-rwho (0.10-6) unstable; urgency=low
++
++  * Added a check for the existence of /usr/sbin/rwhod before trying to stop it
++    (closes: #50186).
++
++ -- Herbert Xu <herbert@debian.org>  Mon, 15 Nov 1999 09:31:44 +1100
++
++netkit-rwho (0.10-5) unstable; urgency=low
++
++  * Always create /var/spool/rwho in postinst (closes: #50070).
++
++ -- Herbert Xu <herbert@debian.org>  Sat, 13 Nov 1999 23:35:00 +1100
++
++netkit-rwho (0.10-4) unstable; urgency=low
++
++  * Fixed typo in postrm, thanks to James A. Treacy (closes: #49950).
++
++ -- Herbert Xu <herbert@debian.org>  Fri, 12 Nov 1999 15:58:11 +1100
++
++netkit-rwho (0.10-3) unstable; urgency=low
++
++  * Added dependency on adduser and passwd for rwhod (closes: #49871).
++  * Added postrm script to remove the rwhod user upon purging.
++  * Added preinst script to stop any running rwhod server when upgrading from
++    netstd (closes: #49515).
++
++ -- Herbert Xu <herbert@debian.org>  Thu, 11 Nov 1999 19:35:22 +1100
++
++netkit-rwho (0.10-2) unstable; urgency=low
++
++  * rwho now depends on rwhod.
++
++ -- Herbert Xu <herbert@debian.org>  Sun,  7 Nov 1999 10:26:40 +1100
++
++netkit-rwho (0.10-1) unstable; urgency=low
++
++  * Initial release (closes: #46652).
++  * Alpha fixes thanks to Bruce Murphy (closes: #39155).
++  * Run as rwhod after binding.
++  * Added forwarding support with patch from Philippe Troin (closes: #43797).
++
++ -- Herbert Xu <herbert@debian.org>  Tue,  2 Nov 1999 15:45:41 +1100
++
+--- netkit-rwho-0.17.orig/debian/copyright
++++ netkit-rwho-0.17/debian/copyright
+@@ -0,0 +1,16 @@
++This package was split from netstd by Herbert Xu herbert@debian.org on
++Tue,  2 Nov 1999 14:47:51 +1100.
++
++netstd was created by Peter Tobias tobias@et-inf.fho-emden.de on
++Wed, 20 Jul 1994 17:23:21 +0200.
++
++It was downloaded from ftp://ftp.uk.linux.org/pub/linux/Networking/netkit/.
++
++Copyright:
++
++Copyright (c) 1983-1991 The Regents of the University of California.
++Copyright (c) 1993 Peter Eriksson, Signum Support AB
++
++The license can be found in /usr/share/common-licenses/BSD.
++
++$Id: copyright,v 1.2 2000/07/18 11:48:41 herbert Exp $
+--- netkit-rwho-0.17.orig/debian/rules
++++ netkit-rwho-0.17/debian/rules
+@@ -0,0 +1,99 @@
++#!/usr/bin/make -f
++# GNU copyright 1997 to 1999 by Joey Hess.
++# Copyright (c) 1999 Herbert Xu <herbert@debian.org>
++# $Id: rules,v 1.6 2002/08/31 23:12:27 herbert Exp $
++
++# Uncomment this to turn on verbose mode. 
++#export DH_VERBOSE=1
++
++# This is the debhelper compatability version to use.
++export DH_COMPAT=2
++
++# This has to be exported to make some magic below work.
++export DH_OPTIONS
++
++build: build-stamp
++build-stamp:
++	dh_testdir
++
++	if [ ! -f MCONFIG ]; then \
++		./configure; \
++		sed -e 's/^CFLAGS=\(.*\)$$/CFLAGS= -g \1/' MCONFIG \
++			> MCONFIG.new; \
++		mv MCONFIG.new MCONFIG; \
++	fi
++	$(MAKE)
++
++	touch build-stamp
++
++clean:
++	dh_testdir
++	dh_testroot
++	rm -f build-stamp install-stamp
++
++	-$(MAKE) distclean
++
++	dh_clean
++
++install: DH_OPTIONS=
++install: build install-stamp
++install-stamp:
++	dh_testdir
++	dh_testroot
++	dh_clean -k
++	dh_installdirs
++
++	install rwhod/rwhod debian/rwhod/usr/sbin
++	install rwho/rwho debian/rwho/usr/bin
++	install ruptime/ruptime debian/rwho/usr/bin
++	cp rwhod/rwhod.8 debian/rwhod/usr/share/man/man8
++	cp rwho/rwho.1 debian/rwho/usr/share/man/man1
++	cp ruptime/ruptime.1 debian/rwho/usr/share/man/man1
++
++	dh_installinit -prwhod
++	dh_strip
++	touch install-stamp
++
++# This single target is used to build all the packages, all at once, or
++# one at a time. So keep in mind: any options passed to commands here will
++# affect _all_ packages. Anything you want to only affect one package
++# should be put in another target, such as the install target.
++binary-common:
++	dh_testdir
++	dh_testroot
++#	dh_installdebconf
++	dh_installdocs
++	dh_installexamples
++	dh_installmenu
++#	dh_installemacsen
++#	dh_installpam
++	dh_installcron
++	dh_installinfo
++#	dh_undocumented
++	dh_installchangelogs ChangeLog
++	dh_link
++	dh_compress
++	dh_fixperms
++#	dh_makeshlibs
++	dh_installdeb
++#	dh_perl
++	dh_shlibdeps
++	dh_gencontrol
++	dh_md5sums
++	dh_builddeb
++
++# Build architecture independant packages using the common target.
++binary-indep: install
++# (Uncomment this next line if you have such packages.)
++#	 $(MAKE) -f debian/rules DH_OPTIONS=-i binary-common
++
++# Build architecture dependant packages using the common target.
++binary-arch: install
++	$(MAKE) -f debian/rules DH_OPTIONS=-a binary-common
++
++# Any other binary targets build just one binary package at a time.
++binary-%: build install
++	make -f debian/rules binary-common DH_OPTIONS=-p$*
++
++binary: binary-indep binary-arch
++.PHONY: build clean binary-indep binary-arch binary install
+--- netkit-rwho-0.17.orig/debian/rwho.dirs
++++ netkit-rwho-0.17/debian/rwho.dirs
+@@ -0,0 +1,2 @@
++usr/bin
++usr/share/man/man1
+--- netkit-rwho-0.17.orig/debian/rwhod.conffiles
++++ netkit-rwho-0.17/debian/rwhod.conffiles
+@@ -0,0 +1,2 @@
++/etc/cron.monthly/rwhod
++/etc/init.d/rwhod
+--- netkit-rwho-0.17.orig/debian/rwhod.cron.monthly
++++ netkit-rwho-0.17/debian/rwhod.cron.monthly
+@@ -0,0 +1,4 @@
++#!/bin/sh
++# $Id: rwhod.cron.monthly,v 1.1 2001/10/06 02:09:28 herbert Exp $
++
++find /var/spool/rwho -mindepth 1 -mtime +30 -print0 | xargs -r0 rm
+--- netkit-rwho-0.17.orig/debian/rwhod.dirs
++++ netkit-rwho-0.17/debian/rwhod.dirs
+@@ -0,0 +1,2 @@
++usr/sbin
++usr/share/man/man8
+--- netkit-rwho-0.17.orig/debian/rwhod.docs
++++ netkit-rwho-0.17/debian/rwhod.docs
+@@ -0,0 +1 @@
++README
+--- netkit-rwho-0.17.orig/debian/rwhod.init
++++ netkit-rwho-0.17/debian/rwhod.init
+@@ -0,0 +1,47 @@
++#!/bin/sh -e
++#
++# rwhod		Startup script for the rwhod server.
++#
++#		Modified for rwhod
++#		by Herbert Xu <herbert@debian.org>
++#		Written by Miquel van Smoorenburg <miquels@cistron.nl>.
++#		Modified for Debian GNU/Linux
++#		by Ian Murdock <imurdock@gnu.ai.mit.edu>.
++#
++# Version:	$Id: rwhod.init,v 1.5 2000/07/18 12:25:51 herbert Exp $
++
++DESC="System status server"
++
++test -x /usr/sbin/rwhod || exit 0
++
++start_stop() {
++	case "$1" in
++	start)
++		printf "Starting $DESC:"
++		start-stop-daemon --start --oknodo --quiet \
++				  --exec /usr/sbin/rwhod -- -b
++		printf " rwhod"
++		printf ".\n"
++		;;
++	stop)
++		printf "Stopping $DESC:"
++		start-stop-daemon --stop --oknodo --quiet \
++				  --exec /usr/sbin/rwhod
++		printf " rwhod"
++		printf ".\n"
++		;;
++	restart | force-reload)
++		start_stop stop
++		sleep 1
++		start_stop start
++		;;
++	*)
++		printf "Usage: $0 {start|stop|restart|force-reload}\n" >&2
++		exit 1
++		;;
++	esac
++}
++
++start_stop "$@"
++
++exit 0
+--- netkit-rwho-0.17.orig/debian/rwhod.postinst
++++ netkit-rwho-0.17/debian/rwhod.postinst
+@@ -0,0 +1,10 @@
++#!/bin/sh -e
++# $Id: rwhod.postinst,v 1.2 1999/11/12 22:13:05 herbert Exp $
++
++if ! id -u rwhod >/dev/null 2>&1; then
++	adduser --quiet --system --home /var/spool/rwho rwhod
++fi
++mkdir -p -m 755 /var/spool/rwho
++chown -R rwhod /var/spool/rwho
++
++#DEBHELPER#
+--- netkit-rwho-0.17.orig/debian/rwhod.postrm
++++ netkit-rwho-0.17/debian/rwhod.postrm
+@@ -0,0 +1,8 @@
++#!/bin/sh -e
++# $Id: rwhod.postrm,v 1.2 1999/11/12 04:58:48 herbert Exp $
++
++if [ "$1" = purge ]; then
++	userdel -r rwhod
++fi
++
++#DEBHELPER#
+--- netkit-rwho-0.17.orig/debian/rwhod.preinst
++++ netkit-rwho-0.17/debian/rwhod.preinst
+@@ -0,0 +1,10 @@
++#!/bin/sh -e
++# $Id: rwhod.preinst,v 1.2 1999/11/14 22:32:47 herbert Exp $
++
++# If we're upgrading from and old version of netstd, make sure that we stop
++# their rwhod server if it's running.
++if [ "$1" = install -a -x /etc/init.d/netstd_misc -a -x /usr/sbin/rwhod ]; then
++	start-stop-daemon --stop --quiet --oknodo --exec /usr/sbin/rwhod
++fi
++
++#DEBHELPER#
+--- netkit-rwho-0.17.orig/debian/control
++++ netkit-rwho-0.17/debian/control
+@@ -0,0 +1,31 @@
++Source: netkit-rwho
++Section: net
++Priority: optional
++Maintainer: Alberto Gonzalez Iniesta <agi@inittab.org>
++Standards-Version: 3.6.1
++Build-Depends: debhelper (>= 4.0.2)
++
++Package: rwhod
++Architecture: any
++Depends: adduser, passwd, ${shlibs:Depends}
++Replaces: netstd
++Description: System status server
++ Rwhod is the server which maintains the database used by the rwho(1)
++ and ruptime(1) programs.  Its operation is predicated on the ability to
++ broadcast messages on a network.
++
++Package: rwho
++Architecture: any
++Depends: rwhod, ${shlibs:Depends}
++Replaces: netstd, ruptime
++Conflicts: ruptime
++Description: Clients to query the rwho server
++ The rwho command produces output similar to who, but for all machines on
++ the local network.  If no report has been received from a machine for 11
++ minutes then rwho assumes the machine is down, and does not report users
++ last known to be logged into that machine.
++ .
++ The ruptime command gives a status line like uptime for each machine on the
++ local network; these are formed from packets broadcast by each host on the
++ network once a minute.
++

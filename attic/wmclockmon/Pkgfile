@@ -1,0 +1,19 @@
+# Description: WindowMaker Clock Docked App (LCD style).
+# URL:         http://tnemeth.free.fr/projets/dockapps.html
+# Maintainer: unmaintained
+# Packager:    James Ziller <xxalhazredxx@gmx.net>
+#
+# Depends on:  gtk1
+
+name=wmclockmon
+version=0.8.1
+release=1
+source=(http://tnemeth.free.fr/projets/programmes/$name-$version.tar.gz)
+
+build () {
+   cd $name-$version
+   ./configure --prefix=/usr
+   make && make DESTDIR=$PKG install
+   rm -rf $PKG/usr/info
+   chown -R root:root $PKG
+}

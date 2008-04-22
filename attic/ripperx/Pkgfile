@@ -1,0 +1,21 @@
+# Description: A GTK-based ripper/encoder.
+# URL:         http://sourceforge.net/projects/ripperx/
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+# Maintainer: unmaintained
+#
+# Depends on:  gtk1
+
+name=ripperx
+src=ripperX
+version=2.6.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$src-$version.tar.gz)
+
+build () {
+   cd $src-$version
+   ./configure --prefix=/usr
+   sed -i "/^CFLAGS/s/-O2 -pipe/$CFLAGS/" Makefile
+   install -d $PKG/usr/{bin,man/man1,etc}
+   make && make prefix=$PKG/usr install
+   chown -R root.root $PKG
+}

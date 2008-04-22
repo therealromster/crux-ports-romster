@@ -1,0 +1,34 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/njb-cursesplay
+-rwxr-xr-x	root/root	usr/bin/njb-delfile
+-rwxr-xr-x	root/root	usr/bin/njb-deltr
+-rwxr-xr-x	root/root	usr/bin/njb-dumpeax
+-rwxr-xr-x	root/root	usr/bin/njb-dumptime
+-rwxr-xr-x	root/root	usr/bin/njb-files
+-rwxr-xr-x	root/root	usr/bin/njb-fwupgrade
+-rwxr-xr-x	root/root	usr/bin/njb-getfile
+-rwxr-xr-x	root/root	usr/bin/njb-getowner
+-rwxr-xr-x	root/root	usr/bin/njb-gettr
+-rwxr-xr-x	root/root	usr/bin/njb-getusage
+-rwxr-xr-x	root/root	usr/bin/njb-handshake
+-rwxr-xr-x	root/root	usr/bin/njb-pl
+-rwxr-xr-x	root/root	usr/bin/njb-play
+-rwxr-xr-x	root/root	usr/bin/njb-playlists
+-rwxr-xr-x	root/root	usr/bin/njb-sendfile
+-rwxr-xr-x	root/root	usr/bin/njb-sendtr
+-rwxr-xr-x	root/root	usr/bin/njb-setowner
+-rwxr-xr-x	root/root	usr/bin/njb-setpbm
+-rwxr-xr-x	root/root	usr/bin/njb-settime
+-rwxr-xr-x	root/root	usr/bin/njb-tagtr
+-rwxr-xr-x	root/root	usr/bin/njb-tracks
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libnjb.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libnjb.a
+-rwxr-xr-x	root/root	usr/lib/libnjb.la
+lrwxrwxrwx	root/root	usr/lib/libnjb.so -> libnjb.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/libnjb.so.5 -> libnjb.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/libnjb.so.5.1.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libnjb.pc

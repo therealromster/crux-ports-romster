@@ -1,0 +1,18 @@
+# Description: Python AIML Interpreter.
+# URL:         http://pyaiml.sourceforge.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  python
+
+name=pyaiml
+version=0.8.5
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/PyAIML-$version.tar.bz2)
+
+build() {
+   cd PyAIML-$version
+   python setup.py install --root=$PKG
+   rm -rf $PKG/usr/Lib/
+   chown -R root:root $PKG
+}

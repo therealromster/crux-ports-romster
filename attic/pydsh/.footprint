@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/pydsh/
+drwxr-xr-x	root/root	etc/pydsh/groups/
+-rw-r--r--	root/root	etc/pydsh/groups/all
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/pydcp -> /usr/bin/pydsh
+-rwxr-xr-x	root/root	usr/bin/pydsh
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/pydcp.8.gz
+-rw-r--r--	root/root	usr/man/man8/pydsh.8.gz

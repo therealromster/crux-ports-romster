@@ -1,0 +1,17 @@
+# Description: Lexical analysis for over 20 programming and markup langauges.
+# URL:         http://silvercity.sf.net/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  python
+
+name=silvercity
+version=0.9.6
+release=2
+source=(http://dl.sourceforge.net/$name/SilverCity-$version.tar.gz)
+
+build() {
+   cd SilverCity-$version
+   python setup.py install --root=$PKG
+   chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# Description: A trash can for GNU/Linux that uses LD_PRELOAD.
+# URL:         http://pages.stern.nyu.edu/~marriaga/software/libtrash/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:   
+
+name=libtrash
+version=2.4
+release=4
+source=(http://pages.stern.nyu.edu/~marriaga/software/$name/$name-latest.tgz)
+
+build() {
+   cd $name-$version
+   install -d $PKG/{usr/lib,etc}
+   
+   make && make INSTLIBDIR=$PKG/usr/lib \
+      SYSCONFFILE=$PKG/etc/$name.conf \
+      install
+
+   chown -R root:root $PKG
+}

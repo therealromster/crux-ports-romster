@@ -1,0 +1,19 @@
+# Description: Python interface to WordNet.
+# URL:         http://osteele.com/projects/pywordnet/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  python, wordnet
+
+name=pywordnet
+version=2.0.1
+release=3
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+         wordnet.py-patch)
+
+build() {
+   cd $name-$version
+   patch -p1 wordnet.py < $SRC/wordnet.py-patch
+   python setup.py install --root=$PKG
+   chown -R root:root $PKG
+}

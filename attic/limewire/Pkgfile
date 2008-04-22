@@ -1,0 +1,18 @@
+# Description: The Fastest P2P File Sharing Program on the Planet
+# URL:         http://www.limewire.com/
+# Maintainer: unmaintained
+# Packager:    James Mills, prologic at shortcircuit dot net dot au
+#
+# Depends on:  rpm2targz
+
+name=limewire
+version=4.12
+release=2
+source=(LimeWireLinux.rpm)
+
+build() {
+	rpm2targz LimeWireLinux.rpm
+	tar zxvf LimeWireLinux.tar.gz
+	cp -r usr $PKG
+	chown -R root:root $PKG
+}

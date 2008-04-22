@@ -1,0 +1,21 @@
+# Description: Linux Infrared Remote Control.
+# URL:         http://www.lirc.org/
+# Maintainer: unmaintained
+#
+# Depends on:
+
+name=lirc
+version=0.8.1
+release=1
+source=(http://dl.sourceforge.net/$name/$name-$version.tar.bz2 \
+   lircd)
+
+build() {
+   cd lirc-$version
+   ./setup.sh
+   ./configure.sh --prefix=/usr
+   make && make DESTDIR=$PKG install
+   install -D -m0755 $SRC/lircd $PKG/etc/rc.d/lircd
+   rm -rf $PKG/dev
+   chown -R root:root $PKG
+}

@@ -1,0 +1,15 @@
+diff -Nru vlock-1.3.orig/Makefile vlock-1.3/Makefile
+--- vlock-1.3.orig/Makefile	1999-01-14 02:19:14.000000000 +0200
++++ vlock-1.3/Makefile	2004-04-23 22:41:14.124808800 +0300
+@@ -2,9 +2,8 @@
+ 
+ CC = gcc
+ # remove the -DUSE_PAM, -ldl, and -lpam if you aren't using PAM
+-RPM_OPT_FLAGS=-O2
+-CFLAGS = $(RPM_OPT_FLAGS) -DUSE_PAM
+-LDFLAGS = -ldl -lpam -lpam_misc
++CFLAGS += -DSHADOW_PWD
++LDFLAGS = -lcrypt
+ 
+ OBJS = vlock.o signals.o help.o terminal.o input.o
+ 

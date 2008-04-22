@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# /etc/rc.d/lircd: start/stop/restart lirc daemon
+#
+
+case "$1" in
+	start)
+		mknod /dev/lirc c 61 0
+		mknod /dev/lircm p
+		chmod 0664 /dev/{lirc,lircm}
+		chown root:mythtv /dev/{lirc,lircm}
+		/usr/sbin/lircd -L /var/log/lircd.log
+	;;
+	stop)
+		/usr/bin/killall -q lircd
+	;;
+	restart)
+		$0 stop
+		$0 start
+	;;
+	*)
+		echo "Usage: $0 start|stop|restart"
+		exit 1
+	;;
+esac
