@@ -5,16 +5,15 @@
 # Depends on: zlib
 
 name=bftpd
-version=2.1.1
+version=2.2
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/bftpd/bftpd-$version.tar.gz \
+source=(http://dl.sourceforge.net/sourceforge/bftpd/bftpd-$version.tar.gz \
 	bftpd-config.patch bftpd-destdir.patch ftpd.rc)
-diff=(http://romster.shortcircuit.net.au/crux/source/bftpd/)
 
 build() {
 	cd bftpd
-	patch -p1 -i ../bftpd-config.patch
-	patch -p1 -i ../bftpd-destdir.patch
+	patch -p 1 -i ../bftpd-config.patch
+	patch -p 1 -i ../bftpd-destdir.patch
 
 	./configure \
 		--prefix=/usr \
