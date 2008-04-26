@@ -1,21 +1,21 @@
-# $Id: 
 # Description: Colour selector.
 # URL: http://gcolor.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: gtk
 
 name=gcolor
 version=0.4
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
-	$name.desktop)
+source=(http://dl.sourceforge.net/sourceforge/gcolor/gcolor-$version.tar.gz \
+	gcolor.desktop)
 
-build () {
-	cd $name-$version
+build() {
+	cd gcolor-$version
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	install -D -m644 $SRC/gcolor.desktop $PKG/usr/share/applications/gcolor.desktop
+	make
+	make DESTDIR=$PKG install
+	install -m 0644 -D ../gcolor.desktop $PKG/usr/share/applications/gcolor.desktop
 	ln -sf /usr/bin/gcolor $PKG/usr/bin/gcolour
-	chown -R root:root $PKG
 }
+
