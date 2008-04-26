@@ -1,18 +1,18 @@
 # Description: Find Duplicate Music Files.
 # URL: http://w140.com/audio/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: fftw mplayer plotutils pearl
 
 name=fdmf
 version=0.0.9r
 release=1
 source=(http://w140.com/audio/fdmf-$version.tar.gz\
-	$name.patch)
+	fdmf.patch)
 
 build() {
 	cd fdmf-$version
-	patch -i $SRC/fdmf.patch # patch binarys for new library path
+	patch -i ../fdmf.patch # patch binarys for new library path
 	sed "s|CFLAGS =.*|$CFLAGS -W -Wall -Wstrict-prototypes|g" Makefile # use cflags from pkgmk.conf
 	make
 
@@ -21,13 +21,11 @@ build() {
 	install -m 0755 cleanup_dups fdmf fdmf_bench optparam -t $PKG/usr/bin/
 
 	# install headers
-	install -D -m 0644 common/common.h $PKG/usr/include/fdmf/common/common.h
+	install -m 0644 -D common/common.h $PKG/usr/include/fdmf/common/common.h
 	install -m 0644 sonic_reducer.h vector_pairs.h -t $PKG/usr/include/fdmf/
 	
 	# install librarys
-	install -D -m 0644 sonic_reducer.o $PKG/usr/lib/fdmf/sonic_reducer.so
-	install -D -m 0644 vector_pairs.o $PKG/usr/lib/fdmf/vector_pairs.so
-	
-	chown -R root:root $PKG
+	install -m 0644 -D sonic_reducer.o $PKG/usr/lib/fdmf/sonic_reducer.so
+	install -m 0644 -D vector_pairs.o $PKG/usr/lib/fdmf/vector_pairs.so
 }
 
