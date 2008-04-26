@@ -1,8 +1,7 @@
-# $Id:
 # Description: Measure maximum net bandwidth.
 # URL: http://dast.nlanr.net/Projects/Iperf/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
 name=iperf
@@ -10,9 +9,10 @@ version=2.0.2
 release=1
 source=(http://dast.nlanr.net/Projects/Iperf2.0/iperf-$version.tar.gz)
 
-build () {
-	cd $name-$version
+build() {
+	cd iperf-$version
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	chown -R root.root $PKG
+	make
+	make DESTDIR=$PKG install
 }
+
