@@ -1,8 +1,7 @@
-# $Id:
 # Description: Audacity old VST, for Steinberg-VST-SDK header-files.
 # URL: http://audacity.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: wine
 
 name=audacity-old-effects-vst
@@ -11,7 +10,8 @@ release=1
 source=(http://audacity.cvs.sourceforge.net/*checkout*/audacity/audacity-old/effects/AEffect.h \
 	http://audacity.cvs.sourceforge.net/*checkout*/audacity/audacity-old/effects/aeffectx.h)
 
-build () {
-	install -d $PKG/usr/include
-	install -m644 -oroot -groot $SRC/{aeffectx.h,AEffect.h} -t $PKG/usr/include/
+build() {
+	install -m 0644 -D aeffectx.h $PKG/usr/include/aeffectx.h
+	install -m 0644 -D AEffect.h $PKG/usr/include/AEffect.h
 }
+
