@@ -1,8 +1,7 @@
-# $Id: 
 # Description: DNS Flood Detector.
 # URL: http://www.adotout.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: libpcap
 
 name=dnsflood
@@ -12,8 +11,6 @@ source=(http://www.adotout.com/dnsflood-$version.tgz)
 
 build() {
 	cd dns_flood_detector
-	mv makefiles/Makefile-Linux ./Makefile
-	make
-	install -D -m755 -groot -oroot dns_flood_detector $PKG/usr/sbin/dns_flood_detector
-	chown -R root.root $PKG
+	make -f makefiles/Makefile-Linux
+	install -m 0755 -D dns_flood_detector $PKG/usr/sbin/dns_flood_detector
 }
