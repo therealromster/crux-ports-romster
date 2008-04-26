@@ -7,12 +7,17 @@
 name=gtkglext
 version=1.2.0
 release=1
-source=(http://dl.sf.net/$name/$name-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/gtkglext/gtkglext-$version.tar.bz2)
 
 build() {
-	cd $name-$version
-	./configure --prefix=/usr --disable-gtk-doc
-	make && make DESTDIR=$PKG install
+	cd gtkglext-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-gtk-doc
+
+	make
+	make DESTDIR=$PKG install
 	rm -rf $PKG/usr/share
 }
 
