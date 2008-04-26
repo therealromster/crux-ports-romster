@@ -1,13 +1,8 @@
-# $Id:
 # Description: A theme for IceWM window manager inspired by the Silver theme of Windows XP.
 # URL: http://sourceforge.net/projects/icewmsilverxp/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Jose V Beneyto, <joberui at ei dot upv dot es>
+# Packager: Jose V Beneyto, joberui at ei dot upv dot es
 # Depends on: icewm
-
-# Recommended:	
-# Optional:		
-# Category:		window manager theme
 
 name=icewm-theme-silverxp
 version=1.2.17-single
@@ -17,20 +12,11 @@ source=(http://dl.sourceforge.net/sourceforge/icewmsilverxp/SilverXP-$version-$r
 
 build() {
 	install -d $PKG/usr/share/icewm/themes/silverxp
-
 	cp -dpR icewm/themes/SilverXP-$version-$revision/* $PKG/usr/share/icewm/themes/silverxp
-	cp $SRC/tux_vs_ms_butterfly_big.jpg $PKG/usr/share/icewm/themes/silverxp/wallpaper.jpg
-	#mv icewm/themes/SilverXP-$version-$revision/default.theme $PKG/etc/icewm/silverxp.theme
+	cp ../tux_vs_ms_butterfly_big.jpg $PKG/usr/share/icewm/themes/silverxp/wallpaper.jpg
 
-	rm -r $PKG/usr/share/icewm/themes/silverxp/{Linux,FreeBSD,README.{txt,html}}
-	
-	chmod 755 $PKG/usr/share/icewm/themes/silverxp/{icons,taskbar}
-	chmod 644 $PKG/usr/share/icewm/themes/silverxp/{*.*,icons/*.*,taskbar/*.*}
-
-	#echo "DesktopBackgroundImage=\"wallpaper.jpg\"" >> $PKG/usr/share/icewm/themes/silverxp/default.theme
-	#echo "DesktopBackgroundCenter=1" >> $PKG/usr/share/icewm/themes/silverxp/default.theme
-	#echo "SupportSemitransparency=1" >> $PKG/usr/share/icewm/themes/silverxp/default.theme
-	#echo "DesktopBackgroundScaled=1" >> $PKG/usr/share/icewm/themes/silverxp/default.theme
+	find $PKG/ -type f -exec chmod 0644 {} \;
+	chmod 0755 $PKG/usr/share/icewm/themes/silverxp/{icons,taskbar}
 
 	sed -i \
 		-e 's|# DesktopBackgroundImage=""|DesktopBackgroundImage="wallpaper.jpg"|' \
@@ -39,6 +25,10 @@ build() {
 		-e 's|# DesktopBackgroundScaled=0 # 0/1|DesktopBackgroundScaled=1|' \
 			$PKG/usr/share/icewm/themes/silverxp/default.theme
 
-	chown -R root:root $PKG
+	rm -r \
+		$PKG/usr/share/icewm/themes/silverxp/Linux \
+		$PKG/usr/share/icewm/themes/silverxp/FreeBSD \
+		$PKG/usr/share/icewm/themes/silverxp/README.txt \
+		$PKG/usr/share/icewm/themes/silverxp/README.html
 }
 
