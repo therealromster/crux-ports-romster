@@ -4,10 +4,6 @@
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: 
 
-# Recommended:	
-# Optional:	
-# Category:	filesystem
-
 name=iozone
 version=3.283
 release=1
@@ -18,7 +14,7 @@ build() {
 	cd iozone${version/./_}/src/current
 	make linux
 	install -d $PKG/usr/bin
-	install -m755 iozone fileop -t $PKG/usr/bin/
-	install -D -m644 ../../docs/iozone.1 $PKG/usr/man/man1/iozone.1
+	install -m 0755 iozone fileop -t $PKG/usr/bin/
+	install -m 0644 -D ../../docs/iozone.1 $PKG/usr/man/man1/iozone.1
 }
 
