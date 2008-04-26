@@ -1,8 +1,7 @@
-# $Id: 
 # Description: aMSN Icons Set.
 # URL: http://www.kde-look.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:	
 
 name=icons-amsn
@@ -12,7 +11,7 @@ source=()
 #source=(http://www.lnxteam.com.ar/downloads/pub/pics/amsn/Icons/aMSN-[*])
 
 build() {
-	if [ ! -f $PKGMK_SOURCE_DIR/$name-$version.tar.bz2 ]; then
+	if [ ! -f "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" ]; then
 		
 		wget \
 			--recursive --tries=3 --no-directories --level=1 \
@@ -31,5 +30,5 @@ build() {
 	install -d $PKG/usr/share/icons/crystalsvg/64x64/apps
 	cp -r $SRC/$name-$version/* $PKG/usr/share/icons/crystalsvg/64x64/apps/
 	rm $PKG/usr/share/icons/crystalsvg/64x64/apps/robots.txt
-	chown -R root:root $PKG
 }
+
