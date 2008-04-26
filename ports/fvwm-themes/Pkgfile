@@ -18,7 +18,7 @@ build() {
 		--x-includes=/usr/include/xorg \
 		--x-libraries=/usr/lib/X11
 
-	patch -i $SRC/fvwm-themes-$version-install.patch
+	patch -i ../fvwm-themes-$version-install.patch
 	make
 	make DESTDIR=$PKG install
 	find $PKG/usr/share/fvwm/locale/* ! -wholename "*locale/en*" -delete
