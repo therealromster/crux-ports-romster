@@ -15,8 +15,8 @@ build() {
 	cp -dpR blueCrux/* \
 		$PKG/usr/share/icewm/themes/bluecrux
 	
-	find $PKG/ -type f -exec chmod 644 {} \;
-	chmod 755 $PKG/usr/share/icewm/themes/bluecrux/taskbar
+	find $PKG/ -type f -exec chmod 0644 {} \;
+	chmod 0755 $PKG/usr/share/icewm/themes/bluecrux/taskbar
 	rm $PKG/usr/share/icewm/themes/bluecrux/README
 }
 
