@@ -20,7 +20,7 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	install -D -m 0755 ../conntrackd.rc $PKG/etc/rc.d/conntrackd
-	install -D -m 0644 doc/stats/conntrackd.conf $PKG/etc/conntrackd/conntrackd.conf
+	install -m 0755 -D ../conntrackd.rc $PKG/etc/rc.d/conntrackd
+	install -m 0644 -D doc/stats/conntrackd.conf $PKG/etc/conntrackd/conntrackd.conf
 }
 
