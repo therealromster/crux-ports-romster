@@ -15,7 +15,7 @@ build() {
 	cp -dpR BerryXP-1.2.14-double-$version/* \
 		$PKG/usr/share/icewm/themes/berryxp
 	
-	find $PKG/ -type f -exec chmod 644 {} \;
-	chmod 755 $PKG/usr/share/icewm/themes/berryxp/{icons,taskbar}
+	find $PKG/ -type f -exec chmod 0644 {} \;
+	chmod 0755 $PKG/usr/share/icewm/themes/berryxp/{icons,taskbar}
 }
 
