@@ -6,7 +6,7 @@
 # Optional: upx
 
 name=cromfs
-version=1.5.3.2
+version=1.5.4
 release=1
 source=(http://bisqwit.iki.fi/src/arch/cromfs-$version.tar.bz2)
 
