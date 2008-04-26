@@ -13,7 +13,6 @@ build() {
 	cd icoconvert
 	rm icoconvert
 	make
-	install -D -m 0755 -o root -g root icoconvert $PKG/usr/bin/icoconvert
-	#cc $CFLAGS $LDFLAGS icoconvert.c -o $PKG/usr/bin/icoconvert -lgd
+	install -m 0755 -D icoconvert $PKG/usr/bin/icoconvert
 }
 
