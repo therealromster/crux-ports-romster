@@ -1,13 +1,8 @@
-# $Id:
 # Description: IceQua is a nice Aqua-style theme. It is not meant to be an Aqua lookalike, but just a theme utilizing aqua elements.
 # URL: http://themes.freshmeat.net/projects/icequa/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: icewm
-
-# Recommended:	
-# Optional:	
-# Category:	window manager theme
 
 name=icewm-theme-icegua
 version=1.0.2
@@ -17,7 +12,6 @@ source=(http://themes.freshmeat.net/redir/icequa/38923/url_tgz/icequa-default-$v
 build() {
 	install -d $PKG/usr/share/icewm/themes/icequa
 	cp -dpR IceQua/* $PKG/usr/share/icewm/themes/icequa/
-	chmod -R 644 $PKG/usr/share/icewm/themes/icequa/
-	chown -R root:root $PKG
+	chmod -R 0644 $PKG/usr/share/icewm/themes/icequa/
 }
 
