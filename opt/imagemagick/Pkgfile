@@ -5,7 +5,7 @@
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr
 
 name=imagemagick
-version=6.4.0-10
+version=6.4.0-11
 release=1
 source=(ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-$version.tar.lzma)
 
