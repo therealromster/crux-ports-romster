@@ -5,7 +5,7 @@
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr
 
 name=imagemagick
-version=6.4.0-11
+version=6.4.1-0
 release=1
 source=(ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick-$version.tar.lzma)
 
@@ -18,8 +18,8 @@ build() {
 
 	cd ImageMagick-${version/-*/}
 
-	export CFLAGS="`echo $CFLAGS |sed -e 's/-O[s0-3]/-O3/'`"
-	export CXXFLAGS="`echo $CXXFLAGS |sed -e 's/-O[s0-3]/-O3/'`"
+	export CFLAGS="`echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/'`"
+	export CXXFLAGS="`echo $CXXFLAGS | sed -e 's/-O[s0-3]/-O3/'`"
 
 	./configure \
 		--prefix=/usr \
