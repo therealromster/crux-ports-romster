@@ -6,7 +6,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/build-lives-rfx-plugin-multi
 -rwxr-xr-x	root/root	usr/bin/dirac_encoder.py
 -rwxr-xr-x	root/root	usr/bin/gif_encoder.py
-lrwxrwxrwx	root/root	usr/bin/lives -> /usr/bin/lives-exe
+lrwxrwxrwx	root/root	usr/bin/lives -> lives-exe
 -rwxr-xr-x	root/root	usr/bin/lives-exe
 -rwxr-xr-x	root/root	usr/bin/midistart
 -rwxr-xr-x	root/root	usr/bin/midistop
@@ -14,10 +14,11 @@ lrwxrwxrwx	root/root	usr/bin/lives -> /usr/bin/lives-exe
 -rwxr-xr-x	root/root	usr/bin/mng_encoder.py
 -rwxr-xr-x	root/root	usr/bin/mpeg_encoder.py
 -rwxr-xr-x	root/root	usr/bin/ogm_encoder.py
--rwxr-xr-x	root/root	usr/bin/sendOSC
 -rwxr-xr-x	root/root	usr/bin/smogrify
 -rwxr-xr-x	root/root	usr/bin/theora_encoder.py
 drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/LiVES.desktop
 drwxr-xr-x	root/root	usr/share/lives/
 -rw-r--r--	root/root	usr/share/lives/default.keymap
 drwxr-xr-x	root/root	usr/share/lives/icons/
@@ -50,6 +51,10 @@ drwxr-xr-x	root/root	usr/share/lives/plugins/effects/RFXscripts/
 -rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/flop.script
 -rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/frame_calculator.script
 -rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/gamma_change.script
+-rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/gen_blank_frames.script
+-rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/gen_clip_from_image.script
+-rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/gen_coloured_frames.script
+-rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/gen_text.script
 -rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/hue_change.script
 -rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/jumble.script
 -rw-r--r--	root/root	usr/share/lives/plugins/effects/RFXscripts/modulate.script
@@ -133,6 +138,10 @@ drwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/flop
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/frame_calculator
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/gamma_change
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/gen_blank_frames
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/gen_clip_from_image
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/gen_coloured_frames
+-rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/gen_text
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/hue_change
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/jumble
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/rendered/modulate
@@ -198,3 +207,5 @@ drwxr-xr-x	root/root	usr/share/lives/themes/pinks/
 drwxr-xr-x	root/root	usr/share/lives/themes/sunburst/
 -rw-r--r--	root/root	usr/share/lives/themes/sunburst/frame.jpg
 -rw-r--r--	root/root	usr/share/lives/themes/sunburst/main.jpg
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/lives.xpm
