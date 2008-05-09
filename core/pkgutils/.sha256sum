@@ -1,4 +1,5 @@
 579362988fda5c0c21e7b320ce236e53b2fee3d8b703f12c6cb98bfa117bddf8  pkgutils-5.32.0-add-sha256-support.patch
+a3236a089f43c55de39f47f0a41accb03c81beb1369edee2aeca85ce54ae6f8f  pkgutils-5.32.0-extract-only.patch
 bc4351539fde601f3b77c8c8208c80c80fc9c8bb184c232bfbe1691eb83558f1  pkgutils-5.32.0-lzma-compress-package.patch
 c28bcf8f5adfc81f9029ba0230156be48b8de7719d2147841a44883d8ba462c7  pkgutils-5.32.0-lzma-decompress.patch
 7dc48afd935ee8c902024a585014045b6bca1fde795e7c3a9558f9cff1010e93  pkgutils-5.32.0-warn-on-footprint-new-files.patch

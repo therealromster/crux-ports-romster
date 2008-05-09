@@ -1,0 +1,52 @@
+diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
+--- pkgutils-5.32.0.orig/pkgmk.in	2008-05-10 00:18:36.726351620 +1000
++++ pkgutils-5.32.0/pkgmk.in	2008-05-10 00:30:04.976352281 +1000
+@@ -355,6 +355,11 @@ build_package() {
+ 	unpack_source
+ 	
+ 	cd $SRC
++
++	if [ "$PKGMK_EXTRACT_ONLY" = "yes" ]; then
++		exit 0
++	fi
++
+ 	(set -e -x ; build)
+ 	
+ 	if [ $? = 0 ]; then
+@@ -498,6 +503,7 @@ print_help() {
+ 	echo "  -r,   --recursive           search for and build packages recursively"
+ 	echo "  -d,   --download            download missing source file(s)"
+ 	echo "  -do,  --download-only       do not build, only download missing source file(s)"
++	echo "  -e,   --extract-only        do not build, only extract source file(s)"
+ 	echo "  -utd, --up-to-date          do not build, only check if package is up to date"
+ 	echo "  -uf,  --update-footprint    update footprint using result from last build"
+ 	echo "  -if,  --ignore-footprint    build package without checking footprint"
+@@ -527,6 +533,8 @@ parse_options() {
+ 			-do|--download-only)
+ 				PKGMK_DOWNLOAD="yes"
+ 				PKGMK_DOWNLOAD_ONLY="yes" ;;
++			-e|--extract-only)
++				PKGMK_EXTRACT_ONLY="yes" ;;
+ 			-utd|--up-to-date)
+ 				PKGMK_UP_TO_DATE="yes" ;;
+ 			-uf|--update-footprint)
+@@ -616,6 +624,11 @@ main() {
+ 		exit 0
+ 	fi
+ 	
++	if [ "$PKGMK_EXTRACT_ONLY" = "yes" ]; then
++		build_package
++		exit 0
++	fi
++	
+ 	if [ "$PKGMK_UP_TO_DATE" = "yes" ]; then
+ 		if [ "`build_needed`" = "yes" ]; then
+ 			info "Package '$TARGET' is not up to date."
+@@ -662,6 +675,7 @@ PKGMK_INSTALL="no"
+ PKGMK_RECURSIVE="no"
+ PKGMK_DOWNLOAD="no"
+ PKGMK_DOWNLOAD_ONLY="no"
++PKGMK_EXTRACT_ONLY="no"
+ PKGMK_UP_TO_DATE="no"
+ PKGMK_UPDATE_FOOTPRINT="no"
+ PKGMK_IGNORE_FOOTPRINT="no"
