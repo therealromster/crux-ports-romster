@@ -643,7 +643,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/gdi.exe16
 -rwxr-xr-x	root/root	usr/lib/wine/gdi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/gdiplus.dll.so
--rwxr-xr-x	root/root	usr/lib/wine/glu32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/gphoto2.ds.so
 -rwxr-xr-x	root/root	usr/lib/wine/gpkcsp.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/hal.dll.so
@@ -719,7 +718,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libdxguid.a
 -rw-r--r--	root/root	usr/lib/wine/libgdi32.def
 -rw-r--r--	root/root	usr/lib/wine/libgdiplus.def
--rw-r--r--	root/root	usr/lib/wine/libglu32.def
 -rw-r--r--	root/root	usr/lib/wine/libhid.def
 -rw-r--r--	root/root	usr/lib/wine/libhlink.def
 -rw-r--r--	root/root	usr/lib/wine/libicmp.def
@@ -761,7 +759,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/liboledlg.def
 -rw-r--r--	root/root	usr/lib/wine/libolepro32.def
 -rw-r--r--	root/root	usr/lib/wine/libolesvr32.def
--rw-r--r--	root/root	usr/lib/wine/libopengl32.def
 -rw-r--r--	root/root	usr/lib/wine/libpdh.def
 -rw-r--r--	root/root	usr/lib/wine/libpowrprof.def
 -rw-r--r--	root/root	usr/lib/wine/libpsapi.def
@@ -891,7 +888,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/olesvr32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/olethk32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/oleview.exe.so
--rwxr-xr-x	root/root	usr/lib/wine/opengl32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/pdh.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/powrprof.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/printui.dll.so
@@ -1008,7 +1004,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/wineps.drv.so
 -rw-r--r--	root/root	usr/lib/wine/wineps16.drv16
 -rwxr-xr-x	root/root	usr/lib/wine/winevdm.exe.so
--rwxr-xr-x	root/root	usr/lib/wine/winex11.drv.so
 -rw-r--r--	root/root	usr/lib/wine/wing.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/wing32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/winhelp.exe.so
