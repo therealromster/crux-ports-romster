@@ -1,0 +1,32 @@
+# Description: Secure PinEntry Dialog.
+# URL: http://www.gnupg.org
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on: ncurses
+# Optional: gtk qt3 xorg-libx11
+
+name=pinentry
+version=0.7.5
+release=3
+source=(ftp://ftp.gnupg.org/gcrypt/pinentry/pinentry-$version.tar.gz \
+	pinentry-$version.patch \
+	pinentry-$version-no-x.patch)
+
+build() {
+	cd pinentry-$version
+
+	patch -p 1 -i ../pinentry-$version.patch
+	patch -p 1 -i ../pinentry-$version-no-x.patch
+        
+	./configure \
+		--prefix=/usr \
+		--with-qt-dir=/usr/share/qt \
+		--enable-fallback-curses \
+		--disable-pinentry-gtk
+
+    make
+    make DESTDIR=$PKG install
+
+    rm -r $PKG/usr/share
+}
+
