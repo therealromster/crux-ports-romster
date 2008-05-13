@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/etc/
+-rw-------	root/root	usr/etc/ulogd.conf
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ulogd/
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_BASE.so
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_LOCAL.so
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_LOGEMU.so
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_OPRINT.so
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_PCAP.so
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_PWSNIFF.so
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_SYSLOG.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/ulogd.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/ulogd

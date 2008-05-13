@@ -1,0 +1,20 @@
+# Description: Userspace logging facility for iptables.
+# URL: http://www.netfilter.org/projects/ulogd/index.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: iptables
+# Optional: mysql pgsql sqlite3
+
+name=ulogd
+version=1.24
+release=1
+source=(http://ftp.netfilter.org/pub/ulogd/ulogd-$version.tar.bz2)
+
+build() {
+	cd ulogd-$version
+	./configure --prefix=/usr
+	make -j 1
+	make DESTDIR=$PKG install
+	install -m 0644 -D doc/ulogd.txt $PKG/usr/man/man8/ulogd.8
+}
+
