@@ -333,6 +333,7 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/Tk_PhotoSetSize.3
 -rw-r--r--	root/root	usr/man/man3/Tk_PointToChar.3
 -rw-r--r--	root/root	usr/man/man3/Tk_PostscriptFontName.3
+-rw-r--r--	root/root	usr/man/man3/Tk_PreserveColormap.3
 -rw-r--r--	root/root	usr/man/man3/Tk_QueueWindowEvent.3
 -rw-r--r--	root/root	usr/man/man3/Tk_RedrawImage.3
 -rw-r--r--	root/root	usr/man/man3/Tk_ReqHeight.3
@@ -481,6 +482,7 @@ drwxr-xr-x	root/root	usr/man/mann/
 -rw-r--r--	root/root	usr/man/mann/ttk_panedwindow.n.gz
 -rw-r--r--	root/root	usr/man/mann/ttk_progressbar.n.gz
 -rw-r--r--	root/root	usr/man/mann/ttk_radiobutton.n.gz
+-rw-r--r--	root/root	usr/man/mann/ttk_scale.n.gz
 -rw-r--r--	root/root	usr/man/mann/ttk_scrollbar.n.gz
 -rw-r--r--	root/root	usr/man/mann/ttk_separator.n.gz
 -rw-r--r--	root/root	usr/man/mann/ttk_sizegrip.n.gz

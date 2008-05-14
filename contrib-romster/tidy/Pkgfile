@@ -1,13 +1,13 @@
 # Description: HTML/XML/XHTML cleanup tool.
 # URL: http://tidy.sourceforge.net/ 
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Han Boetes, han mijncomputer dot nl
 # Depends on: 
 
 name=tidy
 version=20070217
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/tidy-snapshot-$version.tar.bz2)
+source=(ftp://romster.dyndns.org/linux/source/tidy/tidy-snapshot-$version.tar.bz2)
 
 build() {
 	cd tidy

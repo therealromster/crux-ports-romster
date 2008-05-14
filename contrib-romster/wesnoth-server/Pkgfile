@@ -1,0 +1,39 @@
+# Description: Server for Wesnoth.
+# URL: http://www.wesnoth.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: sdl_image sdl_mixer sdl_net freetype boost
+
+name=wesnoth-server
+version=1.4.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2 \
+	wesnothd.rc)
+
+build() {
+	cd wesnoth-$version
+	rm po/*/*.po
+
+	sed -i \
+		-e 's/USE_NLS=yes/USE_NLS=no/' \
+		-e 's/ENABLE_NLS 1/ENABLE_NLS 0/' configure
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls \
+		--disable-game \
+		--enable-server
+
+	make
+	make DESTDIR=$PKG install
+	install -m 0755 -D ../wesnothd.rc $PKG/etc/rc.d/wesnoth
+
+	chown _wesnoth:daemon \
+		$PKG/usr/bin/wesnothd \
+		$PKG/usr/var/run/wesnothd
+	
+	chmod g-x,o-x $PKG/usr/bin/wesnothd
+	find $PKG/usr/man -maxdepth 0 -type d ! -regex 'man?' -exec rm -r {} \;
+}
+

@@ -1,28 +1,29 @@
 # Description: The Battle for Wesnoth is a turn-based strategy game with a fantasy theme.
 # URL: http://www.wesnoth.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_net freetype python boost
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: sdl_image sdl_mixer sdl_net freetype boost
 
 name=wesnoth
-version=1.4
+version=1.4.2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2)
 
 build() {
 	cd wesnoth-$version
+	rm po/*/*.po
 
-		if pkginfo -i |grep '^kdebase ' > /dev/null; then
-			local configure='--with-kde'
-		fi
+	sed -i \
+		-e 's/USE_NLS=yes/USE_NLS=no/' \
+		-e 's/ENABLE_NLS 1/ENABLE_NLS 0/' configure
 
-		if pkginfo -i |grep '^kdebase3 ' > /dev/null; then
-			local configure='--with-kde'
-		fi
+	if pkginfo -i |grep '^kdebase ' > /dev/null; then
+		local configure='--with-kde'
+	fi
 
-		if pkginfo -i |grep '^gnome ' > /dev/null; then
-			local configure='--with-gnome'
-		fi
+	if pkginfo -i |grep '^gnome ' > /dev/null; then
+		local configure='--with-gnome'
+	fi
 
 	./configure \
 		--prefix=/usr \
@@ -35,9 +36,12 @@ build() {
 	make DESTDIR=$PKG install
 
 	find $PKG/usr/man -maxdepth 0 -type d ! -regex 'man?' -exec rm -r {} \;
+	find $PKG/usr/share/wesnoth -type f -name 'README' -delete
 
 	rm \
 		$PKG/usr/share/wesnoth/data/COPYING.txt \
 		$PKG/usr/share/wesnoth/fonts/COPYING
+
+	rm -r $PKG/usr/share/doc
 }
 

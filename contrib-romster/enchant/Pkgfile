@@ -1,0 +1,25 @@
+# Description: Generic Spell Checking Library.
+# URL: http://www.abisource.com/enchant/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: aspell glib
+
+name=enchant
+version=1.4.2
+release=1
+source=(http://www.abisource.com/downloads/enchant/$version/enchant-$version.tar.gz)
+
+build() {
+	cd enchant-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
+}
+

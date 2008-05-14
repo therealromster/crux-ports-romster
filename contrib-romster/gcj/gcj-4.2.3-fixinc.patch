@@ -1,0 +1,16 @@
+diff -Nru gcc-4.2.1.orig/gcc/Makefile.in gcc-4.2.1/gcc/Makefile.in
+--- gcc-4.2.1.orig/gcc/Makefile.in	2007-08-15 13:45:59.000000000 +0200
++++ gcc-4.2.1/gcc/Makefile.in	2007-08-15 14:57:32.000000000 +0200
+@@ -3251,12 +3251,6 @@
+ 	  $(MAKE) real-$(INSTALL_HEADERS_DIR) DESTDIR=`pwd`/../gcc/ \
+ 	    libsubdir=. ; \
+ 	else \
+-	  (TARGET_MACHINE='$(target)'; srcdir=`cd $(srcdir); ${PWD_COMMAND}`; \
+-	    SHELL='$(SHELL)'; MACRO_LIST=`${PWD_COMMAND}`/macro_list ; \
+-	    export TARGET_MACHINE srcdir SHELL MACRO_LIST && \
+-	    cd $(build_objdir)/fixincludes && \
+-	    $(SHELL) ./fixinc.sh ../../gcc/include \
+-	      $(SYSTEM_HEADER_DIR) $(OTHER_FIXINCLUDES_DIRS) ); \
+ 	  rm -f include/syslimits.h; \
+ 	  if [ -f include/limits.h ]; then \
+ 	    mv include/limits.h include/syslimits.h; \

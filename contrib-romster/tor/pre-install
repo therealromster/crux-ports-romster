@@ -28,9 +28,9 @@ if ! getent passwd $USER > /dev/null; then
 	/usr/sbin/useradd -g $GROUP -c "$USER_COMMENT" -d $USER_HOME -s $USER_SHELL $USER
 	if [ $? -eq 0 ]; then
 		echo "User: $USER added."
-		/usr/bin/passwd -l $USER
+		/usr/bin/passwd -l $USER > /dev/null
 		if [ $? -eq 0 ]; then
-			echo "Locked $USER account."
+			echo "Locked: $USER account."
 		fi
 		else
 			echo "ERROR: unable to lock $USER account."

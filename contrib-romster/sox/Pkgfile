@@ -1,8 +1,9 @@
 # Description: Audio conversion tools, (c) copyright Lance Norskog.
 # URL: http://sox.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Martin Opel, mo at obbl-net dot de
-# Depends on: libvorbis libmad lame alsa-lib libsndfile flac libsamplerate
+# Depends on: lame libmad libsamplerate libvorbis ladspa libid3tag
+# Optional ffmpeg
 
 name=sox
 version=14.0.1

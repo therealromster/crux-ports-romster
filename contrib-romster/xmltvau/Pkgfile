@@ -1,0 +1,16 @@
+# Description: XML-TV Script for Australia.
+# URL: http://www.onlinetractorparts.com.au/rohbags/xmltvau/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: xmltv
+
+name=xmltvau
+version=0.6.2
+release=2
+source=(http://www.onlinetractorparts.com.au/rohbags/xmltvau/tv_grab_au-$version.tar.gz)
+
+build() {
+   install -D -m 0644 -groot -oroot channel_ids $PKG/usr/share/xmltv/tv_grab_au/channel_ids
+   install -D -m 0755 -groot -oroot tv_grab_au $PKG/usr/bin/tv_grab_au
+}
+

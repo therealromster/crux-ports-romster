@@ -1,0 +1,25 @@
+# Description: Set of utilities to manage your TV viewing.
+# URL: http://membled.com/work/apps/xmltv/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: p5-term-readkey p5-date-manip p5-xml-twig p5-xml-writer p5-xml-parser p5-lwp p5-file-slurp
+
+name=xmltv
+version=0.5.51
+release=1
+source=(http://dl.sourceforge.net/sourceforge/xmltv/xmltv-$version.tar.bz2)
+
+build() {
+	cd xmltv-$version
+	yes | perl Makefile.PL PREFIX=$PKG/usr
+	make
+	make test
+	make install
+
+	find $PKG -type f \
+		\( -regex ".*perllocal.pod$" -or \
+		-name '.packlist' \) -delete
+
+	rm -r $PKG/usr/share/doc
+}
+

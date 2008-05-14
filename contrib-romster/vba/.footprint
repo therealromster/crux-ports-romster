@@ -1,0 +1,6 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/VisualBoyAdvance
+lrwxrwxrwx	root/root	usr/bin/vba -> VisualBoyAdvance
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/VisualBoyAdvance.cfg

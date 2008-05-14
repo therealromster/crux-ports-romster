@@ -1,0 +1,11 @@
+--- mod_python-3.3.1/configure.orig	2007-04-20 04:35:29.000000000 +1000
++++ mod_python-3.3.1/configure	2007-04-20 04:36:17.000000000 +1000
+@@ -3036,7 +3036,7 @@
+ # get the mod_python version
+ 
+ MP_VERSION=`awk '/MPV_STRING/ {print $3}' src/include/mpversion.h`
+-MP_VERSION=`echo $MP_VERSION | sed 's/"//g'`
++MP_VERSION=`echo $MP_VERSION | tr -d '"'`
+ 
+ # get --with-python-src. The python src is required to generate the documentation
+ # It is not required to compile or install mod_python itself

@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+
+. /etc/pkgmk.conf
+. Pkgfile
+OLD_VERSION='1.4.1'
+
+[ -z "$PKGMK_WORK_DIR" ] && PKGMK_WORK_DIR="$PWD/work"
+[ -z "$PKGMK_SOURCE_DIR" ] && PKGMK_SOURCE_DIR="$PWD"
+
+if [ -e "$PKGMK_SOURCE_DIR/wesnoth-$version.tar.bz2" ]; then
+	echo 'you have the lateist source file'
+	exit 0
+fi
+
+if [ -n "`pkginfo -i | egrep '^xdelta '`" ]; then
+	if [ -e "$PKGMK_SOURCE_DIR/wesnoth-$OLD_VERSION.tar.bz2" ]; then
+
+		if [ ! -e "$PKGMK_WORK_DIR" ]; then
+			mkdir -p "$PKGMK_WORK_DIR"
+		fi
+		cd "$PKGMK_WORK_DIR"
+
+		if [ ! -e "$PKGMK_SOURCE_DIR/wesnoth-$OLD_VERSION.tar-wesnoth-$version.tar.xdelta" ]; then
+			wget http://optusnet.dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$OLD_VERSION.tar-wesnoth-$version.tar.xdelta --directory-prefix=$PKGMK_SOURCE_DIR
+		fi
+
+		cp $PKGMK_SOURCE_DIR/wesnoth-$OLD_VERSION.tar.bz2 .
+		cp $PKGMK_SOURCE_DIR/wesnoth-$OLD_VERSION.tar-wesnoth-$version.tar.xdelta .
+		bzip2 -d wesnoth-$OLD_VERSION.tar.bz2
+		echo 'patching, this may take some time'
+		xdelta patch wesnoth-$OLD_VERSION.tar-wesnoth-$version.tar.xdelta
+		rm wesnoth-$OLD_VERSION.tar
+		mv wesnoth-$OLD_VERSION.tar-wesnoth-$version.tar.xdelta $PKGMK_SOURCE_DIR/
+		echo 'recompressing patched source'
+		bzip2 -9 wesnoth-$version.tar
+		mv wesnoth-$version.tar.bz2 $PKGMK_SOURCE_DIR/
+	else
+		echo "wesnoth-$OLD_VERSION.tar.bz2 not found proceed to run Pkgfile."
+		exit 0
+	fi
+else
+	echo 'No xdelta installed can not do a incremental update'
+fi
+
+# End of file

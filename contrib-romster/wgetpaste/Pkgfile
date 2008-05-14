@@ -1,11 +1,10 @@
 # Description: Pipe commands to paste to a site.
 # URL: http://wgetpaste.zlin.dk/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: 
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=wgetpaste
-version=2.9
+version=2.11
 release=1
 source=(http://wgetpaste.zlin.dk/wgetpaste-$version.bz2)
 

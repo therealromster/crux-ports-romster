@@ -1,18 +1,20 @@
 # Description: The openft plugin for giFT.
 # URL: http://sourceforge.net/projects/gift/
 # Packager: Coviello Giuseppe, giuseppecoviello at tin dot it
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: gift
 
 name=gift-openft
 version=0.2.1.6
 release=1
-source=(http://dl.sourceforge.net/sourceforge/gift/gift-openft-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/gift/gift-openft-$version.tar.bz2 \
+	http://update.kceasy.com/update/openft/nodes.gzip)
 
 build() {
 	cd gift-openft-$version
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
+	zcat ../nodes.gzip >> $PKG/usr/share/giFT/OpenFT/nodes
 }
 

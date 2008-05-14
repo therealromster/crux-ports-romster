@@ -1,8 +1,8 @@
 # Description: CD & DVD burning tool optimised for use with KDE, with support for audio & video CDs.
 # URL: http://k3b.plainblack.com/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: kdelibs cdparanoia cdrdao taglib flac normalize dvd+rw-tools ffmpeg
+# Depends on: kdelibs cdparanoia cdrdao taglib normalize dvd+rw-tools ffmpeg
 
 name=k3b
 version=1.0.4

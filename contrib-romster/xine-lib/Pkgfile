@@ -1,11 +1,11 @@
 # Description: A free, GPL-licensed video player for UNIX-like systems.
 # URL: http://xine.sourceforge.net
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: sten, nick dot steeves at shaw dot ca
 # Depends on: ffmpeg gtk libmad libmng libmpcdec speex vcdimager wavpack xorg-libxvmc xorg-libxi
 
 name=xine-lib
-version=1.1.10.1
+version=1.1.12
 release=1
 source=(http://dl.sourceforge.net/sourceforge/xine/xine-lib-$version.tar.bz2)
 
@@ -30,6 +30,8 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
+	find $PKG/usr/lib/xine/plugins/ -type f -name '*.so' -exec chmod a-x {} \;
 	rm -r $PKG/usr/share/doc
 }
 

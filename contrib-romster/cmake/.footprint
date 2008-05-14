@@ -66,6 +66,7 @@ drwxr-xr-x	root/root	usr/share/cmake-2.4/Modules/
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/CMakeVS7BackwardCompatibility.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/CMakeVS7FindMake.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/CMakeVS8FindMake.cmake
+-rw-r--r--	root/root	usr/share/cmake-2.4/Modules/CMakeVS9FindMake.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/CPack.Description.plist.in
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/CPack.Info.plist.in
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/CPack.STGZ_Header.sh.in
@@ -187,7 +188,9 @@ drwxr-xr-x	root/root	usr/share/cmake-2.4/Modules/Platform/
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/CYGWIN.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/Darwin-xlc.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/Darwin.cmake
+-rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/DragonFly.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/FreeBSD.cmake
+-rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/GNU.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/HP-UX.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/IRIX.cmake
 -rw-r--r--	root/root	usr/share/cmake-2.4/Modules/Platform/IRIX64.cmake

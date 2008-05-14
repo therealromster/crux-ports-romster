@@ -6,16 +6,16 @@
 
 name=ddclient
 version=3.7.3
-release=1
-source=(http://dl.sf.net/ddclient/ddclient-$version.tar.bz2 \
+release=2
+source=(http://dl.sourceforge.net/sourceforge/ddclient/ddclient-$version.tar.bz2 \
 	ddclient.rc)
 
 build() {
 	cd ddclient-$version
-	sed -i -e 's|/etc/ddclient/|/usr/etc/|' ddclient
+	sed -i -e 's|/etc/ddclient/|/etc/|' ddclient
 	install -d $PKG/var/cache/ddclient
 	install -D -m 0755 ddclient $PKG/usr/sbin/ddclient
 	install -D -m 0755 ../ddclient.rc $PKG/etc/rc.d/ddclient
-	install -D -m 0600 sample-etc_ddclient.conf $PKG/usr/etc/ddclient.conf
+	install -D -m 0600 sample-etc_ddclient.conf $PKG/etc/ddclient.conf
 }
 

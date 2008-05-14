@@ -1,11 +1,11 @@
 # Description: A set of plugins for gstreamer that may pose distribution problems.
 # URL: http://gstreamer.freedesktop.org/modules/gst-plugins-bad.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: bzip2 gst-plugins-base ladspa libdivx-legacy libexif libmms libmodplug libmpcdec libmusicbrainz libshout mpeg2dec swfdec wavpack x264
+# Depends on: bzip2 ladspa libdivx-legacy libexif libmms libmodplug libmpcdec libmusicbrainz libshout mpeg2dec swfdec wavpack x264
 
 name=gst-plugins-bad
-version=0.10.6
+version=0.10.7
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-$version.tar.gz)
 

@@ -140,6 +140,8 @@ lrwxrwxrwx	root/root	usr/include/FL/Fl_Positioner.h -> Fl_Positioner.H
 lrwxrwxrwx	root/root	usr/include/FL/Fl_Preferences.h -> Fl_Preferences.H
 -rw-r--r--	root/root	usr/include/FL/Fl_Progress.H
 lrwxrwxrwx	root/root	usr/include/FL/Fl_Progress.h -> Fl_Progress.H
+-rw-r--r--	root/root	usr/include/FL/Fl_RGB_Image.H
+lrwxrwxrwx	root/root	usr/include/FL/Fl_RGB_Image.h -> Fl_RGB_Image.H
 -rw-r--r--	root/root	usr/include/FL/Fl_Radio_Button.H
 lrwxrwxrwx	root/root	usr/include/FL/Fl_Radio_Button.h -> Fl_Radio_Button.H
 -rw-r--r--	root/root	usr/include/FL/Fl_Radio_Light_Button.H
@@ -237,12 +239,14 @@ lrwxrwxrwx	root/root	usr/include/FL/forms.h -> forms.H
 -rw-r--r--	root/root	usr/include/FL/gl2opengl.h
 -rw-r--r--	root/root	usr/include/FL/gl_draw.H
 lrwxrwxrwx	root/root	usr/include/FL/gl_draw.h -> gl_draw.H
+-rw-r--r--	root/root	usr/include/FL/glu.h
 -rw-r--r--	root/root	usr/include/FL/glut.H
 lrwxrwxrwx	root/root	usr/include/FL/glut.h -> glut.H
 -rw-r--r--	root/root	usr/include/FL/mac.H
 lrwxrwxrwx	root/root	usr/include/FL/mac.h -> mac.H
 -rw-r--r--	root/root	usr/include/FL/mac.r
 -rw-r--r--	root/root	usr/include/FL/math.h
+-rw-r--r--	root/root	usr/include/FL/names.h
 -rw-r--r--	root/root	usr/include/FL/win32.H
 lrwxrwxrwx	root/root	usr/include/FL/win32.h -> win32.H
 -rw-r--r--	root/root	usr/include/FL/x.H

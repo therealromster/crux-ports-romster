@@ -1,0 +1,26 @@
+# Description: Fast, powerful, and language-neutral HTML template system.
+# URL: http://www.clearsilver.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: python
+
+name=clearsilver
+version=0.10.5
+release=1
+source=(http://www.clearsilver.net/downloads/clearsilver-$version.tar.gz)
+
+build() {
+	cd clearsilver-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-perl \
+		--disable-ruby \
+		--disable-java \
+		--disable-csharp \
+		--with-python=/usr/bin/python
+
+	make
+	make DESTDIR=$PKG install
+}
+

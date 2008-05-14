@@ -1,14 +1,14 @@
 # Description: Qt4 Free Edition.
 # URL: http://trolltech.com/
 # Packager: Johannes Winkelmann, jw at tks6 dot net
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: dbus freetype glib libmng libpng openssl xorg-libsm xorg-libxcursor xorg-libxinerama xorg-setxkbmap fontconfig xorg-libxi xorg-libxrandr
 # Optional: mysql sqlite3 nvidia gtk
 
 name=qt4
-version=4.3.4
+version=4.4.0
 release=1
-source=(ftp://ftp.trolltech.com/pub/qt/source/qt-x11-opensource-src-$version.tar.gz \
+source=(ftp://ftp.trolltech.com/pub/qt/source/qt-x11-opensource-src-$version.tar.bz2 \
 	qt4-$version-x11-path-fix.patch)
 
 mirror=(ftp://ftp.tu-chemnitz.de/pub/Qt/qt/source/qt-x11-opensource-src-$version.tar.gz)

@@ -1,18 +1,20 @@
 # Description: Ares network plugin for giFT.
 # URL: http://gift-ares.berlios.de/
-# Maintainer: Tilman Sauerbeck, tilman at crux dot nu
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
 # Depends on: gift
 
 name=gift-ares
 version=0.3.0
 release=1
-source=(http://download.berlios.de/gift-ares/gift-ares-$version.tar.bz2)
+source=(http://download.berlios.de/gift-ares/gift-ares-$version.tar.bz2 \
+	http://update.kceasy.com/update/ares/nodes.gzip)
 
 build() {
 	cd gift-ares-$version
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
+	zcat ../nodes.gzip >> $PKG/usr/share/giFT/Ares/nodes
 }
 

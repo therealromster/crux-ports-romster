@@ -19,15 +19,15 @@ drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libdvdnav.la
 lrwxrwxrwx	root/root	usr/lib/libdvdnav.so -> libdvdnav.so.4.1.1
 lrwxrwxrwx	root/root	usr/lib/libdvdnav.so.4 -> libdvdnav.so.4.1.1
--rwxr-xr-x	root/root	usr/lib/libdvdnav.so.4.1.1
+-rw-r--r--	root/root	usr/lib/libdvdnav.so.4.1.1
 -rwxr-xr-x	root/root	usr/lib/libdvdnavmini.la
 lrwxrwxrwx	root/root	usr/lib/libdvdnavmini.so -> libdvdnavmini.so.4.1.1
 lrwxrwxrwx	root/root	usr/lib/libdvdnavmini.so.4 -> libdvdnavmini.so.4.1.1
--rwxr-xr-x	root/root	usr/lib/libdvdnavmini.so.4.1.1
+-rw-r--r--	root/root	usr/lib/libdvdnavmini.so.4.1.1
 -rwxr-xr-x	root/root	usr/lib/libdvdread.la
 lrwxrwxrwx	root/root	usr/lib/libdvdread.so -> libdvdread.so.4.1.1
 lrwxrwxrwx	root/root	usr/lib/libdvdread.so.4 -> libdvdread.so.4.1.1
--rwxr-xr-x	root/root	usr/lib/libdvdread.so.4.1.1
+-rw-r--r--	root/root	usr/lib/libdvdread.so.4.1.1
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/aclocal/
 -rw-r--r--	root/root	usr/share/aclocal/dvdnav.m4

@@ -1,0 +1,19 @@
+# Description: Apache mod_wsgi adapter.
+# URL: http://code.google.com/p/modwsgi/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: apache python
+
+name=mod_wsgi
+version=2.0
+release=1
+source=(http://modwsgi.googlecode.com/files/mod_wsgi-$version.tar.gz)
+
+build() {
+	cd mod_wsgi-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/apache/mod_wsgi.so
+}
+

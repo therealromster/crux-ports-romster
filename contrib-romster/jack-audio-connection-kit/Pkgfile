@@ -1,8 +1,8 @@
 # Description: Jack Audio Connection Kit.
 # URL: http://jackaudio.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: alsa-lib libsndfile
+# Depends on: libsndfile
 
 name=jack-audio-connection-kit
 version=0.109.2

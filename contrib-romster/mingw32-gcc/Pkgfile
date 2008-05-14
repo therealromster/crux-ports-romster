@@ -1,7 +1,7 @@
 # Description: GCC compiler configured for MinGW32.
 # URL: http://gcc.gnu.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: mingw32-binutils, nasm
 
 name=mingw32-gcc

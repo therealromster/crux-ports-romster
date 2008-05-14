@@ -1,11 +1,11 @@
 # Description: HTTP library implementation in C.
 # URL: http://live.gnome.org/LibSoup
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: glib gnutls libxml2 libgcrypt
+# Depends on: glib gnutls libxml2
 
 name=libsoup
-version=2.2.105
+version=2.4.1
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/libsoup/${version%.*}/libsoup-$version.tar.bz2)
 

@@ -1,8 +1,8 @@
 # Description: Fast paced first person shooter game.
 # URL: http://www.warsow.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Mark Rosenstand, mark at borkware dot net
-# Depends on: zlib libjpeg libsdl libvorbis mesa3d
+# Depends on: libjpeg libsdl libvorbis
 
 name=warsow
 version=0.42

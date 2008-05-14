@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+SYMLINKS='f90 f95 gfortran'
+remove() {
+	local DIRECTORY="$1"
+	if [ -d "$DIRECTORY" ]; then
+		if [ -w "$DIRECTORY" ]; then
+			for c in $SYMLINKS; do
+				if [ -L "$DIRECTORY/$c" ]; then
+					rm "$DIRECTORY/$c"
+					if [ $? -gt 0 ]; then
+						echo "post-remove: error removing symlink '$DIRECTORY/$c'."
+						exit 1
+					else
+						echo "post-remove: removing symlink '$DIRECTORY/$c'."
+					fi
+				fi
+			done
+		else
+			echo "post-remove: error no permission to remove '$DIRECTORY/$c'."
+			exit 1
+		fi
+	fi
+}
+remove '/usr/lib/distcc'
+remove '/usr/lib/ccache'
+unset SYMLINKS
+# End of file

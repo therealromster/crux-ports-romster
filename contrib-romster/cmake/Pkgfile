@@ -1,11 +1,11 @@
 # Description: A cross-platform, open-source make system.
 # URL: http://www.cmake.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Mark Rosenstand, mark at borkware dot net
 # Depends on: ncurses
 
 name=cmake
-version=2.4.7
+version=2.4.8
 release=1
 source=(http://www.cmake.org/files/v${version%.*}/cmake-$version.tar.gz)
 

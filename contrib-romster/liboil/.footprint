@@ -7,7 +7,6 @@ drwxr-xr-x	root/root	usr/include/liboil-0.3/liboil/
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilclasses.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilcpu.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboildebug.h
--rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilfault.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilfuncs.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilfunction.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilgcc.h
@@ -18,7 +17,6 @@ drwxr-xr-x	root/root	usr/include/liboil-0.3/liboil/
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilrandom.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboiltest.h
 -rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboiltypes.h
--rw-r--r--	root/root	usr/include/liboil-0.3/liboil/liboilutils.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/liboil-0.3.la
 lrwxrwxrwx	root/root	usr/lib/liboil-0.3.so -> liboil-0.3.so.0.1.0

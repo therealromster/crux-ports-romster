@@ -1,8 +1,8 @@
 # Description: Set of scripts that convert a movie file in any format that mplayer understands to a DVD-compatible VOB file.
 # URL: http://videotrans.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: dvdauthor multimux qt3 sox transcode
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: dvdauthor imagemagick mjpegtools mplayer
 
 name=videotrans
 version=1.6.0

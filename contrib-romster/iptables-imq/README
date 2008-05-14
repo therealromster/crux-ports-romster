@@ -1,11 +1,9 @@
 REQUIREMENTS:
 
-	Kernel source in /usr/src/linux-2.6.21
-	Kernel version 2.6.21.x patched with IMQ.
+	Kernel source in /usr/src/linux-2.6.24.x
+	Kernel version 2.6.24.x patched with IMQ.
 
 PRECAUTION:
-
-	Stop firewall and any QoS before updating!
 
 PRE-INSTALL:
 
@@ -13,11 +11,10 @@ PRE-INSTALL:
 
 	Patch the kernel source with:
 
-	cd /usr/src/linux-2.6.21.x
+	cd /usr/src/linux-2.6.24.x
 	(copy from the pkgmk source after downloading or wget the patch off the site)
-	patch -p1 -i ../linux-2.6.21-img2.diff
-
-	enable IMQ filter as a module
+	# patch -p1 -i ../linux-2.6.24-imq.diff
+	# make oldconfig
 
 	.config file:
 
@@ -40,6 +37,5 @@ POST-REMOVE:
 NOTES:
 
 	You need to add many rules for imq to work google for the 
-	"wonder shaper" alternitively use my "bws" program thats highly alpha and in 
-	is work in progress, in romster's ports (not yet but will be soon).
+	"wonder shaper".
 

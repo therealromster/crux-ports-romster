@@ -1,0 +1,29 @@
+diff -pruN pkg.orig/etc/rc pkg/etc/rc
+--- pkg.orig/etc/rc	2008-04-29 10:01:50.996260068 +1000
++++ pkg/etc/rc	2008-04-29 10:02:17.184261912 +1000
+@@ -13,6 +13,13 @@ echo "The system is coming up.  Please w
+ /bin/mount -n -t sysfs none /sys
+ /sbin/start_udev
+ 
++# Create device-mapper device nodes
++/sbin/dmsetup mknodes
++
++# Scan for LVM volume groups
++/sbin/vgscan --ignorelockingfailure
++/sbin/vgchange --ignorelockingfailure -a y
++
+ # Mount root read-only
+ /bin/mount -n -o remount,ro /
+ 
+diff -pruN pkg.orig/etc/rc.shutdown pkg/etc/rc.shutdown
+--- pkg.orig/etc/rc.shutdown	2008-04-29 10:01:50.996260068 +1000
++++ pkg/etc/rc.shutdown	2008-04-29 10:02:37.018264223 +1000
+@@ -43,6 +43,8 @@ fi
+ /sbin/swapoff -a
+ 
+ # Unmount file systems
++/bin/umount -a -r -t nosysfs,noproc
++/sbin/vgchange --ignorelockingfailure -a n
+ /bin/umount -a -r
+ 
+ # Remount root filesystem read-only

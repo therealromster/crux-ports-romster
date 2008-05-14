@@ -1,0 +1,20 @@
+# Description: Perl XML-Twig Library.
+# URL: http://xmltwig.com/xmltwig/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on:   
+
+name=p5-xml-twig
+version=3.32
+release=1
+source=(http://xmltwig.com/xmltwig/XML-Twig-$version.tar.gz)
+
+build() {
+	cd XML-Twig-$version
+	yes | perl Makefile.PL PREFIX=$PKG/usr
+	make
+	make install
+	find $PKG \( -name 'perllocal.pod' -o \
+		-name '.packlist' \) -delete
+}
+

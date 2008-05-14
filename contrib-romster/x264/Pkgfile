@@ -1,21 +1,16 @@
 # Description: Library for encoding H264/AVC video streams (snapshot).
-# URL: http://developers.videolan.org/x264.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# URL: http://www.videolan.org/developers/x264.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Rouven Schuerch, rs at tegonal dot com
-# Depends on: lzma
+# Depends on:
+# Optional: yasm
 
 name=x264
-version=r745
+version=0.59.816-761630d
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/x264/x264-snapshot-$version.tar.lzma)
+source=(http://www.dcaf-security.org/distfiles/x264-snapshot-$version.tar.bz2)
 
 build() {
-	# temp fix untill/if pkgutils supports lzma
-	if [ -e $SRC/$name-snapshot-$version.tar.lzma ]; then
-		tar --use-compress-program=lzma -xf $name-snapshot-$version.tar.lzma
-		rm $name-snapshot-$version.tar.lzma
-	fi
-
 	cd x264
 	export CFLAGS="$(echo $CFLAGS |sed -e 's/-O[s0-3] //')"
 
@@ -27,9 +22,10 @@ build() {
 		--prefix=/usr \
 		--enable-pic \
 		--enable-pthread \
-		--enable-shared
+		--enable-shared 
 
 	make
 	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
 }
 

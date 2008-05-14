@@ -1,14 +1,13 @@
 # Description:	A real-time strategy game.
 # URL: http://wz2100.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Mark Rosenstand, mark at borkware dot net
-# Depends on: libjpeg libmad libpng libvorbis mesa3d openal physfs sdl_net smpeg zip
-# Optional: upx
+# Depends on: libjpeg libmad libpng openal physfs sdl_net smpeg
 
 name=warzone2100
-version=2.0.8_rc1
+version=2.0.10
 release=1
-source=(http://download.gna.org/warzone/releases/${version%*.}/warzone2100-$version.tar.bz2)
+source=(http://download.gna.org/warzone/releases/${version%.*}/warzone2100-$version.tar.bz2)
 
 build() {
 	cd warzone2100-$version
@@ -17,13 +16,5 @@ build() {
 	make
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/doc
-
-	# compress binary files if upx is installed to save disk space
-	if pkginfo -i |grep '^upx ' > /dev/null; then
-		(
-			cd $PKG/usr/bin
-			upx -9 warzone2100
-		)
-	fi
 }
 

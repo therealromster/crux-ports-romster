@@ -1,22 +1,22 @@
 # Description: GNU Java Compiler.
 # URL: http://gcc.gnu.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Aaron Marks, nymacro at gmail dot com
 # Depends On: alsa-lib
 
 name=gcj
-version=4.2.2
+version=4.2.3
 release=2
 source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-{core,g++,java}-$version.tar.bz2 \
 	gcj-$version-nocheck-fixincludes.patch \
 	gcj-$version-fixinc.patch)
 
 build() {
-	patch -d gcc-$version -p1 -i $SRC/gcj-$version-nocheck-fixincludes.patch
-	patch -d gcc-$version -p1 -i $SRC/gcj-$version-fixinc.patch
+	patch -d gcc-$version -p 1 -i ../gcj-$version-nocheck-fixincludes.patch
+	patch -d gcc-$version -p 1 -i ../gcj-$version-fixinc.patch
 
-	sed -i -e 's|VERSUFFIX ""|VERSUFFIX " (CRUX)"|' \
-		gcc-$version/gcc/version.c
+	sed -i gcc-$version/gcc/version.c \
+		-e 's|VERSUFFIX ""|VERSUFFIX " (CRUX)"|'
 
 	mkdir build
 	cd build
@@ -35,7 +35,7 @@ build() {
 
 	make bootstrap
 	make check
-	make prefix=$PKG/usr install
+	make -j 1 prefix=$PKG/usr install
 
 	ln -sf /usr/libexec/gcc/i686-pc-linux-gnu/$version/jc1 $PKG/usr/bin/jc1
 	
@@ -68,21 +68,5 @@ build() {
 	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
 		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
 	done
-
-	# install distcc symlinks if distcc is installed
-	if pkginfo -i |grep '^distcc '; then
-		install -d $PKG/usr/lib/distcc
-		for c in gcj jc1; do
-			cd $PKG/usr/lib/distcc && ln -s ../../bin/distcc $c
-		done
-	fi
-
-	# install ccache symlinks if ccache is installed
-	if pkginfo -i |grep '^ccache '; then
-		install -d $PKG/usr/lib/ccache
-		for c in gcj jc1; do
-			cd $PKG/usr/lib/ccache && ln -s ../../bin/ccache $c
-		done
-	fi
 }
 

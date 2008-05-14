@@ -1,11 +1,11 @@
 # Description:	Userspace toolset for logical volume management.
 # URL: http://sourceware.org/lvm2/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Mark Rosenstand, mark at borkware dot net
 # Depends on: libdevmapper
 
 name=lvm2
-version=2.02.33
+version=2.02.36
 release=1
 source=(ftp://sources.redhat.com/pub/lvm2/LVM2.$version.tgz)
 

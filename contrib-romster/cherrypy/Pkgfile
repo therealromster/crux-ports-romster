@@ -1,0 +1,17 @@
+# Description: Pythonic, object-oriented web development framework.
+# URL: http://www.cherrypy.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: python
+
+name=cherrypy
+version=3.0.3
+release=1
+source=(http://download.cherrypy.org/cherrypy/$version/CherryPy-$version.tar.gz)
+
+build() {
+	cd CherryPy-$version
+	python setup.py install --root=$PKG
+	rm -rf $PKG/usr/lib/python*/site-packages/cherrypy/tutorial
+}
+

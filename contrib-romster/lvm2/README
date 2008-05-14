@@ -1,0 +1,27 @@
+REQUIREMENTS:
+
+	Patched core/rc package.
+
+PRECAUTION:
+
+	Don't forget to run install scripts or patch rc manually
+	 with:
+
+	# patch -p 1 lvm2-rc.patch
+
+PRE-INSTALL:
+
+POST-INSTALL:
+
+	This patches rc scripts for LVM2 support.
+
+PRE-REMOVE:
+
+	This reverses the LVM2 rc scripts patch.
+
+POST-REMOVE:
+
+NOTES:
+
+	post-install and pre-remove will only patch if there is
+	 no errors on a patch dry run.

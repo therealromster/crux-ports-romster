@@ -1,11 +1,11 @@
 # Description: C++ interface for the popular glib library.
 # URL: http://gtkmm.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Younes Hafri, ycrux at club-internet dot fr
 # Depends on: gtk libsigc++
 
 name=glibmm
-version=2.16.0
+version=2.16.2
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/glibmm/${version%.*}/glibmm-$version.tar.bz2)
 

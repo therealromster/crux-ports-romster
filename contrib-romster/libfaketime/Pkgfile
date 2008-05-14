@@ -1,7 +1,7 @@
 # Description: Fake time preload library, report faked system time to programs without having to change the system-wide time.
 # URL: http://www.code-wizards.com/projects/libfaketime/index.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: 
 
 name=libfaketime

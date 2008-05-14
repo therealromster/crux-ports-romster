@@ -1,8 +1,8 @@
 # Description: Tag Tool is a program to manage the information fields in MP3 and Ogg Vorbis files.
 # URL: http://pwp.netcabo.pt/paol/tagtool/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Till Biedermann, tillbiedermann at yahoo dot de
-# Depends on: libglade id3lib libvorbis
+# Depends on: libglade id3lib libvorbis p5-xml-parser
 
 name=tagtool
 version=0.12.3

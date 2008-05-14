@@ -1,19 +1,19 @@
 # Description: Ultimate Packer for eXecutables.
 # URL: http://upx.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Younes Hafri, ycrux at club-internet dot fr
-# Depends on: ucl lzo
+# Depends on: ucl lzo zlib
 
 name=upx
-version=3.02
+version=3.03
 release=1
 source=(http://upx.sourceforge.net/download/upx-$version-src.tar.bz2)
 
 build() {
 	cd upx-$version-src
-	(cd doc; make)
-	(cd src; make)
-	install -D -m 0644 doc/upx.1 $PKG/usr/man/man1/upx.1
-	install -D -m 0755 src/upx.out $PKG/usr/bin/upx
+	make -C doc
+	make -C src
+	install -m 0644 -D doc/upx.1 $PKG/usr/man/man1/upx.1
+	install -m 0755 -D src/upx.out $PKG/usr/bin/upx
 }
 

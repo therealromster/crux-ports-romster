@@ -1,14 +1,14 @@
 # Description: A reader for the documentation format of the GNU project.
 # URL: http://www.gnu.org/software/texinfo
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Brett Goulder, predatorfreak at dcaf-security dot org
-# Depends on:
+# Depends on: ncurses
 
 name=texinfo
-version=4.11
+version=4.12
 release=1
 
-source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.bz2)
+source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
 
 build() {
 	cd texinfo-$version

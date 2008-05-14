@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/perl5/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.8/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.8/Date/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.8/Date/Manip.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.8/Date/Manip.pod
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-r--r--r--	root/root	usr/man/man3/Date::Manip.3pm.gz

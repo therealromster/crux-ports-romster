@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/wesnoth
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr--r--	_wesnoth/daemon	usr/bin/wesnothd
+drwxr-xr-x	root/root	usr/var/
+drwxr-xr-x	root/root	usr/var/run/
+drwx------	_wesnoth/daemon	usr/var/run/wesnothd/

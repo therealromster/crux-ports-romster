@@ -1,18 +1,19 @@
 # Description: Library to provide abstract access to various archives.
 # URL: http://icculus.org/physfs/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Mark Rosenstand, mark at borkware dot net
 # Depends on: ncurses readline zlib 
 # Optional: wxgtk
 
 name=physfs
-version=1.1.0
+version=1.0.1
 release=1
 source=(http://icculus.org/physfs/downloads/physfs-$version.tar.gz)
 
 build() {
 	cd physfs-$version
 
+	#version 1.1.0 breaks warzone2100
 	#version 1.1.1 moves to cmake that isn't deemed ready to use yet.
 
 	#export CFLAGS="$CFLAGS -fno-strict-aliasing"

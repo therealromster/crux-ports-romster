@@ -70,6 +70,8 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.10/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstnsf.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstnuvdemux.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstnuvdemux.so
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstoss4audio.la
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstoss4audio.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstrawparse.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstrawparse.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstreal.la
@@ -94,6 +96,8 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.10/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstspeexresample.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgststereo.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgststereo.so
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstsubenc.la
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstsubenc.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsttrm.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsttrm.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgsttta.la

@@ -1,42 +1,36 @@
 # Description: Console mouse server.
 # URL: http://unix.schottelius.org/gpm/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Han Boetes, han at mijncomputer dot nl
 
-
 name=gpm
-version=1.20.1
+version=1.20.3
 release=1
 source=(http://unix.schottelius.org/gpm/archives/gpm-$version.tar.bz2 \
+	gpm-$version-no-emacs-dir.patch \
 	gpm-$version-nodebug.patch \
 	gpm-$version-no-dumb-error-messages.patch \
-	gpm-$version-liblow-segv.patch \
+	gpm-$version-make-install-fixes.patch \
 	gpm.rc)
 
 build() {
 	cd gpm-$version
 
-	sed -i \
-		-e 's/^MAKEINFO.*/MAKEINFO = no/' \
-		-e '/^EMACS.*/d' Makefile.include.in
+	patch -p 1 -i ../gpm-$version-no-emacs-dir.patch
+	patch -p 1 -i ../gpm-$version-nodebug.patch
+	patch -p 1 -i ../gpm-$version-no-dumb-error-messages.patch
+	patch -p 1 -i ../gpm-$version-make-install-fixes.patch
 
-	# emacs gpm support is included in emacs. xterm-mouse-mode
-	sed -i \
-		-e 's/EMACS=.*/EMACS=:/' \
-		-e 's/ELISP=.*/ELISP=/' configure
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
 
-	patch -p1 -i $SRC/gpm-$version-nodebug.patch
-	patch -p1 -i $SRC/gpm-$version-no-dumb-error-messages.patch
-	patch -p1 -i $SRC/gpm-$version-liblow-segv.patch
-
-	./configure --prefix=/usr
-
-	make LDFLAGS='-lm'
+	make -j 1
 	make ROOT=$PKG install
 
-	install -D -m 0755 $SRC/gpm.rc $PKG/etc/rc.d/gpm
-	chmod 0755 $PKG/usr/lib/libgpm.so.*.*.*
-	rm -r $PKG/usr/etc
-	rm -r $PKG/usr/info
+	install -m 0755 -D ../gpm.rc $PKG/etc/rc.d/gpm
+	rm -r $PKG/usr/share/info
+	rmdir $PKG/usr/etc
+	rmdir $PKG/usr/share
 }
 

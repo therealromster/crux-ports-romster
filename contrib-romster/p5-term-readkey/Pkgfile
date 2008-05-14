@@ -1,0 +1,29 @@
+# Description: Perl Terminal Readkey Library.
+# URL: http://search.cpan.org/~jstowe/TermReadKey-2.30/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Stoyan Zhekov zhware at hotpop dot com
+# Depends on:  perl
+
+name=p5-term-readkey
+version=2.30
+release=1
+source=(http://www.cpan.org/modules/by-module/Term/TermReadKey-$version.tar.gz)
+
+build() {
+   cd TermReadKey-$version
+
+   perl Makefile.PL
+   make OPTIMIZE="$CFLAGS"
+   make DESTDIR=$PKG install
+
+   # Remove perlcrap
+   find $PKG \( \
+		-name '.packlist' -or \
+      -name '*.bs' -or \
+      -name 'autosplit.ix' -or \
+      -name 'perllocal.pod' \) -delete
+
+   # Remove empty directories
+   find $PKG -depth -empty -exec rm -rf {} \;
+}
+

@@ -1,14 +1,14 @@
 # Description: GDC is a D language front end for the GNU Compiler Collection.
 # URL: http://dgcc.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on:
 # Nice To Have: distcc ccache
 
 name=gdc
 version=0.24
 gcc_version=4.1.2
-release=1
+release=2
 source=(http://dl.sourceforge.net/sourceforge/dgcc/gdc-$version-src.tar.bz2 \
 	ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$gcc_version/gcc-{core,g++}-$gcc_version.tar.bz2 \
 	gdc-$gcc_version-nocheck-fixincludes.patch \
@@ -72,21 +72,5 @@ build() {
 	for i in $(find $PKG -name '*.la' | sed -e "s|$PKG|/|"); do
 		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
 	done
-
-	# install distcc symlinks if distcc is installed
-	if pkginfo -i |grep '^distcc '; then
-		install -d $PKG/usr/lib/distcc
-		for c in gdc gdmd; do
-			cd $PKG/usr/lib/distcc && ln -s ../../bin/distcc $c
-		done
-	fi
-
-	# install ccache symlinks if ccache is installed
-	if pkginfo -i |grep '^ccache '; then
-		install -d $PKG/usr/lib/ccache
-		for c in gdc gdmd; do
-			cd $PKG/usr/lib/ccache && ln -s ../../bin/ccache $c
-		done
-	fi
 }
 

@@ -1,14 +1,14 @@
 # Description: P2P application for web searching.
 # URL: http://www.yacy.net/yacy/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: ant
 
 name=yacy
-version=0.56
-date=20071222_4290
-release=2
-source=(http://www.yacy.net/release/yacy_pro_v${version}_$date.tar.gz \
+version=0.58
+date=20080420_4720
+release=1
+source=(http://www.yacy.net/release/yacy_v${version}_$date.tar.gz \
 	yacy-start.sh yacy-stop.sh yacy.rc)
 
 build() {
@@ -42,23 +42,29 @@ build() {
 		addon/jsmooth/skeletons/windowed-wrapper/jwrap.exe
 
 	# install
-	install -d $PKG/usr/lib/yacy $PKG/usr/etc/yacy
+	install -d $PKG/usr/lib/yacy $PKG/etc/yacy $PKG/var/cache/yacy
 	cp -R * $PKG/usr/lib/yacy/
 
-	local files='DATA yacy.init yacy.logging yacy.network.group yacy.network.unit yacy.stopwords yacy.yellow'
+	# move cache directory
+	mv $PKG/usr/lib/yacy/DATA $PKG/var/cache/yacy/
+	ln -sf /var/cache/yacy/DATA $PKG/usr/lib/yacy/DATA
+
+	local files='yacy.logging yacy.stopwords yacy.yellow'
 
 	for file in $files; do
-		mv $PKG/usr/lib/yacy/$file $PKG/usr/etc/yacy/
-		ln -sf /usr/etc/yacy/$file $PKG/usr/lib/yacy/$file
+		mv $PKG/usr/lib/yacy/$file $PKG/etc/yacy/
+		ln -sf /etc/yacy/$file $PKG/usr/lib/yacy/$file
 	done
 
 	# add some protection by limitng what and who can access the p2p files.
 	chown -R _yacy:daemon $PKG/usr/lib/yacy
-	chown -R _yacy:daemon $PKG/usr/etc/yacy
-	chmod -R o-rx $PKG/usr/etc/yacy
+	chown -R _yacy:daemon $PKG/var/cache/yacy
+	chown -R _yacy:daemon $PKG/etc/yacy
+	chmod -R o-rx $PKG/etc/yacy
+	chmod -R o-rx $PKG/var/cache/yacy
 	
-	install -D -m 0755 $SRC/yacy-start.sh $PKG/usr/sbin/yacy-start
-	install -D -m 0755 $SRC/yacy-stop.sh $PKG/usr/sbin/yacy-stop
-	install -D -m 0755 $SRC/yacy.rc $PKG/etc/rc.d/yacy
+	install -D -m 0754 -o _yacy -g daemon ../yacy-start.sh $PKG/usr/sbin/yacy-start
+	install -D -m 0754 -o _yacy -g daemon ../yacy-stop.sh $PKG/usr/sbin/yacy-stop
+	install -D -m 0754 ../yacy.rc $PKG/etc/rc.d/yacy
 }
 

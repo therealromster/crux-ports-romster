@@ -1,0 +1,28 @@
+# Description: A log colorizer written in C with plugin support.
+# URL: http://bonehunter.rulez.org/software/ccze/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Vincenzo Colosimo, vico at bicisport dot de
+# Depends on: libpcre ncurses
+
+name=ccze
+version=0.2.1
+release=3
+source=(http://ftp.debian.org/debian/pool/main/c/ccze/ccze_$version.orig.tar.gz)
+
+build() {
+	cd ccze-$version
+
+	# GCC 4.x fixes
+	sed -i src/Makefile.in -e 's/-Wswitch -Wmulticharacter/-Wswitch/'   
+	sed -i configure.ac -e '/AC_CHECK_TYPE(error_t, int)/d'
+	autoconf
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}
+

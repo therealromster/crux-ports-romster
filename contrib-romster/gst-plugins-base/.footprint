@@ -138,53 +138,53 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.10/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstxvimagesink.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.10/libgstxvimagesink.so
 -rwxr-xr-x	root/root	usr/lib/libgstaudio-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstaudio-0.10.so -> libgstaudio-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstaudio-0.10.so.0 -> libgstaudio-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstaudio-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstaudio-0.10.so -> libgstaudio-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstaudio-0.10.so.0 -> libgstaudio-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstaudio-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstcdda-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstcdda-0.10.so -> libgstcdda-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstcdda-0.10.so.0 -> libgstcdda-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstcdda-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstcdda-0.10.so -> libgstcdda-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstcdda-0.10.so.0 -> libgstcdda-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstcdda-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstfft-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstfft-0.10.so -> libgstfft-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstfft-0.10.so.0 -> libgstfft-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstfft-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstfft-0.10.so -> libgstfft-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstfft-0.10.so.0 -> libgstfft-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstfft-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstinterfaces-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstinterfaces-0.10.so -> libgstinterfaces-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstinterfaces-0.10.so.0 -> libgstinterfaces-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstinterfaces-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstinterfaces-0.10.so -> libgstinterfaces-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstinterfaces-0.10.so.0 -> libgstinterfaces-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstinterfaces-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstnetbuffer-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstnetbuffer-0.10.so -> libgstnetbuffer-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstnetbuffer-0.10.so.0 -> libgstnetbuffer-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstnetbuffer-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstnetbuffer-0.10.so -> libgstnetbuffer-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstnetbuffer-0.10.so.0 -> libgstnetbuffer-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstnetbuffer-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstpbutils-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstpbutils-0.10.so -> libgstpbutils-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstpbutils-0.10.so.0 -> libgstpbutils-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstpbutils-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstpbutils-0.10.so -> libgstpbutils-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstpbutils-0.10.so.0 -> libgstpbutils-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstpbutils-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstriff-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstriff-0.10.so -> libgstriff-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstriff-0.10.so.0 -> libgstriff-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstriff-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstriff-0.10.so -> libgstriff-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstriff-0.10.so.0 -> libgstriff-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstriff-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstrtp-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstrtp-0.10.so -> libgstrtp-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstrtp-0.10.so.0 -> libgstrtp-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstrtp-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstrtp-0.10.so -> libgstrtp-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstrtp-0.10.so.0 -> libgstrtp-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstrtp-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstrtsp-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstrtsp-0.10.so -> libgstrtsp-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstrtsp-0.10.so.0 -> libgstrtsp-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstrtsp-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstrtsp-0.10.so -> libgstrtsp-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstrtsp-0.10.so.0 -> libgstrtsp-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstrtsp-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstsdp-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstsdp-0.10.so -> libgstsdp-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstsdp-0.10.so.0 -> libgstsdp-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstsdp-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstsdp-0.10.so -> libgstsdp-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstsdp-0.10.so.0 -> libgstsdp-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstsdp-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgsttag-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgsttag-0.10.so -> libgsttag-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgsttag-0.10.so.0 -> libgsttag-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgsttag-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgsttag-0.10.so -> libgsttag-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgsttag-0.10.so.0 -> libgsttag-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgsttag-0.10.so.0.13.0
 -rwxr-xr-x	root/root	usr/lib/libgstvideo-0.10.la
-lrwxrwxrwx	root/root	usr/lib/libgstvideo-0.10.so -> libgstvideo-0.10.so.0.12.0
-lrwxrwxrwx	root/root	usr/lib/libgstvideo-0.10.so.0 -> libgstvideo-0.10.so.0.12.0
--rwxr-xr-x	root/root	usr/lib/libgstvideo-0.10.so.0.12.0
+lrwxrwxrwx	root/root	usr/lib/libgstvideo-0.10.so -> libgstvideo-0.10.so.0.13.0
+lrwxrwxrwx	root/root	usr/lib/libgstvideo-0.10.so.0 -> libgstvideo-0.10.so.0.13.0
+-rwxr-xr-x	root/root	usr/lib/libgstvideo-0.10.so.0.13.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gstreamer-audio-0.10.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gstreamer-cdda-0.10.pc

@@ -1,9 +1,9 @@
 drwxr-xr-x	root/root	bin/
 -rwxr-xr-x	root/root	bin/ntfs-3g
 drwxr-xr-x	root/root	lib/
-lrwxrwxrwx	root/root	lib/libntfs-3g.so -> libntfs-3g.so.24.0.0
-lrwxrwxrwx	root/root	lib/libntfs-3g.so.24 -> libntfs-3g.so.24.0.0
--rwxr-xr-x	root/root	lib/libntfs-3g.so.24.0.0
+lrwxrwxrwx	root/root	lib/libntfs-3g.so -> libntfs-3g.so.28.0.0
+lrwxrwxrwx	root/root	lib/libntfs-3g.so.28 -> libntfs-3g.so.28.0.0
+-rw-r--r--	root/root	lib/libntfs-3g.so.28.0.0
 drwxr-xr-x	root/root	sbin/
 lrwxrwxrwx	root/root	sbin/mount.ntfs-3g -> /bin/ntfs-3g
 drwxr-xr-x	root/root	usr/

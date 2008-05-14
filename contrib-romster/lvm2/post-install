@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# dry run test
+/usr/bin/patch --dry-run -f -p 1 -i lvm2-rc.patch > /dev/null
+
+# patch if no errors
+if [ $? = 0 ]; then
+	/usr/bin/patch -p 1 -i lvm2-rc.patch
+fi
+
+# End of file

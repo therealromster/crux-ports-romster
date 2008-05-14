@@ -1,0 +1,43 @@
+#!/usr/bin/env sh
+SYMLINKS='gcj jc1'
+symlink() {
+	local DIRECTORY BASENAME NOT_INSTALLED
+	DIRECTORY="$1"
+	BASENAME="`basename $DIRECTORY`"
+	if [ -d "$DIRECTORY" ]; then
+		if [ -w "$DIRECTORY" ]; then
+			cd "$DIRECTORY"
+			for c in $SYMLINKS; do
+				if [ ! -e "$DIRECTORY/$c" ]; then
+					NOT_INSTALLED='yes'
+				fi
+			done
+			if [ "$NOT_INSTALLED" ]; then
+				echo "post-install: in directory '$DIRECTORY'."
+			fi
+			for c in $SYMLINKS; do
+				if [ ! -e "$DIRECTORY/$c" ]; then
+					ln -s "../../bin/$BASENAME" "$c"
+					if [ $? -gt 0 ]; then
+						echo "post-install: error creating symlink '../../bin/$BASENAME -> $c'."
+						exit 1
+					else
+						echo "post-install: create symlink '../../bin/$BASENAME -> $c'."
+					fi
+				fi
+			done
+			cd - > /dev/null
+		else
+			echo "post-install: error no permission to create symlink '../../bin/$BASENAME -> $c'."
+			exit 1
+		fi
+	fi
+}
+if pkginfo -i | egrep '^distcc ' > /dev/null; then
+	symlink '/usr/lib/distcc'
+fi
+if pkginfo -i | egrep '^ccache ' > /dev/null; then
+	symlink '/usr/lib/ccache'
+fi
+unset SYMLINKS
+# End of file

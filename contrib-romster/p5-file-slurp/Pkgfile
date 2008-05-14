@@ -1,0 +1,28 @@
+# Description: Efficient Reading/Writing of Complete Files.
+# URL: http://search.cpan.org/~drolsky/File-Slurp-9999.13/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club dash internet dot fr
+# Depends on: perl
+
+name=p5-file-slurp
+version=9999.13
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/File-Slurp-$version.tar.gz)
+
+build() {
+	cd File-Slurp-$version
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	# Remove perlcrap
+	find $PKG \
+		\( -name '.packlist' -or \
+		-name '*.bs' -or \
+		-name 'autosplit.ix' -or \
+		-name 'perllocal.pod' \) -delete
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -rf {} \;
+}
+

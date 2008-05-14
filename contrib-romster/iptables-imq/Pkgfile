@@ -1,24 +1,34 @@
 # Description: Intermediate Queueing Device, Iptables filter.
 # URL: http://www.linuximq.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: iproute2
 
 name=iptables-imq
-version=1.3.8-2.6.21
-patch=1.3.6-imq
+version=1.4.0-2.6.24
 release=1
 source=(ftp://ftp.netfilter.org/pub/iptables/iptables-${version%%-*}.tar.bz2 \
-	http://www.linuximq.net/patchs/linux-${version##*-}-img2.diff \
-	http://www.linuximq.net/patchs/iptables-$patch.diff)
+	http://www.linuximq.net/patchs/linux-${version##*-}-imq.diff \
+	http://www.linuximq.net/patchs/iptables-${version%%-*}-imq.diff)
 
 build() {
+	local kernel_version
+
 	cd iptables-${version%%-*}
 	
-	patch -p1 -i $SRC/iptables-$patch.diff
+	patch -p 1 -i ../iptables-${version%%-*}-imq.diff
 	chmod +x extensions/.IMQ-test*
 	
-	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr all
-	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr DESTDIR=$PKG install install-devel
+	# we do not want/need these kernel-headers included
+	# in the iptables sources.
+	rm include/linux/netfilter_ipv4/ip_tables.h
+	rm include/linux/netfilter_ipv6/ip6_tables.h
+
+	# use the patched kernel source kernel-headers
+	kernel_version="`uname -r`"
+	make -j 1 PREFIX=/usr KERNEL_DIR=/usr/src/linux-$kernel_version KBUILD_OUTPUT=/usr COPT_FLAGS="$CFLAGS"
+	make PREFIX=/usr DESTDIR=$PKG install install-devel
+	install -m 0755 extensions/libipt_IMQ.so $PKG/usr/lib/iptables/
+	install -m 0755 extensions/libip6t_IMQ.so $PKG/usr/lib/iptables/
 }
 

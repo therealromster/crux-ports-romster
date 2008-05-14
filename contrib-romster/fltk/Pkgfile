@@ -1,19 +1,19 @@
 # Description: Cross-platform C++ GUI toolkit for Unix, Windows and Mac OS X.
 # URL: http://www.fltk.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Ivan Lyanguzov, tzong at tzong dot spb dot ru
 # Depends on: alsa-lib libjpeg libpng mesa3d xorg-libxft xorg-libxinerama
 
 name=fltk
-version=1.1.7
-release=3
+version=1.1.8
+release=1
 source=(http://ftp.easysw.com/pub/fltk/$version/fltk-$version-source.tar.bz2)
 
 build() {
 	cd fltk-$version
 
-	export CFLAGS="$CFLAGS -fno-strict-aliasing"
-	export CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
+	#export CFLAGS="$CFLAGS -fno-strict-aliasing"
+	#export CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
 
 	./configure \
 		--prefix=/usr \
@@ -25,7 +25,7 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-
+	chmod a-x $PKG/usr/lib/*.a
 	rm -r $PKG/usr/{share,man/cat?}
 }
 

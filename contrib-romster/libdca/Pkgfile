@@ -1,16 +1,18 @@
 # Description: A free DTS Coherent Acoustics decoder. (early development stage)
 # URL: http://www.videolan.org/developers/libdca.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Han Boetes, han at mijncomputer dot nl
 # Depends on:
 
 name=libdca
 version=0.0.5
-release=1
+release=2
 source=(http://download.videolan.org/pub/videolan/libdca/$version/libdca-$version.tar.bz2)
 
 build() {
 	cd libdca-$version
+
+	sed -i configure -e 's/-mtune=pentiumpro//'
 
 	./configure \
 		--prefix=/usr \

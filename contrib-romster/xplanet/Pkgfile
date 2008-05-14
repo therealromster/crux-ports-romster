@@ -1,8 +1,8 @@
 # Description: Renders an image of the earth into the X root window.
 # URL: http://xplanet.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg libtiff
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: xorg libtiff libpng libungif
 
 name=xplanet
 version=1.2.0

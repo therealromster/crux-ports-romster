@@ -1,11 +1,11 @@
 # Description: Annihilate the other tanks to earn money, then spend it on bigger and better shields and weapons to wipe out the opposition.
 # URL: http://atanks.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: allegro
 
 name=atanks
-version=2.8
+version=2.9
 release=1
 source=(http://dl.sourceforge.net/sourceforge/atanks/atanks-$version.tar.gz)
 

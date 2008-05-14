@@ -33,10 +33,6 @@ lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_al.so.0 -> libsox_fmt_al.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_alsa.so -> libsox_fmt_alsa.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_alsa.so.0 -> libsox_fmt_alsa.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_alsa.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ao.la
-lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ao.so -> libsox_fmt_ao.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ao.so.0 -> libsox_fmt_ao.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ao.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_au.la
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_au.so -> libsox_fmt_au.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_au.so.0 -> libsox_fmt_au.so.0.0.0
@@ -65,10 +61,6 @@ lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_dat.so.0 -> libsox_fmt_dat.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_dvms.so -> libsox_fmt_dvms.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_dvms.so.0 -> libsox_fmt_dvms.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_dvms.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ffmpeg.la
-lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ffmpeg.so -> libsox_fmt_ffmpeg.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_ffmpeg.so.0 -> libsox_fmt_ffmpeg.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_ffmpeg.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/sox/libsox_fmt_flac.la
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_flac.so -> libsox_fmt_flac.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/sox/libsox_fmt_flac.so.0 -> libsox_fmt_flac.so.0.0.0

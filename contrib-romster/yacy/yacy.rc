@@ -7,10 +7,6 @@
 DAEMON=yacy
 RUN_AS_USER=_yacy
 
-# If you have to edit this section for this or any other 
-# port useage let me know, with a patch or added lines, 
-# or simplely e-mail me the altered file and I'll include the changes.
-
 RETVAL=0
 
 case $1 in

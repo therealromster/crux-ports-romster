@@ -1,10 +1,10 @@
 # Description: A portable scripting environment for Unix, Windows, and Macintosh.
 # URL: http://tcl.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Sven Dahl, dahl at c64 dot org
 
 name=tcl
-version=8.5.1
+version=8.5.2
 release=1
 source=(http://dl.sourceforge.net/sourceforge/tcl/tcl$version-src.tar.gz)
 

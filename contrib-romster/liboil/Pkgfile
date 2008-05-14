@@ -1,11 +1,10 @@
 # Description: A library of simple functions optimized for various CPUs.
 # URL: http://liboil.freedesktop.org/wiki/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on:
 
 name=liboil
-version=0.3.13
+version=0.3.8
 release=1
 source=(http://liboil.freedesktop.org/download/liboil-$version.tar.gz)
 
@@ -17,12 +16,12 @@ build() {
 		--disable-static \
 		--disable-gtk-doc
 
-	sed -i -e "/^SUBDIRS = /s/examples //" Makefile
+	sed -i -e '/^SUBDIRS = /s/examples //' Makefile
+
 	make
+	make check
 	make DESTDIR=$PKG install
 
-	# --disable-gtk-doc don't work and is ment to be disabled by
-	# default
 	rm -r $PKG/usr/share 
 }
 

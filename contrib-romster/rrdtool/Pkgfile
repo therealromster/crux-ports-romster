@@ -1,8 +1,8 @@
 # Description: A system to store and display time-series data.
 # URL: http://oss.oetiker.ch/rrdtool/index.en.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Younes Hafri, ycrux at club-internet dot fr
-# Depends on: libart_lgpl libcgi libgd python tcl freetype
+# Depends on: libart_lgpl libcgi libgd python tcl
 
 name=rrdtool
 version=1.2.27

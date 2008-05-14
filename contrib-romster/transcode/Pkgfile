@@ -1,6 +1,6 @@
 # Description: Command line utilities for transcoding various media formats.
 # URL: http://www.transcoding.org/cgi-bin/transcode
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Martin Opel, mo at obbl-net dot de
 # Depends on: ffmpeg mpeg2dec libdvdnav liba52 xorg-libxv
 # Optional: avifile libtheora libdv libquicktime lzo mjpegtools libfame imagemagick
@@ -17,45 +17,45 @@ build() {
 	
 	cd transcode-$version
 
-	patch -p1 -i ../ImageMagick-library-rename-fix.patch
+	patch -p 1 -i ../ImageMagick-library-rename-fix.patch
 
 	if pkginfo -i |grep '^avifile ' > /dev/null; then
 		config="--enable-avifile"
 	fi
 
 	if pkginfo -i |grep '^libtheora ' > /dev/null; then
-                config="$config --enable-theora"
-        fi
+		config="$config --enable-theora"
+	fi
 
 	if pkginfo -i |grep '^libdv ' > /dev/null; then
-                config="$config --enable-libdv"
-        fi
+		config="$config --enable-libdv"
+	fi
 
 	if pkginfo -i |grep '^libquicktime ' > /dev/null; then
-                config="$config --enable-libquicktime"
-        fi
+		config="$config --enable-libquicktime"
+	fi
 
 	if pkginfo -i |grep '^lzo ' > /dev/null; then
-                config="$config --enable-lzo"
+		config="$config --enable-lzo"
 		#config="$config  --with-lzo-includes='/usr/include/lzo'" # doesn't work? have to use the line below.
 		export CPPFLAGS="-I/usr/include/lzo"
-        fi
+	fi
 
 	if pkginfo -i |grep '^mjpegtools ' > /dev/null; then
-                config="$config --enable-mjpegtools"
-        fi
+		config="$config --enable-mjpegtools"
+	fi
 
 	if pkginfo -i |grep '^libfame ' > /dev/null; then
-                config="$config --enable-fame"
-        fi
+		config="$config --enable-fame"
+	fi
 
 	if pkginfo -i |grep '^imagemagick ' > /dev/null; then
-                config="$config --enable-imagemagick"
+		config="$config --enable-imagemagick"
 		#config="$config --with-imagemagick-includes='/usr/include/ImageMagick'" # doesn't work? have to use the line below.
 		export CPPFLAGS="$CPPFLAGS `pkg-config ImageMagick --cflags-only-I`"
-        fi
+	fi
 
-	CFLAGS="-O3 `echo $CFLAGS |sed -e 's/-O[s0-3] //'`" \
+	CFLAGS="`echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/'`" \
 		./configure \
 			--prefix=/usr \
 			--enable-libpostproc \
@@ -77,8 +77,9 @@ build() {
 	mkdir -p contrib/subrip
 	cd contrib/subrip
 	cp ../../../subtitleripper/* .
-	sed -i Makefile -e 's|.*ppm.*||i'
+	sed -i -e 's|.*ppm.*||i' Makefile
 	make clean all
-	install -D srttool subtitle2pgm subtitle2vobsub $PKG/usr/bin
+	install -m 0755 -D srttool subtitle2pgm subtitle2vobsub $PKG/usr/bin
+	chmod a-x $PKG/usr/lib/transcode/*.so
 }
 

@@ -1,8 +1,8 @@
 # Description: FFmpeg-based plug-ins for gstreamer.
 # URL: http://gstreamer.freedesktop.org/modules/gst-ffmpeg.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: gst-plugins-base python
+# Depends on: gst-plugins-base
 
 name=gst-ffmpeg
 version=0.10.3
@@ -12,9 +12,9 @@ source=(http://gstreamer.freedesktop.org/src/gst-ffmpeg/gst-ffmpeg-$version.tar.
 build() {
 	cd gst-ffmpeg-$version
 
-	export \
-		CFLAGS="${CFLAGS//-O?/-O2}" \
-		CXXFLAGS="${CXXFLAGS//-O?/-O2}"
+	CFLAGS="`echo $CFLAGS | sed -e 's/-O[s0-3]/-O2/'`" # touchy on what -O level will work
+	[ -z "`echo $CFLAGS | grep '\-fomit-frame-pointer'`" ] && CFLAGS="$CFLAGS -fomit-frame-pointer"
+	export CFLAGS
 
 	./configure \
 		--prefix=/usr \
@@ -22,5 +22,6 @@ build() {
 		
 	make
 	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/gstreamer-*/*.so
 }
 

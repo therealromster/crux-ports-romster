@@ -1,32 +1,30 @@
 # Description: Free peer-reviewed portable C++ source libraries.
 # URL: http://www.boost.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: sten, nick dot steeves at shaw dot ca
 # Depends on: boost-jam icu python
 
 name=boost
-version=1.34.1
+version=1.35.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/boost/boost_${version//./_}.tar.bz2)
 
 build() {
 	cd boost_${version//./_}
 
-	local bindir='bin.linuxx86'
 	local gccversion="$(gcc -dumpversion)"
-	export CFLAGS="$CFLAGS -fno-strict-aliasing"
 	export CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
+	export EXPAT_INCLUDE=/usr/include
+	export EXPAT_LIBPATH=/usr/lib
 
-	(
-		cd tools/bcp
+	pushd tools/bcp
+	bjam \
+		--toolset=gcc \
+		debug-symbols=off \
+		-sHAVE_ICU=1
 
-		bjam \
-			--toolset=gcc \
-			debug-symbols=off \
-			-sHAVE_ICU=1
-
-		install -D -m 0755 ../../bin.v2/tools/bcp/gcc-$gccversion/release/link-static/bcp $PKG/usr/bin/bcp
-	)
+	install -D -m 0755 ../../bin.v2/tools/bcp/gcc-$gccversion/release/link-static/bcp $PKG/usr/bin/bcp
+	popd
 
 	bjam \
 		release \

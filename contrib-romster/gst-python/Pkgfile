@@ -1,11 +1,11 @@
 # Description: Python bindings for gstreamer.
 # URL: http://gstreamer.freedesktop.org/modules/gst-python.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: gst-plugins-base pygtk
 
 name=gst-python
-version=0.10.10
+version=0.10.11
 release=1
 source=(http://gstreamer.freedesktop.org/src/gst-python/gst-python-$version.tar.bz2)
 

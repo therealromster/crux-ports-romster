@@ -1,12 +1,12 @@
 # Description: Tor is a anonymous network and proxy.
 # URL: http://tor.eff.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: libevent openssl zlib
 
 name=tor
-version=0.2.0.21-rc
-release=2
+version=0.2.0.26-rc
+release=1
 source=(http://tor.eff.org/dist/tor-$version.tar.gz \
 	tor.rc)
 

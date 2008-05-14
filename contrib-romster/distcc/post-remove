@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+DIRECTORY='/usr/lib/distcc'
+if [ -d "$DIRECTORY" ]; then
+	if [ -w "$DIRECTORY" ]; then
+		rm -r "$DIRECTORY"
+		if [ $? -gt 0 ]; then
+			echo "post-remove: error remove '$DIRECTORY' failed."
+		else
+			echo "post-remove: '$DIRECTORY' removed."
+		fi
+	else
+		echo "post-remove: error no permission to remove '$DIRECTORY'."
+	fi
+fi
+unset DIRECTORY
+# End of file

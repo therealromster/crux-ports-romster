@@ -1,7 +1,7 @@
 # Description: DenyHosts is a script intended to be run by Linux system administrators to help thwart ssh server attacks.
 # URL: http://denyhosts.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: python
 
 name=denyhosts

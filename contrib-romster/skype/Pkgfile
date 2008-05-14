@@ -1,11 +1,11 @@
 # Description: P2P VoIP software which supports end-to-end encryption.
 # URL: http://www.skype.com/products/skype/linux/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: qt4 alsa-lib dbus libsigc++
+# Depends on: qt4 alsa-lib dbus libsigc++ xorg-libxscrnsaver
 
 name=skype
-version=1.4.0.118
+version=2.0.0.68
 release=1
 source=(http://download.skype.com/linux/skype-$version.tar.bz2)
 

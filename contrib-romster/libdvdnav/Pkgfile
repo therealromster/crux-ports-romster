@@ -1,20 +1,20 @@
 # Description: DVD Navigation library.
 # URL: http://dvd.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Matt Housh, jaeger at morpheus dot net
 # Depends on: libdvdcss
 
 name=libdvdnav
-version=r997
+version=r1000
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/libdvdnav-snapshot-$version.tar.bz2)
+source=(http://www.dcaf-security.org/distfiles/libdvdnav-snapshot-$version.tar.bz2)
 
 build() {
 	cd libdvdnav
-
-	export \
-		CFLAGS="${CFLAGS//-O?/}" \
-		CXXFLAGS="${CXXFLAGS//-O?/}"
+	# -O3 is used in the Makefile
+	CFLAGS="`echo $CFLAGS | sed -e 's/-O[s0-3] //'`"
+	CXXFLAGS="`echo $CXXFLAGS | sed -e 's/-O[s0-3] //'`"
+	export CFLAGS CXXFLAGS
 
 	./configure \
 		--prefix=/usr \
@@ -22,5 +22,6 @@ build() {
 		--disable-debug
 
 	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
 }
 

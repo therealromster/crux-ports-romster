@@ -1,0 +1,29 @@
+# Description: perl date manip.
+# URL: http://search.cpan.org/~sbeck/Date-Manip-5.48/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Han Boetes han at mijncomputer dot nl
+# Depends on: perl
+
+name=p5-date-manip
+version=5.48
+release=1
+source=(http://www.cpan.org/modules/by-module/Date/Date-Manip-$version.tar.gz)
+
+build() {
+	cd Date-Manip-$version
+
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make install DESTDIR=$PKG
+
+	# Remove perlcrap
+	find $PKG -type f \
+		\( -name '.packlist' -or \
+		-name '*.bs' -or \
+		-name 'autosplit.ix' -or \
+		-name 'perllocal.pod' \) -delete
+
+	# Remove empty directories
+	find $PKG -depth -empty -exec rm -rf {} \;
+}
+

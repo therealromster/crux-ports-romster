@@ -1,8 +1,8 @@
 # Description: A library for reading and writing quicktime files.
 # URL: http://libquicktime.sourceforge.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Younes Hafri, ycrux at club-internet dot fr
-# Depends on: ffmpeg gtk libdivx libdv mesa3d x264 xorg-libxaw
+# Depends on: ffmpeg gtk libdivx libdv x264 xorg-libxaw
 
 name=libquicktime
 version=1.0.2

@@ -1,0 +1,15 @@
+diff -pruN distcc-2.18.3.orig/configure distcc-2.18.3/configure
+--- distcc-2.18.3.orig/configure	2008-05-07 11:40:41.950347462 +1000
++++ distcc-2.18.3/configure	2008-05-07 11:50:41.411347269 +1000
+@@ -342,9 +342,9 @@ bindir='${exec_prefix}/bin'
+ sbindir='${exec_prefix}/sbin'
+ libexecdir='${exec_prefix}/libexec'
+ datadir='${prefix}/share'
+-sysconfdir='${prefix}/etc'
++sysconfdir='/etc'
+ sharedstatedir='${prefix}/com'
+-localstatedir='${prefix}/var'
++localstatedir='/var'
+ libdir='${exec_prefix}/lib'
+ includedir='${prefix}/include'
+ oldincludedir='/usr/include'

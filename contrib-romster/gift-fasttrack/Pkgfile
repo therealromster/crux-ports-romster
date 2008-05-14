@@ -1,18 +1,22 @@
 # Description: The FastTrack plugin for giFT.
 # URL: http://developer.berlios.de/projects/gift-fasttrack
 # Packager: Coviello Giuseppe, giuseppecoviello at tin dot it
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: gift
 
 name=gift-fasttrack
 version=0.8.9
 release=1
-source=(http://download.berlios.de/gift-fasttrack/giFT-FastTrack-$version.tar.gz)
+source=(http://download.berlios.de/gift-fasttrack/giFT-FastTrack-$version.tar.gz \
+	http://update.kceasy.com/update/fasttrack/nodes.gzip \
+	http://update.kceasy.com/update/fasttrack/banlist.gzip)
 
 build() {
 	cd giFT-FastTrack-$version
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
+	zcat ../nodes.gzip >> $PKG/usr/share/giFT/FastTrack/nodes
+	zcat ../banlist.gzip >> $PKG/usr/share/giFT/FastTrack/banlist
 }
 
