@@ -5,15 +5,21 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.5/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/TaskCoach-0.69.2-py2.5.egg-info
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/buildlib/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/bdist_rpm_fedora.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/bdist_rpm_fedora.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/clean.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/buildlib/clean.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/__init__.pyc
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/application/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/application/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/application/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/application/application.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/application/application.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/command/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/command/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/command/__init__.pyc
@@ -73,6 +79,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/date.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/dateandtime.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/dateandtime.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/recurrence.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/recurrence.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/timeclass.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/timeclass.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/domain/date/timedelta.py
@@ -120,7 +128,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/color.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/color.pyc
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/dialog/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/dialog/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/dialog/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/dialog/__init__.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/dialog/editor.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/gui/dialog/editor.pyc
@@ -178,8 +186,14 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/da.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/de.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/de.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/el.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/el.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/es.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/es.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fa.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fa.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fi.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fi.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fr.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/fr.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/gl.py
@@ -216,8 +230,12 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/sk.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/sv.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/sv.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/th.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/th.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/tr.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/tr.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/uk.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/uk.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/zh_CN.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/zh_CN.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/i18n/zh_TW.py
@@ -287,8 +305,10 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/ElementPath.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/ElementTree.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/ElementTree.pyc
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/combotreebox.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/combotreebox.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/desktop.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/desktop.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/thirdparty/sized_controls.py
@@ -308,6 +328,8 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/datectrl.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/dialog.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/dialog.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/dirchooser.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/dirchooser.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/draganddrop.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/draganddrop.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/taskcoachlib/widgets/itemctrl.py

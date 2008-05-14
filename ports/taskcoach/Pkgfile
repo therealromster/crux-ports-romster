@@ -5,12 +5,13 @@
 # Depends on: wxpython
 
 name=taskcoach
-version=0.69.2
+version=0.70.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/taskcoach/TaskCoach-$version.tar.gz)
 
 build() {
 	cd TaskCoach-$version
 	python setup.py install --root=$PKG
+	rm $PKG/usr/lib/python2.5/site-packages/TaskCoach-$version-py2.5.egg-info
 }
 
