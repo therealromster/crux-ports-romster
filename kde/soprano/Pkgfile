@@ -6,7 +6,7 @@
 
 name=soprano
 version=2.0.3
-release=1
+release=2
 source=(http://dl.sourceforge.net/sourceforge/soprano/soprano-$version.tar.bz2)
 
 build() {
@@ -18,5 +18,6 @@ build() {
 	cmake -DCMAKE_INSTALL_PREFIX=$PKG/usr ..
 	make
 	make install
+	sed -i -e "s|$PKG||" $PKG/usr/lib/pkgconfig/*.pc
 }
 
