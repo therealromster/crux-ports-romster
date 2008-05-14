@@ -2,8 +2,8 @@
 # URL: http://www.netfilter.org/projects/ulogd/index.html
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: iptables
-# Optional: mysql pgsql sqlite3
+# Depends on: 
+# Optional: libpcap mysql pgsql sqlite3
 
 name=ulogd
 version=1.24
