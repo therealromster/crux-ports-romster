@@ -1,0 +1,19 @@
+# Description: A generic archive file extractor that has a consistent command line interface.
+# URL: http://hartlich.com/deco/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=deco
+version=1.0
+release=1
+source=(http://hartlich.com/deco/download/deco-$version.tar.gz \
+	deco-$version-make.patch)
+
+build() {
+	cd deco-$version
+	patch -p 1 -i $SRC/deco-$version-make.patch
+	sed -i -e "s|@CFLAGS@|$CFLAGS|" config.mk
+	make
+	make DESTDIR=$PKG install
+}
+
