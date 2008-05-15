@@ -1,0 +1,17 @@
+# Description: A powerful themable and extensible panel for your desktop.
+# URL: http://www.igelle.org/barpanel/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: pygtk pyxdg libwnck
+
+name=barpanel
+version=0.3.0
+release=1
+source=(http://www.igelle.org/barpanel/files/barpanel-$version.tar.gz)
+
+build() {
+	cd barpanel-$version
+	python setup.py install --root=$PKG
+	rm $PKG/usr/lib/python2.5/site-packages/barpanel-$version-py2.5.egg-info
+}
+
