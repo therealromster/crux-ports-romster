@@ -1,0 +1,17 @@
+# Description: A Starcraft Mod that allows you to play Starcraft with the Stratagus engine.
+# URL: http://stargus.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: stratagus
+
+name=stargus
+version=0.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/stargus/stargus-$version.tar.gz)
+
+build() {
+	cd stargus-$version
+	make
+	install -m 0755 -D startool $PKG/usr/bin/startool
+}
+

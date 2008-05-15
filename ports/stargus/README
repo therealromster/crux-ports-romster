@@ -1,0 +1,14 @@
+Extract the Starcraft data from the original CD.
+
+	startool /path/to/starcraft_cd data.sg
+
+Copy over the scripts and the fog.png file.
+
+	cp -r scripts data.sg
+	cp contrib/fog.png data.sg/graphics/tilesets
+
+After you have done this, Stargus is ready to play. Read the features page to see what currently does and doesn't work.
+
+	cd stratagus-version
+	./stratagus -d ../stargus/data.sg
+
