@@ -1,0 +1,12 @@
+diff -pruN stratagus-2.2.3.orig/configure.in stratagus-2.2.3/configure.in
+--- stratagus-2.2.3.orig/configure.in	2008-05-15 22:41:04.257351988 +1000
++++ stratagus-2.2.3/configure.in	2008-05-15 22:41:34.760349522 +1000
+@@ -109,7 +109,7 @@ fi
+ AC_ARG_ENABLE(debug,
+ 	[  --enable-debug	  [Enable debug (default: no)]])
+ if test "$enable_debug" != "yes" -a "$enable_profile" != "yes"; then
+-	CXXFLAGS="$CXXFLAGS -O2 -pipe -fsigned-char -fomit-frame-pointer -fexpensive-optimizations -ffast-math"
++	CXXFLAGS="$CXXFLAGS -fsigned-char -fomit-frame-pointer -fexpensive-optimizations -ffast-math"
+ else
+ 	CXXFLAGS="$CXXFLAGS -O0 -g -fsigned-char -Wsign-compare -Werror -Wall"
+ 	CPPFLAGS="$CPPFLAGS -DDEBUG"

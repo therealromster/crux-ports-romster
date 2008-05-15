@@ -1,0 +1,28 @@
+# Description: A free cross-platform real-time strategy gaming engine.
+# URL: http://stratagus.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libsdl libpng zlib lua libvorbis libogg libmikmod bzip2 libmikmod
+
+name=stratagus
+version=2.2.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/stratagus/stratagus-$version-src.tar.gz \
+	stratagus-$version-clean-cxxflags.patch)
+
+build() {
+	cd stratagus-$version
+
+	patch -p 1 -i $SRC/stratagus-$version-clean-cxxflags.patch
+
+	./autogen.sh
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--with-opengl
+
+	make
+	install -m 0755 -D stratagus $PKG/usr/bin/stratagus
+}
+
