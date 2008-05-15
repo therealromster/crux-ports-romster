@@ -1,0 +1,18 @@
+# Description: A small utility that makes warm rebooting into new kernels easier.
+# URL: http://atlee.ca/blog/2006/06/26/kexec-chooser/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: python
+
+name=kexec-chooser
+version=0.1
+release=1
+source=(http://atlee.ca/software/kexec-chooser/kexec-chooser_$version.tar.gz)
+
+build() {
+	cd kexec-chooser
+	sed -i -e '1s|^.*$|#!/usr/bin/env python|' kexec-chooser
+	install -m 0755 -D kexec-chooser $PKG/usr/sbin/kexec-chooser
+	install -m 0644 -D kexec-chooser.8 $PKG/usr/man/man8/kexec-chooser.8
+}
+
