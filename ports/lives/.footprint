@@ -14,6 +14,7 @@ lrwxrwxrwx	root/root	usr/bin/lives -> lives-exe
 -rwxr-xr-x	root/root	usr/bin/mng_encoder.py
 -rwxr-xr-x	root/root	usr/bin/mpeg_encoder.py
 -rwxr-xr-x	root/root	usr/bin/ogm_encoder.py
+-rwxr-xr-x	root/root	usr/bin/sendOSC
 -rwxr-xr-x	root/root	usr/bin/smogrify
 -rwxr-xr-x	root/root	usr/bin/theora_encoder.py
 drwxr-xr-x	root/root	usr/share/
@@ -100,7 +101,6 @@ drwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/gdk_fast_resize.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/haip.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/layout_blends.wo
--rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/libvis.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/lifeTV.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/mirrors.wo
 -rwxr-xr-x	root/root	usr/share/lives/plugins/effects/realtime/weed/multi_blends.wo
@@ -183,8 +183,6 @@ drwxr-xr-x	root/root	usr/share/lives/plugins/encoders/
 -rwxr-xr-x	root/root	usr/share/lives/plugins/encoders/transcode_encoder
 drwxr-xr-x	root/root	usr/share/lives/plugins/playback/
 drwxr-xr-x	root/root	usr/share/lives/plugins/playback/video/
--rwxr-xr-x	root/root	usr/share/lives/plugins/playback/video/SDL
--rwxr-xr-x	root/root	usr/share/lives/plugins/playback/video/yuv4mpeg_stream
 drwxr-xr-x	root/root	usr/share/lives/themes/
 drwxr-xr-x	root/root	usr/share/lives/themes/camera/
 -rw-r--r--	root/root	usr/share/lives/themes/camera/frame.jpg
