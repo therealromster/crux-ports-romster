@@ -5,7 +5,7 @@
 # Depends on: pygtk pyxdg libwnck
 
 name=barpanel
-version=0.3.0
+version=0.3.1
 release=1
 source=(http://www.igelle.org/barpanel/files/barpanel-$version.tar.gz)
 
