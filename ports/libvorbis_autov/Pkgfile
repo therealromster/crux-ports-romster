@@ -1,0 +1,27 @@
+# Description: A fork of libvorbis intended to provide better quality sound at low to medium bitrates.
+# URL: http://www.geocities.jp/aoyoume/aotuv
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Brett Goulder, predatorfreak at dcaf-security dot org.
+# Depends on: libogg
+
+name=libvorbis_autov
+version=b5.5
+release=1
+source=(http://www.geocities.jp/aoyoume/aotuv/source_code/libvorbis-aotuv_$version.tar.bz2)
+
+build() {
+	cd $SRC/aotuv-${version}_20080330
+
+	chmod +x configure
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-oggtest
+
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
+	rm -r $PKG/usr/share/doc
+}
+

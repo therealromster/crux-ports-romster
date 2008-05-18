@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ ! -n "$(grep 'libvorbis_autov: libvorbis' '/var/lib/pkg/prt-get.aliases')" ]; then
+	echo 'libvorbis_autov: libvorbis' >> /var/lib/pkg/prt-get.aliases
+fi
