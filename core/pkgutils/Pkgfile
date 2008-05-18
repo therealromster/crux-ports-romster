@@ -6,30 +6,32 @@
 
 name=pkgutils
 version=5.32.0
-release=2
+release=3
 source=(http://crux.nu/files/pkgutils-$version.tar.gz \
 	pkgutils-$version-lzma-decompress.patch \
 	pkgutils-$version-lzma-compress-package.patch \
 	pkgutils-$version-warn-on-footprint-new-files.patch \
 	pkgutils-$version-add-sha256-support.patch \
-	pkgutils-$version-extract-only.patch)
+	pkgutils-$version-extract-only.patch \
+	pkgutils-$version-no-check-certificate.patch)
 #	pkgutils-$version-source-diff-download.patch)
 
 build() {
 	cd pkgutils-$version
 
-	patch -p 1 -i ../pkgutils-$version-lzma-decompress.patch
-	patch -p 1 -i ../pkgutils-$version-warn-on-footprint-new-files.patch
-	#patch -p 1 -i ../pkgutils-$version-lzma-compress-package.patch
-	#patch -p 1 -i ../pkgutils-$version-source-diff-download.patch
+	patch -p 1 -i $SRC/pkgutils-$version-no-check-certificate.patch
+	patch -p 1 -i $SRC/pkgutils-$version-lzma-decompress.patch
+	patch -p 1 -i $SRC/pkgutils-$version-warn-on-footprint-new-files.patch
+	#patch -p 1 -i $SRC/pkgutils-$version-lzma-compress-package.patch
+	#patch -p 1 -i $SRC/pkgutils-$version-source-diff-download.patch
 
 	# nipuL's patch remade.
 	# http://article.gmane.org/gmane.linux.distributions.crux.general/2940
-	patch -p 1 -i ../pkgutils-$version-extract-only.patch
+	patch -p 1 -i $SRC/pkgutils-$version-extract-only.patch
 
 	# predatorfreak's patch.
 	# http://dcaf-security.org/ports/pkgutils/pkgutils-5.31.0-add-sha256-support.patch
-	patch -p 1 -i ../pkgutils-$version-add-sha256-support.patch 
+	patch -p 1 -i $SRC/pkgutils-$version-add-sha256-support.patch
 	
 	make DESTDIR=$PKG install
 }
