@@ -1,0 +1,41 @@
+REQUIREMENTS:
+
+	Kernel source in /usr/src/linux-2.6.24.x
+	Kernel version 2.6.24.x patched with IMQ.
+
+PRECAUTION:
+
+PRE-INSTALL:
+
+	Adds a alias for iptables.
+
+	Patch the kernel source with:
+
+	cd /usr/src/linux-2.6.24.x
+	(copy from the pkgmk source after downloading or wget the patch off the site)
+	# patch -p1 -i ../linux-2.6.24-imq.diff
+	# make oldconfig
+
+	.config file:
+
+	CONFIG_IP_NF_TARGET_IMQ=m
+	CONFIG_IMQ=m
+	# CONFIG_IMQ_BEHAVIOR_AA is not set
+	# CONFIG_IMQ_BEHAVIOR_AB is not set
+	CONFIG_IMQ_BEHAVIOR_BA=y
+	# CONFIG_IMQ_BEHAVIOR_BB is not set
+	CONFIG_IMQ_NUM_DEVS=2
+
+POST-INSTALL:
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+	Removes a alias for iptables.
+
+NOTES:
+
+	You need to add many rules for imq to work google for the 
+	"wonder shaper".
+
