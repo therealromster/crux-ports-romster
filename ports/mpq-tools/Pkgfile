@@ -1,0 +1,18 @@
+# Description: Tools that handle Blizzard's MPQ archives
+# URL: https://babelize.org/mpq-tools.php
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: libmpq
+
+name=mpq-tools
+version=0.4.2
+release=1
+source=(https://babelize.org/download/mpq-tools/mpq-tools-$version.tar.bz2)
+
+build() {
+	cd mpq-tools-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
