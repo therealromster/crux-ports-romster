@@ -1,0 +1,23 @@
+# Description: Library that handles Blizzard's MPQ archives.
+# URL: https://babelize.org/mpq-tools.php
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Optional: python
+
+name=libmpq
+version=0.4.2
+release=1
+source=(https://babelize.org/download/mpq-tools/$name-$version.tar.bz2)
+
+build() {
+	cd libmpq-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
+}
+
