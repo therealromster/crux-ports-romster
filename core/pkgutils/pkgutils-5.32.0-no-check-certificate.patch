@@ -1,0 +1,13 @@
+diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
+--- pkgutils-5.32.0.orig/pkgmk.in	2008-05-18 21:39:30.560143111 +1000
++++ pkgutils-5.32.0/pkgmk.in	2008-05-18 21:42:55.256145010 +1000
+@@ -87,7 +87,8 @@ download_file() {
+ 
+ 	LOCAL_FILENAME=`get_filename $1`
+ 	LOCAL_FILENAME_PARTIAL="$LOCAL_FILENAME.partial"
+-	DOWNLOAD_OPTS="--passive-ftp --no-directories --tries=3 --waitretry=3 \
++	DOWNLOAD_OPTS="--no-check-certificate --passive-ftp --no-directories \
++		--tries=3 --waitretry=3 \
+ 		--directory-prefix=$PKGMK_SOURCE_DIR \
+ 		--output-document=$LOCAL_FILENAME_PARTIAL"
+ 
