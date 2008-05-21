@@ -9,7 +9,7 @@
 name=safe-build
 version=0.0.1b4
 release=1
-source=(http://romster.shortcircuit.net.au/crux/safe-build/safe_build-$version.tar.bz2)
+source=(ftp://romster.dyndns.org/linux/source/safe-build/safe_build-$version.tar.bz2)
 
 build() {
 	cd safe_build-$version
