@@ -1,4 +1,4 @@
-# Description: X Window System server.
+# Description: X window system server.
 # URL: http://xorg.freedesktop.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Tilman Sauerbeck, tilman at crux dot nu
@@ -6,8 +6,8 @@
 
 name=xorg-server
 version=1.4
-mesa_version=$(pkginfo -i |grep '^mesa3d ' |awk '{print $2}' |sed -e 's/-[0-9]$//')
-release=7
+mesa_version="`pkginfo -i | grep '^mesa3d ' | awk '{print $2}' | sed -e 's/-[0-9]$//'`"
+release=8
 source=(http://xorg.freedesktop.org/releases/individual/xserver/xorg-server-$version.tar.bz2 \
 		http://dl.sourceforge.net/mesa3d/MesaLib-$mesa_version.tar.bz2 \
 		ftp://ftp.freedesktop.org/pub/xorg/X11R7.3/patches/xorg-xserver-$version-multiple-overflows-v2.diff \
@@ -17,12 +17,13 @@ source=(http://xorg.freedesktop.org/releases/individual/xserver/xorg-server-$ver
 build() {
 	cd xorg-server-$version
 
-	patch -p1 -i $SRC/xorg-xserver-$version-multiple-overflows-v2.diff
-	patch -p1 -i $SRC/kbd-led.patch
+	patch -p 1 -i $SRC/xorg-xserver-$version-multiple-overflows-v2.diff
+	patch -p 1 -i $SRC/kbd-led.patch
 
 	./configure \
 		--prefix=/usr \
 		--enable-dri \
+		--enable-kdrive \
 		--with-mesa-source=$SRC/Mesa-$mesa_version \
 		--localstatedir=/var \
 		--mandir=/usr/man \

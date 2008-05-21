@@ -1,9 +1,24 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/X -> Xorg
+-rwxr-xr-x	root/root	usr/bin/Xati
+-rwxr-xr-x	root/root	usr/bin/Xchips
+-rwxr-xr-x	root/root	usr/bin/Xephyr
+-rwxr-xr-x	root/root	usr/bin/Xepson
+-rwxr-xr-x	root/root	usr/bin/Xfbdev
+-rwxr-xr-x	root/root	usr/bin/Xi810
+-rwxr-xr-x	root/root	usr/bin/Xmach64
+-rwxr-xr-x	root/root	usr/bin/Xmga
 -rwxr-xr-x	root/root	usr/bin/Xnest
+-rwxr-xr-x	root/root	usr/bin/Xnvidia
 -rwsr-xr-x	root/root	usr/bin/Xorg
+-rwxr-xr-x	root/root	usr/bin/Xpm2
+-rwxr-xr-x	root/root	usr/bin/Xr128
+-rwxr-xr-x	root/root	usr/bin/Xsdl
+-rwxr-xr-x	root/root	usr/bin/Xsmi
+-rwxr-xr-x	root/root	usr/bin/Xvesa
 -rwxr-xr-x	root/root	usr/bin/Xvfb
+-rwxr-xr-x	root/root	usr/bin/Xvia
 -rwxr-xr-x	root/root	usr/bin/cvt
 -rwxr-xr-x	root/root	usr/bin/gtf
 lrwxrwxrwx	root/root	usr/bin/inb -> ioport
