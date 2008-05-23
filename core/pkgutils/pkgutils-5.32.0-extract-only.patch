@@ -1,6 +1,19 @@
+diff -pruN pkgutils-5.32.0.orig/pkgmk.8.in pkgutils-5.32.0/pkgmk.8.in
+--- pkgutils-5.32.0.orig/pkgmk.8.in	2008-05-23 21:20:17.430340453 +1000
++++ pkgutils-5.32.0/pkgmk.8.in	2008-05-23 21:20:42.905338964 +1000
+@@ -34,6 +34,9 @@ Download missing source file(s).
+ .B "\-do, \-\-download\-only"
+ Do not build, only download missing source file(s).
+ .TP
++.B "\-eo, \-\-extract\-only"
++Do not build, only extract source file(s).
++.TP
+ .B "\-utd, \-\-up\-to\-date"
+ Do not build, only check if the package is up to date.
+ .TP
 diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
---- pkgutils-5.32.0.orig/pkgmk.in	2008-05-10 00:18:36.726351620 +1000
-+++ pkgutils-5.32.0/pkgmk.in	2008-05-10 00:30:04.976352281 +1000
+--- pkgutils-5.32.0.orig/pkgmk.in	2008-05-23 21:20:17.429340202 +1000
++++ pkgutils-5.32.0/pkgmk.in	2008-05-23 21:20:59.390341312 +1000
 @@ -355,6 +355,11 @@ build_package() {
  	unpack_source
  	
@@ -17,7 +30,7 @@ diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
  	echo "  -r,   --recursive           search for and build packages recursively"
  	echo "  -d,   --download            download missing source file(s)"
  	echo "  -do,  --download-only       do not build, only download missing source file(s)"
-+	echo "  -e,   --extract-only        do not build, only extract source file(s)"
++	echo "  -eo,  --extract-only        do not build, only extract source file(s)"
  	echo "  -utd, --up-to-date          do not build, only check if package is up to date"
  	echo "  -uf,  --update-footprint    update footprint using result from last build"
  	echo "  -if,  --ignore-footprint    build package without checking footprint"
@@ -25,7 +38,7 @@ diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
  			-do|--download-only)
  				PKGMK_DOWNLOAD="yes"
  				PKGMK_DOWNLOAD_ONLY="yes" ;;
-+			-e|--extract-only)
++			-eo|--extract-only)
 +				PKGMK_EXTRACT_ONLY="yes" ;;
  			-utd|--up-to-date)
  				PKGMK_UP_TO_DATE="yes" ;;
@@ -35,8 +48,8 @@ diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
  	fi
  	
 +	if [ "$PKGMK_EXTRACT_ONLY" = "yes" ]; then
++		download_source
 +		build_package
-+		exit 0
 +	fi
 +	
  	if [ "$PKGMK_UP_TO_DATE" = "yes" ]; then
