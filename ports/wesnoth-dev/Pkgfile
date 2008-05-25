@@ -1,0 +1,69 @@
+# Description: The Battle for Wesnoth is a turn-based strategy game with a fantasy theme (development branch).
+# URL: http://www.wesnoth.org/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_ttf sdl_net freetype python boost_iostreams boost_regex scons zlib
+
+name=wesnoth-dev
+version=1.5.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2)
+diff=(http://dl.sourceforge.net/sourceforge/wesnoth/)
+
+build() {
+	local config
+
+	cd wesnoth-$version
+	
+	#TODO add in xdelta to pkgutils
+	# quicker way to get a new version
+	#bzip2 -dk wesnoth-1.3.14.tar.bz2
+	#xdelta patch wesnoth-1.3.14.tar-wesnoth-1.3.15.tar.xdelta wesnoth-1.3.14.tar
+	#bzip2 -z -9 wesnoth-1.3.15.tar
+	#wget http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-1.3.15.tar.bz2.md5 .md5sum
+
+	#if pkginfo -i |grep '^kdebase ' > /dev/null; then
+	#	config='--with-kde'
+	#fi
+
+	#if pkginfo -i |grep '^gnome ' > /dev/null; then
+	#	config='--with-gnome'
+	#fi
+	
+	#sed -i -e '/^Exec/s/wesnoth/wesnoth-dev/' icons/wesnoth.desktop
+
+	#./configure \
+	#	--prefix=/usr \
+	#	--mandir=/usr/man \
+	#	--program-suffix=-dev \
+	#	--with-datadir-name=wesnoth-dev \
+	#	--with-preferences-dir=.wesnoth-dev \
+	#	--disable-nls \
+	#	--enable-python \
+	#	$config
+
+	scons \
+		prefix=/usr \
+		mandir=/usr/man \
+		datadir=share/wesnoth-dev \
+		prefsdir=.wesnoth-dev \
+		nls=false
+		#program-suffix=-dev \
+
+	scons prefix=$PKG/usr install
+
+	#make
+	#make DESTDIR=$PKG install-strip
+
+	find $PKG/usr/man -maxdepth 0 -type d ! -regex 'man?' -exec rm -r {} \;
+	find $PKG -type f -name 'README' -delete
+
+	rm \
+		$PKG/usr/share/wesnoth-dev/data/COPYING.txt \
+		$PKG/usr/share/wesnoth-dev/fonts/COPYING
+
+	if pkginfo -i | grep '^wesnoth '; then
+			rm $PKG/usr/share/icons/wesnoth-icon.png
+	fi
+}
+
