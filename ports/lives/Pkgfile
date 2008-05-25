@@ -6,7 +6,7 @@
 # Optional: win32-essential-codecs xmms dvdrtools python libsdl mencoder libmjpeg-tools libtheora jack-audio-connection-kit
 
 name=lives
-version=0.9.8.11
+version=0.9.8.12
 release=1
 source=(http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-$version.tar.bz2 \
 	lives-$version-install.patch)
