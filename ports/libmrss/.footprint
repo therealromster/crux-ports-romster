@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/mrss.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libmrss.la
+lrwxrwxrwx	root/root	usr/lib/libmrss.so -> libmrss.so.0.19.1
+lrwxrwxrwx	root/root	usr/lib/libmrss.so.0 -> libmrss.so.0.19.1
+-rw-r--r--	root/root	usr/lib/libmrss.so.0.19.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/mrss.pc
