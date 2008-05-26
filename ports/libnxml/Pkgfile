@@ -1,0 +1,28 @@
+# Description: XML parsing library.
+# URL: http://www.autistici.org/bakunin/codes.php
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Jonas Kramer, jonas dot kramer at gmail dot com
+
+name=libnxml
+version=0.18.2
+release=1
+source=(http://www.autistici.org/bakunin/libnxml/libnxml-$version.tar.gz)
+
+build() {
+	cd libnxml-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--localstatedir=/var \
+		--sysconfdir=/usr/etc \
+		--disable-nls \
+		--disable-debug \
+		--disable-static
+		
+
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
+}
+
