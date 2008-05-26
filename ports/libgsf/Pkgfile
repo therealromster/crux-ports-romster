@@ -2,10 +2,10 @@
 # URL: http://freshmeat.net/projects/libgsf/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: glib libxml2 python bzip2
+# Depends on: glib p5-xml-parser pygtk bzip2
 
 name=libgsf
-version=1.14.7
+version=1.14.8
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/libgsf/${version%.*}/libgsf-$version.tar.bz2)
 
@@ -23,6 +23,7 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
 	rm -r $PKG/usr/share
 }
 

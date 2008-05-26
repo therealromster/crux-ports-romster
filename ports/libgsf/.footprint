@@ -13,9 +13,6 @@ drwxr-xr-x	root/root	usr/include/libgsf-1/gsf-gnome/
 drwxr-xr-x	root/root	usr/include/libgsf-1/gsf-gvfs/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf-gvfs/gsf-input-gvfs.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf-gvfs/gsf-output-gvfs.h
-drwxr-xr-x	root/root	usr/include/libgsf-1/gsf-win32/
--rw-r--r--	root/root	usr/include/libgsf-1/gsf-win32/gsf-input-win32.h
--rw-r--r--	root/root	usr/include/libgsf-1/gsf-win32/gsf-output-win32.h
 drwxr-xr-x	root/root	usr/include/libgsf-1/gsf/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-blob.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-clip-data.h
@@ -63,9 +60,9 @@ drwxr-xr-x	root/root	usr/include/libgsf-1/gsf/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libgsf-1.la
-lrwxrwxrwx	root/root	usr/lib/libgsf-1.so -> libgsf-1.so.114.0.7
-lrwxrwxrwx	root/root	usr/lib/libgsf-1.so.114 -> libgsf-1.so.114.0.7
--rwxr-xr-x	root/root	usr/lib/libgsf-1.so.114.0.7
+lrwxrwxrwx	root/root	usr/lib/libgsf-1.so -> libgsf-1.so.114.0.8
+lrwxrwxrwx	root/root	usr/lib/libgsf-1.so.114 -> libgsf-1.so.114.0.8
+-rw-r--r--	root/root	usr/lib/libgsf-1.so.114.0.8
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgsf-1.pc
 drwxr-xr-x	root/root	usr/lib/python2.5/
