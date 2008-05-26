@@ -1,0 +1,24 @@
+# Description: Show all running processes, including hidden ones.
+# URL: http://csl.sublevel3.org/listps/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=listps
+version=0.9.0
+release=1
+source=(http://csl.sublevel3.org/listps/listps-$version.tar.gz
+	listps.8)
+
+build() {
+	cd listps-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	install -m 0644 -D $SRC/listps.8 $PKG/usr/man/man8/listps.8
+}
+
