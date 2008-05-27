@@ -2,10 +2,10 @@
 # URL: http://bmpx.backtrace.info/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: boost gamin gst-plugins-bad gst-plugins-good gst-plugins-ugly hal libglademm libmikmod libgsf librsvg libsexymm libsoup sqlite3 taglib xine-lib startup-notification
+# Depends on: boost gamin gst-plugins-bad gst-plugins-good gst-plugins-ugly hal libglademm libmikmod libgsf librsvg libsexymm libsoup22 libofa sqlite3 taglib xine-lib startup-notification
 
 name=bmpx
-version=0.40.13
+version=0.40.14
 release=1
 source=(http://files.backtrace.info/releases/${version%.*}/bmpx-$version.tar.bz2)
 

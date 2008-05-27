@@ -93,6 +93,7 @@ drwxr-xr-x	root/root	usr/share/bmpx/
 drwxr-xr-x	root/root	usr/share/bmpx/data/
 drwxr-xr-x	root/root	usr/share/bmpx/glade/
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-add-podcast.glade
+-rw-r--r--	root/root	usr/share/bmpx/glade/dialog-bounce-adjust.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-equalizer.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-export.glade
 -rw-r--r--	root/root	usr/share/bmpx/glade/dialog-filebrowser.glade
@@ -194,7 +195,6 @@ drwxr-xr-x	root/root	usr/share/bmpx/images/
 drwxr-xr-x	root/root	usr/share/bmpx/images/cdda/
 -rw-r--r--	root/root	usr/share/bmpx/images/cdda/audiocd-big.png
 -rw-r--r--	root/root	usr/share/bmpx/images/cdda/audiocd-unplayable.png
--rw-r--r--	root/root	usr/share/bmpx/images/cover-frame.png
 drwxr-xr-x	root/root	usr/share/bmpx/images/lastfm/
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/artist-unknown.png
 -rw-r--r--	root/root	usr/share/bmpx/images/lastfm/audioscrobbler.png
