@@ -1,0 +1,27 @@
+# Description: HTTP library implementation in C.
+# URL: http://ftp.gnome.org/pub/gnome/sources/libsoup
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gnutls libxml2 glib
+
+name=libsoup22
+version=2.2.105
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/libsoup/${version%.*}/libsoup-$version.tar.gz)
+
+build() {
+	cd libsoup-$version
+
+	# remove gtk-doc
+	sed -i -e "/^SUBDIRS = /s/docs//" Makefile.in
+
+	./configure \
+		--prefix=/usr \
+		--enable-debug=no \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/*.so
+}
+
