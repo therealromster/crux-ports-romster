@@ -43,6 +43,7 @@ drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/udevadm
 -rwxr-xr-x	root/root	sbin/udevd
 lrwxrwxrwx	root/root	sbin/udevsettle -> udevadm
+lrwxrwxrwx	root/root	sbin/udevtrigger -> udevadm
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/udevinfo -> /sbin/udevadm
