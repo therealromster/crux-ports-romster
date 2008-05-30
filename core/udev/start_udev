@@ -13,5 +13,4 @@ echo > /proc/sys/kernel/hotplug
 /sbin/udevd --daemon
 
 # coldplug devices and wait for the queue to be processed
-/sbin/udevtrigger
 /sbin/udevsettle
