@@ -2,10 +2,10 @@
 # URL: http://www.wesnoth.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_ttf sdl_net freetype python boost_iostreams boost_regex scons zlib
+# Depends on: xorg-libx11 sdl_image sdl_mixer sdl_ttf sdl_net freetype python boost scons zlib
 
 name=wesnoth-dev
-version=1.5.0
+version=1.5.0a
 release=1
 source=(http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-$version.tar.bz2)
 diff=(http://dl.sourceforge.net/sourceforge/wesnoth/)
@@ -13,8 +13,8 @@ diff=(http://dl.sourceforge.net/sourceforge/wesnoth/)
 build() {
 	local config
 
-	cd wesnoth-$version
-	
+	cd wesnoth-1.5.0
+
 	#TODO add in xdelta to pkgutils
 	# quicker way to get a new version
 	#bzip2 -dk wesnoth-1.3.14.tar.bz2
@@ -22,48 +22,35 @@ build() {
 	#bzip2 -z -9 wesnoth-1.3.15.tar
 	#wget http://dl.sourceforge.net/sourceforge/wesnoth/wesnoth-1.3.15.tar.bz2.md5 .md5sum
 
-	#if pkginfo -i |grep '^kdebase ' > /dev/null; then
-	#	config='--with-kde'
-	#fi
-
-	#if pkginfo -i |grep '^gnome ' > /dev/null; then
-	#	config='--with-gnome'
-	#fi
-	
-	#sed -i -e '/^Exec/s/wesnoth/wesnoth-dev/' icons/wesnoth.desktop
-
-	#./configure \
-	#	--prefix=/usr \
-	#	--mandir=/usr/man \
-	#	--program-suffix=-dev \
-	#	--with-datadir-name=wesnoth-dev \
-	#	--with-preferences-dir=.wesnoth-dev \
-	#	--disable-nls \
-	#	--enable-python \
-	#	$config
+	sed -i -e '525s|share/man|man|' SConstruct # mandir is not used so fix path
 
 	scons \
-		prefix=/usr \
-		mandir=/usr/man \
-		datadir=share/wesnoth-dev \
-		prefsdir=.wesnoth-dev \
-		nls=false
-		#program-suffix=-dev \
+		prefix='/usr' \
+		mandir='/usr/man' \
+		datadir='share/wesnoth-dev' \
+		prefsdir='.wesnoth-dev' \
+		nls=False \
+		wesnoth
+		#program-suffix=-dev # not implamented
 
+	install -d $PKG/usr
 	scons prefix=$PKG/usr install
 
-	#make
-	#make DESTDIR=$PKG install-strip
+	# program-suffix not implamented yet
+	mv $PKG/usr/bin/wesnoth $PKG/usr/bin/wesnoth-dev
+	mv $PKG/usr/share/applications/wesnoth.desktop $PKG/usr/share/applications/wesnoth-dev.desktop
+	mv $PKG/usr/share/icons/wesnoth-icon.png $PKG/usr/share/icons/wesnoth-icon-dev.png
 
+	sed -i \
+		-e 's/^Exec=wesnoth$/Exec=wesnoth-dev/' \
+  		-e 's/^Icon=wesnoth-icon.png$/Icon=wesnoth-icon-dev.png/' \
+			$PKG/usr/share/applications/wesnoth-dev.desktop
+
+	# remove junk
+	rm -r $PKG/usr/share/doc
 	find $PKG/usr/man -maxdepth 0 -type d ! -regex 'man?' -exec rm -r {} \;
-	find $PKG -type f -name 'README' -delete
-
-	rm \
-		$PKG/usr/share/wesnoth-dev/data/COPYING.txt \
-		$PKG/usr/share/wesnoth-dev/fonts/COPYING
-
-	if pkginfo -i | grep '^wesnoth '; then
-			rm $PKG/usr/share/icons/wesnoth-icon.png
-	fi
+	find $PKG -type f \( \
+		-name 'README' -o \
+		-name 'COPYING' \) -delete
 }
 
