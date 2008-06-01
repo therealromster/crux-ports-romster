@@ -1,0 +1,23 @@
+# Description: Secure Sockets Layer and Transport Layer Security tools.
+# URL: http://www.openssl.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: CRUX System Team, core-ports at crux dot nu
+
+name=openssl
+version=0.9.8g
+# 0.9.8g currently breaks wine 1.0rc3
+release=1
+source=(http://www.openssl.org/source/$name-$version.tar.gz \
+        mksslcert.sh openssl-0.9.8b-parallel-build.patch)
+
+build() {
+    cd $name-$version
+    patch -p 1 -i $SRC/openssl-0.9.8b-parallel-build.patch
+	 ./config --prefix=/usr --openssldir=/etc/ssl shared
+    make
+    make INSTALL_PREFIX=$PKG MANDIR=/usr/man MANSUFFIX=ssl install
+    find $PKG -name "*fips*" -delete
+    chmod -R +w $PKG
+    install -m 0755 -D $SRC/mksslcert.sh $PKG/usr/bin/mksslcert
+}
+
