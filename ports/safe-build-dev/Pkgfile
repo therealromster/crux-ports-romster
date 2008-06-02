@@ -1,4 +1,4 @@
-# Description: devalopment version test with caution.
+# Description: Development version test with caution.
 # URL: http://romster.shortcircuit.net.au/crux/projects/safe-build/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
@@ -7,9 +7,9 @@
 # Core: coreutils pkgutils sed
 
 name=safe-build-dev
-version=2008-03-10
+version=20080602-2126
 release=1
-source=(http://romster.shortcircuit.net.au/crux/safe-build/safe_build-$version.tar.bz2)
+source=(ftp://romster.dyndns.org/linux/source/safe-build/safe_build-$version.tar.bz2)
 
 build() {
 	cd safe_build-$version
