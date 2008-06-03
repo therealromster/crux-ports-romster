@@ -4,5 +4,6 @@
 bc4351539fde601f3b77c8c8208c80c80fc9c8bb184c232bfbe1691eb83558f1  pkgutils-5.32.0-lzma-compress-package.patch
 c28bcf8f5adfc81f9029ba0230156be48b8de7719d2147841a44883d8ba462c7  pkgutils-5.32.0-lzma-decompress.patch
 45e2a99d1ac81f1f89ec1a13e4e93b7dfcc306bf6d28908d179b057ac8b78b9d  pkgutils-5.32.0-no-check-certificate.patch
+532c09c790d8b588d65048d0ca9d6129b94c1b23b47573b0af8c5c28f84c3270  pkgutils-5.32.0-pkgmk.conf.5.patch
 7dc48afd935ee8c902024a585014045b6bca1fde795e7c3a9558f9cff1010e93  pkgutils-5.32.0-warn-on-footprint-new-files.patch
 0751eb8cd7e4404e59870b0b84c611f35e446e77a7dee3ea4a163dd817b1d03b  pkgutils-5.32.0.tar.gz
