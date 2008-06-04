@@ -1,6 +1,6 @@
-diff -u dlls/wininet/internet.h.orig dlls/wininet/internet.h
---- dlls/wininet/internet.h.orig	2008-05-30 16:41:29.000000000 +0200
-+++ dlls/wininet/internet.h	2008-06-01 22:45:28.000000000 +0200
+diff -pruN wine-1.0-rc3.orig/dlls/wininet/internet.h wine-1.0-rc3/dlls/wininet/internet.h
+--- wine-1.0-rc3.orig/dlls/wininet/internet.h	2008-06-04 12:45:01.344336731 +1000
++++ wine-1.0-rc3/dlls/wininet/internet.h	2008-06-04 12:47:08.197340913 +1000
 @@ -45,6 +45,7 @@
  #undef PKCS7_SIGNER_INFO
  #undef X509_NAME
