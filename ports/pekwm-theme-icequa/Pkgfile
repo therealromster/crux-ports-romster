@@ -1,0 +1,16 @@
+# Description: Port of IceWM IceQua theme to PekWM.
+# URL: http://box-look.org/content/show.php/show.php?content=81183&vote=good&tan=45679433
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: pekwm
+
+name=pekwm-theme-icequa
+version=20080517
+release=1
+source=(http://box-look.org/CONTENT/content-files/81183-IceQua.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/pekwm/themes/IceQua
+	install -m 0644 -t $PKG/usr/share/pekwm/themes/IceQua/ IceQua/*
+}
+
