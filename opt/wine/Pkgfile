@@ -2,25 +2,24 @@
 # URL: http://www.winehq.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: fontconfig fontforge hal-info lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
+# Depends on: fontconfig hal-info lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
 
 # Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
 
 name=wine
-version=1.0-rc3
-release=2
-source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2
-	wine-$version-openssl.patch)
+version=1.0-rc4
+release=1
+source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
 
 build() {
 	cd wine-$version
-	patch -p 1 -i $SRC/wine-$version-openssl.patch
-
+	
 	export \
 		CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')" \
 		CXXFLAGS="-O3 $(echo $CXXFLAGS |sed -e 's/-O[s0-3] //')"
 
 	./configure \
+		--verbose \
 		--prefix=/usr \
 		--mandir=$PKG/usr/man \
 		--disable-nls \
@@ -29,7 +28,6 @@ build() {
 	make depend
 	make
 	make prefix=$PKG/usr install
-
 	rm -r $PKG/usr/man/??.UTF-8
 }
 
