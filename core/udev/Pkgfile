@@ -55,8 +55,5 @@ build() {
 	# Comment uucp lines
 	sed -i 's|.*uucp.*|#&|g' $PKG/etc/udev/rules.d/50-udev-default.rules
 	sed -i 's|.*uucp.*|#&|g' $PKG/etc/udev/rules.d/55-lfs.rules
-
-	# add missing symlink
-	ln -s udevadm $PKG/sbin/udevtrigger
 }
 
