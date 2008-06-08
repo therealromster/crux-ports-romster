@@ -5,30 +5,28 @@
 # Depends on: iproute2
 
 name=iptables-imq
-version=1.4.0-2.6.24
+version=1.4.1-rc3
 release=1
-source=(ftp://ftp.netfilter.org/pub/iptables/iptables-${version%%-*}.tar.bz2 \
-	http://www.linuximq.net/patchs/linux-${version##*-}-imq.diff \
-	http://www.linuximq.net/patchs/iptables-${version%%-*}-imq.diff)
+source=(ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2
+	iptables-$version-imq.patch)
+#	http://www.linuximq.net/patchs/iptables-1.4.0-imq.diff)
 
 build() {
-	local kernel_version
-
-	cd iptables-${version%%-*}
+	cd iptables-$version
+	patch -p 1 -i $SRC/iptables-$version-imq.patch
+	chmod u+x extensions/.IMQ-test*
 	
-	patch -p 1 -i ../iptables-${version%%-*}-imq.diff
-	chmod +x extensions/.IMQ-test*
-	
-	# we do not want/need these kernel-headers included
-	# in the iptables sources.
-	rm include/linux/netfilter_ipv4/ip_tables.h
-	rm include/linux/netfilter_ipv6/ip6_tables.h
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking \
+		--with-kernel="/usr/src/linux-`uname -r`" \
+		--enable-devel \
+		--enable-libipq
 
-	# use the patched kernel source kernel-headers
-	kernel_version="`uname -r`"
-	make -j 1 PREFIX=/usr KERNEL_DIR=/usr/src/linux-$kernel_version KBUILD_OUTPUT=/usr COPT_FLAGS="$CFLAGS"
-	make PREFIX=/usr DESTDIR=$PKG install install-devel
-	install -m 0755 extensions/libipt_IMQ.so $PKG/usr/lib/iptables/
-	install -m 0755 extensions/libip6t_IMQ.so $PKG/usr/lib/iptables/
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/xtables/*.so
 }
 

@@ -3,6 +3,8 @@ REQUIREMENTS:
 	Kernel source in /usr/src/linux-2.6.24.x
 	Kernel version 2.6.24.x patched with IMQ.
 
+	http://www.linuximq.net/patchs/linux-2.6.24-imq.diff
+
 PRECAUTION:
 
 PRE-INSTALL:
@@ -11,8 +13,7 @@ PRE-INSTALL:
 
 	Patch the kernel source with:
 
-	cd /usr/src/linux-2.6.24.x
-	(copy from the pkgmk source after downloading or wget the patch off the site)
+	# cd /usr/src/linux-2.6.24.x
 	# patch -p1 -i ../linux-2.6.24-imq.diff
 	# make oldconfig
 
