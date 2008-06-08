@@ -1,0 +1,26 @@
+# Description: Xtables-addons is the proclaimed successor to patch-o-matic(-ng). It contains extensions that were not accepted in the main Xtables package.
+# URL: http://jengelh.medozas.de/projects/xtables/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: iptables geoip_iv0_database
+
+name=xtables-addons
+version=1.5.4.1
+release=1
+source=(http://dev.computergmbh.de/files/xtables/xtables-addons-$version.tar.bz2)
+
+build() {
+	cd xtables-addons-$version
+
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/xtables/*.so
+	rm $PKG/lib/modules/`uname -r`/modules.*
+}
+
