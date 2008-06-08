@@ -14,13 +14,13 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--libexecdir=/usr \
+		--libexecdir=/usr/lib \
 		--mandir=/usr/man \
 		--disable-dependency-tracking
 
 	make
 	make DESTDIR=$PKG install
-	chmod a-x $PKG/usr/xtables/*.so
+	chmod a-x $PKG/usr/lib/xtables/*.so
 	rm $PKG/lib/modules/`uname -r`/modules.*
 }
 
