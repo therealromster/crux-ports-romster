@@ -5,11 +5,10 @@
 # Depends on: iproute2
 
 name=iptables-imq
-version=1.4.1-rc3
+version=1.4.1
 release=1
 source=(ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2
 	iptables-$version-imq.patch)
-#	http://www.linuximq.net/patchs/iptables-1.4.0-imq.diff)
 
 build() {
 	cd iptables-$version
