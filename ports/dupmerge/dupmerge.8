@@ -1,0 +1,64 @@
+.TH dupmerge 8 "" "dupmerge 1.73" ""
+.SH NAME
+dupmerge \- hardlink duplicate files.
+.SH SYNOPSIS
+\fBdupmerge [options]\fP
+.SH DESCRIPTION
+\fBdupmerge\fP is a utility that scans a Linux directory tree looking 
+for pairs of distinct files with identical content. When it finds 
+such files, it deletes one file to reclaim it's disk space and then 
+recreates its path name as a link to the other copy. It can also 
+expand all hard links and reads the list of files from standard input.
+.SH OPTIONS
+.TP
+.B "\-h"
+Show help.
+.TP
+.B "\-V"
+Show version number and exit.
+.TP
+.B "\-d"
+Delete multiple files and hard links. Default: Preserve the 
+alphabetically first file name.
+.TP
+.B "\-q"
+Quiet mode.
+.TP
+.B "\-h"
+Show help.
+.TP
+.B "\-q"
+Operate in quiet mode (otherwise, re-links are displayed on stdout).
+.TP
+.B "\-n"
+Suppress the actual unlinking and relinking (quiet/dry run mode). 
+.TP
+.B "\-i"
+Inverse switch: Expand all hard links in normal mode, replace files 
+by their de spars-ed version if it is bigger.
+.TP
+.B "\-s"
+Flag for soft linking (default is hard linking). This option is beta 
+because for linking of all equal files more than one run of dupmerge 
+is necessary and the inverse (expanding of soft links) is untested.
+.TP
+.B "\-S"
+Flag for Sparse mode: Replace files by their sparse version if it is 
+smaller.
+.TP
+.B "\-c"
+Combo mode: Default mode +sparse mode. With -i it means inverse mode
+with unlinking and desparsing.
+.SH EXAMPLES
+.TP
+find ./ -type f -print0 | dupmerge 2>&1 | tee /tmp/user0/dupmerge.out
+.SH WARNINGS
+.TP
+If there is not enough space for expanding the hard links (in inverse 
+mode) hard links will be lost! It's also a bad idea to kill dupmerge 
+with signal 9 before it finishes because files can be lost or damaged 
+or new temporary and maybe big files can remain.
+.SH SEE ALSO
+find(8).
+.SH COPYRIGHT
+Copyright Phil Karn May be used under the terms of the GNU Public License.

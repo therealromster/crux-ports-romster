@@ -1,0 +1,22 @@
+# Description: Reclaim disk space by linking identical files together. It can also expand all hard links and reads the list of files from standard input.
+# URL: http://freshmeat.net/projects/dupmerge/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: zlib
+
+name=dupmerge
+version=1.73
+release=1
+source=(http://voxel.dl.sourceforge.net/sourceforge/dupmerge/dupmerge_$version.zip
+	dupmerge.8)
+
+build() {
+	cd dupmerge_$version
+	rm dupmerge
+	gcc $CFLAGS -Wall -I. -O3 -D_GNU_SOURCE -D__SMP__ -D_LARGEFILE_SOURCE \
+		-D_FILE_OFFSET_BITS=64 -D_REENTRANT -pthread -fexpensive-optimizations \
+		-ffast-math -lm -lz dupmerge.c -o dupmerge
+	install -s -m 0755 -D dupmerge $PKG/usr/bin/dupmerge
+	install -m 0644 -D $SRC/dupmerge.8 $PKG/usr/man/man8/dupmerge.8
+}
+
