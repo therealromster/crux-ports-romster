@@ -5,23 +5,16 @@
 # Optional: libsexy
 
 name=xchat
-version=2.8.4
-release=3
+version=2.8.6
+release=1
 source=(http://www.xchat.org/files/source/${version%.*}/xchat-$version.tar.bz2 \
-	http://www.xchat.org/files/source/${version%.*}/patches/xc${version//./}-fix-scrollbfdleak.diff \
-	http://www.xchat.org/files/source/${version%.*}/patches/xc${version//./}-improvescrollback.diff \
-	http://www.xchat.org/files/source/${version%.*}/patches/xc${version//./}-scrollbmkdir.diff \
 	xchat-$version-reverse-shift-copy-timestamps.patch)
 
 build() {
 	cd xchat-$version
 
-	for p in fix-scrollbfdleak improvescrollback scrollbmkdir; do
-		patch -p1 -i $SRC/xc${version//./}-$p.diff
-	done
-
 	# fix an anoyance
-	patch -p1 -i $SRC/xchat-$version-reverse-shift-copy-timestamps.patch
+	patch -p 1 -i $SRC/xchat-$version-reverse-shift-copy-timestamps.patch
 
 	./configure \
 		--prefix=/usr \
@@ -39,8 +32,8 @@ build() {
 
 	rm -r $PKG/usr/share
 
-	install -D -m 0644 xchat.desktop $PKG/usr/share/applications/xchat.desktop
-	install -D -m 0644 xchat.png $PKG/usr/share/pixmaps/xchat.png
+	install -m 0644 -D xchat.desktop $PKG/usr/share/applications/xchat.desktop
+	install -m 0644 -D xchat.png $PKG/usr/share/pixmaps/xchat.png
 
 }
 
