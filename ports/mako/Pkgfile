@@ -1,0 +1,17 @@
+# Description: A template library written in Python.
+# URL: http://www.makotemplates.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: python
+
+name=mako
+version=0.2.1
+release=1
+source=(http://www.makotemplates.org/downloads/Mako-$version.tar.gz)
+
+build() {
+	cd Mako-$version
+	python setup.py build
+	python setup.py install --prefix=/usr --root=$PKG
+}
+
