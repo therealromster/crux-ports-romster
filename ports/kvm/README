@@ -1,0 +1,17 @@
+README for kvm
+
+REQUIREMENTS
+
+PRE-INSTALL
+	Remove old kvm kernel modules:
+	# rm /lib/modules/$(uname -r)/extra/{kvm,kvm-intel,kvm-amd}.ko
+
+POST-INSTALL
+	Update modules dependencies:
+		# /sbin/depmod -a
+
+RESOURCES
+
+PRECAUTION
+	This port installs a symbolic link to kvm binary as /usr/bin/qemu.
+	This would give a file conflict with (at least) opt/qemu-bin.
