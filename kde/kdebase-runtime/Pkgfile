@@ -2,7 +2,7 @@
 # URL: 
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: xine-lib xorg-libxtst
+# Depends on: xine-lib xorg-libxtst kdepimlibs
 # Optional: samba
 
 name=kdebase-runtime
