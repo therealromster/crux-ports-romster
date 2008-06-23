@@ -1,0 +1,48 @@
+diff -pruN wordwarvi-0.16.orig/Makefile wordwarvi-0.16/Makefile
+--- wordwarvi-0.16.orig/Makefile	2008-06-24 01:22:34.364260794 +1000
++++ wordwarvi-0.16/Makefile	2008-06-24 01:28:59.745260218 +1000
+@@ -1,6 +1,7 @@
+ PREFIX=/usr
+ DATADIR=${PREFIX}/share/wordwarvi
+-MANPAGEDIR=${PREFIX}/share/man/man6
++MANDIR?=${PREFIX}/share/man
++MANPAGEDIR=$(MANDIR)/man6
+ 
+ # To compile withaudio, WITHAUDIO=yes, 
+ # for no audio support, change to WITHAUDIO=no, 
+@@ -23,7 +24,7 @@ endif
+ #PROFILE_FLAG=
+ #OPTIMIZE_FLAG=
+ # OPTIMIZE_FLAG=-O3
+-OPTIMIZE_FLAG=-O3
++OPTIMIZE_FLAG=$(CFLAGS) -O3 -fomit-frame-pointer
+ 
+ LDFLAGS=${PROFILE_FLAG}
+ 
+@@ -66,17 +67,17 @@ wordwarvi.6.gz:	wordwarvi.6
+ 	gzip -c wordwarvi.6 > wordwarvi.6.gz
+ 
+ install: wordwarvi wordwarvi.6.gz
+-	mkdir -p $(PREFIX)/bin
+-	mkdir -p $(DATADIR)/sounds
+-	mkdir -p $(MANPAGEDIR)
+-	install -p -m 755 wordwarvi $(PREFIX)/bin
+-	install -p -m 644 sounds/*.ogg $(DATADIR)/sounds
+-	install -p -m 644 wordwarvi.6.gz $(MANPAGEDIR)
++	install -d $(DESTDIR)$(PREFIX)/bin
++	install -d $(DESTDIR)$(DATADIR)/sounds
++	install -d $(DESTDIR)$(MANPAGEDIR)
++	install -p -m 0755 wordwarvi $(DESTDIR)$(PREFIX)/bin
++	install -p -m 0644 sounds/*.ogg $(DESTDIR)$(DATADIR)/sounds
++	install -p -m 0644 wordwarvi.6.gz $(DESTDIR)$(MANPAGEDIR)
+ 
+ uninstall:
+-	/bin/rm -f ${PREFIX}/bin/wordwarvi
+-	/bin/rm -fr ${DATADIR}
+-	/bin/rm -f ${MANPAGEDIR}/wordwarvi.6.gz
++	/bin/rm -f $(DESTDIR)${PREFIX}/bin/wordwarvi
++	/bin/rm -fr $(DESTDIR)${DATADIR}
++	/bin/rm -f $(DESTDIR)${MANPAGEDIR}/wordwarvi.6.gz
+ 
+ tarball:
+ 	mkdir -p d/wordwarvi-${VERSION}/sounds

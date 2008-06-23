@@ -1,0 +1,19 @@
+# Description: A retro styled side scrolling shoot'em up arcade game. 
+# URL: http://wordwarvi.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libvorbis gtk
+
+name=wordwarvi
+version=0.16
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz
+	wordwarvi-$version-destdir.patch)
+
+build() {
+	cd wordwarvi-$version
+	patch -p 1 -i $SRC/wordwarvi-$version-destdir.patch
+	make MANDIR=/usr/man
+	make MANDIR=/usr/man DESTDIR=$PKG install
+}
+
