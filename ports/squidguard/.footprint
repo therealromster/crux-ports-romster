@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/squidGuard/
+-rw-r--r--	root/root	etc/squidGuard/squidGuard.conf
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/squidGuard
+drwxr-xr-x	squid/squid	usr/squidGuard/
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/log/
+drwxr-xr-x	squid/squid	var/log/squidGuard/
+drwxr-xr-x	squid/squid	var/squidGuard/
