@@ -5,33 +5,27 @@
 # Depends on: mesa3d xorg-bdftopcf xorg-mkfontdir xorg-mkfontscale xorg-xf86driproto xorg-libxkbui xorg-xcmiscproto xorg-scrnsaverproto xorg-bigreqsproto xorg-libxevie xorg-libxtst xorg-libdmx xorg-libxxf86misc xorg-libxaw xorg-libxvmc xorg-libxi xorg-libxres xorg-libxcomposite xorg-libxinerama xorg-libxrandr xorg-libxtrap xorg-libxft xorg-libxcursor xorg-libxxf86dga xorg-libpixman
 
 name=xorg-server
-version=1.4
+version=1.4.2
 mesa_version="`pkginfo -i | grep '^mesa3d ' | awk '{print $2}' | sed -e 's/-[0-9]$//'`"
-release=8
-source=(http://xorg.freedesktop.org/releases/individual/xserver/xorg-server-$version.tar.bz2 \
-		http://dl.sourceforge.net/mesa3d/MesaLib-$mesa_version.tar.bz2 \
-		ftp://ftp.freedesktop.org/pub/xorg/X11R7.3/patches/xorg-xserver-$version-multiple-overflows-v2.diff \
-		kbd-led.patch)
+release=1
+source=(http://xorg.freedesktop.org/releases/individual/xserver/xorg-server-$version.tar.bz2
+	http://dl.sourceforge.net/mesa3d/MesaLib-$mesa_version.tar.bz2)
 
 
 build() {
 	cd xorg-server-$version
 
-	patch -p 1 -i $SRC/xorg-xserver-$version-multiple-overflows-v2.diff
-	patch -p 1 -i $SRC/kbd-led.patch
-
 	./configure \
 		--prefix=/usr \
+		--mandir=/usr/man \
+		--localstatedir=/var \
 		--enable-dri \
 		--enable-kdrive \
 		--with-mesa-source=$SRC/Mesa-$mesa_version \
-		--localstatedir=/var \
-		--mandir=/usr/man \
 		--with-xkb-output=/var/lib/xkb
 
 	make
 	make DESTDIR=$PKG install
-
 	rmdir $PKG/var/log
 }
 
