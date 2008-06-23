@@ -5,15 +5,16 @@
 # Depends on: xorg-libxaw
 
 name=xterm
-version=234
+version=235
 release=1
-source=(ftp://invisible-island.net/xterm/xterm-$version.tgz \
+up2date="lynx -dump ftp://invisible-island.net/xterm/|grep tgz$|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=(ftp://invisible-island.net/xterm/xterm-$version.tgz
 	configure.diff)
 
 build() {
 	cd xterm-$version
 
-	[ -z "$BASH_VERSION" ] && patch -p0 -i $SRC/configure.diff
+	[ -z "$BASH_VERSION" ] && patch -p 0 -i $SRC/configure.diff
 
 	./configure \
 		--prefix=/usr \
