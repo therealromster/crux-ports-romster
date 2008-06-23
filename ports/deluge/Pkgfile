@@ -1,0 +1,20 @@
+# Description: A bittorrent client based on Python and GTK.
+# URL: http://deluge-torrent.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Brett Goulder, predatorfreak at dcaf-security dot org.
+# Depends on: libglade pygtk pyxdg dbus-python boost
+
+name=deluge
+version=0.5.9.3
+release=1
+up2date="lynx -dump 'http://download.deluge-torrent.org/source/?C=M;O=D' |grep 'source/[0-9.]' |sed -ne 's/.*source\/\(.*\)\//\1/' -e '1 p'"
+source=(http://download.deluge-torrent.org/source/$version/deluge-$version.tar.gz)
+
+build() {
+	cd $name-torrent-$version
+	ARCH='x86' OS='linux' python setup.py build
+	python setup.py install --root=$PKG install
+	find $PKG/ -type f -iname '*.egg-info' -delete
+	rm -r $PKG/usr/share/locale
+}
+
