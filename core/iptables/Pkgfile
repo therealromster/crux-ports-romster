@@ -2,12 +2,12 @@
 # URL: http://www.iptables.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: CRUX System Team, core-ports at crux dot nu
-# Core: glibc
 
 name=iptables
-version=1.4.0
-release=3
+version=1.4.1.1
+release=1
 source=(ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2)
+up2date="lynx -dump http://www.iptables.org/projects/iptables/downloads.html|grep bz2$|sed -e 's/.*-\(.*\)\.t.*/\1/' -e 'q'"
 
 build() {
 	cd iptables-$version
@@ -17,8 +17,16 @@ build() {
 	rm include/linux/netfilter_ipv4/ip_tables.h
 	rm include/linux/netfilter_ipv6/ip6_tables.h
 
-	# use the userland kernel-headers
-	make -j 1 PREFIX=/usr KERNEL_DIR=/usr KBUILD_OUTPUT=/usr COPT_FLAGS="$CFLAGS"
-	make PREFIX=/usr DESTDIR=$PKG install install-devel
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--libexecdir=/usr/lib \
+		--disable-dependency-tracking \
+		--enable-devel \
+		--enable-libipq
+
+	make
+	make DESTDIR=$PKG install
+	chmod a-x $PKG/usr/lib/xtables/*.so
 }
 
