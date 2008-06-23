@@ -1,0 +1,99 @@
+diff -pruN pkgutils-5.32.0.orig/Makefile pkgutils-5.32.0/Makefile
+--- pkgutils-5.32.0.orig/Makefile	2008-05-27 01:43:58.783337300 +1000
++++ pkgutils-5.32.0/Makefile	2008-05-27 01:44:16.056337240 +1000
+@@ -36,7 +36,7 @@ LDFLAGS += -static -larchive -lz -lbz2
+ 
+ OBJECTS = main.o pkgutil.o pkgadd.o pkgrm.o pkginfo.o
+ 
+-MANPAGES = pkgadd.8 pkgrm.8 pkginfo.8 pkgmk.8 rejmerge.8
++MANPAGES = pkgadd.8 pkgrm.8 pkginfo.8 pkgmk.8 rejmerge.8 pkgmk.conf.5
+ 
+ all: pkgadd pkgmk rejmerge man
+ 
+@@ -85,6 +85,7 @@ install: all
+ 	install -D -m0644 pkginfo.8 $(DESTDIR)$(MANDIR)/man8/pkginfo.8
+ 	install -D -m0644 pkgmk.8 $(DESTDIR)$(MANDIR)/man8/pkgmk.8
+ 	install -D -m0644 rejmerge.8 $(DESTDIR)$(MANDIR)/man8/rejmerge.8
++	install -D -m0644 pkgmk.conf.5 $(DESTDIR)$(MANDIR)/man5/pkgmk.conf.5
+ 	ln -sf pkgadd $(DESTDIR)$(BINDIR)/pkgrm
+ 	ln -sf pkgadd $(DESTDIR)$(BINDIR)/pkginfo
+ 
+diff -pruN pkgutils-5.32.0.orig/pkgmk.8.in pkgutils-5.32.0/pkgmk.8.in
+--- pkgutils-5.32.0.orig/pkgmk.8.in	2008-05-27 01:43:58.783337300 +1000
++++ pkgutils-5.32.0/pkgmk.8.in	2008-05-27 01:44:16.056337240 +1000
+@@ -86,7 +86,7 @@ Global package make configuration.
+ .B "wget"
+ Used by pkgmk to download source code.
+ .SH SEE ALSO
+-pkgadd(8), pkgrm(8), pkginfo(8), rejmerge(8), wget(1)
++pkgadd(8), pkgrm(8), pkginfo(8), rejmerge(8), wget(1), pkgmk.conf(5)
+ .SH COPYRIGHT
+ pkgmk (pkgutils) is Copyright (c) 2000-2005 Per Liden and Copyright (c) 2006-2007 CRUX team (http://crux.nu).
+ pkgmk (pkgutils) is licensed through the GNU General Public License.
+diff -pruN pkgutils-5.32.0.orig/pkgmk.conf.5.in pkgutils-5.32.0/pkgmk.conf.5.in
+--- pkgutils-5.32.0.orig/pkgmk.conf.5.in	1970-01-01 10:00:00.000000000 +1000
++++ pkgutils-5.32.0/pkgmk.conf.5.in	2008-05-27 01:44:42.620342351 +1000
+@@ -0,0 +1,63 @@
++.TH pkgmk.conf 5 "" "pkgutils #VERSION#" ""
++.SH NAME
++\fBpkgmk.conf\fR \- Configuration file for pkgmk.
++.SH DESCRIPTION
++\fBpkgmk.conf\fP configures pkgutils package make, pkgmk(8).
++.TP
++.SH FILE FORMAT
++The file consists of comments and options with arguments. Each line which starts with a hash (#) symbol is ignored by the parser. Options and arguments are case sensitive and of the form \fBOption=Argument\fR.
++.SH DIRECTIVES
++.LP
++When some option is not used (commented out or not included in the configuration file at all) pkgmk takes a default action.
++.TP
++\fBCFLAGS='STRING'\fR
++Set C compiler options.
++.br 
++Default: none
++.TP
++\fBCXXFLAGS='STRING'\fR
++Set C++ compiler options.
++.br 
++Default: none
++.TP
++\fBPKGMK_SOURCE_MIRRORS=('STRING')\fR
++Set mirrors to check and download from.
++.br 
++Default: none
++.TP
++\fBPKGMK_SOURCE_DIR='STRING'\fR
++Set directory for downloaded files.
++.br 
++Default: current directory of Pkgfile.
++.TP
++\fBPKGMK_PACKAGE_DIR='STRING'\fR
++Set directory for built packages.
++.br 
++Default: current directory of Pkgfile.
++.TP
++\fBPKGMK_WORK_DIR='STRING'\fR
++Set directory for building packages.
++.br 
++Default: work directory of Pkgfile.
++.TP
++\fBPKGMK_DOWNLOAD='STRING'\fR
++Download if source is not found.
++.br 
++Default: no
++.TP
++\fBPKGMK_IGNORE_FOOTPRINT='STRING'\fR
++Ignore footprint verification.
++.br 
++Default: no
++.TP
++\fBPKGMK_NO_STRIP='STRING'\fR
++Don't strip binarys of symbols.
++.br 
++Default: no
++.TP
++.SH SEE ALSO
++pkgmk(8), prt-get(8), prt-get.conf(5), wget(1).
++.SH COPYRIGHT
++pkgmk (pkgutils) is Copyright (c) 2000-2005 Per Liden and Copyright (c) 2006-2007 CRUX team (http://crux.nu).
++pkgmk (pkgutils) is licensed through the GNU General Public License.
++Read the COPYING file for the complete license.

@@ -1,0 +1,222 @@
+Only in prt-tek/src: .deps
+Only in prt-tek/src: Makefile
+diff -u prt-get-5.15/src/argparser.cpp prt-tek/src/argparser.cpp
+--- prt-get-5.15/src/argparser.cpp	2006-10-19 10:37:31.000000000 +0200
++++ prt-tek/src/argparser.cpp	2007-10-18 21:07:10.000000000 +0200
+@@ -48,7 +48,8 @@
+       m_fullPath(false),
+       m_recursive(false),
+       m_printTree(false),
+-      m_depSort(false)
++      m_depSort(false),
++      m_dlonly(false)
+ {
+ }
+ 
+@@ -225,6 +226,9 @@
+                 m_pkgmkArgs += " " + s;
+             } else if ( s == "-fi" ) {
+                 m_pkgaddArgs += " -f";
++            } else if (s == "-do") {
++              m_pkgmkArgs += " -do";
++              m_dlonly = true;
+             }
+ 
+             // substrings
+@@ -463,6 +467,11 @@
+     return m_fullPath;
+ }
+ 
++bool ArgParser::dlonly() const
++{
++    return m_dlonly;
++}
++
+ 
+ const string& ArgParser::ignore() const
+ {
+diff -u prt-get-5.15/src/argparser.h prt-tek/src/argparser.h
+--- prt-get-5.15/src/argparser.h	2006-10-19 10:37:31.000000000 +0200
++++ prt-tek/src/argparser.h	2007-10-18 20:36:22.000000000 +0200
+@@ -57,6 +57,7 @@
+     bool strictDiff() const;
+     bool useRegex() const;
+     bool fullPath() const;
++    bool dlonly() const;
+     bool recursive() const;
+     bool printTree() const;
+     bool depSort() const;
+@@ -114,6 +115,7 @@
+     bool m_printTree;
+     
+     bool m_depSort;
++    bool m_dlonly;
+ 
+     string m_alternateConfigFile;
+     string m_pkgmkArgs;
+diff -u prt-get-5.15/src/installtransaction.cpp prt-tek/src/installtransaction.cpp
+--- prt-get-5.15/src/installtransaction.cpp	2006-10-19 10:37:31.000000000 +0200
++++ prt-tek/src/installtransaction.cpp	2007-10-18 22:52:14.000000000 +0200
+@@ -161,6 +161,14 @@
+ 
+         InstallTransaction::InstallResult result;
+         InstallInfo info( package->hasReadme() );
++
++				if ( !parser->isTest() && parser->dlonly() &&
++             (result = installPackage( package, parser, update, info )) == SUCCESS) {
++
++						m_downloadonlyPackages.push_back( package->name() );
++						continue;
++				}
++
+         if ( parser->isTest() ||
+              (result = installPackage( package, parser, update, info )) == SUCCESS) {
+ 
+@@ -220,7 +228,9 @@
+     // - initial information about the package to be build
+     string message;
+     message = commandName + ": ";
+-    if (update) {
++    if (parser->dlonly()) {
++				message += "downloading ";
++    } else if (update) {
+         message += "updating ";
+     } else {
+         message += "installing ";
+@@ -353,7 +363,9 @@
+             // - inform the user about what's happening
+             string fullCommand = commandName + ": " + cmd + " " + args;
+             string summary;
+-            if (update) {
++						if (parser->dlonly()) {
++							summary = "";
++						} else if (update) {
+                 string from = m_pkgDB->getPackageVersion(package->name());
+                 string to = package->version() + "-" + package->release();
+                 if (from ==  to) {
+@@ -388,6 +400,7 @@
+                 write( fdlog, "\n", 1 );
+             }
+ 
++         if (! parser->dlonly()) {
+             Process installProc( cmd, args, fdlog );
+             if ( installProc.executeShell() ) {
+                 result = PKGADD_FAILURE;
+@@ -409,7 +422,8 @@
+                     }
+                 }
+             }
+-        }
++         }
++				}
+     }
+ 
+     if ( m_config->writeLog() ) {
+@@ -559,6 +573,14 @@
+     return m_alreadyInstalledPackages;
+ }
+ 
++/*!
++ \return packages were requested to be downloaded _only_
++*/
++const list<string>& InstallTransaction::downloadonlyPackages() const
++{
++    return m_downloadonlyPackages;
++}
++
+ 
+ /*!
+   \return the packages which were installed in this transaction
+diff -u prt-get-5.15/src/installtransaction.h prt-tek/src/installtransaction.h
+--- prt-get-5.15/src/installtransaction.h	2006-10-19 10:37:31.000000000 +0200
++++ prt-tek/src/installtransaction.h	2007-10-06 11:18:36.000000000 +0200
+@@ -92,6 +92,7 @@
+     const list< pair<string, InstallInfo> >& installedPackages() const;
+     const list<string>& alreadyInstalledPackages() const;
+     const list<string>& ignoredPackages() const;
++    const list<string>& downloadonlyPackages() const;
+ 
+ 
+     const list<string>& dependencies() const;
+@@ -144,6 +145,9 @@
+     // packages where build/installed failed
+     list< pair<string, InstallInfo> > m_installErrors;
+ 
++    // packages requested for download only
++    list<string> m_downloadonlyPackages;
++
+     /// prt-get itself
+     const Configuration* m_config;
+ 
+diff -u prt-get-5.15/src/prtget.cpp prt-tek/src/prtget.cpp
+--- prt-get-5.15/src/prtget.cpp	2006-10-19 10:37:31.000000000 +0200
++++ prt-tek/src/prtget.cpp	2007-10-18 22:15:18.000000000 +0200
+@@ -180,6 +180,7 @@
+     cout << "                -if                 ignore footprint" << endl;
+     cout << "                -um                 update md5sum" << endl;
+     cout << "                -im                 ignore md5sum" << endl;
++    cout << "                -do                 download only" << endl;
+     cout << "                --margs=<string>    pass 'string' to pkgmk"
+          << endl;
+     cout << "                --aargs=<string>    pass 'string' to pkgadd"
+@@ -660,7 +661,10 @@
+     m_currentTransaction = &transaction;
+ 
+     string command[] = { "install", "installed" };
+-    if ( update ) {
++    if ( m_parser->dlonly() ) {
++				command[0] = "download";
++				command[1] = "downloaded";
++		} else if ( update ) {
+         command[0] = "update";
+         command[1] = "updated";
+     }
+@@ -1015,11 +1019,24 @@
+ 
+     // TODO: this is a duplicate, it's in install() as well
+     string command[] = { "install", "installed" };
+-    if ( update ) {
++    if ( m_parser->dlonly() ) {
++				command[0] = "download";
++				command[1] = "downloaded";
++    } else if ( update ) {
+         command[0] = "update";
+         command[1] = "updated";
+     }
+ 
++		const list<string>& downloadonly = transaction.downloadonlyPackages();
++		if ( downloadonly.size() ) {
++			cout << endl << "-- Packages downloaded only" << endl;
++			list<string>::const_iterator iit = downloadonly.begin();
++			
++      for ( ; iit != downloadonly.end(); ++iit ) {
++          cout << *iit << endl;
++			}
++		}
++
+     const list<string>& ignored = transaction.ignoredPackages();
+     if ( ignored.size() ) {
+         cout << endl << "-- Packages ignored" << endl;
+@@ -1051,6 +1068,7 @@
+         ++errors;
+         cout << endl << "-- Packages where "
+              << command[0] << " failed" << endl;
++
+         list< pair<string, InstallTransaction::InstallInfo> >::const_iterator
+             eit = error.begin();
+ 
+Only in prt-tek/doc: Makefile
+diff -u prt-get-5.15/doc/prt-get.8 prt-tek/doc/prt-get.8
+--- prt-get-5.15/doc/prt-get.8	2006-10-19 10:37:31.000000000 +0200
++++ prt-tek/doc/prt-get.8	2007-10-18 21:10:18.000000000 +0200
+@@ -431,6 +431,10 @@
+ Keep working directory, implies 'pkgmk -kw'; same as --margs=-kw
+ 
+ .TP
++.B -do
++Download only, implies 'pkgmk -do'; same as --margs=-do
++
++.TP
+ .B --ignore=<package1,package2,...>
+ Don't install those packages, even if they're listed as dependency
+ 

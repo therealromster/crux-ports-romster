@@ -1,0 +1,47 @@
+# Description: The C library used in the GNU system
+# URL: http://www.gnu.org/software/libc/
+# Maintainer: HVLinux system team
+
+name=glibc
+version=2.6.1
+kheaders=2.6.22
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.bz2
+	http://crux.nu/files/dist/kernel-headers-$kheaders.tar.bz2
+	hosts resolv.conf nsswitch.conf host.conf ld.so.conf
+	locale.gen locale-gen fix-segfault.patch)
+
+build() {
+	unset CFLAGS CXXFLAGS LDFLAGS
+	export CFLAGS='-O2 -march=i686'
+	# install build kernel headers
+	install -d $PKG/usr
+	cp -r kernel-headers-$kheaders/include $PKG/usr/
+	patch -d $name-$version -p 1 -i $SRC/fix-segfault.patch
+
+	install -d build
+	cd build
+	../$name-$version/configure \
+			--prefix=/usr \
+			--libexecdir=/usr/lib \
+			--with-headers=$PKG/usr/include \
+			--with-binutils=/usr/bin \
+			--without-cvs \
+			--without-gd \
+			--with-tls \
+			--enable-kernel=2.6.16 \
+			--enable-add-ons \
+			--enable-bind-now \
+			--disable-profile
+
+	make
+#	make check
+	make install_root=$PKG install
+	install -d $PKG/usr/lib/locale
+	install -m 0644 -t $PKG/etc $SRC/{hosts,{resolv,nsswitch,host,ld.so}.conf}
+	install -m 0644 $SRC/locale.gen $PKG/etc/
+	install -m 0755 $SRC/locale-gen $PKG/usr/bin/
+	ln -sf ../usr/share/zoneinfo/UTC $PKG/etc/localtime
+	rm -rf $PKG/usr/info
+}
+

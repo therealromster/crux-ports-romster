@@ -1,0 +1,26 @@
+# Description: A utility to simplify ports searching/installing.
+# URL: http://jw.smts.ch/files/crux/prt-get_quickstart.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+
+name=prt-get
+version=5.15
+release=2
+source=(http://jw.smts.ch/files/crux/prt-get-$version.tar.gz
+	prt-get.conf
+	prt-get.aliases
+	prt-get-download.patch)
+
+build() {
+	cd prt-get-$version
+	patch -p 1 -i $SRC/prt-get-download.patch
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+	install -m 0644 $SRC/prt-get.conf $PKG/etc/
+	install -m 0644 -D $SRC/prt-get.aliases $PKG/var/lib/pkg/prt-get.aliases
+}
+

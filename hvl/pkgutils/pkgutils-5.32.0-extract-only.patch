@@ -1,0 +1,65 @@
+diff -pruN pkgutils-5.32.0.orig/pkgmk.8.in pkgutils-5.32.0/pkgmk.8.in
+--- pkgutils-5.32.0.orig/pkgmk.8.in	2008-05-23 21:20:17.430340453 +1000
++++ pkgutils-5.32.0/pkgmk.8.in	2008-05-23 21:20:42.905338964 +1000
+@@ -34,6 +34,9 @@ Download missing source file(s).
+ .B "\-do, \-\-download\-only"
+ Do not build, only download missing source file(s).
+ .TP
++.B "\-eo, \-\-extract\-only"
++Do not build, only extract source file(s).
++.TP
+ .B "\-utd, \-\-up\-to\-date"
+ Do not build, only check if the package is up to date.
+ .TP
+diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
+--- pkgutils-5.32.0.orig/pkgmk.in	2008-05-23 21:20:17.429340202 +1000
++++ pkgutils-5.32.0/pkgmk.in	2008-05-23 21:20:59.390341312 +1000
+@@ -355,6 +355,11 @@ build_package() {
+ 	unpack_source
+ 	
+ 	cd $SRC
++
++	if [ "$PKGMK_EXTRACT_ONLY" = "yes" ]; then
++		exit 0
++	fi
++
+ 	(set -e -x ; build)
+ 	
+ 	if [ $? = 0 ]; then
+@@ -498,6 +503,7 @@ print_help() {
+ 	echo "  -r,   --recursive           search for and build packages recursively"
+ 	echo "  -d,   --download            download missing source file(s)"
+ 	echo "  -do,  --download-only       do not build, only download missing source file(s)"
++	echo "  -eo,  --extract-only        do not build, only extract source file(s)"
+ 	echo "  -utd, --up-to-date          do not build, only check if package is up to date"
+ 	echo "  -uf,  --update-footprint    update footprint using result from last build"
+ 	echo "  -if,  --ignore-footprint    build package without checking footprint"
+@@ -527,6 +533,8 @@ parse_options() {
+ 			-do|--download-only)
+ 				PKGMK_DOWNLOAD="yes"
+ 				PKGMK_DOWNLOAD_ONLY="yes" ;;
++			-eo|--extract-only)
++				PKGMK_EXTRACT_ONLY="yes" ;;
+ 			-utd|--up-to-date)
+ 				PKGMK_UP_TO_DATE="yes" ;;
+ 			-uf|--update-footprint)
+@@ -616,6 +624,11 @@ main() {
+ 		exit 0
+ 	fi
+ 	
++	if [ "$PKGMK_EXTRACT_ONLY" = "yes" ]; then
++		download_source
++		build_package
++	fi
++	
+ 	if [ "$PKGMK_UP_TO_DATE" = "yes" ]; then
+ 		if [ "`build_needed`" = "yes" ]; then
+ 			info "Package '$TARGET' is not up to date."
+@@ -662,6 +675,7 @@ PKGMK_INSTALL="no"
+ PKGMK_RECURSIVE="no"
+ PKGMK_DOWNLOAD="no"
+ PKGMK_DOWNLOAD_ONLY="no"
++PKGMK_EXTRACT_ONLY="no"
+ PKGMK_UP_TO_DATE="no"
+ PKGMK_UPDATE_FOOTPRINT="no"
+ PKGMK_IGNORE_FOOTPRINT="no"

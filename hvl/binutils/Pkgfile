@@ -1,0 +1,29 @@
+# Description: The GNU Binutils are a collection of binary tools.
+# URL: http://sources.redhat.com/binutils/
+# Maintainer: HVLinux system team
+
+name=binutils
+version=2.18
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.bz2
+	enable-relro-new-dtags-and-optimise-by-default.patch)
+
+build() {
+	sed -i '/^SUBDIRS/s/doc//' $name-$version/bfd/Makefile.in
+	patch -d $name-$version -p 1 -i $SRC/enable-relro-new-dtags-and-optimise-by-default.patch
+
+	install -d build
+	cd build
+	../$name-$version/configure \
+		--prefix=/usr \
+		--enable-shared \
+		--disable-nls
+
+	make tooldir=/usr
+	make check
+	make tooldir=/usr DESTDIR=$PKG install
+	install -m 0644 $SRC/$name-$version/include/libiberty.h $PKG/usr/include/
+	rm -rf $PKG/usr/info
+	sed -i -e "s|-L$SRC[^ ]* ||g" $PKG/usr/lib/libbfd.la
+}
+

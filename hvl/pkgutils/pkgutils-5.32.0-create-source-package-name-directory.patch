@@ -1,0 +1,30 @@
+diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
+--- pkgutils-5.32.0.orig/pkgmk.in	2008-05-23 16:26:26.178338298 +1000
++++ pkgutils-5.32.0/pkgmk.in	2008-05-23 16:55:36.015343352 +1000
+@@ -65,16 +65,20 @@ check_pkgfile() {
+ }
+ 
+ check_directory() {
+-	if [ ! -d $1 ]; then
+-		error "Directory '$1' does not exist."
++	local DIRECTORY="`echo $1 | sed -e "s|$name||"`"
++	if [ ! -d "$DIRECTORY" ]; then
++		error "Directory '$DIRECTORY' does not exist."
+ 		exit 1
+-	elif [ ! -w $1 ]; then
+-		error "Directory '$1' not writable."
++	elif [ ! -w "$DIRECTORY" ]; then
++		error "Directory '$DIRECTORY' not writable."
+ 		exit 1
+-	elif [ ! -x $1 ] || [ ! -r $1 ]; then
+-		error "Directory '$1' not readable."
++	elif [ ! -x "$DIRECTORY" ] || [ ! -r "$DIRECTORY" ]; then
++		error "Directory '$DIRECTORY' not readable."
+ 		exit 1
+ 	fi
++	if [ ! -d "$1" ]; then
++		mkdir "$1"
++	fi
+ }
+ 
+ download_file() {
