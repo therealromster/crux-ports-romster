@@ -1,26 +1,27 @@
 # Description: Lightweight web browser with news, e-mail and IRC.
-# URL: http://www.opera.com
+# URL: http://www.opera.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Olle Gustafsson, ogg at linux dot se
-# Depends on: qt3
+# Depends on: qt4
 
 name=opera
-version=9.27
-date=20080331.6
+version=9.50
 release=1
-source=(http://opera.nsc.no/linux/${version/./}/final/en/i386/shared/opera-$version-$date-shared-qt.i386-en.tar.bz2)
+source=(http://ftp.ntua.gr/pub/www/Opera/linux/${version//./}/final/en/i386/opera-$version.gcc4-qt4.i386.tar.bz2)
 
 build() {
-    cd opera-$version-$date-shared-qt.i386-en-*
+	cd opera-$version-*
 
-    sed -i s:share/man:man: install.sh
-    sed -i s:/usr/lib/netscape:/usr/lib/firefox: ini/pluginpath.ini
+	sed -i \
+		-e 's|share/man|man|' \
+		-e "s|config_dir="/etc"|config_dir="$PKG/etc"|g" \
+		install.sh
 
-	 yes n | ./install.sh --prefix=$PKG/usr
-
-    install -D -m 0644 config/opera6rc $PKG/etc/opera6rc
-    install -D -m 0644 config/opera6rc.fixed $PKG/etc/opera6rc.fixed
-	 find $PKG -type f -name '*.so' -exec chmod a-x {} \;
-	 sed -i -e "s|$PKG||g" $PKG/usr/bin/opera
-    rm -r $PKG/usr/share/doc
+	install -d $PKG/etc
+	yes n | ./install.sh --prefix=$PKG/usr
+	install -m 0644 -D etc/opera6rc $PKG/etc/opera6rc
+	install -m 0644 -D etc/opera6rc.fixed $PKG/etc/opera6rc.fixed
+	find $PKG -type f -name '*.so' -exec chmod a-x {} \;
+	sed -i -e "s|$PKG||g" $PKG/usr/bin/opera
+	rm -r $PKG/usr/share/doc
 }
