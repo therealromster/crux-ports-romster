@@ -1,0 +1,22 @@
+# Description: PPP-over-Ethernet redirector for pppd
+# URL: http://www.roaringpenguin.com/pppoe 
+# Maintainer:
+# Depends on: ppp
+
+name=rp-pppoe
+version=3.9
+release=1
+source=(http://www.roaringpenguin.com/files/download/$name-$version.tar.gz)
+up2date="lynx -dump http://www.roaringpenguin.com/products/pppoe |grep tar.gz|sed -n -e 's/.*rp-pppoe-\(.*\)\.tar\.gz .*/\1/' -e '1 p'"
+
+build() {
+	cd $name-$version/src
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make RPM_INSTALL_ROOT=$PKG install
+	rm -r $PKG/{usr/share/,etc/ppp/plugins}
+}
