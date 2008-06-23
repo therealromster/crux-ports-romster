@@ -12,11 +12,6 @@ up2date="lynx -dump http://www.iptables.org/projects/iptables/downloads.html|gre
 build() {
 	cd iptables-$version
 
-	# we do not want/need these kernel-headers included
-	# in the iptables sources.
-	rm include/linux/netfilter_ipv4/ip_tables.h
-	rm include/linux/netfilter_ipv6/ip6_tables.h
-
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
