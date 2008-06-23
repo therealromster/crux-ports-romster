@@ -1,0 +1,48 @@
+# Description: The GNU Compiler Collection.
+# URL: http://gcc.gnu.org/
+# Packager: CRUX System Team, core-ports at crux dot nu
+# Maintainer: HVLinux system team
+
+name=gcc
+version=4.2.4
+release=1
+source=(ftp://sources.redhat.com/pub/gcc/releases/$name-$version/$name-{core,g++,objc}-$version.tar.bz2
+        $name-$version-nocheck-fixincludes.patch 
+        $name-$version-fixinc.patch)
+	
+build() {
+    patch -d $name-$version -p 1 -i $SRC/$name-$version-nocheck-fixincludes.patch
+    patch -d $name-$version -p 1 -i $SRC/$name-$version-fixinc.patch
+
+    sed -i -e 's|VERSUFFIX ""|VERSUFFIX " (HVLinux)"|' \
+        $name-$version/$name/version.c
+
+    mkdir build
+    cd build
+	../$name-$version/configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--enable-languages=c,c++,objc \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--with-x=no
+
+	make bootstrap
+	make check
+	make -j 1 DESTDIR=$PKG install
+    
+	install -d $PKG/lib
+	ln -sf ../usr/bin/cpp $PKG/lib/cpp
+	ln -sf gcc $PKG/usr/bin/cc
+	ln -sf g++ $PKG/usr/bin/c++
+
+	rm -rf $PKG/usr/info $PKG/usr/lib/libiberty.a \
+		$PKG/usr/bin/*-linux-gnu-* \
+		$PKG/usr/lib/gcc/*/$version/install-tools \
+		$PKG/usr/lib/gcc/*/$version/include/README
+
+	sed -i "s|-L$SRC[^ ]* ||g" $PKG/usr/lib/{libstdc++.la,libsupc++.la}
+}
+
