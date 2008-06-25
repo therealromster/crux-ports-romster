@@ -7,10 +7,12 @@
 name=libnetfilter_queue
 version=0.0.15
 release=1
-source=(http://www.netfilter.org/projects/libnetfilter_queue/files/libnetfilter_queue-$version.tar.bz2)
+url='http://www.netfilter.org/projects/libnetfilter_queue/files'
+up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
+source=($url/$name-$version.tar.bz2)
 
-build () {
-    cd libnetfilter_queue-$version
+build() {
+    cd $name-$version
 
     ./configure \
 	 	--prefix=/usr \
