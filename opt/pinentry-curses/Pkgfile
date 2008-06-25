@@ -1,0 +1,35 @@
+# Description: Secure PinEntry Dialog.
+# URL: http://www.gnupg.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: ncurses
+
+name=pinentry-curses
+version=0.7.5
+release=1
+url='ftp://ftp.gnupg.org/gcrypt/pinentry'
+up2date="lynx -dump '$url' |grep tar.gz$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/pinentry-$version.tar.gz
+	pinentry-$version-gmem.patch
+	pinentry-$version-grab.patch)
+
+build() {
+	cd pinentry-$version
+
+	patch -p 1 -i $SRC/pinentry-$version-gmem.patch
+	patch -p 1 -i $SRC/pinentry-$version-grab.patch
+        
+	./configure \
+		--prefix=/usr \
+		--disable-pinentry-gtk \
+		--disable-pinentry-gtk2 \
+		--disable-pinentry-qt \
+		--enable-pinentry-curses \
+		--enable-fallback-curses
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/info
+	rmdir $PKG/usr/share
+}
