@@ -5,12 +5,14 @@
 # Depends on: apr neon expat
 
 name=subversion
-version=1.4.6
+version=1.5.0
 release=1
-source=(http://subversion.tigris.org/downloads/subversion-$version.tar.bz2)
+url='http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=260&expandFolder=74'
+up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
+source=(http://subversion.tigris.org/downloads/$name-$version.tar.bz2)
 
 build() {
-	cd subversion-$version
+	cd $name-$version
 
 	#NEON_ALLOWED_LIST=
 	#sed -i -e 's|0.26.1|0.26.2|g' configure
@@ -18,6 +20,8 @@ build() {
 	LDFLAGS="-L$PKG/usr/lib" \
 		./configure \
 			--prefix=/usr \
+			--mandir=/usr/man \
+			--disable-static \
 			--disable-nls \
 			--disable-mod-activation \
 			--with-apr=/usr \
@@ -28,7 +32,7 @@ build() {
 			#--disable-neon-version-check
 
 	make
-	make DESTDIR=$PKG external-install local-install 
+	make -j 1 DESTDIR=$PKG external-install local-install 
 
 	# fix paths in *.la files
 	sed -i -e "s|-L$PKG/usr/lib||g" $PKG/usr/lib/*.la
