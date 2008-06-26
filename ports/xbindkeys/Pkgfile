@@ -7,7 +7,9 @@
 name=xbindkeys
 version=1.8.2
 release=1
-source=(http://hocwp.free.fr/xbindkeys/xbindkeys-$version.tar.gz)
+url="http://hocwp.free.fr/$name"
+up2date="lynx -dump '$url/xbindkeys.html' |grep tar.gz$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/xbindkeys-$version.tar.gz)
 
 build() {
 	cd xbindkeys-$version
