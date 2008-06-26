@@ -1,0 +1,22 @@
+# Description: 
+# URL: 
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: vte cmake
+name=sakura
+version=2.2.0
+release=1
+url="http://pleyades.net/david/sakura.php"
+up2date="lynx -dump $url | grep -m1 tar.bz2 | sed 's/.*-\(.*\).ta.*/\1/'"
+source=(http://pleyades.net/david/projects/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	sed -i -e 's/Bitstream Vera Sans Mono 14/Bitstream Vera Sans 10/' \
+  		src/sakura.c
+	cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RELEASE .
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/locale
+}
+
