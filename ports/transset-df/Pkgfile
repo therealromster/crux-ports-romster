@@ -1,0 +1,19 @@
+# Description: Patched version of Xorg's transset.
+# URL: http://forchheimer.se/transset-df
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Nathan Pardoe, npardoe at ticklestix dot co dot uk
+# Depends on: xbindkeys xorg-xcompmgr
+
+name=transset-df
+version=6
+release=1
+url="http://forchheimer.se/$name"
+up2date="lynx -dump '$url' |grep tar.gz$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	make
+	install -m 0755 -D -s $name $PKG/usr/bin/transset
+}
+
