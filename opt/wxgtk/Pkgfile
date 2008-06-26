@@ -1,15 +1,15 @@
 # Description: wxWidgets for GTK+.
-# URL: http://www.wxwindows.org/
+# URL: http://www.wxwidgets.org/
 # Packager: Antti Nykanen, aon at iki dot fi
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: gtk
 
 name=wxgtk
-version=2.8.7
+version=2.8.8
 release=1
+up2date="lynx -dump http://sourceforge.net/project/showfiles.php?group_id=9863 |grep 'wxGTK-' |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
 source=(http://dl.sourceforge.net/wxwindows/wxGTK-$version.tar.bz2)
-# alternate mirror
-# ftp://biolpc22.york.ac.uk/pub/$version/wxGTK-$version.tar.bz2
+
 
 build() {
 	cd wxGTK-$version
