@@ -4,7 +4,7 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: pygtk intltool libglade libwnck 
 
-name=awmavant-window-navigator
+name=avant-window-navigator
 version=0.2.6
 release=1
 source=(http://launchpad.net/awn/${version%.*}/$version/+download/$name-$version.tar.gz)
