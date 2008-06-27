@@ -1,0 +1,32 @@
+# Description: Avant Window Navigator, a dock-like navigation bar for the X desktop.
+# URL: http://wiki.awn-project.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: pygtk intltool libglade libwnck 
+
+name=awmavant-window-navigator
+version=0.2.6
+release=1
+source=(http://launchpad.net/awn/${version%.*}/$version/+download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	sed -i \
+		-e 's/USE_NLS=yes/USE_NLS=no/' \
+		-e 's/ENABLE_NLS 1/ENABLE_NLS 0/' configure
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking \
+		--disable-static \
+		--disable-vala \
+		--without-gconf \
+		--with-desktop=agnostic
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/gtk-doc
+}
+
