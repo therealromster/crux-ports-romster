@@ -2,7 +2,7 @@
 # URL: http://wiki.awn-project.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: pygtk intltool libglade libwnck 
+# Depends on: pygtk intltool libglade libwnck pyxdg dbus-glib xorg-libxcomposite
 
 name=avant-window-navigator
 version=0.2.6
