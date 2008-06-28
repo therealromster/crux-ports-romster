@@ -33,7 +33,11 @@ lrwxrwxrwx	root/root	usr/bin/wineg++ -> winegcc
 -rwxr-xr-x	root/root	usr/bin/wrc
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/wine/
+-rw-r--r--	root/root	usr/include/wine/dcetypes.h
+-rw-r--r--	root/root	usr/include/wine/dcetypes.idl
 -rw-r--r--	root/root	usr/include/wine/debug.h
+-rw-r--r--	root/root	usr/include/wine/epm.h
+-rw-r--r--	root/root	usr/include/wine/epm.idl
 -rw-r--r--	root/root	usr/include/wine/exception.h
 -rw-r--r--	root/root	usr/include/wine/itss.h
 -rw-r--r--	root/root	usr/include/wine/itss.idl
@@ -486,6 +490,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/ver.h
 -rw-r--r--	root/root	usr/include/wine/windows/vfw.h
 -rw-r--r--	root/root	usr/include/wine/windows/vfwmsgs.h
+-rw-r--r--	root/root	usr/include/wine/windows/vmr9.h
+-rw-r--r--	root/root	usr/include/wine/windows/vmr9.idl
 -rw-r--r--	root/root	usr/include/wine/windows/wfext.h
 -rw-r--r--	root/root	usr/include/wine/windows/winbase.h
 -rw-r--r--	root/root	usr/include/wine/windows/wincon.h
@@ -661,6 +667,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/imm.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/imm32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/inetcomm.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/inetmib1.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/infosoft.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/initpki.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/inkobj.dll.so
