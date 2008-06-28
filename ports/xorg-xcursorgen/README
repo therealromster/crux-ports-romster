@@ -1,0 +1,25 @@
+Add these lines to your .Xdefaults:
+
+ Xcursor.size:         22
+ Xcursor.theme:        Grounation
+!Xcursor.theme:        Grounation-left
+!Xcursor.theme:        handhelds
+!Xcursor.theme:        jimmac
+!Xcursor.theme:        pCircle-24
+!Xcursor.theme:        pCircle-32
+!Xcursor.theme:        pDebian-24
+!Xcursor.theme:        pDebian-32
+!Xcursor.theme:        pSlackware-24
+!Xcursor.theme:        pSlackware-32
+!Xcursor.theme:        pSuse-24
+!Xcursor.theme:        pSuse-32
+!Xcursor.theme:        pTux-24
+!Xcursor.theme:        pTux-32
+!Xcursor.theme:        pUbuntu-24
+!Xcursor.theme:        pUbuntu-32
+!Xcursor.theme:        redglass
+!Xcursor.theme:        whiteglass
+
+
+And use the ! for a commentsign. So the line without an ! in front
+of it will be used.
