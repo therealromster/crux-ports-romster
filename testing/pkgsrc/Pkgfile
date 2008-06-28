@@ -1,0 +1,23 @@
+# Description: Package management system for Unix-like operating systems.
+# URL: http://www.pkgsrc.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: ncurses
+
+name=pkgsrc
+version=2008Q1
+release=1
+source=(ftp://ftp.netbsd.org/pub/pkgsrc/pkgsrc-$version/pkgsrc-$version.tar.gz)
+
+build() {
+	cd pkgsrc/bootstrap
+	unset MAKEFLAGS
+	export DESTDIR=$PKG
+	./bootstrap
+	install -m 0644 -D work/mk.conf.example $PKG/etc/mk.conf
+	rm -rf work
+	cd ..
+	install -d $PKG/usr
+	mv pkgsrc $PKG/usr/
+}
+
