@@ -5,22 +5,19 @@
 # Depends on: 
 
 name=cdrtools
-version=2.01.01a40
+version=2.01.01a42
 release=1
-source=(ftp://ftp.berlios.de/pub/cdrecord/alpha/cdrtools-$version.tar.bz2)
+url='ftp://ftp.berlios.de/pub/cdrecord/alpha'
+up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/$name-$version.tar.bz2)
 
 build() {
-	cd cdrtools-${version%a*}
-
+	cd $name-${version%a*}
 	make
 	make INS_BASE=$PKG/usr install
-
 	rm -rf $PKG/usr/{include,lib,sbin,share,man/man5}
-
-	rm  \
-		$PKG/usr/etc/default/rscsi \
+	rm $PKG/usr/etc/default/rscsi \
 		$PKG/usr/man/man1/cdda2ogg.1
-
 	chown -R root:root $PKG
 	chown root:cdrom $PKG/usr/bin/cdrecord
 	chmod -R u+w,g-w $PKG
