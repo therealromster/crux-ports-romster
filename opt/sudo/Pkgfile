@@ -1,26 +1,31 @@
 # Description: Sudo (superuser do).
 # URL: http://www.sudo.ws/sudo/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Todd Miller, todd dot miller at courtesan dot com
-# Depends on: 
+# Depends on: vim
 
 name=sudo
-version=1.6.9p16
+version=1.6.9p17
 release=1
-source=(http://www.sudo.ws/sudo/dist/sudo-$version.tar.gz)
+url='http://www.sudo.ws/sudo/dist'
+up2date="lynx -dump '$url/?M=D' |grep $name- | grep .tar.gz |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
+source=($url/$name-$version.tar.gz)
 
 build() {
-	cd sudo-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--libexecdir=/usr/lib \
+		--with-editor=/usr/bin/vim \
 		--without-pam
 
 	make
 	make -j 1 DESTDIR=$PKG install
-	ln -sf sudo $PKG/usr/bin/sudoedit
-	ln -sf sudo.8.gz $PKG/usr/man/man8/sudoedit.8
+	rm $PKG/usr/bin/sudoedit \
+		$PKG/usr/man/man8/sudoedit.8
+	ln -s sudo $PKG/usr/bin/sudoedit
+	ln -s sudo.8.gz $PKG/usr/man/man8/sudoedit.8
 }
 
