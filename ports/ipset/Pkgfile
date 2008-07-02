@@ -1,0 +1,17 @@
+# Description: Administration tool for IP or port sets.
+# URL: http://ipset.netfilter.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: 
+
+name=ipset
+version=2.3.2-20080702
+release=1
+source=(http://ipset.netfilter.org/ipset-$version.tar.bz2)
+
+build() {
+	cd ipset-${version%%-*}
+	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr
+	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr DESTDIR=$PKG install
+}
+
