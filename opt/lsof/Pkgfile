@@ -6,7 +6,9 @@
 name=lsof
 version=4.80
 release=1
-source=(ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_$version.tar.bz2)
+url="ftp://$name.itap.purdue.edu/pub/tools/unix/$name/"
+up2date="lynx -dump '$url' |grep tar.bz2$ |sed -ne 's/.*_\(.*\)\.t.*/\1/' -e '1 p'"
+source=($url/${name}_$version.tar.bz2)
 
 build() {
     cd lsof_$version
