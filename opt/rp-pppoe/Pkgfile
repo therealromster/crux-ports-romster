@@ -4,10 +4,10 @@
 # Depends on: ppp
 
 name=rp-pppoe
-version=3.9
+version=3.10
 release=1
+up2date="lynx -dump http://www.roaringpenguin.com/products/pppoe |grep tar.gz|sed -ne 's/.*rp-pppoe-\(.*\)\.tar\.gz .*/\1/' -e '1 p'"
 source=(http://www.roaringpenguin.com/files/download/$name-$version.tar.gz)
-up2date="lynx -dump http://www.roaringpenguin.com/products/pppoe |grep tar.gz|sed -n -e 's/.*rp-pppoe-\(.*\)\.tar\.gz .*/\1/' -e '1 p'"
 
 build() {
 	cd $name-$version/src
@@ -17,6 +17,6 @@ build() {
 		--mandir=/usr/man
 
 	make
-	make RPM_INSTALL_ROOT=$PKG install
+	make DESTDIR=$PKG install
 	rm -r $PKG/{usr/share/,etc/ppp/plugins}
 }
