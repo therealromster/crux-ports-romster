@@ -5,9 +5,11 @@
 # Depends on: xorg-libxpm libpng libjpeg freetype fontconfig
 
 name=libgd
-version=2.0.35
+version=2.0.36RC1
 release=1
-source=(http://www.libgd.org/releases/gd-$version.tar.bz2)
+url='http://www.libgd.org/releases/'
+up2date="lynx -dump '$url' |grep -v latest|grep tar.bz2|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/gd-$version.tar.bz2)
 
 build() {
 	cd gd-$version
