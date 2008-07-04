@@ -1,0 +1,30 @@
+# Description: Utility for partition & file system manipulation, supporting non-destructive repartitioning.
+# URL: http://www.gnu.org/software/parted
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafrim, ycrux at club-internet dot fr
+# Depends on: 
+# Optional: dosfstools e2fsprogs ntfsprogs reiserfsprogs xfsprogs
+
+name=parted
+version=1.8.8
+release=1
+url="http://ftp.gnu.org/gnu/$name"
+up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
+source=($url/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--sbindir=/sbin \
+		--mandir=/usr/man \
+		--disable-nls \
+		--disable-static \
+		--without-readline
+
+    make CFLAGS="$CFLAGS"
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/info
+}
+
