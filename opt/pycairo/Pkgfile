@@ -7,10 +7,12 @@
 name=pycairo
 version=1.4.12
 release=1
-source=(http://cairographics.org/releases/pycairo-$version.tar.gz)
+url='http://cairographics.org/releases'
+up2date="lynx -dump $url |grep 'LATEST-$name-' |sed -ne 's/.*-\(.*\)$/\1/' -e '$ p'"
+source=($url/$name-$version.tar.gz)
 
 build() {
-	cd pycairo-$version
+	cd $name-$version
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
