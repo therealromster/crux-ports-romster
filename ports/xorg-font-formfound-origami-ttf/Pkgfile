@@ -1,0 +1,15 @@
+# Description: A origami font free for personal use.
+# URL: http://www.dafont.com/origami.font
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: xorg-mkfontdir xorg-mkfontscale
+
+name=xorg-font-formfound-origami-ttf
+version=20080705
+release=1
+source=(http://www.formfound.com/origami.zip)
+
+build() {
+	install -D -m 0644 $SRC/Origami.ttf $PKG/usr/lib/X11/fonts/TTF/origami.ttf
+}
+
