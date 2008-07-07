@@ -8,10 +8,13 @@ name=udev
 version=124
 config_version=20080217
 release=1
-source=(ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug/udev-$version.tar.bz2 \
-	http://crux.nu/files/distfiles/udev-config-$config_version.tar.bz2 \
+url='ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug'
+up2date="lynx -dump $url|grep bz2$|grep udev|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=(ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug/udev-$version.tar.bz2
+	http://crux.nu/files/distfiles/udev-config-$config_version.tar.bz2
 	start_udev 61-cdrom.rules 60-cdrom_id.rules cdsymlinks)
 #http://www.linuxfromscratch.org/lfs/downloads/development/udev-config-$config_version.tar.bz2
+
 build() {
 	local extras="extras/ata_id \
 		extras/cdrom_id \
