@@ -7,13 +7,13 @@
 # Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
 
 name=wine
-version=1.1.0
+version=1.1.1
 release=1
 source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
 
 build() {
 	cd wine-$version
-	export 	CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')"
+	export CFLAGS="-O3 $(echo $CFLAGS | sed -e 's/-O[s0-3] //')"
 
 	./configure \
 		--verbose \

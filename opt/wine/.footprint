@@ -128,6 +128,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/cor.h
 -rw-r--r--	root/root	usr/include/wine/windows/corerror.h
 -rw-r--r--	root/root	usr/include/wine/windows/cpl.h
+-rw-r--r--	root/root	usr/include/wine/windows/cryptdlg.h
+-rw-r--r--	root/root	usr/include/wine/windows/cryptuiapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/custcntl.h
 -rw-r--r--	root/root	usr/include/wine/windows/cvconst.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3d.h
@@ -349,6 +351,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/msinkaut.idl
 -rw-r--r--	root/root	usr/include/wine/windows/msiquery.h
 -rw-r--r--	root/root	usr/include/wine/windows/mssip.h
+-rw-r--r--	root/root	usr/include/wine/windows/mstask.h
+-rw-r--r--	root/root	usr/include/wine/windows/mstask.idl
 -rw-r--r--	root/root	usr/include/wine/windows/mswsock.h
 -rw-r--r--	root/root	usr/include/wine/windows/msxml.h
 -rw-r--r--	root/root	usr/include/wine/windows/msxml.idl
@@ -492,6 +496,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/vfwmsgs.h
 -rw-r--r--	root/root	usr/include/wine/windows/vmr9.h
 -rw-r--r--	root/root	usr/include/wine/windows/vmr9.idl
+-rw-r--r--	root/root	usr/include/wine/windows/vmrender.idl
 -rw-r--r--	root/root	usr/include/wine/windows/wfext.h
 -rw-r--r--	root/root	usr/include/wine/windows/winbase.h
 -rw-r--r--	root/root	usr/include/wine/windows/wincon.h
@@ -806,6 +811,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libwinecrt0.a
 -rw-r--r--	root/root	usr/lib/wine/libwined3d.def
 -rw-r--r--	root/root	usr/lib/wine/libwinedos.def
+-rw-r--r--	root/root	usr/lib/wine/libwinhttp.def
 -rw-r--r--	root/root	usr/lib/wine/libwininet.def
 -rw-r--r--	root/root	usr/lib/wine/libwinmm.def
 -rw-r--r--	root/root	usr/lib/wine/libwinnls32.def
