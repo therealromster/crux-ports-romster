@@ -7,7 +7,7 @@
 name=ffmpeg
 version=r11441
 release=1
-source=(http://romster.shortcircuit.net.au/crux/source/ffmpeg-snapshot-$version.tar.lzma)
+source=(ftp://romster.dyndns.org/linux/source/$name/$name-snapshot-$version.tar.lzma)
 
 build() {
 	# temp fix untill/if pkgutils supports lzma
@@ -16,7 +16,7 @@ build() {
 		rm $name-snapshot-$version.tar.lzma
 	fi
 
-	cd ffmpeg
+	cd $name
 
 	unset CFLAGS CXXFLAGS
 	
