@@ -1,0 +1,16 @@
+diff -pruN deco-1.1.0.2.orig/config.mk deco-1.1.0.2/config.mk
+--- deco-1.1.0.2.orig/config.mk	2008-07-17 03:47:26.355390803 +1000
++++ deco-1.1.0.2/config.mk	2008-07-17 03:47:52.893390117 +1000
+@@ -1,9 +1,9 @@
+-CC      = c99
+-CFLAGS  = -O1
++CC      = gcc
++CFLAGS  = @CFLAGS@
+ LDFLAGS = -s
+ 
+ DESTDIR =
+-PREFIX  = /usr/local
++PREFIX  = /usr
+ BIN     = $(PREFIX)/bin
+ SHARE   = $(PREFIX)/share/deco
+ 
