@@ -1,0 +1,32 @@
+diff -pruN deluge-torrent-0.9.02.orig/setup.py deluge-torrent-0.9.02/setup.py
+--- deluge-torrent-0.9.02.orig/setup.py	2008-07-20 17:00:31.943461778 +1000
++++ deluge-torrent-0.9.02/setup.py	2008-07-20 17:12:39.194392044 +1000
+@@ -111,9 +111,9 @@ if windows_check():
+         "/Zc:wchar_t",
+         ]
+ else:
+-    _extra_compile_args += ["-Wno-missing-braces"]
++    _extra_compile_args += ["-Wno-missing-braces",]
+ 
+-removals = ["-Wstrict-prototypes"]
++removals = ["-Wstrict-prototypes",]
+ 
+ if not windows_check():
+     if python_version == '2.5':
+@@ -157,11 +157,11 @@ if windows_check():
+ else:
+     _include_dirs += ['/usr/include/python' + python_version]
+     _libraries = [
+-        'boost_filesystem',
+-        'boost_date_time',
+-        'boost_iostreams',
+-        'boost_python',
+-        'boost_thread',
++        'boost_filesystem-mt',
++        'boost_date_time-mt',
++        'boost_iostreams-mt',
++        'boost_python-mt',
++        'boost_thread-mt',
+         'pthread',
+         'ssl',
+         'z'
