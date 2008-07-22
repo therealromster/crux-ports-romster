@@ -8,8 +8,8 @@ drwxr-xr-x	root/root	etc/udev/rules.d/
 -rw-r--r--	root/root	etc/udev/rules.d/60-persistent-input.rules
 -rw-r--r--	root/root	etc/udev/rules.d/60-persistent-storage-tape.rules
 -rw-r--r--	root/root	etc/udev/rules.d/60-persistent-storage.rules
+-rw-r--r--	root/root	etc/udev/rules.d/60-persistent-v4l.rules
 -rw-r--r--	root/root	etc/udev/rules.d/61-cdrom.rules
--rw-r--r--	root/root	etc/udev/rules.d/61-persistent-storage-edd.rules
 -rw-r--r--	root/root	etc/udev/rules.d/80-drivers.rules
 -rw-r--r--	root/root	etc/udev/rules.d/81-firmware.rules
 -rw-r--r--	root/root	etc/udev/rules.d/95-udev-late.rules
@@ -35,6 +35,16 @@ lrwxrwxrwx	root/root	lib/udev/devices/stdout -> /proc/self/fd/1
 -rwxr-xr-x	root/root	lib/udev/edd_id
 -rwxr-xr-x	root/root	lib/udev/firmware.sh
 -rwxr-xr-x	root/root	lib/udev/path_id
+drwxr-xr-x	root/root	lib/udev/rules.d/
+-rw-r--r--	root/root	lib/udev/rules.d/50-udev-default.rules
+-rw-r--r--	root/root	lib/udev/rules.d/60-cdrom_id.rules
+-rw-r--r--	root/root	lib/udev/rules.d/60-persistent-input.rules
+-rw-r--r--	root/root	lib/udev/rules.d/60-persistent-storage-tape.rules
+-rw-r--r--	root/root	lib/udev/rules.d/60-persistent-storage.rules
+-rw-r--r--	root/root	lib/udev/rules.d/60-persistent-v4l.rules
+-rw-r--r--	root/root	lib/udev/rules.d/61-persistent-storage-edd.rules
+-rw-r--r--	root/root	lib/udev/rules.d/80-drivers.rules
+-rw-r--r--	root/root	lib/udev/rules.d/95-udev-late.rules
 -rwxr-xr-x	root/root	lib/udev/scsi_id
 -rwxr-xr-x	root/root	lib/udev/usb_id
 -rwxr-xr-x	root/root	lib/udev/vol_id

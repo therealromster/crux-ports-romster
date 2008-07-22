@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=udev
-version=124
+version=125
 config_version=20080217
 release=1
 url='ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug'
@@ -49,7 +49,7 @@ build() {
 
 	install -m 0755 $SRC/start_udev         $PKG/sbin
 	install -m 0755 $SRC/cdsymlinks         $PKG/lib/udev/
-	install -m 0644 etc/udev/rules.d/[0-9]* $PKG/etc/udev/rules.d/
+	install -m 0644 rules/rules.d/[0-9]*    $PKG/etc/udev/rules.d/
 	install -m 0644 $SRC/61-cdrom.rules     $PKG/etc/udev/rules.d/
 
 	# override this file in udev-config for cd/dvd permissions
