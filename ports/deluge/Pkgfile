@@ -5,7 +5,7 @@
 # Depends on: libglade pygtk pyxdg dbus-python boost
 
 name=deluge
-version=0.5.9.3
+version=0.5.9.4
 release=1
 up2date="lynx -dump 'http://download.deluge-torrent.org/source/?C=M;O=D' |grep 'source/[0-9.]' |sed -ne 's/.*source\/\(.*\)\//\1/' -e '1 p'"
 source=(http://download.deluge-torrent.org/source/$version/deluge-$version.tar.gz)
