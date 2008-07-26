@@ -33,11 +33,7 @@ lrwxrwxrwx	root/root	usr/bin/wineg++ -> winegcc
 -rwxr-xr-x	root/root	usr/bin/wrc
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/wine/
--rw-r--r--	root/root	usr/include/wine/dcetypes.h
--rw-r--r--	root/root	usr/include/wine/dcetypes.idl
 -rw-r--r--	root/root	usr/include/wine/debug.h
--rw-r--r--	root/root	usr/include/wine/epm.h
--rw-r--r--	root/root	usr/include/wine/epm.idl
 -rw-r--r--	root/root	usr/include/wine/exception.h
 -rw-r--r--	root/root	usr/include/wine/itss.h
 -rw-r--r--	root/root	usr/include/wine/itss.idl
@@ -127,6 +123,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/control.idl
 -rw-r--r--	root/root	usr/include/wine/windows/cor.h
 -rw-r--r--	root/root	usr/include/wine/windows/corerror.h
+-rw-r--r--	root/root	usr/include/wine/windows/corhdr.h
 -rw-r--r--	root/root	usr/include/wine/windows/cpl.h
 -rw-r--r--	root/root	usr/include/wine/windows/cryptdlg.h
 -rw-r--r--	root/root	usr/include/wine/windows/cryptuiapi.h
@@ -156,6 +153,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9core.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9math.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9math.inl
+-rw-r--r--	root/root	usr/include/wine/windows/d3dx9shader.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9tex.h
 -rw-r--r--	root/root	usr/include/wine/windows/dbghelp.h
 -rw-r--r--	root/root	usr/include/wine/windows/dbinit.idl
@@ -562,6 +560,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/advapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/advpack.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/amstream.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/appwiz.cpl.so
 -rwxr-xr-x	root/root	usr/lib/wine/atl.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/avicap32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/avifil32.dll.so
@@ -640,6 +639,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/dpnet.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dpnhpast.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dpnlobby.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/dpwsockx.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dsound.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dssenh.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dswave.dll.so
@@ -733,7 +733,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libglu32.def
 -rw-r--r--	root/root	usr/lib/wine/libhid.def
 -rw-r--r--	root/root	usr/lib/wine/libhlink.def
--rw-r--r--	root/root	usr/lib/wine/libicmp.def
 -rw-r--r--	root/root	usr/lib/wine/libimagehlp.def
 -rw-r--r--	root/root	usr/lib/wine/libimm32.def
 -rw-r--r--	root/root	usr/lib/wine/libinetcomm.def
@@ -863,6 +862,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/msnet32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msrle32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mssip32.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/mstask.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcirt.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcr71.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcrt.dll.so
