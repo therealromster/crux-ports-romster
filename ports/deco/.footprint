@@ -10,6 +10,8 @@ drwxr-xr-x	root/root	usr/share/deco/a/
 drwxr-xr-x	root/root	usr/share/deco/ace|[c0-9][0-9][0-9]/
 -rwxr-xr-x	root/root	usr/share/deco/ace|[c0-9][0-9][0-9]/extract
 -rw-r--r--	root/root	usr/share/deco/ace|[c0-9][0-9][0-9]/permissions (EMPTY)
+drwxr-xr-x	root/root	usr/share/deco/alz/
+-rwxr-xr-x	root/root	usr/share/deco/alz/extract
 drwxr-xr-x	root/root	usr/share/deco/ape/
 -rwxr-xr-x	root/root	usr/share/deco/ape/extract
 lrwxrwxrwx	root/root	usr/share/deco/ar -> a
@@ -40,6 +42,8 @@ drwxr-xr-x	root/root	usr/share/deco/lha/
 lrwxrwxrwx	root/root	usr/share/deco/lzh -> lha
 drwxr-xr-x	root/root	usr/share/deco/lzma/
 -rwxr-xr-x	root/root	usr/share/deco/lzma/extract
+drwxr-xr-x	root/root	usr/share/deco/lzo/
+-rwxr-xr-x	root/root	usr/share/deco/lzo/extract
 lrwxrwxrwx	root/root	usr/share/deco/odc -> zip
 lrwxrwxrwx	root/root	usr/share/deco/odf -> zip
 lrwxrwxrwx	root/root	usr/share/deco/odg -> zip
