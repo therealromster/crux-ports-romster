@@ -1,0 +1,16 @@
+# Description: MurrinaCandy, MurrinaCappuccino, MurrinaEalm and MurrinaNeoGraphite for gtk-engine-murrine.
+# URL: http://www.cimitan.com/murrine/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk-engine-murrine
+
+name=gtk-theme-murrine
+version=0.53.1
+release=1
+source=(http://www.cimitan.com/media/download_gallery/MurrineThemePack.tar.bz2)
+
+build() {
+	install -d $PKG/usr/share/themes
+	cp -r $SRC/Murrina* $PKG/usr/share/themes/
+}
+
