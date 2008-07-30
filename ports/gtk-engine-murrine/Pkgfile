@@ -1,0 +1,22 @@
+# Description: Cairo based GTK engine.
+# URL: http://www.cimitan.com/murrine/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Vincenzo Colosimo, vico at bicisport dot de
+# Depends on: gtk
+
+name=gtk-engine-murrine
+version=0.53.1
+release=1
+source=(http://www.cimitan.com/media/download_gallery/murrine/murrine-$version.tar.bz2)
+
+build() {
+	cd murrine-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-animation
+
+	make
+	make DESTDIR=$PKG install
+}
+
