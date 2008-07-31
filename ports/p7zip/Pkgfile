@@ -5,7 +5,7 @@
 # Dependencies: 
 
 name=p7zip
-version=4.57
+version=4.58
 release=1
 source=(http://dl.sourceforge.net/p7zip/p7zip_${version}_src_all.tar.bz2)
 
@@ -23,9 +23,7 @@ build() {
 
 	ln -s /usr/lib/p7zip/7za $PKG/usr/bin/7za
 	ln -s /usr/lib/p7zip/7za $PKG/usr/bin/7z
-
 	rm -r $PKG/usr/share
-
 	chmod -R u+w $PKG
 }
 
