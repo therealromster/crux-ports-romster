@@ -2,11 +2,11 @@
 # URL: http://search.cpan.org/~pmqs/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: 
+# Depends on: perl
 
 
 name=p5-io-compress-zlib
-version=2.004
+version=2.012
 release=1
 source=(http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/IO-Compress-Zlib-$version.tar.gz)
 
