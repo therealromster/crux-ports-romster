@@ -5,7 +5,7 @@
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr libwmf
 
 name=imagemagick
-version=6.4.2-4
+version=6.4.2-5
 release=1
 url='ftp://ftp.imagemagick.net/pub/ImageMagick/'
 up2date="lynx -dump $url |grep tar.lzma|grep -v ImageMagick.tar.lzma|sed -ne 's/.*ImageMagick-\(.*\)\.t.*/\1/' -e '$ p'"
