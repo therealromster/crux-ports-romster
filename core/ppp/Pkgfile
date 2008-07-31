@@ -12,7 +12,8 @@ source=(http://$name.samba.org/ftp/$name/$name-$version.tar.gz
 	$name-makefile.patch
 	$name-$version-linkpidfile.patch
 	$name-$version-pppoe-lcp-timeout.patch
-	$name-$version-new-valid-speeds.patch)
+	$name-$version-new-valid-speeds.patch
+	$name-$version-make-var.patch)
 
 build() {
 	cd $name-$version
@@ -21,6 +22,7 @@ build() {
 	patch -p 1 -i $SRC/$name-$version-linkpidfile.patch
 	patch -p 1 -i $SRC/$name-$version-pppoe-lcp-timeout.patch
 	patch -p 1 -i $SRC/$name-$version-new-valid-speeds.patch
+	patch -p 1 -i $SRC/$name-$version-make-var.patch
 	find $SRC -name 'Makefile.linux' -exec sed -i -e 's|/share/man/|/man/|' {} \;
 
 	# configure is a shell script
@@ -28,7 +30,11 @@ build() {
 		--prefix=/usr \
 		--sysconfdir=/etc
 
-	make
+	export CC='gcc'
+	export AR='ar'
+	export LDFLAGS+='-Wl,--allow-shlib-undefined' # otherwise linking plugins might fail with undef errors
+
+	make COPTS="${CFLAGS} -D_GNU_SOURCE"
 	make INSTROOT=$PKG install install-etcppp
 	rmdir $PKG/usr/share/man/man8
 	rmdir $PKG/usr/share/man
