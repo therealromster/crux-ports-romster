@@ -6,14 +6,15 @@
 
 name=ppp
 version=2.4.4
-release=2
+release=3
 source=(http://$name.samba.org/ftp/$name/$name-$version.tar.gz
 	$name-nofilter.patch
 	$name-makefile.patch
 	$name-$version-linkpidfile.patch
 	$name-$version-pppoe-lcp-timeout.patch
 	$name-$version-new-valid-speeds.patch
-	$name-$version-make-var.patch)
+	$name-$version-make-var.patch
+	$name-$version-status-2Glimit.patch)
 
 build() {
 	cd $name-$version
@@ -23,6 +24,7 @@ build() {
 	patch -p 1 -i $SRC/$name-$version-pppoe-lcp-timeout.patch
 	patch -p 1 -i $SRC/$name-$version-new-valid-speeds.patch
 	patch -p 1 -i $SRC/$name-$version-make-var.patch
+	patch -p 1 -i $SRC/$name-$version-status-2Glimit.patch
 	find $SRC -name 'Makefile.linux' -exec sed -i -e 's|/share/man/|/man/|' {} \;
 
 	# configure is a shell script
