@@ -1,0 +1,12 @@
+diff -Nru ppp-2.4.4.orig/pppd/plugins/pppoatm/Makefile.linux ppp-2.4.4/pppd/plugins/pppoatm/Makefile.linux
+--- ppp-2.4.4.orig/pppd/plugins/pppoatm/Makefile.linux	2006-06-28 17:19:31.000000000 +0200
++++ ppp-2.4.4/pppd/plugins/pppoatm/Makefile.linux	2006-06-28 17:53:14.000000000 +0200
+@@ -6,7 +6,7 @@
+ 
+ #***********************************************************************
+ 
+-DESTDIR = @DESTDIR@
++DESTDIR = $(INSTROOT)@DESTDIR@
+ LIBDIR = $(DESTDIR)/lib/pppd/$(VERSION)
+ 
+ VERSION = $(shell awk -F '"' '/VERSION/ { print $$2; }' ../../patchlevel.h)
