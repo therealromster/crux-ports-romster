@@ -1,0 +1,17 @@
+# Description: Waitfordevice is a trivial tool which checks and waits for a device to become available.
+# URL: http://www.vanheusden.com/w4d/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=w4d
+version=0.1
+release=1
+source=(http://www.vanheusden.com/$name/$name-$version.tgz)
+
+build() {
+	cd $name-$version
+	install -d $PKG/usr/bin
+	make CC='gcc'
+	make DESTDIR=$PKG install
+}
+
