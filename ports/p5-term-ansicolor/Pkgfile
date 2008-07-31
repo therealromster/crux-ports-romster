@@ -1,12 +1,11 @@
-# $Id:
 # Description: ANSI text atribute control module.
 # URL: http://search.cpan.org/author/RRA/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Stoyan Zhekov <zhware@hotpop.com>
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Stoyan Zhekov, zhware at hotpop dot com
 # Depends on:
 
 name=p5-term-ansicolor
-version=1.11
+version=1.12
 release=1
 source=(http://www.cpan.org/modules/by-module/Term/ANSIColor-$version.tar.gz)
 
@@ -17,13 +16,13 @@ build() {
 	make DESTDIR=$PKG install
 	
 	# Remove perlcrap
-	find $PKG \
-		-name '.packlist' -delete -or \
-		-name '*.bs' -delete -or \
-		-name 'autosplit.ix' -delete -or \
-		-name 'perllocal.pod' -delete
+	find $PKG -type f \( \
+		-name '.packlist' -o \
+		-name '*.bs' -o \
+		-name 'autosplit.ix' -o \
+		-name 'perllocal.pod' \) -delete
 
 	# Remove empty directories
-	find $PKG -depth -empty -exec rm -rf {} \;
+	find $PKG -depth -empty -delete
 }
 
