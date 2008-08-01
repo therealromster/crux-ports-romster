@@ -4,7 +4,7 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=deco
-version=1.3
+version=1.3.0.1
 release=1
 url="http://hartlich.com/$name/download"
 up2date="lynx -dump '$url' |grep tar.gz$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
