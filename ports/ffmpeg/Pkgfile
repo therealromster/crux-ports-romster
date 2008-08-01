@@ -5,7 +5,7 @@
 # Depends on: liba52 faac imlib2 lame libsdl libtheora libxvid x264 lzma
 
 name=ffmpeg
-version=r11441
+version=r14498
 release=1
 source=(ftp://romster.dyndns.org/linux/source/$name/$name-snapshot-$version.tar.lzma)
 
@@ -22,6 +22,8 @@ build() {
 	
 	./configure \
 		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-gpl \
 		--enable-liba52 \
 		--enable-liba52bin \
 		--enable-libfaac \
@@ -32,21 +34,15 @@ build() {
 		--enable-libvorbis \
 		--enable-libx264 \
 		--enable-libxvid \
-		--enable-pp \
-		--disable-static \
 		--enable-shared \
 		--enable-pthreads \
+		--enable-postproc \
+		--enable-swscale \
 		--enable-x11grab \
-		--enable-swscaler \
-		--enable-gpl \
-		--disable-debug
-	
-	# disable ldconfig
-	sed -i -e '175s/ifeq ($(BUILD_SHARED),yes)/ifeq ($(BUILD_SHARED),no)/' Makefile
-
-	make all
-	#echo $?
-	#make -C doc ffmpeg.1 ffserver.1 ffplay.1
+		--disable-debug \
+		--disable-static		
+			
+	make SHARED_PP="yes"
 	make DESTDIR=$PKG install
 }
 
