@@ -5,20 +5,22 @@
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr libwmf
 
 name=imagemagick
-version=6.4.2-5
+sname=ImageMagick # pre-install xdelta source name
+version=6.4.2-6
 release=1
+OLD_VERSION='6.4.2-5' # pre-install xdelta
 url='ftp://ftp.imagemagick.net/pub/ImageMagick/'
 up2date="lynx -dump $url |grep tar.lzma|grep -v ImageMagick.tar.lzma|sed -ne 's/.*ImageMagick-\(.*\)\.t.*/\1/' -e '$ p'"
-source=($url/ImageMagick-$version.tar.lzma)
+source=($url/$sname-$version.tar.lzma)
 
 build() {
 	# temp fix untill/if pkgutils supports lzma
-	if [ -e $SRC/ImageMagick-$version.tar.lzma ]; then
-		tar --use-compress-program=lzma -xf ImageMagick-$version.tar.lzma
-		rm ImageMagick-$version.tar.lzma
+	if [ -e $SRC/$sname-$version.tar.lzma ]; then
+		tar --use-compress-program=lzma -xf $sname-$version.tar.lzma
+		rm $sname-$version.tar.lzma
 	fi
 
-	cd ImageMagick-${version/-*/}
+	cd $sname-${version/-*/}
 
 	export CFLAGS="`echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/'`"
 	export CXXFLAGS="`echo $CXXFLAGS | sed -e 's/-O[s0-3]/-O3/'`"
@@ -37,8 +39,8 @@ build() {
 	rm -r $PKG/usr/share/doc
 	rm $PKG/usr/share/ImageMagick-${version/-*}/{ChangeLog,LICENSE,NEWS.txt}
 	
-	find $PKG -type f \
-		\( -name perllocal.pod -o \
+	find $PKG -type f \( \
+		-name perllocal.pod -o \
 		-name .packlist \) -delete
 }
 
