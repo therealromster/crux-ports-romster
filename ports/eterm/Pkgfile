@@ -5,10 +5,12 @@
 # Depends on: libast
 
 name=eterm
-version=0.9.4
+version=0.9.5
 release=1
-source=(http://www.eterm.org/download/Eterm-$version.tar.gz \
-	http://www.eterm.org/download/Eterm-bg-$version.tar.gz)
+url='http://www.eterm.org/download'
+up2date="lynx -dump '$url' |grep -v libast |grep 'tar.gz$' |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/Eterm-$version.tar.gz
+	$url/Eterm-bg-$version.tar.gz)
 
 build() {
 	cp -R $SRC/bg $SRC/Eterm-$version
