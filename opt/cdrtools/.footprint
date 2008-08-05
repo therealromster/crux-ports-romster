@@ -2,7 +2,7 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/btcflash
 -rwxr-xr-x	root/root	usr/bin/cdda2wav
--rwsr-xr--	root/cdrom	usr/bin/cdrecord
+-r-sr-x---	root/cdrom	usr/bin/cdrecord
 -rwxr-xr-x	root/root	usr/bin/devdump
 -rwxr-xr-x	root/root	usr/bin/isodebug
 -rwxr-xr-x	root/root	usr/bin/isodump

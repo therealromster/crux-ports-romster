@@ -1,26 +1,49 @@
 # Description: A tool to create disk-at-once and track-at-once CDs.
 # URL: http://cdrecord.berlios.de/old/private/cdrecord.html
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Simon Gloﬂner, viper at hometux dot de
 # Depends on: 
 
 name=cdrtools
-version=2.01.01a43
+version=2.01.01a45-pre
 release=1
 url='ftp://ftp.berlios.de/pub/cdrecord/alpha'
-up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
-source=($url/$name-$version.tar.bz2)
+up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/$name-$version.tar.bz2 \
+	$name-${version%a*}a03-warnings.patch \
+	$name-${version%.*}-scsi-remote-CAN-2004-0806.patch)
 
 build() {
 	cd $name-${version%a*}
-	make
-	make INS_BASE=$PKG/usr install
-	rm -rf $PKG/usr/{include,lib,sbin,share,man/man5}
+	patch -p 1 -i $SRC/$name-${version%a*}a03-warnings.patch
+	patch -p 1 -i $SRC/$name-${version%.*}-scsi-remote-CAN-2004-0806.patch
+
+	sed -i \
+		-e "s|/opt/schily|/usr|g" \
+		-e "s|/usr/src/linux/include||g" \
+		-e "s|static|dynamic|" \
+		DEFAULTS/Defaults.linux
+
+	sed -i -e "s|/opt/schily|/usr|g" librscg/scsi-remote.c
+
+	# conflicts with -fomit-frame-pointer and we don't want debugging
+	# on a running install
+	sed -i \
+		-e 's/COPTGPROF=	-pg/COPTGPROF=	/' \
+		-e 's/C++OPTGPROF=	-pg/C++OPTGPROF=	/' \
+		RULES/cc-gcc.rul
+
+	make CC='gcc -D__attribute_const__=const' COPTX="${CFLAGS}" \
+		CPPOPTX="${CPPFLAGS}" LDOPTX="${LDFLAGS}"
+
+	make INS_BASE=$PKG/usr DEFINSUSR=root DEFINSGRP=root install
+
+	rm -r $PKG/usr/{include,lib,sbin,share,man/man5}
 	rm $PKG/usr/etc/default/rscsi \
 		$PKG/usr/man/man1/cdda2ogg.1
-	chown -R root:root $PKG
+
 	chown root:cdrom $PKG/usr/bin/cdrecord
 	chmod -R u+w,g-w $PKG
-	chmod u+s,o-x $PKG/usr/bin/cdrecord
+	chmod u+s-w,o-xr $PKG/usr/bin/cdrecord
 }
 
