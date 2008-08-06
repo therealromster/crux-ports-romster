@@ -1,0 +1,26 @@
+# Description: The Pek Window Manager.
+# URL: http://pekwm.org/
+# Maintainer:   Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Rene Lengwinat, rugek at dirtyhack dot net
+# Depends on: xoeg-libx11 imlib2
+
+name=pekwm
+version=0.1.7
+release=1
+source=(http://www.pekwm.org/projects/3/files/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-xft \
+		--enable-pcre \
+		--enable-imlib2 \
+		--disable-xinerama
+
+	make
+	make DESTDIR=$PKG install
+}
+
