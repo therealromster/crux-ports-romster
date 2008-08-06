@@ -7,10 +7,11 @@
 name=cdrdao
 version=1.2.2
 release=1
-source=(http://dl.sourceforge.net/sourceforge/cdrdao/cdrdao-$version.tar.bz2)
+up2date="lynx -dump http://sourceforge.net/project/showfiles.php?group_id=2171 |grep tar.bz2 |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '1 p'"
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
 build() {
- 	cd cdrdao-$version
+ 	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -21,7 +22,7 @@ build() {
 	make prefix=$PKG/usr install
 
 	chown root:cdrom $PKG/usr/bin/cdrdao
-	chmod u+s,o-x $PKG/usr/bin/cdrdao
+	chmod u+s-w,o-x $PKG/usr/bin/cdrdao
 
 
 }

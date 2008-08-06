@@ -1,6 +1,6 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
--rwsr-xr--	root/cdrom	usr/bin/cdrdao
+-r-sr-xr--	root/cdrom	usr/bin/cdrdao
 -rwxr-xr-x	root/root	usr/bin/cue2toc
 -rwxr-xr-x	root/root	usr/bin/toc2cddb
 -rwxr-xr-x	root/root	usr/bin/toc2cue
