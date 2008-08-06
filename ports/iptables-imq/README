@@ -9,8 +9,6 @@ PRECAUTION:
 
 PRE-INSTALL:
 
-	Adds a alias for iptables.
-
 	Patch the kernel source with:
 
 	# cd /usr/src/linux-2.6.24.x
@@ -32,8 +30,6 @@ POST-INSTALL:
 PRE-REMOVE:
 
 POST-REMOVE:
-
-	Removes a alias for iptables.
 
 NOTES:
 

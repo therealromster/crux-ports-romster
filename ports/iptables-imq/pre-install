@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ ! -n "$(grep 'iptables-imq: iptables' '/var/lib/pkg/prt-get.aliases')" ]; then
-	echo iptables-imq: iptables >> /var/lib/pkg/prt-get.aliases
-fi
-
-# End of file.

@@ -2,28 +2,36 @@
 # URL: http://www.linuximq.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: iproute2
+# Depends on: iproute2 iptables
 
 name=iptables-imq
 version=1.4.1.1
-release=1
+release=2
 source=(ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2
-	iptables-$version-imq.patch)
+	http://www.linuximq.net/patchs/iptables-${version%.*}-imq.diff)
 
 build() {
 	cd iptables-$version
-	patch -p 1 -i $SRC/iptables-$version-imq.patch
-	chmod u+x extensions/.IMQ-test*
+	patch -p 1 -i $SRC/iptables-${version%.*}-imq.diff
+	rm extensions/.IMQ-test extensions/.IMQ-test6
+	
+	# quick hack to only build IMQ to save some time
+	# TODO propper patch with options to only build
+	# some modules
+	sed -i \
+		-e 's|^pfx_build_mod := $(patsubst ${srcdir}/.*|pfx_build_mod := |' \
+		-e 's|^pf4_build_mod := $(patsubst ${srcdir}/.*|pf4_build_mod := IMQ|' \
+		-e 's|^pf6_build_mod := $(patsubst ${srcdir}/.*|pf6_build_mod := IMQ|' \
+		extensions/GNUmakefile.in
 	
 	./configure \
 		--prefix=/usr \
 		--libexecdir=/usr/lib \
 		--mandir=/usr/man \
 		--disable-dependency-tracking \
-		--with-kernel="/usr/src/linux-`uname -r`" \
-		--enable-devel \
-		--enable-libipq
+		--with-kernel="/usr/src/linux-$(uname -r)"
 
+	cd extensions
 	make
 	make DESTDIR=$PKG install
 	chmod a-x $PKG/usr/lib/xtables/*.so
