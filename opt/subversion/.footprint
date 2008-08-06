@@ -50,9 +50,6 @@ drwxr-xr-x	root/root	usr/include/subversion-1/
 -rw-r--r--	root/root	usr/include/subversion-1/svn_wc.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_xml.h
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/apache/
--rwxr-xr-x	root/root	usr/lib/apache/mod_authz_svn.so
--rwxr-xr-x	root/root	usr/lib/apache/mod_dav_svn.so
 -rwxr-xr-x	root/root	usr/lib/libsvn_client-1.la
 lrwxrwxrwx	root/root	usr/lib/libsvn_client-1.so -> libsvn_client-1.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libsvn_client-1.so.0 -> libsvn_client-1.so.0.0.0

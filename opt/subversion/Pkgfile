@@ -6,35 +6,27 @@
 
 name=subversion
 version=1.5.1
-release=1
+release=2
 url='http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=260&expandFolder=74'
 up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
-source=(http://subversion.tigris.org/downloads/$name-$version.tar.bz2)
+source=(http://$name.tigris.org/downloads/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
-	#NEON_ALLOWED_LIST=
-	#sed -i -e 's|0.26.1|0.26.2|g' configure
-
-	LDFLAGS="-L$PKG/usr/lib" \
-		./configure \
-			--prefix=/usr \
-			--mandir=/usr/man \
-			--disable-static \
-			--disable-nls \
-			--disable-mod-activation \
-			--with-apr=/usr \
-			--with-apr-util=/usr \
-			--with-neon=/usr \
-			--without-swig
-
-			#--disable-neon-version-check
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--with-apr=/usr \
+		--with-apr-util=/usr \
+		--with-neon=/usr \
+		--disable-static \
+		--disable-nls \
+		--disable-mod-activation \
+		--without-swig \
+		--without-apxs
 
 	make
-	make -j 1 DESTDIR=$PKG external-install local-install 
-
-	# fix paths in *.la files
-	sed -i -e "s|-L$PKG/usr/lib||g" $PKG/usr/lib/*.la
+	make -j 1 DESTDIR=$PKG external-install local-install
 }
 
