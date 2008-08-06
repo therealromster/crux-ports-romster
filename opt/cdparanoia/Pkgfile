@@ -1,10 +1,10 @@
 # Description: CDDA extraction tool with jitter correction.
-# URL:         http://xiph.org/paranoia/
+# URL: http://xiph.org/paranoia/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
 
 name=cdparanoia
-version=10.0
+version=10.1
 release=1
 url="http://downloads.xiph.org/releases/$name"
 up2date="lynx -dump '$url/?C=M;O=D' |grep LATEST_IS_ |sed -ne 's/.*LATEST_IS_\(.*\)$/\1/' -e '$ p'"
@@ -16,9 +16,7 @@ build() {
 	make
 	make prefix=$PKG/usr install
 
-	chown -R root:root $PKG
-	chown root:cdrom $PKG/usr/bin/cdparanoia
-	chmod -R u+w,g-w $PKG
-	chmod u+s,o-x $PKG/usr/bin/cdparanoia
+	chown -c root:cdrom $PKG/usr/bin/cdparanoia
+	chmod -c u+s-w,o-rx $PKG/usr/bin/cdparanoia
 }
 
