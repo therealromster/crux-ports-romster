@@ -1,7 +1,6 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/btcflash
--rwxr-xr-x	root/root	usr/bin/cdda2wav
 -r-sr-x---	root/cdrom	usr/bin/cdrecord
 -rwxr-xr-x	root/root	usr/bin/devdump
 -rwxr-xr-x	root/root	usr/bin/isodebug
@@ -19,7 +18,6 @@ drwxr-xr-x	root/root	usr/etc/default/
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/btcflash.1.gz
--rw-r--r--	root/root	usr/man/man1/cdda2wav.1.gz
 -rw-r--r--	root/root	usr/man/man1/cdrecord.1.gz
 -rw-r--r--	root/root	usr/man/man1/readcd.1.gz
 -rw-r--r--	root/root	usr/man/man1/rscsi.1.gz
