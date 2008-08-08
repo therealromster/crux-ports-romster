@@ -73,8 +73,11 @@ drwxr-xr-x	root/root	usr/share/deco/rpm/
 drwxr-xr-x	root/root	usr/share/deco/shn/
 -rwxr-xr-x	root/root	usr/share/deco/shn/extract
 lrwxrwxrwx	root/root	usr/share/deco/sue -> arc
+lrwxrwxrwx	root/root	usr/share/deco/t7z -> tar\.7z
 drwxr-xr-x	root/root	usr/share/deco/tar/
 -rwxr-xr-x	root/root	usr/share/deco/tar/extract
+drwxr-xr-x	root/root	usr/share/deco/tar\.7z/
+-rwxr-xr-x	root/root	usr/share/deco/tar\.7z/extract
 drwxr-xr-x	root/root	usr/share/deco/tar\.bz2/
 -rwxr-xr-x	root/root	usr/share/deco/tar\.bz2/extract
 drwxr-xr-x	root/root	usr/share/deco/tar\.gz/
