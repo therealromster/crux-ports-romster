@@ -7,9 +7,12 @@
 # Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
 
 name=wine
-version=1.1.2
+version=1.1.2-1
+OLD_VERSION=1.1.2
 release=1
-source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
+source=(http://scguy318.freeshell.org/romster/linux/wine-$version.tar.bz2)
+diff=(http://scguy318.freeshell.org/romster/linux)
+#source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
 
 build() {
 	cd wine-$version
