@@ -1,0 +1,48 @@
+#!/bin/bash
+
+source Pkgfile
+source /etc/pkgmk.conf
+
+[ -z "$PKGMK_WORK_DIR" ] && PKGMK_WORK_DIR="$PWD/work"
+[ -z "$PKGMK_SOURCE_DIR" ] && PKGMK_SOURCE_DIR="$PWD"
+
+if [ -e "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" ]; then
+	echo 'You have the latist source file.'
+	exit
+fi
+
+if [ -n "`pkginfo -i | egrep '^xdelta '`" ]; then
+	if [ -e "$PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar.bz2" ]; then
+
+		if [ ! -e "$PKGMK_WORK_DIR" ]; then
+			mkdir -p "$PKGMK_WORK_DIR"
+		fi
+		cd "$PKGMK_WORK_DIR"
+
+		if [ ! -e "$PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar-$name-$version.tar.xdelta" ]; then
+			wget ${diff[0]}/$name-$OLD_VERSION.tar-$name-$version.tar.xdelta --directory-prefix=$PKGMK_SOURCE_DIR
+		fi
+
+		cp $PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar.bz2 .
+		cp $PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar-$name-$version.tar.xdelta .
+		echo -n '[ 33%] Decompressing source, '
+		bzip2 -d $name-$OLD_VERSION.tar.bz2
+		echo 'done.'
+		echo -n '[ 66%] Patching source, '
+		xdelta patch $name-$OLD_VERSION.tar-$name-$version.tar.xdelta
+		rm $name-$OLD_VERSION.tar
+		mv $name-$OLD_VERSION.tar-$name-$version.tar.xdelta $PKGMK_SOURCE_DIR/
+		echo 'done.'
+		echo -n '[100%] Compressing patched source, '
+		bzip2 -9 $name-$version.tar
+		echo 'done.'
+		mv $name-$version.tar.bz2 $PKGMK_SOURCE_DIR/
+	else
+		echo "'$name-$OLD_VERSION.tar.bz2' not found proceed to run Pkgfile."
+		exit
+	fi
+else
+	echo "Warning: 'xdelta' is not installed can not do a incremental update."
+fi
+
+# End of file
