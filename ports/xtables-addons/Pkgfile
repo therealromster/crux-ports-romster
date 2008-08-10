@@ -5,12 +5,14 @@
 # Depends on: iptables geoip_iv0_database
 
 name=xtables-addons
-version=1.5.4.1
+version=1.5.5
 release=1
-source=(http://dev.computergmbh.de/files/xtables/xtables-addons-$version.tar.bz2)
+url='http://dev.computergmbh.de/files/xtables'
+up2date="lynx -dump '$url/?C=D;O=A' |grep tar.bz2 |sed -e 's/.*-\(.*\)\.t.*/\1/' -e 'q'"
+source=($url/$name-$version.tar.bz2)
 
 build() {
-	cd xtables-addons-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -21,6 +23,6 @@ build() {
 	make
 	make DESTDIR=$PKG install
 	chmod a-x $PKG/usr/lib/xtables/*.so
-	rm $PKG/lib/modules/`uname -r`/modules.*
+	rm $PKG/lib/modules/$(uname -r)/modules.*
 }
 
