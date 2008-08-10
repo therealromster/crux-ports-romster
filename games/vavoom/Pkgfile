@@ -11,7 +11,7 @@
 name=vavoom
 version=1.22
 release=1
-local upx=yes
+upx=yes
 source=(http://dl.sourceforge.net/sourceforge/vavoom/vavoom-$version.tar.bz2)
 
 build() {
