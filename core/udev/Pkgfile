@@ -1,38 +1,47 @@
-# Description: Userspace device management daemon
+# Description: Userspace device management daemon.
 # URL: http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: CRUX System Team, core-ports at crux dot nu
 # Depends on: 
 
 name=udev
-version=125
+version=126
 config_version=20080217
 release=1
 url='ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug'
 up2date="lynx -dump $url|grep bz2$|grep udev|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
-source=(ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug/udev-$version.tar.bz2
-	http://crux.nu/files/distfiles/udev-config-$config_version.tar.bz2
+source=(ftp://ftp.kernel.org/pub/linux/utils/kernel/hotplug/$name-$version.tar.bz2
+	http://www.dcaf-security.org/distfiles/$name-config-$config_version.tar.bz2
 	start_udev 61-cdrom.rules 60-cdrom_id.rules cdsymlinks)
-#http://www.linuxfromscratch.org/lfs/downloads/development/udev-config-$config_version.tar.bz2
+
+mirror=(http://crux.nu/files/distfiles/$name-config-$config_version.tar.bz2
+	http://www.linuxfromscratch.org/lfs/downloads/development/$name-config-$config_version.tar.bz2)
 
 build() {
-	local extras="extras/ata_id \
-		extras/cdrom_id \
-		extras/edd_id \
-		extras/firmware \
-		extras/floppy \
-		extras/path_id \
-		extras/scsi_id \
-		extras/usb_id \
-		extras/volume_id"
+	cd $name-$version
 
-	cd udev-$version
+	local extras="extras/ata_id \
+			extras/cdrom_id \
+			extras/edd_id \
+			extras/firmware \
+			extras/floppy \
+			extras/path_id \
+			extras/scsi_id \
+			extras/usb_id \
+			extras/volume_id"
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--exec-prefix= \
+		--sysconfdir=/etc \
+		--disable-dependency-tracking
 
 	make EXTRAS="$extras"
-	make DESTDIR=$PKG mandir=/usr/man EXTRAS="$extras" install
+	make EXTRAS="$extras" DESTDIR=$PKG install
 
-	pushd $SRC/udev-config-$config_version
-	make DESTDIR=$PKG install
+	pushd $SRC/$name-config-$config_version
+	make DESTDIR=$PKG RULES_DIR='/lib/udev/rules.d' install
 	popd
 
 	install -d $PKG/lib/{firmware,udev/devices/{pts,shm}}
@@ -49,14 +58,14 @@ build() {
 
 	install -m 0755 $SRC/start_udev         $PKG/sbin
 	install -m 0755 $SRC/cdsymlinks         $PKG/lib/udev/
-	install -m 0644 rules/rules.d/[0-9]*    $PKG/etc/udev/rules.d/
-	install -m 0644 $SRC/61-cdrom.rules     $PKG/etc/udev/rules.d/
+	install -m 0644 rules/rules.d/[0-9]*    $PKG/lib/udev/rules.d/
+	install -m 0644 $SRC/61-cdrom.rules     $PKG/lib/udev/rules.d/
 
 	# override this file in udev-config for cd/dvd permissions
-	install -m 0644 $SRC/60-cdrom_id.rules  $PKG/etc/udev/rules.d/
+	install -m 0644 $SRC/60-cdrom_id.rules  $PKG/lib/udev/rules.d/
 
 	# Comment uucp lines
-	sed -i 's|.*uucp.*|#&|g' $PKG/etc/udev/rules.d/50-udev-default.rules
-	sed -i 's|.*uucp.*|#&|g' $PKG/etc/udev/rules.d/55-lfs.rules
+	sed -i 's|.*uucp.*|#&|g' $PKG/lib/udev/rules.d/50-udev-default.rules
+	sed -i 's|.*uucp.*|#&|g' $PKG/lib/udev/rules.d/55-lfs.rules
 }
 

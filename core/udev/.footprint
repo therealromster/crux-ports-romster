@@ -2,26 +2,16 @@ drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/scsi_id.config
 drwxr-xr-x	root/root	etc/udev/
 drwxr-xr-x	root/root	etc/udev/rules.d/
--rw-r--r--	root/root	etc/udev/rules.d/50-udev-default.rules
--rw-r--r--	root/root	etc/udev/rules.d/55-lfs.rules
--rw-r--r--	root/root	etc/udev/rules.d/60-cdrom_id.rules
--rw-r--r--	root/root	etc/udev/rules.d/60-persistent-input.rules
--rw-r--r--	root/root	etc/udev/rules.d/60-persistent-storage-tape.rules
--rw-r--r--	root/root	etc/udev/rules.d/60-persistent-storage.rules
--rw-r--r--	root/root	etc/udev/rules.d/60-persistent-v4l.rules
--rw-r--r--	root/root	etc/udev/rules.d/61-cdrom.rules
--rw-r--r--	root/root	etc/udev/rules.d/80-drivers.rules
--rw-r--r--	root/root	etc/udev/rules.d/81-firmware.rules
--rw-r--r--	root/root	etc/udev/rules.d/95-udev-late.rules
 -rw-r--r--	root/root	etc/udev/udev.conf
 drwxr-xr-x	root/root	lib/
 drwxr-xr-x	root/root	lib/firmware/
-lrwxrwxrwx	root/root	lib/libvolume_id.so.0 -> libvolume_id.so.0.85.0
--rwxr-xr-x	root/root	lib/libvolume_id.so.0.85.0
+lrwxrwxrwx	root/root	lib/libvolume_id.so.0 -> libvolume_id.so.0.0.86
+-rwxr-xr-x	root/root	lib/libvolume_id.so.0.0.86
 drwxr-xr-x	root/root	lib/udev/
 -rwxr-xr-x	root/root	lib/udev/ata_id
 -rwxr-xr-x	root/root	lib/udev/cdrom_id
 -rwxr-xr-x	root/root	lib/udev/cdsymlinks
+-rwxr-xr-x	root/root	lib/udev/collect
 -rwxr-xr-x	root/root	lib/udev/create_floppy_devices
 drwxr-xr-x	root/root	lib/udev/devices/
 lrwxrwxrwx	root/root	lib/udev/devices/core -> /proc/kcore
@@ -34,32 +24,39 @@ lrwxrwxrwx	root/root	lib/udev/devices/stdin -> /proc/self/fd/0
 lrwxrwxrwx	root/root	lib/udev/devices/stdout -> /proc/self/fd/1
 -rwxr-xr-x	root/root	lib/udev/edd_id
 -rwxr-xr-x	root/root	lib/udev/firmware.sh
+-rwxr-xr-x	root/root	lib/udev/fstab_import
 -rwxr-xr-x	root/root	lib/udev/path_id
+-rw-r--r--	root/root	lib/udev/rule_generator.functions
 drwxr-xr-x	root/root	lib/udev/rules.d/
 -rw-r--r--	root/root	lib/udev/rules.d/50-udev-default.rules
+-rw-r--r--	root/root	lib/udev/rules.d/55-lfs.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-cdrom_id.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-input.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-storage-tape.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-storage.rules
 -rw-r--r--	root/root	lib/udev/rules.d/60-persistent-v4l.rules
+-rw-r--r--	root/root	lib/udev/rules.d/61-cdrom.rules
 -rw-r--r--	root/root	lib/udev/rules.d/61-persistent-storage-edd.rules
+-rw-r--r--	root/root	lib/udev/rules.d/75-cd-aliases-generator.rules
+-rw-r--r--	root/root	lib/udev/rules.d/75-persistent-net-generator.rules
+-rw-r--r--	root/root	lib/udev/rules.d/79-fstab_import.rules
 -rw-r--r--	root/root	lib/udev/rules.d/80-drivers.rules
+-rw-r--r--	root/root	lib/udev/rules.d/81-firmware.rules
 -rw-r--r--	root/root	lib/udev/rules.d/95-udev-late.rules
 -rwxr-xr-x	root/root	lib/udev/scsi_id
 -rwxr-xr-x	root/root	lib/udev/usb_id
 -rwxr-xr-x	root/root	lib/udev/vol_id
+-rwxr-xr-x	root/root	lib/udev/write_cd_rules
+-rwxr-xr-x	root/root	lib/udev/write_net_rules
 drwxr-xr-x	root/root	sbin/
 -rwxr-xr-x	root/root	sbin/start_udev
 -rwxr-xr-x	root/root	sbin/udevadm
 -rwxr-xr-x	root/root	sbin/udevd
-lrwxrwxrwx	root/root	sbin/udevsettle -> udevadm
 drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/bin/
-lrwxrwxrwx	root/root	usr/bin/udevinfo -> /sbin/udevadm
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/libvolume_id.h
 drwxr-xr-x	root/root	usr/lib/
-lrwxrwxrwx	root/root	usr/lib/libvolume_id.so -> /lib/libvolume_id.so.0.85.0
+lrwxrwxrwx	root/root	usr/lib/libvolume_id.so -> ../../lib/libvolume_id.so.0.0.86
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libvolume_id.pc
 drwxr-xr-x	root/root	usr/man/
