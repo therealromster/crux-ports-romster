@@ -52,10 +52,12 @@ build() {
 		$PKG/usr/share/vlc/http \
 		$PKG/usr/share/vlc/skins2
 
+	rm $PKG/usr/bin/wxvlc
+
 	rm -f $PKG/usr/share/vlc/vlc{16x16,32x32,48x48,128x128}.{png,xpm,ico}
 
 	for res in 16 32 48 128; do
-		install -m 0644 -D $SRC/share/vlc${res}x${res}.png \
+		install -m 0644 -D $SRC/$name-$version/share/vlc${res}x${res}.png \
 			$PKG/usr/share/icons/hicolor/${res}x${res}/apps/vlc.png
 	done
 
