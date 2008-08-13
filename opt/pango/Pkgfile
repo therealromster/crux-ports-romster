@@ -7,7 +7,7 @@
 name=pango
 version=1.20.5
 release=1
-url="ftp://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}"
+url="http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}"
 up2date="lynx -dump $url |grep 'LATEST-IS-' |sed -ne 's/.*LATEST-IS-\(.*\)$/\1/' -e '$ p'"
 source=($url/$name-$version.tar.bz2
 	pango.modules)
@@ -17,9 +17,9 @@ build() {
 	./configure --prefix=/usr 
 	make
 	make DESTDIR=$PKG install
-	install -D -m 0644 $SRC/pango.modules $PKG/usr/etc/pango/pango.modules
+	install -m 0644 -D $SRC/pango.modules $PKG/usr/etc/pango/pango.modules
 	rm -r $PKG/usr/share
-	chmod a+x $PKG/usr/lib/*.la
-	chmod a-x $PKG/usr/lib/*.so
+	chmod -c a+x $PKG/usr/lib/*.la
+	chmod -c a-x $PKG/usr/lib/*.so
 }
 
