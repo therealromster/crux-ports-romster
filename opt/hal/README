@@ -1,0 +1,18 @@
+README for hal 0.5.7.1
+
+REQUIREMENTS
+
+PRE/POST-INSTALL
+	Create a user/group haldaemon with a unused id < 99:
+
+	'groupadd -g 82 haldaemon'
+	'useradd -u 82 -g haldaemon -d /var/empty -s /bin/false haldaemon'
+	'passwd -l haldaemon'
+
+	If you wish to take advantage of the hotplug and automount-style features
+	that apps like gnome-mount, gnome-volume-manager, or the like offer, create
+	a 'plugdev' group and add your user to it, or change the 'plugdev' group in
+	/usr/etc/dbus-1/system.d/hal.conf to something else and make sure your user
+	is a member of that group.
+
+PRECAUTION
