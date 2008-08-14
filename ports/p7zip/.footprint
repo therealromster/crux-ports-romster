@@ -2,11 +2,14 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/7z -> /usr/lib/p7zip/7za
 lrwxrwxrwx	root/root	usr/bin/7za -> /usr/lib/p7zip/7za
+lrwxrwxrwx	root/root	usr/bin/7zr -> /usr/lib/p7zip/7zr
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/p7zip/
 -rwxr-xr-x	root/root	usr/lib/p7zip/7zCon.sfx
 -rwxr-xr-x	root/root	usr/lib/p7zip/7za
+-rwxr-xr-x	root/root	usr/lib/p7zip/7zr
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/7z.1.gz
 -rw-r--r--	root/root	usr/man/man1/7za.1.gz
+-rw-r--r--	root/root	usr/man/man1/7zr.1.gz
