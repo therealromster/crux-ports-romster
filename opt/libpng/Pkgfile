@@ -1,0 +1,30 @@
+# Description: Library of PNG support functions.
+# URL: http://www.libpng.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: zlib
+
+name=libpng
+version=1.2.30
+release=1
+url="ftp://ftp.simplesystems.org/pub/$name/png/src"
+up2date="lynx -dump /$url |grep $name- |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/$name-$version.tar.lzma)
+
+build() {
+	# temp fix untill/if pkgutils supports lzma
+	if [ -e $SRC/$name-$version.tar.lzma ]; then
+		tar --use-compress-program=lzma -xf $name-$version.tar.lzma
+		rm $name-$version.tar.lzma
+	fi
+
+    cd $name-$version
+
+    ./configure \
+	 	--prefix=/usr \
+		--mandir=/usr/man
+
+    make
+    make DESTDIR=$PKG install
+}
+
