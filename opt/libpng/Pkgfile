@@ -2,7 +2,7 @@
 # URL: http://www.libpng.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Tilman Sauerbeck, tilman at crux dot nu
-# Depends on: zlib
+# Depends on: zlib lzma
 
 name=libpng
 version=1.2.30
