@@ -1,18 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 source Pkgfile
 source /etc/pkgmk.conf
 
-[ -z "$PKGMK_WORK_DIR" ] && PKGMK_WORK_DIR="$PWD/work"
-[ -z "$PKGMK_SOURCE_DIR" ] && PKGMK_SOURCE_DIR="$PWD"
+[ -z "${PKGMK_WORK_DIR}" ] && PKGMK_WORK_DIR="$PWD/work"
+[ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="$PWD"
+[ -z "${sname}" ] && sname="$name"
+[ -z "${EXT}" ] && EXT='.tar.lzma'
 
-if [ -e "$PKGMK_SOURCE_DIR/$sname-$version.tar.lzma" ]; then
+if [ -e "$PKGMK_SOURCE_DIR/$name-$version${EXT}" ]; then
 	echo 'You have the latist source file.'
 	exit
 fi
 
 if [ -n "`pkginfo -i | egrep '^xdelta '`" ]; then
-	if [ -e "$PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar.lzma" ]; then
+	if [ -e "$PKGMK_SOURCE_DIR/$sname-${OLD_VERSION}${EXT}" ]; then
 
 		if [ ! -e "$PKGMK_WORK_DIR" ]; then
 			mkdir -p "$PKGMK_WORK_DIR"
@@ -20,13 +22,17 @@ if [ -n "`pkginfo -i | egrep '^xdelta '`" ]; then
 		cd "$PKGMK_WORK_DIR"
 
 		if [ ! -e "$PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta" ]; then
-			wget http://www.dcaf-security.org/distfiles/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta --directory-prefix=$PKGMK_SOURCE_DIR
+			wget ${diff[0]}/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta --directory-prefix=$PKGMK_SOURCE_DIR
 		fi
 
-		cp $PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar.lzma .
+		cp $PKGMK_SOURCE_DIR/$sname-${OLD_VERSION}${EXT} .
 		cp $PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta .
 		echo -n '[ 33%] Decompressing source, '
-		lzma -d $sname-$OLD_VERSION.tar.lzma
+		case ${EXT} in
+			.tar.gz) gzip -d "$sname-${OLD_VERSION}${EXT}" ;;
+			.tar.bz2) bzip2 -d "$sname-${OLD_VERSION}${EXT}" ;;
+			.tar.lzma) lzma -d "$sname-${OLD_VERSION}${EXT}" ;;
+		esac
 		echo 'done.'
 		echo -n '[ 66%] Patching source, '
 		xdelta patch $sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta
@@ -34,11 +40,15 @@ if [ -n "`pkginfo -i | egrep '^xdelta '`" ]; then
 		mv $sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta $PKGMK_SOURCE_DIR/
 		echo 'done.'
 		echo -n '[100%] Compressing patched source, '
-		lzma -9 $sname-$version.tar
+		case ${EXT} in
+			.tar.gz) gzip -9 "$sname-$version.tar" ;;
+			.tar.bz2) bzip2 -9 "$sname-$version.tar" ;;
+			.tar.lzma) lzma -9 "$sname-$version.tar" ;;
+		esac
 		echo 'done.'
-		mv $sname-$version.tar.lzma $PKGMK_SOURCE_DIR/
+		mv $sname-${version}${EXT} $PKGMK_SOURCE_DIR/
 	else
-		echo "'$sname-$OLD_VERSION.tar.lzma' not found proceed to run Pkgfile."
+		echo "'$sname-${OLD_VERSION}${EXT}' not found proceed to run Pkgfile."
 		exit
 	fi
 else

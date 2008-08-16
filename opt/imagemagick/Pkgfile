@@ -4,11 +4,16 @@
 # Packager: danm, maol, jaeger
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr libwmf
 
+# pre-install xdelta ######################################
+sname=ImageMagick
+EXT='.tar.lzma'
+OLD_VERSION='6.4.2-7'
+diff=(http://www.dcaf-security.org/distfiles)
+###########################################################
+
 name=imagemagick
-sname=ImageMagick # pre-install xdelta source name
-version=6.4.2-6
+version=6.4.2-8
 release=1
-OLD_VERSION='6.4.2-5' # pre-install xdelta
 url='ftp://ftp.imagemagick.net/pub/ImageMagick/'
 up2date="lynx -dump $url |grep tar.lzma|grep -v ImageMagick.tar.lzma|sed -ne 's/.*ImageMagick-\(.*\)\.t.*/\1/' -e '$ p'"
 source=($url/$sname-$version.tar.lzma)
