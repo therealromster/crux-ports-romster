@@ -1,0 +1,26 @@
+# Description: Userspace logging facility for iptables.
+# URL: http://www.netfilter.org/projects/ulogd/index.html
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: libnetfilter_log libnetfilter_conntrack
+# Optional: libpcap mysql pgsql sqlite3
+
+name=ulogd
+version=2.0.0beta2
+release=1
+url="http://www.netfilter.org/projects/$name/files"
+up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
+source=($url/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+}
+

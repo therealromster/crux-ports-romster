@@ -1,0 +1,76 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ulogd/
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_HWHDR.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_HWHDR.so -> ulogd_filter_HWHDR.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_HWHDR.so.0 -> ulogd_filter_HWHDR.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_HWHDR.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_IFINDEX.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_IFINDEX.so -> ulogd_filter_IFINDEX.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_IFINDEX.so.0 -> ulogd_filter_IFINDEX.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_IFINDEX.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_IP2BIN.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_IP2BIN.so -> ulogd_filter_IP2BIN.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_IP2BIN.so.0 -> ulogd_filter_IP2BIN.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_IP2BIN.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_IP2STR.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_IP2STR.so -> ulogd_filter_IP2STR.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_IP2STR.so.0 -> ulogd_filter_IP2STR.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_IP2STR.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_MARK.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_MARK.so -> ulogd_filter_MARK.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_MARK.so.0 -> ulogd_filter_MARK.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_MARK.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_PRINTFLOW.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_PRINTFLOW.so -> ulogd_filter_PRINTFLOW.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_PRINTFLOW.so.0 -> ulogd_filter_PRINTFLOW.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_PRINTFLOW.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_PRINTPKT.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_PRINTPKT.so -> ulogd_filter_PRINTPKT.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_PRINTPKT.so.0 -> ulogd_filter_PRINTPKT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_PRINTPKT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_PWSNIFF.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_PWSNIFF.so -> ulogd_filter_PWSNIFF.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_filter_PWSNIFF.so.0 -> ulogd_filter_PWSNIFF.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_filter_PWSNIFF.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_inpflow_NFCT.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_inpflow_NFCT.so -> ulogd_inpflow_NFCT.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_inpflow_NFCT.so.0 -> ulogd_inpflow_NFCT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_inpflow_NFCT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_inppkt_NFLOG.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_inppkt_NFLOG.so -> ulogd_inppkt_NFLOG.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_inppkt_NFLOG.so.0 -> ulogd_inppkt_NFLOG.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_inppkt_NFLOG.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_inppkt_ULOG.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_inppkt_ULOG.so -> ulogd_inppkt_ULOG.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_inppkt_ULOG.so.0 -> ulogd_inppkt_ULOG.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_inppkt_ULOG.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_IPFIX.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_IPFIX.so -> ulogd_output_IPFIX.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_IPFIX.so.0 -> ulogd_output_IPFIX.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_IPFIX.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_LOGEMU.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_LOGEMU.so -> ulogd_output_LOGEMU.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_LOGEMU.so.0 -> ulogd_output_LOGEMU.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_LOGEMU.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_NACCT.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_NACCT.so -> ulogd_output_NACCT.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_NACCT.so.0 -> ulogd_output_NACCT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_NACCT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_OPRINT.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_OPRINT.so -> ulogd_output_OPRINT.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_OPRINT.so.0 -> ulogd_output_OPRINT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_OPRINT.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_SYSLOG.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_SYSLOG.so -> ulogd_output_SYSLOG.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_output_SYSLOG.so.0 -> ulogd_output_SYSLOG.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_SYSLOG.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_raw2packet_BASE.la
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_raw2packet_BASE.so -> ulogd_raw2packet_BASE.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ulogd/ulogd_raw2packet_BASE.so.0 -> ulogd_raw2packet_BASE.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_raw2packet_BASE.so.0.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/ulogd.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/ulogd
