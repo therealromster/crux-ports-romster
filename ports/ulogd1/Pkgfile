@@ -5,7 +5,7 @@
 # Depends on: 
 # Optional: libpcap mysql pgsql sqlite3
 
-name=ulogd
+name=ulogd1
 version=1.24
 release=1
 source=(http://ftp.netfilter.org/pub/ulogd/ulogd-$version.tar.bz2)
