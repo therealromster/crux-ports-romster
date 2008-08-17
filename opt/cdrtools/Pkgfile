@@ -6,7 +6,7 @@
 
 name=cdrtools
 version=2.01.01a47-pre
-release=1
+release=2
 url='ftp://ftp.berlios.de/pub/cdrecord/alpha'
 up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
 source=($url/$name-$version.tar.bz2
@@ -33,13 +33,28 @@ build() {
 		-e 's/C++OPTGPROF=	-pg/C++OPTGPROF=	/' \
 		RULES/cc-gcc.rul
 
-	make CC='gcc -D__attribute_const__=const' COPTX="${CFLAGS}" \
+	make -j 1 CC='gcc -D__attribute_const__=const' COPTX="${CFLAGS}" \
 		CPPOPTX="${CPPFLAGS}" LDOPTX="${LDFLAGS}"
 
 	make INS_BASE=$PKG/usr DEFINSUSR=root DEFINSGRP=root install
 
-	rm -r $PKG/usr/{include,lib,sbin,share,man/man5}
-	rm $PKG/usr/etc/default/rscsi
+	rm -r $PKG/usr/include
+	install -d $PKG/usr/include/scsilib/scg
+	install -m 0644 -t $PKG/usr/include/ incs/*-*-cc/*.h
+	install -m 0644 -t $PKG/usr/include/scsilib/ include/schily/*.h
+	install -m 0644 -t $PKG/usr/include/scsilib/scg/ libscg/scg/*.h
+
+	rm -r \
+		$PKG/usr/share/doc \
+		$PKG/usr/lib/siconv \
+		$PKG/usr/lib/profiled
+
+	rm \
+		$PKG/usr/man/man5/makefiles.5 \
+		$PKG/usr/man/man5/makerules.5
+
+	rmdir $PKG/usr/share
+	rmdir $PKG/usr/man/man5
 
 	chown -c root:cdrom $PKG/usr/bin/cdrecord
 	chmod -c -R u+w,g-w $PKG
