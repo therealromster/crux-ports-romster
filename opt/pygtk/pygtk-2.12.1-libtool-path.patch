@@ -1,0 +1,12 @@
+diff -pruN pygtk-2.12.1.orig/configure.in pygtk-2.12.1/configure.in
+--- pygtk-2.12.1.orig/configure.in	2008-08-17 23:13:13.340144596 +1000
++++ pygtk-2.12.1/configure.in	2008-08-17 23:22:34.081145283 +1000
+@@ -127,7 +127,7 @@ AC_SUBST(THREADING_CFLAGS)
+ CPPFLAGS="${CPPFLAGS} $THREADING_CFLAGS"
+ 
+ dnl get rid of the -export-dynamic stuff from the configure flags ...
+-export_dynamic=`(./libtool --config; echo eval echo \\$export_dynamic_flag_spec) | sh`
++export_dynamic=`(libtool --config; echo eval echo \\$export_dynamic_flag_spec) | sh`
+ 
+ dnl glib
+ AM_PATH_GLIB_2_0(glib_required_version,,[AC_MSG_ERROR(gobject is required to build pygtk?)],gobject $extra_mods)
