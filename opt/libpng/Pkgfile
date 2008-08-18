@@ -6,10 +6,11 @@
 
 name=libpng
 version=1.2.30
-release=1
+release=2
 url="ftp://ftp.simplesystems.org/pub/$name/png/src"
 up2date="lynx -dump /$url |grep $name- |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
-source=($url/$name-$version.tar.lzma)
+source=($url/$name-$version.tar.lzma
+	$name-1.2.24-pngconf-setjmp.patch)
 
 build() {
 	# temp fix untill/if pkgutils supports lzma
@@ -19,6 +20,7 @@ build() {
 	fi
 
     cd $name-$version
+	 patch -p 1 -i $SRC/$name-1.2.24-pngconf-setjmp.patch
 
     ./configure \
 	 	--prefix=/usr \
