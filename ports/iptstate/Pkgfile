@@ -7,12 +7,15 @@
 name=iptstate
 version=2.2.1
 release=1
-source=(http://dl.sourceforge.net/sourceforge/iptstate/iptstate-$version.tar.bz2 \
-	iptstate-$version-install.patch)
+up2date="lynx -dump http://sourceforge.net/project/showfiles.php?group_id=52748 |grep $name- |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2
+	$name-2.2.1-install.patch
+	$name-2.2.1-gcc43.patch)
 
 build() {
 	cd iptstate-$version
-	patch -p1 -i $SRC/iptstate-$version-install.patch
+	patch -p 1 -i $SRC/$name-2.2.1-install.patch
+	patch -p 1 -i $SRC/$name-2.2.1-gcc43.patch
 	make
 	make DESTDIR=$PKG install
 }
