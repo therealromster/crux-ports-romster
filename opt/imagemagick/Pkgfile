@@ -5,17 +5,17 @@
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr libwmf
 
 # pre-install xdelta ######################################
-sname=ImageMagick
+sname='ImageMagick'
 EXT='.tar.lzma'
-OLD_VERSION='6.4.2-8'
+OLD_VERSION='6.4.2-9'
 diff=(http://www.dcaf-security.org/distfiles)
 ###########################################################
 
 name=imagemagick
-version=6.4.2-9
+version=6.4.3-0
 release=1
-url='ftp://ftp.imagemagick.net/pub/ImageMagick/'
-up2date="lynx -dump $url |grep tar.lzma|grep -v ImageMagick.tar.lzma|sed -ne 's/.*ImageMagick-\(.*\)\.t.*/\1/' -e '$ p'"
+url='ftp://ftp.imagemagick.net/pub/ImageMagick'
+up2date="lynx -dump '$url/' |grep 'tar.lzma' |grep -v 'ImageMagick.tar.lzma' |sed -ne 's/.*ImageMagick-\(.*\)\.t.*/\1/' -e '$ p'"
 source=($url/$sname-$version.tar.lzma)
 
 build() {
@@ -27,8 +27,7 @@ build() {
 
 	cd $sname-${version/-*/}
 
-	export CFLAGS="`echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/'`"
-	export CXXFLAGS="`echo $CXXFLAGS | sed -e 's/-O[s0-3]/-O3/'`"
+	export CFLAGS+=" $PKG_IMAGEMAGICK_CFLAGS"
 
 	./configure \
 		--prefix=/usr \
