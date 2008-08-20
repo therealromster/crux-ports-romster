@@ -6,29 +6,36 @@
 
 name=python
 version=2.5.2
-release=1
-source=(http://www.python.org/ftp/python/$version/Python-$version.tar.bz2 \
-        python-$version.patch)
+release=2
+
+source=(http://www.python.org/ftp/python/$version/Python-$version.tar.bz2
+	$name-$version.patch
+	CVE-2008-2315.patch.gz
+	CVE-2008-2316.patch.gz
+	CVE-2008-3142.patch.gz
+	CVE-2008-3144.patch.gz)
 
 build() {
 	cd Python-$version
  
-	patch -p1 -i ../python-$version.patch
-	export CFLAGS="-O3 $(echo $CFLAGS |sed -e 's/-O[s0-3] //')"
+	patch -p1 -i $SRC/python-$version.patch
+	gunzip -c $SRC/CVE*.patch.gz | patch -p 1
+	export CFLAGS+=" $PKG_PYTHON_CFLAGS"
 
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--enable-shared \
 		--with-threads \
-		--enable-ipv6 
+		--enable-ipv6
 
 	make 
-	make -j1 DESTDIR=$PKG install
+	make -j 1 DESTDIR=$PKG install
 
 	ln -sf python2.5 $PKG/usr/bin/python
-	ln -sf python2.5 $PKG/usr/lib/python
-	ln -sf python2.5 $PKG/usr/include/python
+	ln -s python2.5 $PKG/usr/lib/python
+	ln -s python2.5 $PKG/usr/include/python
+	ln -s /usr/lib/libpython2.5.so $PKG/usr/lib/python2.5/config/libpython2.5.so
 
 	rm -r $PKG/usr/lib/python/{bsddb,ctypes,email,sqlite3}/test
 	rm -r $PKG/usr/lib/python/distutils/tests

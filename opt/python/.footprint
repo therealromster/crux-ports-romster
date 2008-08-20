@@ -294,6 +294,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/config/
 -rw-r--r--	root/root	usr/lib/python2.5/config/config.c.in
 -rwxr-xr-x	root/root	usr/lib/python2.5/config/install-sh
 -rw-r--r--	root/root	usr/lib/python2.5/config/libpython2.5.a
+lrwxrwxrwx	root/root	usr/lib/python2.5/config/libpython2.5.so -> /usr/lib/libpython2.5.so
 -rwxr-xr-x	root/root	usr/lib/python2.5/config/makesetup
 -rw-r--r--	root/root	usr/lib/python2.5/config/python.o
 -rw-r--r--	root/root	usr/lib/python2.5/contextlib.py
