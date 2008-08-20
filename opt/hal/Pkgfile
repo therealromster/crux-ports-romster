@@ -2,11 +2,12 @@
 # URL: http://www.freedesktop.org/wiki/Software/hal
 # Packager: Matt Housh, jaeger at crux dot nu
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: dbus-glib
+# Depends on: dbus-glib expat libusb glib dbus udev eject pciutils
 
 name=hal
 version=0.5.11
-release=6
+release=7
+up2date="lynx -dump 'http://hal.freedesktop.org/releases/?C=M;O=A' |grep '.tar.bz2' |grep -v 'hal-info'|grep -v 'gnome'|grep -v PolicyKit |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
 source=(http://hal.freedesktop.org/releases/$name-$version.tar.gz
 	hal.conf
 	rc.hald
@@ -18,6 +19,7 @@ build() {
 
 	patch -p 1 -i $SRC/$name-configure.patch
 	patch -p 1 -i $SRC/suspend_hibernate.patch
+
 	aclocal
 	autoheader
 	autoconf
@@ -33,12 +35,19 @@ build() {
 		--mandir=/usr/man \
 		--libexecdir=/usr/lib/$name \
 		--localstatedir=/var \
-		--with-hal-user=haldaemon \
-		--with-hal-group=haldaemon \
 		--with-dbus-sys=/usr/etc/dbus-1/system.d \
 		--with-hwdata=/usr/share \
+		--with-hal-user=haldaemon \
+		--with-hal-group=haldaemon \
+		--with-backend=linux \
+		--with-os-type=CRUX \
+		--enable-man-pages \
+		--disable-gtk-doc \
+		--disable-docbook-doc \
 		--disable-policy-kit \
-		--disable-console-kit
+		--disable-console-kit \
+		--disable-static \
+		--disable-dependency-tracking
 
 	sed -i -e '/device-manager/d' tools/Makefile
 
@@ -51,9 +60,7 @@ build() {
 	install -m 0644    $SRC/hal.conf $PKG/usr/etc/dbus-1/system.d/
 	install -d -o haldaemon -g haldaemon $PKG/var/lib/hal
 
-	rm -rf \
-		$PKG/usr/share/{doc,locale} \
-		$PKG/usr/share/gtk-doc \
-		$PKG/usr/etc/udev/
+	rm -r $PKG/usr/share/gtk-doc
+	rmdir $PKG/usr/etc/udev
 }
 

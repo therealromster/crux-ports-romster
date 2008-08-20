@@ -104,12 +104,10 @@ lrwxrwxrwx	root/root	usr/lib/hal/scripts/linux/hal-system-wol-enable-linux -> ha
 lrwxrwxrwx	root/root	usr/lib/hal/scripts/linux/hal-system-wol-enabled-linux -> hal-system-wol-linux
 -rwxr-xr-x	root/root	usr/lib/hal/scripts/linux/hal-system-wol-linux
 lrwxrwxrwx	root/root	usr/lib/hal/scripts/linux/hal-system-wol-supported-linux -> hal-system-wol-linux
--rw-r--r--	root/root	usr/lib/libhal-storage.a
 -rwxr-xr-x	root/root	usr/lib/libhal-storage.la
 lrwxrwxrwx	root/root	usr/lib/libhal-storage.so -> libhal-storage.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libhal-storage.so.1 -> libhal-storage.so.1.0.0
 -rwxr-xr-x	root/root	usr/lib/libhal-storage.so.1.0.0
--rw-r--r--	root/root	usr/lib/libhal.a
 -rwxr-xr-x	root/root	usr/lib/libhal.la
 lrwxrwxrwx	root/root	usr/lib/libhal.so -> libhal.so.1.0.0
 lrwxrwxrwx	root/root	usr/lib/libhal.so.1 -> libhal.so.1.0.0
