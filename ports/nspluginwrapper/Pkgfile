@@ -1,0 +1,20 @@
+# Description: Wrapper for those nasty plugins that make your browser crash.
+# URL: http://gwenole.beauchesne.info/projects/nspluginwrapper/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Han Boetes, han at mijncomputer dot nl
+# Depends on: xorg-libxt gtk
+
+name=nspluginwrapper
+version=1.0.0
+release=1
+url='http://gwenole.beauchesne.info/'
+up2date="lynx -dump '$url/en/projects/$name' |grep '.tar.bz2' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/projects/$name/files/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure
+	make
+	make DESTDIR=$PKG install
+}
+
