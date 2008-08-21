@@ -4,11 +4,12 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=deco
-version=1.5
+version=1.5.1
 release=1
 url="http://hartlich.com/$name/download"
 up2date="lynx -dump '$url' |grep tar.gz$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
 source=($url/$name-$version.tar.gz
+	http://hartlich.com/$name/archive/download/$name-archive-1.0.tar.gz
 	deco-make.patch)
 
 build() {
@@ -16,6 +17,10 @@ build() {
 	patch -p 1 -i $SRC/deco-make.patch
 	sed -i -e "s|@CFLAGS@|$CFLAGS|" config.mk
 	make
+	make DESTDIR=$PKG install
+
+	cd $SRC/$name-archive-1.0
+	sed -i -e 's|^PREFIX   = /usr/local|PREFIX   = /usr|' config.mk
 	make DESTDIR=$PKG install
 }
 
