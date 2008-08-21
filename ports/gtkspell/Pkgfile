@@ -1,0 +1,28 @@
+# Description: Spell checking utility for GTK+ applications.
+# URL: http://gtkspell.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Brett Goulder, predatorfreak at dcaf-security dot org
+# Depends on: aspell-en enchant xorg-libxcomposite
+
+name=gtkspell
+version=2.0.14
+release=1
+up2date="lynx -dump http://gtkspell.sourceforge.net/ |grep '.tar.gz' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '1 p'"
+source=(http://gtkspell.sourceforge.net/download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	rm -f $SRC/po/*.{po,gmo}
+
+	sed -i \
+		-e 's/USE_NLS=yes/USE_NLS=no/' \
+		-e 's/ENABLE_NLS 1/ENABLE_NLS 0/' configure
+
+	sed -i -e 's/SUBDIRS = gtkspell examples docs po/SUBDIRS = gtkspell examples po/' Makefile.in
+
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+
