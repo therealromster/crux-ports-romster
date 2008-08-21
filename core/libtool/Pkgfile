@@ -1,0 +1,33 @@
+# Description: A generic library support script.
+# URL: http://www.gnu.org/software/libtool/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: CRUX System Team, core-ports at crux dot nu
+
+name=libtool
+version=2.2.4
+release=2
+url="http://ftp.gnu.org/gnu/$name"
+up2date="lynx -dump '$url/?C=M;O=A' |grep '.tar.lzma' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/$name-$version.tar.lzma
+	libtool.1 libtoolize.1)
+
+build() {
+	# temp fix untill/if pkgutils supports lzma
+	if [ -e $SRC/$sname-$version.tar.lzma ]; then
+		tar --use-compress-program=lzma -xf $sname-$version.tar.lzma
+		rm $sname-$version.tar.lzma
+	fi
+
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static
+
+	make
+	make DESTDIR=$PKG install
+	install -d $PKG/usr/man/man1
+	install -m 0644 -t $PKG/usr/man/man1/ $SRC/libtool.1 $SRC/libtoolize.1
+	rm -r $PKG/usr/share/info
+}
+
