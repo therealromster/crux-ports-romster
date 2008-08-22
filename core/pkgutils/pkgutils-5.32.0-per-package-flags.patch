@@ -1,0 +1,20 @@
+diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
+--- pkgutils-5.32.0.orig/pkgmk.in	2008-08-22 09:55:20.452142216 +1000
++++ pkgutils-5.32.0/pkgmk.in	2008-08-22 10:28:54.150144419 +1000
+@@ -332,7 +332,15 @@ check_footprint() {
+ }
+ 
+ build_package() {
+-	local BUILD_SUCCESSFUL="no"
++	local BUILD_SUCCESSFUL UPPER_NAME
++	
++	BUILD_SUCCESSFUL="no"
++
++	UPPER_NAME="$(echo $name | tr '[:lower:]' '[:upper:]')"
++	export CFLAGS+=" $(eval "echo \$PKG_${UPPER_NAME}_CFLAGS")"
++	export CXXFLAGS+=" $(eval "echo \$PKG_${UPPER_NAME}_CXXFLAGS")"
++	export FFLAGS+=" $(eval "echo \$PKG_${UPPER_NAME}_FFLAGS")"
++	export LDFLAGS+=" $(eval "echo \$PKG_${UPPER_NAME}_LDFLAGS")"
+ 	
+ 	export PKG="$PKGMK_WORK_DIR/pkg"
+ 	export SRC="$PKGMK_WORK_DIR/src"

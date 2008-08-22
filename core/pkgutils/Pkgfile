@@ -2,11 +2,11 @@
 # URL: http://www.fukt.bsnet.se/~per/pkgutils/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: CRUX System Team, core-ports at crux dot nu
-# Depends on: libarchive
+# Depends on: libarchive lzma
 
 name=pkgutils
 version=5.32.0
-release=4
+release=5
 source=(http://crux.nu/files/pkgutils-$version.tar.gz
 	pkgutils-$version-lzma-decompress.patch
 	pkgutils-$version-lzma-compress-package.patch
@@ -15,7 +15,8 @@ source=(http://crux.nu/files/pkgutils-$version.tar.gz
 	pkgutils-$version-extract-only.patch
 	pkgutils-$version-no-check-certificate.patch
 	pkgutils-$version-create-source-package-name-directory.patch
-	pkgutils-$version-pkgmk.conf.5.patch)
+	pkgutils-$version-pkgmk.conf.5.patch
+	pkgutils-$version-per-package-flags.patch)
 #	pkgutils-$version-source-diff-download.patch)
 
 build() {
@@ -26,6 +27,7 @@ build() {
 	patch -p 1 -i $SRC/pkgutils-$version-no-check-certificate.patch
 	patch -p 1 -i $SRC/pkgutils-$version-lzma-decompress.patch
 	patch -p 1 -i $SRC/pkgutils-$version-warn-on-footprint-new-files.patch
+	patch -p 1 -i $SRC/pkgutils-$version-per-package-flags.patch
 	#patch -p 1 -i $SRC/pkgutils-$version-lzma-compress-package.patch
 	#patch -p 1 -i $SRC/pkgutils-$version-source-diff-download.patch
 
