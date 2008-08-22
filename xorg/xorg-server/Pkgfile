@@ -8,12 +8,12 @@ name=xorg-server
 version=1.4.2
 mesa_version="`pkginfo -i | grep '^mesa3d ' | awk '{print $2}' | sed -e 's/-[0-9]$//'`"
 release=1
-source=(http://xorg.freedesktop.org/releases/individual/xserver/xorg-server-$version.tar.bz2
+source=(http://xorg.freedesktop.org/releases/individual/xserver/$name-$version.tar.bz2
 	http://dl.sourceforge.net/mesa3d/MesaLib-$mesa_version.tar.bz2)
 
 
 build() {
-	cd xorg-server-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
