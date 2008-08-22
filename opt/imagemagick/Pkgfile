@@ -8,7 +8,8 @@
 sname='ImageMagick'
 EXT='.tar.lzma'
 OLD_VERSION='6.4.3-1'
-diff=(http://www.dcaf-security.org/distfiles)
+diff=(http://scguy318.freeshell.org/romster/linux
+	http://www.dcaf-security.org/distfiles)
 ###########################################################
 
 name=imagemagick
