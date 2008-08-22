@@ -3,42 +3,52 @@
 source Pkgfile
 source /etc/pkgmk.conf
 
-[ -z "$PKGMK_WORK_DIR" ] && PKGMK_WORK_DIR="$PWD/work"
-[ -z "$PKGMK_SOURCE_DIR" ] && PKGMK_SOURCE_DIR="$PWD"
+[ -z "${PKGMK_WORK_DIR}" ] && PKGMK_WORK_DIR="$PWD/work"
+[ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="$PWD"
+[ -z "${sname}" ] && sname="$name"
+[ -z "${EXT}" ] && EXT='.tar.lzma'
 
-if [ -e "$PKGMK_SOURCE_DIR/$name-$version.tar.bz2" ]; then
+if [ -e "$PKGMK_SOURCE_DIR/$name-$version${EXT}" ]; then
 	echo 'You have the latist source file.'
 	exit
 fi
 
 if [ -n "`pkginfo -i | egrep '^xdelta '`" ]; then
-	if [ -e "$PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar.bz2" ]; then
+	if [ -e "$PKGMK_SOURCE_DIR/$sname-${OLD_VERSION}${EXT}" ]; then
 
 		if [ ! -e "$PKGMK_WORK_DIR" ]; then
 			mkdir -p "$PKGMK_WORK_DIR"
 		fi
 		cd "$PKGMK_WORK_DIR"
 
-		if [ ! -e "$PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar-$name-$version.tar.xdelta" ]; then
-			wget ${diff[0]}/$name-$OLD_VERSION.tar-$name-$version.tar.xdelta --directory-prefix=$PKGMK_SOURCE_DIR
+		if [ ! -e "$PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta" ]; then
+			wget ${diff[0]}/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta --directory-prefix=$PKGMK_SOURCE_DIR
 		fi
 
-		cp $PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar.bz2 .
-		cp $PKGMK_SOURCE_DIR/$name-$OLD_VERSION.tar-$name-$version.tar.xdelta .
+		cp $PKGMK_SOURCE_DIR/$sname-${OLD_VERSION}${EXT} .
+		cp $PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta .
 		echo -n '[ 33%] Decompressing source, '
-		bzip2 -d $name-$OLD_VERSION.tar.bz2
+		case ${EXT} in
+			.tar.gz) gzip -d "$sname-${OLD_VERSION}${EXT}" ;;
+			.tar.bz2) bzip2 -d "$sname-${OLD_VERSION}${EXT}" ;;
+			.tar.lzma) lzma -d "$sname-${OLD_VERSION}${EXT}" ;;
+		esac
 		echo 'done.'
 		echo -n '[ 66%] Patching source, '
-		xdelta patch $name-$OLD_VERSION.tar-$name-$version.tar.xdelta
-		rm $name-$OLD_VERSION.tar
-		mv $name-$OLD_VERSION.tar-$name-$version.tar.xdelta $PKGMK_SOURCE_DIR/
+		xdelta patch $sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta
+		rm $sname-$OLD_VERSION.tar
+		mv $sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta $PKGMK_SOURCE_DIR/
 		echo 'done.'
 		echo -n '[100%] Compressing patched source, '
-		bzip2 -9 $name-$version.tar
+		case ${EXT} in
+			.tar.gz) gzip -9 "$sname-$version.tar" ;;
+			.tar.bz2) bzip2 -9 "$sname-$version.tar" ;;
+			.tar.lzma) lzma -9 "$sname-$version.tar" ;;
+		esac
 		echo 'done.'
-		mv $name-$version.tar.bz2 $PKGMK_SOURCE_DIR/
+		mv $sname-${version}${EXT} $PKGMK_SOURCE_DIR/
 	else
-		echo "'$name-$OLD_VERSION.tar.bz2' not found proceed to run Pkgfile."
+		echo "'$sname-${OLD_VERSION}${EXT}' not found proceed to run Pkgfile."
 		exit
 	fi
 else

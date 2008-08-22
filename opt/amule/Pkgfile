@@ -8,7 +8,8 @@
 sname=aMule
 EXT='.tar.bz2'
 OLD_VERSION='2.2.1'
-diff=(http://www.dcaf-security.org/distfiles)
+diff=(http://scguy318.freeshell.org/romster/linux
+	http://www.dcaf-security.org/distfiles)
 ###########################################################
 
 name=amule
