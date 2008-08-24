@@ -1,0 +1,18 @@
+# Description: A white themed set of cursors.
+# URL: http://www.kde-look.org/content/show.php/Neutral+Plus+Inverted?content=70481
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: xorg-xcursorgen
+
+name=xorg-cursor-neutral-plus-inverted
+version=0b2
+release=1
+source=(http://www.kde-look.org/CONTENT/content-files/70481-Neutral_Plus_Inv.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/icons/neutral-plus-inverted
+	cd Neutral_Plus_Inv/source
+	sh make.sh
+	cp -R * $PKG/usr/share/icons/neutral-plus-inverted/
+}
+
