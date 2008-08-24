@@ -1,7 +1,7 @@
 diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
---- pkgutils-5.32.0.orig/pkgmk.in	2008-08-22 09:55:20.452142216 +1000
-+++ pkgutils-5.32.0/pkgmk.in	2008-08-22 10:28:54.150144419 +1000
-@@ -332,7 +332,15 @@ check_footprint() {
+--- pkgutils-5.32.0.orig/pkgmk.in	2008-08-24 03:59:45.369316068 +1000
++++ pkgutils-5.32.0/pkgmk.in	2008-08-24 04:04:29.152318534 +1000
+@@ -332,7 +332,16 @@ check_footprint() {
  }
  
  build_package() {
@@ -11,6 +11,7 @@ diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
 +	BUILD_SUCCESSFUL="no"
 +
 +	UPPER_NAME="$(echo $name | tr '[:lower:]' '[:upper:]')"
++	UPPER_NAME="${UPPER_NAME//-/_}"
 +	export CFLAGS+=" $(eval "echo \$PKG_${UPPER_NAME}_CFLAGS")"
 +	export CXXFLAGS+=" $(eval "echo \$PKG_${UPPER_NAME}_CXXFLAGS")"
 +	export FFLAGS+=" $(eval "echo \$PKG_${UPPER_NAME}_FFLAGS")"

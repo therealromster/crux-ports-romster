@@ -6,7 +6,7 @@
 
 name=pkgutils
 version=5.32.0
-release=5
+release=6
 source=(http://crux.nu/files/pkgutils-$version.tar.gz
 	pkgutils-$version-lzma-decompress.patch
 	pkgutils-$version-lzma-compress-package.patch
