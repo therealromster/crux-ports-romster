@@ -6,7 +6,7 @@
 
 name=ecm
 version=1.0
-release=1
+release=2
 source=(http://www.neillcorlett.com/downloads/ecm100.zip)
 
 build() {
@@ -14,8 +14,8 @@ build() {
 		export CC=gcc
 	fi
 
-	$CC $CFLAGS ecm.c -o ecm
-	$CC $CFLAGS unecm.c -o unecm
+	$CC $CFLAGS -D_FILE_OFFSET_BITS=64 ecm.c -o ecm
+	$CC $CFLAGS -D_FILE_OFFSET_BITS=64 unecm.c -o unecm
 	install -d $PKG/usr/bin
 	install -m 0755 ecm unecm -t $PKG/usr/bin/
 }
