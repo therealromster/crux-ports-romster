@@ -1,0 +1,18 @@
+# URL: http://users.andara.com/~doiron/bin2iso/
+# Description: bin2iso converts RAW format (.bin/.cue) files to ISO/WAV format.
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Olle Gustafsson, ogg at linux dot se
+
+name=bin2iso
+version=1.9b
+release=1
+#source=(http://users.eastlink.ca/~doiron/bin2iso/linux/bin2iso19b_linux.c)
+source=(ftp://gentoo.mirror.dkm.cz/pub/gentoo/distfiles/bin2iso-19b.tar.bz2)
+
+build() {
+	cd $name
+	[ -z $CC ] && CC=gcc
+	$CC $CFLAGS -D_FILE_OFFSET_BITS=64 bin2iso19b_linux.c -o bin2iso
+	install -m 0755 -D bin2iso $PKG/usr/bin/bin2iso
+}
+
