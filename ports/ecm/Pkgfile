@@ -17,6 +17,6 @@ build() {
 	$CC $CFLAGS -D_FILE_OFFSET_BITS=64 ecm.c -o ecm
 	$CC $CFLAGS -D_FILE_OFFSET_BITS=64 unecm.c -o unecm
 	install -d $PKG/usr/bin
-	install -m 0755 ecm unecm -t $PKG/usr/bin/
+	install -m 0755 -t $PKG/usr/bin/ ecm unecm 
 }
 
