@@ -1,0 +1,19 @@
+# Description: MDF2ISO is a simple utility to convert Alcohol 120% bin images to standard ISO-9660.
+# URL: http://mdf2iso.berlios.de/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Rouven Schuerch, rs at tegonal dot com
+# Depends on:  
+
+name=mdf2iso
+version=0.3.0
+release=1
+source=(http://download.berlios.de/$name/$name-$version-src.tar.bz2)
+
+build () {
+	cd $name
+	export CFLAGS+=" -D_FILE_OFFSET_BITS=64"
+	./configure --prefix=/usr 
+	make
+	make DESTDIR=$PKG install
+}
+
