@@ -1,0 +1,19 @@
+# Description: Converts compressed (z-lib) dmg images to iso images.
+# URL: http://mdf2iso.berlios.de/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on:
+
+name=dmg2iso
+version=0.2a
+release=1
+source=(http://vu1tur.eu.org/tools/download.pl?dmg2iso.pl)
+
+build () {
+	install -d $PKG/usr/bin/
+	touch $PKG/usr/bin/$name
+	chmod 0755 $PKG/usr/bin/$name
+	cat 'download.pl?dmg2iso.pl' |tr -d '\r' \
+		|sed -e 's|/usr/local|/usr|g' > $PKG/usr/bin/$name
+}
+
