@@ -5,8 +5,8 @@
 # Depends on: 
 
 name=cdrtools
-version=2.01.01a47-pre
-release=2
+version=2.01.01a47
+release=1
 url='ftp://ftp.berlios.de/pub/cdrecord/alpha'
 up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
 source=($url/$name-$version.tar.bz2
