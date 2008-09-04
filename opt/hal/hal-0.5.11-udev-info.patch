@@ -6,7 +6,7 @@ diff -pruN hal-0.5.11.orig/hald/linux/blockdev.c hal-0.5.11/hald/linux/blockdev.
          char *u_stdout;
          int u_exit_status;
 -        const char *argv[] = {"/usr/bin/udevinfo", "--root", "--query", "name", "--path", NULL, NULL};
-+        const char *argv[] = {"/sbin/udevadm info", "--root", "--query", "name", "--path", NULL, NULL};
++        const char *argv[] = {"/sbin/udevadm", "info", "--root", "--query", "name", "--path", NULL, NULL};
          GError *g_error;
  
          ret = NULL;
@@ -19,8 +19,8 @@ diff -pruN hal-0.5.11.orig/hald/linux/coldplug.c hal-0.5.11/hald/linux/coldplug.
  {
 -	char *udevdb_export_argv[] = { "/usr/bin/udevinfo", "-e", NULL };
 -	char *udevroot_argv[] = { "/usr/bin/udevinfo", "-r", NULL };
-+	char *udevdb_export_argv[] = { "/sbin/udevadm info", "-e", NULL };
-+	char *udevroot_argv[] = { "/sbin/udevadm info", "-r", NULL };
++	char *udevdb_export_argv[] = { "/sbin/udevadm", "info", "-e", NULL };
++	char *udevroot_argv[] = { "/sbin/udevadm", "info", "-r", NULL };
  	int udevinfo_exitcode;
  	UdevInfo *info = NULL;
  	char *p;
