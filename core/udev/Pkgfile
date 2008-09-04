@@ -20,15 +20,16 @@ mirror=(http://crux.nu/files/distfiles/$name-config-$config_version.tar.bz2
 build() {
 	cd $name-$version
 
-	local extras="extras/ata_id \
-			extras/cdrom_id \
-			extras/edd_id \
-			extras/firmware \
-			extras/floppy \
-			extras/path_id \
-			extras/scsi_id \
-			extras/usb_id \
-			extras/volume_id"
+	local extras="\
+extras/ata_id \
+extras/cdrom_id \
+extras/edd_id \
+extras/firmware \
+extras/floppy \
+extras/path_id \
+extras/scsi_id \
+extras/usb_id \
+extras/volume_id"
 
 	./configure \
 		--prefix=/usr \
