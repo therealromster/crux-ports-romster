@@ -5,15 +5,19 @@
 # Depends on:	l7-protocols libnetfilter_conntrack libnetfilter_queue
 
 name=l7-filter-userspace
-version=0.4
+version=0.8
 release=1
-source=(http://dl.sourceforge.net/sourceforge/l7-filter/l7-filter-userspace-v$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/l7-filter/$name-$version.tar.gz)
 
 build() {
-	cd l7-filter-userspace-v$version
-	./configure
-	sed -i -e 's|MANDIR=${PREFIX}/share/man/man1/|MANDIR=${PREFIX}/man/man1/|' Makefile
-	make PREFIX=/usr
-	make PREFIX=$PKG/usr install
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
 }
 
