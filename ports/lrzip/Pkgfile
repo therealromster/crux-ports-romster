@@ -1,25 +1,25 @@
 # Description: compression program that can achieve very high compression ratios and speed when used with large files.
-# URL: 
+# URL: http://ck.kolivas.org/apps/lrzip/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: lzo
+# Depends on: lzo zlib bzip2
+# Optional:lzma
 
 name=lrzip
-version=0.18
+version=0.23
 release=1
 source=(http://ck.kolivas.org/apps/lrzip/lrzip-$version.tar.bz2)
 
 build() {
 	cd lrzip-$version
 
-	CFLAGS="-O3 -mtune=$(uname -p) -fomit-frame-pointer" \
-		CXXFLAGS="-O3 -mtune=$(uname -p) -fomit-frame-pointer" \
-			./configure --prefix=/usr
-
-	# fix man path as --datarootdir and --mandir don't work on configure
-	sed -i -e 's|INSTALL_MAN=.*|INSTALL_MAN=$(prefix)/man|' Makefile
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
 
 	make
 	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share
 }
 
