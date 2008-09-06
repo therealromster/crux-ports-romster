@@ -5,7 +5,7 @@
 # Depends on: iptables geoip_iv0_database
 
 name=xtables-addons
-version=1.5.5
+version=1.5.7
 release=1
 url='http://dev.computergmbh.de/files/xtables'
 up2date="lynx -dump '$url/?C=D;O=A' |grep tar.bz2 |sed -e 's/.*-\(.*\)\.t.*/\1/' -e 'q'"
