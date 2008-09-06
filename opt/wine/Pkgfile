@@ -8,13 +8,13 @@
 
 # pre-install xdelta ######################################
 EXT='.tar.bz2'
-OLD_VERSION=1.1.2-1
+OLD_VERSION=1.1.3
 diff=(http://scguy318.freeshell.org/romster/linux
 	http://www.dcaf-security.org/distfiles)
 ###########################################################
 
 name=wine
-version=1.1.3
+version=1.1.4
 release=1
 url="http://ibiblio.org/pub/linux/system/emulators/$name"
 up2date="lynx -dump '$url/?C=M;O=A' |grep '.tar.bz2' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
