@@ -1,0 +1,26 @@
+# Description: High speed download utility with resuming and segmented features.
+# URL: http://aria2.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri ycrux at club dash internet dot fr
+# Depends on: c-ares openssl libxml2 zlib
+
+name=aria2
+version=0.15.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/${name}c-$version.tar.bz2)
+
+build() {
+	cd ${name}c-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man \
+		--disable-nls \
+		--without-gnutls
+
+	make
+	make prefix=$PKG/usr install
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share
+}
+
