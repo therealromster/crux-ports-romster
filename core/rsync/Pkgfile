@@ -5,11 +5,11 @@
 # Depends on: openssh
 
 name=rsync
-version=3.0.3
+version=3.0.4
 release=1
 url="http://rsync.samba.org/ftp/$name"
 up2date="lynx -dump '$url/?C=M;O=D' |grep tar.gz$|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
-source=(http://rsync.samba.org/ftp/rsync/rsync-$version.tar.gz \
+source=(http://rsync.samba.org/ftp/rsync/rsync-$version.tar.gz
 	rsyncd.conf rsyncd rsync.driver)
 
 build() {
