@@ -1,0 +1,22 @@
+# Description: A library that performs DNS requests and name resolves asynchronously.
+# URL: http://daniel.haxx.se/projects/c-ares/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on:
+
+name=c-ares
+version=1.5.3
+release=1
+source=(http://daniel.haxx.se/projects/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
+
