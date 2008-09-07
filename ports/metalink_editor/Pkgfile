@@ -1,0 +1,27 @@
+# Description: A GUI to metalink.
+# URL: http://metalinks.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: metalink wxpython
+
+name=metalink_editor
+version=1.1.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/metalinks/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	install -d $PKG/usr/bin $PKG/usr/lib/python2.5/site-packages/$name
+	install -m 0755 -t $PKG/usr/lib/python2.5/site-packages/$name/ \
+		metalink_editor.py metalink.py
+	install -m 0644 -D metalink.png $PKG/usr/share/icons/hicolor/48x48/apps/$name.png
+	install -m 0644 -D metalink_small.png $PKG/usr/share/icons/hicolor/16x16/apps/$name.png
+
+	cat >> $PKG/usr/bin/$name <<-EOF
+#!/bin/sh
+cd /usr/lib/python2.5/site-packages/$name/
+./$name.py
+EOF
+chmod 0755 $PKG/usr/bin/$name
+}
+
