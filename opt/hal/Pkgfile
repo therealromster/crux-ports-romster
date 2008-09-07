@@ -2,7 +2,7 @@
 # URL: http://www.freedesktop.org/wiki/Software/hal
 # Packager: Matt Housh, jaeger at crux dot nu
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: dbus-glib expat libusb glib dbus udev eject pciutils
+# Depends on: dbus-glib expat libusb glib dbus udev eject pciutils hal-info
 
 name=hal
 version=0.5.11
