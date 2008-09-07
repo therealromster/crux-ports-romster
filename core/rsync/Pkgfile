@@ -11,6 +11,8 @@ url="http://rsync.samba.org/ftp/$name"
 up2date="lynx -dump '$url/?C=M;O=D' |grep tar.gz$|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
 source=(http://rsync.samba.org/ftp/rsync/rsync-$version.tar.gz
 	rsyncd.conf rsyncd rsync.driver)
+source_test=(http://romster.dyndns.org:8080/pub/metalink/$name-$version.tar.gz.metalink
+	rsyncd.conf rsyncd rsync.driver)
 
 build() {
 	cd $name-$version
