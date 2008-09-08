@@ -1,0 +1,22 @@
+# Description: A script based library to create and manage Metalink download files.
+# URL: http://code.google.com/p/metalink-library/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: psyco
+
+name=metalink-library
+version=1.1
+release=1
+source=(http://$name.googlecode.com/files/$name-$version.tar.bz2)
+
+build() {
+	install -m 0755 -D metalink.py $PKG/usr/lib/python2.5/site-packages/$name/metalink.py
+	install -d $PKG/usr/bin
+	cat >> $PKG/usr/bin/pymetalink <<-EOF
+#!/bin/sh
+cd /usr/lib/python2.5/site-packages/$name/
+./metalink.py
+EOF
+	chmod 0755 $PKG/usr/bin/pymetalink
+}
+
