@@ -4,7 +4,7 @@
 # Maintainer: CRUX System Team, core-ports at crux dot nu
 
 name=libtool
-version=2.2.6
+version=2.2.6a
 release=1
 url="http://ftp.gnu.org/gnu/$name"
 up2date="lynx -dump '$url/?C=M;O=A' |grep '.tar.lzma' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
@@ -18,7 +18,7 @@ build() {
 		rm $sname-$version.tar.lzma
 	fi
 
-	cd $name-$version
+	cd $name-${version/a/}
 
 	./configure \
 		--prefix=/usr \
