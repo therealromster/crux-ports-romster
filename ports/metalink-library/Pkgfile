@@ -14,8 +14,8 @@ build() {
 	install -d $PKG/usr/bin
 	cat >> $PKG/usr/bin/pymetalink <<-EOF
 #!/bin/sh
-cd /usr/lib/python2.5/site-packages/$name/
-./metalink.py
+cd /usr/lib/python2.5/site-packages/$name
+python metalink.py $@
 EOF
 	chmod 0755 $PKG/usr/bin/pymetalink
 }
