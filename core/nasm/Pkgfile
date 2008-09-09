@@ -5,7 +5,7 @@
 # Depends on: groff
 
 name=nasm
-version=2.03.01
+version=2.04rc1
 release=1
 source=(http://dl.sourceforge.net/nasm/nasm-$version.tar.bz2)
 up2date="lynx -dump http://sourceforge.net/project/showfiles.php?group_id=6208 |grep 'nasm sources' |sed -ne 's/.*\]\(.*\) [0-9].*\[.*/\1/' -e '1 p' |cut -d ' ' -f 1"
