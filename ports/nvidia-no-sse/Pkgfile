@@ -4,7 +4,7 @@
 # Packager: Matt Housh, jaeger at morpheus dot net
 # Depends on: xorg gl-select
 
-name=nvidia
+name=nvidia-no-sse
 version=100.14.19
 release=1
 source=(http://download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run \
