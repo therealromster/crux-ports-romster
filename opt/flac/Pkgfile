@@ -7,15 +7,11 @@
 name=flac
 version=1.2.1
 release=2
+up2date="lynx -dump 'http://sourceforge.net/project/showfiles.php?group_id=13478&package_id=12677' |grep '.tar.gz' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '1 p'"
 source=(http://dl.sourceforge.net/sourceforge/flac/flac-$version.tar.gz)
 
 build() {
 	cd flac-$version
-
-	# set optimization flag to best
-	export \
-		CFLAGS="$(echo $CFLAGS |sed -e 's/-O[s0-3] //')" \
-		CXXFLAGS="-O3 $(echo $CXXFLAGS |sed -e 's/-O[s0-3] //')"
 
 	./configure \
 		--prefix=/usr \
