@@ -1,10 +1,11 @@
-# Description: 
-# URL: 
+# Description: A terminal emulator based on GTK and VTE.
+# URL: http://www.pleyades.net/david/sakura.php
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: vte cmake
+
 name=sakura
-version=2.2.0
+version=2.2.1
 release=1
 url="http://pleyades.net/david/sakura.php"
 up2date="lynx -dump $url | grep -m1 tar.bz2 | sed 's/.*-\(.*\).ta.*/\1/'"
