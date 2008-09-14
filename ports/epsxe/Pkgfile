@@ -1,21 +1,22 @@
 # Description: Enhanced PSX (Playstation) Emulator.
 # URL: http://www.epsxe.com/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Matt Housh, jaeger at morpheus dot net
 # Depends on: gtk1 mesa3d
 
 name=epsxe
 version=1.6.0
 release=1
-source=(http://www.epsxe.com/files/epsxe160lin.zip \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/cdrmooby2.8.tgz \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/gpupeopssoftx117.tar.gz \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/gpupetemesagl176.tar.gz \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/gpupetexgl208.tar.gz \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/omnijoy-1.0.0-beta2.tar.bz2 \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/padJoy082.tgz \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/spuEternal141_linux.tgz \
-	http://romster.shortcircuit.net.au/crux/source/epsxe/spupeopsoss109.tar.gz \
+url='http://www.dcaf-security.org/distfiles'
+source=(http://www.epsxe.com/files/epsxe160lin.zip
+	$url/cdrmooby2.8.tgz
+	$url/gpupeopssoftx117.tar.gz
+	$url/gpupetemesagl176.tar.gz
+	$url/gpupetexgl208.tar.gz
+	$url/omnijoy-1.0.0-beta2.tar.bz2
+	$url/padJoy082.tgz
+	$url/spuEternal141_linux.tgz
+	$url/spupeopsoss109.tar.gz
 	epsxe.sh)
 
 #http://romster.shortcircuit.net.au/crux/source/epsxe/gpupeopssoftsdl116.tar.gz \
@@ -32,13 +33,13 @@ build() {
 		make
 	)
 
-	install -m 0755 cfgP* {padJoy,omnijoy-1.0.0-beta2}/bin/cfg* $PKG/usr/lib/$name/cfg/
-	install -m 0644 *.cfg $PKG/usr/lib/epsxe/cfg/
+	install -m 0755 -t $PKG/usr/lib/epsxe/cfg/ cfgP* {padJoy,omnijoy-1.0.0-beta2}/bin/cfg*
+	install -m 0644 -t $PKG/usr/lib/epsxe/cfg/ *.cfg
 
-	install -m 0755 lib*.so* {padJoy,omnijoy-1.0.0-beta2}/bin/lib*.so* \
-		$PKG/usr/lib/epsxe/plugins/
+	install -m 0755 -t $PKG/usr/lib/epsxe/plugins/ \
+		lib*.so* {padJoy,omnijoy-1.0.0-beta2}/bin/lib*.so*
 
 	chmod 0755 $PKG/usr/lib/epsxe/epsxe
-	install -D -m 0755 epsxe.sh $PKG/usr/bin/epsxe
+	install -m 0755 -D epsxe.sh $PKG/usr/bin/epsxe
 }
 
