@@ -28,8 +28,6 @@ lrwxrwxrwx	root/root	usr/bin/inw -> ioport
 lrwxrwxrwx	root/root	usr/bin/outb -> ioport
 lrwxrwxrwx	root/root	usr/bin/outl -> ioport
 lrwxrwxrwx	root/root	usr/bin/outw -> ioport
--rwxr-xr-x	root/root	usr/bin/pcitweak
--rwxr-xr-x	root/root	usr/bin/scanpci
 -rwxr-xr-x	root/root	usr/bin/xorgconfig
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/xorg/
@@ -63,6 +61,7 @@ drwxr-xr-x	root/root	usr/include/xorg/
 -rw-r--r--	root/root	usr/include/xorg/dbestruct.h
 -rw-r--r--	root/root	usr/include/xorg/dgaproc.h
 -rw-r--r--	root/root	usr/include/xorg/dix.h
+-rw-r--r--	root/root	usr/include/xorg/dixaccess.h
 -rw-r--r--	root/root	usr/include/xorg/dixevents.h
 -rw-r--r--	root/root	usr/include/xorg/dixfont.h
 -rw-r--r--	root/root	usr/include/xorg/dixfontstr.h
@@ -119,11 +118,13 @@ drwxr-xr-x	root/root	usr/include/xorg/
 -rw-r--r--	root/root	usr/include/xorg/picturestr.h
 -rw-r--r--	root/root	usr/include/xorg/pixmap.h
 -rw-r--r--	root/root	usr/include/xorg/pixmapstr.h
+-rw-r--r--	root/root	usr/include/xorg/privates.h
 -rw-r--r--	root/root	usr/include/xorg/property.h
 -rw-r--r--	root/root	usr/include/xorg/propertyst.h
 -rw-r--r--	root/root	usr/include/xorg/randrstr.h
 -rw-r--r--	root/root	usr/include/xorg/region.h
 -rw-r--r--	root/root	usr/include/xorg/regionstr.h
+-rw-r--r--	root/root	usr/include/xorg/registry.h
 -rw-r--r--	root/root	usr/include/xorg/renderedge.h
 -rw-r--r--	root/root	usr/include/xorg/resource.h
 -rw-r--r--	root/root	usr/include/xorg/rgb.h
@@ -177,8 +178,6 @@ drwxr-xr-x	root/root	usr/include/xorg/
 -rw-r--r--	root/root	usr/include/xorg/xf86Xinput.h
 -rw-r--r--	root/root	usr/include/xorg/xf86_OSlib.h
 -rw-r--r--	root/root	usr/include/xorg/xf86_OSproc.h
--rw-r--r--	root/root	usr/include/xorg/xf86_ansic.h
--rw-r--r--	root/root	usr/include/xorg/xf86_libc.h
 -rw-r--r--	root/root	usr/include/xorg/xf86cmap.h
 -rw-r--r--	root/root	usr/include/xorg/xf86fbman.h
 -rw-r--r--	root/root	usr/include/xorg/xf86i2c.h
@@ -189,7 +188,9 @@ drwxr-xr-x	root/root	usr/include/xorg/
 -rw-r--r--	root/root	usr/include/xorg/xf86xvmc.h
 -rw-r--r--	root/root	usr/include/xorg/xf86xvpriv.h
 -rw-r--r--	root/root	usr/include/xorg/xisb.h
+-rw-r--r--	root/root	usr/include/xorg/xkbfile.h
 -rw-r--r--	root/root	usr/include/xorg/xkbsrv.h
+-rw-r--r--	root/root	usr/include/xorg/xkbstr.h
 -rw-r--r--	root/root	usr/include/xorg/xorg-server.h
 -rw-r--r--	root/root	usr/include/xorg/xorgVersion.h
 -rw-r--r--	root/root	usr/include/xorg/xvdix.h
@@ -203,8 +204,6 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 drwxr-xr-x	root/root	usr/lib/xorg/
 drwxr-xr-x	root/root	usr/lib/xorg/modules/
 drwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libGLcore.la
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libGLcore.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libdbe.la
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libdbe.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libdri.la
@@ -213,15 +212,9 @@ drwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libextmod.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.la
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.so
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/librecord.la
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/librecord.so
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libxtrap.la
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libxtrap.so
 drwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libfreetype.la
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libfreetype.so
--rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libtype1.la
--rwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/libtype1.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libafb.la
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libafb.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libcfb.la
@@ -236,10 +229,6 @@ drwxr-xr-x	root/root	usr/lib/xorg/modules/fonts/
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libint10.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libmfb.la
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libmfb.so
--rwxr-xr-x	root/root	usr/lib/xorg/modules/libpcidata.la
--rwxr-xr-x	root/root	usr/lib/xorg/modules/libpcidata.so
--rwxr-xr-x	root/root	usr/lib/xorg/modules/libscanpci.la
--rwxr-xr-x	root/root	usr/lib/xorg/modules/libscanpci.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libshadow.la
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libshadow.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/libshadowfb.la
@@ -278,8 +267,7 @@ drwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/tda9885_drv.so
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/uda1380_drv.la
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/multimedia/uda1380_drv.so
-drwxr-xr-x	root/root	usr/lib/xserver/
--rw-r--r--	root/root	usr/lib/xserver/SecurityPolicy
+-rw-r--r--	root/root	usr/lib/xorg/protocol.txt
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/Xnest.1.gz
@@ -288,14 +276,11 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/Xvfb.1.gz
 -rw-r--r--	root/root	usr/man/man1/cvt.1.gz
 -rw-r--r--	root/root	usr/man/man1/gtf.1.gz
--rw-r--r--	root/root	usr/man/man1/pcitweak.1.gz
--rw-r--r--	root/root	usr/man/man1/scanpci.1.gz
 -rw-r--r--	root/root	usr/man/man1/xorgconfig.1.gz
 drwxr-xr-x	root/root	usr/man/man4/
 -rw-r--r--	root/root	usr/man/man4/exa.4.gz
 -rw-r--r--	root/root	usr/man/man4/fbdevhw.4.gz
 drwxr-xr-x	root/root	usr/man/man5/
--rw-r--r--	root/root	usr/man/man5/SecurityPolicy.5.gz
 -rw-r--r--	root/root	usr/man/man5/xorg.conf.5.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/aclocal/

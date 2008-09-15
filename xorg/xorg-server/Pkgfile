@@ -2,15 +2,12 @@
 # URL: http://xorg.freedesktop.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Tilman Sauerbeck, tilman at crux dot nu
-# Depends on: mesa3d xorg-bdftopcf xorg-mkfontdir xorg-mkfontscale xorg-xf86driproto xorg-libxkbui xorg-xcmiscproto xorg-scrnsaverproto xorg-bigreqsproto xorg-libxevie xorg-libxtst xorg-libdmx xorg-libxxf86misc xorg-libxaw xorg-libxvmc xorg-libxi xorg-libxres xorg-libxcomposite xorg-libxinerama xorg-libxrandr xorg-libxtrap xorg-libxft xorg-libxcursor xorg-libxxf86dga xorg-libpixman
+# Depends on: mesa3d xorg-bdftopcf xorg-mkfontdir xorg-mkfontscale xorg-xf86driproto xorg-libxkbui xorg-xcmiscproto xorg-scrnsaverproto xorg-bigreqsproto xorg-libxevie xorg-libxtst xorg-libdmx xorg-libxxf86misc xorg-libxaw xorg-libxvmc xorg-libxi xorg-libxres xorg-libxcomposite xorg-libxinerama xorg-libxrandr xorg-libxft xorg-libxcursor xorg-libxxf86dga xorg-libpixman xorg-libpciaccess
 
 name=xorg-server
-version=1.4.2
-mesa_version="`pkginfo -i | grep '^mesa3d ' | awk '{print $2}' | sed -e 's/-[0-9]$//'`"
+version=1.5.0
 release=1
-source=(http://xorg.freedesktop.org/releases/individual/xserver/$name-$version.tar.bz2
-	http://dl.sourceforge.net/mesa3d/MesaLib-$mesa_version.tar.bz2)
-
+source=(http://xorg.freedesktop.org/releases/individual/xserver/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
@@ -21,7 +18,6 @@ build() {
 		--localstatedir=/var \
 		--enable-dri \
 		--enable-kdrive \
-		--with-mesa-source=$SRC/Mesa-$mesa_version \
 		--with-xkb-output=/var/lib/xkb
 
 	make
