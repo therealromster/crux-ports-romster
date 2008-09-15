@@ -5,7 +5,7 @@
 # Depends on: xorg-libxaw
 
 name=xterm
-version=236
+version=237
 release=1
 up2date="lynx -dump ftp://invisible-island.net/xterm/|grep tgz$|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
 source=(ftp://invisible-island.net/xterm/xterm-$version.tgz
