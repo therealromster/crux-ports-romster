@@ -4,7 +4,7 @@
 # Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
 
 name=cdparanoia
-version=10.1
+version=10.2
 release=1
 url="http://downloads.xiph.org/releases/$name"
 up2date="lynx -dump '$url/?C=M;O=D' |grep LATEST_IS_ |sed -ne 's/.*LATEST_IS_\(.*\)$/\1/' -e '$ p'"
