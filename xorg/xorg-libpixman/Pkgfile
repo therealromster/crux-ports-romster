@@ -4,7 +4,7 @@
 # Packager: Tilman Sauerbeck, tilman at crux dot nu
 
 name=xorg-libpixman
-version=0.11.10
+version=0.12.0
 release=1
 url='http://xorg.freedesktop.org/releases/individual/lib'
 up2date="lynx -dump '$url/?C=M;O=D' |grep 'pixman' |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
