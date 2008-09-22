@@ -1,0 +1,19 @@
+# Description: A e-book reader for various formats.
+# URL: http://www.fbreader.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: expat zlib bzip2 liblinebreak
+# Optional: gtk qt4
+
+name=fbreader
+version=0.8.17
+release=1
+source=(http://www.fbreader.org/$name-sources-$version.tgz)
+
+build() {
+	cd $name-$version
+	TARGET_ARCH='i686-pc-linux-gnu'
+	make -j
+	make DESTDIR=$PKG do_install
+}
+
