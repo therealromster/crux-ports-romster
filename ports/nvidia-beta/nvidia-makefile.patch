@@ -1,0 +1,39 @@
+--- Makefile.kbuild.orig	2008-07-18 03:42:51.000000000 +0200
++++ Makefile.kbuild	2008-08-02 10:14:22.000000000 +0200
+@@ -239,10 +239,10 @@
+ #
+ 
+ suser-sanity-check:
+-	@if ! $(CONFTEST) suser_sanity_check; then exit 1; fi
++	#@if ! $(CONFTEST) suser_sanity_check; then exit 1; fi
+ 
+ rmmod-sanity-check:
+-	@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
++	#@if ! $(CONFTEST) rmmod_sanity_check; then exit 1; fi
+ 
+ cc-version-check:
+ 	@if ! $(CONFTEST) cc_version_check full_output; then exit 1; fi
+@@ -284,9 +284,9 @@
+ #
+ 
+ module-install: suser-sanity-check module
+-	@mkdir -p $(MODULE_ROOT)/video; \
+-	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
+-	PATH="$(PATH):/bin:/sbin" depmod -ae;
++	#@mkdir -p $(MODULE_ROOT)/video; \
++	#install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
++	#PATH="$(PATH):/bin:/sbin" depmod -ae;
+ 
+ #
+ # This target builds, then installs, then creates device nodes and inserts
+@@ -294,8 +294,8 @@
+ #
+ 
+ package-install: module-install rmmod-sanity-check
+-	PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
+-	echo "$(MODULE_OBJECT) installed successfully.";
++	#PATH="$(PATH):/bin:/sbin" modprobe $(MODULE_NAME) && \
++	#echo "$(MODULE_OBJECT) installed successfully.";
+ 
+ #
+ # Build an object file suitable for further processing by the installer and
