@@ -6,7 +6,7 @@
 
 name=nvidia
 version=173.14.12
-release=1
+release=2
 source=(http://us.download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run
 	$name-makefile.patch)
 
@@ -27,6 +27,8 @@ build() {
 	cp -a usr/X11R6/lib/* $PKG/usr/lib/xorg/
 	cp -a usr/lib/* $PKG/usr/lib/
 	sed -i -e 's|__LIBGL_PATH__|/usr/lib|' $PKG/usr/lib/libGL.la
+	ln -s libGLcore.so.$version $PKG/usr/lib/libGLcore.so
+	ln -sf /usr/lib/libGLcore.so $PKG/usr/lib/xorg/modules/extensions/libGLcore.so
 
 	# copy includes
 	mkdir -p $PKG/usr/include/nvidia
