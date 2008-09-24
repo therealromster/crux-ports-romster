@@ -7,7 +7,7 @@ diff -pruN pkgutils-5.32.0.orig/pkgmk.in pkgutils-5.32.0/pkgmk.in
  check_directory() {
 -	if [ ! -d $1 ]; then
 -		error "Directory '$1' does not exist."
-+	local DIRECTORY="`echo $1 | sed -e "s|$name||"`"
++	local DIRECTORY="`echo $1 | sed -e "s|/$name$||"`"
 +	if [ ! -d "$DIRECTORY" ]; then
 +		error "Directory '$DIRECTORY' does not exist."
  		exit 1
