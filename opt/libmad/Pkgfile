@@ -1,0 +1,22 @@
+# Description: High-quality MPEG Audio Decoder library.
+# URL: http://www.underbit.com/products/mad/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Rene Thümmler, rene dot thuemmler at gmx dot net
+
+name=libmad
+version=0.15.1b
+release=4
+source=(http://dl.sourceforge.net/mad/${name}-${version}.tar.gz
+	mad.pc gcc34.patch)
+
+build() {
+    install -d $PKG/usr/lib/pkgconfig/
+    sed "s/#version#/$version/" mad.pc > $PKG/usr/lib/pkgconfig/mad.pc
+
+    cd $name-$version
+
+    ./configure --prefix=/usr
+	 patch -p 1 -i $SRC/gcc34.patch
+    make
+    make DESTDIR=$PKG install
+}
