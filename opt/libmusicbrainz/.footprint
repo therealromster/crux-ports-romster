@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/musicbrainz/
+-rw-r--r--	root/root	usr/include/musicbrainz/browser.h
+-rw-r--r--	root/root	usr/include/musicbrainz/errors.h
+-rw-r--r--	root/root	usr/include/musicbrainz/mb_c.h
+-rw-r--r--	root/root	usr/include/musicbrainz/musicbrainz.h
+-rw-r--r--	root/root	usr/include/musicbrainz/queries.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libmusicbrainz.a
+-rwxr-xr-x	root/root	usr/lib/libmusicbrainz.la
+lrwxrwxrwx	root/root	usr/lib/libmusicbrainz.so -> libmusicbrainz.so.4.0.3
+lrwxrwxrwx	root/root	usr/lib/libmusicbrainz.so.4 -> libmusicbrainz.so.4.0.3
+-rwxr-xr-x	root/root	usr/lib/libmusicbrainz.so.4.0.3
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libmusicbrainz.pc
