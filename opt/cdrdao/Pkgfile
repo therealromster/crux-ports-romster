@@ -6,12 +6,15 @@
 
 name=cdrdao
 version=1.2.2
-release=1
+release=2
 up2date="lynx -dump http://sourceforge.net/project/showfiles.php?group_id=2171 |grep tar.bz2 |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '1 p'"
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2
+	$name-1.2.2-gcc43.patch)
 
 build() {
  	cd $name-$version
+
+	patch -p 1 -i $SRC/$name-1.2.2-gcc43.patch
 
 	./configure \
 		--prefix=/usr \
