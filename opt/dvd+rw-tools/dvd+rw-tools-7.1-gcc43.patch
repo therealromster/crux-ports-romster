@@ -1,0 +1,11 @@
+diff -pruN dvd+rw-tools-7.1.orig/transport.hxx dvd+rw-tools-7.1/transport.hxx
+--- dvd+rw-tools-7.1.orig/transport.hxx	2008-09-29 16:20:18.754970325 +1000
++++ dvd+rw-tools-7.1/transport.hxx	2008-09-29 16:22:32.657835773 +1000
+@@ -142,6 +142,7 @@ extern "C" char *plusminus_locale()
+ #include <sys/ioctl.h>
+ #include <linux/cdrom.h>
+ #include <mntent.h>
++#include <limits.h>
+ #include <sys/wait.h>
+ #include <sys/utsname.h>
+ #include <scsi/sg.h>
