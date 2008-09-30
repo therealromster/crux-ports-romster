@@ -5,11 +5,12 @@ drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/deco/
 drwxr-xr-x	root/root	usr/share/deco/7z/
 -rwxr-xr-x	root/root	usr/share/deco/7z/extract
+lrwxrwxrwx	root/root	usr/share/deco/7z\.[0-9]{2,} -> 7z
 drwxr-xr-x	root/root	usr/share/deco/a/
 -rwxr-xr-x	root/root	usr/share/deco/a/extract
-drwxr-xr-x	root/root	usr/share/deco/ace|[c0-9][0-9][0-9]/
--rwxr-xr-x	root/root	usr/share/deco/ace|[c0-9][0-9][0-9]/extract
--rw-r--r--	root/root	usr/share/deco/ace|[c0-9][0-9][0-9]/permissions (EMPTY)
+drwxr-xr-x	root/root	usr/share/deco/ace|[c0-9][0-9]{2}/
+-rwxr-xr-x	root/root	usr/share/deco/ace|[c0-9][0-9]{2}/extract
+-rw-r--r--	root/root	usr/share/deco/ace|[c0-9][0-9]{2}/permissions (EMPTY)
 drwxr-xr-x	root/root	usr/share/deco/alz/
 -rwxr-xr-x	root/root	usr/share/deco/alz/extract
 drwxr-xr-x	root/root	usr/share/deco/ape/
@@ -24,7 +25,7 @@ drwxr-xr-x	root/root	usr/share/deco/bz2/
 -rwxr-xr-x	root/root	usr/share/deco/bz2/extract
 drwxr-xr-x	root/root	usr/share/deco/cab/
 -rwxr-xr-x	root/root	usr/share/deco/cab/extract
-lrwxrwxrwx	root/root	usr/share/deco/cbr -> rar|[rst][0-9][0-9]
+lrwxrwxrwx	root/root	usr/share/deco/cbr -> rar|[rst][0-9]{2}
 lrwxrwxrwx	root/root	usr/share/deco/cbz -> zip
 drwxr-xr-x	root/root	usr/share/deco/cpio/
 -rwxr-xr-x	root/root	usr/share/deco/cpio/extract
@@ -61,12 +62,12 @@ lrwxrwxrwx	root/root	usr/share/deco/otp -> zip
 lrwxrwxrwx	root/root	usr/share/deco/ots -> zip
 lrwxrwxrwx	root/root	usr/share/deco/ott -> zip
 lrwxrwxrwx	root/root	usr/share/deco/oxt -> zip
-lrwxrwxrwx	root/root	usr/share/deco/part[0-9]+\.rar -> rar|[rst][0-9][0-9]
+lrwxrwxrwx	root/root	usr/share/deco/part[0-9]+\.rar -> rar|[rst][0-9]{2}
 lrwxrwxrwx	root/root	usr/share/deco/pk3 -> zip
 lrwxrwxrwx	root/root	usr/share/deco/pk4 -> zip
-drwxr-xr-x	root/root	usr/share/deco/rar|[rst][0-9][0-9]/
--rwxr-xr-x	root/root	usr/share/deco/rar|[rst][0-9][0-9]/extract
--rw-r--r--	root/root	usr/share/deco/rar|[rst][0-9][0-9]/permissions (EMPTY)
+drwxr-xr-x	root/root	usr/share/deco/rar|[rst][0-9]{2}/
+-rwxr-xr-x	root/root	usr/share/deco/rar|[rst][0-9]{2}/extract
+-rw-r--r--	root/root	usr/share/deco/rar|[rst][0-9]{2}/permissions (EMPTY)
 drwxr-xr-x	root/root	usr/share/deco/rpm/
 -rwxr-xr-x	root/root	usr/share/deco/rpm/extract
 -rw-r--r--	root/root	usr/share/deco/rpm/subdirectory (EMPTY)
@@ -74,10 +75,12 @@ drwxr-xr-x	root/root	usr/share/deco/shn/
 -rwxr-xr-x	root/root	usr/share/deco/shn/extract
 lrwxrwxrwx	root/root	usr/share/deco/sue -> arc
 lrwxrwxrwx	root/root	usr/share/deco/t7z -> tar\.7z
+lrwxrwxrwx	root/root	usr/share/deco/t7z\.[0-9]{2,} -> tar\.7z
 drwxr-xr-x	root/root	usr/share/deco/tar/
 -rwxr-xr-x	root/root	usr/share/deco/tar/extract
 drwxr-xr-x	root/root	usr/share/deco/tar\.7z/
 -rwxr-xr-x	root/root	usr/share/deco/tar\.7z/extract
+lrwxrwxrwx	root/root	usr/share/deco/tar\.7z\.[0-9]{2,} -> tar\.7z
 drwxr-xr-x	root/root	usr/share/deco/tar\.bz2/
 -rwxr-xr-x	root/root	usr/share/deco/tar\.bz2/extract
 drwxr-xr-x	root/root	usr/share/deco/tar\.gz/
@@ -89,6 +92,7 @@ lrwxrwxrwx	root/root	usr/share/deco/taz -> tar\.gz
 lrwxrwxrwx	root/root	usr/share/deco/tbz -> tar\.bz2
 lrwxrwxrwx	root/root	usr/share/deco/tgz -> tar\.gz
 lrwxrwxrwx	root/root	usr/share/deco/tlz -> tar\.lzma
+lrwxrwxrwx	root/root	usr/share/deco/udeb -> deb
 lrwxrwxrwx	root/root	usr/share/deco/wsz -> zip
 lrwxrwxrwx	root/root	usr/share/deco/xpi -> zip
 lrwxrwxrwx	root/root	usr/share/deco/z -> gz
