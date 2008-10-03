@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ccache/
+lrwxrwxrwx	root/root	usr/lib/ccache/c++-4.2 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/cc-4.2 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/g++-4.2 -> ../../bin/ccache
+lrwxrwxrwx	root/root	usr/lib/ccache/gcc-4.2 -> ../../bin/ccache

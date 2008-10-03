@@ -1,0 +1,19 @@
+# Description: Masquerade directory to use ccache with gcc42.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gcc42 ccache
+
+name=gcc42-ccache-bindings
+version=1
+release=1
+source=()
+
+build() {
+	install -d $PKG/usr/lib/ccache
+	ln -s ../../bin/ccache $PKG/usr/lib/ccache/cc-4.2
+	ln -s ../../bin/ccache $PKG/usr/lib/ccache/c++-4.2
+	ln -s ../../bin/ccache $PKG/usr/lib/ccache/gcc-4.2
+	ln -s ../../bin/ccache $PKG/usr/lib/ccache/g++-4.2
+}
+
