@@ -9,15 +9,16 @@
 # Category:	games
 
 name=wormux
-version=0.7.9
+version=0.8.1
 release=1
-source=(http://download.gna.org/wormux/wormux-$version.tar.gz)
+source=(http://download.gna.org/wormux/wormux-$version.tar.bz2)
 
 build() {
 	cd wormux-$version
 
 	./configure \
 		--prefix=/usr \
+		--mandir=/usr/man \
 		--disable-nls \
 		--disable-sdltest
    
