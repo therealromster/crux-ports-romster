@@ -1,14 +1,15 @@
 # Description: 80x86 and x86-64 assembler.
-# URL: http://nasm.sourceforge.net/
+# URL: http://www.nasm.us/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: CRUX System Team, core-ports at crux dot nu
 # Depends on: groff
 
 name=nasm
-version=2.04rc1
+version=2.04
 release=1
-source=(http://dl.sourceforge.net/nasm/nasm-$version.tar.bz2)
-up2date="lynx -dump http://sourceforge.net/project/showfiles.php?group_id=6208 |grep 'nasm sources' |sed -ne 's/.*\]\(.*\) [0-9].*\[.*/\1/' -e '1 p' |cut -d ' ' -f 1"
+url='http://www.nasm.us/pub/nasm/releasebuilds'
+source=($url/$version/$name-$version.tar.bz2)
+up2date="lynx -dump '$url/?C=M;O=A' |sed -e 's|.*releasebuilds/\(.*\)/|\1|' -e 'p' |tail -n1"
 
 build() {
 	cd nasm-$version
