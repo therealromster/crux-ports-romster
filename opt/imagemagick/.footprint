@@ -133,6 +133,7 @@ drwxr-xr-x	root/root	usr/include/ImageMagick/wand/
 -rw-r--r--	root/root	usr/include/ImageMagick/wand/mogrify.h
 -rw-r--r--	root/root	usr/include/ImageMagick/wand/montage.h
 -rw-r--r--	root/root	usr/include/ImageMagick/wand/pixel-iterator.h
+-rw-r--r--	root/root	usr/include/ImageMagick/wand/pixel-view.h
 -rw-r--r--	root/root	usr/include/ImageMagick/wand/pixel-wand.h
 -rw-r--r--	root/root	usr/include/ImageMagick/wand/stream.h
 drwxr-xr-x	root/root	usr/lib/
