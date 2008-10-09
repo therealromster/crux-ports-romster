@@ -6,9 +6,12 @@
 # Optional: gtk qt4
 
 name=fbreader
+sname="$name-sources"
 version=0.8.17
 release=1
-source=(http://www.fbreader.org/$name-sources-$version.tgz)
+url='http://www.fbreader.org'
+up2date="curl -s '$url/downloads.php' |grep '.tgz' |sed -e 's/.*$sname-\(.*\)\.t.*/\1/' -e 'q'"
+source=($url/$sname-$version.tgz)
 
 build() {
 	cd $name-$version
