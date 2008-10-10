@@ -174,6 +174,10 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/ntddk.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/ntddser.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/ntddtape.h
+-rw-r--r--	root/root	usr/include/wine/windows/ddk/usb.h
+-rw-r--r--	root/root	usr/include/wine/windows/ddk/usb100.h
+-rw-r--r--	root/root	usr/include/wine/windows/ddk/usb200.h
+-rw-r--r--	root/root	usr/include/wine/windows/ddk/usbdlib.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/wdm.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/winddiui.h
 -rw-r--r--	root/root	usr/include/wine/windows/ddk/winsplp.h
@@ -447,6 +451,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/servprov.idl
 -rw-r--r--	root/root	usr/include/wine/windows/setupapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/sfc.h
+-rw-r--r--	root/root	usr/include/wine/windows/shdispid.h
 -rw-r--r--	root/root	usr/include/wine/windows/shellapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/shldisp.h
 -rw-r--r--	root/root	usr/include/wine/windows/shldisp.idl
@@ -707,6 +712,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libcrypt32.def
 -rw-r--r--	root/root	usr/lib/wine/libcryptdll.def
 -rw-r--r--	root/root	usr/lib/wine/libcryptnet.def
+-rw-r--r--	root/root	usr/lib/wine/libcryptui.def
 -rw-r--r--	root/root	usr/lib/wine/libctl3d32.def
 -rw-r--r--	root/root	usr/lib/wine/libd3d8.def
 -rw-r--r--	root/root	usr/lib/wine/libd3d9.def
