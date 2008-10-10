@@ -5,8 +5,8 @@
 # Depends on: gtk gl-select
 
 name=nvidia
-version=173.14.12
-release=2
+version=177.80
+release=1
 source=(http://us.download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run
 	$name-makefile.patch)
 
@@ -15,10 +15,11 @@ build() {
 	cd NVIDIA-Linux-x86-$version-pkg0
 
 	# patch Makefile.kbuild for normal users and no load during build
-	patch -p0 -i $SRC/$name-makefile.patch usr/src/nv/Makefile.kbuild
+	patch -p 0 -i $SRC/$name-makefile.patch usr/src/nv/Makefile.kbuild
 
 	# create directories the Makefile expects
-	mkdir -p $PKG/usr/lib \
+	install -d \
+		$PKG/usr/lib \
 		$PKG/usr/lib/xorg/modules/drivers \
 		$PKG/usr/lib/xorg/modules/extensions \
 		$PKG/usr/bin $PKG/usr/man/man1
@@ -28,16 +29,17 @@ build() {
 	cp -a usr/lib/* $PKG/usr/lib/
 	sed -i -e 's|__LIBGL_PATH__|/usr/lib|' $PKG/usr/lib/libGL.la
 	ln -s libGLcore.so.$version $PKG/usr/lib/libGLcore.so
-	ln -sf /usr/lib/libGLcore.so $PKG/usr/lib/xorg/modules/extensions/libGLcore.so
+	ln -sf /usr/lib/libGLcore.so \
+		$PKG/usr/lib/xorg/modules/extensions/libGLcore.so
 
 	# copy includes
-	mkdir -p $PKG/usr/include/nvidia
+	install -d $PKG/usr/include/nvidia
 	cp -r usr/include/GL $PKG/usr/include/nvidia/
 
 	# install xconfig/settings programs and manpages
-	install -m 0755 usr/bin/nvidia-{xconfig,settings} $PKG/usr/bin/
-	install -m 0644 usr/share/man/man1/nvidia-{xconfig,settings}.1.gz \
-		$PKG/usr/man/man1/
+	install -m 0755 -t $PKG/usr/bin/ usr/bin/nvidia-{xconfig,settings}
+	install -m 0644 -t $PKG/usr/man/man1/ \
+		usr/share/man/man1/nvidia-{xconfig,settings}.1.gz
 
 	# build the module
 	cd usr/src/nv
@@ -46,5 +48,6 @@ build() {
 
 	# install it
 	install -m 0644 -D nvidia.ko \
-		$PKG/lib/modules/`uname -r`/kernel/drivers/video/nvidia.ko
+		$PKG/lib/modules/$(uname -r)/kernel/drivers/video/nvidia.ko
 }
+
