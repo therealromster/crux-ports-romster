@@ -2,15 +2,18 @@
 # URL: http://www.winehq.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
-# Depends on: fontconfig hal-info lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
+# Depends on: fontconfig hal lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
 
 # Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
 
 # pre-install xdelta ######################################
 EXT='.tar.bz2'
 OLD_VERSION=1.1.5
-diff="http://scguy318.freeshell.org/romster/linux/
-	http://www.dcaf-security.org/distfiles/"
+diff="
+	http://scguy318.freeshell.org/romster/linux/
+	http://www.dcaf-security.org/distfiles/
+	http://romster.dyndns.org:8080/distfiles/
+"
 ###########################################################
 
 name=wine

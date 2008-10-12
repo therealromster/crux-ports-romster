@@ -96,10 +96,14 @@ pkg_work_dir() {
 	cd "${PKGMK_WORK_DIR}" || exit 1
 }
 
+array() {
+	printf "${1}" |tr --delete '\n' |sed -e 's|[\t| ]\+| |g' -e 's| ||' |cut --delimiter=' ' --fields="${2}"
+}
+
 pkg_download_delta_list() {
-	local URL="$(printf "${PKG_DIFF_MIRRORS}" |sed -e "s/\t//g" -e "s/\n//g" |cut --delimiter=' ' --fields="${PKG_DIFF_MIRROR}")"
+	local URL="$(printf "${PKG_DIFF_MIRRORS}" |tr --delete '\n' |sed -e 's|[\t| ]\+| |g' -e 's| ||' |cut --delimiter=' ' --fields="${PKG_DIFF_MIRROR}")"
 	printf "Patching source files.\n"
-	log_verbose "Retrieving delta list from $URL."
+	log_verbose "Retrieving delta list from '$URL'."
 
 	log_very_verbose "curl -s "$URL" |grep '.xdelta' |grep "${sname}" |sed -e 's|.*[HREF|href]=\"||' -e 's|\".*||' |sort --reverse |xargs"
 	XDELTA_FILES="$(curl -s "$URL" |grep '.xdelta' |grep "${sname}" |sed -e 's|.*[HREF|href]=\"||' -e 's|\".*||' |sort --reverse |xargs)"
