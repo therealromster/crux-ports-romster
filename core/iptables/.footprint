@@ -2,15 +2,16 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/iptables-xml
 drwxr-xr-x	root/root	usr/include/
--rw-r--r--	root/root	usr/include/ip6tables.h
--rw-r--r--	root/root	usr/include/iptables.h
 -rw-r--r--	root/root	usr/include/libipq.h
-drwxr-xr-x	root/root	usr/include/libiptc/
--rw-r--r--	root/root	usr/include/libiptc/ipt_kernel_headers.h
--rw-r--r--	root/root	usr/include/libiptc/libxtc.h
 -rw-r--r--	root/root	usr/include/xtables.h
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libipq.a
+-rwxr-xr-x	root/root	usr/lib/libxtables.la
+lrwxrwxrwx	root/root	usr/lib/libxtables.so -> libxtables.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libxtables.so.0 -> libxtables.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libxtables.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/xtables.pc
 drwxr-xr-x	root/root	usr/lib/xtables/
 -rw-r--r--	root/root	usr/lib/xtables/libip6t_HL.so
 -rw-r--r--	root/root	usr/lib/xtables/libip6t_LOG.so
