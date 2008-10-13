@@ -4,8 +4,19 @@
 # Packager: Simone Rota, sip at crux dot nu
 # Depends on: apr neon expat
 
+# pre-install xdelta ######################################
+EXT='.tar.bz2'
+OLD_VERSION='1.5.2'
+diff="
+	http://scguy318.freeshell.org/romster/linux/
+	http://www.dcaf-security.org/distfiles/
+	http://romster.dyndns.org:8080/distfiles/
+"
+###########################################################
+
+
 name=subversion
-version=1.5.2
+version=1.5.3
 release=1
 url='http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=260&expandFolder=74'
 up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
