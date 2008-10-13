@@ -5,7 +5,7 @@
 # Depends on: p5-xml-parser
 
 name=intltool
-version=0.40.4
+version=0.40.5
 release=1
 url="http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}"
 up2date="lynx -dump $url |grep 'LATEST-IS-' |sed -ne 's/.*LATEST-IS-\(.*\)$/\1/' -e '$ p'"
