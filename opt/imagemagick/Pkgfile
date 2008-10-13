@@ -7,13 +7,16 @@
 # pre-install xdelta ######################################
 sname='ImageMagick'
 EXT='.tar.lzma'
-OLD_VERSION='6.4.4-1'
-diff=(http://scguy318.freeshell.org/romster/linux/
-	http://www.dcaf-security.org/distfiles/)
+OLD_VERSION='6.4.4-3'
+diff="
+	http://scguy318.freeshell.org/romster/linux/
+	http://www.dcaf-security.org/distfiles/
+	http://romster.dyndns.org:8080/distfiles/
+"
 ###########################################################
 
 name=imagemagick
-version=6.4.4-3
+version=6.4.4-5
 release=1
 url='ftp://ftp.imagemagick.net/pub/ImageMagick'
 up2date="lynx -dump '$url/' |grep 'tar.lzma' |grep -v 'ImageMagick.tar.lzma' |sed -ne 's/.*ImageMagick-\(.*\)\.t.*/\1/' -e '$ p'"
