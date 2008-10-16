@@ -14,6 +14,9 @@ drwxr-xr-x	root/root	usr/lib/exaile/lib/
 -rw-r--r--	root/root	usr/lib/exaile/lib/feedparser.py
 -rw-r--r--	root/root	usr/lib/exaile/lib/feedparser.pyc
 -rw-r--r--	root/root	usr/lib/exaile/lib/feedparser.pyo
+-rw-r--r--	root/root	usr/lib/exaile/lib/scrobbler.py
+-rw-r--r--	root/root	usr/lib/exaile/lib/scrobbler.pyc
+-rw-r--r--	root/root	usr/lib/exaile/lib/scrobbler.pyo
 -rw-r--r--	root/root	usr/lib/exaile/lib/wmainfo.py
 -rw-r--r--	root/root	usr/lib/exaile/lib/wmainfo.pyc
 -rw-r--r--	root/root	usr/lib/exaile/lib/wmainfo.pyo
@@ -83,6 +86,9 @@ drwxr-xr-x	root/root	usr/lib/exaile/xl/gui/
 -rw-r--r--	root/root	usr/lib/exaile/xl/gui/statsdialog.py
 -rw-r--r--	root/root	usr/lib/exaile/xl/gui/statsdialog.pyc
 -rw-r--r--	root/root	usr/lib/exaile/xl/gui/statsdialog.pyo
+-rw-r--r--	root/root	usr/lib/exaile/xl/gui/tray.py
+-rw-r--r--	root/root	usr/lib/exaile/xl/gui/tray.pyc
+-rw-r--r--	root/root	usr/lib/exaile/xl/gui/tray.pyo
 -rw-r--r--	root/root	usr/lib/exaile/xl/library.py
 -rw-r--r--	root/root	usr/lib/exaile/xl/library.pyc
 -rw-r--r--	root/root	usr/lib/exaile/xl/library.pyo
@@ -214,6 +220,7 @@ drwxr-xr-x	root/root	usr/share/exaile/sql/
 -rw-r--r--	root/root	usr/share/exaile/sql/changes0001.sql
 -rw-r--r--	root/root	usr/share/exaile/sql/changes0002.sql
 -rw-r--r--	root/root	usr/share/exaile/sql/changes0003.sql
+-rw-r--r--	root/root	usr/share/exaile/sql/changes0004.sql
 -rw-r--r--	root/root	usr/share/exaile/sql/db.sql
 drwxr-xr-x	root/root	usr/share/exaile/xl/
 drwxr-xr-x	root/root	usr/share/exaile/xl/plugins/

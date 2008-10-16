@@ -5,19 +5,28 @@
 # Depends on: pygtk gst-python gst-plugins-good gst-plugins-ugly gst-plugins-bad cddb-py dbus-python mutagen sqlite3 gnome-python-extras
 
 name=exaile
-version=0.2.13
+version=0.2.14
 release=1
-source=(http://www.exaile.org/files/${name}_$version.tar.gz)
+url='http://www.exaile.org/files'
+
+ignore_files="grep -v exaile_svn2006 |grep -v pkg.tar.gz \
+	|grep -v '~gutsy' |grep -v '~hardy' |grep -v tar.gz.md5 \
+	|grep -v exaile-0."
+
+#FIXME stillneeds work to get max value
+#up2date="curl -s '$url/' |grep '.tar.' |sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' |$ignore_files |sed -e 's|^${name}_\([^_]*\)\.tar\.gz$|\1|' |grep -v \"0.[0-9b]$\" |cut -d. -f3 |grep -v b"
+
+source=($url/${name}_$version.tar.gz)
 
 build() {
-    cd exaile_$version
+	cd exaile-$version
 
-	 sed -i \
-	 	-e '/^	mkdir -p $(DESTDIR)$(PREFIX)/s|/share/man/man1|/man/man1|' \
+	sed -i \
+		-e '/^	mkdir -p $(DESTDIR)$(PREFIX)/s|/share/man/man1|/man/man1|' \
 		-e	'/^	install -m 644 exaile.1 $(DESTDIR)$(PREFIX)/s|/share/man/man1|/man/man1|' \
 		-e '/^	mkdir -p $(DESTDIR)$(PREFIX)\/share\/locale/d' Makefile
 
-    make compile mmkeys.so
-    make DESTDIR=$PKG PREFIX=/usr install
+	make -j compile mmkeys.so
+	make DESTDIR=$PKG PREFIX=/usr install
 }
 
