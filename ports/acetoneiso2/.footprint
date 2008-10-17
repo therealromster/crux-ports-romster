@@ -1,5 +1,6 @@
 drwxr-xr-x	root/root	opt/
 drwxr-xr-x	root/root	opt/acetoneiso/
+-rwxr-xr-x	root/root	opt/acetoneiso/UDF
 -rwxr-xr-x	root/root	opt/acetoneiso/isofolder
 -rwxr-xr-x	root/root	opt/acetoneiso/mfolder
 -rwxr-xr-x	root/root	opt/acetoneiso/smiso
@@ -11,6 +12,10 @@ drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 -rwxr-xr-x	root/root	usr/share/applications/AcetoneISO.desktop
 drwxr-xr-x	root/root	usr/share/apps/
+drwxr-xr-x	root/root	usr/share/apps/d3lphin/
+drwxr-xr-x	root/root	usr/share/apps/d3lphin/servicemenus/
+-rw-r--r--	root/root	usr/share/apps/d3lphin/servicemenus/acetoneiso2-folder.desktop
+-rw-r--r--	root/root	usr/share/apps/d3lphin/servicemenus/acetoneiso2-iso.desktop
 drwxr-xr-x	root/root	usr/share/apps/konqueror/
 drwxr-xr-x	root/root	usr/share/apps/konqueror/servicemenus/
 -rw-r--r--	root/root	usr/share/apps/konqueror/servicemenus/acetoneiso2-folder.desktop
