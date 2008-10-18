@@ -10,7 +10,7 @@
 name=acetoneiso2
 version=2.0.2
 release=1
-up2date="curl -s 'http://sourceforge.net/project/showfiles.php?group_id=179686&package_id=207611' |grep '.tar.' |sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|^.*/||' -e 's|?.*$||' |grep -v \"^mirror_picker.php$\" |grep -v 'DVD images' |sed -e 's|^$name-\([^-]*\)\.tar\.gz$|\1|' |head -n1"
+up2date="curl -s 'http://sourceforge.net/project/showfiles.php?group_id=179686&package_id=207611' |grep '.tar.' |sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|^.*/||' -e 's|?.*$||' |grep -v \"^mirror_picker.php$\" |grep -v 'DVD images' |sed -e 's|^${name}_\([^_]*\)_source\.tar\.bz2$|\1|' |head -n1"
 
 source=(http://dl.sourceforge.net/sourceforge/acetoneiso2/acetoneiso2_${version}_source.tar.bz2)
 
