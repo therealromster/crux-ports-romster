@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=ipset
-version=2.3.2-20080702
+version=2.4
 release=1
 source=(http://ipset.netfilter.org/ipset-$version.tar.bz2)
 

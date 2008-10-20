@@ -4,11 +4,14 @@ drwxr-xr-x	root/root	usr/lib/ipset/
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_iphash.so
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_ipmap.so
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_ipporthash.so
+-rwxr-xr-x	root/root	usr/lib/ipset/libipset_ipportiphash.so
+-rwxr-xr-x	root/root	usr/lib/ipset/libipset_ipportnethash.so
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_iptree.so
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_iptreemap.so
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_macipmap.so
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_nethash.so
 -rwxr-xr-x	root/root	usr/lib/ipset/libipset_portmap.so
+-rwxr-xr-x	root/root	usr/lib/ipset/libipset_setlist.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man8/
 -rw-r--r--	root/root	usr/man/man8/ipset.8.gz
