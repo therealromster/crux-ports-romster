@@ -1,0 +1,12 @@
+diff -pruN gtkglextmm-1.2.0.orig/m4macros/gtkglextmm.m4 gtkglextmm-1.2.0/m4macros/gtkglextmm.m4
+--- gtkglextmm-1.2.0.orig/m4macros/gtkglextmm.m4	2008-10-24 01:56:12.728225040 +1100
++++ gtkglextmm-1.2.0/m4macros/gtkglextmm.m4	2008-10-24 01:58:07.065100033 +1100
+@@ -222,7 +222,7 @@ main ()
+ dnl AC_GTKGLEXTMM_SUPPORTS_MULTIHEAD([ACTION-IF-SUPPORTED [, ACTION-IF-NOT-SUPPORTED]])
+ dnl Checks whether gtkglextmm supports multihead.
+ dnl
+-AC_DEFUN(AC_GTKGLEXTMM_SUPPORTS_MULTIHEAD,
++AC_DEFUN([AC_GTKGLEXTMM_SUPPORTS_MULTIHEAD],
+ [ AC_LANG_SAVE
+   AC_LANG_CPLUSPLUS
+   AC_CACHE_CHECK([whether gtkglextmm supports multihead],

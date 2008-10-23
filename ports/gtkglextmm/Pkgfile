@@ -6,11 +6,13 @@
 
 name=gtkglextmm
 version=1.2.0
-release=1
-source=(http://dl.sourceforge.net/sourceforge/gtkglext/gtkglextmm-$version.tar.bz2)
+release=2
+source=(http://dl.sourceforge.net/sourceforge/gtkglext/gtkglextmm-$version.tar.bz2
+	gtkglextmm-1.2.0_m4.patch)
 
 build() {
 	cd gtkglextmm-$version
+	patch -p 1 -i $SRC/gtkglextmm-1.2.0_m4.patch
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
