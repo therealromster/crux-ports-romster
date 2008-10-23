@@ -1,0 +1,42 @@
+# Description: Blitzed Open Proxy Monitor.
+# URL: http://www.blitzed.org/bopm/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=bopm
+version=3.1.3
+release=1
+source=(http://static.blitzed.org/www.blitzed.org/$name/files/$name-$version.tar.gz
+	bopm.rc)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--sysconfdir=/etc \
+		--datadir=/usr/share/doc/bopm \
+		--localstatedir=/var/log/bopm \
+		--disable-dependency-tracking
+
+	make
+	make \
+	DESTDIR=$PKG \
+	sysconfdir=$PKG/etc \
+	datadir=/usr/share/doc/bopm \
+	localstatedir=$PKG/var/log/bopm \
+	install
+
+	install -m 0755 -D $SRC/bopm.rc $PKG/etc/rc.d/bopm
+
+	# Remove libopm related files, because bopm links statically to it
+	# If anybody wants libopm, please install net-libs/libopm (gentoo)
+	rm -r $PKG/usr/lib $PKG/usr/include
+
+	install -d -m 0700 -o bopm -g root $PKG/var/log/bopm
+	install -d -m 0700 -o bopm -g root $PKG/var/run/bopm
+	chmod 0600 $PKG/etc/bopm.conf
+	chown bopm $PKG/etc/bopm.conf
+}
+

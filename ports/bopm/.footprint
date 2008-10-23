@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	etc/
+-rw-------	bopm/root	etc/bopm.conf
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/bopm
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bopm
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/doc/
+drwxr-xr-x	root/root	usr/share/doc/bopm/
+-rw-r--r--	root/root	usr/share/doc/bopm/bopm.conf.blitzed
+-rw-r--r--	root/root	usr/share/doc/bopm/bopm.conf.sample
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/log/
+drwx------	bopm/root	var/log/bopm/
+drwxr-xr-x	root/root	var/run/
+drwx------	bopm/root	var/run/bopm/
