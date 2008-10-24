@@ -4,8 +4,16 @@
 # Packager: Simon Gloﬂner, viper at hometux dot de
 # Depends on: 
 
+EXT='.tar.bz2'
+OLD_VERSION='2.01.01a51'
+diff="
+	http://scguy318.freeshell.org/romster/linux/
+	http://www.dcaf-security.org/distfiles/
+	http://romster.dyndns.org:8080/distfiles/
+"
+
 name=cdrtools
-version=2.01.01a51
+version=2.01.01a52
 release=1
 url='ftp://ftp.berlios.de/pub/cdrecord/alpha'
 up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
