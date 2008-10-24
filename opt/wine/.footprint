@@ -117,6 +117,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/comcat.h
 -rw-r--r--	root/root	usr/include/wine/windows/comcat.idl
 -rw-r--r--	root/root	usr/include/wine/windows/commctrl.h
+-rw-r--r--	root/root	usr/include/wine/windows/commctrl.rh
 -rw-r--r--	root/root	usr/include/wine/windows/commdlg.h
 -rw-r--r--	root/root	usr/include/wine/windows/compobj.h
 -rw-r--r--	root/root	usr/include/wine/windows/control.h
@@ -132,6 +133,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/d3d.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3d10.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3d10.idl
+-rw-r--r--	root/root	usr/include/wine/windows/d3d10misc.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3d8.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3d8caps.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3d8types.h
@@ -537,6 +539,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/winternl.h
 -rw-r--r--	root/root	usr/include/wine/windows/wintrust.h
 -rw-r--r--	root/root	usr/include/wine/windows/winuser.h
+-rw-r--r--	root/root	usr/include/wine/windows/winuser.rh
 -rw-r--r--	root/root	usr/include/wine/windows/winver.h
 -rw-r--r--	root/root	usr/include/wine/windows/wmistr.h
 -rw-r--r--	root/root	usr/include/wine/windows/wnaspi32.h
@@ -653,6 +656,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/dswave.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dwmapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dxdiagn.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/dxgi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/eject.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/expand.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/explorer.exe.so
@@ -714,6 +718,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libcryptnet.def
 -rw-r--r--	root/root	usr/lib/wine/libcryptui.def
 -rw-r--r--	root/root	usr/lib/wine/libctl3d32.def
+-rw-r--r--	root/root	usr/lib/wine/libd3d10.def
 -rw-r--r--	root/root	usr/lib/wine/libd3d8.def
 -rw-r--r--	root/root	usr/lib/wine/libd3d9.def
 -rw-r--r--	root/root	usr/lib/wine/libd3dim.def
@@ -736,6 +741,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libdwmapi.def
 -rw-r--r--	root/root	usr/lib/wine/libdxerr8.a
 -rw-r--r--	root/root	usr/lib/wine/libdxerr9.a
+-rw-r--r--	root/root	usr/lib/wine/libdxgi.def
 -rw-r--r--	root/root	usr/lib/wine/libdxguid.a
 -rw-r--r--	root/root	usr/lib/wine/libgdi32.def
 -rw-r--r--	root/root	usr/lib/wine/libgdiplus.def
