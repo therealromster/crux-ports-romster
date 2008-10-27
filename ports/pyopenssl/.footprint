@@ -8,8 +8,15 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/OpenSSL/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/__init__.pyc
 -rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/OpenSSL/crypto.so
 -rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/OpenSSL/rand.so
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/OpenSSL/test/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/test/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/test/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/test/test_crypto.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/test/test_crypto.pyc
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/test/test_ssl.py
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/test/test_ssl.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/tsafe.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/tsafe.pyc
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/version.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/OpenSSL/version.pyc
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/pyOpenSSL-0.6-py2.5.egg-info
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/pyOpenSSL-0.7-py2.5.egg-info
