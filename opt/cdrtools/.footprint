@@ -93,6 +93,9 @@ drwxr-xr-x	root/root	usr/include/scsilib/scg/
 -rw-r--r--	root/root	usr/include/scsilib/xmconfig.h
 -rw-r--r--	root/root	usr/include/xconfig.h
 drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libcdrdeflt.a
+lrwxrwxrwx	root/root	usr/lib/libcdrdeflt.so -> libcdrdeflt.so.1.0
+-rw-r--r--	root/root	usr/lib/libcdrdeflt.so.1.0
 -rw-r--r--	root/root	usr/lib/libdeflt.a
 lrwxrwxrwx	root/root	usr/lib/libdeflt.so -> libdeflt.so.1.0
 -rw-r--r--	root/root	usr/lib/libdeflt.so.1.0
@@ -120,6 +123,9 @@ lrwxrwxrwx	root/root	usr/lib/librscg.so -> librscg.so.1.0
 -rw-r--r--	root/root	usr/lib/libscg.a
 lrwxrwxrwx	root/root	usr/lib/libscg.so -> libscg.so.1.0
 -rw-r--r--	root/root	usr/lib/libscg.so.1.0
+-rw-r--r--	root/root	usr/lib/libscgcmd.a
+lrwxrwxrwx	root/root	usr/lib/libscgcmd.so -> libscgcmd.so.1.0
+-rw-r--r--	root/root	usr/lib/libscgcmd.so.1.0
 -rw-r--r--	root/root	usr/lib/libschily.a
 lrwxrwxrwx	root/root	usr/lib/libschily.so -> libschily.so.1.0
 -rw-r--r--	root/root	usr/lib/libschily.so.1.0
