@@ -1,0 +1,16 @@
+# Description: A port of the Frugalware XFWM4 theme for pekwm.
+# URL: http://www.box-look.org/content/show.php/Frugalware?content=92592
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: pekwm
+
+name=pekwm-theme-frugalware
+version=0.1
+release=1
+source=(http://ftp.frugalware.org/pub/other/people/ryuo/frugalware-themepack-$version.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/pekwm/themes/Frugalware
+	install -m 0644 -t $PKG/usr/share/pekwm/themes/Frugalware/ Frugalware/Frugalware-pekwm/*
+}
+
