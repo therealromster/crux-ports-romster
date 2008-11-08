@@ -4,8 +4,18 @@
 # Packager: Tilman Sauerbeck, tilman at crux dot nu
 # Depends on: mesa3d xorg-bdftopcf xorg-mkfontdir xorg-mkfontscale xorg-xf86driproto xorg-libxkbui xorg-xcmiscproto xorg-scrnsaverproto xorg-bigreqsproto xorg-libxevie xorg-libxtst xorg-libdmx xorg-libxxf86misc xorg-libxaw xorg-libxvmc xorg-libxi xorg-libxres xorg-libxcomposite xorg-libxinerama xorg-libxrandr xorg-libxft xorg-libxcursor xorg-libxxf86dga xorg-libpixman xorg-libpciaccess
 
+# pre-install xdelta ######################################
+EXT='.tar.bz2'
+OLD_VERSION=1.5.2
+diff="
+	http://scguy318.freeshell.org/romster/linux/
+	http://www.dcaf-security.org/distfiles/
+	http://romster.dyndns.org:8080/distfiles/
+"
+###########################################################
+
 name=xorg-server
-version=1.5.2
+version=1.5.3
 release=1
 source=(http://xorg.freedesktop.org/releases/individual/xserver/$name-$version.tar.bz2)
 
