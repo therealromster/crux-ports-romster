@@ -1,17 +1,18 @@
-# Description: Rules for L7 Filter.
+# Description: Protocol definitions of l7-filter.
 # URL: http://l7-filter.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on:
 
 name=l7-protocols
-version=20080423
+version=20081004
 release=1
-source=(http://dl.sourceforge.net/sourceforge/l7-filter/l7-protocols-${version:0:4}-${version:4:2}-${version:6:2}.tar.gz)
+up2date="curl -s 'http://sourceforge.net/project/showfiles.php?group_id=80085&package_id=81756' |grep '.tar.' |sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|^.*/||' -e 's|?.*$||' |grep -v \"^mirror_picker.php$\" |sed -e 's|^${name}-\([^s]*\)\.tar\.gz$|\1|' |head -n1 |tr -d '-'"
+source=(http://dl.sourceforge.net/sourceforge/l7-filter/$name-${version:0:4}-${version:4:2}-${version:6:2}.tar.gz)
 
 build() {
-	cd l7-protocols-${version:0:4}-${version:4:2}-${version:6:2}
-	make PREFIX=$PKG/usr install
+	cd $name-${version:0:4}-${version:4:2}-${version:6:2}
+	make PREFIX=$PKG install
 
 	find $PKG -type f \( \
 		-name CHANGELOG -o \
@@ -21,13 +22,13 @@ build() {
 		-name README -o \
 		-name WANTED \) -delete
 
-	rm -r $PKG/usr/etc/l7-protocols/example_traffic
+	rm -r $PKG/etc/l7-protocols/example_traffic
 
 	rm \
-		$PKG/usr/etc/l7-protocols/testing/{l7-parse-patterns.cpp,test_speed-userspace.cpp,doallspeeds.sh,l7-parse-patterns.h,test_speed-kernel.c,match-kernel.c} \
-		$PKG/usr/etc/l7-protocols/groups.sh \
-		$PKG/usr/etc/l7-protocols/testing/{randchars.c,timeit.sh,randprintable.c,test_match.sh} \
-		$PKG/usr/etc/l7-protocols/testing/regexp/{regsub.c,regmagic.h,regerror.c,regexp.c,regexp.h}
+		$PKG/etc/l7-protocols/testing/{l7-parse-patterns.cpp,test_speed-userspace.cpp,doallspeeds.sh,l7-parse-patterns.h,test_speed-kernel.c,match-kernel.c} \
+		$PKG/etc/l7-protocols/groups.sh \
+		$PKG/etc/l7-protocols/testing/{randchars.c,timeit.sh,randprintable.c,test_match.sh} \
+		$PKG/etc/l7-protocols/testing/regexp/{regsub.c,regmagic.h,regerror.c,regexp.c,regexp.h}
 
 	find $PKG -depth -empty -exec rm -rf {} \;
 }
