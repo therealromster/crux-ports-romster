@@ -8,7 +8,7 @@ pkg_init() {
 log_verbose() {
 	if [ "${PKG_LOG_VERBOSE}" = 'yes' ]; then
 		#printf  "[%3.0f%s] %s\n" "$(bc -l <<< "($PKG_COUNT / $PKG_LOG_VERBOSE_TOTAL_COUNT) * 100")" '%' "${1}"
-		printf  "[%3.0f%s] %s\n" "$(printf "($PKG_COUNT / $PKG_LOG_VERBOSE_TOTAL_COUNT) * 100\n" |bc -l)" '%' "${1}"
+		printf  "[%3.0f%s] %s\n" "$(printf "(${PKG_COUNT} / ${PKG_LOG_VERBOSE_TOTAL_COUNT}) * 100\n" |bc -l)" '%' "${1}"
 		PKG_COUNT=$(($PKG_COUNT+1))
 	fi
 }
@@ -17,6 +17,12 @@ log_very_verbose() {
 	if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
 		printf  "[LOG_VERY_VERBOSE] %s\n" "${1}"
 	fi
+}
+
+array() {
+	printf "${2}" |tr --delete '\n' |sed \
+		-e 's|[\t| ]\+| |g' \
+		-e 's| ||' |cut --delimiter=' ' --fields="${1}"
 }
 
 pkg_checks() {
@@ -96,12 +102,9 @@ pkg_work_dir() {
 	cd "${PKGMK_WORK_DIR}" || exit 1
 }
 
-array() {
-	printf "${1}" |tr --delete '\n' |sed -e 's|[\t| ]\+| |g' -e 's| ||' |cut --delimiter=' ' --fields="${2}"
-}
-
 pkg_download_delta_list() {
-	local URL="$(printf "${PKG_DIFF_MIRRORS}" |tr --delete '\n' |sed -e 's|[\t| ]\+| |g' -e 's| ||' |cut --delimiter=' ' --fields="${PKG_DIFF_MIRROR}")"
+	local URL="$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")"
+	#local URL="$(printf "${PKG_DIFF_MIRRORS}" |tr --delete '\n' |sed -e 's|[\t| ]\+| |g' -e 's| ||' |cut --delimiter=' ' --fields="${PKG_DIFF_MIRROR}")"
 	printf "Patching source files.\n"
 	log_verbose "Retrieving delta list from '$URL'."
 
@@ -120,7 +123,7 @@ pkg_parse_delta_list() {
 	GET_VERSION='yes'
 	ADD_DIFF='yes'
 
-	SOURCE_VERSIONS="$(ls --reverse ${PKGMK_SOURCE_DIR}/${sname}-*${EXT} \
+	SOURCE_VERSIONS="$(ls --sort=version --reverse ${PKGMK_SOURCE_DIR}/${sname}-*${EXT} \
 			|sed -e "s|.*/${sname}-\(.*\)${EXT}|\1|" |xargs)"
 
 	if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
