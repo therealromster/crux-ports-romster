@@ -5,7 +5,7 @@
 # Depends on:
 
 name=l7-protocols
-version=20081004
+version=20081108
 release=1
 up2date="curl -s 'http://sourceforge.net/project/showfiles.php?group_id=80085&package_id=81756' |grep '.tar.' |sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|^.*/||' -e 's|?.*$||' |grep -v \"^mirror_picker.php$\" |sed -e 's|^${name}-\([^s]*\)\.tar\.gz$|\1|' |head -n1 |tr -d '-'"
 source=(http://dl.sourceforge.net/sourceforge/l7-filter/$name-${version:0:4}-${version:4:2}-${version:6:2}.tar.gz)
