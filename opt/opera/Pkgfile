@@ -1,27 +1,30 @@
-# Description: Lightweight web browser with news, e-mail and IRC.
+# Description: Lightweight web browser with news, torrent, e-mail and IRC.
 # URL: http://www.opera.com/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Olle Gustafsson, ogg at linux dot se
 # Depends on: qt4
 
 name=opera
-version=9.50
+version=9.62
 release=1
-source=(http://ftp.ntua.gr/pub/www/Opera/linux/${version//./}/final/en/i386/opera-$version.gcc4-qt4.i386.tar.bz2)
+source=(http://ftp.ntua.gr/pub/www/Opera/linux/${version//./}/final/en/i386/$name-$version.gcc4-qt4.i386.tar.bz2)
+mirrors="http://ftp.heanet.ie/pub/opera/linux/${version//./}/final/en/i386/"
 
 build() {
-	cd opera-$version-*
+	cd $name-$version-*
 
-	sed -i \
-		-e 's|share/man|man|' \
-		-e "s|config_dir="/etc"|config_dir="$PKG/etc"|g" \
-		install.sh
+	sed -i -e 's|share/man|man|' install.sh
 
 	install -d $PKG/etc
 	yes n | ./install.sh --prefix=$PKG/usr
 	install -m 0644 -D etc/opera6rc $PKG/etc/opera6rc
 	install -m 0644 -D etc/opera6rc.fixed $PKG/etc/opera6rc.fixed
-	find $PKG -type f -name '*.so' -exec chmod a-x {} \;
+
 	sed -i -e "s|$PKG||g" $PKG/usr/bin/opera
 	rm -r $PKG/usr/share/doc
+
+	find $PKG -type f -name '*.so' -exec chmod a-x {} \;
+
+	find "$PKG/usr/share/opera/locale/" -mindepth 1 -maxdepth 1 -type d \
+		-not -name en -exec rm -r {} \;
 }
