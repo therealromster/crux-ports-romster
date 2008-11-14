@@ -5,12 +5,12 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.5/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
-drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge-1.0.4-py2.5.egg-info/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.4-py2.5.egg-info/PKG-INFO
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.4-py2.5.egg-info/SOURCES.txt
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.4-py2.5.egg-info/dependency_links.txt
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.4-py2.5.egg-info/entry_points.txt
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.4-py2.5.egg-info/top_level.txt
+drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge-1.0.5-py2.5.egg-info/
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.5-py2.5.egg-info/PKG-INFO
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.5-py2.5.egg-info/SOURCES.txt
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.5-py2.5.egg-info/dependency_links.txt
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.5-py2.5.egg-info/entry_points.txt
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge-1.0.5-py2.5.egg-info/top_level.txt
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/SimpleXMLRPCServer.py
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/SimpleXMLRPCServer.pyc
@@ -758,6 +758,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/static/imag
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/static/images/tango/up.png
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/static/images/tango/user-trash.png
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/static/images/tango/view-refresh.png
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/static/refresh.js
 -rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/static/simple_site_style.css
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/
 drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/
@@ -772,6 +773,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/c
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/index.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/login.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/meta.cfg
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/part_auto_refresh.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/part_button.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/part_organize.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/classic/part_stats.html
@@ -794,7 +796,6 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/w
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/header.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/index.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/meta.cfg
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/part_auto_refresh.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/part_label_filters.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/part_organize.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/part_stats.html
@@ -803,6 +804,7 @@ drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/w
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/part_toolbar.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/part_torrent_list.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/template_style.css
+-rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/torrent_info.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/torrent_info_inner.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/templates/white/torrent_label.html
 -rw-r--r--	root/root	usr/lib/python2.5/site-packages/deluge/ui/webui/torrent_add.py
