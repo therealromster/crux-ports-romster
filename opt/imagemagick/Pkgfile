@@ -4,24 +4,19 @@
 # Packager: danm, maol, jaeger
 # Depends on: lzma ghostscript jasper lcms librsvg libungif openexr libwmf
 
-# pre-install xdelta ######################################
-sname='ImageMagick'
-EXT='.tar.lzma'
-OLD_VERSION='6.4.5-3'
+name=imagemagick
+sname=ImageMagick
+version=6.4.5-5
+release=1
+url="ftp://ftp.imagemagick.net/pub/$sname"
+up2date="lynx -dump '$url/' |grep 'tar.lzma' |grep -v '$sname.tar.lzma' |sed -ne 's/.*$sname-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/$sname-$version.tar.lzma)
+mirrors="http://romster.dyndns.org:8080.nyud.net/distfiles/$name/"
 diff="
 	http://scguy318.freeshell.org/romster/linux/
 	http://www.dcaf-security.org/distfiles/
 	http://romster.dyndns.org:8080/distfiles/
 "
-###########################################################
-
-name=imagemagick
-version=6.4.5-4
-release=1
-url="ftp://ftp.imagemagick.net/pub/$sname"
-up2date="lynx -dump '$url/' |grep 'tar.lzma' |grep -v '$sname.tar.lzma' |sed -ne 's/.*$sname-\(.*\)\.t.*/\1/' -e '$ p'"
-source="$url/$sname-$version.tar.lzma"
-mirrors="http://romster.dyndns.org:8080.nyud.net/distfiles/$name/"
 
 build() {
 	# temp fix untill/if pkgutils supports lzma

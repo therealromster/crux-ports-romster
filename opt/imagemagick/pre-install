@@ -1,5 +1,10 @@
 #!/bin/sh
 
+get_basename() {
+	local FILE="`echo $1 | sed 's|^.*://.*/||g'`"
+	echo $FILE
+}
+
 pkg_init() {
 	unset TMP_XDELTA_FILE_LIST
 	PKG_COUNT=1
@@ -279,6 +284,9 @@ main() {
 [ -z "${PKGMK_WORK_DIR}" ] && PKGMK_WORK_DIR="$PWD/work"
 [ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="$PWD"
 [ -z "${sname}" ] && sname="${name}"
+
+#FIXME add in for loop for more than 1 source file
+EXT="$(printf "$(get_basename ${source[0]})" | sed -e "s|^${sname}\(.*\)${version}\(.*\)\(.t.*$\)|\3|")"
 [ -z "${EXT}" ] && EXT='.tar.gz'
 
 # if diff is set overide the default
@@ -308,6 +316,6 @@ main() {
 readonly PKG_LOG_VERBOSE_TOTAL_COUNT=5
 PKG_DIFF_MIRROR=1
 
-main "$@"
+main $@
 
 # End of file
