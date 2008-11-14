@@ -4,16 +4,8 @@
 # Packager: Simon Gloﬂner, viper at hometux dot de
 # Depends on: 
 
-EXT='.tar.bz2'
-OLD_VERSION='2.01.01a52'
-diff="
-	http://scguy318.freeshell.org/romster/linux/
-	http://www.dcaf-security.org/distfiles/
-	http://romster.dyndns.org:8080/distfiles/
-"
-
 name=cdrtools
-version=2.01.01a53
+version=2.01.01a54pre2
 release=1
 url='ftp://ftp.berlios.de/pub/cdrecord/alpha'
 up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
@@ -44,7 +36,7 @@ build() {
 	make -j 1 CC='gcc -D__attribute_const__=const' COPTX="${CFLAGS}" \
 		CPPOPTX="${CPPFLAGS}" LDOPTX="${LDFLAGS}"
 
-	make INS_BASE=$PKG/usr DEFINSUSR=root DEFINSGRP=root install
+	make -j 1 INS_BASE=$PKG/usr DEFINSUSR=root DEFINSGRP=root install
 
 	rm -r $PKG/usr/include
 	install -d $PKG/usr/include/scsilib/scg
