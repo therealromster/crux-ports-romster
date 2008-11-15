@@ -18,24 +18,24 @@ drwxr-xr-x	root/root	usr/include/nvidia/GL/
 -r--r--r--	root/root	usr/include/nvidia/GL/glxext.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libGL.la
--rwxr-xr-x	root/root	usr/lib/libGL.so.173.14.12
-lrwxrwxrwx	root/root	usr/lib/libGLcore.so -> libGLcore.so.173.14.12
--rwxr-xr-x	root/root	usr/lib/libGLcore.so.173.14.12
--rwxr-xr-x	root/root	usr/lib/libcuda.so.173.14.12
--rwxr-xr-x	root/root	usr/lib/libnvidia-cfg.so.173.14.12
--rwxr-xr-x	root/root	usr/lib/libnvidia-tls.so.173.14.12
+-rwxr-xr-x	root/root	usr/lib/libGL.so.177.82
+lrwxrwxrwx	root/root	usr/lib/libGLcore.so -> libGLcore.so.177.82
+-rwxr-xr-x	root/root	usr/lib/libGLcore.so.177.82
+-rwxr-xr-x	root/root	usr/lib/libcuda.so.177.82
+-rwxr-xr-x	root/root	usr/lib/libnvidia-cfg.so.177.82
+-rwxr-xr-x	root/root	usr/lib/libnvidia-tls.so.177.82
 drwxr-xr-x	root/root	usr/lib/tls/
--rwxr-xr-x	root/root	usr/lib/tls/libnvidia-tls.so.173.14.12
+-rwxr-xr-x	root/root	usr/lib/tls/libnvidia-tls.so.177.82
 drwxr-xr-x	root/root	usr/lib/xorg/
 -r--r--r--	root/root	usr/lib/xorg/libXvMCNVIDIA.a
--rwxr-xr-x	root/root	usr/lib/xorg/libXvMCNVIDIA.so.173.14.12
+-rwxr-xr-x	root/root	usr/lib/xorg/libXvMCNVIDIA.so.177.82
 drwxr-xr-x	root/root	usr/lib/xorg/modules/
 drwxr-xr-x	root/root	usr/lib/xorg/modules/drivers/
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/drivers/nvidia_drv.so
 drwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/
 lrwxrwxrwx	root/root	usr/lib/xorg/modules/extensions/libGLcore.so -> /usr/lib/libGLcore.so
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.so.173.14.12
--rwxr-xr-x	root/root	usr/lib/xorg/modules/libnvidia-wfb.so.173.14.12
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.so.177.82
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libnvidia-wfb.so.177.82
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/nvidia-settings.1.gz
