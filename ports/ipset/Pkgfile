@@ -5,13 +5,18 @@
 # Depends on: 
 
 name=ipset
-version=2.4.3
+version=2.4.5
 release=1
-source=(http://ipset.netfilter.org/ipset-$version.tar.bz2)
+source=(http://$name.netfilter.org/$name-$version.tar.bz2)
+
+up2date="curl -s 'http://$name.netfilter.org/install.html' | \
+	grep '.tar.' | egrep -v '.*<!--.*-->.*'| sed \
+	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
+	-e 's|^.*/||' -e 's|?.*$||' \
+	-e 's|^$name-\([^-]*\)\.tar\.bz2$|\1|' | head -n 1"
 
 build() {
-	cd ipset-${version%%-*}
+	cd $name-${version%%-*}
 	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr
 	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr DESTDIR=$PKG install
 }
-
