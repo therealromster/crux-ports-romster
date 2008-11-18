@@ -6,10 +6,14 @@
 
 name=imagemagick
 sname=ImageMagick
-version=6.4.5-7
+version=6.4.5-8
 release=1
 url="ftp://ftp.imagemagick.net/pub/$sname"
-up2date="lynx -dump '$url/' |grep 'tar.lzma' |grep -v '$sname.tar.lzma' |sed -ne 's/.*$sname-\(.*\)\.t.*/\1/' -e '$ p'"
+
+up2date="lynx -dump '$url/' | grep 'tar.lzma' | \
+	grep -v '$sname.tar.lzma' | \
+	sed -ne 's/.*$sname-\(.*\)\.t.*/\1/' -e '$ p'"
+
 source=($url/$sname-$version.tar.lzma)
 mirrors="http://romster.dyndns.org:8080.nyud.net/distfiles/$name/"
 
@@ -40,4 +44,3 @@ build() {
 		-name perllocal.pod -o \
 		-name .packlist \) -delete
 }
-
