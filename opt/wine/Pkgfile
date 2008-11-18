@@ -6,28 +6,21 @@
 
 # Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
 
-# pre-install xdelta ######################################
-EXT='.tar.bz2'
-OLD_VERSION=1.1.7
-diff="
-	http://scguy318.freeshell.org.nyud.net/romster/linux/
-	http://www.dcaf-security.org.nyud.net/distfiles/
-	http://romster.dyndns.org:8080.nyud.net/distfiles/
-	http://scguy318.freeshell.org/romster/linux/
-	http://www.dcaf-security.org/distfiles/
-	http://romster.dyndns.org:8080/distfiles/
-"
-###########################################################
-
 name=wine
 version=1.1.8
 release=1
 url="http://ibiblio.org/pub/linux/system/emulators/$name"
-up2date="lynx -dump '$url/?C=M;O=A' |grep '.tar.bz2' |grep -v 'wine-1.0.' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
-source=($url/$name-$version.tar.bz2)
+
+source=($url/$name-$version.tar.bz2
+	wine-1.1.8-bison_2.4.patch)
+
+up2date="lynx -dump '$url/?C=M;O=A' | grep '.tar.bz2' | \
+	grep -v 'wine-1.0.' | sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
 
 build() {
 	cd $name-$version
+
+	patch -p 0 -i $SRC/wine-1.1.8-bison_2.4.patch
 
 	./configure \
 		--verbose \
@@ -41,4 +34,3 @@ build() {
 	make prefix=$PKG/usr install
 	rm -r $PKG/usr/man/??.UTF-8
 }
-
