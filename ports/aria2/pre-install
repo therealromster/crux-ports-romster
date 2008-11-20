@@ -1,0 +1,475 @@
+#!/bin/sh
+
+log_verbose() {
+	if [ "${PKG_LOG_VERBOSE}" = 'yes' ]; then
+		printf "[%3.0f%s] %s\n" "$(printf "(${PKG_COUNT} / ${PKG_LOG_VERBOSE_TOTAL_COUNT}) * 100\n" | \
+			bc -l)" '%' "${1}"
+
+		PKG_COUNT=$(($PKG_COUNT + 1))
+	fi
+}
+
+log_very_verbose() {
+	if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
+		printf  "[LOG_VERY_VERBOSE] %s\n" "${1}"
+	fi
+}
+
+log_error() {
+	printf "%s\n" "[ERROR] $1" >&2
+	exit 1
+}
+
+log_debug() {
+	printf "%s\n" "[DEBUG] $1"
+}
+
+explode_filename_old() {
+	local FILE
+
+	if [ $# -lt 3 ]; then
+		log_error 'explode_filename_old() to few arguments.'
+	fi
+
+	if [ $# -gt 3 ]; then
+		log_error 'explode_filename_old() to many arguments.'
+	fi
+
+	OLD_FILE_NAME="${1}"
+	OLD_FILE_VERSION="${2}"
+	#FILE="$(printf ${3} | sed -e "s|${NEW_FILE_VERSION}|${OLD_FILE_VERSION}|")"
+	FILE="${3}"
+
+	OLD_FILE_PREFIX="$(printf "${FILE}" | sed -e "s|^${OLD_FILE_NAME}\(.*\)${OLD_FILE_VERSION}\(.*\)\(.t.*$\)|\1|")"
+	OLD_FILE_SUFFIX="$(printf "${FILE}" | sed -e "s|^${OLD_FILE_NAME}\(.*\)${OLD_FILE_VERSION}\(.*\)\(.t.*$\)|\2|")"
+	OLD_FILE_EXT="$(printf "${FILE}" | sed -e "s|^${OLD_FILE_NAME}\(.*\)${OLD_FILE_VERSION}\(.*\)\(.t.*$\)|\3|")"
+
+	OLD_FILE="${OLD_FILE_NAME}${OLD_FILE_PREFIX}${OLD_FILE_VERSION}${OLD_FILE_SUFFIX}${OLD_FILE_EXT}"
+
+	if [ "${LOG_DEBUG}" = 'yes' ]; then
+		log_debug "explode_filename_old() OLD_FILE_NAME ${OLD_FILE_NAME}"
+		log_debug "explode_filename_old() OLD_FILE_VERSION ${OLD_FILE_VERSION}"
+		log_debug "explode_filename_old() FILE ${FILE}"
+		log_debug "explode_filename_old() OLD_FILE_PREFIX ${OLD_FILE_PREFIX}"
+		log_debug "explode_filename_old() OLD_FILE_SUFFIX ${OLD_FILE_SUFFIX}"
+		log_debug "explode_filename_old() OLD_FILE_EXT ${OLD_FILE_EXT}"
+		log_debug "explode_filename_old() OLD_FILE ${OLD_FILE}"
+	fi
+}
+
+explode_filename_new() {
+	local FILE
+
+	if [ $# -lt 3 ]; then
+		log_error 'explode_filename_new() to few arguments.'
+	fi
+
+	if [ $# -gt 3 ]; then
+		log_error 'explode_filename_new() to many arguments.'
+	fi
+
+	NEW_FILE_NAME="${1}"
+	NEW_FILE_VERSION="${2}"
+	FILE="${3}"
+
+	NEW_FILE_PREFIX="$(printf "${FILE}" | sed -e "s|^${NEW_FILE_NAME}\(.*\)${NEW_FILE_VERSION}\(.*\)\(.t.*$\)|\1|")"
+	NEW_FILE_SUFFIX="$(printf "${FILE}" | sed -e "s|^${NEW_FILE_NAME}\(.*\)${NEW_FILE_VERSION}\(.*\)\(.t.*$\)|\2|")"
+	NEW_FILE_EXT="$(printf "${FILE}" | sed -e "s|^${NEW_FILE_NAME}\(.*\)${NEW_FILE_VERSION}\(.*\)\(.t.*$\)|\3|")"
+
+	NEW_FILE="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}${NEW_FILE_EXT}"
+
+	if [ "${LOG_DEBUG}" = 'yes' ]; then
+		log_debug "explode_filename_new() NEW_FILE_NAME ${NEW_FILE_NAME}"
+		log_debug "explode_filename_new() NEW_FILE_VERSION ${NEW_FILE_VERSION}"
+		log_debug "explode_filename_new() FILE ${FILE}"
+		log_debug "explode_filename_new() NEW_FILE_PREFIX ${NEW_FILE_PREFIX}"
+		log_debug "explode_filename_new() NEW_FILE_SUFFIX ${NEW_FILE_SUFFIX}"
+		log_debug "explode_filename_new() NEW_FILE_EXT ${NEW_FILE_EXT}"
+		log_debug "explode_filename_new() NEW_FILE ${NEW_FILE}"
+	fi
+}
+
+get_basename() {
+	local FILE="`echo $1 | sed 's|^.*://.*/||g'`"
+	echo $FILE
+}
+
+is_installed() {
+	local PACKAGE
+
+	if [ $# -gt 1 ]; then
+		log_error 'is_installed() to many arguments.'
+	fi
+
+	if [ $# -lt 1 ]; then
+		log_error 'is_installed() to few arguments.'
+	fi
+
+	PACKAGE="${1}"
+
+	if [ -n "$(pkginfo -i | egrep '^$PACKAGE ')" ]; then
+		log_error "'$PACKAGE' is not installed, can not do a incremental update."
+	fi
+}
+
+check_file_exists() {
+	local FILE="${1}"
+
+	if [ $# -gt 1 ]; then
+		log_error 'check_file_exists() to many arguments.'
+	fi
+
+	if [ -e "${FILE}" ]; then
+		RETURN=1
+	else
+		RETURN=0
+	fi
+}
+
+check_file_missing() {
+	local FILE="${1}"
+
+	if [ $# -gt 1 ]; then
+		log_error 'check_file_missing() to many arguments.'
+	fi
+
+	if [ ! -e "${FILE}" ]; then
+		RETURN=1
+	else
+		RETURN=0
+	fi
+
+	#if [ ! -f "${FILE}" ]; then
+	#	log_error "'${FILE}' is not a regular file."
+	#fi
+}
+
+
+pkg_init() {
+	unset DELTA_FILE_LIST
+	PKG_COUNT=1
+}
+
+array() {
+	printf "${2}" | tr --delete '\n' | sed \
+		-e 's|[\t| ]\+| |g' \
+		-e 's| ||' | cut --delimiter=' ' --fields="${1}"
+}
+
+pkg_checks() {
+	if [ -e "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}" ]; then
+		log_info 'You have the latest source archive.'
+		exit
+	fi
+
+	if [ -z "$(ls ${PKGMK_SOURCE_DIR}/${sname}-*${EXT})" ]; then
+		log_info 'No source archive to use; proceed to download source archive.'
+		exit
+	fi
+
+	is_installed 'xdelta'
+	is_installed 'coreutils'
+	is_installed 'tar'
+	is_installed 'sed'
+	is_installed 'curl'
+	is_installed 'bc' #FIXME could make it optional
+
+	case ${OLD_FILE_EXT} in
+		.tar.gz) is_installed 'gzip' ;;
+		.tar.bz2) is_installed 'bzip2' ;;
+		.tar.lzma) is_installed 'lzma' ;;
+		.tar.lrzip) is_installed 'lrzip' ;;
+	esac
+
+	case ${NEW_FILE_EXT} in
+		.tar.gz) is_installed 'gzip' ;;
+		.tar.bz2) is_installed 'bzip2' ;;
+		.tar.lzma) is_installed 'lzma' ;;
+		.tar.lrzip) is_installed 'lrzip' ;;
+	esac
+}
+
+pkg_work_dir() {
+	if [ ! -e "${PKGMK_WORK_DIR}" ]; then
+		mkdir -p "${PKGMK_WORK_DIR}" || exit 1
+	fi
+	cd "${PKGMK_WORK_DIR}" || exit 1
+}
+
+pkg_download_delta_list() {
+	local URL
+
+	URL="$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")"
+	printf "Patching source files.\n"
+	log_verbose "Retrieving delta list from '$URL'."
+
+	log_very_verbose "curl --silent "$URL" | grep '.xdelta' | grep "${NEW_FILE_NAME}" | \
+sed -e 's|.*[HREF|href]=\"||' -e 's|\".*||' | sort --reverse | xargs"
+
+	XDELTA_FILES="$(curl --silent "$URL" | grep '.xdelta' | grep "${NEW_FILE_NAME}" | \
+sed -e 's|.*[HREF|href]=\"||' -e 's|\".*||' | sort --reverse | xargs)"
+
+	if [ -z "${XDELTA_FILES}" ]; then
+		log_error 'could not download xdelta file list.'
+	fi
+}
+
+pkg_parse_delta_list() {
+	local FILE SOURCE_VERSION SOURCE_VERSIONS GET_VERSION ADD_DIFF \
+		PATCH_NEW_VERSION PATCH_OLD_VERSION PATCH_OLD_VERSIONS
+	GET_VERSION='yes'
+	ADD_DIFF='yes'
+
+	SOURCE_VERSIONS="$(ls --sort=version --reverse ${PKGMK_SOURCE_DIR}/${OLD_FILE_NAME}${OLD_FILE_PREFIX}*${OLD_FILE_SUFFIX}${OLD_FILE_EXT} | \
+		sed -e "s|.*/${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}${OLD_FILE_EXT}|\1|" | \
+		xargs)"
+
+	if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
+		log_very_verbose "Source version list: ${SOURCE_VERSIONS}"
+	
+		for FILE in $XDELTA_FILES; do
+			#PATCH_NEW_VERSION="$(printf ${FILE} |sed -e "s|^$sname-.*.tar-$sname-\(.*\).tar.*|\1|")"
+
+			PATCH_OLD_VERSION="$(printf ${FILE} | \
+				sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*|\1|")"
+
+			PATCH_OLD_VERSIONS="${PATCH_OLD_VERSION} ${PATCH_OLD_VERSIONS}"
+		done
+
+		log_very_verbose "Diff version list: ${PATCH_OLD_VERSIONS}"
+		unset PATCH_OLD_VERSIONS
+	fi
+
+	for SOURCE_VERSION in $SOURCE_VERSIONS; do
+		for FILE in $XDELTA_FILES; do
+			#PATCH_NEW_VERSION="$(printf ${FILE} |sed -e "s|^$sname-.*.tar-$sname-\(.*\).tar.*|\1|")"
+
+			PATCH_OLD_VERSION="$(printf ${FILE} | \
+				sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*|\1|")"
+
+			if [ "${GET_VERSION}" = 'yes' ]; then
+				if [ "${SOURCE_VERSION}" = "${PATCH_OLD_VERSION}" ]; then
+					HAS_VERSION="${SOURCE_VERSION}"
+					GET_VERSION='no'
+				fi
+			fi
+		done
+	done
+	if [ -z "${HAS_VERSION}" ]; then
+		log_error 'no source archive matches any delta version.'
+	fi
+	log_very_verbose "Using source archive ${OLD_FILE_NAME}${OLD_FILE_PREFIX}${HAS_VERSION}${OLD_FILE_SUFFIX}${OLD_FILE_EXT}."
+
+	for FILE in $XDELTA_FILES; do
+		#PATCH_NEW_VERSION="$(printf ${FILE} |sed -e "s|^$sname-.*.tar-$sname-\(.*\).tar.*|\1|")"
+
+		PATCH_OLD_VERSION="$(printf ${FILE} | \
+			sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*|\1|")"
+
+		if [ "${ADD_DIFF}" = 'yes' ]; then
+			DELTA_FILE_LIST="${FILE} ${DELTA_FILE_LIST}"
+			if [ "${HAS_VERSION}" = "${PATCH_OLD_VERSION}" ]; then
+				ADD_DIFF='no'
+			fi
+		fi
+	done
+}
+
+pkg_download_diff() {
+	local COUNT TOTAL FILE DOWNLOAD_TOTAL
+
+	COUNT=1
+
+	# count missing files to download.
+	for FILE in ${DELTA_FILE_LIST}; do
+		if [ ! -e "${PKGMK_SOURCE_DIR}/${FILE}" ]; then
+			DOWNLOAD_TOTAL="${FILE} ${DOWNLOAD_TOTAL}"
+		fi
+	done
+	TOTAL="$(printf "${DOWNLOAD_TOTAL}" | wc --words)"
+	unset DOWNLOAD_TOTAL
+
+	if [ "${TOTAL}" -gt 0 ]; then
+		printf "%s\n" "Downloading deltas."
+	elif [ "${TOTAL}" -gt 1 ]; then
+		printf "%s\n" "Downloading delta."
+	fi
+
+	for FILE in ${DELTA_FILE_LIST}; do
+
+		if [ ! -e "${PKGMK_SOURCE_DIR}/${FILE}" ]; then
+			printf "  [%3.0f%s] %s\n" "$(printf "($COUNT / $TOTAL) * 100\n"  | \
+				bc -l)" '%' "Downloading ${FILE}."
+
+			if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
+				log_very_verbose "curl --silent --remote-name --retry 3 \
+					\"$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")${FILE}\""
+			fi
+
+			curl --silent --remote-name --retry 3 \
+				"$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")${FILE}"
+
+			mv "${FILE}" "${PKGMK_SOURCE_DIR}/${FILE}"
+			COUNT=$(($COUNT + 1))
+		fi
+
+		log_very_verbose "Copying ${PKGMK_SOURCE_DIR}/${FILE} to ${PKGMK_WORK_DIR}/"
+		cp "${PKGMK_SOURCE_DIR}/${FILE}" . || exit 1
+	done
+
+	if [ "${TOTAL}" -gt 0 ]; then
+		printf "Done.\n"
+	fi
+}
+
+pkg_extract() {
+	local OLD_FILE OLD_FILE_TAR
+
+	OLD_FILE="${OLD_FILE_NAME}${OLD_FILE_PREFIX}${HAS_VERSION}${OLD_FILE_SUFFIX}${OLD_FILE_EXT}"
+	OLD_FILE_TAR="${OLD_FILE_NAME}${OLD_FILE_PREFIX}${HAS_VERSION}${OLD_FILE_SUFFIX}.tar"
+
+	log_very_verbose "Copying ${PKGMK_SOURCE_DIR}/${OLD_FILE} to ${PKGMK_WORK_DIR}/"
+	cp "${PKGMK_SOURCE_DIR}/${OLD_FILE}" .
+	log_verbose 'Decompressing source archive.'
+
+	case ${OLD_FILE_EXT} in
+		.tar.gz) gzip -d "${OLD_FILE}" ;;
+		.tar.bz2) bzip2 -d "${OLD_FILE}" ;;
+		.tar.lzma) lzma -d "${OLD_FILE}" ;;
+		.tar.lrzip) lrzip -d "${OLD_FILE}" ;;
+	esac
+
+	log_very_verbose "Decompressed tarball ${OLD_FILE} to ${OLD_FILE_TAR}"
+}
+
+pkg_patch() {
+	local PATCH PATCH_OLD_VERSION PATCH_OLD_VERSION_TAR COUNT TOTAL
+
+	TOTAL="$(printf "${DELTA_FILE_LIST}" | wc --words)"
+	COUNT=1
+	printf "Patching source code.\n"
+
+	for PATCH in ${DELTA_FILE_LIST}; do
+
+		PATCH_OLD_VERSION="$(printf ${PATCH} | \
+			sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}-.*|\1|")"
+
+		PATCH_OLD_VERSION_TAR="${OLD_FILE_NAME}${OLD_FILE_PREFIX}${PATCH_OLD_VERSION}${OLD_FILE_SUFFIX}.tar"
+		log_very_verbose "Patching ${PATCH_OLD_VERSION_TAR} with ${PATCH}"
+
+		printf  "  [%3.0f%s] %s\n" "$(printf "($COUNT / $TOTAL) * 100\n"  | \
+			bc -l)" '%' "Applying patch ${PATCH}."
+
+		COUNT=$(($COUNT + 1))
+		xdelta patch "${PATCH}" || exit 1
+		log_very_verbose "Removing old files ${PATCH} ${PATCH_OLD_VERSION_TAR}"
+		rm "${PATCH}" "${PATCH_OLD_VERSION_TAR}"
+	done
+	printf "Done.\n"
+}
+
+pkg_compress() {
+	local NEW_FILE_TAR="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}.tar"
+
+	log_verbose 'Compressing patched source archive.'
+
+	case ${NEW_FILE_EXT} in
+		.tar.gz) gzip -9 "${NEW_FILE_TAR}" ;;
+		.tar.bz2) bzip2 -9 "${NEW_FILE_TAR}" ;;
+		.tar.lzma) lzma -9 "${NEW_FILE_TAR}" ;;
+		.tar.lrzip) lrzip -L 9 "${NEW_FILE_TAR}" ;;
+	esac
+}
+
+pkg_save_new_source() {
+	log_verbose 'Saving archive.'
+	log_very_verbose "Moving ${NEW_FILE} to $PKGMK_SOURCE_DIR/"
+	mv "${NEW_FILE}" "$PKGMK_SOURCE_DIR/"
+	cd - > /dev/null
+	rmdir "$PKGMK_WORK_DIR"
+	printf "Done.\n"
+}
+
+main() {
+	for FILE in ${source[@]}; do
+		if [ -z "$(get_basename "${FILE}" | egrep '*.patch$')" ]; then
+			explode_filename_new "${NEW_FILE_NAME}" "${NEW_FILE_VERSION}" "$(get_basename "${FILE}")"
+			explode_filename_old "${OLD_FILE_NAME}" "${NEW_FILE_VERSION}" "$(get_basename "${FILE}")" #FIXME is set to new
+			pkg_init
+			pkg_checks
+			pkg_work_dir
+			pkg_download_delta_list
+			pkg_parse_delta_list
+			pkg_download_diff
+			pkg_extract
+			pkg_patch
+			pkg_compress
+			pkg_save_new_source
+		fi
+	done
+}
+
+check_file_missing 'Pkgfile'
+if [ "${RETURN}" = 1 ]; then
+	log_error "Missing file './Pkgfile'."
+else
+	. ./Pkgfile
+fi
+
+check_file_missing '/etc/pkgmk.conf'
+if [ "${RETURN}" = 1 ]; then
+	log_error "Missing file '/etc/pkgmk.conf'."
+else
+	. /etc/pkgmk.conf
+fi
+
+[ -z "${PKGMK_WORK_DIR}" ] && PKGMK_WORK_DIR="$PWD/work"
+[ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="$PWD"
+
+[ -z "${sname}" ] && sname="${name}"
+[ -z "${OLD_FILE_NAME}" ] && OLD_FILE_NAME="$sname"
+[ -z "${NEW_FILE_VERSION}" ] && NEW_FILE_VERSION="$version"
+[ -z "${NEW_FILE_NAME}" ] && NEW_FILE_NAME="$sname"
+[ -z "${OLD_FILE_PREFIX}" ] && OLD_FILE_PREFIX="${NEW_FILE_PREFIX}"
+[ -z "${OLD_FILE_SUFFIX}" ] && OLD_FILE_SUFFIX="${NEW_FILE_SUFFIX}"
+[ -z "${OLD_FILE_EXT}" ] && OLD_FILE_EXT="${NEW_FILE_EXT}"
+
+# if diff is set overide the default
+[ -n "${diff}" ] && PKG_DIFF_MIRRORS="${diff}"
+
+if [ -z "${PKG_DIFF_MIRRORS}" ]; then
+	PKG_DIFF_MIRRORS="
+		http://scguy318.freeshell.org/romster/linux/
+		http://www.dcaf-security.org/distfiles/
+		http://shortcircuit.net.au/~romster/distfiles/
+		http://romster.dyndns.org:8080/distfiles/
+	"
+fi
+
+#if [ -z "${PKG_DIFF_MIRROR}" ]; then
+#	PKG_DIFF_MIRROR_TOTAL="$(printf "${PKG_DIFF_MIRRORS}" |wc --words)"
+#	PKG_DIFF_MIRROR_RANDOM="$(dd if=/dev/urandom count=1 2> /dev/null | cksum \
+#		| cut -f1 -d" " |sed -e 's/\([0-9]\).*/\1/')"
+#	CONTINUE='yes'
+
+#	while [ $PKG_DIFF_MIRROR_RANDOM -lt $(($PKG_DIFF_MIRROR_TOTAL+1)) ] && [ $CONTINUE = 'yes' ]; do
+#		if [ -n $PKG_DIFF_MIRROR_RANDOM ]; then
+#			CONTINUE='no'
+#			PKG_DIFF_MIRROR="${PKG_DIFF_MIRROR_RANDOM}"
+#		fi
+#		PKG_DIFF_MIRROR_RANDOM="$(dd if=/dev/urandom count=1 2> /dev/null \
+#			| cksum | cut -f1 -d" " |sed -e 's/\([0-9]\).*/\1/')"
+#	done
+#fi
+#echo $PKG_DIFF_MIRROR
+
+[ -z "${LOG_DEBUG}" ] && LOG_DEBUG='no'
+[ -z "${PKG_LOG_VERY_VERBOSE}" ] && PKG_LOG_VERY_VERBOSE='no'
+[ -z "${PKG_LOG_VERBOSE}" ] && PKG_LOG_VERBOSE='yes'
+
+readonly PKG_LOG_VERBOSE_TOTAL_COUNT=4
+PKG_DIFF_MIRROR=1
+
+main $@
+
+# End of file

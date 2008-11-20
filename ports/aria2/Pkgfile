@@ -5,12 +5,17 @@
 # Depends on: c-ares openssl libxml2 zlib
 
 name=aria2
-version=0.15.3
+sname=aria2c
+version=1.0.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/${name}c-$version.tar.bz2)
+up2date="curl -s 'http://sourceforge.net/project/showfiles.php?group_id=159897&package_id=179690' | \
+	grep '.tar.' | sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|^.*/||' -e 's|?.*$||' | \
+	grep -v '^mirror_picker.php$' | sed -e 's|^$sname-\([^-]*\)\.tar\.bz2$|\1|' | head -n 1"
+
+source=(http://dl.sourceforge.net/sourceforge/$name/$sname-$version.tar.bz2)
 
 build() {
-	cd ${name}c-$version
+	cd $sname-$version
 
 	./configure \
 		--prefix=/usr \
@@ -23,4 +28,3 @@ build() {
 	rm -r $PKG/usr/share/doc
 	rmdir $PKG/usr/share
 }
-
