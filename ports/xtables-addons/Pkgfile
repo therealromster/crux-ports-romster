@@ -5,7 +5,7 @@
 # Depends on: iptables geoip_iv0_database
 
 name=xtables-addons
-version=1.5.7
+version=1.6
 release=1
 url='http://dev.computergmbh.de/files/xtables'
 up2date="lynx -dump '$url/?C=D;O=A' |grep tar.bz2 |sed -e 's/.*-\(.*\)\.t.*/\1/' -e 'q'"
@@ -24,5 +24,12 @@ build() {
 	make DESTDIR=$PKG install
 	chmod a-x $PKG/usr/lib/xtables/*.so
 	rm $PKG/lib/modules/$(uname -r)/modules.*
-}
 
+	#remove ipset there is a ipset package
+	rm \
+		$PKG/usr/lib/xtables/libipset_* \
+		$PKG/usr/man/man8/ipset.8 \
+		$PKG/usr/sbin/ipset
+
+	rmdir $PKG/usr/sbin
+}
