@@ -28,7 +28,6 @@ lrwxrwxrwx	root/root	usr/bin/wineg++ -> winegcc
 -rwxr-xr-x	root/root	usr/bin/winepath
 -rwxr-xr-x	root/root	usr/bin/wineprefixcreate
 -rwxr-xr-x	root/root	usr/bin/wineserver
--rwxr-xr-x	root/root	usr/bin/wineshelllink
 -rwxr-xr-x	root/root	usr/bin/wmc
 -rwxr-xr-x	root/root	usr/bin/wrc
 drwxr-xr-x	root/root	usr/include/
@@ -605,6 +604,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/ctl3d32.dll.so
 -rw-r--r--	root/root	usr/lib/wine/ctl3dv2.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/d3d10.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/d3d10core.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3d8.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3d9.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dim.dll.so
@@ -720,6 +720,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libcryptui.def
 -rw-r--r--	root/root	usr/lib/wine/libctl3d32.def
 -rw-r--r--	root/root	usr/lib/wine/libd3d10.def
+-rw-r--r--	root/root	usr/lib/wine/libd3d10core.def
 -rw-r--r--	root/root	usr/lib/wine/libd3d8.def
 -rw-r--r--	root/root	usr/lib/wine/libd3d9.def
 -rw-r--r--	root/root	usr/lib/wine/libd3dim.def
@@ -840,6 +841,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libws2_32.def
 -rw-r--r--	root/root	usr/lib/wine/libwsock32.def
 -rw-r--r--	root/root	usr/lib/wine/libwtsapi32.def
+-rw-r--r--	root/root	usr/lib/wine/libxinput.def
 -rwxr-xr-x	root/root	usr/lib/wine/localspl.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/localui.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/lz32.dll.so
@@ -1066,6 +1068,10 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/wsock32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wtsapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/xcopy.exe.so
+-rwxr-xr-x	root/root	usr/lib/wine/xinput1_1.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/xinput1_2.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/xinput1_3.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/xinput9_1_0.dll.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/widl.1.gz
