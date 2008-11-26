@@ -1,0 +1,29 @@
+# Description: GNU an implementation of SIP.
+# URL: http://www.gnu.org/software/osip/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club dash internet dot fr
+# Depends on:
+
+name=libosip2
+version=3.2.0
+release=1
+url='http://ftp.gnu.org/gnu/osip'
+source=($url/$name-$version.tar.gz)
+
+up2date="curl -s '$url/?C=M;O=D' | \
+	grep '.tar.' |sed \
+	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
+	-e 's|^.*/||' -e 's|?.*$||' \
+	-e 's|^$name-\([^-]*\)\.tar\.gz$|\1|' | \
+	head -n 1"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man
+
+	make
+	make prefix=$PKG/usr install
+}
