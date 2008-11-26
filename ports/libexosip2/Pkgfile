@@ -1,0 +1,27 @@
+# Description:	eXosip2 - the eXtended osip library.
+# URL: http://savannah.gnu.org/projects/exosip
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager:	Ivan Rodionov, jean at mosk ru
+# Depends on:
+
+name=libexosip2
+sname=libeXosip2
+version=3.2.0
+release=1
+url='http://download.savannah.gnu.org/releases/exosip'
+source=($url/$sname-$version.tar.gz)
+
+up2date="curl -s '$url/?C=M;O=D' | \
+	grep '.tar.' | sed \
+	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
+	-e 's|^.*/||' -e 's|?.*$||' | \
+	grep -v \".sig$\" | \
+	sed -e 's|^$sname-\([^-]*\)\.tar\.gz$|\1|' | \
+	head -n 1"
+
+build() {
+	cd $sname-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=/$PKG install
+}
