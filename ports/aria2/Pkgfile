@@ -6,7 +6,7 @@
 
 name=aria2
 sname=aria2c
-version=1.0.0
+version=1.0.1
 release=1
 up2date="curl -s 'http://sourceforge.net/project/showfiles.php?group_id=159897&package_id=179690' | \
 	grep '.tar.' | sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|^.*/||' -e 's|?.*$||' | \
