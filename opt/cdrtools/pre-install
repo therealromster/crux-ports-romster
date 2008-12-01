@@ -1,4 +1,24 @@
 #!/bin/sh
+#
+#  pre-install
+# 
+#  Copyright (c) 2008 Danny Rawlins
+# 
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, 
+#  USA.
+#
 
 log_verbose() {
 	if [ "${PKG_LOG_VERBOSE}" = 'yes' ]; then
@@ -144,7 +164,6 @@ check_file_missing() {
 	#fi
 }
 
-
 pkg_init() {
 	unset DELTA_FILE_LIST
 	PKG_COUNT=1
@@ -154,6 +173,12 @@ array() {
 	printf "${2}" | tr --delete '\n' | sed \
 		-e 's|[\t| ]\+| |g' \
 		-e 's| ||' | cut --delimiter=' ' --fields="${1}"
+}
+
+array_count() {
+	printf "${1}" | tr --delete '\n' | sed \
+		-e 's|[\t| ]\+| |g' \
+		-e 's| ||' | wc --words
 }
 
 pkg_checks() {
@@ -196,9 +221,21 @@ pkg_work_dir() {
 	cd "${PKGMK_WORK_DIR}" || exit 1
 }
 
+pkg_pick_mirror() {
+	# pick a server to download patches
+	#local PKG_DIFF_MIRROR_TOTAL="$(array_count "${PKG_DIFF_MIRRORS}")"
+	case $(date +%S) in
+		*[15]) PKG_DIFF_MIRROR=4 ;;
+		*[30]) PKG_DIFF_MIRROR=3 ;;
+		*[45]) PKG_DIFF_MIRROR=2 ;;
+		*)     PKG_DIFF_MIRROR=1 ;;
+	esac
+}
+
 pkg_download_delta_list() {
 	local URL
 
+	pkg_pick_mirror
 	URL="$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")"
 	printf "Patching source files.\n"
 	log_verbose "Retrieving delta list from '$URL'."
@@ -276,8 +313,9 @@ pkg_parse_delta_list() {
 }
 
 pkg_download_diff() {
-	local COUNT TOTAL FILE DOWNLOAD_TOTAL
+	local URL COUNT TOTAL FILE DOWNLOAD_TOTAL
 
+	URL="$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")"
 	COUNT=1
 
 	# count missing files to download.
@@ -302,12 +340,15 @@ pkg_download_diff() {
 				bc -l)" '%' "Downloading ${FILE}."
 
 			if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
-				log_very_verbose "curl --silent --remote-name --retry 3 \
-					\"$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")${FILE}\""
+				log_very_verbose "curl --fail --silent --remote-name \
+					--retry 3 \"${URL}${FILE}\""
 			fi
 
-			curl --silent --remote-name --retry 3 \
-				"$(array "${PKG_DIFF_MIRROR}" "${PKG_DIFF_MIRRORS}")${FILE}"
+			curl --fail --silent --remote-name --retry 3 "${URL}${FILE}"
+
+			if [ $? -gt 0 ]; then
+				error "Failed to download '${URL}${FILE}'."
+			fi
 
 			mv "${FILE}" "${PKGMK_SOURCE_DIR}/${FILE}"
 			COUNT=$(($COUNT + 1))
@@ -437,37 +478,21 @@ fi
 # if diff is set overide the default
 [ -n "${diff}" ] && PKG_DIFF_MIRRORS="${diff}"
 
+# list of servers to download from
 if [ -z "${PKG_DIFF_MIRRORS}" ]; then
 	PKG_DIFF_MIRRORS="
 		http://scguy318.freeshell.org/romster/linux/
 		http://www.dcaf-security.org/distfiles/
+		http://shortcircuit.net.au/~romster/distfiles/
 		http://romster.dyndns.org:8080/distfiles/
 	"
 fi
-
-#if [ -z "${PKG_DIFF_MIRROR}" ]; then
-#	PKG_DIFF_MIRROR_TOTAL="$(printf "${PKG_DIFF_MIRRORS}" |wc --words)"
-#	PKG_DIFF_MIRROR_RANDOM="$(dd if=/dev/urandom count=1 2> /dev/null | cksum \
-#		| cut -f1 -d" " |sed -e 's/\([0-9]\).*/\1/')"
-#	CONTINUE='yes'
-
-#	while [ $PKG_DIFF_MIRROR_RANDOM -lt $(($PKG_DIFF_MIRROR_TOTAL+1)) ] && [ $CONTINUE = 'yes' ]; do
-#		if [ -n $PKG_DIFF_MIRROR_RANDOM ]; then
-#			CONTINUE='no'
-#			PKG_DIFF_MIRROR="${PKG_DIFF_MIRROR_RANDOM}"
-#		fi
-#		PKG_DIFF_MIRROR_RANDOM="$(dd if=/dev/urandom count=1 2> /dev/null \
-#			| cksum | cut -f1 -d" " |sed -e 's/\([0-9]\).*/\1/')"
-#	done
-#fi
-#echo $PKG_DIFF_MIRROR
 
 [ -z "${LOG_DEBUG}" ] && LOG_DEBUG='no'
 [ -z "${PKG_LOG_VERY_VERBOSE}" ] && PKG_LOG_VERY_VERBOSE='no'
 [ -z "${PKG_LOG_VERBOSE}" ] && PKG_LOG_VERBOSE='yes'
 
 readonly PKG_LOG_VERBOSE_TOTAL_COUNT=4
-PKG_DIFF_MIRROR=1
 
 main $@
 
