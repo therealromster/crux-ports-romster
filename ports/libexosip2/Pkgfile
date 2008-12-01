@@ -2,7 +2,7 @@
 # URL: http://savannah.gnu.org/projects/exosip
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager:	Ivan Rodionov, jean at mosk ru
-# Depends on:
+# Depends on: libosip2
 
 name=libexosip2
 sname=libeXosip2
@@ -21,7 +21,8 @@ up2date="curl -s '$url/?C=M;O=D' | \
 
 build() {
 	cd $sname-$version
+	CFLAGS+=' -funit-at-a-time'
 	./configure --prefix=/usr
-	make
+	make -j 1
 	make DESTDIR=/$PKG install
 }
