@@ -3,14 +3,21 @@
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: pekwm
+# Optional: gtk-theme-frugalware
 
 name=pekwm-theme-frugalware
-version=0.1
+sname=frugalware-themepack
+version=0.3
 release=1
-source=(http://ftp.frugalware.org/pub/other/people/ryuo/frugalware-themepack-$version.tar.gz)
+url='http://ftp.frugalware.org/pub/other/people/ryuo'
+source=($url/$sname-$version.tar.gz)
+
+up2date="curl -s -l '$url/' | grep '.tar.' | sed \
+	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
+	-e 's|^.*/||' -e 's|?.*$||' | grep '$sname' | sed \
+	-e 's|^$sname-\([^-]*\)\.tar\..*$|\1|' | tail -n 1"
 
 build() {
 	install -d $PKG/usr/share/pekwm/themes/Frugalware
 	install -m 0644 -t $PKG/usr/share/pekwm/themes/Frugalware/ Frugalware/Frugalware-pekwm/*
 }
-
