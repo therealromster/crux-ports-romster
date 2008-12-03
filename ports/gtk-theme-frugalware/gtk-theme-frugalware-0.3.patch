@@ -1,0 +1,36 @@
+--- src.orig/Frugalware/Frugalware-gtk2/gtk-2.0/gtkrc	2008-12-03 17:39:24.206291355 +1100
++++ src/Frugalware/Frugalware-gtk2/gtk-2.0/gtkrc	2008-12-03 15:42:30.000000000 +1100
+@@ -40,7 +40,7 @@
+ 
+   bg[NORMAL]        = @bg_color # "#ede9e3"
+   bg[PRELIGHT]      = shade (1.02, @bg_color) #"#f9f7f3" # very light beige
+-  bg[SELECTED]	    = @selected_bg_color # "#5598d7" # deepsky
++  bg[SELECTED]	     = @selected_bg_color # "#5598d7" # deepsky
+   bg[INSENSITIVE]   = @bg_color # "#efebe5" # beige
+   bg[ACTIVE]        = shade (0.9, @bg_color) #"#dcd4c9" #"#d7d3ca" # dark beige
+ 
+@@ -58,11 +58,11 @@
+ 
+   engine "clearlooks" 
+   {
+-    scrollbar_color   = "#76acde"
++    #scrollbar_color   = "#76acde"
+     menubarstyle      = 2       # 0 = flat, 1 = sunken, 2 = flat gradient
+-    animation         = FALSE
+-    style             = GLOSSY
+-    radius            = 3.0
++    #animation         = FALSE
++    #style             = GLOSSY
++    #radius            = 3.0
+   }
+ }
+ 
+@@ -142,7 +142,7 @@
+   # fg[PRELIGHT]  = "#ffffff"
+   engine "clearlooks"
+   {
+-    radius = 1.5
++    #radius = 1.5
+   }
+ }
+ 

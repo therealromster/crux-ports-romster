@@ -7,9 +7,10 @@
 name=gtk-theme-frugalware
 sname=frugalware-themepack
 version=0.3
-release=1
+release=2
 url='http://ftp.frugalware.org/pub/other/people/ryuo'
-source=($url/$sname-$version.tar.gz)
+source=($url/$sname-$version.tar.gz 
+	$name-0.3.patch)
 
 up2date="curl -s -l '$url/' | grep '.tar.' | sed \
 	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
@@ -17,6 +18,7 @@ up2date="curl -s -l '$url/' | grep '.tar.' | sed \
 	-e 's|^$sname-\([^-]*\)\.tar\..*$|\1|' | tail -n 1"
 
 build() {
+	patch -p 1 -i $SRC/$name-0.3.patch
 	install -d $PKG/usr/share/themes/Frugalware
 	cp -r $SRC/Frugalware/Frugalware-gtk2/* $PKG/usr/share/themes/Frugalware/
 }
