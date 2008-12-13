@@ -1,0 +1,17 @@
+# Description: Convert DAA files (Direct Access Archive, used by PowerISO) to ISO.
+# URL: http://aluigi.org/mytoolz.htm#daa2iso
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: zlib
+
+name=daa2iso
+version=0.1.7a
+release=1
+source=(http://aluigi.org/mytoolz/$name.zip)
+
+build() {
+	cd src
+	sed -i -e 's|^PREFIX	= /usr/local|PREFIX	= $(DESTDIR)/usr|' Makefile
+	make
+	make DESTDIR=$PKG install
+}
