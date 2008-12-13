@@ -1,0 +1,33 @@
+# Description: A distributed version control system.
+# URL: http://www.monotone.ca/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: boost libpcre lua texi2man glibc zlib upx
+
+# NOTE built with safe-build crux-2.4 sysup
+
+name=monotone-static
+sname=monotone
+version=0.41
+release=1
+source=(http://www.monotone.ca/downloads/$version/$sname-$version.tar.gz)
+
+build() {
+	cd $sname-$version
+
+	CXXFLAGS+=' -fno-stack-protector -fno-strict-aliasing -fno-omit-frame-pointer' \
+	LDFLAGS='-static' \
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls \
+		--enable-ipv6 \
+		--with-system-pcre \
+		--with-bundled-lua=no \
+		BOOST_SUFFIX='-mt'
+
+	make
+	make DESTDIR=$PKG install
+	upx -9 $PKG/usr/bin/mtn
+	rm -r $PKG/usr/share
+}
