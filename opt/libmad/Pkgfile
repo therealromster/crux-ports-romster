@@ -7,16 +7,19 @@ name=libmad
 version=0.15.1b
 release=4
 source=(http://dl.sourceforge.net/mad/${name}-${version}.tar.gz
-	mad.pc gcc34.patch)
+	mad.pc)
 
 build() {
-    install -d $PKG/usr/lib/pkgconfig/
-    sed "s/#version#/$version/" mad.pc > $PKG/usr/lib/pkgconfig/mad.pc
+	install -d $PKG/usr/lib/pkgconfig/
+	sed "s/#version#/$version/" mad.pc > $PKG/usr/lib/pkgconfig/mad.pc
 
-    cd $name-$version
+	cd $name-$version
 
-    ./configure --prefix=/usr
-	 patch -p 1 -i $SRC/gcc34.patch
-    make
-    make DESTDIR=$PKG install
+	# remove -fforce-mem with safety check on version
+	[ "$version" = '0.15.1b' ] || exit 1
+	sed -i '19102d' configure
+
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
 }
