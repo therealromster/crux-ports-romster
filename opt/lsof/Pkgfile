@@ -5,19 +5,24 @@
 
 name=lsof
 version=4.81
-release=1
+release=2
 url="ftp://$name.itap.purdue.edu/pub/tools/unix/$name"
-up2date="lynx -dump '$url/' |grep tar.bz2$ |sed -ne 's/.*_\(.*\)\.t.*/\1/' -e '1 p'"
-source=($url/${name}_$version.tar.bz2)
+up2date="lynx -dump '$url/' | grep tar.bz2$ | sed -ne 's/.*_\(.*\)\.t.*/\1/' -e '1 p'"
+source=($url/${name}_$version.tar.bz2
+	$url/patches/$version/proc.c.patch)
 
 build() {
-    cd lsof_$version
-    tar -xf lsof_${version}_src.tar
-    cd lsof_${version}_src
-    yes "" | ./Configure linux
-    sed -i -e "s/-DLINUXV/$CFLAGS -DLINUXV/" Makefile
-    make
-    install -m 0755 -D lsof $PKG/usr/sbin/lsof
-    install -m 0644 -D lsof.8 $PKG/usr/man/man8/lsof.8
-}
+	cd ${name}_$version
+	 
+	tar -xf lsof_${version}_src.tar
+	cd lsof_${version}_src
 
+	patch -p 0 -i $SRC/proc.c.patch
+
+	yes "" | ./Configure linux
+	sed -i -e "s/-DLINUXV/$CFLAGS -DLINUXV/" Makefile
+	make
+
+	install -m 0755 -D lsof $PKG/usr/sbin/lsof
+	install -m 0644 -D lsof.8 $PKG/usr/man/man8/lsof.8
+}
