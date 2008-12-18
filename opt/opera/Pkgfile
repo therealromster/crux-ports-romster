@@ -5,7 +5,7 @@
 # Depends on: qt4
 
 name=opera
-version=9.62
+version=9.63
 release=1
 source=(http://ftp.ntua.gr/pub/www/Opera/linux/${version//./}/final/en/i386/$name-$version.gcc4-qt4.i386.tar.bz2)
 mirrors="http://ftp.heanet.ie/pub/opera/linux/${version//./}/final/en/i386/"
