@@ -9,11 +9,13 @@ version=2.8.6
 release=2
 source=(http://www.xchat.org/files/source/${version%.*}/xchat-$version.tar.bz2
 	http://www.xchat.org/files/source/${version%.*}/patches/xc286-smallfixes.diff
-	xchat-$version-reverse-shift-copy-timestamps.patch)
+	$name-2.8.6-reverse-shift-copy-timestamps.patch
+	$name-gtk2.patch)
 
 build() {
-	cd xchat-$version
+	cd $name-$version
 
+	patch -p 1 -i $SRC/$name-gtk2.patch
 	patch -p 1 -i $SRC/xc286-smallfixes.diff
 
 	# fix an anoyance
@@ -37,6 +39,4 @@ build() {
 
 	install -m 0644 -D xchat.desktop $PKG/usr/share/applications/xchat.desktop
 	install -m 0644 -D xchat.png $PKG/usr/share/pixmaps/xchat.png
-
 }
-
