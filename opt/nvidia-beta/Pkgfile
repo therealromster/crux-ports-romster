@@ -5,14 +5,15 @@
 # Depends on: gtk gl-select
 
 name=nvidia
-version=177.67
+sname=NVIDIA-Linux-x86
+version=180.18
 release=1
-source=(http://us.download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run
+source=(ftp://download.nvidia.com/XFree86/Linux-x86/$version/$sname-$version-pkg0.run
 	$name-makefile.patch)
 
 build() {
 	sh NVIDIA-Linux-x86-$version-pkg0.run --extract-only
-	cd NVIDIA-Linux-x86-$version-pkg0
+	cd $sname-$version-pkg0
 
 	# patch Makefile.kbuild for normal users and no load during build
 	patch -p 0 -i $SRC/$name-makefile.patch usr/src/nv/Makefile.kbuild
@@ -29,6 +30,10 @@ build() {
 	sed -i -e 's|__LIBGL_PATH__|/usr/lib|' $PKG/usr/lib/libGL.la
 	ln -s libGLcore.so.$version $PKG/usr/lib/libGLcore.so
 	ln -sf /usr/lib/libGLcore.so $PKG/usr/lib/xorg/modules/extensions/libGLcore.so
+
+	# additional symlinks required by gl-select
+	ln -s libGL.so.$version $PKG/usr/lib/libGL_so_1_2_nvidia
+	ln -s libglx.so.$version $PKG/usr/lib/xorg/modules/extensions/libglx_so_nvidia
 
 	# copy includes
 	install -d $PKG/usr/include/nvidia
