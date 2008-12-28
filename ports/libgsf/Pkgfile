@@ -2,22 +2,35 @@
 # URL: http://freshmeat.net/projects/libgsf/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: glib p5-xml-parser pygtk bzip2
+# Depends on: p5-xml-parser pygtk bzip2 zlib
 
 name=libgsf
-version=1.14.8
+version=1.14.10
 release=1
-source=(http://ftp.gnome.org/pub/gnome/sources/libgsf/${version%.*}/libgsf-$version.tar.bz2)
+url="http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}"
+source=($url/$name-$version.tar.bz2)
+
+up2date_branch="curl -s 'http://ftp.gnome.org/pub/GNOME/sources/$name/?C=N;O=A' | \
+	grep '<a ' | sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|/$||' | \
+	egrep -v '^(mailto|http|/pub/GNOME/sources)' | tail -n 1"
+
+up2date="curl -s '$url/?C=N;O=A' | \
+	grep '<a ' | sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' | egrep -o 'LATEST-IS-.*' | \
+	sed -e 's|LATEST-IS-||'"
 
 build() {
-	cd libgsf-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man \
+		--disable-nls \
+		--disable-gtk-doc \
 		--disable-dependency-tracking \
 		--disable-static \
-		--without-gnome \
+		--disable-schemas-install \
+		--without-gnome-vfs \
+		--without-bonobo \
 		--with-python \
 		--with-bz2
 
@@ -26,4 +39,3 @@ build() {
 	chmod a-x $PKG/usr/lib/*.so
 	rm -r $PKG/usr/share
 }
-

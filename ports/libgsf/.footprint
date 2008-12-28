@@ -10,9 +10,6 @@ drwxr-xr-x	root/root	usr/include/libgsf-1/gsf-gnome/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf-gnome/gsf-output-bonobo.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf-gnome/gsf-output-gnomevfs.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf-gnome/gsf-shared-bonobo-stream.h
-drwxr-xr-x	root/root	usr/include/libgsf-1/gsf-gvfs/
--rw-r--r--	root/root	usr/include/libgsf-1/gsf-gvfs/gsf-input-gvfs.h
--rw-r--r--	root/root	usr/include/libgsf-1/gsf-gvfs/gsf-output-gvfs.h
 drwxr-xr-x	root/root	usr/include/libgsf-1/gsf/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-blob.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-clip-data.h
@@ -23,9 +20,11 @@ drwxr-xr-x	root/root	usr/include/libgsf-1/gsf/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-infile-msole.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-infile-msvba.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-infile-stdio.h
+-rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-infile-tar.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-infile-zip.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-infile.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-input-bzip.h
+-rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-input-gio.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-input-gzip.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-input-http.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-input-impl.h
@@ -47,6 +46,7 @@ drwxr-xr-x	root/root	usr/include/libgsf-1/gsf/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-outfile.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-bzip.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-csv.h
+-rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-gio.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-gzip.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-iconv.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-impl.h
@@ -54,26 +54,28 @@ drwxr-xr-x	root/root	usr/include/libgsf-1/gsf/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-memory.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output-stdio.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-output.h
+-rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-shared-memory.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-structured-blob.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-timestamp.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf-utils.h
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libgsf-1.la
-lrwxrwxrwx	root/root	usr/lib/libgsf-1.so -> libgsf-1.so.114.0.8
-lrwxrwxrwx	root/root	usr/lib/libgsf-1.so.114 -> libgsf-1.so.114.0.8
--rw-r--r--	root/root	usr/lib/libgsf-1.so.114.0.8
+lrwxrwxrwx	root/root	usr/lib/libgsf-1.so -> libgsf-1.so.114.0.10
+lrwxrwxrwx	root/root	usr/lib/libgsf-1.so.114 -> libgsf-1.so.114.0.10
+-rw-r--r--	root/root	usr/lib/libgsf-1.so.114.0.10
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgsf-1.pc
-drwxr-xr-x	root/root	usr/lib/python2.5/
-drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/
-drwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gsf/
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/gsf/__init__.py
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/gsf/__init__.pyc
--rw-r--r--	root/root	usr/lib/python2.5/site-packages/gsf/__init__.pyo
--rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gsf/_gsfmodule.la
--rwxr-xr-x	root/root	usr/lib/python2.5/site-packages/gsf/_gsfmodule.so
+drwxr-xr-x	root/root	usr/lib/python2.6/
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/gsf/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/gsf/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/gsf/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/gsf/__init__.pyo
+-rwxr-xr-x	root/root	usr/lib/python2.6/site-packages/gsf/_gsfmodule.la
+-rwxr-xr-x	root/root	usr/lib/python2.6/site-packages/gsf/_gsfmodule.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/gsf-office-thumbnailer.1.gz
+-rw-r--r--	root/root	usr/man/man1/gsf-vba-dump.1.gz
 -rw-r--r--	root/root	usr/man/man1/gsf.1.gz
