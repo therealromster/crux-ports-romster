@@ -5,13 +5,18 @@
 # Depends on: python
 
 name=pyxdg
-version=0.15
+version=0.17
 release=1
-source=(http://people.freedesktop.org/~lanius/pyxdg-$version.tar.gz)
+url='http://people.freedesktop.org/~lanius'
+source=($url/$name-$version.tar.gz)
+
+up2date="curl -s '$url/?C=N;O=A' | grep '<a ' | sed \
+	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
+	-e 's|/$||' \
+	-e 's|^$name-\(.*\)\.t.*$|\1|' | tail -n 1"
 
 build() {
-	cd pyxdg-$version
+	cd $name-$version
 	python setup.py install --prefix=/usr --root=$PKG
-	rm $PKG/usr/lib/python2.5/site-packages/pyxdg-$version-py2.5.egg-info
+	rm $PKG/usr/lib/python2.6/site-packages/pyxdg-$version-py2.6.egg-info
 }
-
