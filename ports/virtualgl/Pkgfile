@@ -1,4 +1,4 @@
-# Description: 
+# Description: Run remote OpenGL applications with full 3D hardware acceleration.
 # URL: http://www.virtualgl.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
@@ -11,6 +11,14 @@ sname=VirtualGL
 version=2.1.1
 release=1
 source=(http://dl.sourceforge.net/sourceforge/$name/$sname-$version.tar.gz)
+
+_filter="grep -v '2.1beta1' | "
+_up2date_timeout='--connect-timeout 10 --max-time 20 '
+up2date="curl --silent $_up2date_timeout \
+	'http://sourceforge.net/project/showfiles.php?group_id=117509&package_id=127953' | \
+	sed -ne 's/.*<a.*href=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -ne 's|^.*-\(.*\)\.t.*$|\1|p' | $_filter \
+	sort | uniq | tail -n 1"
 
 build() {
 	cd vgl
