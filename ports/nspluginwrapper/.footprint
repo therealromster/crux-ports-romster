@@ -1,15 +1,17 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/nspluginplayer -> /usr/lib/nspluginwrapper/i386/linux/npplayer
 lrwxrwxrwx	root/root	usr/bin/nspluginwrapper -> /usr/lib/nspluginwrapper/i386/linux/npconfig
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/nspluginwrapper/
 drwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/
 drwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/
+-rwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/libnoxshm.so
 -rwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/libxpcom.so
 -rwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/npconfig
+-rwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/npplayer
 -rwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/npviewer
 -rwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/npviewer.bin
 -rwxr-xr-x	root/root	usr/lib/nspluginwrapper/i386/linux/npwrapper.so
 drwxr-xr-x	root/root	usr/lib/nspluginwrapper/noarch/
--rwxr-xr-x	root/root	usr/lib/nspluginwrapper/noarch/mkruntime
 -rwxr-xr-x	root/root	usr/lib/nspluginwrapper/noarch/npviewer
