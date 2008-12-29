@@ -6,7 +6,7 @@
 
 name=imagemagick
 sname=ImageMagick
-version=6.4.7-9
+version=6.4.8-2
 release=1
 url="ftp://ftp.imagemagick.net/pub/$sname"
 
@@ -36,7 +36,7 @@ build() {
 	install -d $PKG/usr/
 	make DESTDIR=$PKG PREFIX=$PKG/usr install
 
-	rm -r $PKG/usr/lib/perl5/?.?.? # empty directory
+	rm -r $PKG/usr/lib/perl5/?.??.? # empty directory
 	rm -r $PKG/usr/share/doc
 	rm $PKG/usr/share/ImageMagick-${version/-*}/{ChangeLog,LICENSE,NEWS.txt}
 	
