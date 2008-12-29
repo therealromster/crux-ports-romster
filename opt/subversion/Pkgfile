@@ -4,23 +4,19 @@
 # Packager: Simone Rota, sip at crux dot nu
 # Depends on: apr neon expat
 
-# pre-install xdelta ######################################
-EXT='.tar.bz2'
-OLD_VERSION='1.5.3'
-diff="
-	http://scguy318.freeshell.org/romster/linux/
-	http://www.dcaf-security.org/distfiles/
-	http://romster.dyndns.org:8080/distfiles/
-"
-###########################################################
-
-
 name=subversion
-version=1.5.4
+version=1.5.5
 release=1
-url='http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=260&expandFolder=74'
-up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
+up2date_url='http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=260&expandFolder=74'
 source=(http://$name.tigris.org/downloads/$name-$version.tar.bz2)
+
+_filter="grep -v 'interceptor' | "
+_up2date_timeout='--connect-timeout 10 --max-time 20 '
+up2date="curl --silent $_up2date_timeout \
+	'$up2date_url' | \
+	sed -ne 's/.*<a.*href=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -ne 's|^.*-\(.*\)\.t.*$|\1|p' | $_filter \
+	sort | uniq | tail -n 1"
 
 build() {
 	cd $name-$version
