@@ -1,0 +1,32 @@
+# Description: 
+# URL: http://www.virtualgl.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: openssl xorg-libx11
+
+# turbojpeg
+
+name=virtualgl
+sname=VirtualGL
+version=2.1.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$sname-$version.tar.gz)
+
+build() {
+	cd vgl
+	
+	# build
+	make prefix=/usr DEBUG=no JPEGLIB=libjpeg M32=yes CC=gcc USESSL=yes
+
+	# install
+	install -d $PKG/usr/bin
+	make prefix=$PKG/usr JPEGLIB=libjpeg USESSL=yes install
+
+	# fix doc location
+	install -d $PKG/usr/share/doc/virtualgl
+	mv $PKG/usr/doc/* $PKG/usr/share/doc/virtualgl/
+	rmdir $PKG/usr/doc
+
+	# fix file conflict with mesa3d
+	mv $PKG/usr/bin/glxinfo $PKG/usr/bin/glxinfo-virtualgl
+}
