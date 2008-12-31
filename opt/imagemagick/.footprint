@@ -409,8 +409,6 @@ drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/mogrify.1.gz
 -rw-r--r--	root/root	usr/man/man1/montage.1.gz
 -rw-r--r--	root/root	usr/man/man1/stream.1.gz
-drwxr-xr-x	root/root	usr/man/man3/
--r--r--r--	root/root	usr/man/man3/Image::Magick.3pm.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/ImageMagick-6.4.8/
 drwxr-xr-x	root/root	usr/share/ImageMagick-6.4.8/config/
@@ -421,3 +419,6 @@ drwxr-xr-x	root/root	usr/share/ImageMagick-6.4.8/config/
 -rw-r--r--	root/root	usr/share/ImageMagick-6.4.8/config/mime.xml
 -rw-r--r--	root/root	usr/share/ImageMagick-6.4.8/config/sRGB.icm
 -rw-r--r--	root/root	usr/share/ImageMagick-6.4.8/config/thresholds.xml
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man3/
+-r--r--r--	root/root	usr/share/man/man3/Image::Magick.3pm.gz
