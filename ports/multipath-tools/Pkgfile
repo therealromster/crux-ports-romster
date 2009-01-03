@@ -1,0 +1,29 @@
+# Description: A device-mapper autoconfig for creating and accessing LU (Logical Units).
+# URL: http://christophe.varoqui.free.fr/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Mattias Hedenskog, mattias at hedenskog dot se
+# Depends on: udev libdevmapper libaio
+
+name=multipath-tools
+version=0.4.8
+release=1
+up2date_url="http://christophe.varoqui.free.fr/$name/"
+source=(http://christophe.varoqui.free.fr/$name/$name-$version.tar.bz2)
+
+_filter="egrep -v '(sw|start|tools.20080109)' | "
+_up2date_timeout='--connect-timeout 10 --max-time 20 '
+up2date="curl --silent $_up2date_timeout \
+	'$up2date_url' | \
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -ne 's|^.*-\(.*\)\.t.*$|\1|p' | $_filter \
+	sort | uniq | tail -n 1"
+
+build() { 
+	cd $name-$version
+	sed -i -e 's|/usr/share/man|/usr/man|' Makefile.inc
+	install -d $PKG/sbin
+	make -j 1
+	make DESTDIR=$PKG install
+	mv $PKG/etc/udev/rules.d $PKG/lib/udev/rules.d
+	rmdir $PKG/etc/init.d
+}
