@@ -7,16 +7,18 @@
 name=subversion
 version=1.5.5
 release=1
-up2date_url='http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=260&expandFolder=74'
 source=(http://$name.tigris.org/downloads/$name-$version.tar.bz2)
 
-_filter="grep -v 'interceptor' | "
-_up2date_timeout='--connect-timeout 10 --max-time 20 '
-up2date="curl --silent $_up2date_timeout \
+unset _filter
+up2date_url='http://subversion.tigris.org/servlets/ProjectDocumentList?folderID=260&expandFolder=74'
+up2date="curl --silent --list $up2date_timeout \
 	'$up2date_url' | \
-	sed -ne 's/.*<a.*href=\"\([^\"]*\).*\".*/\1/p' | \
-	sed -ne 's|^.*-\(.*\)\.t.*$|\1|p' | $_filter \
-	sort | uniq | tail -n 1"
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -e 's|^.*://.*/||g' | \
+	grep '^${name}[-|_][0-9][.0-9]*' | \
+	${_filter}
+	sed -ne 's|^${name}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
+	uniq | tail -n 1"
 
 build() {
 	cd $name-$version
