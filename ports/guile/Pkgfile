@@ -1,0 +1,38 @@
+# Description: Embeddable library implementation of Scheme.
+# URL: http://www.gnu.org/software/guile/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: libgmp
+
+name=guile
+version=1.8.6
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+_filter="egrep -v '^(guile-oops|guile-www)' | "
+up2date_url="http://ftp.gnu.org/gnu/$name/"
+up2date="curl --silent --list $up2date_timeout \
+	'$up2date_url' | \
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -e 's|^.*://.*/||g' | \
+	grep '^${name}[-|_][0-9][.0-9]*' | \
+	${_filter}
+	sed -ne 's|^${name}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
+	uniq | tail -n 1"
+
+build() {
+	cd $name-$version
+	sed -i -e 's/-Werror//' configure.in
+	autoreconf
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--with-threads \
+		--with-modules \
+		--enable-deprecation=no
+
+    make
+    make DESTDIR=$PKG install
+    rm -r $PKG/usr/share/info
+}
