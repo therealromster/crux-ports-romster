@@ -5,14 +5,20 @@
 # Depends on: xorg-libxaw
 
 name=xterm
-version=237
+version=238
 release=1
-up2date="lynx -dump ftp://invisible-island.net/xterm/|grep tgz$|sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
-source=(ftp://invisible-island.net/xterm/xterm-$version.tgz
+source=(ftp://invisible-island.net/$name/$name-$version.tgz
 	configure.diff)
 
+up2date_url="ftp://invisible-island.net/$name/"
+up2date="curl --silent --list $up2date_timeout \
+	'$up2date_url' | \
+	grep '^${name}[-|_][0-9][.0-9]*' | \
+	sed -ne 's|^${name}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
+	sort -u | uniq | tail -n 1"
+
 build() {
-	cd xterm-$version
+	cd $name-$version
 
 	[ -z "$BASH_VERSION" ] && patch -p 0 -i $SRC/configure.diff
 
@@ -24,6 +30,5 @@ build() {
 
 	make
 	make install DESTDIR=$PKG
-	#chmod 0755 $PKG/usr/bin/xterm
 }
 
