@@ -61,9 +61,9 @@ drwxr-xr-x	root/root	usr/include/libgsf-1/gsf/
 -rw-r--r--	root/root	usr/include/libgsf-1/gsf/gsf.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libgsf-1.la
-lrwxrwxrwx	root/root	usr/lib/libgsf-1.so -> libgsf-1.so.114.0.10
-lrwxrwxrwx	root/root	usr/lib/libgsf-1.so.114 -> libgsf-1.so.114.0.10
--rw-r--r--	root/root	usr/lib/libgsf-1.so.114.0.10
+lrwxrwxrwx	root/root	usr/lib/libgsf-1.so -> libgsf-1.so.114.0.11
+lrwxrwxrwx	root/root	usr/lib/libgsf-1.so.114 -> libgsf-1.so.114.0.11
+-rw-r--r--	root/root	usr/lib/libgsf-1.so.114.0.11
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgsf-1.pc
 drwxr-xr-x	root/root	usr/lib/python2.6/
