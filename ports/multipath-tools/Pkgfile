@@ -6,7 +6,7 @@
 
 name=multipath-tools
 version=0.4.8
-release=1
+release=2
 up2date_url="http://christophe.varoqui.free.fr/$name/"
 source=(http://christophe.varoqui.free.fr/$name/$name-$version.tar.bz2)
 
@@ -15,12 +15,17 @@ _up2date_timeout='--connect-timeout 10 --max-time 20 '
 up2date="curl --silent $_up2date_timeout \
 	'$up2date_url' | \
 	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
-	sed -ne 's|^.*-\(.*\)\.t.*$|\1|p' | $_filter \
+	sed -ne 's|^.*[-_]\(.*\).*\.t.*$|\1|p' | $_filter \
 	sort | uniq | tail -n 1"
 
 build() { 
 	cd $name-$version
-	sed -i -e 's|/usr/share/man|/usr/man|' Makefile.inc
+
+	sed -i \
+		-e 's|/usr/share/man|/usr/man|' \
+		-e '/^OPTFLAGS.*=.*$/s/$/ -D_FILE_OFFSET_BITS=64/' \
+		Makefile.inc
+
 	install -d $PKG/sbin
 	make -j 1
 	make DESTDIR=$PKG install
