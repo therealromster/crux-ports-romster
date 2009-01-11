@@ -2,6 +2,7 @@
 # URL: http://trac.softcircuit.com.au/circuits/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: cherrypy
 
 name=circuits
 version=1.0b1
