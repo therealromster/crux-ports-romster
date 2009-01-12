@@ -360,17 +360,17 @@ drwxr-xr-x	root/root	usr/lib/ImageMagick-6.4.8/modules-Q16/filters/
 -rwxr-xr-x	root/root	usr/lib/ImageMagick-6.4.8/modules-Q16/filters/analyze.la
 -rwxr-xr-x	root/root	usr/lib/ImageMagick-6.4.8/modules-Q16/filters/analyze.so
 -rwxr-xr-x	root/root	usr/lib/libMagick++.la
-lrwxrwxrwx	root/root	usr/lib/libMagick++.so -> libMagick++.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libMagick++.so.1 -> libMagick++.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libMagick++.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libMagick++.so -> libMagick++.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libMagick++.so.2 -> libMagick++.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libMagick++.so.2.0.0
 -rwxr-xr-x	root/root	usr/lib/libMagickCore.la
-lrwxrwxrwx	root/root	usr/lib/libMagickCore.so -> libMagickCore.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libMagickCore.so.1 -> libMagickCore.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libMagickCore.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libMagickCore.so -> libMagickCore.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libMagickCore.so.2 -> libMagickCore.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libMagickCore.so.2.0.0
 -rwxr-xr-x	root/root	usr/lib/libMagickWand.la
-lrwxrwxrwx	root/root	usr/lib/libMagickWand.so -> libMagickWand.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libMagickWand.so.1 -> libMagickWand.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libMagickWand.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libMagickWand.so -> libMagickWand.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libMagickWand.so.2 -> libMagickWand.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libMagickWand.so.2.0.0
 drwxr-xr-x	root/root	usr/lib/perl5/
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.0/
