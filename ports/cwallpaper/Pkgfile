@@ -1,0 +1,36 @@
+# Description: A graphical wallpaper changing program.
+# URL: http://cwallpaper.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk
+
+name=cwallpaper
+version=0.3.2
+release=1
+source=(http://dl.sourceforge.net/$name/$name-$version.tar.gz
+	example_config_feh)
+
+unset _filter
+up2date_url='http://sourceforge.net/project/showfiles.php?group_id=193671&package_id=228135'
+up2date="curl --silent ${up2date_timeout} \
+	'${up2date_url}' | \
+	sed -e 's|/[A|a]>|/a>\n|g' | \
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -e 's|^.*://.*/||g' | \
+	grep '^${name}[-|_][0-9][.0-9]*' | \
+	${_filter}
+	sed -ne 's|^${name}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
+	uniq | head -n 1"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	install -m 0644 $SRC/example_config_feh $PKG/usr/share/cwallpaper/
+}
