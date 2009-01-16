@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 #  pre-install
 # 
@@ -159,9 +159,18 @@ is_installed() {
 
 	PACKAGE="${1}"
 
-	if [ -n "$(pkginfo -i | egrep '^$PACKAGE ')" ]; then
+	if [ -z "$(pkginfo -i | egrep "^$PACKAGE ")" ]; then
 		print_error "'$PACKAGE' is not installed, can not do a incremental update."
 	fi
+}
+
+pkg_portcheck() {
+	is_installed 'xdelta'
+	is_installed 'coreutils'
+	is_installed 'tar'
+	is_installed 'sed'
+	is_installed 'curl'
+	is_installed 'bc' #FIXME could make it optional
 }
 
 check_file_exists() {
@@ -194,10 +203,6 @@ check_file_missing() {
 	#if [ ! -f "${FILE}" ]; then
 	#	print_error "'${FILE}' is not a regular file."
 	#fi
-}
-
-pkg_init() {
-	PKG_COUNT='1'
 }
 
 array() {
@@ -233,13 +238,6 @@ pkg_checks() {
 		print_info 'No source archive to use; proceed to download source archive.'
 		exit 0
 	fi
-
-	is_installed 'xdelta'
-	is_installed 'coreutils'
-	is_installed 'tar'
-	is_installed 'sed'
-	is_installed 'curl'
-	is_installed 'bc' #FIXME could make it optional
 
 	case ${OLD_FILE_EXT} in
 		.tar.gz) is_installed 'gzip' ;;
@@ -292,6 +290,10 @@ pkg_make_list() {
 			fi
 		fi
 	done
+
+	if [ -z "${HAS_VERSION}" ]; then
+		print_error 'HAS_VERSION still empty in pkg_make_list()'
+	fi
 
 	log_debug "Has version: ${HAS_VERSION}"
 }
@@ -346,8 +348,8 @@ pkg_parse_local_list() {
 		done
 
 		if [ -z "${HAS_VERSION}" ]; then
-			print_warn 'No useable source archive'
-			exit 0
+			print_info 'No useable local patch files, proceed to download list.'
+			pkg_parse_remote_list
 		fi
 
 		log_debug "Has version: ${HAS_VERSION}"
@@ -380,11 +382,11 @@ pkg_download_delta_list() {
 	#printf "Patching source files.\n"
 	print_info "Retrieving delta list from '$URL'."
 
-	log_debug "curl --fail --silent --retry 3 --connect-timeout 15 "${URL}" | \
+	log_debug "curl --fail --silent --retry 3 --connect-timeout 20 "${URL}" | \
 grep '.xdelta' | grep "${NEW_FILE_NAME}" | sed -e 's|.*[HREF|href]=\"||' -e 's|\".*||' | \
 sort --reverse | xargs"
 
-	XDELTA_FILES="$(curl --fail --silent --retry 3 --connect-timeout 15 "$URL" | \
+	XDELTA_FILES="$(curl --fail --silent --retry 3 --connect-timeout 20 "$URL" | \
 		grep '.xdelta' | grep "${NEW_FILE_NAME}" | sed -e 's|.*[HREF|href]=\"||' \
 		-e 's|\".*||' | sort --reverse | xargs)"
 
@@ -395,23 +397,31 @@ sort --reverse | xargs"
 }
 
 pkg_parse_remote_list() {
-	local FILE SOURCE_VERSION SOURCE_VERSIONS LOCAL_PATCH_FILES GET_VERSION ADD_DIFF \
-		PATCH_NEW_VERSION PATCH_OLD_VERSION PATCH_OLD_VERSIONS
+	local FILE SOURCE_VERSION SOURCE_VERSIONS LOCAL_PATCH_FILES \
+		GET_VERSION ADD_DIFF PATCH_NEW_VERSION PATCH_OLD_VERSION \
+		PATCH_OLD_VERSIONS
 
 	GET_VERSION='yes'
 	ADD_DIFF='yes'
 
 	pkg_download_delta_list # returns $XDELTA_FILES
 
+	SOURCE_VERSIONS="$(ls --sort=version --reverse ${PKGMK_SOURCE_DIR}/${OLD_FILE_NAME}${OLD_FILE_PREFIX}*${OLD_FILE_SUFFIX}${OLD_FILE_EXT} | \
+		sed -e "s|.*/${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}${OLD_FILE_EXT}|\1|" | \
+		xargs)"
+
+	# print source archive version list, newist to oldist sorted.
+	log_debug "Local version list: ${SOURCE_VERSIONS}"
+
 	# print patch version list, oldist to newist sorted.
 	if [ "${LOG_DEBUG}" = 'yes' ]; then
 		for FILE in $XDELTA_FILES; do
-			PATCH_OLD_VERSIONS="$(printf ${FILE} | \
+			PATCH_OLD_VERSION="$(printf "${FILE}" | \
 				sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*|\1|")"
 			PATCH_OLD_VERSIONS="${PATCH_OLD_VERSION} ${PATCH_OLD_VERSIONS}"
 		done
 		log_debug "Remote version list: ${PATCH_OLD_VERSIONS}"
-		unset PATCH_OLD_VERSIONS
+		unset PATCH_OLD_VERSION PATCH_OLD_VERSIONS
 	fi
 
 	# find most recent source archive to use
@@ -434,30 +444,9 @@ pkg_parse_remote_list() {
 		print_info 'No source archive matches any delta version, proceed to download source archive(s).'
 	fi
 
-	# this check is not right
-#	if [ "${PATCH_OLD_VERSION}" = "${HAS_VERSION}" ]; then 
-#		print_error "Did not find version '${HAS_VERSION}' patch to use."
-#	fi
-
 	pkg_make_list
 	pkg_download_diff
 	pkg_parse_local_list # reparse list again
-
-	# find most recent source archive to use
-#	for SOURCE_VERSION in $SOURCE_VERSIONS; do
-#		for FILE in $XDELTA_FILES; do
-
-#			PATCH_OLD_VERSION="$(printf "${FILE}" | \
-#				sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*|\1|")"
-
-#			if [ "${GET_VERSION}" = 'yes' ]; then
-#				if [ "${SOURCE_VERSION}" = "${PATCH_OLD_VERSION}" ]; then
-#					HAS_VERSION="${SOURCE_VERSION}"
-#					GET_VERSION='no'
-#				fi
-#			fi
-#		done
-#	done
 
 	log_debug "Using local archive '${PKGMK_SOURCE_DIR}/${OLD_FILE_NAME}${OLD_FILE_PREFIX}${HAS_VERSION}${OLD_FILE_SUFFIX}${OLD_FILE_EXT}'."
 	log_debug "Using local version '${HAS_VERSION}'."
@@ -598,16 +587,29 @@ pkg_save_new_source() {
 		rmdir "$PKGMK_WORK_DIR"
 	fi
 
+	pkgmk -um
+
+	# prevent a loop
+	exit 0
+
 	#print_info 'Done'
 }
 
 main() {
+	pkg_portcheck
+
 	for FILE in ${source[@]}; do
-		if [ -n "$(printf "${FILE}" | egrep '^.*://.*')" ]; then # don't try to patch local files
-		#if [ -z "$(get_basename "${FILE}" | egrep '*.patch$')" ]; then
-			explode_filename_new "${NEW_FILE_NAME}" "${NEW_FILE_VERSION}" "$(get_basename "${FILE}")"
-			explode_filename_old "${OLD_FILE_NAME}" "${NEW_FILE_VERSION}" "$(get_basename "${FILE}")" #FIXME is set to new
-			pkg_init
+
+		# don't try to patch local files
+		if [ -n "$(printf "${FILE}" | egrep '^.*://.*')" ]; then
+
+			explode_filename_new "${NEW_FILE_NAME}" "${NEW_FILE_VERSION}" \
+				"$(get_basename "${FILE}")"
+
+			explode_filename_old "${OLD_FILE_NAME}" "${NEW_FILE_VERSION}" \
+				"$(get_basename "${FILE}")" #FIXME is set to new
+
+			PKG_COUNT='1'
 			pkg_checks
 			pkg_work_dir
 			pkg_parse_local_list
