@@ -5,13 +5,25 @@
 # Depends on: wxpython
 
 name=taskcoach
-version=0.70.0
+sname=TaskCoach
+version=0.71.5
 release=1
-source=(http://dl.sourceforge.net/sourceforge/taskcoach/TaskCoach-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/$name/$sname-$version.tar.gz)
+
+unset _filter
+up2date_url='http://sourceforge.net/project/showfiles.php?group_id=130831&package_id=143476'
+up2date="curl --silent ${up2date_timeout} \
+	'${up2date_url}' | \
+	sed -e 's|/[A|a]>|/a>\n|g' | \
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -e 's|^.*://.*/||g' | \
+	grep '^${sname}[-|_][0-9][.0-9]*' | \
+	${_filter}
+	sed -ne 's|^${sname}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
+	uniq | head -n 1"
 
 build() {
-	cd TaskCoach-$version
+	cd $sname-$version
 	python setup.py install --root=$PKG
-	rm $PKG/usr/lib/python2.5/site-packages/TaskCoach-$version-py2.5.egg-info
+	rm $PKG/usr/lib/python2.6/site-packages/$sname-$version-py2.6.egg-info
 }
-
