@@ -1,20 +1,19 @@
 # Description: Open Fingerprint Architecture.
 # URL: http://www.musicip.com/dns/
-# Packager: Antonio SJ Musumeci, bile at landofbile dot com
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Antonio SJ Musumeci, bile at landofbile dot com
 # Depends on: fftw
 
 name=libofa
 version=0.9.3
 release=1
-source=(http://www.musicip.com/dns/files/libofa-$version.tar.gz
+source=(http://musicip-libofa.googlecode.com/files/$name-$version.tar.gz
     gcc-4.patch)
 
 build() {
-	cd libofa-$version
-	patch -p0 -i $SRC/gcc-4.patch
+	cd $name-$version
+	patch -p 0 -i $SRC/gcc-4.patch
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 }
-
