@@ -1,0 +1,24 @@
+# Description: A program for sorting files in sophisticated ways.
+# URL: http://billposer.org/Software/msort.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: tre icu
+
+name=msort
+version=8.52
+release=1
+source=(http://billposer.org/Software/Downloads/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking \
+		--disable-uninum \
+		--disable-utf8proc
+
+	make
+	make DESTDIR=$PKG install
+}
