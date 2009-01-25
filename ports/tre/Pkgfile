@@ -1,0 +1,23 @@
+# Description: POSIX compliant regexp matching library.
+# URL: http://laurikari.net/tre/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Hannes Mayer, kontakt at ecarux dot de
+# Depends on:
+
+name=tre
+version=0.7.5
+release=1
+source=(http://laurikari.net/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-static \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}
