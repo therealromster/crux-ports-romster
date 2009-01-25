@@ -2,18 +2,19 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/FBReader
 drwxr-xr-x	root/root	usr/lib/
--rwxr-xr-x	root/root	usr/lib/libzlcore.so.0.8.17
-lrwxrwxrwx	root/root	usr/lib/libzlcore.so.0.9 -> libzlcore.so.0.8.17
--rwxr-xr-x	root/root	usr/lib/libzltext.so.0.8.17
-lrwxrwxrwx	root/root	usr/lib/libzltext.so.0.9 -> libzltext.so.0.8.17
+lrwxrwxrwx	root/root	usr/lib/libzlcore.so.0.10 -> libzlcore.so.0.10.1
+-rwxr-xr-x	root/root	usr/lib/libzlcore.so.0.10.1
+lrwxrwxrwx	root/root	usr/lib/libzltext.so.0.10 -> libzltext.so.0.10.1
+-rwxr-xr-x	root/root	usr/lib/libzltext.so.0.10.1
 drwxr-xr-x	root/root	usr/lib/zlibrary/
 drwxr-xr-x	root/root	usr/lib/zlibrary/ui/
--rwxr-xr-x	root/root	usr/lib/zlibrary/ui/zlui-gtk.so
+-rwxr-xr-x	root/root	usr/lib/zlibrary/ui/zlui-qt4.so
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/FBReader/
 drwxr-xr-x	root/root	usr/share/FBReader/default/
 -rw-r--r--	root/root	usr/share/FBReader/default/config.xml
 -rw-r--r--	root/root	usr/share/FBReader/default/external.xml
+-rw-r--r--	root/root	usr/share/FBReader/default/fullscreen_toolbar.xml
 -rw-r--r--	root/root	usr/share/FBReader/default/keymap.xml
 -rw-r--r--	root/root	usr/share/FBReader/default/styles.xml
 -rw-r--r--	root/root	usr/share/FBReader/default/toolbar.xml
@@ -28,6 +29,7 @@ drwxr-xr-x	root/root	usr/share/FBReader/formats/xhtml/
 -rw-r--r--	root/root	usr/share/FBReader/formats/xhtml/xhtml-special.ent
 -rw-r--r--	root/root	usr/share/FBReader/formats/xhtml/xhtml-symbol.ent
 drwxr-xr-x	root/root	usr/share/FBReader/help/
+-rw-r--r--	root/root	usr/share/FBReader/help/MiniHelp.cs.fb2
 -rw-r--r--	root/root	usr/share/FBReader/help/MiniHelp.en.fb2
 -rw-r--r--	root/root	usr/share/FBReader/help/MiniHelp.fi.fb2
 -rw-r--r--	root/root	usr/share/FBReader/help/MiniHelp.fr.fb2
@@ -37,6 +39,8 @@ drwxr-xr-x	root/root	usr/share/FBReader/help/
 -rw-r--r--	root/root	usr/share/FBReader/help/MiniHelp.sv.fb2
 -rw-r--r--	root/root	usr/share/FBReader/help/MiniHelp.uk.fb2
 drwxr-xr-x	root/root	usr/share/FBReader/resources/
+-rw-r--r--	root/root	usr/share/FBReader/resources/ar.xml
+-rw-r--r--	root/root	usr/share/FBReader/resources/cs.xml
 -rw-r--r--	root/root	usr/share/FBReader/resources/en.xml
 -rw-r--r--	root/root	usr/share/FBReader/resources/fi.xml
 -rw-r--r--	root/root	usr/share/FBReader/resources/fr.xml
@@ -51,7 +55,10 @@ drwxr-xr-x	root/root	usr/share/pixmaps/
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader.png
 drwxr-xr-x	root/root	usr/share/pixmaps/FBReader/
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/addBook.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/advancedSearchOnNetwork.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/bookInfo.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/byAuthor.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/byTag.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/fb2.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/findNext.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/findPrevious.png
@@ -70,14 +77,24 @@ drwxr-xr-x	root/root	usr/share/pixmaps/FBReader/
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/search.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/showHelp.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/showLibrary.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/showNetLibrary.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/showReading.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/showRecent.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/tcr.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/toc.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-authorinfo.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-bookinfo.png
--rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-order.png
--rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-remove.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-download-epub.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-download-fb2.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-download-mobi.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-local-epub.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-local-fb2.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-local-mobi.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-open-in-browser.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-order-series.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-removebook.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-removetag.png
+-rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-strut.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/tree-taginfo.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/undo.png
 -rw-r--r--	root/root	usr/share/pixmaps/FBReader/unknown.png
@@ -111,9 +128,11 @@ drwxr-xr-x	root/root	usr/share/zlibrary/encodings/
 -rw-r--r--	root/root	usr/share/zlibrary/encodings/windows-1251
 -rw-r--r--	root/root	usr/share/zlibrary/encodings/windows-1252
 -rw-r--r--	root/root	usr/share/zlibrary/hyphenationPatterns.zip
--rw-r--r--	root/root	usr/share/zlibrary/keynames-gtk.xml
+-rw-r--r--	root/root	usr/share/zlibrary/keynames-qt4.xml
 -rw-r--r--	root/root	usr/share/zlibrary/languagePatterns.zip
 drwxr-xr-x	root/root	usr/share/zlibrary/resources/
+-rw-r--r--	root/root	usr/share/zlibrary/resources/ar.xml
+-rw-r--r--	root/root	usr/share/zlibrary/resources/cs.xml
 -rw-r--r--	root/root	usr/share/zlibrary/resources/en.xml
 -rw-r--r--	root/root	usr/share/zlibrary/resources/fi.xml
 -rw-r--r--	root/root	usr/share/zlibrary/resources/fr.xml
@@ -122,3 +141,4 @@ drwxr-xr-x	root/root	usr/share/zlibrary/resources/
 -rw-r--r--	root/root	usr/share/zlibrary/resources/ru.xml
 -rw-r--r--	root/root	usr/share/zlibrary/resources/sv.xml
 -rw-r--r--	root/root	usr/share/zlibrary/resources/uk.xml
+-rw-r--r--	root/root	usr/share/zlibrary/unicode.xml.gz

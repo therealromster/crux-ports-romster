@@ -2,12 +2,12 @@
 # URL: http://www.fbreader.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: expat zlib bzip2 liblinebreak
+# Depends on: expat zlib bzip2 liblinebreak fribidi
 # Optional: gtk qt4
 
 name=fbreader
 sname="$name-sources"
-version=0.8.17
+version=0.10.1
 release=1
 url='http://www.fbreader.org'
 up2date="curl -s '$url/downloads.php' |grep '.tgz' |sed -e 's/.*$sname-\(.*\)\.t.*/\1/' -e 'q'"
@@ -16,7 +16,7 @@ source=($url/$sname-$version.tgz)
 build() {
 	cd $name-$version
 	TARGET_ARCH='i686-pc-linux-gnu'
-	make -j
+	sed -i -e 's/-mthumb //' makefiles/arch/maemo.mk
+	make
 	make DESTDIR=$PKG do_install
 }
-
