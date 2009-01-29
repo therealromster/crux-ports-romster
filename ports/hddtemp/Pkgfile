@@ -6,20 +6,34 @@
 
 name=hddtemp
 version=0.3-beta15
-release=1
-source=(http://www.guzu.net/files/hddtemp-$version.tar.bz2 \
-	http://www.guzu.net/linux/hddtemp.db)
+release=2
+source=(http://nongnu.askapache.com/hddtemp/$name-$version.tar.bz2
+	http://nongnu.askapache.com/hddtemp/hddtemp.db
+	hddtemp-0.3-beta15-satacmds.patch
+	hddtemp-0.3-beta15-byteswap.patch
+	hddtemp-0.3-beta15-execinfo.patch
+	hddtemp-0.3-beta15-nls.patch
+	hddtemp-0.3-beta15-iconv.patch
+	hddtemp.rc)
 
 build() {
-	cd hddtemp-$version
+	cd $name-$version
+
+	patch -p 1 -i $SRC/hddtemp-0.3-beta15-satacmds.patch
+	patch -p 1 -i $SRC/hddtemp-0.3-beta15-byteswap.patch
+	patch -p 1 -i $SRC/hddtemp-0.3-beta15-execinfo.patch
+	patch -p 1 -i $SRC/hddtemp-0.3-beta15-nls.patch
+	patch -p 1 -i $SRC/hddtemp-0.3-beta15-iconv.patch
+	autoreconf
 
 	./configure \
 		--prefix=/usr \
-		--with-db-path=/usr/etc/hddtemp.db \
+		--mandir=/usr/man \
+		--with-db-path=/etc/hddtemp.db \
 		--disable-nls
 
 	make
 	make DESTDIR=$PKG install
-	install -m 0644 -D ../hddtemp.db $PKG/usr/etc/hddtemp.db
+	install -m 0644 -D $SRC/hddtemp.db $PKG/etc/hddtemp.db
+	install -m 0744 -D $SRC/hddtemp.rc $PKG/etc/rc.d/hddtemp
 }
-
