@@ -5,10 +5,9 @@
 # Depends on: iptables
 
 name=ipset
-version=2.4.6
+version=2.4.7
 release=1
-source=(http://$name.netfilter.org/$name-$version.tar.bz2
-	ipset-2.4.6-kernel_define_fix.patch)
+source=(http://$name.netfilter.org/$name-$version.tar.bz2)
 
 up2date="curl -s 'http://$name.netfilter.org/install.html' | \
 	grep '.tar.' | egrep -v '.*<!--.*-->.*'| sed \
@@ -18,7 +17,6 @@ up2date="curl -s 'http://$name.netfilter.org/install.html' | \
 
 build() {
 	cd $name-${version%%-*}
-	patch -p 1 -i $SRC/ipset-2.4.6-kernel_define_fix.patch
 	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr
 	make KERNEL_DIR=/usr/src/linux-$(uname -r) PREFIX=/usr DESTDIR=$PKG install
 }
