@@ -1,0 +1,17 @@
+# Description: Plugin for gkrellm to display harddisk temperature.
+# URL: http://www.guzu.net/linux/hddtemp.php
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Depends on: hddtemp
+
+name=gkrellm-hddtemp
+version=0.2-beta
+release=1
+source=(http://www.guzu.net/files/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	sed -i "s:^CFLAGS.*:CFLAGS=${CFLAGS} -fPIC:" Makefile
+	make gkrellm2
+	install -m 0644 -D gkrellm-hddtemp.so $PKG/usr/lib/gkrellm2/plugins/gkrellm-hddtemp.so
+}
