@@ -6,13 +6,15 @@
 
 name=libofa
 version=0.9.3
-release=1
+release=2
 source=(http://musicip-libofa.googlecode.com/files/$name-$version.tar.gz
-    gcc-4.patch)
+	 libofa-0.9.3-gcc-4.patch
+	 libofa-0.9.3-gcc-4.3.patch)
 
 build() {
 	cd $name-$version
-	patch -p 0 -i $SRC/gcc-4.patch
+	patch -p 0 -i $SRC/libofa-0.9.3-gcc-4.patch
+	patch -p 1 -i $SRC/libofa-0.9.3-gcc-4.3.patch
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
