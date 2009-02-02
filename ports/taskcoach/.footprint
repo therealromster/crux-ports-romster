@@ -66,6 +66,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/attachm
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/changetracker.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/changetracker.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/collection.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/collection.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/domain/base/filter.py
@@ -171,6 +173,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/dialog/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/mainwindow.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/menu.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/menu.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/printer.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/printer.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/remindercontroller.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/remindercontroller.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/gui/render.py
@@ -250,6 +254,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/gl.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/he.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/he.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/hi.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/hi.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/hu.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/hu.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/id.py
@@ -268,6 +274,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/mr.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/nb.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/nb.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/nds.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/nds.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/nl.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/nl.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/i18n/nn.py
@@ -405,6 +413,11 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/guid.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/sized_controls.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/sized_controls.pyc
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/squaremap/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/squaremap/__init__.py (EMPTY)
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/squaremap/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/squaremap/squaremap.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/squaremap/squaremap.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/treemixin.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/thirdparty/treemixin.pyc
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/
@@ -438,6 +451,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/searchctrl.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/spinctrl.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/spinctrl.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/squaremap.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/squaremap.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/syncmlwarning.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/syncmlwarning.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/taskcoachlib/widgets/textctrl.py
