@@ -5,7 +5,7 @@
 # Depends on: imlib2 libpcre xorg-libxft xorg-libxpm xorg-libxrandr
 
 name=pekwm
-version=0.1.9a
+version=0.1.10
 release=1
 source=(http://www.pekwm.org/projects/3/files/$name-$version.tar.bz2)
 up2date="curl -s http://pekwm.org/projects/pekwm/releases |grep '.tar.' |sed \
@@ -26,4 +26,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
