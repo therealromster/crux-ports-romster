@@ -5,12 +5,12 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.6/
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/
-drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge-1.1.1-py2.6.egg-info/
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.1-py2.6.egg-info/PKG-INFO
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.1-py2.6.egg-info/SOURCES.txt
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.1-py2.6.egg-info/dependency_links.txt
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.1-py2.6.egg-info/entry_points.txt
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.1-py2.6.egg-info/top_level.txt
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge-1.1.2-py2.6.egg-info/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.2-py2.6.egg-info/PKG-INFO
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.2-py2.6.egg-info/SOURCES.txt
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.2-py2.6.egg-info/dependency_links.txt
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.2-py2.6.egg-info/entry_points.txt
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge-1.1.2-py2.6.egg-info/top_level.txt
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/SimpleXMLRPCServer.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/SimpleXMLRPCServer.pyc
@@ -434,6 +434,9 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/i18n/iu/LC_MESSAGES/
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/i18n/ja/
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/i18n/ja/LC_MESSAGES/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/i18n/ja/LC_MESSAGES/deluge.mo
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/i18n/jv/
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/i18n/jv/LC_MESSAGES/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/i18n/jv/LC_MESSAGES/deluge.mo
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/i18n/ka/
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/i18n/ka/LC_MESSAGES/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/i18n/ka/LC_MESSAGES/deluge.mo
@@ -757,8 +760,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/newform
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/newforms_portable/util.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/newforms_portable/widgets.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/newforms_portable/widgets.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/pythonize.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/pythonize.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/static_handler.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/static_handler.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/deluge/ui/webui/lib/web.py
