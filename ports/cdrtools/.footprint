@@ -13,10 +13,6 @@ lrwxrwxrwx	root/root	usr/bin/mkhybrid -> mkisofs
 -rwxr-xr-x	root/root	usr/bin/readcd
 -rwxr-xr-x	root/root	usr/bin/scgcheck
 -rwxr-xr-x	root/root	usr/bin/scgskeleton
-drwxr-xr-x	root/root	usr/etc/
-drwxr-xr-x	root/root	usr/etc/default/
--rw-r--r--	root/root	usr/etc/default/cdrecord
--rw-r--r--	root/root	usr/etc/default/rscsi
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/align.h
 -rw-r--r--	root/root	usr/include/avoffset.h
@@ -76,6 +72,7 @@ drwxr-xr-x	root/root	usr/include/scsilib/scg/
 -rw-r--r--	root/root	usr/include/scsilib/signal.h
 -rw-r--r--	root/root	usr/include/scsilib/standard.h
 -rw-r--r--	root/root	usr/include/scsilib/stat.h
+-rw-r--r--	root/root	usr/include/scsilib/stdio.h
 -rw-r--r--	root/root	usr/include/scsilib/stdlib.h
 -rw-r--r--	root/root	usr/include/scsilib/stkframe.h
 -rw-r--r--	root/root	usr/include/scsilib/string.h
@@ -151,4 +148,4 @@ drwxr-xr-x	root/root	usr/man/man8/
 -rw-r--r--	root/root	usr/man/man8/mkhybrid.8.gz
 -rw-r--r--	root/root	usr/man/man8/mkisofs.8.gz
 drwxr-xr-x	root/root	usr/sbin/
--rws--x--x	root/root	usr/sbin/rscsi
+-rwxr-xr-x	root/root	usr/sbin/rscsi

@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=cdrtools
-version=2.01.01a54
+version=2.01.01a57
 release=1
 url='ftp://ftp.berlios.de/pub/cdrecord/alpha'
 up2date="lynx -dump $url |grep $name- |grep tar.bz2$ |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
@@ -57,7 +57,7 @@ build() {
 	rmdir $PKG/usr/man/man5
 
 	chown -c root:cdrom $PKG/usr/bin/cdrecord
-	chmod -c -R u+w,g-w $PKG
-	chmod -c u+s-w,o-xr $PKG/usr/bin/cdrecord
+	chmod -c -R u+w,g-w,g+r,o+r $PKG
+	chmod -c u-s $PKG/usr/bin/cdda2wav $PKG/usr/bin/readcd $PKG/usr/sbin/rscsi
+	chmod -c u-w,o-xr $PKG/usr/bin/cdrecord
 }
-
