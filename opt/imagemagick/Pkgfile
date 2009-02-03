@@ -6,16 +6,14 @@
 
 name=imagemagick
 sname=ImageMagick
-version=6.4.8-9
+version=6.4.9-0
 release=1
 url="ftp://ftp.imagemagick.net/pub/$sname"
+source=($url/$sname-$version.tar.lzma)
 
 up2date="lynx -dump '$url/' | grep 'tar.lzma' | \
 	grep -v '$sname.tar.lzma' | \
 	sed -ne 's/.*$sname-\(.*\)\.t.*/\1/' -e '$ p'"
-
-source=($url/$sname-$version.tar.lzma)
-mirrors="http://romster.dyndns.org:8080.nyud.net/distfiles/$name/"
 
 build() {
 	# temp fix untill/if pkgutils supports lzma
