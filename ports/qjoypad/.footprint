@@ -1,0 +1,18 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/qjoypad
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/qjoypad.desktop
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad1-24x24.png
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad1-64x64.png
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad2-24x24.png
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad2-64x64.png
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad3-24x24.png
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad3-64x64.png
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad4-24x24.png
+-rw-r--r--	root/root	usr/share/pixmaps/gamepad4-64x64.png
+drwxr-xr-x	root/root	usr/share/pixmaps/qjoypad/
+lrwxrwxrwx	root/root	usr/share/pixmaps/qjoypad/icon24.png -> ../gamepad4-24x24.png
+lrwxrwxrwx	root/root	usr/share/pixmaps/qjoypad/icon64.png -> ../gamepad4-64x64.png

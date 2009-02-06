@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=qjoypad
+Comment=Translate gamepad/joystick input into key strokes/mouse actions in X
+Exec=qjoypad
+Icon=/usr/share/pixmaps/qjoypad/icon64.png
+Terminal=false
+StartupNotify=false
+Categories=Utility;
+Type=Application

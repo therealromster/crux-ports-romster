@@ -1,0 +1,35 @@
+# Description: Translate gamepad/joystick input into key strokes/mouse actions in X.
+# URL: http://qjoypad.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: qt3 xorg-libx11
+
+name=qjoypad
+version=3.4.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tgz
+	qjoypad-3.4.1-busy.patch
+	$name.desktop)
+
+build() {
+	cd $name-$version/src
+
+	patch -p 2 -i $SRC/qjoypad-3.4.1-busy.patch
+	qmake qjoypad.pro PREFIX=/usr DEVDIR=/dev/input
+
+	# makefile has silly dependencies
+	sed -i \
+		-e "/^CFLAGS/s|-pipe -Wall -W -O2|${CFLAGS} -I/usr/include/qt|" \
+		-e "/^CXXFLAGS/s|-pipe -Wall -W -O2|${CXXFLAGS} -I/usr/include/qt|" \
+		-e "/^LIBS/s|-lqt|-lqt-mt|" \
+		-e '/^Makefile/s|:.*|:|' \
+		Makefile
+
+	make QTDIR=/usr
+	install -m 0644 -D $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
+	install -m 0755 -D qjoypad $PKG/usr/bin/qjoypad
+	install -m 0755 -d $PKG/usr/share/pixmaps/$name
+	install -m 0644 -t $PKG/usr/share/pixmaps/ ../icons/*
+	ln -s ../gamepad4-24x24.png $PKG/usr/share/pixmaps/$name/icon24.png
+	ln -s ../gamepad4-64x64.png $PKG/usr/share/pixmaps/$name/icon64.png
+}
