@@ -1,0 +1,22 @@
+# Description: The alternative traceroute tool for network (reverse) engineers. 
+# URL: http://pwhois.org/lft/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Mattias Hedenskog, mattias at hedenskog dot se
+# Depends on: libpcap
+
+name=lft
+version=3.1
+release=1
+source=(http://pwhois.org/get/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+	chmod -c u-w $PKG/usr/bin/lft
+}
