@@ -3,31 +3,39 @@
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Daniel Walpole, daniel at walpole dot id dot au
 # Depends on: fontconfig hal lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
-
 # Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
 
 name=wine
-version=1.1.14
+version=1.1.15
 release=1
-url="http://ibiblio.org/pub/linux/system/emulators/$name"
+source="http://ibiblio.org/pub/linux/system/emulators/$name/$name-$version.tar.bz2"
+up2date_url="http://ibiblio.org/pub/linux/system/emulators/$name/"
 
-source=($url/$name-$version.tar.bz2)
-
-up2date="lynx -dump '$url/?C=M;O=A' | grep '.tar.bz2' | \
-	grep -v 'wine-1.0.' | sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
+unset _filter
+up2date="curl --silent ${up2date_timeout} \
+	'${up2date_url}' | \
+	sed -e 's|/[A|a]>|/a>\n|g' | \
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -e 's|^.*://.*/||g' | \
+	grep '^${name}[-|_][0-9][.0-9]*' | \
+	${_filter}
+	sed -ne 's|^${name}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
+	xargs | msort -r ' ' -C N --in -"
 
 build() {
 	cd $name-$version
 
+	# don't add -pipe if we compile in tmpfs it actually slows us down.
+	sed -i -e 's/^EXTRACFLAGS="-Wall -pipe"/EXTRACFLAGS="-Wall"/' configure
+
 	./configure \
 		--verbose \
 		--prefix=/usr \
-		--mandir=$PKG/usr/man \
-		--disable-nls \
-		--disable-oss
+		--mandir=/usr/man \
+		--disable-tests
 
 	make depend
 	make
-	make prefix=$PKG/usr install
+	make DESTDIR=$PKG install
 	rm -r $PKG/usr/man/??.UTF-8
 }
