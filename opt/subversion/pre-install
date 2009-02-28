@@ -227,18 +227,6 @@ array_end() {
 }
 
 pkg_checks() {
-	local NEW_FILE="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}${NEW_FILE_EXT}"
-
-	if [ -e "${PKGMK_SOURCE_DIR}/${NEW_FILE}" ]; then
-		print_info "File '${PKGMK_SOURCE_DIR}/${NEW_FILE}' exists, nothing to do."
-		exit 0
-	fi
-
-	if [ -z "$(ls ${PKGMK_SOURCE_DIR}/${OLD_FILE_NAME}-*${OLD_FILE_EXT})" ]; then
-		print_info 'No source archive to use; proceed to download source archive.'
-		exit 0
-	fi
-
 	case ${OLD_FILE_EXT} in
 		.tar.gz) is_installed 'gzip' ;;
 		.tar.bz2) is_installed 'bzip2' ;;
@@ -313,6 +301,7 @@ pkg_parse_local_list() {
 
 	# do we have any local xdelta files?
 	LOCAL_PATCH_FILES="$(ls --sort=version --reverse ${PKGMK_SOURCE_DIR}/*.xdelta 2> /dev/null | \
+		grep ".*/${OLD_FILE_NAME}${OLD_FILE_PREFIX}.*${OLD_FILE_SUFFIX}.tar-.*" | \
 		sed -e "s|.*/${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-.*|\1|" | xargs)"
 
 	if [ -n "${LOCAL_PATCH_FILES}" ]; then
@@ -387,7 +376,7 @@ grep '.xdelta' | grep "${NEW_FILE_NAME}" | sed -e 's|.*[HREF|href]=\"||' -e 's|\
 sort --reverse | xargs"
 
 	XDELTA_FILES="$(curl --fail --silent --retry 3 --connect-timeout 20 "$URL" | \
-		grep '.xdelta' | grep "${NEW_FILE_NAME}" | sed -e 's|.*[HREF|href]=\"||' \
+		grep '.xdelta' | grep "${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*${NEW_FILE_SUFFIX}" | sed -e 's|.*[HREF|href]=\"||' \
 		-e 's|\".*||' | sort --reverse | xargs)"
 
 	# this check is not enough data may stop sooner than it should
@@ -417,6 +406,7 @@ pkg_parse_remote_list() {
 	if [ "${LOG_DEBUG}" = 'yes' ]; then
 		for FILE in $XDELTA_FILES; do
 			PATCH_OLD_VERSION="$(printf "${FILE}" | \
+				grep "^${OLD_FILE_NAME}${OLD_FILE_PREFIX}.*${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*" | \
 				sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*|\1|")"
 			PATCH_OLD_VERSIONS="${PATCH_OLD_VERSION} ${PATCH_OLD_VERSIONS}"
 		done
@@ -429,6 +419,7 @@ pkg_parse_remote_list() {
 		for FILE in $XDELTA_FILES; do
 
 			PATCH_OLD_VERSION="$(printf "${FILE}" | \
+				grep "^${OLD_FILE_NAME}${OLD_FILE_PREFIX}.*${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*" | \
 				sed -e "s|^${OLD_FILE_NAME}${OLD_FILE_PREFIX}\(.*\)${OLD_FILE_SUFFIX}.tar-${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*|\1|")"
 
 			if [ "${GET_VERSION}" = 'yes' ]; then
@@ -574,28 +565,14 @@ pkg_compress() {
 		.tar.lrzip) lrzip -L 9 "${NEW_FILE_TAR}" ;;
 	esac
 
-	pkg_save_new_source
-}
-
-pkg_save_new_source() {
 	print_count 'Saving archive.'
 	log_very_verbose "Moving ${NEW_FILE} to $PKGMK_SOURCE_DIR/"
 	mv "${NEW_FILE}" "$PKGMK_SOURCE_DIR/"
-	cd - > /dev/null
-
-	if [ "${PKG_KEEP_WORKING}" = 'no' ]; then
-		rmdir "$PKGMK_WORK_DIR"
-	fi
-
-	pkgmk -um
-
-	# prevent a loop
-	exit 0
-
-	#print_info 'Done'
 }
 
 main() {
+	local NEW_FILE="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}${NEW_FILE_EXT}"
+
 	pkg_portcheck
 
 	for FILE in ${source[@]}; do
@@ -603,18 +580,47 @@ main() {
 		# don't try to patch local files
 		if [ -n "$(printf "${FILE}" | egrep '^.*://.*')" ]; then
 
-			explode_filename_new "${NEW_FILE_NAME}" "${NEW_FILE_VERSION}" \
-				"$(get_basename "${FILE}")"
+			if [ -n "$(get_basename "${FILE}" | grep "^${NEW_FILE_NAME}.*")" ]; then
 
-			explode_filename_old "${OLD_FILE_NAME}" "${NEW_FILE_VERSION}" \
-				"$(get_basename "${FILE}")" #FIXME is set to new
+				explode_filename_new "${NEW_FILE_NAME}" "${NEW_FILE_VERSION}" \
+					"$(get_basename "${FILE}")"
 
-			PKG_COUNT='1'
-			pkg_checks
-			pkg_work_dir
-			pkg_parse_local_list
+				explode_filename_old "${OLD_FILE_NAME}" "${NEW_FILE_VERSION}" \
+					"$(get_basename "${FILE}")" #FIXME is set to new
+
+				if [ ! -e "${PKGMK_SOURCE_DIR}/${NEW_FILE}" ]; then
+
+					if [ ! -z "$(ls ${PKGMK_SOURCE_DIR}/${OLD_FILE_NAME}-*${OLD_FILE_EXT})" ]; then
+						PKG_COUNT='1'
+						pkg_checks
+						pkg_work_dir
+						pkg_parse_local_list
+					else
+						print_info 'No source archive to use; proceed to download source archive.'
+					fi
+
+				else
+					print_info "File '${PKGMK_SOURCE_DIR}/${NEW_FILE}' exists, nothing to do."
+				fi
+
+			else
+				print_info "Source file $(get_basename "${FILE}") not known."
+			fi
+
 		fi
 	done
+
+	cd "${OLDPWD}"
+
+	if [ "${PKG_KEEP_WORKING}" = 'no' ]; then
+
+		if [ -e "${PKGMK_WORK_DIR}" ]; then
+			rmdir "${PKGMK_WORK_DIR}"
+		fi
+
+	fi
+
+	pkgmk -um
 }
 
 check_file_missing 'Pkgfile'
@@ -650,8 +656,8 @@ if [ -z "${PKG_DIFF_MIRRORS}" ]; then
 	PKG_DIFF_MIRRORS="
 		http://nanonyme.dy.fi/mirrors/hvl/distfiles/$name/
 		http://www.dcaf-security.org/distfiles/$name/
-		http://shortcircuit.net.au/~romster/distfiles/$name/
 		http://nanonyme.dy.fi/mirrors/hvl/distfiles/$name/
+		http://www.dcaf-security.org/distfiles/$name/
 	"
 fi
 
@@ -662,6 +668,8 @@ fi
 [ -z "${PKG_KEEP_WORKING}" ] && PKG_KEEP_WORKING='no'
 
 readonly PKG_LOG_VERBOSE_TOTAL_COUNT=3
+
+OLDPWD="$(pwd)"
 
 main "$@"
 
