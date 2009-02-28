@@ -5,7 +5,7 @@
 # Depends on: zlib lzma
 
 name=libpng
-version=1.2.34
+version=1.2.35
 release=1
 url="ftp://ftp.simplesystems.org/pub/$name/png/src"
 up2date="lynx -dump $url |grep $name- |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
