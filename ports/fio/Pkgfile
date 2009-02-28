@@ -5,7 +5,7 @@
 # Depends on: libaio
 
 name=fio
-version=1.23
+version=1.24
 release=1
 source=(http://brick.kernel.dk/snaps/$name-$version.tar.bz2)
 
