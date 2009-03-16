@@ -5,7 +5,7 @@
 # Depends on: xorg-libxscrnsaver startup-notification p5-xml-parser gtk gnutls gtkspell
 
 name=pidgin
-version=2.5.0
+version=2.5.5
 release=1
 up2date="lynx -dump http://sourceforge.net/project/showfiles.php?group_id=235 |grep '.tar.bz2' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '1 p'"
 source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
