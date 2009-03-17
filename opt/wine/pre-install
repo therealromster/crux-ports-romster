@@ -2,7 +2,7 @@
 #
 #  pre-install
 # 
-#  Copyright (c) 2008 Danny Rawlins
+#  Copyright (c) 2008,2009 Danny Rawlins
 # 
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -170,6 +170,7 @@ pkg_portcheck() {
 	is_installed 'tar'
 	is_installed 'sed'
 	is_installed 'curl'
+	is_installed 'perl' # used for random number generation
 	is_installed 'bc' #FIXME could make it optional
 }
 
@@ -230,14 +231,16 @@ pkg_checks() {
 	case ${OLD_FILE_EXT} in
 		.tar.gz) is_installed 'gzip' ;;
 		.tar.bz2) is_installed 'bzip2' ;;
-		.tar.lzma) is_installed 'lzma' ;;
+		.tar.lzma) is_installed 'xz' ;;
+		.tar.xz) is_installed 'xz' ;;
 		.tar.lrzip) is_installed 'lrzip' ;;
 	esac
 
 	case ${NEW_FILE_EXT} in
 		.tar.gz) is_installed 'gzip' ;;
 		.tar.bz2) is_installed 'bzip2' ;;
-		.tar.lzma) is_installed 'lzma' ;;
+		.tar.lzma) is_installed 'xz' ;;
+		.tar.xz) is_installed 'xz' ;;
 		.tar.lrzip) is_installed 'lrzip' ;;
 	esac
 }
@@ -249,15 +252,12 @@ pkg_work_dir() {
 	cd "${PKGMK_WORK_DIR}" || exit 1
 }
 
+# randomly pick a server to download patches
 pkg_pick_mirror() {
-	# pick a server to download patches
-	#local PKG_DIFF_MIRROR_TOTAL="$(array_count "${PKG_DIFF_MIRRORS}")"
-	case $(date +%S) in
-		*[15]) PKG_DIFF_MIRROR=4 ;;
-		*[30]) PKG_DIFF_MIRROR=3 ;;
-		*[45]) PKG_DIFF_MIRROR=2 ;;
-		*)     PKG_DIFF_MIRROR=1 ;;
-	esac
+	local MIRROR_TOTAL
+	MIRROR_TOTAL="$(array_count "${PKG_DIFF_MIRRORS}")"
+	PKG_DIFF_MIRROR="$(perl -e "print int( rand( ${MIRROR_TOTAL} ) );")"
+	log_debug "pkg_pick_mirror() picked mirror: ${PKG_DIFF_MIRROR}"
 }
 
 pkg_make_list() {
@@ -509,6 +509,7 @@ pkg_extract() {
 		.tar.gz) gzip -d "${OLD_FILE}" ;;
 		.tar.bz2) bzip2 -d "${OLD_FILE}" ;;
 		.tar.lzma) lzma -d "${OLD_FILE}" ;;
+		.tar.xz) xz -d "${OLD_FILE}" ;;
 		.tar.lrzip) lrzip -d "${OLD_FILE}" ;;
 	esac
 
@@ -562,6 +563,7 @@ pkg_compress() {
 		.tar.gz) gzip -9 "${NEW_FILE_TAR}" ;;
 		.tar.bz2) bzip2 -9 "${NEW_FILE_TAR}" ;;
 		.tar.lzma) lzma -9 "${NEW_FILE_TAR}" ;;
+		.tar.xz) xz -9 "${NEW_FILE_TAR}" ;;
 		.tar.lrzip) lrzip -L 9 "${NEW_FILE_TAR}" ;;
 	esac
 
@@ -654,10 +656,10 @@ fi
 # list of servers to download from
 if [ -z "${PKG_DIFF_MIRRORS}" ]; then
 	PKG_DIFF_MIRRORS="
-		http://nanonyme.dy.fi/mirrors/hvl/distfiles/$name/
+		http://romster.dyndns.org.8080.nyud.net/distfiles/$name/
+		http://shortcircuit.net.au/~romster/distfiles/$name/
 		http://www.dcaf-security.org/distfiles/$name/
-		http://nanonyme.dy.fi/mirrors/hvl/distfiles/$name/
-		http://www.dcaf-security.org/distfiles/$name/
+		http://scguy318.freeshell.org/romster/distfiles/$name/
 	"
 fi
 
