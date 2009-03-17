@@ -5,7 +5,7 @@
 # Depends on: iptables
 
 name=ipset
-version=2.4.9
+version=2.5.0
 release=1
 source=(http://$name.netfilter.org/$name-$version.tar.bz2)
 
