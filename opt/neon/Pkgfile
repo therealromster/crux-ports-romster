@@ -5,7 +5,7 @@
 # Depends on: openssl expat
 
 name=neon
-version=0.28.3
+version=0.28.4
 release=1
 url="http://www.webdav.org/$name"
 up2date="lynx -dump '$url/?C=M;O=D' |grep '.tar.gz$' |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
