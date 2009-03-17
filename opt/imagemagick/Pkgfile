@@ -6,7 +6,7 @@
 
 name=imagemagick
 sname=ImageMagick
-version=6.4.9-8
+version=6.5.0-0
 release=1
 url="ftp://ftp.imagemagick.net/pub/$sname"
 source=($url/$sname-$version.tar.lzma)
