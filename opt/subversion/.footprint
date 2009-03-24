@@ -13,6 +13,7 @@ drwxr-xr-x	root/root	usr/include/subversion-1/
 -rw-r--r--	root/root	usr/include/subversion-1/mod_dav_svn.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_auth.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_base64.h
+-rw-r--r--	root/root	usr/include/subversion-1/svn_checksum.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_client.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_cmdline.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_compat.h
@@ -21,6 +22,7 @@ drwxr-xr-x	root/root	usr/include/subversion-1/
 -rw-r--r--	root/root	usr/include/subversion-1/svn_dav.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_delta.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_diff.h
+-rw-r--r--	root/root	usr/include/subversion-1/svn_dirent_uri.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_dso.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_error.h
 -rw-r--r--	root/root	usr/include/subversion-1/svn_error_codes.h

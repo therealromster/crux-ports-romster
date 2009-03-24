@@ -5,7 +5,7 @@
 # Depends on: apr neon expat
 
 name=subversion
-version=1.5.6
+version=1.6.0
 release=1
 source=(http://$name.tigris.org/downloads/$name-$version.tar.bz2)
 
