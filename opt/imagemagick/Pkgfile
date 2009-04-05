@@ -6,12 +6,34 @@
 
 name=imagemagick
 sname=ImageMagick
-version=6.5.0-9
+version=6.5.1-0
 release=1
-url="ftp://ftp.imagemagick.net/pub/$sname"
-source=($url/$sname-$version.tar.lzma)
+source="ftp://ftp.imagemagick.net/pub/$sname/$sname-$version.tar.lzma"
 
-up2date="lynx -dump '$url/' | grep 'tar.lzma' | \
+mirrors="
+	ftp://mirror.aarnet.edu.au/pub/$sname/
+	ftp://gd.tuwien.ac.at/pub/graphics/$sname/
+	ftp://ftp.carnet.hr/pub/misc/imagemagick/
+	ftp://ftp.fu-berlin.de/unix/X11/graphics/$sname/
+	http://image_magick.veidrodis.com/image_magick/
+	ftp://ftp.kddlabs.co.jp/graphics/$sname/
+	ftp://ftp.u-aizu.ac.jp/pub/graphics/image/$sname/imagemagick.org/
+	ftp://zoffy.asahi-net.or.jp/pub/graphics/$sname/
+	ftp://ftp.nluug.nl/pub/$sname/
+	http://ftp.surfnet.nl/pub/$sname/
+	ftp://sunsite.icm.edu.pl/packages/$sname/
+	ftp://ftp.chg.ru/packages/$sname/
+	http://ftp.chg.ru/packages/$sname/
+	http://ftp.efair.ru/pub/software/graphics/$sname/
+	ftp://ftp.efair.ru/pub/software/graphics/$sname/
+	ftp://ftp.sunet.se/pub/multimedia/graphics/$sname/
+	http://www.smudge-it.co.uk/pub/imagemagick/
+	ftp://www.rx-host.net/pub/graphics/$sname/
+	ftp://ftp.fifi.org/pub/$sname/
+	ftp://ftp.imagemagick.org/pub/$sname/
+"
+
+up2date="lynx -dump 'ftp://ftp.imagemagick.net/pub/$sname/' | grep 'tar.lzma' | \
 	grep -v '$sname.tar.lzma' | \
 	sed -ne 's/.*$sname-\(.*\)\.t.*/\1/' -e '$ p'"
 
@@ -36,7 +58,7 @@ build() {
 
 	rm -r $PKG/usr/lib/perl5/?.??.? # empty directory
 	rm -r $PKG/usr/share/doc
-	rm $PKG/usr/share/ImageMagick-${version/-*}/{ChangeLog,LICENSE,NEWS.txt}
+	rm $PKG/usr/share/$sname-${version/-*}/{ChangeLog,LICENSE,NEWS.txt}
 	
 	find $PKG -type f \( \
 		-name perllocal.pod -o \
