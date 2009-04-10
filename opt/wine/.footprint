@@ -556,6 +556,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/wmistr.h
 -rw-r--r--	root/root	usr/include/wine/windows/wnaspi32.h
 -rw-r--r--	root/root	usr/include/wine/windows/wownt32.h
+-rw-r--r--	root/root	usr/include/wine/windows/ws2def.h
+-rw-r--r--	root/root	usr/include/wine/windows/ws2ipdef.h
 -rw-r--r--	root/root	usr/include/wine/windows/ws2spi.h
 -rw-r--r--	root/root	usr/include/wine/windows/ws2tcpip.h
 -rw-r--r--	root/root	usr/include/wine/windows/wshisotp.h
@@ -593,6 +595,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/avicap32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/avifil32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/avifile.dll16.so
+-rwxr-xr-x	root/root	usr/lib/wine/bcrypt.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/browseui.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/cabinet.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/cacls.exe.so
@@ -645,6 +648,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_38.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_39.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_40.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/d3dx9_41.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dxof.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dbghelp.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dciman32.dll.so
@@ -995,7 +999,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/sfc_os.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/shdoclc.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/shdocvw.dll.so
--rw-r--r--	root/root	usr/lib/wine/shell.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/shell.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/shell32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/shfolder.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/shlwapi.dll.so
