@@ -2,11 +2,11 @@
 # Description: Image manipulation wizard.
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: danm, maol, jaeger
-# Depends on: lzma ghostscript jasper lcms librsvg libungif openexr libwmf
+# Depends on: xz ghostscript jasper lcms librsvg libungif openexr libwmf
 
 name=imagemagick
 sname=ImageMagick
-version=6.5.1-0
+version=6.5.1-5
 release=1
 source="ftp://ftp.imagemagick.net/pub/$sname/$sname-$version.tar.lzma"
 
