@@ -285,6 +285,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/imnact.idl
 -rw-r--r--	root/root	usr/include/wine/windows/imnxport.h
 -rw-r--r--	root/root	usr/include/wine/windows/imnxport.idl
+-rw-r--r--	root/root	usr/include/wine/windows/in6addr.h
 -rw-r--r--	root/root	usr/include/wine/windows/indexsrv.h
 -rw-r--r--	root/root	usr/include/wine/windows/indexsrv.idl
 -rw-r--r--	root/root	usr/include/wine/windows/initguid.h
@@ -1022,6 +1023,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/system.drv16
 -rwxr-xr-x	root/root	usr/lib/wine/tapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/taskmgr.exe.so
+-rwxr-xr-x	root/root	usr/lib/wine/termsv.exe.so
 -rw-r--r--	root/root	usr/lib/wine/toolhelp.dll16
 -rwxr-xr-x	root/root	usr/lib/wine/traffic.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/twain.dll16.so
@@ -1111,6 +1113,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/xinput1_2.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/xinput1_3.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/xinput9_1_0.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/xmllite.dll.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/widl.1.gz
