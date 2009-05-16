@@ -5,12 +5,10 @@
 # Depends on: imlib2 libpcre xorg-libxft xorg-libxpm xorg-libxrandr
 
 name=pekwm
-version=0.1.10
+version=0.1.11
 release=1
-source=(http://www.pekwm.org/projects/3/files/$name-$version.tar.bz2)
-up2date="curl -s http://pekwm.org/projects/pekwm/releases |grep '.tar.' |sed \
-	-e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|^.*/||' -e 's|?.*$||' \
-	-e 's|^$name-\([^-]*\)\.tar\.bz2$|\1|' |head -n1"
+source="http://www.pekwm.org/projects/3/files/$name-$version.tar.bz2"
+up2date_url="http://pekwm.org/projects/pekwm/releases"
 
 build() {
 	cd $name-$version
