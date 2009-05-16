@@ -1,4 +1,7 @@
 drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/oscdump
+-rwxr-xr-x	root/root	usr/bin/oscsend
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/lo/
 -rw-r--r--	root/root	usr/include/lo/lo.h
@@ -11,8 +14,8 @@ drwxr-xr-x	root/root	usr/include/lo/
 -rw-r--r--	root/root	usr/include/lo/lo_types.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/liblo.la
-lrwxrwxrwx	root/root	usr/lib/liblo.so -> liblo.so.0.6.0
-lrwxrwxrwx	root/root	usr/lib/liblo.so.0 -> liblo.so.0.6.0
--rwxr-xr-x	root/root	usr/lib/liblo.so.0.6.0
+lrwxrwxrwx	root/root	usr/lib/liblo.so -> liblo.so.7.0.0
+lrwxrwxrwx	root/root	usr/lib/liblo.so.7 -> liblo.so.7.0.0
+-rwxr-xr-x	root/root	usr/lib/liblo.so.7.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/liblo.pc
