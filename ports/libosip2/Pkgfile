@@ -5,17 +5,9 @@
 # Depends on:
 
 name=libosip2
-version=3.2.0
+version=3.3.0
 release=1
-url='http://ftp.gnu.org/gnu/osip'
-source=($url/$name-$version.tar.gz)
-
-up2date="curl -s '$url/?C=M;O=D' | \
-	grep '.tar.' |sed \
-	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
-	-e 's|^.*/||' -e 's|?.*$||' \
-	-e 's|^$name-\([^-]*\)\.tar\.gz$|\1|' | \
-	head -n 1"
+source="http://ftp.gnu.org/gnu/osip/$name-$version.tar.gz"
 
 build() {
 	cd $name-$version
