@@ -1,18 +1,18 @@
-# Description: Transforming bitmaps into vector graphics.
-# URL: http://potrace.sourceforge.net
+# Description: A utility for tracing a bitmap, which means, transforming a bitmap into a smooth, scalable image.
+# URL: http://potrace.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Simone Rota, sip at varlock dot com
-# Depends on: 
+# Depends on:
 
 name=potrace
 version=1.8
 release=1
-source=(http://potrace.sourceforge.net/download/potrace-$version.tar.gz)
+source="http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz"
+up2date_url="http://sourceforge.net/project/showfiles.php?group_id=87635&package_id=91415"
 
 build() {
-	cd potrace-$version
+	cd $name-$version
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 }
-
