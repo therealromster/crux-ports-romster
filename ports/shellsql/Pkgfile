@@ -13,14 +13,14 @@
 name=shellsql
 version=0.7.7
 release=1
-source=(ftp://ftp.edlsystems.com/$name/$name-$version.tar.gz)
+source="ftp://ftp.edlsystems.com/$name/$name-$version.tar.gz"
 
 build() {
-	cd shellsql-$version
+	cd $name-$version
 	install -d $PKG/usr/bin
-	sed -i "s|BINDIR=/usr/bin|BINDIR=$PKG/usr/bin|" install.sh
+	sed -i -e "s|BINDIR=/usr/bin|BINDIR=$PKG/usr/bin|" install.sh
 
-	PORT_CONFIG_ARGS="tools "
+	local PORT_CONFIG_ARGS="tools "
 	[ -n $(pkginfo -i|grep postgres) ] || PORT_CONFIG_ARGS+="postgres "
 	[ -n $(pkginfo -i|grep mysql) ] || PORT_CONFIG_ARGS+="mysql "
 	[ -n $(pkginfo -i|grep sqlite3) ] || PORT_CONFIG_ARGS+="sqlite3 "
@@ -28,4 +28,3 @@ build() {
 	
 	./install.sh $PORT_CONFIG_ARGS
 }
-
