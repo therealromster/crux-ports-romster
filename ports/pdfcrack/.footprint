@@ -1,13 +1,3 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/pdfcrack
-drwxr-xr-x	root/root	usr/include/
-drwxr-xr-x	root/root	usr/include/pdfcrack/
--rwxr-xr-x	root/root	usr/include/pdfcrack/benchmark.o
--rwxr-xr-x	root/root	usr/include/pdfcrack/common.o
--rwxr-xr-x	root/root	usr/include/pdfcrack/main.o
--rwxr-xr-x	root/root	usr/include/pdfcrack/md5.o
--rwxr-xr-x	root/root	usr/include/pdfcrack/passwords.o
--rwxr-xr-x	root/root	usr/include/pdfcrack/pdfcrack.o
--rwxr-xr-x	root/root	usr/include/pdfcrack/pdfparser.o
--rwxr-xr-x	root/root	usr/include/pdfcrack/rc4.o
