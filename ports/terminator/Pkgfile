@@ -1,0 +1,16 @@
+# Description: Terminator is a little project to produce an efficient way of filling a large area of screen space with terminals.
+# URL: http://www.tenshu.net/terminator/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: vte
+
+name=terminator
+version=0.12
+release=1
+source="https://launchpad.net/$name/trunk/$version/+download/${name}_$version.tar.gz"
+up2date_url="https://launchpad.net/$name/+download"
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+}
