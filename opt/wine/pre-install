@@ -472,11 +472,11 @@ pkg_download_diff() {
 				bc -l)" '%' "Downloading ${FILE}."
 
 			if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
-				log_very_verbose "curl --fail --silent --remote-name \
+				log_very_verbose "curl --fail --remote-name \
 					--retry 3 \"${URL}${FILE}\""
 			fi
 
-			curl --fail --silent --remote-name --retry 3 "${URL}${FILE}"
+			curl --fail --remote-name --retry 3 "${URL}${FILE}"
 
 			if [ "$?" -gt '0' ]; then
 				error "Failed to download '${URL}${FILE}'."
@@ -489,10 +489,6 @@ pkg_download_diff() {
 		log_very_verbose "Copying ${PKGMK_SOURCE_DIR}/${FILE} to ${PKGMK_WORK_DIR}/"
 		cp "${PKGMK_SOURCE_DIR}/${FILE}" . || exit 1
 	done
-
-	#if [ "${TOTAL}" -gt '0' ]; then
-	#	printf "Done.\n"
-	#fi
 }
 
 pkg_extract() {

@@ -499,6 +499,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/tmschema.h
 -rw-r--r--	root/root	usr/include/wine/windows/tom.h
 -rw-r--r--	root/root	usr/include/wine/windows/tom.idl
+-rw-r--r--	root/root	usr/include/wine/windows/traffic.h
 -rw-r--r--	root/root	usr/include/wine/windows/twain.h
 -rw-r--r--	root/root	usr/include/wine/windows/unknwn.h
 -rw-r--r--	root/root	usr/include/wine/windows/unknwn.idl
@@ -653,7 +654,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/d3dxof.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dbghelp.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dciman32.dll.so
--rw-r--r--	root/root	usr/lib/wine/ddeml.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/ddeml.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/ddraw.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/ddrawex.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/devenum.dll.so
@@ -924,7 +925,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/msvcrtd.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvfw32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvidc32.dll.so
--rw-r--r--	root/root	usr/lib/wine/msvideo.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/msvideo.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/mswsock.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msxml3.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/nddeapi.dll.so
@@ -1021,6 +1022,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/svrapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sxs.dll.so
 -rw-r--r--	root/root	usr/lib/wine/system.drv16
+-rwxr-xr-x	root/root	usr/lib/wine/t2embed.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/tapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/taskmgr.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/termsv.exe.so
@@ -1051,6 +1053,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/vwin32.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/w32skrnl.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/w32sys.dll16.so
+-rwxr-xr-x	root/root	usr/lib/wine/wbemprox.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/win32s16.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/win87em.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/winaspi.dll16.so
