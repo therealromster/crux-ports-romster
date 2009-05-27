@@ -5,10 +5,11 @@
 # Depends on: gtk gl-select
 
 name=nvidia
-version=180.44
+version=180.51
 release=1
 source=(http://us.download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run
 	$name-makefile.patch)
+up2date_url="ftp://download.nvidia.com/XFree86/Linux-x86/"
 
 build() {
 	sh NVIDIA-Linux-x86-$version-pkg0.run --extract-only
@@ -50,4 +51,3 @@ build() {
 	install -m 0644 -D nvidia.ko \
 		$PKG/lib/modules/$(uname -r)/kernel/drivers/video/nvidia.ko
 }
-

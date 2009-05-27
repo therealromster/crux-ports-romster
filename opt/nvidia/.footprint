@@ -18,27 +18,27 @@ drwxr-xr-x	root/root	usr/include/nvidia/GL/
 -r--r--r--	root/root	usr/include/nvidia/GL/glxext.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libGL.la
--rwxr-xr-x	root/root	usr/lib/libGL.so.180.44
-lrwxrwxrwx	root/root	usr/lib/libGLcore.so -> libGLcore.so.180.44
--rwxr-xr-x	root/root	usr/lib/libGLcore.so.180.44
--rwxr-xr-x	root/root	usr/lib/libcuda.so.180.44
--rwxr-xr-x	root/root	usr/lib/libnvidia-cfg.so.180.44
--rwxr-xr-x	root/root	usr/lib/libnvidia-tls.so.180.44
--rwxr-xr-x	root/root	usr/lib/libvdpau.so.180.44
--rwxr-xr-x	root/root	usr/lib/libvdpau_nvidia.so.180.44
--rwxr-xr-x	root/root	usr/lib/libvdpau_trace.so.180.44
+-rwxr-xr-x	root/root	usr/lib/libGL.so.180.51
+lrwxrwxrwx	root/root	usr/lib/libGLcore.so -> libGLcore.so.180.51
+-rwxr-xr-x	root/root	usr/lib/libGLcore.so.180.51
+-rwxr-xr-x	root/root	usr/lib/libcuda.so.180.51
+-rwxr-xr-x	root/root	usr/lib/libnvidia-cfg.so.180.51
+-rwxr-xr-x	root/root	usr/lib/libnvidia-tls.so.180.51
+-rwxr-xr-x	root/root	usr/lib/libvdpau.so.180.51
+-rwxr-xr-x	root/root	usr/lib/libvdpau_nvidia.so.180.51
+-rwxr-xr-x	root/root	usr/lib/libvdpau_trace.so.180.51
 drwxr-xr-x	root/root	usr/lib/tls/
--rwxr-xr-x	root/root	usr/lib/tls/libnvidia-tls.so.180.44
+-rwxr-xr-x	root/root	usr/lib/tls/libnvidia-tls.so.180.51
 drwxr-xr-x	root/root	usr/lib/xorg/
 -r--r--r--	root/root	usr/lib/xorg/libXvMCNVIDIA.a
--rwxr-xr-x	root/root	usr/lib/xorg/libXvMCNVIDIA.so.180.44
+-rwxr-xr-x	root/root	usr/lib/xorg/libXvMCNVIDIA.so.180.51
 drwxr-xr-x	root/root	usr/lib/xorg/modules/
 drwxr-xr-x	root/root	usr/lib/xorg/modules/drivers/
 -rwxr-xr-x	root/root	usr/lib/xorg/modules/drivers/nvidia_drv.so
 drwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/
 lrwxrwxrwx	root/root	usr/lib/xorg/modules/extensions/libGLcore.so -> /usr/lib/libGLcore.so
--rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.so.180.44
--rwxr-xr-x	root/root	usr/lib/xorg/modules/libnvidia-wfb.so.180.44
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/extensions/libglx.so.180.51
+-rwxr-xr-x	root/root	usr/lib/xorg/modules/libnvidia-wfb.so.180.51
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/nvidia-settings.1.gz
