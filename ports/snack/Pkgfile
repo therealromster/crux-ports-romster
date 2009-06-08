@@ -6,11 +6,13 @@
 
 name=snack
 version=2.2.10
-release=1
-source=(http://www.speech.kth.se/snack/dist/snack$version.tar.gz)
+release=2
+source=(http://www.speech.kth.se/snack/dist/$name$version.tar.gz
+	alsa-undef-sym.patch)
 
 build() {
-	cd snack$version/unix
+	cd $name$version/unix
+	patch -p 1 -i $SRC/alsa-undef-sym.patch
 
 	./configure \
 		--prefix=/usr \
@@ -21,4 +23,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
