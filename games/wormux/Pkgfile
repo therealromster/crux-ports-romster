@@ -9,12 +9,12 @@
 # Category:	games
 
 name=wormux
-version=0.8.1
+version=0.8.3
 release=1
-source=(http://download.gna.org/wormux/wormux-$version.tar.bz2)
+source="http://download.gna.org/$name/$name-$version.tar.bz2"
 
 build() {
-	cd wormux-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -24,6 +24,4 @@ build() {
    
 	make
 	make DESTDIR=$PKG install
-
 }
-
