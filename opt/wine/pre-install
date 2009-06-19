@@ -256,7 +256,7 @@ pkg_work_dir() {
 pkg_pick_mirror() {
 	local MIRROR_TOTAL
 	MIRROR_TOTAL="$(array_count "${PKG_DIFF_MIRRORS}")"
-	PKG_DIFF_MIRROR="$(perl -e "print int( rand( ${MIRROR_TOTAL} ) );")"
+	PKG_DIFF_MIRROR="$(($(perl -e "print int( rand( ${MIRROR_TOTAL} ) );") + 1))"
 	log_debug "pkg_pick_mirror() picked mirror: ${PKG_DIFF_MIRROR}"
 }
 
@@ -479,7 +479,7 @@ pkg_download_diff() {
 			curl --fail --remote-name --retry 3 "${URL}${FILE}"
 
 			if [ "$?" -gt '0' ]; then
-				error "Failed to download '${URL}${FILE}'."
+				print_error "Failed to download '${URL}${FILE}'."
 			fi
 
 			mv "${FILE}" "${PKGMK_SOURCE_DIR}/${FILE}"
