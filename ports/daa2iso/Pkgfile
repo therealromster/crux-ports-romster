@@ -5,9 +5,10 @@
 # Depends on: zlib
 
 name=daa2iso
-version=0.1.7a
+version=0.1.7c
 release=1
-source=(http://aluigi.org/mytoolz/$name.zip)
+source=(http://aluigi.org/mytoolz/$name.zip
+	http://luigi.eliott-ness.com/mytoolz/$name.zip)
 
 build() {
 	cd src
