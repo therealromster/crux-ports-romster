@@ -7,7 +7,7 @@
 # Core: coreutils pkgutils sed
 
 name=safe-build-dev
-version=20090523-1843
+version=20090628-2136
 release=1
 source="ftp://romster.dyndns.org/linux/source/safe-build/safe_build-$version.tar.bz2"
 
