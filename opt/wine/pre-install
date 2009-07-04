@@ -569,11 +569,20 @@ pkg_compress() {
 }
 
 main() {
-	local NEW_FILE="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}${NEW_FILE_EXT}"
-
-	pkg_portcheck
+	local NEW_FILE COUNT
+	COUNT='1'
 
 	for FILE in ${source[@]}; do
+		pkg_portcheck
+		
+		if [ "${COUNT}" = '1' ]; then
+			OLD_FILE_NAME="${sname}"
+		else
+			OLD_FILE_NAME="$(eval "echo \$sname$COUNT")"
+		fi
+		COUNT="$(($COUNT + 1))"
+		NEW_FILE_NAME="${OLD_FILE_NAME}"
+		NEW_FILE="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}${NEW_FILE_EXT}"
 
 		# don't try to patch local files
 		if [ -n "$(printf "${FILE}" | egrep '^.*://.*')" ]; then
@@ -606,9 +615,9 @@ main() {
 			fi
 
 		fi
-	done
 
-	cd "${OLDPWD}"
+		cd "${OLDPWD}"
+	done
 
 	if [ "${PKG_KEEP_WORKING}" = 'no' ]; then
 
@@ -639,9 +648,7 @@ fi
 [ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="$PWD"
 
 [ -z "${sname}" ] && sname="${name}"
-[ -z "${OLD_FILE_NAME}" ] && OLD_FILE_NAME="$sname"
 [ -z "${NEW_FILE_VERSION}" ] && NEW_FILE_VERSION="$version"
-[ -z "${NEW_FILE_NAME}" ] && NEW_FILE_NAME="$sname"
 [ -z "${OLD_FILE_PREFIX}" ] && OLD_FILE_PREFIX="${NEW_FILE_PREFIX}"
 [ -z "${OLD_FILE_SUFFIX}" ] && OLD_FILE_SUFFIX="${NEW_FILE_SUFFIX}"
 [ -z "${OLD_FILE_EXT}" ] && OLD_FILE_EXT="${NEW_FILE_EXT}"
@@ -652,10 +659,9 @@ fi
 # list of servers to download from
 if [ -z "${PKG_DIFF_MIRRORS}" ]; then
 	PKG_DIFF_MIRRORS="
-		http://romster.dyndns.org.8080.nyud.net/distfiles/$name/
+		http://romster.dyndns.org:8080/distfiles/$name/
 		http://shortcircuit.net.au/~romster/distfiles/$name/
 		http://www.dcaf-security.org/distfiles/$name/
-		http://scguy318.freeshell.org/romster/distfiles/$name/
 	"
 fi
 

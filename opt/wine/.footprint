@@ -450,6 +450,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/rpcndr.h
 -rw-r--r--	root/root	usr/include/wine/windows/rpcnterr.h
 -rw-r--r--	root/root	usr/include/wine/windows/rpcproxy.h
+-rw-r--r--	root/root	usr/include/wine/windows/rtutils.h
 -rw-r--r--	root/root	usr/include/wine/windows/scarderr.h
 -rw-r--r--	root/root	usr/include/wine/windows/schannel.h
 -rw-r--r--	root/root	usr/include/wine/windows/schemadef.h
@@ -682,6 +683,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/dpnhpast.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dpnlobby.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dpwsockx.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/drmclien.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dsound.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dssenh.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dswave.dll.so
@@ -832,6 +834,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libriched20.def
 -rw-r--r--	root/root	usr/lib/wine/librpcrt4.def
 -rw-r--r--	root/root	usr/lib/wine/librsaenh.def
+-rw-r--r--	root/root	usr/lib/wine/librtutils.def
 -rw-r--r--	root/root	usr/lib/wine/libsecur32.def
 -rw-r--r--	root/root	usr/lib/wine/libsensapi.def
 -rw-r--r--	root/root	usr/lib/wine/libserialui.def
@@ -858,6 +861,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libuxtheme.def
 -rw-r--r--	root/root	usr/lib/wine/libvdmdbg.def
 -rw-r--r--	root/root	usr/lib/wine/libversion.def
+-rw-r--r--	root/root	usr/lib/wine/libwindowscodecs.def
 -rw-r--r--	root/root	usr/lib/wine/libwinecrt0.a
 -rw-r--r--	root/root	usr/lib/wine/libwined3d.def
 -rw-r--r--	root/root	usr/lib/wine/libwinhttp.def
@@ -988,6 +992,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/rpcss.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/rsabase.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/rsaenh.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/rtutils.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/rundll32.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/sane.ds.so
 -rwxr-xr-x	root/root	usr/lib/wine/sccbase.dll.so
