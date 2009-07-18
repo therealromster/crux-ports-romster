@@ -148,11 +148,6 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/d3drmobj.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dtypes.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dvec.inl
--rw-r--r--	root/root	usr/include/wine/windows/d3dx8.h
--rw-r--r--	root/root	usr/include/wine/windows/d3dx8core.h
--rw-r--r--	root/root	usr/include/wine/windows/d3dx8math.h
--rw-r--r--	root/root	usr/include/wine/windows/d3dx8math.inl
--rw-r--r--	root/root	usr/include/wine/windows/d3dx8mesh.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9core.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dx9math.h
@@ -376,11 +371,14 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/msxmldid.h
 -rw-r--r--	root/root	usr/include/wine/windows/nb30.h
 -rw-r--r--	root/root	usr/include/wine/windows/ndrtypes.h
+-rw-r--r--	root/root	usr/include/wine/windows/netcon.h
+-rw-r--r--	root/root	usr/include/wine/windows/netcon.idl
 -rw-r--r--	root/root	usr/include/wine/windows/netfw.h
 -rw-r--r--	root/root	usr/include/wine/windows/netfw.idl
 -rw-r--r--	root/root	usr/include/wine/windows/npapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/nspapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/ntddcdrm.h
+-rw-r--r--	root/root	usr/include/wine/windows/ntddndis.h
 -rw-r--r--	root/root	usr/include/wine/windows/ntddscsi.h
 -rw-r--r--	root/root	usr/include/wine/windows/ntddstor.h
 -rw-r--r--	root/root	usr/include/wine/windows/ntdsapi.h
@@ -492,6 +490,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/strmif.h
 -rw-r--r--	root/root	usr/include/wine/windows/strmif.idl
 -rw-r--r--	root/root	usr/include/wine/windows/svrapi.h
+-rw-r--r--	root/root	usr/include/wine/windows/t2embapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/tapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/tchar.h
 -rw-r--r--	root/root	usr/include/wine/windows/textserv.h
@@ -520,6 +519,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/vmr9.h
 -rw-r--r--	root/root	usr/include/wine/windows/vmr9.idl
 -rw-r--r--	root/root	usr/include/wine/windows/vmrender.idl
+-rw-r--r--	root/root	usr/include/wine/windows/wbemcli.h
+-rw-r--r--	root/root	usr/include/wine/windows/wbemcli.idl
 -rw-r--r--	root/root	usr/include/wine/windows/wfext.h
 -rw-r--r--	root/root	usr/include/wine/windows/winbase.h
 -rw-r--r--	root/root	usr/include/wine/windows/wincodec.h
@@ -636,7 +637,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/d3d9.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dim.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3drm.dll.so
--rwxr-xr-x	root/root	usr/lib/wine/d3dx8.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_24.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_25.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/d3dx9_26.dll.so
@@ -759,7 +759,6 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rw-r--r--	root/root	usr/lib/wine/libd3d9.def
 -rw-r--r--	root/root	usr/lib/wine/libd3dim.def
 -rw-r--r--	root/root	usr/lib/wine/libd3drm.def
--rw-r--r--	root/root	usr/lib/wine/libd3dx8.def
 -rw-r--r--	root/root	usr/lib/wine/libd3dx9.def
 -rw-r--r--	root/root	usr/lib/wine/libd3dxof.def
 -rw-r--r--	root/root	usr/lib/wine/libdbghelp.def
@@ -1111,6 +1110,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/winver.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/wldap32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wmi.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/wmiutils.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wnaspi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wordpad.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/wow32.dll.so
