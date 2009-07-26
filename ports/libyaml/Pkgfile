@@ -1,27 +1,22 @@
-# $Id: 
-# Description: YAML 1.1 parser and emitter library.
+# Description: A YAML 1.1 parser and emitter library.
 # URL: http://pyyaml.org/wiki/LibYAML
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Mark Rosenstand, mark at borkware dot net
 # Depends on:
 
-# Recommended:	
-# Optional:	
-# Category:	library, yaml
-
 name=libyaml
-version=0.0.1
+sname=yaml
+version=0.1.2
 release=1
-source=(http://pyyaml.org/download/libyaml/yaml-$version.tar.gz)
+source=(http://pyyaml.org/download/libyaml/$sname-$version.tar.gz)
 
 build() {
-	cd yaml-$version
+	cd $sname-$version
 
 	./configure \
 		--prefix=/usr \
 		--disable-static
 
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
-
