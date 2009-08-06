@@ -7,12 +7,12 @@
 
 
 name=librsvg
-version=2.22.2
+version=2.22.3
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/sources/librsvg/${version%.*}/librsvg-$version.tar.bz2)
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}/$name-$version.tar.bz2)
 
 build() {
-	cd librsvg-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -26,4 +26,3 @@ build() {
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/{lib/mozilla,share/gtk-doc}
 }
-
