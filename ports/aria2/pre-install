@@ -206,6 +206,20 @@ check_file_missing() {
 	#fi
 }
 
+# http://www.commandlinefu.com/commands/view/2285/urldecoding
+url_decode() {
+	#echo "${1}" | perl -MURI::Escape -lne 'print uri_unescape($_)'
+
+	# http://do.homeunix.org/UrlDecoding.html?index
+#	echo "${1}" |\
+#		sed 's/+/ /g'| sed 's/\%0[dD]//g' |\
+#		awk '/%/{while(match($0,/\%[0-9a-fA-F][0-9a-fA-F]/))\
+#		{$0=substr($0,1,RSTART-1)sprintf("%c",0+("0x"substr(\
+#		$0,RSTART+1,2)))substr($0,RSTART+3);}}{print}'
+
+	echo ${1} | sed -e 's|%2b|+|g'
+}
+
 array() {
 	printf "${2}" | tr --delete '\n' | sed \
 		-e 's|[\t| ]\+| |g' \
@@ -256,7 +270,7 @@ pkg_work_dir() {
 pkg_pick_mirror() {
 	local MIRROR_TOTAL
 	MIRROR_TOTAL="$(array_count "${PKG_DIFF_MIRRORS}")"
-	PKG_DIFF_MIRROR="$(perl -e "print int( rand( ${MIRROR_TOTAL} ) );")"
+	PKG_DIFF_MIRROR="$(($(perl -e "print int( rand( ${MIRROR_TOTAL} ) );") + 1))"
 	log_debug "pkg_pick_mirror() picked mirror: ${PKG_DIFF_MIRROR}"
 }
 
@@ -371,13 +385,13 @@ pkg_download_delta_list() {
 	#printf "Patching source files.\n"
 	print_info "Retrieving delta list from '$URL'."
 
-	log_debug "curl --fail --silent --retry 3 --connect-timeout 20 "${URL}" | \
+	log_debug "$(url_decode "$(curl --fail --silent --retry 3 --connect-timeout 20 "${URL}" | \
 grep '.xdelta' | grep "${NEW_FILE_NAME}" | sed -e 's|.*[HREF|href]=\"||' -e 's|\".*||' | \
-sort --reverse | xargs"
+sort --reverse | xargs)")"
 
-	XDELTA_FILES="$(curl --fail --silent --retry 3 --connect-timeout 20 "$URL" | \
+	XDELTA_FILES="$(url_decode "$(curl --fail --silent --retry 3 --connect-timeout 20 "$URL" | \
 		grep '.xdelta' | grep "${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*${NEW_FILE_SUFFIX}" | sed -e 's|.*[HREF|href]=\"||' \
-		-e 's|\".*||' | sort --reverse | xargs)"
+		-e 's|\".*||' | sort --reverse | xargs)")"
 
 	# this check is not enough data may stop sooner than it should
 	if [ -z "${XDELTA_FILES}" ]; then
@@ -472,14 +486,14 @@ pkg_download_diff() {
 				bc -l)" '%' "Downloading ${FILE}."
 
 			if [ "${PKG_LOG_VERY_VERBOSE}" = 'yes' ]; then
-				log_very_verbose "curl --fail --silent --remote-name \
+				log_very_verbose "curl --fail --remote-name \
 					--retry 3 \"${URL}${FILE}\""
 			fi
 
-			curl --fail --silent --remote-name --retry 3 "${URL}${FILE}"
+			curl --fail --remote-name --retry 3 "${URL}${FILE}"
 
 			if [ "$?" -gt '0' ]; then
-				error "Failed to download '${URL}${FILE}'."
+				print_error "Failed to download '${URL}${FILE}'."
 			fi
 
 			mv "${FILE}" "${PKGMK_SOURCE_DIR}/${FILE}"
@@ -489,10 +503,6 @@ pkg_download_diff() {
 		log_very_verbose "Copying ${PKGMK_SOURCE_DIR}/${FILE} to ${PKGMK_WORK_DIR}/"
 		cp "${PKGMK_SOURCE_DIR}/${FILE}" . || exit 1
 	done
-
-	#if [ "${TOTAL}" -gt '0' ]; then
-	#	printf "Done.\n"
-	#fi
 }
 
 pkg_extract() {
@@ -573,11 +583,20 @@ pkg_compress() {
 }
 
 main() {
-	local NEW_FILE="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}${NEW_FILE_EXT}"
-
-	pkg_portcheck
+	local NEW_FILE COUNT
+	COUNT='1'
 
 	for FILE in ${source[@]}; do
+		pkg_portcheck
+		
+		if [ "${COUNT}" = '1' ]; then
+			OLD_FILE_NAME="${sname}"
+		else
+			OLD_FILE_NAME="$(eval "echo \$sname$COUNT")"
+		fi
+		COUNT="$(($COUNT + 1))"
+		NEW_FILE_NAME="${OLD_FILE_NAME}"
+		NEW_FILE="${NEW_FILE_NAME}${NEW_FILE_PREFIX}${NEW_FILE_VERSION}${NEW_FILE_SUFFIX}${NEW_FILE_EXT}"
 
 		# don't try to patch local files
 		if [ -n "$(printf "${FILE}" | egrep '^.*://.*')" ]; then
@@ -610,9 +629,9 @@ main() {
 			fi
 
 		fi
-	done
 
-	cd "${OLDPWD}"
+		cd "${OLDPWD}"
+	done
 
 	if [ "${PKG_KEEP_WORKING}" = 'no' ]; then
 
@@ -643,9 +662,7 @@ fi
 [ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="$PWD"
 
 [ -z "${sname}" ] && sname="${name}"
-[ -z "${OLD_FILE_NAME}" ] && OLD_FILE_NAME="$sname"
 [ -z "${NEW_FILE_VERSION}" ] && NEW_FILE_VERSION="$version"
-[ -z "${NEW_FILE_NAME}" ] && NEW_FILE_NAME="$sname"
 [ -z "${OLD_FILE_PREFIX}" ] && OLD_FILE_PREFIX="${NEW_FILE_PREFIX}"
 [ -z "${OLD_FILE_SUFFIX}" ] && OLD_FILE_SUFFIX="${NEW_FILE_SUFFIX}"
 [ -z "${OLD_FILE_EXT}" ] && OLD_FILE_EXT="${NEW_FILE_EXT}"
@@ -656,10 +673,9 @@ fi
 # list of servers to download from
 if [ -z "${PKG_DIFF_MIRRORS}" ]; then
 	PKG_DIFF_MIRRORS="
-		http://romster.dyndns.org.8080.nyud.net/distfiles/$name/
+		http://romster.dyndns.org:8080/distfiles/$name/
 		http://shortcircuit.net.au/~romster/distfiles/$name/
 		http://www.dcaf-security.org/distfiles/$name/
-		http://scguy318.freeshell.org/romster/distfiles/$name/
 	"
 fi
 
