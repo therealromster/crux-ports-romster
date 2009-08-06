@@ -1,27 +1,26 @@
-# $Id: 
 # Description: Fast, free web server log file analysis program. It produces highly detailed, easily configurable usage reports in HTML format, for viewing with a standard web browser.
 # URL: http://www.mrunix.net/webalizer/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: libgd
 
 name=webalizer
-version=2.01-10
+version=2.21-02
 release=1
 source=(ftp://ftp.mrunix.net/pub/$name/$name-$version-src.tar.bz2)
 
 build() {
 	cd $name-$version
-	
+
 	./configure \
 		--prefix=/usr \
 		--disable-nls
-	
+
 	make
-	
-	install -D -m755 -oroot -groot webalizer $PKG/usr/bin/webalizer
-	install -D -m644 -oroot -groot webalizer.1 $PKG/usr/man/man1/webalizer.1
-	install -D -m644 -oroot -groot sample.conf $PKG/etc/webalizer.conf
-	
+
+	install -D -m755 -o root -g root webalizer $PKG/usr/bin/webalizer
+	install -D -m644 -o root -g root webalizer.1 $PKG/usr/man/man1/webalizer.1
+	install -D -m644 -o root -g root sample.conf $PKG/etc/webalizer.conf
+
 	ln -sf /usr/bin/webalizer $PKG/usr/bin/webazolver
 }
