@@ -5,12 +5,12 @@
 # Depends on: libnxml
 
 name=libmrss
-version=0.19.1
+version=0.19.2
 release=1
-source=(http://www.autistici.org/bakunin/libmrss/libmrss-$version.tar.gz)
+source=(http://www.autistici.org/bakunin/$name/$name-$version.tar.gz)
 
 build() {
-	cd libmrss-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
