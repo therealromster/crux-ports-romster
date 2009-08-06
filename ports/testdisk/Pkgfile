@@ -5,15 +5,14 @@
 # Depends on: ntfsprogs
 
 name=testdisk
-version=6.9
+version=6.9 # 6.10 has a error with new ex2fsprogs
 release=1
-source=(http://www.cgsecurity.org/testdisk-$version.tar.bz2)
+source=(http://www.cgsecurity.org/$name-$version.tar.bz2)
 
 build() {
-	cd testdisk-$version
+	cd $name-$version
 	./configure --prefix=/usr 
 	make 
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share
 }
-
