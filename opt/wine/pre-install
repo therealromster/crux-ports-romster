@@ -206,6 +206,20 @@ check_file_missing() {
 	#fi
 }
 
+# http://www.commandlinefu.com/commands/view/2285/urldecoding
+url_decode() {
+	#echo "${1}" | perl -MURI::Escape -lne 'print uri_unescape($_)'
+
+	# http://do.homeunix.org/UrlDecoding.html?index
+#	echo "${1}" |\
+#		sed 's/+/ /g'| sed 's/\%0[dD]//g' |\
+#		awk '/%/{while(match($0,/\%[0-9a-fA-F][0-9a-fA-F]/))\
+#		{$0=substr($0,1,RSTART-1)sprintf("%c",0+("0x"substr(\
+#		$0,RSTART+1,2)))substr($0,RSTART+3);}}{print}'
+
+	echo ${1} | sed -e 's|%2b|+|g'
+}
+
 array() {
 	printf "${2}" | tr --delete '\n' | sed \
 		-e 's|[\t| ]\+| |g' \
@@ -371,13 +385,13 @@ pkg_download_delta_list() {
 	#printf "Patching source files.\n"
 	print_info "Retrieving delta list from '$URL'."
 
-	log_debug "curl --fail --silent --retry 3 --connect-timeout 20 "${URL}" | \
+	log_debug "$(url_decode "$(curl --fail --silent --retry 3 --connect-timeout 20 "${URL}" | \
 grep '.xdelta' | grep "${NEW_FILE_NAME}" | sed -e 's|.*[HREF|href]=\"||' -e 's|\".*||' | \
-sort --reverse | xargs"
+sort --reverse | xargs)")"
 
-	XDELTA_FILES="$(curl --fail --silent --retry 3 --connect-timeout 20 "$URL" | \
+	XDELTA_FILES="$(url_decode "$(curl --fail --silent --retry 3 --connect-timeout 20 "$URL" | \
 		grep '.xdelta' | grep "${NEW_FILE_NAME}${NEW_FILE_PREFIX}.*${NEW_FILE_SUFFIX}" | sed -e 's|.*[HREF|href]=\"||' \
-		-e 's|\".*||' | sort --reverse | xargs)"
+		-e 's|\".*||' | sort --reverse | xargs)")"
 
 	# this check is not enough data may stop sooner than it should
 	if [ -z "${XDELTA_FILES}" ]; then
