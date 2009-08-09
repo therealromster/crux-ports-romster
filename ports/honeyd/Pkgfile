@@ -1,0 +1,23 @@
+# Description: A small daemon that creates virtual hosts on a network.
+# URL: http://www.honeyd.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club dash internet dot fr
+# Depends on: libpcap libevent libdnet
+
+name=honeyd
+version=1.5c
+release=1
+source=(http://www.citi.umich.edu/u/provos/$name/$name-$version.tar.gz)
+up2date_url="http://www.honeyd.org/release.php"
+
+build () {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+	rm $PKG/usr/share/honeyd/README
+}
