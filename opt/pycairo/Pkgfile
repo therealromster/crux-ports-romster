@@ -1,15 +1,14 @@
 # Description: A set of python bindings for cairo.
 # URL: http://cairographics.org/pycairo
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Matt Housh, jaeger at morpheus dot net
 # Depends on: cairo python
 
 name=pycairo
-version=1.8.4
+version=1.8.6
 release=1
-url='http://cairographics.org/releases'
-up2date="lynx -dump $url |grep 'LATEST-$name-' |sed -ne 's/.*-\(.*\)$/\1/' -e '$ p'"
-source=($url/$name-$version.tar.gz)
+source=(http://cairographics.org/releases/$name-$version.tar.gz)
+up2date_url="http://cairographics.org/releases/"
 
 build() {
 	cd $name-$version
