@@ -28,9 +28,9 @@ drwxr-xr-x	root/root	usr/include/neon/
 -rw-r--r--	root/root	usr/include/neon/ne_xmlreq.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libneon.la
-lrwxrwxrwx	root/root	usr/lib/libneon.so -> libneon.so.27.1.4
-lrwxrwxrwx	root/root	usr/lib/libneon.so.27 -> libneon.so.27.1.4
--rwxr-xr-x	root/root	usr/lib/libneon.so.27.1.4
+lrwxrwxrwx	root/root	usr/lib/libneon.so -> libneon.so.27.1.5
+lrwxrwxrwx	root/root	usr/lib/libneon.so.27 -> libneon.so.27.1.5
+-rwxr-xr-x	root/root	usr/lib/libneon.so.27.1.5
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/neon.pc
 drwxr-xr-x	root/root	usr/man/
