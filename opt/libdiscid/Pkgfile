@@ -1,0 +1,18 @@
+# Description: A library for creating MusicBrainz DiscIDs.
+# URL: http://musicbrainz.org/doc/libdiscid
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+
+name=libdiscid
+version=0.2.2
+release=1
+source=(http://users.musicbrainz.org/~matt/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+}
