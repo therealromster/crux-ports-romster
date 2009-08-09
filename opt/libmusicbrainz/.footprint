@@ -1,16 +1,36 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/include/
-drwxr-xr-x	root/root	usr/include/musicbrainz/
--rw-r--r--	root/root	usr/include/musicbrainz/browser.h
--rw-r--r--	root/root	usr/include/musicbrainz/errors.h
--rw-r--r--	root/root	usr/include/musicbrainz/mb_c.h
--rw-r--r--	root/root	usr/include/musicbrainz/musicbrainz.h
--rw-r--r--	root/root	usr/include/musicbrainz/queries.h
+drwxr-xr-x	root/root	usr/include/musicbrainz3/
+-rw-r--r--	root/root	usr/include/musicbrainz3/artist.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/artistalias.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/defines.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/disc.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/entity.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/factory.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/filters.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/includes.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/iwebservice.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/label.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/labelalias.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/lists.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/mb_c.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/mbxmlparser.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/metadata.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/model.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/musicbrainz.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/query.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/relation.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/release.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/releaseevent.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/results.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/tag.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/track.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/user.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/utils.h
+-rw-r--r--	root/root	usr/include/musicbrainz3/webservice.h
 drwxr-xr-x	root/root	usr/lib/
--rw-r--r--	root/root	usr/lib/libmusicbrainz.a
--rwxr-xr-x	root/root	usr/lib/libmusicbrainz.la
-lrwxrwxrwx	root/root	usr/lib/libmusicbrainz.so -> libmusicbrainz.so.4.0.3
-lrwxrwxrwx	root/root	usr/lib/libmusicbrainz.so.4 -> libmusicbrainz.so.4.0.3
--rwxr-xr-x	root/root	usr/lib/libmusicbrainz.so.4.0.3
+lrwxrwxrwx	root/root	usr/lib/libmusicbrainz3.so -> libmusicbrainz3.so.6
+lrwxrwxrwx	root/root	usr/lib/libmusicbrainz3.so.6 -> libmusicbrainz3.so.6.2.0
+-rwxr-xr-x	root/root	usr/lib/libmusicbrainz3.so.6.2.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
--rw-r--r--	root/root	usr/lib/pkgconfig/libmusicbrainz.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libmusicbrainz3.pc

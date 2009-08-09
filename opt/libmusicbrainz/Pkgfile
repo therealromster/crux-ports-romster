@@ -2,19 +2,20 @@
 # URL: http://www.musicbrainz.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Tilman Sauerbeck, tilman at crux dot nu
-# Depends on: expat
+# Depends on: neon libdiscid cmake
 
 name=libmusicbrainz
-version=2.1.5
-release=2
-source=(http://ftp.musicbrainz.org/pub/musicbrainz/$name-$version.tar.gz
-	musicbrainz-2.1.5-gcc43-includes.patch)
+version=3.0.2
+release=1
+source=(http://ftp.musicbrainz.org/pub/musicbrainz/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
-	patch -p 1 -i $SRC/musicbrainz-2.1.5-gcc43-includes.patch
-	./configure --prefix=/usr
+
+	mkdir build
+	cd build
+
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 	make
 	make DESTDIR=$PKG install
 }
-
