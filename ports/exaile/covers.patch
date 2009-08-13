@@ -1,0 +1,19 @@
+=== modified file 'xl/covers.py'
+--- xl/covers.py	2007-10-23 04:03:41 +0000
++++ xl/covers.py	2007-11-20 19:01:32 +0000
+@@ -371,10 +371,11 @@
+             [u'cover.jpg', u'folder.jpg', u'.folder.jpg', u'album.jpg', u'art.jpg'])
+         if not names: return None
+ 
++        names = [os.path.join(dir, f.strip()) for f in names]
++
+         for f in names:
+-            for f in glob.glob(os.path.join(dir, f.strip())):
+-                if os.path.isfile(f):
+-                    return f
++            if os.path.isfile(f):
++                return f
+ 
+         return None
+ 
+
