@@ -6,20 +6,17 @@
 
 name=exaile
 version=0.2.14
-release=1
-url='http://www.exaile.org/files'
-
-ignore_files="grep -v exaile_svn2006 |grep -v pkg.tar.gz \
-	|grep -v '~gutsy' |grep -v '~hardy' |grep -v tar.gz.md5 \
-	|grep -v exaile-0."
-
-#FIXME stillneeds work to get max value
-#up2date="curl -s '$url/' |grep '.tar.' |sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' |$ignore_files |sed -e 's|^${name}_\([^_]*\)\.tar\.gz$|\1|' |grep -v \"0.[0-9b]$\" |cut -d. -f3 |grep -v b"
-
-source=($url/${name}_$version.tar.gz)
+release=2
+source=(http://www.exaile.org/files/${name}_$version.tar.gz
+	covers.patch)
+up2date_url='http://www.exaile.org/files'
 
 build() {
-	cd exaile-$version
+	cd $name-$version
+
+	#https://bugs.launchpad.net/exaile/+bug/173661
+	#http://launchpadlibrarian.net/10704439/covers.patch
+	patch -p 0 -i $SRC/covers.patch
 
 	sed -i \
 		-e '/^	mkdir -p $(DESTDIR)$(PREFIX)/s|/share/man/man1|/man/man1|' \
@@ -29,4 +26,3 @@ build() {
 	make -j compile mmkeys.so
 	make DESTDIR=$PKG PREFIX=/usr install
 }
-
