@@ -1,19 +1,19 @@
-# Description: NETWM compliant X11 desktop panel.
+# Description: A lightweight desktop panel.
 # URL: http://fbpanel.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Han Boetes, han at mijncomputer dot nl
 # Depends on: gtk
 
 name=fbpanel
-version=4.12
+version=5.6
 release=1
-source=(http://dl.sourceforge.net/sourceforge/fbpanel/fbpanel-$version.tgz)
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tbz2)
+up2date_url="http://sourceforge.net/projects/fbpanel/files/"
 
 build() {
-	cd fbpanel-$version
+	tar -C $SRC --use-compress-program=bzip2 -xf $name-$version.tbz2
+	cd $name-$version
 	./configure --prefix=/usr
 	make
-	make PREFIX=$PKG/usr install
-	mv $PKG/usr/share/man $PKG/usr/man
+	make DESTDIR=$PKG install
 }
-
