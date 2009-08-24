@@ -1,0 +1,18 @@
+# Description: A OpenGL Extension Wrangler Library for developers to initialize extensions and write portable applications.
+# URL: http://glew.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Johannes Winkelmann, jw at smts dot ch
+# Depends on: mesa3d xorg-libxi xorg-libxmu
+
+name=glew
+version=1.5.1
+release=1
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version-src.tgz)
+up2date_url="http://sourceforge.net/projects/$name/files/"
+
+build() {
+    cd $name
+    sed -i -e 's/\r$//' config/config.guess
+    make CFLAGS.EXTRA="$CFLAGS"
+    make GLEW_DEST=$PKG/usr install
+}
