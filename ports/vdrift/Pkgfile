@@ -1,0 +1,44 @@
+# Description: A cross-platform, open source driving simulation made with drift racing in mind. 
+# URL: http://vdrift.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: scons asio libsdl glew openal sdl_gfx sdl_image sdl_net libvorbis
+
+name=vdrift
+version=20090615
+sversion=${version:0:4}-${version:4:2}-${version:6}
+release=1
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$sversion-src.tar.bz2
+	vdrift.desktop)
+
+build() {
+	cd $name-$sversion
+
+	sed -i -e "s/'-O1',\?//" -e "s/'-pipe',\?//" SConstruct
+
+	scons \
+		${SCONSFLAGS} \
+		NLS=0 \
+		destdir="${PKG}" \
+		bindir=/usr/bin \
+		datadir=/usr/share/$name \
+		localedir=/usr/share/locale \
+		prefix= \
+		use_binreloc=0 \
+		release=1 \
+		os_cc=1 \
+		os_cxx=1 \
+		os_cxxflags=1
+
+	scons install
+
+	# install icons
+	install -D -m 0644 $PKG/usr/share/vdrift/textures/icons/vdrift-16x16.png $PKG/usr/share/icons/hicolor/16x16/apps/vdrift.png
+	install -D -m 0644 $PKG/usr/share/vdrift/textures/icons/vdrift-32x32.png $PKG/usr/share/icons/hicolor/32x32/apps/vdrift.png
+	install -D -m 0644 $PKG/usr/share/vdrift/textures/icons/vdrift-64x64.png $PKG/usr/share/icons/hicolor/64x64/apps/vdrift.png
+
+	# install menu entry
+	install -D -m 0644 $SRC/vdrift.desktop $PKG/usr/share/applications/vdrift.desktop
+
+	find "${PKG}" -name 'SConscript' -exec rm \{\} +
+}
