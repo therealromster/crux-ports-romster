@@ -355,6 +355,9 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/mscoree.idl
 -rw-r--r--	root/root	usr/include/wine/windows/msctf.h
 -rw-r--r--	root/root	usr/include/wine/windows/msctf.idl
+-rw-r--r--	root/root	usr/include/wine/windows/msdadc.h
+-rw-r--r--	root/root	usr/include/wine/windows/msdadc.idl
+-rw-r--r--	root/root	usr/include/wine/windows/msdaguid.h
 -rw-r--r--	root/root	usr/include/wine/windows/mshtmcid.h
 -rw-r--r--	root/root	usr/include/wine/windows/mshtmdid.h
 -rw-r--r--	root/root	usr/include/wine/windows/mshtmhst.h
@@ -699,6 +702,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/dssenh.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dswave.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dwmapi.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/dxdiag.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/dxdiagn.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/dxgi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/eject.exe.so
@@ -803,6 +807,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/dssenh.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/dswave.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/dwmapi.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/dxdiag.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/dxdiagn.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/dxgi.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/eject.exe
@@ -923,6 +928,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/oleaut32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/olecli.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/olecli32.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/oledb32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/oledlg.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/olepro32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/olesvr.dll16
@@ -1044,7 +1050,6 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winejoystick.drv
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winemenubuilder.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winemine.exe
--rw-r--r--	root/root	usr/lib/wine/fakedlls/winemp3.acm
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winenas.drv
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wineoss.drv
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winepath.exe
@@ -1349,6 +1354,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/oleaut32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/olecli.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/olecli32.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/oledb32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/oledlg.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/olepro32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/olesvr.dll16.so
@@ -1475,7 +1481,6 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/winejoystick.drv.so
 -rwxr-xr-x	root/root	usr/lib/wine/winemenubuilder.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/winemine.exe.so
--rwxr-xr-x	root/root	usr/lib/wine/winemp3.acm.so
 -rwxr-xr-x	root/root	usr/lib/wine/winenas.drv.so
 -rwxr-xr-x	root/root	usr/lib/wine/wineoss.drv.so
 -rwxr-xr-x	root/root	usr/lib/wine/winepath.exe.so
