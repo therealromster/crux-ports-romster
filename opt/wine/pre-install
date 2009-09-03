@@ -674,8 +674,10 @@ fi
 if [ -z "${PKG_DIFF_MIRRORS}" ]; then
 	PKG_DIFF_MIRRORS="
 		http://romster.dyndns.org:8080/distfiles/$name/
+		http://nogagplz.doesntexist.org/distfiles/$name/
 		http://shortcircuit.net.au/~romster/distfiles/$name/
 		http://www.dcaf-security.org/distfiles/$name/
+		http://beegees.mtveurope.org/~romster/distfiles/$name/
 	"
 fi
 
