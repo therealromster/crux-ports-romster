@@ -1,0 +1,26 @@
+# Description: Software emulation of the hardware of the Commodore Amiga 500/1000/2000.
+# URL: http://www.amigaemulator.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Neville Phillips, nogagplz at gmail dot com
+# Depends on: sdl_gfx gtk
+
+name=uae
+version=0.8.29
+release=1
+source="http://www.amigaemulator.org/files/sources/develop/$name-$version.tar.bz2"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--with-sdl-gfx \
+		--with-alsa \
+		--with-sdl-sound \
+		--with-x \
+		--enable-ui \
+		--enable-threads
+ 
+	make
+	make DESTDIR=$PKG install
+}
