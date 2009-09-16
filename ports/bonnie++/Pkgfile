@@ -1,0 +1,22 @@
+# Description: Hard drive bottleneck testing benchmark suite.
+# URL: http://www.coker.com.au/bonnie++/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Manuel Ruiz, manuel dot tienza at gmail dot com
+# Depends on:
+
+name=bonnie++
+version=1.03e
+release=1
+source=(http://www.coker.com.au/$name/$name-$version.tgz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=$PKG/usr \
+		--mandir=$PKG/usr/man \
+		--disable-nls
+
+	make
+	make install
+}
