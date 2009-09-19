@@ -1,0 +1,22 @@
+# Description: A FTP filesystem based on cURL and FUSE.
+# URL: http://curlftpfs.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Antonio SJ Musumeci
+# Depends on: fuse curl
+
+name=curlftpfs
+version=0.9.2
+release=1
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+up2date_url="http://sourceforge.net/projects/$name/files/"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
