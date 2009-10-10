@@ -817,6 +817,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/expand.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/explorer.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/faultrep.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/fltlib.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fusion.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/gdi32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/gdiplus.dll
@@ -979,6 +980,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/serialui.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/services.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/setupapi.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/setupx.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/sfc.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/sfc_os.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/shdoclc.dll
@@ -1003,10 +1005,12 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/svchost.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/svrapi.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/sxs.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/system.drv16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/t2embed.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/tapi32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/taskmgr.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/termsv.exe
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/toolhelp.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/traffic.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/twain.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/twain_32.dll
@@ -1023,6 +1027,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/uxtheme.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vdhcp.vxd
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vdmdbg.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/ver.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/version.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vmm.vxd
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vnbt.vxd
@@ -1058,8 +1063,10 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wineoss.drv
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winepath.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wineps.drv
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/wineps16.drv16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winevdm.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winex11.drv
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/wing.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wing32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winhelp.exe16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winhlp32.exe
@@ -1070,6 +1077,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winnls32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winoldap.mod16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winscard.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/winsock.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winspool.drv
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wintab.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wintab32.dll
@@ -1093,6 +1101,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/xinput9_1_0.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/xmllite.dll
 -rwxr-xr-x	root/root	usr/lib/wine/faultrep.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/fltlib.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/fusion.dll.so
 -rw-r--r--	root/root	usr/lib/wine/gdi.exe16
 -rwxr-xr-x	root/root	usr/lib/wine/gdi32.dll.so
@@ -1406,7 +1415,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/serialui.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/services.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/setupapi.dll.so
--rw-r--r--	root/root	usr/lib/wine/setupx.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/setupx.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/sfc.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sfc_os.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/shdoclc.dll.so
@@ -1431,12 +1440,12 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/svchost.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/svrapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sxs.dll.so
--rw-r--r--	root/root	usr/lib/wine/system.drv16
+-rwxr-xr-x	root/root	usr/lib/wine/system.drv16.so
 -rwxr-xr-x	root/root	usr/lib/wine/t2embed.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/tapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/taskmgr.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/termsv.exe.so
--rw-r--r--	root/root	usr/lib/wine/toolhelp.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/toolhelp.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/traffic.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/twain.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/twain_32.dll.so
@@ -1454,7 +1463,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/uxtheme.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/vdhcp.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/vdmdbg.dll.so
--rw-r--r--	root/root	usr/lib/wine/ver.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/ver.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/version.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/vmm.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/vnbt.vxd.so
@@ -1490,10 +1499,10 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/wineoss.drv.so
 -rwxr-xr-x	root/root	usr/lib/wine/winepath.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/wineps.drv.so
--rw-r--r--	root/root	usr/lib/wine/wineps16.drv16
+-rwxr-xr-x	root/root	usr/lib/wine/wineps16.drv16.so
 -rwxr-xr-x	root/root	usr/lib/wine/winevdm.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/winex11.drv.so
--rw-r--r--	root/root	usr/lib/wine/wing.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/wing.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/wing32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/winhelp.exe16.so
 -rwxr-xr-x	root/root	usr/lib/wine/winhlp32.exe.so
@@ -1504,7 +1513,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/winnls32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/winoldap.mod16.so
 -rwxr-xr-x	root/root	usr/lib/wine/winscard.dll.so
--rw-r--r--	root/root	usr/lib/wine/winsock.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/winsock.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/winspool.drv.so
 -rwxr-xr-x	root/root	usr/lib/wine/wintab.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/wintab32.dll.so
