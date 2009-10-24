@@ -710,6 +710,7 @@ drwxr-xr-x	root/root	usr/lib/wine/
 -rwxr-xr-x	root/root	usr/lib/wine/eject.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/expand.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/explorer.exe.so
+-rwxr-xr-x	root/root	usr/lib/wine/extrac32.exe.so
 drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/acledit.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/aclui.dll
@@ -816,6 +817,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/eject.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/expand.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/explorer.exe
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/extrac32.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/faultrep.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fltlib.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fusion.dll
@@ -867,6 +869,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/midimap.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mlang.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mmdevldr.vxd
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/mmsystem.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/monodebg.vxd
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mountmgr.sys
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mouse.drv16
@@ -1301,7 +1304,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/midimap.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mlang.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mmdevldr.vxd.so
--rw-r--r--	root/root	usr/lib/wine/mmsystem.dll16
+-rwxr-xr-x	root/root	usr/lib/wine/mmsystem.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/monodebg.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/mountmgr.sys.so
 -rwxr-xr-x	root/root	usr/lib/wine/mouse.drv16.so
