@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=cdrtools
-version=2.01.01a62
+version=2.01.01a67
 release=1
 source=(ftp://ftp.berlios.de/pub/cdrecord/alpha/$name-$version.tar.bz2)
 

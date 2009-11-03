@@ -20,11 +20,13 @@ drwxr-xr-x	root/root	usr/include/scsilib/
 -rw-r--r--	root/root	usr/include/scsilib/align.h
 -rw-r--r--	root/root	usr/include/scsilib/alloca.h
 -rw-r--r--	root/root	usr/include/scsilib/archdefs.h
+-rw-r--r--	root/root	usr/include/scsilib/assert.h
 -rw-r--r--	root/root	usr/include/scsilib/avoffset.h
 -rw-r--r--	root/root	usr/include/scsilib/btorder.h
 -rw-r--r--	root/root	usr/include/scsilib/ccomdefs.h
 -rw-r--r--	root/root	usr/include/scsilib/checkerr.h
 -rw-r--r--	root/root	usr/include/scsilib/ctype.h
+-rw-r--r--	root/root	usr/include/scsilib/dbgmalloc.h
 -rw-r--r--	root/root	usr/include/scsilib/deflts.h
 -rw-r--r--	root/root	usr/include/scsilib/device.h
 -rw-r--r--	root/root	usr/include/scsilib/dirent.h
@@ -33,6 +35,7 @@ drwxr-xr-x	root/root	usr/include/scsilib/
 -rw-r--r--	root/root	usr/include/scsilib/fcntl.h
 -rw-r--r--	root/root	usr/include/scsilib/fetchdir.h
 -rw-r--r--	root/root	usr/include/scsilib/find.h
+-rw-r--r--	root/root	usr/include/scsilib/float.h
 -rw-r--r--	root/root	usr/include/scsilib/fnmatch.h
 -rw-r--r--	root/root	usr/include/scsilib/fstream.h
 -rw-r--r--	root/root	usr/include/scsilib/getargs.h
@@ -46,11 +49,13 @@ drwxr-xr-x	root/root	usr/include/scsilib/
 -rw-r--r--	root/root	usr/include/scsilib/intcvt.h
 -rw-r--r--	root/root	usr/include/scsilib/io.h
 -rw-r--r--	root/root	usr/include/scsilib/ioctl.h
+-rw-r--r--	root/root	usr/include/scsilib/ipc.h
 -rw-r--r--	root/root	usr/include/scsilib/jmpdefs.h
 -rw-r--r--	root/root	usr/include/scsilib/libport.h
 -rw-r--r--	root/root	usr/include/scsilib/librmt.h
 -rw-r--r--	root/root	usr/include/scsilib/limits.h
 -rw-r--r--	root/root	usr/include/scsilib/locale.h
+-rw-r--r--	root/root	usr/include/scsilib/math.h
 -rw-r--r--	root/root	usr/include/scsilib/maxpath.h
 -rw-r--r--	root/root	usr/include/scsilib/mconfig.h
 -rw-r--r--	root/root	usr/include/scsilib/md4.h
@@ -61,8 +66,12 @@ drwxr-xr-x	root/root	usr/include/scsilib/
 -rw-r--r--	root/root	usr/include/scsilib/nlsdefs.h
 -rw-r--r--	root/root	usr/include/scsilib/param.h
 -rw-r--r--	root/root	usr/include/scsilib/patmatch.h
+-rw-r--r--	root/root	usr/include/scsilib/priv.h
+-rw-r--r--	root/root	usr/include/scsilib/procfs.h
 -rw-r--r--	root/root	usr/include/scsilib/prototyp.h
 -rw-r--r--	root/root	usr/include/scsilib/pwd.h
+-rw-r--r--	root/root	usr/include/scsilib/resource.h
+-rw-r--r--	root/root	usr/include/scsilib/rmd160.h
 -rw-r--r--	root/root	usr/include/scsilib/rmtio.h
 drwxr-xr-x	root/root	usr/include/scsilib/scg/
 -rw-r--r--	root/root	usr/include/scsilib/scg/aspi-dos.h
@@ -79,9 +88,14 @@ drwxr-xr-x	root/root	usr/include/scsilib/scg/
 -rw-r--r--	root/root	usr/include/scsilib/scg/srb_os2.h
 -rw-r--r--	root/root	usr/include/scsilib/schily.h
 -rw-r--r--	root/root	usr/include/scsilib/schilyp.h
+-rw-r--r--	root/root	usr/include/scsilib/select.h
+-rw-r--r--	root/root	usr/include/scsilib/sem.h
 -rw-r--r--	root/root	usr/include/scsilib/setjmp.h
+-rw-r--r--	root/root	usr/include/scsilib/sha1.h
+-rw-r--r--	root/root	usr/include/scsilib/sha2.h
 -rw-r--r--	root/root	usr/include/scsilib/shadow.h
 -rw-r--r--	root/root	usr/include/scsilib/shcall.h
+-rw-r--r--	root/root	usr/include/scsilib/shm.h
 -rw-r--r--	root/root	usr/include/scsilib/siconv.h
 -rw-r--r--	root/root	usr/include/scsilib/sigblk.h
 -rw-r--r--	root/root	usr/include/scsilib/signal.h
@@ -94,6 +108,7 @@ drwxr-xr-x	root/root	usr/include/scsilib/scg/
 -rw-r--r--	root/root	usr/include/scsilib/stkframe.h
 -rw-r--r--	root/root	usr/include/scsilib/string.h
 -rw-r--r--	root/root	usr/include/scsilib/sysexits.h
+-rw-r--r--	root/root	usr/include/scsilib/syslog.h
 -rw-r--r--	root/root	usr/include/scsilib/systeminfo.h
 -rw-r--r--	root/root	usr/include/scsilib/termcap.h
 -rw-r--r--	root/root	usr/include/scsilib/termios.h
@@ -135,6 +150,9 @@ lrwxrwxrwx	root/root	usr/lib/libfind.so -> libfind.so.1.0
 -rw-r--r--	root/root	usr/lib/libhfs.a
 lrwxrwxrwx	root/root	usr/lib/libhfs.so -> libhfs.so.1.0
 -rw-r--r--	root/root	usr/lib/libhfs.so.1.0
+-rw-r--r--	root/root	usr/lib/libmdigest.a
+lrwxrwxrwx	root/root	usr/lib/libmdigest.so -> libmdigest.so.1.0
+-rw-r--r--	root/root	usr/lib/libmdigest.so.1.0
 -rw-r--r--	root/root	usr/lib/libparanoia.a
 lrwxrwxrwx	root/root	usr/lib/libparanoia.so -> libparanoia.so.1.0
 -rw-r--r--	root/root	usr/lib/libparanoia.so.1.0
