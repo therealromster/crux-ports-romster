@@ -1,3 +1,4 @@
 #!/bin/sh
 mkfontdir /usr/lib/X11/fonts/OTF
 mkfontscale /usr/lib/X11/fonts/OTF
+fc-cache --force --system-only
