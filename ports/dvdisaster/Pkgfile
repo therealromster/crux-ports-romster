@@ -1,0 +1,37 @@
+# Description: Data-protection and recovery tool for DVDs.
+# URL: http://dvdisaster.net/en/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk+ xorg-libxcomposite
+
+name=dvdisaster
+version=0.72.1
+release=1
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	local SSE2
+
+	if [ "$(cat /proc/cpuinfo | grep '^flags' | head -n1 | sed -e 's/flags.*: //' | grep sse2)" ]; then
+		SSE2='yes'
+	else
+		SSE2='no'
+	fi
+
+	./configure \
+		--prefix=/usr \
+		--buildroot=$PKG \
+		--mandir=/usr/man \
+		--with-sse2=$SSE2 \
+		--with-nls=no
+
+	make
+	make install
+	
+	rm -r \
+		$PKG/usr/doc \
+		$PKG/usr/man/{cs,de,it}
+
+	rm $PKG/usr/bin/dvdisaster-uninstall.sh
+}
