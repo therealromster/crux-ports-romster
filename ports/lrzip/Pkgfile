@@ -2,15 +2,12 @@
 # URL: http://ck.kolivas.org/apps/lrzip/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: lzo zlib bzip2 lzma
+# Depends on: lzo zlib bzip2 xz
 
 name=lrzip
-version=0.23
+version=0.30
 release=1
-url='http://ck.kolivas.org/apps/lrzip'
-source=($url/$name-$version.tar.bz2)
-up2date="lynx -dump '$url/?C=M;O=A' |grep '.tar.bz2' |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
-
+source=(http://ck.kolivas.org/apps/$name/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
@@ -24,4 +21,3 @@ build() {
 	rm -r $PKG/usr/share/doc
 	rmdir $PKG/usr/share
 }
-

@@ -5,3 +5,5 @@ lrwxrwxrwx	root/root	usr/bin/lrunzip -> lrzip
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/lrzip.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/lrzip.conf.5.gz
