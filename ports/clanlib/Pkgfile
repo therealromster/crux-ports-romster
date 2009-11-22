@@ -1,16 +1,17 @@
 # Description: A cross platform C++ toolkit library.
 # URL: http://clanlib.org/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Tim Biermann, tim_biermann at web dot de
 # Depends on: libjpeg libpng libmikmod libvorbis
 
 name=clanlib
-version=0.8.1
+sname=ClanLib
+version=2.1.0
 release=1
-source=(http://www.clanlib.org/download/releases-${version%.*}/ClanLib-$version.tgz)
+source=(http://clanlib.org/download/releases-2.0/$sname-$version.tgz)
 
 build() {
-	cd ClanLib-$version
+	cd $sname-$version
 
 	./configure \
 		--prefix=/usr \
@@ -24,4 +25,3 @@ build() {
 	chmod a-x $PKG/usr/lib/*.so
 	ln -s ClanLib-${version%.*}/ClanLib $PKG/usr/include/ClanLib
 }
-
