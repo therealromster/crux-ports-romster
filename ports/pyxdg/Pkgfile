@@ -5,15 +5,9 @@
 # Depends on: python
 
 name=pyxdg
-version=0.17
+version=0.18
 release=1
-url='http://people.freedesktop.org/~lanius'
-source=($url/$name-$version.tar.gz)
-
-up2date="curl -s '$url/?C=N;O=A' | grep '<a ' | sed \
-	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
-	-e 's|/$||' \
-	-e 's|^$name-\(.*\)\.t.*$|\1|' | tail -n 1"
+source=(http://people.freedesktop.org/~lanius/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
