@@ -1,0 +1,28 @@
+# Description: crosstool-NG aims at building toolchains.
+# URL: http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Alex Kostrewa, alexko256 at googlemail dot com
+# Depends on: texinfo
+
+name=crosstool-ng
+version=1.5.2
+release=1
+source=(http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share
+	rm $PKG/usr/lib/ct-ng-$version/patches/gcc/3.2.3/README-{mips,sh}
+
+	mkdir $PKG/usr/man/man1
+	mv $PKG/usr/man/ct-ng.1.gz $PKG/usr/man/man1/
+}
+
