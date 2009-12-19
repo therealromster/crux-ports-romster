@@ -2,7 +2,7 @@
 # URL: http://www.musicbrainz.org/
 # Packager: Antonio SJ Musumeci, bile at landofbile dot com
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: libofa python taglib libmpcdec libmp4v2 libmad libvorbis flac
+# Depends on: libofa python taglib libmpcdec libmp4v2 libmad libvorbis flac libmusicbrainz
 
 name=libtunepimp
 version=0.5.3
