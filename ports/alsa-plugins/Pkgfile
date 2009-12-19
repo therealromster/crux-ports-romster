@@ -1,0 +1,17 @@
+# Description: ALSA extra plug-ins.
+# URL: http://www.alsa-project.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Vitaly Sinilin, vs at kp4 dot ru
+# Depends on: alsa-lib
+
+name=alsa-plugins
+version=1.0.22
+release=1
+source=(ftp://ftp.alsa-project.org/pub/plugins/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}
