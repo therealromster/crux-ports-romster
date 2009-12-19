@@ -5,11 +5,11 @@
 # Depends on: iptables geoip_iv0_database
 
 name=xtables-addons
-version=1.6
+version=1.18
 release=1
-url='http://dev.computergmbh.de/files/xtables'
-up2date="lynx -dump '$url/?C=D;O=A' |grep tar.bz2 |sed -e 's/.*-\(.*\)\.t.*/\1/' -e 'q'"
-source=($url/$name-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+#source="mirror://sourceforge/$name/$name-$version.tar.bz2"
+up2date_url="http://sourceforge.net/projects/xtables-addons/files/"
 
 build() {
 	cd $name-$version
@@ -23,7 +23,6 @@ build() {
 	make
 	make DESTDIR=$PKG install
 	chmod a-x $PKG/usr/lib/xtables/*.so
-	rm $PKG/lib/modules/$(uname -r)/modules.*
 
 	#remove ipset there is a ipset package
 	rm \
