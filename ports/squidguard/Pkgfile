@@ -5,22 +5,17 @@
 # Depends on: squid
 
 name=squidguard
-version=1.3
+sname=squidGuard
+version=1.4
 release=1
-up2date="lynx -dump 'http://www.squidguard.org/Downloads/?C=M;O=D' |grep tar.gz |sed -ne 's/.*-\(.*\)\.tar\.gz .*/\1/' -e '1 p'"
-source=(http://www.squidguard.org/Downloads/squidGuard-$version.tar.gz
-	http://www.squidguard.org/Downloads/Patches/$version/squidGuard-$version-patch-20071117.tar.gz
-	http://www.squidguard.org/Downloads/Patches/$version/squidGuard-$version-patch-20080613.tar.gz
-	squidGuard-$version-destdir.patch)
+source=(http://www.squidguard.org/Downloads/$sname-$version.tar.gz
+	squidGuard-1.4-destdir.patch)
+up2date_url="http://www.squidguard.org/Downloads/"
 
 build() {
-	cp -p $SRC/squidGuard-$version-patch-20071117/sgDb.c $SRC/squidGuard-$version/src/
-	cp -p $SRC/squidGuard-$version-patch-20071117/Readme.Patch-20071117 $SRC/squidGuard-$version/
-	cp -rpP $SRC/squidGuard-$version-patch-20080613/* $SRC/squidGuard-$version/
+	cd $sname-$version
 
-	cd squidGuard-$version
-
-	patch -p 1 -i $SRC/squidGuard-$version-destdir.patch
+	patch -p 1 -i $SRC/$sname-1.4-destdir.patch
 
 	./configure \
 		--prefix=/usr \
@@ -35,4 +30,3 @@ build() {
 	install -d $PKG/etc/squidGuard
 	make DESTDIR=$PKG install
 }
-
