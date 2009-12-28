@@ -5,14 +5,19 @@
 # Depends on: python
 
 name=numpy
-version=1.0.2
+version=1.3.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/numpy/numpy-$version.tar.gz)
+source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz"
+up2date_url="http://sourceforge.net/projects/$name/files/"
 
 build() {
-	cd numpy-$version
+	CFLAGS+=' -fno-strict-aliasing'
+	cd $name-$version
 	python setup.py install --root=$PKG
 	rm $PKG/usr/lib/python2.?/site-packages/numpy/{COMPATIBILITY,*.txt}
-	rm -r $PKG/usr/lib/python2.?/site-packages/numpy/{doc,f2py/{docs,lib/README.txt,lib/THANKS.txt,lib/DEV_README.txt,lib/DOCSTRING_README.txt}}
-}
 
+	rm -r \
+		$PKG/usr/lib/python2.?/site-packages/numpy/doc \
+		$PKG/usr/lib/python2.?/site-packages/numpy/f2py/docs
+
+}
