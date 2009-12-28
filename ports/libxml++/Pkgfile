@@ -1,16 +1,16 @@
 # Description: C++ wrapper for the libxml XML parser library.
-# URL:         http://libxmlplusplus.sourceforge.net/
-# Maintainer:  Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager:    Han Boetes, han at mijncomputer dot nl
-# Depends on:  glibmm libxml2
+# URL: http://libxmlplusplus.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: glibmm libxml2
 
 name=libxml++
-version=2.18.0
+version=2.26.1
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/sources/libxml++/${version%.*}/libxml++-$version.tar.bz2)
+source="http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}/$name-$version.tar.bz2"
 
 build() {
-	cd libxml++-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -21,4 +21,3 @@ build() {
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share
 }
-

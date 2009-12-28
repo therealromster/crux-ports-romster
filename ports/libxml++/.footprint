@@ -32,8 +32,10 @@ drwxr-xr-x	root/root	usr/include/libxml++-2.6/libxml++/parsers/
 -rw-r--r--	root/root	usr/include/libxml++-2.6/libxml++/parsers/parser.h
 -rw-r--r--	root/root	usr/include/libxml++-2.6/libxml++/parsers/saxparser.h
 -rw-r--r--	root/root	usr/include/libxml++-2.6/libxml++/parsers/textreader.h
+-rw-r--r--	root/root	usr/include/libxml++-2.6/libxml++/schema.h
 drwxr-xr-x	root/root	usr/include/libxml++-2.6/libxml++/validators/
 -rw-r--r--	root/root	usr/include/libxml++-2.6/libxml++/validators/dtdvalidator.h
+-rw-r--r--	root/root	usr/include/libxml++-2.6/libxml++/validators/schemavalidator.h
 -rw-r--r--	root/root	usr/include/libxml++-2.6/libxml++/validators/validator.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libxml++-2.6.la
