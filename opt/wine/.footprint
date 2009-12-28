@@ -256,6 +256,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/dxgitype.h
 -rw-r--r--	root/root	usr/include/wine/windows/dxgitype.idl
 -rw-r--r--	root/root	usr/include/wine/windows/dyngraph.idl
+-rw-r--r--	root/root	usr/include/wine/windows/endpointvolume.h
+-rw-r--r--	root/root	usr/include/wine/windows/endpointvolume.idl
 -rw-r--r--	root/root	usr/include/wine/windows/errorrep.h
 -rw-r--r--	root/root	usr/include/wine/windows/errors.h
 -rw-r--r--	root/root	usr/include/wine/windows/evcode.h
@@ -355,6 +357,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/mlang.h
 -rw-r--r--	root/root	usr/include/wine/windows/mlang.idl
 -rw-r--r--	root/root	usr/include/wine/windows/mmddk.h
+-rw-r--r--	root/root	usr/include/wine/windows/mmdeviceapi.h
+-rw-r--r--	root/root	usr/include/wine/windows/mmdeviceapi.idl
 -rw-r--r--	root/root	usr/include/wine/windows/mmreg.h
 -rw-r--r--	root/root	usr/include/wine/windows/mmstream.h
 -rw-r--r--	root/root	usr/include/wine/windows/mmstream.idl
@@ -853,6 +857,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fltlib.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fusion.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fwpuclnt.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/gdi.exe16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/gdi32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/gdiplus.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/glu32.dll
@@ -900,6 +905,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mciwave.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/midimap.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mlang.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/mmdevapi.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mmdevldr.vxd
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mmsystem.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/monodebg.vxd
@@ -1094,6 +1100,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winefile.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winejack.drv
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winejoystick.drv
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/winemapi.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winemenubuilder.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winemine.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/winenas.drv
@@ -1142,7 +1149,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/fltlib.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/fusion.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/fwpuclnt.dll.so
--rw-r--r--	root/root	usr/lib/wine/gdi.exe16
+-rwxr-xr-x	root/root	usr/lib/wine/gdi.exe16.so
 -rwxr-xr-x	root/root	usr/lib/wine/gdi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/gdiplus.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/glu32.dll.so
@@ -1340,6 +1347,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/mciwave.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/midimap.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mlang.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/mmdevapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mmdevldr.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/mmsystem.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/monodebg.vxd.so
@@ -1535,6 +1543,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/winefile.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/winejack.drv.so
 -rwxr-xr-x	root/root	usr/lib/wine/winejoystick.drv.so
+-rwxr-xr-x	root/root	usr/lib/wine/winemapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/winemenubuilder.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/winemine.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/winenas.drv.so
