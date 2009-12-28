@@ -4,14 +4,13 @@
 # Packager: Han Boetes, han at mijncomputer dot nl
 # Depends on: libxml++ sdl_image sdl_mixer sdl_ttf sdl_gfx
 
-# Recommended:	
-# Optional:	
-# Category:	games
-
 name=wormux
-version=0.8.3
+version=0.8.5
 release=1
-source="http://download.gna.org/$name/$name-$version.tar.bz2"
+source="
+	http://download.gna.org/$name/$name-$version.tar.bz2
+	http://download.gna.org/$name/archive/$name-$version.tar.bz2
+"
 
 build() {
 	cd $name-$version
@@ -21,7 +20,7 @@ build() {
 		--mandir=/usr/man \
 		--disable-nls \
 		--disable-sdltest
-   
+
 	make
 	make DESTDIR=$PKG install
 }
