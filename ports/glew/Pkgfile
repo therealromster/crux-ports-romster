@@ -5,14 +5,13 @@
 # Depends on: mesa3d xorg-libxi xorg-libxmu
 
 name=glew
-version=1.5.1
+version=1.5.2
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version-src.tgz)
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tgz)
 up2date_url="http://sourceforge.net/projects/$name/files/"
 
 build() {
-    cd $name
-    sed -i -e 's/\r$//' config/config.guess
+    cd $name-$version
     make CFLAGS.EXTRA="$CFLAGS"
     make GLEW_DEST=$PKG/usr install
 }
