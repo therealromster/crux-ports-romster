@@ -1,0 +1,17 @@
+# Description: A compiled language for real-time audio signal processing.
+# URL: http://faust.grame.fr/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=faust
+version=0.9.10
+release=1
+source=(http://downloads.sourceforge.net/faudiostream/$name-$version.tar.gz)
+up2date_url="http://sourceforge.net/projects/faudiostream/files/"
+
+build() {
+	cd $name-$version
+	make PREFIX=/usr
+	make PREFIX=/usr DESTDIR=$PKG install
+	rm $PKG/usr/lib/faust/VST/README
+}
