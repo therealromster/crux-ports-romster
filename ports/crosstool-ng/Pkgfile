@@ -5,7 +5,7 @@
 # Depends on: texinfo
 
 name=crosstool-ng
-version=1.5.2
+version=1.6.0
 release=1
 source=(http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2)
 
@@ -14,15 +14,18 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man
+		--mandir=/usr/man \
+		--libdir=/usr/lib/ct-ng
+
+	#--libdir is not honnored workaround
+	sed -i -e 's|^LIBDIR := /usr/lib/ct-ng/ct-ng-1.6.0$|LIBDIR := /usr/lib/ct-ng/|' Makefile
 
 	make
 	make DESTDIR=$PKG install
 
-	rm -r $PKG/usr/share
-	rm $PKG/usr/lib/ct-ng-$version/patches/gcc/3.2.3/README-{mips,sh}
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share
 
-	mkdir $PKG/usr/man/man1
+	install -d $PKG/usr/man/man1
 	mv $PKG/usr/man/ct-ng.1.gz $PKG/usr/man/man1/
 }
-
