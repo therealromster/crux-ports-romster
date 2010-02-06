@@ -89,6 +89,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/adshlp.h
 -rw-r--r--	root/root	usr/include/wine/windows/advpub.h
 -rw-r--r--	root/root	usr/include/wine/windows/af_irda.h
+-rw-r--r--	root/root	usr/include/wine/windows/amaudio.h
 -rw-r--r--	root/root	usr/include/wine/windows/amstream.h
 -rw-r--r--	root/root	usr/include/wine/windows/amstream.idl
 -rw-r--r--	root/root	usr/include/wine/windows/amvideo.h
@@ -452,6 +453,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/profinfo.h
 -rw-r--r--	root/root	usr/include/wine/windows/propidl.h
 -rw-r--r--	root/root	usr/include/wine/windows/propidl.idl
+-rw-r--r--	root/root	usr/include/wine/windows/propkey.h
 -rw-r--r--	root/root	usr/include/wine/windows/propkeydef.h
 -rw-r--r--	root/root	usr/include/wine/windows/propsys.h
 -rw-r--r--	root/root	usr/include/wine/windows/propsys.idl
@@ -955,6 +957,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvideo.dll16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mswsock.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msxml3.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/msxml4.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/nddeapi.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/net.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/netapi32.dll
@@ -1399,6 +1402,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/msvideo.dll16.so
 -rwxr-xr-x	root/root	usr/lib/wine/mswsock.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msxml3.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/msxml4.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/nddeapi.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/net.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/netapi32.dll.so
@@ -1608,7 +1612,6 @@ lrwxrwxrwx	root/root	usr/man/man1/wineg++.1.gz -> winegcc.1.gz
 -rw-r--r--	root/root	usr/man/man1/wmc.1.gz
 -rw-r--r--	root/root	usr/man/man1/wrc.1.gz
 drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/aclocal/
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/wine.desktop
 drwxr-xr-x	root/root	usr/share/wine/
