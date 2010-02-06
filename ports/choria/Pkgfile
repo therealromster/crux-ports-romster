@@ -1,0 +1,33 @@
+# Description: A game set in the land of chores. It is a 2D MMORPG in 800x600 with 3D accelerated graphics.
+# URL: http://code.google.com/p/choria/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: mesa3d scons
+
+name=choria
+version=0.3.1
+release=1
+source=(http://$name.googlecode.com/files/$name-$version-src.tar.gz)
+
+build() {
+	cd $name
+
+	sed -i -e "s|-O2|$CXXFLAGS|" SConstruct
+	find src -name "*.cpp" -exec sed -i \
+		-e "s|database/|/usr/share/$name/database/|g" \
+		-e "s|fonts/|/usr/share/$name/fonts/|g" \
+		-e "s|libraries/|/usr/share/$name/libraries/|g" \
+		-e "s|maps/|/usr/share/$name/maps/|g" \
+		-e "s|textures/|/usr/share/$name/textures/|g" \
+		\{\} +
+	
+	scons
+
+	install -d $PKG/usr/share/$name
+
+	for i in {database,fonts,libraries,maps,textures}; do
+		cp -r $i $PKG/usr/share/$name/$i
+	done
+
+	install -D $name $PKG/usr/bin/$name
+}
