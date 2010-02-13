@@ -1,0 +1,79 @@
+# $Id: $
+# Description: A scientific software package for numerical computations
+# URL: http://scilabsoft.inria.fr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, xaw3d, tk, ocaml, jdk, atlas, sablotron, lapack
+# GTK Depends on: x11, xaw3d, gtk, libgtkhtml, ocaml, jdk, libzvt, atlas, sablotron, lapack
+
+name=scilab
+version=4.1.1
+release=4
+source=(http://www.$name.org/download/$version/$name-$version-src.tar.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	rm -Rf /usr/lib/$name-*
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --with-gnu \
+		    --with-gnu-ld \
+		    --with-g77 \
+		    --without-gtk \
+		    --without-gtk2 \
+		    --with-tk \
+		    --with-atlas-library=/usr/lib \
+		    --with-ocaml \
+		    --without-java \
+		    --with-x \
+		    --without-pvm \
+		    --disable-nls
+    
+    	sed -i "s|LIBPREFIX = $PKG/usr/lib|LIBPREFIX = /usr/lib|g" \
+            $SRC/$name-$version/Makefile
+
+	(cd routines/console; make)
+	(cd routines/interf; make)
+	(cd routines/system2; make)
+	(cd routines/scicos; make)
+	(cd routines/arpack; make)
+
+    	make all
+    	make PREFIX=$PKG/usr install
+
+        find $PKG -name "ACKNOWLEDGEMENTS" -exec rm -rf '{}' \;
+        find $PKG -name "*.ps" -exec rm -rf '{}' \;
+        find $PKG -name "CHANGES" -exec rm -rf '{}' \;
+        find $PKG -iname "license*" -exec rm -rf '{}' \;
+        find $PKG -name "Makefile*" -exec rm -rf '{}' \;
+        find $PKG -name "README*" -exec rm -rf '{}' \;
+        find $PKG -iname ".cvs*" -exec rm -rf '{}' \;
+        find $PKG -iname "cvs*" -exec rm -rf '{}' \;
+
+	rm -rf $PKG/usr/lib/scilab-3.1.1/man/fr
+        rm -rf $PKG/usr/lib/$name-$version/.binary
+        rm -rf $PKG/usr/lib/$name-$version/bin/Blatdocs
+        rm -rf $PKG/usr/lib/$name-$version/{config,examples}
+        rm -rf $PKG/usr/share
+        rm -Rf $PKG/usr/lib/$name-$version/Win95-util
+	rm -Rf $PKG/usr/lib/$name-$version/tests
+        rm -rf $PKG/usr/bin/{intersci,intersci-n,$name}
+        rm -rf /usr/bin/{intersci,intersci-n,$name}
+
+	for i in $PKG/usr/lib/$name-$version/bin/* \
+		 $PKG/usr/lib/$name-$version/util/*
+	do
+	   sed -i "s|/usr/ports/.*\(/usr/lib/.*\)\"|\1\"|"  $i
+	done
+
+	install -D -m 755 $SRC/$name $PKG/usr/lib/$name-$version/bin/$name
+
+        ln -sf /usr/lib/$name-$version/bin/$name      $PKG/usr/bin/$name
+        ln -sf /usr/lib/$name-$version/bin/intersci   $PKG/usr/bin/intersci   
+        ln -sf /usr/lib/$name-$version/bin/intersci-n $PKG/usr/bin/intersci-n 
+
+    	chown -R root:root $PKG
+}

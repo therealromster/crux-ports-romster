@@ -1,0 +1,490 @@
+USAGE:
+
+FireMake HOWTO
+==============
+
+FireMake is a shell script designed to be packaged with a piece of
+software and run on each computer building that software.  It creates
+a Makefile based on the architecture it is run on, the build
+environment, the modules it is configured with, and the files in the
+directory that it is run from.
+
+--------------------------------
+Converting a package to FireMake
+--------------------------------
+
+1) Remove any existing build system including configure scripts and
+   Makefiles
+
+2) Copy the 'configure' script from the FireMake distribution into
+   the project directory
+
+3) Copy the 'modules' directory and all files in it from the FireMake
+   distribution into the project directory
+
+4) Rename the 'modules' directory to 'firemake'
+
+5) Remove any items from the modules directory that you don't need
+   (see modules reference below when in doubt)
+
+6) Configure remaining modules (see module reference below)
+
+7) Edit program source files to #include "firemake.h" and not to
+   include headers for any of the automatically configured programs.
+
+8) Run ./configure && make and try it out!
+
+
+
+----------------
+Module Reference
+----------------
+
+Module name: alsa
+Requires: compiletest, cflags
+Description: Tests for the presence of libasound and appropriate headers
+  from the ALSA package, and that programs can be compiled using these.
+  Adds the appropriate header includes to firemake.h and alters the
+  LDFLAGS to link in the library from the right location.  Aborts the
+  configure process if the library is not found.
+
+-------------------------------------------------------
+
+Module name: binaries
+Requires: strip, makefiletop, prefix
+Recommends: install, dependencies
+Configuration files: firemake.binaries, firemake.sbinaries, firemake.noinstall
+Description: Creates rules to build and install binary files.  Entries
+  in firemake.binaries and firemake.sbinaries should be of the form:
+
+     binaryoutputfile: object1.o object2.o
+
+  object1.c and object2.c should exist in the project directory; .o files
+  will be built automatically.  If the binary should not be installed
+  (testing programs, etc.), it's name should go on a line of
+  firemake.noinstall (one name per line) and an install rule will not be
+  created.
+
+  This module will also trigger the dependency functions if the dependencies
+  module is available, causing customized build rules to be created for each
+  .o file.  Without this module present, each .o file is assumed to depend
+  only on its corresponding .c file, which is usually incorrect but only
+  matters for developers.
+
+-------------------------------------------------------
+
+Module name: bzip2
+Requires: compiletest, cflags
+Description: Tests for the presence of libbz2 and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if the
+  library is not found.
+
+-------------------------------------------------------
+
+Module name: c99
+Requires: cc, cflags
+Description: Checks the gcc version to determine if C99 is sufficient
+  for use of the 'restrict' and 'inline' keywords.  If so, adds -std=c99
+  to the CFLAGS.  If not, adds lines to firemake.h to make these keywords
+  be removed from the source by the preprocessor.
+
+-------------------------------------------------------
+
+Module name: cc
+Description: Checks for a C compiler.  Aborts if unable to find 'gcc' or
+  'cc'.
+
+-------------------------------------------------------
+
+Module name: cflags
+Requires: cc
+Output files: compiletest.log
+Environment variables: CFLAGS
+Description: Attempts to find a CFLAGS variable in the environment.  If it
+  fails, creates default CFLAGS based on the compiler name.
+
+-------------------------------------------------------
+
+Module name: compiletest
+Requires: cc, cflags
+Description: Provides internal routines to help other modules with testing
+  of various programs and compile options.  Writes all tests and results
+  to 'compiletest.log'.  Writes a rule to remove compiletest.log on
+  'make distclean'.
+
+-------------------------------------------------------
+
+Module name: conf
+Requires: makefiletop, prefix
+Description: Checks for configuration files in a 'conf' subdirectory of the
+  project directory.  Adds rules to install these files in the correct
+  location if there are not already copies present.
+
+-------------------------------------------------------
+
+Module name: context
+Requires: compiletest, cflags
+Description: Checks for system support for setcontext(), getcontext(),
+  makecontext() and swapcontext().  If found working, respectively defines
+  HAVE_SETCONTEXT, HAVE_GETCONTEXT, HAVE_MAKECONTEXT and HAVE_SWAPCONTEXT
+  in the preprocessor environment.
+
+-------------------------------------------------------
+
+Module name: crypt
+Requires: compiletest, cflags
+Description: Checks for system support for the "crypt" library, needed
+  to be able to call crypt(3) on some systems.  If found, adds "-lcrypt"
+  to CFLAGS.  
+
+-------------------------------------------------------
+
+Module name: curses
+Requires: compiletest, cflags
+Description: Tests for the presence of libncurses or libcurses and
+  appropriate headers, and that programs can be compiled using these.
+  Adds the appropriate header includes to firemake.h and alters the
+  LDFLAGS to link in the library from the right location.  Aborts the
+  configure process if the library is not found.
+
+-------------------------------------------------------
+Module name: dependencies
+Requires: cc, cflags
+Description: Provides helper functions to other modules to generate
+  customized build rules for each object file.  Without this module,
+  FireMake assumes that each object file depends only on it's
+  corresponding .c file.  This is good enough to get these files
+  built, but will not rebuild them if an included header file changes.
+  This module uses the C compiler to generate a full dependency list
+  for each object file, so it can correctly rebuild files when changes
+  are made.  While this is the right behaviour, it only slows down the
+  built process and probably isn't necessary for most software
+  consumers.
+
+-------------------------------------------------------
+
+Module name: epoll
+Requires: compiletest, cflags
+Description: Tests for the availability of the epoll() functions in the
+  system C library AND for kernel support.  If found, defines the
+  preprocessor symbol HAVE_EPOLL in the CFLAGS.  If not found,
+  continues without.  The epoll(4) family of functions were introduced
+  into the Linux 2.6 kernel series as scalable replacement for select(2)
+  and poll(2).
+
+-------------------------------------------------------
+
+Module name: expat
+Requires: compiletest, cflags
+Description: Tests for the presence of libexpat and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if the
+  library is not found.
+
+-------------------------------------------------------
+
+Module name: firedns
+Requires: compiletest, cflags, firestring, pthread
+Recommends: subdir
+Description: Tests for the presence of libfiredns and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if the
+  library is not found.  Can accept a local copy of the library in a
+  subdirectory called 'firedns'; will compile and link the library in
+  statically.
+
+-------------------------------------------------------
+
+Module name: firemime
+Requires: compiletest, cflags, firestring
+Recommends: subdir
+Description: Tests for the presence of libfiremime and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if the
+  library is not found.  Can accept a local copy of the library in a
+  subdirectory called 'firemime'; will compile and link the library in
+  statically.
+
+-------------------------------------------------------
+
+Module name: firerpc
+Requires: compiletest, cflags, firestring, firedns
+Recommends: subdir
+Description: Tests for the presence of libfirerpc and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if the
+  library is not found.  Can accept a local copy of the library in a
+  subdirectory called 'firerpc'; will compile and link the library in
+  statically.
+
+-------------------------------------------------------
+
+Module name: firestring
+Requires: compiletest, cflags
+Recommends: subdir
+Description: Tests for the presence of libfirestring and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if the
+  library is not found.  Can accept a local copy of the library in a
+  subdirectory called 'firestring'; will compile and link the library in
+  statically.
+
+-------------------------------------------------------
+
+Module name: freetype2
+Requires: compiletest, cflags
+Description: Tests for the presence of libfreetype (version 2) and
+  appropriate headers, and that programs can be compiled using these.
+  Adds the appropriate header includes to firemake.h and alters the
+  LDFLAGS to link in the library from the right location.  Aborts the
+  configure process if the library is not found.
+
+-------------------------------------------------------
+
+Module name: gcvt
+Requires: compiletest, cflags
+Description: Tests for the availability of the gcvt() function in the
+  system C library.  If found, defines the preprocessor symbol
+  HAVE_GCVT in the CFLAGS.  If not found, continues without.
+  (The gcvt() function doesn't seem to come from any UNIX standard
+  whatsover; it's absense should not prevent an entire program from
+  building).
+
+-------------------------------------------------------
+
+Module name: gd
+Requires: compiletest, cflags
+Description: Tests for the presence of libgd and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if
+  the library is not found.
+
+-------------------------------------------------------
+
+Module name: gnomeui2
+Submitted by: Brendan Conte <conteb@forgotten-realm.net>
+Requires: compiletest, cflags
+Description: Tests for the presence of the Gnome 2.0 user interface
+  libraries.  If found, adds the appropriate CFLAGS and LDFLAGS.
+  Aborts the configure process if not found.
+
+-------------------------------------------------------
+
+Module name: headers
+Requires: makefiletop, prefix
+Configuration files: firemake.headers
+Description: Reads header file names, one per line, from
+  'firemake.headers'.  Writes makefile rules to install these
+  headers to the appropriate directory.
+
+-------------------------------------------------------
+
+Module name: id
+Description: Checks for the 'id' program.  This is needed by
+  the install module to determine the installation user and
+  group.
+
+-------------------------------------------------------
+
+Module name: install
+Requires: id, makefiletop
+Description: Determines the user and group to install files as
+  and writes rules to handle distribution 'make install' down to
+  other modules.
+
+-------------------------------------------------------
+
+Module name: jpeg
+Requires: compiletest, cflags
+Description: Tests for the presence of libjpeg and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if
+  the library is not found.
+
+-------------------------------------------------------
+
+Module name: libraries
+Requires: prefix, compiletest, cflags, version
+Recommends: dependencies
+Configuration files: firemake.libraries
+Description: Creates makefile entries to build and install libraries
+  listed in 'firemake.libraries'.  Entries in that file should appear
+  as:
+
+  libraryname: object1.o object2.o
+
+  object1.c and object2.c should exist in the project directory.  The
+  .o files will be created automatically.  Both libraryname.a and
+  libraryname.so.VERSION will be created.  Both will be installed, and
+  symlinks to more generic version numbers will be created in the
+  install directory.
+
+  This module is also in charge of decting proper flags needed to
+  build a shared library on each platform.
+
+  This module will also trigger the dependency functions if the dependencies
+  module is available, causing customized build rules to be created for each
+  .o file.  Without this module present, each .o file is assumed to depend
+  only on its corresponding .c file, which is usually incorrect but only
+  matters for developers.
+
+-------------------------------------------------------
+
+Module name: make
+Description: Checks for capabilities of the system 'make' program.
+  Other modules may need this information to write Makefiles
+  correctly.
+
+-------------------------------------------------------
+
+Module name: makefiletop
+Requires: prefix, make
+Description: Writes out the top of the makefile, including the rules
+  to make .o files from .c files and to handle 'make all', 'make clean'
+  and 'make distclean' by distributing these rules down to modules.
+
+-------------------------------------------------------
+
+Module name: man
+Requires: makefiletop, prefix
+Description: Checks for man pages in a 'man' subdirectory of the
+  project directory.  Adds rules to install these manpages in the
+  correct location.
+
+-------------------------------------------------------
+
+Module name: math
+Requires: compiletest, cflags
+Description: Tests for the presence of libm and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and LDFLAGS.  Aborts the configure
+  process if the library is not found.
+
+-------------------------------------------------------
+
+Module name: mysqlclient
+Requires: compiletest, cflags
+Description: Tests for the presence of libmysqlclient and appropriate
+  headers, and that programs can be compiled using these.  Adds the
+  appropriate header includes to firemake.h and alters the LDFLAGS to
+  link in the library from the right location.  Aborts the configure
+  process if the library is not found.
+
+-------------------------------------------------------
+
+Module name: openssl
+Requires: compiletest, cflags
+Description: Tests for the presence of libssl, libcrypto and appropriate
+  headers, and that programs can be compiled using these.  Adds the
+  appropriate header includes to firemake.h and alters the LDFLAGS to
+  link in the library from the right location.  Aborts the configure
+  process if the library is not found.
+
+-------------------------------------------------------
+
+Module name: pcl
+Requires: compiletest, cflags
+Description: Tests for the presence of libpcl and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if
+  the library is not found.
+
+-------------------------------------------------------
+
+Module name: png
+Requires: compiletest, cflags
+Description: Tests for the presence of libpng and appropriate headers,
+  and that programs can be compiled using these.  Adds the appropriate
+  header includes to firemake.h and alters the LDFLAGS to link in the
+  library from the right location.  Aborts the configure process if
+  the library is not found.
+
+-------------------------------------------------------
+
+Module name: prefix
+Requires: cflags
+Environment variables: PREFIX, BINDIR, SBINDIR, MANDIR, CONFDIR, LIBDIR, INCLUDEDIR
+Description: Attempts to get PREFIX from the environment.  Failing that
+  sets PREFIX to /usr/local.  Adds BINDIR, SBINDIR, MANDIR, CONFDIR,
+  LIBDIR and INCLUDEDIR as preprocessor variables using CFLAGS so
+  programs can know where to find other program files.
+
+-------------------------------------------------------
+
+Module name: pthread
+Requires: compiletest, cflags
+Description: Attempts to discover the correct compile flags to build
+  programs that use POSIX threads on the system.  Adds appropriate
+  flags and header includes, or aborts if no method succeeds.  This
+  module sometimes detects -pthread as being the correct method on
+  platforms where it produces a compile warning; this should not stop
+  the build from working properly.
+
+-------------------------------------------------------
+
+Module name: sigaction
+Requires: compiletest, cflags
+Description: Checks for system support for sigaction(). If found
+  working, defines HAVE_SIGACTION in the preprocessor environment.
+
+-------------------------------------------------------
+
+Module name: sigaltstack
+Requires: compiletest, cflags
+Description: Checks for system support for sigaltstack(). If found
+  working, defines HAVE_SIGALTSTACK in the preprocessor environment.
+
+-------------------------------------------------------
+
+Module name: strip
+Description: Checks for the 'strip' program.  If found, the binaries
+  module will use it to remove debugging symbols from installed
+  programs for faster execution.  If not found, this step is skipped.
+
+-------------------------------------------------------
+
+Module name: socket
+Requires: compiletest, cflags
+Description: Checks for system support for the "socket" library.  If
+  found, adds "-lsocket -lnsl" to LDFLAGS.  This is required on some
+  on operating systems (Solaris) for network software to compile.
+  Adds socket headers includes whether the library is required or not.  
+
+-------------------------------------------------------
+
+Module name: subdir
+Requires: cc, cflags
+Description: Provides a helper function that allows some other modules
+  to detect local copies of libraries and allows make targets 'all',
+  'distclean' and 'clean' to be passed down into the subdirectories.
+
+-------------------------------------------------------
+
+Module name: version
+Requires: cflags
+Configuration files: firemake.version
+Description: Helper module which loads 'firemake.version' from the
+  main project directory.  If not present, sets the version to 
+  '0.0.0'.  Adds the preprocessor macro VERSION so the program
+  can display version information from the same source.
+
+-------------------------------------------------------
+
+Module name: zlib
+Requires: compiletest, cflags
+Description: Tests for the presence of libz and appropriate
+  headers, and that programs can be compiled using these.  Adds the
+  appropriate header includes to firemake.h and alters the LDFLAGS to
+  link in the library from the right location.  Aborts the configure
+  process if the library is not found.
+

@@ -1,0 +1,29 @@
+--- erlycairo/c_src/Makefile	2007-09-24 01:19:55.000000000 +0200
++++ erlycairo/c_src/Makefile-new	2007-09-24 01:35:17.000000000 +0200
+@@ -1,12 +1,12 @@
+ # set OTP variable according to your environemnt
+ 
+-OTP=$(HOME)/cean
++OTP=/usr/lib/erlang
+ 
+ UNAME = $(shell uname)
+ 
+ 
+ ifeq ($(UNAME), Darwin)
+-  ERL_INTERFACE=$(OTP)/erlang/lib/erl_interface-3.5.5.3
++  ERL_INTERFACE=EI
+   COMPILER=gcc
+   LIBS=-lcairo -lpng -lerl_interface -lei -lpthread
+   INCLUDEDIRS=-I/opt/local/include/cairo -I$(ERL_INTERFACE)/include
+@@ -14,9 +14,9 @@
+   LIBDIRS=-L/opt/local/lib  -L$(ERL_INTERFACE)/darwin-x86/lib -L/usr/lib
+ else
+   ifeq ($(UNAME), Linux)
+-    ERL_INTERFACE=$(OTP)/erlang/lib/erl_interface-3.5.5.3
++    ERL_INTERFACE=EI
+     COMPILER=gcc
+-    LIBS=-lcairo -lpng -lerl_interface -lei -lnsl -lpthread  
++    LIBS=-lcairo -lpng -L$(ERL_INTERFACE)/lib -lerl_interface -lei -lnsl -lpthread  
+     INCLUDEDIRS=-I/usr/include/cairo -I$(ERL_INTERFACE)/include
+     CC=$(COMPILER) $(INCLUDEDIRS)
+     LIBDIRS=-L/usr/lib  -L$(ERL_INTERFACE)/linux-x86/lib -L/usr/lib/happycoders

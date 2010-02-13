@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A selection of general-utility scalar subroutines 
+# URL: http://search.cpan.org/~gbarr/Scalar-List-Util-1.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-scalar-list-utils
+version=1.18
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/G/GB/GBARR/Scalar-List-Utils-$version.tar.gz)
+
+build () {
+	cd Scalar-List-Utils-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

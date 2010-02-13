@@ -1,0 +1,34 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/compat_time.h
+-rw-r--r--	root/root	usr/include/doublefann.h
+-rw-r--r--	root/root	usr/include/fann.h
+-rw-r--r--	root/root	usr/include/fann_activation.h
+-rw-r--r--	root/root	usr/include/fann_data.h
+-rw-r--r--	root/root	usr/include/fann_errno.h
+-rw-r--r--	root/root	usr/include/fann_internal.h
+-rw-r--r--	root/root	usr/include/fixedfann.h
+-rw-r--r--	root/root	usr/include/floatfann.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libdoublefann.a
+-rwxr-xr-x	root/root	usr/lib/libdoublefann.la
+lrwxrwxrwx	root/root	usr/lib/libdoublefann.so -> libdoublefann.so.1.2.0
+lrwxrwxrwx	root/root	usr/lib/libdoublefann.so.1 -> libdoublefann.so.1.2.0
+-rwxr-xr-x	root/root	usr/lib/libdoublefann.so.1.2.0
+-rw-r--r--	root/root	usr/lib/libfann.a
+-rwxr-xr-x	root/root	usr/lib/libfann.la
+lrwxrwxrwx	root/root	usr/lib/libfann.so -> libfann.so.1.2.0
+lrwxrwxrwx	root/root	usr/lib/libfann.so.1 -> libfann.so.1.2.0
+-rwxr-xr-x	root/root	usr/lib/libfann.so.1.2.0
+-rw-r--r--	root/root	usr/lib/libfixedfann.a
+-rwxr-xr-x	root/root	usr/lib/libfixedfann.la
+lrwxrwxrwx	root/root	usr/lib/libfixedfann.so -> libfixedfann.so.1.2.0
+lrwxrwxrwx	root/root	usr/lib/libfixedfann.so.1 -> libfixedfann.so.1.2.0
+-rwxr-xr-x	root/root	usr/lib/libfixedfann.so.1.2.0
+-rw-r--r--	root/root	usr/lib/libfloatfann.a
+-rwxr-xr-x	root/root	usr/lib/libfloatfann.la
+lrwxrwxrwx	root/root	usr/lib/libfloatfann.so -> libfloatfann.so.1.2.0
+lrwxrwxrwx	root/root	usr/lib/libfloatfann.so.1 -> libfloatfann.so.1.2.0
+-rwxr-xr-x	root/root	usr/lib/libfloatfann.so.1.2.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/fann.pc

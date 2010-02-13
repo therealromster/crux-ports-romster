@@ -1,0 +1,19 @@
+# $Id: $
+# Description: AVL based allocator
+# URL: http://www.geocities.com/wkaras/heapmm/heapmm.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=heapavl
+version=1.1
+release=1
+source=(http://www.geocities.com/wkaras/heapmm/heapmm.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cp *.c *.h $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}

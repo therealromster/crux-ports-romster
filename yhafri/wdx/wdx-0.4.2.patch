@@ -1,0 +1,30 @@
+--- wdx_specific_gnux.c	2003-10-17 13:41:00.000000000 +0200
++++ wdx_specific_gnux.c-new	2006-10-22 00:24:30.000000000 +0200
+@@ -1148,12 +1148,21 @@
+ 
+ void spc_sleep()
+ {
+-   signal(SIGALRM, sleep_timer_exp);
+-   ualarm(400000, 0);
+-   sigblock(sigmask(SIGALRM));
+-   while (sleep_finished_flag == 0)
+-	   sigpause(0);
+-   sleep_finished_flag = 0;
++  sigset_t set;
++  sigemptyset(&set);
++
++  signal(SIGALRM, sleep_timer_exp);
++  ualarm(400000, 0);
++
++  /*  http://docs.linux.cz/programming/c/unix_examples/tryhold2.html */
++  /* Block SIGALRM */
++  /* sigblock(sigmask(SIGALRM)); */
++  sigaddset(&set, SIGALRM);
++  sigprocmask(SIG_BLOCK, &set, NULL);
++
++  while (sleep_finished_flag == 0)
++    sigpause(0);
++  sleep_finished_flag = 0;
+ }
+ 
+ /* MK 0001 DEBUG ROUTINE TO OUTPUT TIMESTAMP */

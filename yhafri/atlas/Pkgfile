@@ -1,0 +1,38 @@
+# $Id: $
+# Description: Automatically Tuned Linear Algebra Software
+# URL: http://math-atlas.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=atlas
+version=3.7.14
+release=2
+
+source=(http://kent.dl.sourceforge.net/sourceforge/math-atlas/$name$version.tar.bz2)
+
+build() {
+        mkdir -p $PKG/usr/{lib,include}
+        cd ATLAS
+	mkdir -p build; cd build
+	export CPU_TYPE=`echo ATLAS/build/ARCHS/P* | sed -e "s|.*/||"`
+  	../configure
+   	make build
+	sed -i "s|/usr/local|/$PKG/usr|" Makefile
+	make install
+	make install arch=$CPU_TYPE
+
+	chown -R root:root $PKG
+}
+
+#toto {        
+#        yes "" | make
+#        export CPU_TYPE=`ls bin/ | grep Linux_`
+#        make DESTDIR=$PKG install arch=$CPU_TYPE
+        
+#        rm lib/$CPU_TYPE/{liblapack.a,Make.inc,Makefile}
+#        cp -rf lib/$CPU_TYPE/* $PKG/usr/lib
+#        cp -rf include/cblas.h $PKG/usr/include
+##       cp -rf include/clapack.h $PKG/usr/include
+#        chown -R root:root $PKG
+#}

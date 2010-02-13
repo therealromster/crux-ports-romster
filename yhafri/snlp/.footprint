@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/snlp/
+-rwxr-xr-x	root/root	usr/lib/snlp/Bigrams.pm
+-rwxr-xr-x	root/root	usr/lib/snlp/Unigrams.pm
+-rwxr-xr-x	root/root	usr/lib/snlp/addonecross.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/addx.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/biapprox.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/entropy.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/entropy2.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/forngram.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/hapax.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/novelwords.pl
+-rwxr-xr-x	root/root	usr/lib/snlp/uniapprox.pl

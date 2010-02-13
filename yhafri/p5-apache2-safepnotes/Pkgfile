@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A safer replacement for Apache2::RequestUtil::pnotes
+# URL: http://84.45.18.237/~opi/Apache2-SafePnotes-0.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: apache, mod_perl2
+
+name=p5-apache2-safepnote
+version=0.02
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/O/OP/OPI/Apache2-SafePnotes-$version.tar.gz)
+
+build () {
+	cd Apache2-SafePnotes-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

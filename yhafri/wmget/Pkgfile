@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A dockapp to perform long downloads in the background
+# URL: http://amtrickey.net/wmget/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, curl
+
+name=wmget
+version=0.6.0
+release=1
+source=(http://amtrickey.net/download/$name-$version-src.tar.gz)
+
+build () {
+
+	cd $name
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

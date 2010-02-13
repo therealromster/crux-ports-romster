@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/apache/
+-rw-r--r--	root/root	usr/lib/apache/mod_estraier.a
+-rwxr-xr-x	root/root	usr/lib/apache/mod_estraier.la
+-rwxr-xr-x	root/root	usr/lib/apache/mod_estraier.so
+-rw-r--r--	root/root	usr/lib/apache/mod_estraier_cache.a
+-rwxr-xr-x	root/root	usr/lib/apache/mod_estraier_cache.la
+-rwxr-xr-x	root/root	usr/lib/apache/mod_estraier_cache.so
+-rw-r--r--	root/root	usr/lib/apache/mod_estraier_search.a
+-rwxr-xr-x	root/root	usr/lib/apache/mod_estraier_search.la
+-rwxr-xr-x	root/root	usr/lib/apache/mod_estraier_search.so

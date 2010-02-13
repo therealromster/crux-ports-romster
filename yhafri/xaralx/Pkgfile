@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A powerful, general purpose graphics program 
+# URL: http://www.xaraxtreme.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk, libiconv, libxml2, freetype, libtiff, libpng, pango
+
+name=xaralx
+version=0.7
+release=r1763
+source=(http://downloads2.xara.com/opensource/XaraLX-${version}$release.tar.bz2)
+
+build () {
+	cd XaraLX-$version$release
+	./configure --prefix=/usr  \
+		    --enable-unicode \
+		    --disable-nls \
+		    --disable-international \
+		    --disable-svnversion \
+		    --enable-xarlib \
+		    --enable-filters
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

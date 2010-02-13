@@ -1,0 +1,19 @@
+# Description: a KDE frontend for Streamripper
+# URL: http://www.kde-apps.org/content/show.php?content=10275
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: streamripper, kdelibs
+
+name=kstreamripper
+version=0.3.4
+release=3
+source=(http://tuxipuxi.org/downloads/kstreamripper-$version.tar.bz2)
+
+build() {
+    export QTDIR=/usr/share/qt
+    cd $name-$version
+    scons configure prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/doc/HTML/* ! -wholename "*HTML/en*" -delete
+}

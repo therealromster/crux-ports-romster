@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Koders IDE Plug-in for Eclipse
+# URL: http://www.koders.com/info.aspx?c=tools#IDEs
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Simone Rota, sip at varlock dot com
+# Depends on: eclipse-sdk
+
+name=eclipse-koders
+version=1.0.667
+release=1
+source=(http://www.koders.com/downloads/EclipseStandalone/beta/com.koders.eclipse.searchplugin_${version}.jar)
+
+build() {
+	mkdir -p $PKG/usr/lib/eclipse/plugins
+
+    	mv com.koders.eclipse.searchplugin_${version}.jar $PKG/usr/lib/eclipse/plugins
+
+	chown -R root:root $PKG
+}

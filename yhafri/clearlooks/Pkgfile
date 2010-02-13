@@ -1,0 +1,22 @@
+# Description: Simple, elegant, and usable GTK theme
+# URL: http://clearlooks.sf.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager:    Han Boetes <han@mijncomputer.nl>
+# Depends on:  gtk
+
+name=clearlooks
+version=0.6.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build()
+{
+    	cd $name-$version
+    	./configure --prefix=/usr \
+        	    --disable-nls
+
+	make
+    	make DESTDIR=$PKG install
+    
+	chown -R root:root $PKG
+}

@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Creates and updates RSS files with  Perl
+# URL: http://search.cpan.org/~kellan/XML-RSS-1.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-xml-parser, p5-test-manifest
+
+name=p5-xml-rss
+version=1.10
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABH/XML-RSS-$version.tar.gz)
+
+build () {
+	cd XML-RSS-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+
+        PERL_VERSION=`perl -e 'printf "%vd", $^V'`
+	mkdir -p $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/XML
+        #cp -f $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/XML/RSS.pm \
+        #   $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/XML
+
+	chown -R root:root $PKG
+}

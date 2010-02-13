@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A free remote control software package derived from VNC
+# URL: http://www.tightvnc.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, zlib, libjpeg
+
+name=tightvnc
+version=1.2.9
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/vnc-tight/$name-$version\_unixsrc.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+
+	cd vnc_unixsrc
+	patch -p1 < ../$name-$version.patch
+	xmkmf
+	make World
+	(cd Xvnc; ./configure; make)
+	cp Xvnc/programs/Xserver/Xvnc $PKG/usr/bin
+	cp vncserver                  $PKG/usr/bin
+	cp vncviewer/vncviewer        $PKG/usr/bin
+	cp vncconnect/vncconnect      $PKG/usr/bin
+	cp vncpasswd/vncpasswd        $PKG/usr/bin
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: IceWM Icons
+# URL: http://themes.freshmeat.net/redir/iceicons/35147/url_homepage/iceicons
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=iceicons
+version=0.10.0
+release=1
+source=(http://themes.freshmeat.net/redir/iceicons/35147/url_tgz/$name-default-$version.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/share/icons/icewm/{png/48x48,xpm/{16x16,32x32,48x48}}
+    cd icons
+
+    find . -name  "*48x48*.png" -type "f" | xargs -iZ mv Z $PKG/usr/share/icons/icewm/png/48x48
+
+    find . -name  "*16x16*.xpm" -type "f" | xargs -iZ mv Z $PKG/usr/share/icons/icewm/xpm/16x16
+    find . -name  "*32x32*.xpm" -type "f" | xargs -iZ mv Z $PKG/usr/share/icons/icewm/xpm/32x32
+    find . -name  "*48x48*.xpm" -type "f" | xargs -iZ mv Z $PKG/usr/share/icons/icewm/xpm/48x48
+
+    chown -R root:root $PKG
+}

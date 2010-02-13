@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Jabber chat client with whiteboard communication
+# URL: http://hem.fyristorg.com/matben/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk
+
+name=coccinella
+version=0.95
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/coccinella/Coccinella-$version.10Src.tar.gz \
+	$name)
+
+build () {
+    	mkdir -p $PKG/usr/lib
+    
+    	find Coccinella-$version.10Src -iname "readme*" -type  "f" | xargs rm -rf
+    	find Coccinella-$version.10Src -iname "changes*" -type "f" | xargs rm -rf
+    	
+	rm -rf Coccinella-$version.10Src/{READMEs,CHANGES,docs}
+    	rm -rf Coccinella-$version.10Src/bin/{macintosh,macosx,windows}
+	
+	mv Coccinella-$version.10Src $PKG/usr/lib/$name
+
+    	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+    	chown -R root:root $PKG
+}

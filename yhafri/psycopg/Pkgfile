@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Python interface to Postgresql DB
+# URL: http://initd.org/pub/software/psycopg/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, egenix-mx-base, postgresql
+
+name=psycopg
+version=2.0.5.1
+release=1
+source=(http://initd.org/pub/software/$name/${name}2-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+
+	cd ${name}2-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

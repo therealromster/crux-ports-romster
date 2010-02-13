@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Clustering low and high-dimensional datasets
+# URL: http://www-users.cs.umn.edu/~karypis/cluto/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cluto
+version=2.1.1
+release=1
+source=(http://www-users.cs.umn.edu/~karypis/$name/files/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version/Linux
+
+	install -D -m 755 scluster $PKG/usr/bin/scluster
+	install -D -m 755 vcluster $PKG/usr/bin/vcluster
+	install -D -m 644 libcluto.a $PKG/usr/lib/libcluto.a
+
+	cd ..
+	install -D -m 644 cluto.h $PKG/usr/include/cluto.h
+
+	chown -R root:root $PKG
+}

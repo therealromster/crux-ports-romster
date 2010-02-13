@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Netarchive Suite
+# URL: http://netarchive.dk/suite
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: xorg, mq4
+
+name=netarchivesuite
+version=3.2.1
+release=1
+source=(NetarchiveSuite-3[1].2.1.zip \
+	netarchivesuite)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+	mv * $PKG/usr/lib/$name
+	cd $PKG/usr/lib/$name
+
+	chmod +x scripts/simple_harvest/*.sh
+
+	chown -R root:root $PKG
+}

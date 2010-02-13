@@ -1,0 +1,36 @@
+# $Id: $
+# Description: Fourier font for LaTeX
+# URL: http://www.ctan.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=fourier
+version=1
+release=1
+source=(ftp://ctan.unsw.edu.au/tex-archive/fonts/$name-GUT/tex/latex/$name.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex
+	mkdir -p $PKG/usr/share/texmf/fonts/{afm,tfm,vf,type1}
+
+	mv $name/ $PKG/usr/share/texmf/tex/latex 
+
+	wget ftp://ctan.unsw.edu.au/tex-archive/fonts/$name-GUT/fonts/afm/public/$name.zip
+	unzip -a $name
+	mv $name/ $PKG/usr/share/texmf/fonts/afm/
+
+	wget ftp://ctan.unsw.edu.au/tex-archive/fonts/$name-GUT/fonts/tfm/public/$name.zip
+	unzip -a $name.zip.1
+	mv $name/ $PKG/usr/share/texmf/fonts/tfm/
+
+	wget ftp://ctan.unsw.edu.au/tex-archive/fonts/$name-GUT/fonts/type1/public/$name.zip 
+	unzip -a $name.zip.2
+	mv $name/ $PKG/usr/share/texmf/fonts/type1/
+
+	wget ftp://ctan.unsw.edu.au/tex-archive/fonts/$name-GUT/fonts/vf/public/$name.zip
+	unzip -a $name.zip.3
+	mv $name/ $PKG/usr/share/texmf/fonts/vf/
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Front-end module to the Template Toolkit
+# URL: http://search.cpan.org/~abw/Template-Toolkit-2.14/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex, p5-gd, p5-text-autoformat, p5-dbi, p5-image-info, p5-image-size, p5-gd-graph3d, p5-date-calc, p5-pod-pom, p5-xml-dom, p5-xml-rss, p5-tie-dbi, p5-xml-xpath, p5-app-config, p5-gd-graph, mod_perl2
+
+name=p5-template-toolkit
+version=2.19
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABW/Template-Toolkit-$version.tar.gz \
+    	$name-$version.patch)
+
+build () {
+	cd Template-Toolkit-$version
+	patch -p1<../$name-$version.patch
+	echo "y" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

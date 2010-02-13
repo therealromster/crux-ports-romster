@@ -1,0 +1,25 @@
+--- SkipDBPackage/SkipDB/Makefile	2005-08-05 02:15:01.000000000 +0200
++++ SkipDBPackage/SkipDB/Makefile-new	2007-08-13 18:46:38.000000000 +0200
+@@ -21,6 +21,7 @@
+ LFLAGS		:= -L. -L./_libs -L../base
+ #LFLAGS		+= -lMallocDebug
+ LIBS		:= -lm  -lSkipDB  -lIoBase
++PREFIX		:= /usr
+ 
+ ifeq ($(PLATFORM), Darwin) 
+   CFLAGS += -falign-loops=16
+@@ -120,9 +121,11 @@
+ 	-rm -rf *.udbData
+ 
+ install:
+-	mkdir /usr/local/include/udb
+-	cp _include/*.h /usr/local/include/udb
+-	cp libudb.a /usr/local/lib
++	mkdir -p ${PREFIX}/include/udb
++	mkdir -p ${PREFIX}/lib
++	cp _include/*.h ${PREFIX}/include/udb
++	cp _libs/libSkipDB.a ${PREFIX}/lib
++#	cp libudb.a ${PREFIX}/lib
+ 
+ test:
+ 	$(MAKE)

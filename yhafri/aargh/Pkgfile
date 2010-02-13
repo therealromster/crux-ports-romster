@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Generates C/C++ code to parse a command line
+# URL: http://home.swbell.net/mck9/aargh/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=aargh
+version=1.2.2
+release=1
+source=(http://home.swbell.net/mck9/$name/${name}_1_2_2.tar.gz)
+
+build () {
+	cd ${name}_1_2_2
+
+	sh ./build_aargh
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,18 @@
+# $Id: $
+# Description: LaTeX macros for linguistic graphics
+# URL: http://www.ling.uni-potsdam.de/~rvogel/xyling/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-xyling
+version=1
+release=1
+source=(http://www.ling.uni-potsdam.de/~rvogel/xyling/xyling.sty)
+
+build () {
+	install -d $PKG/usr/share/texmf/tex/latex/xyling
+
+	mv xyling.sty $PKG/usr/share/texmf/tex/latex/xyling
+	chown -R root:root $PKG
+}

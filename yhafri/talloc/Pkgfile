@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A hierarchical pool based memory allocator with destructors
+# URL: http://talloc.samba.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=talloc
+version=1.0.1
+release=1
+source=(http://ftp.debian.org/debian/pool/main/t/$name/${name}_${version}.orig.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/avl.h
+-rw-r--r--	root/root	usr/include/bst.h
+-rw-r--r--	root/root	usr/include/pavl.h
+-rw-r--r--	root/root	usr/include/pbst.h
+-rw-r--r--	root/root	usr/include/prb.h
+-rw-r--r--	root/root	usr/include/rb.h
+-rw-r--r--	root/root	usr/include/rtavl.h
+-rw-r--r--	root/root	usr/include/rtbst.h
+-rw-r--r--	root/root	usr/include/rtrb.h
+-rw-r--r--	root/root	usr/include/tavl.h
+-rw-r--r--	root/root	usr/include/tbst.h
+-rw-r--r--	root/root	usr/include/trb.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libavl.a

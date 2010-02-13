@@ -1,0 +1,24 @@
+# $Id: $
+# Description: JavaScript Object Notation for Erlang
+# URL: http://www.erlang-projects.org/Public/news/ejson/view
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=ejson
+version=1
+release=1
+source=(http://www.erlang-projects.org/Members/mremond/code/ejson/block_11381005072852/file)
+
+build () {
+	mv file $name-$version.tgz
+	tar xzvf $name-$version.tgz
+  
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	erl -make
+
+	mv json.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv json.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+
+	chown -R root:root $PKG
+}

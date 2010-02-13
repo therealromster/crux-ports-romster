@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Validate method/function parameters 
+# URL: http://search.cpan.org/~drolsky/Params-Validate-0.76/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-params-validate
+version=0.78
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Params-Validate-$version.tar.gz)
+
+build () {
+	cd Params-Validate-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

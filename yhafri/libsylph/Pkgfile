@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A library to create new mail clients
+# URL: http://sylpheed.sraoss.jp/en/news.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libsylph
+version=1.0.0
+release=1
+source=(http://sylpheed.sraoss.jp/sylpheed/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

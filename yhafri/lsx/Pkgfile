@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Prints all executable file names of given absolute paths to standard output
+# URL: http://tools.suckless.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=lsx
+version=0.1
+release=1
+source=(http://suckless.org/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

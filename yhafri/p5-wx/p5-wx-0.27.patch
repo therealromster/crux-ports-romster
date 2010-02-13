@@ -1,0 +1,38 @@
+--- Wx-0.25_01/Constant.xs	2005-06-02 22:03:53.309313632 +0200
++++ Wx-0.25_01/Constant.xs-new	2005-06-02 22:05:12.431285264 +0200
+@@ -15,6 +15,7 @@
+ #define WXINTL_NO_GETTEXT_MACRO 1
+ 
+ #include <wx/defs.h>
++#include <wx/slider.h>
+ 
+ #include <wx/filedlg.h>
+ #include <wx/colordlg.h>
+--- Wx-0.25_01/XS/Icon.xs	2005-02-19 18:22:58.000000000 +0100
++++ Wx-0.25_01/XS/Icon.xs-new	2005-07-01 07:31:14.926924824 +0200
+@@ -64,7 +64,7 @@
+     ( defined( __WXMOTIF__ ) || defined( __WXX11__ ) || defined( __WXGTK__ ) )
+     RETVAL = new wxIcon( name, wxBitmapType(type), desW, desH );
+ #else
+-    RETVAL = new wxIcon( name, type, desW, desH );
++    RETVAL = new wxIcon( name, wxBitmapType(type), desW, desH );
+ #endif
+   OUTPUT:
+     RETVAL
+@@ -113,14 +113,14 @@
+ #if WXPERL_W_VERSION_GE( 2, 5, 1 )
+         RETVAL = THIS->LoadFile( name, wxBitmapType(type), -1, -1 );
+ #else
+-        RETVAL = THIS->LoadFile( name, type, -1, -1 );
++        RETVAL = THIS->LoadFile( name, wxBitmapType(type), -1, -1 );
+ #endif
+ #else
+ #if ( defined( __WXX11__ ) || defined( __WXMAC__ ) || defined( __WXGTK__ ) ) \
+     && WXPERL_W_VERSION_GE( 2, 5, 1 )
+     RETVAL = THIS->LoadFile( name, wxBitmapType(type) );
+ #else
+-    RETVAL = THIS->LoadFile( name, type );
++    RETVAL = THIS->LoadFile( name, wxBitmapType(type) );
+ #endif
+ #endif
+   OUTPUT:

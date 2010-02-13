@@ -1,0 +1,70 @@
+# Description: MIT Kerberos V5 client and server daemons and utilities
+# URL: 	http://web.mit.edu/kerberos/
+# Packager: Oleksiy V. Khilkevich <centericq at ukr.net>
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=kerberos
+version=1.6.2
+release=2
+source=(http://web.mit.edu/Kerberos/dist/krb5/1.6/krb5-1.6.2-signed.tar \
+	kdc \
+	kadm5.acl)
+
+build() {
+	
+	# krb5's tarball contains a PGP signature and a tar.gz file--we have to un-tar both balls.
+	tar xf krb5-${version}-signed.tar
+	tar xzf krb5-${version}.tar.gz
+	
+	# do the usual--the source directory is a subdir of the tarball root, though.
+	cd krb5-${version}/src
+	./configure \
+		CPPFLAGS="-I/usr/include/et" \
+		--with-system-et \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var/lib \
+		--enable-shared \
+		--enable-dns \
+		--enable-dns-for-kdc \
+		--enable-dns-for-realm \
+		--disable-nls \
+		--with-system-ss \
+		--without-krb4 \
+		--enable-kdc-replay-cache
+	make
+	make DESTDIR=${PKG} install
+	
+	# krb5 has kerberos-enabled versions of common network login utilities and services--we rename them with a "k" prefix to avoid name conflicts.
+	for file in telnet ftp rcp rlogin rsh uuclient; do
+		mv ${PKG}/usr/bin/$file ${PKG}/usr/bin/k${file}
+	done
+	for file in ftpd telnetd uuserver; do
+		mv ${PKG}/usr/sbin/$file ${PKG}/usr/sbin/k${file}
+	done
+	for file in telnet.1 ftp.1 rcp.1 rsh.1 rlogin.1 telnetd.8 ftpd.8; do
+		mv ${PKG}/usr/man/man`echo $file | cut -f2 -d.`/$file ${PKG}/usr/man/man`echo $file | cut -f2 -d.`/k${file}
+	done
+	
+	# create directories for configuration and library-esque files.
+	mkdir -p \
+		${PKG}/etc \
+		${PKG}/etc/rc.d \
+		${PKG}/var/lib/krb5kdc
+	
+	# move the example configuration files to their proper, CRUX-ish locations.
+	mv ${PKG}/usr/share/examples/krb5/kdc.conf ${PKG}/var/lib/krb5kdc
+	mv ${PKG}/usr/share/examples/krb5/krb5.conf ${PKG}/etc
+	rm -Rf ${PKG}/usr/share/examples
+	
+	# edit the example configuration files to CRUX-ish standards, and remove krb4 directives.
+	sed -i -e 's|/usr/local/var|/var/lib|g' ${PKG}/var/lib/krb5kdc/kdc.conf
+	sed -i -e 's|krb4_.*||g' ${PKG}/etc/krb5.conf
+
+	# move the additional configuration files (included with the port) to their locations.
+	install -m 644 ${SRC}/kadm5.acl ${PKG}/var/lib/krb5kdc/
+	install -m 755 ${SRC}/kdc $PKG/etc/rc.d/
+
+	chown -R root:root $PKG
+}

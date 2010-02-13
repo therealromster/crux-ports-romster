@@ -1,0 +1,6 @@
+POST-INSTALL:
+
+		
+		* Add the following lines to your ".emacs" config file:
+
+(require 'pabbrev)

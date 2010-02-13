@@ -1,0 +1,18 @@
+# Description: KDE style and KWin decoration based on Incors' Java Alloy
+# URL: http://kde-look.org/content/show.php?content=10605
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=alloy
+version=0.5.3
+release=3
+source=(http://www.kde-look.org/content/files/10605-alloy-0.5.3.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,37 @@
+# $Id: $
+# Description: Read and write uncompressed Quicktime movies
+# URL: http://heroinewarrior.com/quicktime.php3
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=quicktime4linux
+version=2.0.4
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/heroines/quicktime4linux-2.0.4-src.tar.bz2 \
+    $name-$version.patch \
+    http://ovh.dl.sourceforge.net/sourceforge/heroines/libmpeg3-1.5.4-src.tar.bz2 \
+    libmpeg3-1.5.4.patch)
+
+build () {
+    mkdir -p $PKG/usr/{bin,lib}
+	cd libmpeg3-1.5.4
+    patch -p1<../libmpeg3-1.5.4.patch
+    ln -s ../include/a52.h a52dec-0.7.3/src
+    ln -s ../include/a52.h a52dec-0.7.3/libao
+    ln -s ../include/a52.h a52dec-0.7.3/liba52
+    ln -s ../a52dec-0.7.3/include/a52.h audio
+    ln -s ../mpeg3private.h audio
+    ln -s ../mpeg3protos.h audio
+    make
+    
+	cd ../$name-$version
+    patch -p1<../$name-$version.patch
+    ln -s ../libmpeg3-1.5.4/mpeg3private.h .
+    ln -s ../libmpeg3-1.5.4/mpeg3protos.h .
+    ln lame-3.93.1/include/lame.h .
+    make
+	make DESTDIR=$PKG install
+    mv i686/libquicktime.a $PKG/usr/lib
+    chown -R root:root $PKG
+}

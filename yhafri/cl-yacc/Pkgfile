@@ -1,0 +1,19 @@
+# $Id: $
+# Description: LALR(1) parser generator for Common Lisp
+# URL: http://www.pps.jussieu.fr/~jch/software/cl-yacc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cmucl
+
+name=cl-yacc
+version=0.2
+release=1
+source=(http://ftp.debian.org/debian/pool/main/c/$name/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd ${name}-${version}.orig
+
+	for i in yacc.lisp yacc.asd; do install -D $i $PKG/usr/lib/$name/$i; done
+
+	chown -R root:root $PKG
+}

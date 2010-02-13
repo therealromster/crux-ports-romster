@@ -1,0 +1,27 @@
+* USAGE
+
+		1. Add /usr/bin/jail to /etc/shells
+		2. Create jail:
+
+ 		/usr/bin/mkjailenv /var/chroot
+
+		3. Install basic jail programs
+
+		/usr/bin/addjailsw /var/chroot
+
+		4. Install additional software, if needed (ssh,mutt etc.)
+
+		/usr/bin/addjailsw /var/chroot -P awk
+
+		5. Create system user for chrooting and make /usr/bin/jail his login shell
+
+		useradd -s /usr/bin/jail chrooted
+
+		6. Bind system user to the jail environment
+
+		/usr/bin/addjailuser /var/chroot /home/chrooted /bin/bash chrooted
+
+
+* NOTE 
+
+		/home/chrooted and /bin/bash are absolute paths INSIDE the jail

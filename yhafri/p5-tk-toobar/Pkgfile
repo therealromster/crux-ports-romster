@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A toolbar widget for Perl/Tk 
+# URL: http://search.cpan.org/~aqumsieh/Tk-ToolBar-0.09/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-tk-cursor-control
+
+name=p5-tk-toolbar
+version=0.09
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AQ/AQUMSIEH/Tk-ToolBar-$version.tar.gz)
+
+build () {
+	cd Tk-ToolBar-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

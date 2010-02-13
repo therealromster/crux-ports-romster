@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -e
+
+if [ $# != 1 ]; then
+    echo "Usage: $0 dirname"
+    exit 1
+fi
+
+if [ ! -d $1 ]; then
+    echo "dirname must be a valid directory name"
+    exit 1
+fi
+
+
+working="/tmp/$$"
+mkdir -p $working
+
+for i in `/usr/bin/list $1`;
+do
+  mkdir -p `dirname $working/$i.ps`
+  (a2ps -o $working/$i.ps $i 2>/dev/null)
+done
+
+/usr/bin/pstopdf.sh `/usr/bin/list $working | grep "\.ps" | sort | xargs`
+
+
+
+rm -rf $working

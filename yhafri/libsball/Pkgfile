@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A library for communicating with Spaceball 2003/3000/3003/4000 FLX Six-Degree-Of-Freedom virtual reality controllers
+# URL: http://jedi.ks.uiuc.edu/~johns/projects/libsball/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libsball
+version=1.0
+release=1
+source=(http://jedi.ks.uiuc.edu/~johns/code/$name-$version.tar.gz)
+
+build () {
+	cd $name
+
+	make
+
+	install -D $name.a $PKG/usr/lib/$name.a
+	install -D -m 644 sball.h $PKG/usr/include/sball.h
+
+	chown -R root:root $PKG
+}

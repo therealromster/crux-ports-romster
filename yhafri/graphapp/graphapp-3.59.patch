@@ -1,0 +1,11 @@
+--- GraphApp_3.59/src/utility/fontutil.c	2005-10-12 08:59:02.000000000 +0200
++++ GraphApp_3.59/src/utility/fontutil.c-new	2005-11-14 18:29:27.000000000 +0100
+@@ -35,7 +35,7 @@
+ 
+ static const char * app_font_search_var      = "APP_FONT_PATH";
+ static const char * app_font_home_var        = "HOME";
+-static const char * app_font_install_dir     = "/apps/app/fonts/";
++static const char * app_font_install_dir     = "/usr/lib/graphapp/fonts/";
+ static const char * app_font_resource_hdr    = "*fonts/";
+ static const char * app_font_info_suffix     = ".txt";
+ static const char * app_font_file_suffix     = ".png"; /* tried first */

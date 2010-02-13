@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Provides abstraction functions to display/play audio of Holy Quran
+# URL: http://www.arabeyes.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libquran
+version=0.21
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/$name-$version-i386-1.tgz)
+
+build () {
+	mv usr $PKG/
+        chown -R root:root $PKG
+}

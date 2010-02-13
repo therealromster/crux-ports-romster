@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/erlmerge -> /usr/lib/erlang/bin/erlmerge
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/bin/
+-rwxr-xr-x	root/root	usr/lib/erlang/bin/erlmerge
+drwxr-xr-x	root/root	usr/lib/erlang/erlmerge_DB/
+drwxr-xr-x	root/root	usr/lib/erlang/erlmerge_DB/distfiles/
+-rwxr-xr-x	root/root	usr/lib/erlang/erlmerge_DB/include.mk
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlmerge-0.6/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlmerge-0.6/ebin/
+-rwxr-xr-x	root/root	usr/lib/erlang/lib/erlmerge-0.6/ebin/erlmerge.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlmerge-0.6/include/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlmerge-0.6/priv/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlmerge-0.6/src/
+-rwxr-xr-x	root/root	usr/lib/erlang/lib/erlmerge-0.6/src/erlmerge.erl
+lrwxrwxrwx	root/root	usr/lib/erlang/support -> /usr/ports/yhafri/erlmerge/work/pkg/usr/lib/erlang/erlmerge_DB

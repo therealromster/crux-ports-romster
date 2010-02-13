@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Portable fixed precision math library geared towards doing one thing very fast
+# URL: http://tfm.libtomcrypt.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=tomsfastmath
+version=0.10
+release=1
+source=(http://tfm.libtomcrypt.com/files/tfm-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	export USER=root
+	export GROUP=root
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

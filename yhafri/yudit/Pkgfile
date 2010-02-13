@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Unicode text editor
+# URL: http://www.yudit.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gettext
+
+name=yudit
+version=2.7.8
+release=1
+source=(http://$name.org/download/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                    --with-x
+
+	make
+	make DESTDIR=$PKG install
+
+    	chown -R root:root $PKG
+}

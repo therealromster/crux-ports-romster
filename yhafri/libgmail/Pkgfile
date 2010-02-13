@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Library for accessing your Gmail-account
+# URL: http://tor.eff.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=libgmail
+version=cvs
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr
+	
+	cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/$name co -P $name
+
+        cd $name
+
+        python setup.py build
+        python setup.py install --home=$PKG/usr
+
+	chown -R root:root $PKG
+}

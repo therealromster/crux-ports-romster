@@ -1,0 +1,34 @@
+# $Id: $
+# Description: Emacs-21 for Arabic and Hebrew
+# URL: http://www.m17n.org/emacs-bidi/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libjpeg, libtiff, libpng, libungif, m17n
+
+name=emacs-bidi
+version=0.9.1
+release=1
+source=(ftp://ftp.m17n.org/pub/mule/.notready/$name-$version.tar.gz)
+
+build () {
+   cd $name
+    ./configure --prefix=/usr \
+                --libexecdir=/usr/lib \
+                --with-x \
+                --with-xpm \
+                --with-jpeg \
+                --with-tiff \
+                --with-gif \
+                --with-png
+
+    make
+    make prefix=$PKG/usr libexecdir=$PKG/usr/lib install
+    rm -rf $PKG/usr/bin/emacs-$version $PKG/usr/info
+    #find $PKG/usr/share/emacs -name "*.el" | while read file; do
+    #	[ -f ${file}c ] && rm -f $file
+    #done
+    chown -R root.root $PKG
+    find $PKG/usr/share -type d -exec chmod 755 {} \;
+    find $PKG/usr/share -type f -exec chmod 644 {} \;
+    chown -R root:root $PKG
+}

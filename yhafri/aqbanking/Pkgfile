@@ -1,0 +1,18 @@
+# Description: provides a middle layer between the applications and online banking libraries implementing various file formats and protocols
+# URL: http://www.aquamaniac.de/aqbanking
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: gwenhywfar, libofx, gtk, qt3
+
+name=aqbanking
+version=2.0.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+}

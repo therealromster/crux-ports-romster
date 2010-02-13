@@ -1,0 +1,44 @@
+# $Id: $
+# Description: An Erlang binding to the C++ GUI library wxWidgets
+# URL: http://wxerlang.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: doxygen, erlang, wxgtk
+
+name=wxe
+version=0.001
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/wxerlang/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+
+	EIINCFILE=`find /usr/lib/erlang/ -name "ei.h"`
+	EIINC=`dirname $EIINCFILE`
+
+        EILIBFILE=`find /usr/lib/erlang/ -name "libei.a"`
+        EILIB=`dirname $EILIBFILE`
+
+	cd $name
+	patch -p1<../$name-$version.patch
+	sed -i "s|\$(EIINCS)|-I $EIINC|" c_src/Makefile
+	sed -i "s|\$(EILIBS)|-L $EILIB -lei |" c_src/Makefile
+
+	cd gen
+	make xml
+	make
+	./gen_defs 
+
+	#cd ../etop
+	#make
+	#mv *.beam ../ebin
+
+	cd ..
+	make
+
+	find . -name "Makefile" -type f -exec rm '{}' \;
+	cp -rf ebin/ priv/ etop/ include/ src/ $PKG/usr/lib/erlang/lib/$name-$version/
+
+	chown -R root:root $PKG
+}

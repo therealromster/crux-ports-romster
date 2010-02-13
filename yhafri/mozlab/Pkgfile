@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A suite of tools to develop AJAX and Mozilla applications (Firefox/Thunderbird)
+# URL: http://dev.hyperstruct.net/mozlab
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: firefox, emacs
+
+name=mozlab
+version=0.1.6
+release=1
+source=(http://dev.hyperstruct.net/download/$name.xpi \
+	moz.el)
+
+build () {
+	firefox -install-global-extension $name.xpi
+	install -D moz.el $PKG/usr/share/emacs/site-lisp/moz.el
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/ttime.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libttime.a
+lrwxrwxrwx	root/root	usr/lib/libttime.so -> /usr/lib/libttime.so.1
+-rwxr-xr-x	root/root	usr/lib/libttime.so.1

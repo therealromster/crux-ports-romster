@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Cleans up HTML code for web browsers, not humans 
+# URL: http://84.45.18.237/~lindner/HTML-Clean-0.8/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-html-clean
+version=0.8
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/L/LI/LINDNER/HTML-Clean-$version.tar.gz)
+
+build () {
+	cd HTML-Clean-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

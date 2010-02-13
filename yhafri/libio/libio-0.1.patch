@@ -1,0 +1,15 @@
+--- libio/Makefile	2005-04-24 22:21:18.548013776 +0200
++++ libio/Makefile-new	2005-04-24 22:32:01.180318816 +0200
+@@ -43,11 +43,9 @@
+ 
+ install:
+ 	$(INSTALL) -d $(install_prefix)$(libdir)
+-	$(INSTALL_DATA) libio.a $(libdir)
++	$(INSTALL_DATA) libio.a $(install_prefix)$(libdir)
+ 	$(INSTALL) -d $(install_prefix)$(includedir)
+ 	$(INSTALL_DATA) io.h $(install_prefix)$(includedir)
+-	$(INSTALL) -d $(install_prefix)$(mandir)/man3
+-	$(INSTALL_DATA) *.3 $(install_prefix)$(mandir)/man3
+ 
+ clean:
+ 	(cd examples && make clean)

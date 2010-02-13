@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/libst-config
+-rwxr-xr-x	root/root	usr/bin/play
+lrwxrwxrwx	root/root	usr/bin/rec -> play
+-rwxr-xr-x	root/root	usr/bin/sox
+-rwxr-xr-x	root/root	usr/bin/soxmix
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/st.h
+-rw-r--r--	root/root	usr/include/ststdint.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libst.a
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/sox.1.gz
+-rw-r--r--	root/root	usr/man/man1/soxexam.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/soxmix.1.gz -> sox.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/libst.3.gz

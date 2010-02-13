@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A C++ library that provides an interface for creating postscript documents
+# URL: http://eyegene.ophthy.med.umich.edu/lasi/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pango, freetype, glib
+
+name=lasi
+version=1.0.4
+release=1
+source=(http://eyegene.ophthy.med.umich.edu/$name/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+    sed -i "s|/usr/bin/install -c|/usr/bin/install -D -c|" Makefile src/Makefile
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install_sh="/usr/bin/install -D" install
+
+	chown -R root:root $PKG
+}

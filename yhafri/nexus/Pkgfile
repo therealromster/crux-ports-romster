@@ -1,0 +1,27 @@
+# $Id: $
+# Description: NeXus data format
+# URL: http://www.nexus.anl.gov/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: hdf5, mxml, gcc_f77
+
+name=nexus
+version=3.0.0
+release=1
+source=(http://www.nexus.anl.gov/downloads/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --without-java \
+		    --with-f77=f77 \
+		    --with-hdf5=/usr \
+	            --with-xml=/usr \
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/nexus/
+
+	chown -R root:root $PKG
+}

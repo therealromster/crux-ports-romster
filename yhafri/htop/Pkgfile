@@ -1,0 +1,25 @@
+# $Id: $
+# Description: An interactive process viewer for Linux
+# URL: http://htop.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends: ncurses
+
+name=htop
+version=svn
+release=1
+source=()
+
+build() {
+	svn co https://svn.sourceforge.net/svnroot/$name/trunk $name
+   	cd $name
+    	
+	./autogen.sh
+	./configure --prefix=/usr --disable-nls
+    	make
+    	make DESTDIR=$PKG install
+    
+    	rm -rf $PKG/usr/info
+
+	chown -R root:root $PKG
+}

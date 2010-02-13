@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Libraries to natively talk to Microsoft SQL Server and Sybase databases
+# URL: http://www.freetds.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: unixodbc
+
+name=freetds
+version=0.64
+release=1
+source=(ftp://ftp.ibiblio.org/pub/Linux/ALPHA/freetds/stable/$name-stable.tgz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-libtool-lock \
+		    --enable-libiconv \
+		    --enable-odbc \
+	            --enable-apps \
+		    --enable-server \
+		    --enable-pool \
+		    --enable-msdblib \
+		    --enable-sybase-compat \
+		    --enable-threadsafe \
+	            --enable-extra-checks \
+		    --enable-developing
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/doc/
+
+	chown -R root:root $PKG
+}

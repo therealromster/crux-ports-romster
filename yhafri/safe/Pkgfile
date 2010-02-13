@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Stand Alone File Encryption
+# URL: http://www.btinternet.com/~mark.tyler4/safe/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=safe
+version=0.09
+release=1
+source=(http://www.btinternet.com/~mark.tyler4/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

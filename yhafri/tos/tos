@@ -1,0 +1,3 @@
+#!/bin/sh
+
+(cd /usr/lib/tos; ./TalendOpenStudio -data $HOME/tos $@)

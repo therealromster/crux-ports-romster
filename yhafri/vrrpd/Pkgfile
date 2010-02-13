@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Virtual Router Redundancy Protocol designed to eliminate the single point of failure associated with statically routed networks
+# URL: http://www.imagestream.com/VRRP.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=vrrpd
+version=1.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+
+	install -D -m 755 $name   $PKG/usr/sbin/$name
+	install -D $name.8 $PKG/usr/man/man8/$name.8
+
+	chown -R root:root $PKG
+}

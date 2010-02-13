@@ -1,0 +1,476 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/d2asc
+-rwxr-xr-x	root/root	usr/bin/kst
+-rwxr-xr-x	root/root	usr/bin/kstcmd
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/kst_export.h
+-rw-r--r--	root/root	usr/include/kstdatasource.h
+-rw-r--r--	root/root	usr/include/kstdateparser.h
+-rw-r--r--	root/root	usr/include/kstextcalendarsystem.h
+-rw-r--r--	root/root	usr/include/kstextcalendarsystemgregorian.h
+-rw-r--r--	root/root	usr/include/kstextdatepicker.h
+-rw-r--r--	root/root	usr/include/kstextdatetbl.h
+-rw-r--r--	root/root	usr/include/kstextdatetime.h
+-rw-r--r--	root/root	usr/include/kstextdatetimeedit.h
+-rw-r--r--	root/root	usr/include/kstextdatewidget.h
+-rw-r--r--	root/root	usr/include/kstobject.h
+-rw-r--r--	root/root	usr/include/kstsharedptr.h
+-rw-r--r--	root/root	usr/include/rwlock.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/kde3/
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_ascii.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_ascii.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_dirfile.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_dirfile.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_fitsimage.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_fitsimage.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_frame.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_frame.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_healpix.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_healpix.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_indirect.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_indirect.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_lfiio.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_lfiio.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_qimagesource.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstdata_qimagesource.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstextension_elog.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstextension_elog.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstextension_js.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstextension_js.so
+-rwxr-xr-x	root/root	usr/lib/kde3/kstextension_pulse.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstextension_pulse.so
+drwxr-xr-x	root/root	usr/lib/kde3/kstplugins/
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/autocorrelate.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/autocorrelate.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/autocorrelate.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/bin.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/bin.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/bin.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_bandpass.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_bandpass.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/butterworth_bandpass.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_bandstop.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_bandstop.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/butterworth_bandstop.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_highpass.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_highpass.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/butterworth_highpass.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_lowpass.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/butterworth_lowpass.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/butterworth_lowpass.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/chop.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/chop.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/chop.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/convolve.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/convolve.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/convolve.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/crosscorrelate.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/crosscorrelate.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/crosscorrelate.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/crossspectrum.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/crossspectrum.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/crossspectrum.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/cumulative_sum.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/cumulative_sum.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/cumulative_sum.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/deconvolve.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/deconvolve.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/deconvolve.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/differentiation.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/differentiation.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/differentiation.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_exponential.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_exponential.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_exponential.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_exponential_weighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_exponential_weighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_exponential_weighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gaussian.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gaussian.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_gaussian.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gaussian_weighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gaussian_weighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_gaussian_weighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gradient_unweighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gradient_unweighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_gradient_unweighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gradient_weighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_gradient_weighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_gradient_weighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_linear_unweighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_linear_unweighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_linear_unweighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_linear_weighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_linear_weighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_linear_weighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_lorentzian.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_lorentzian.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_lorentzian.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_lorentzian_weighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_lorentzian_weighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_lorentzian_weighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_polynomial_unweighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_polynomial_unweighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_polynomial_unweighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_polynomial_weighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_polynomial_weighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_polynomial_weighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_sinusoid_unweighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_sinusoid_unweighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_sinusoid_unweighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_sinusoid_weighted.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstfit_sinusoid_weighted.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstfit_sinusoid_weighted.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_akima.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_akima.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstinterp_akima.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_akima_periodic.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_akima_periodic.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstinterp_akima_periodic.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_cspline.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_cspline.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstinterp_cspline.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_cspline_periodic.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_cspline_periodic.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstinterp_cspline_periodic.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_linear.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_linear.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstinterp_linear.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_polynomial.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/kstinterp_polynomial.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/kstinterp_polynomial.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/linefit.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/linefit.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/linefit.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/noise_addition.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/noise_addition.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/noise_addition.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/periodogram.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/periodogram.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/periodogram.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/phase.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/phase.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/phase.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/statistics.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/statistics.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/statistics.xml
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/syncbin.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kstplugins/syncbin.so
+-rw-r--r--	root/root	usr/lib/kde3/kstplugins/syncbin.xml
+drwxr-xr-x	root/root	usr/lib/kde3/plugins/
+drwxr-xr-x	root/root	usr/lib/kde3/plugins/designer/
+-rwxr-xr-x	root/root	usr/lib/kde3/plugins/designer/kstwidgets.la
+-rwxr-xr-x	root/root	usr/lib/kde3/plugins/designer/kstwidgets.so
+-rwxr-xr-x	root/root	usr/lib/libkst.la
+lrwxrwxrwx	root/root	usr/lib/libkst.so -> libkst.so.1.0.2
+lrwxrwxrwx	root/root	usr/lib/libkst.so.1 -> libkst.so.1.0.2
+-rwxr-xr-x	root/root	usr/lib/libkst.so.1.0.2
+-rwxr-xr-x	root/root	usr/lib/libkstapp.la
+lrwxrwxrwx	root/root	usr/lib/libkstapp.so -> libkstapp.so.1.0.2
+lrwxrwxrwx	root/root	usr/lib/libkstapp.so.1 -> libkstapp.so.1.0.2
+-rwxr-xr-x	root/root	usr/lib/libkstapp.so.1.0.2
+-rwxr-xr-x	root/root	usr/lib/libkstextdate.la
+lrwxrwxrwx	root/root	usr/lib/libkstextdate.so -> libkstextdate.so.1.2.0
+lrwxrwxrwx	root/root	usr/lib/libkstextdate.so.1 -> libkstextdate.so.1.2.0
+-rwxr-xr-x	root/root	usr/lib/libkstextdate.so.1.2.0
+-rwxr-xr-x	root/root	usr/lib/libkstmath.la
+lrwxrwxrwx	root/root	usr/lib/libkstmath.so -> libkstmath.so.1.0.2
+lrwxrwxrwx	root/root	usr/lib/libkstmath.so.1 -> libkstmath.so.1.0.2
+-rwxr-xr-x	root/root	usr/lib/libkstmath.so.1.0.2
+-rwxr-xr-x	root/root	usr/lib/libkstwidgets.la
+lrwxrwxrwx	root/root	usr/lib/libkstwidgets.so -> libkstwidgets.so.1.0.2
+lrwxrwxrwx	root/root	usr/lib/libkstwidgets.so.1 -> libkstwidgets.so.1.0.2
+-rwxr-xr-x	root/root	usr/lib/libkstwidgets.so.1.0.2
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/kst.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applnk/
+drwxr-xr-x	root/root	usr/share/applnk/Applications/
+drwxr-xr-x	root/root	usr/share/applnk/Applications/Sciences/
+-rw-r--r--	root/root	usr/share/applnk/Applications/Sciences/kst.desktop
+drwxr-xr-x	root/root	usr/share/apps/
+drwxr-xr-x	root/root	usr/share/apps/kconf_update/
+-rw-r--r--	root/root	usr/share/apps/kconf_update/kstautosave11.upd
+-rw-r--r--	root/root	usr/share/apps/kconf_update/kstrcmisc11.upd
+drwxr-xr-x	root/root	usr/share/apps/kst/
+drwxr-xr-x	root/root	usr/share/apps/kst/fonts/
+-rw-r--r--	root/root	usr/share/apps/kst/fonts/adobe-symbol.enc.gz
+-rw-r--r--	root/root	usr/share/apps/kst/fonts/symb08.pcf.gz
+-rw-r--r--	root/root	usr/share/apps/kst/fonts/symb10.pcf.gz
+-rw-r--r--	root/root	usr/share/apps/kst/fonts/symb12.pcf.gz
+-rw-r--r--	root/root	usr/share/apps/kst/fonts/symb14.pcf.gz
+-rw-r--r--	root/root	usr/share/apps/kst/fonts/symb18.pcf.gz
+-rw-r--r--	root/root	usr/share/apps/kst/fonts/symb24.pcf.gz
+-rw-r--r--	root/root	usr/share/apps/kst/kstextension_elog.rc
+-rw-r--r--	root/root	usr/share/apps/kst/kstextension_js.rc
+-rw-r--r--	root/root	usr/share/apps/kst/kstextension_pulse.rc
+-rw-r--r--	root/root	usr/share/apps/kst/kstui.rc
+drwxr-xr-x	root/root	usr/share/apps/kst/pics/
+-rw-r--r--	root/root	usr/share/apps/kst/pics/kst_error_1.png
+-rw-r--r--	root/root	usr/share/apps/kst/pics/kst_error_2.png
+-rw-r--r--	root/root	usr/share/apps/kst/pics/no.png
+-rw-r--r--	root/root	usr/share/apps/kst/pics/yes.png
+drwxr-xr-x	root/root	usr/share/apps/kst/tutorial/
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/all.kst
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/boom.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/boomA.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/boomAB.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/boomB.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/boom_lce.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/cbi.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/combined.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/dasi.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/demo.kst
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/gyrodata.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/maxima.dat
+-rw-r--r--	root/root	usr/share/apps/kst/tutorial/vsa.dat
+drwxr-xr-x	root/root	usr/share/config/
+drwxr-xr-x	root/root	usr/share/config/colors/
+-rw-r--r--	root/root	usr/share/config/colors/IDL 00 BW-Linear
+-rw-r--r--	root/root	usr/share/config/colors/IDL 01 Blue-White
+-rw-r--r--	root/root	usr/share/config/colors/IDL 02 GRN-RED-BLU-WHT
+-rw-r--r--	root/root	usr/share/config/colors/IDL 03 RED-Temperature
+-rw-r--r--	root/root	usr/share/config/colors/IDL 04 BLU-GRN-RED-YEL
+-rw-r--r--	root/root	usr/share/config/colors/IDL 05 STD-Gamma-II
+-rw-r--r--	root/root	usr/share/config/colors/IDL 06 PRISM
+-rw-r--r--	root/root	usr/share/config/colors/IDL 07 RED-PURPLE
+-rw-r--r--	root/root	usr/share/config/colors/IDL 08 GRN-WHT-Linear
+-rw-r--r--	root/root	usr/share/config/colors/IDL 09 GRN-WHT-Exp
+-rw-r--r--	root/root	usr/share/config/colors/IDL 10 GRN-PINK
+-rw-r--r--	root/root	usr/share/config/colors/IDL 11 BLUE-RED
+-rw-r--r--	root/root	usr/share/config/colors/IDL 12 16-Level
+-rw-r--r--	root/root	usr/share/config/colors/IDL 13 RAINBOW
+-rw-r--r--	root/root	usr/share/config/colors/IDL 14 STEPS
+-rw-r--r--	root/root	usr/share/config/colors/IDL 15 STERN-Special
+-rw-r--r--	root/root	usr/share/config/colors/IDL 16 Haze
+-rw-r--r--	root/root	usr/share/config/colors/IDL 17 BLU-Pastel-RED
+-rw-r--r--	root/root	usr/share/config/colors/IDL 18 Pastels
+-rw-r--r--	root/root	usr/share/config/colors/IDL 19 Hue-Sat-Light1
+-rw-r--r--	root/root	usr/share/config/colors/IDL 20 Hue-Sat-Light2
+-rw-r--r--	root/root	usr/share/config/colors/IDL 21 Hue-Sat-Value1
+-rw-r--r--	root/root	usr/share/config/colors/IDL 22 Hue-Sat-Value2
+-rw-r--r--	root/root	usr/share/config/colors/IDL 23 Purple-Red-Stripe
+-rw-r--r--	root/root	usr/share/config/colors/IDL 24 Beach
+-rw-r--r--	root/root	usr/share/config/colors/IDL 25 Mac-Style
+-rw-r--r--	root/root	usr/share/config/colors/IDL 26 Eos-A
+-rw-r--r--	root/root	usr/share/config/colors/IDL 27 Eos-B
+-rw-r--r--	root/root	usr/share/config/colors/IDL 28 Hardcandy
+-rw-r--r--	root/root	usr/share/config/colors/IDL 29 Nature
+-rw-r--r--	root/root	usr/share/config/colors/IDL 30 Ocean
+-rw-r--r--	root/root	usr/share/config/colors/IDL 31 Peppermint
+-rw-r--r--	root/root	usr/share/config/colors/IDL 32 Plasma
+-rw-r--r--	root/root	usr/share/config/colors/IDL 33 Blue-Red
+-rw-r--r--	root/root	usr/share/config/colors/IDL 34 Rainbow
+-rw-r--r--	root/root	usr/share/config/colors/IDL 35 Blue-Waves
+-rw-r--r--	root/root	usr/share/config/colors/IDL 36 Volcano
+-rw-r--r--	root/root	usr/share/config/colors/IDL 37 Waves
+-rw-r--r--	root/root	usr/share/config/colors/IDL 38 Rainbow18
+-rw-r--r--	root/root	usr/share/config/colors/IDL 39 Rainbow-White
+-rw-r--r--	root/root	usr/share/config/colors/IDL 40 Rainbow-Black
+-rw-r--r--	root/root	usr/share/config/colors/Kst Colors
+-rw-r--r--	root/root	usr/share/config/colors/Kst Grayscale 256
+-rw-r--r--	root/root	usr/share/config/colors/Kst Spectrum 1021
+drwxr-xr-x	root/root	usr/share/doc/
+drwxr-xr-x	root/root	usr/share/doc/HTML/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kst/
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Diagram-kst-array.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Diagram-kst-datatypes.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Diagram-kst-frames.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Diagram-kst-matrix.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Diagram-kst-windowplotrelation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Equation-kst-correctedpitch.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-autocorrelation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-autocorrelation2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-bandpass.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-bandstop.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-convolution.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-crosscorrelation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-deconvolution.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-exponentialfitequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-gaussianfitequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-gaussianprobability.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-generallinearmodel.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-generallinearmodelexample.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-gradientequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-gradientsumofsquares.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-highpass.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-linefitequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-linefitsumofsquaredresiduals.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-lorentzianfitequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-lowpass.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-polynomialfitequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Formula-kst-sinusoidfitequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Icon-kst-datamanager.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Icon-kst-datawizard.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Icon-kst-layoutmode.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Icon-kst-tiedzoom.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Icon-kst-xmousezoom.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Icon-kst-xymousezoom.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-arraywindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-configureshortcutswindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-curveoptions.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-curvewindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-datamanager.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-datamode.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-datawizard1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-datawizard2.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-datawizard3.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-debuglog.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-defineshortcutwindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-demo.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-democorrected.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-editequation.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-equationwindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-eventmonitor-loggingsettings.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-eventmonitor-serversettings.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-eventmonitor.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-exportgraphics.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-filesave.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-fittedline.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-histogramwindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-imagewindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-labeleditor.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-mainwindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-matrixwindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-maxima-datapoints.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-mditabpage.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-mditoplevel.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-multipleselectedplots.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-open-file-button.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-plotdialogcontent.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-plotdialoglabels.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-plotdialoglegend.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-plotdialoglimits.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-plotdialogmarkers.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-plotdialogtop.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-pluginswindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-powerspectrawindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-quickstart.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-simpledata.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-tiedzoom.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-tutorial-datawizard-done.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-tutorial-gyro-multiple.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-tutorial-gyro1.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-vectorwindow.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Screenshot-kst-zoom.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Symbol-kst-Gamma.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Symbol-kst-lambda.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Symbol-kst-mu.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Symbol-kst-sigma.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Symbol-kst-theta.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Widget-kst-close.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Widget-kst-colourchooser.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Widget-kst-defaultcolours.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Widget-kst-maximize.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Widget-kst-minimize.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Widget-kst-swapcolour.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/Widget-kst-undock.png
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/additionalformats-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/commandline-chapter.docbook
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kst/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/commontasks-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/creatingplugins-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/data-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/dcop-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/debuglog-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/eventmonitoring-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/install-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/intro-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/kst.1
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/license-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/miscfeatures-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/plotsandwindows-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/plugins-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/saving-chapter.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kst/tutorial.docbook
+drwxr-xr-x	root/root	usr/share/icons/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/hicolor/16x16/mimetypes/kst.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/22x22/actions/
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/addelogentry.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_advance.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_back.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_changefile.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_changenpts.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_choosecolor.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_csdnew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_curvenew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_datamanager.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_datamode.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_datawizard.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_differentiatecurves.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_editplots.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_equationnew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_eventnew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_arrow.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_ellipse.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_line.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_picture.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_polygon.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_polyline.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_rectangle.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_gfx_rounded_rectangle.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_graphfile.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_graphics.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_histogramnew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_imagenew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_layoutmode.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_matrixnew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_pluginnew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_psdnew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_vectornew.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_zoomtie.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_zoomx.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_zoomxy.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/kst_zoomy.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/22x22/actions/launchelogbrowser.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/hicolor/32x32/mimetypes/kst.png
+drwxr-xr-x	root/root	usr/share/icons/locolor/
+drwxr-xr-x	root/root	usr/share/icons/locolor/16x16/
+drwxr-xr-x	root/root	usr/share/icons/locolor/16x16/apps/
+-rw-r--r--	root/root	usr/share/icons/locolor/16x16/apps/kst.png
+drwxr-xr-x	root/root	usr/share/icons/locolor/16x16/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/locolor/16x16/mimetypes/kst.png
+drwxr-xr-x	root/root	usr/share/icons/locolor/32x32/
+drwxr-xr-x	root/root	usr/share/icons/locolor/32x32/apps/
+-rw-r--r--	root/root	usr/share/icons/locolor/32x32/apps/kst.png
+drwxr-xr-x	root/root	usr/share/icons/locolor/32x32/mimetypes/
+-rw-r--r--	root/root	usr/share/icons/locolor/32x32/mimetypes/kst.png
+drwxr-xr-x	root/root	usr/share/locale/
+drwxr-xr-x	root/root	usr/share/locale/en_GB/
+drwxr-xr-x	root/root	usr/share/locale/en_GB/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/en_GB/LC_MESSAGES/kst.mo
+-rw-r--r--	root/root	usr/share/locale/en_GB/LC_MESSAGES/kstplugineditor.mo
+drwxr-xr-x	root/root	usr/share/mimelnk/
+drwxr-xr-x	root/root	usr/share/mimelnk/application/
+-rw-r--r--	root/root	usr/share/mimelnk/application/x-kst.desktop
+drwxr-xr-x	root/root	usr/share/services/
+drwxr-xr-x	root/root	usr/share/services/kst/
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_ascii.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_dirfile.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_fitsimage.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_frame.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_healpix.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_indirect.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_lfiio.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstdata_qimagesource.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstextension_elog.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstextension_js.desktop
+-rw-r--r--	root/root	usr/share/services/kst/kstextension_pulse.desktop
+drwxr-xr-x	root/root	usr/share/servicetypes/
+drwxr-xr-x	root/root	usr/share/servicetypes/kst/
+-rw-r--r--	root/root	usr/share/servicetypes/kst/kstdatasourceplugin.desktop
+-rw-r--r--	root/root	usr/share/servicetypes/kst/kstextension.desktop
+-rw-r--r--	root/root	usr/share/servicetypes/kst/kstfilter.desktop
+-rw-r--r--	root/root	usr/share/servicetypes/kst/kstplugin.desktop

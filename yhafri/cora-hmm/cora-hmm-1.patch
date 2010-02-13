@@ -1,0 +1,39 @@
+--- viterbi.c	1999-10-20 20:39:51.000000000 +0200
++++ viterbi.c-new	2006-07-07 18:44:21.000000000 +0200
+@@ -766,8 +766,7 @@
+         emission_lprob = get_emission_lprob(dest, word);
+ 
+         /* Details */
+-        if (details) fprintf(stderr, "Step: %d, source = %s, dest = %s, 
+-            tprob = %f, eprob = %f\n", current_step, current_trans->source->label, 
++        if (details) fprintf(stderr, "Step: %d, source = %s, dest = %s, tprob = %f, eprob = %f\n", current_step, current_trans->source->label, 
+             current_trans->dest->label, trans_prob, emission_prob);
+ 
+         /* Proceed if state can emit current word */
+--- Makefile	1999-10-20 20:39:49.000000000 +0200
++++ Makefile-new	2006-07-07 18:50:42.000000000 +0200
+@@ -1,6 +1,6 @@
+ C_FILES = model.c basic.c viterbi.c lm.c command.c socket.c merge.c queue.c bw.c smooth.c
+ O_FILES = $(C_FILES:.c=.o)
+-BOW_DIR = /homes/kseymore/bow-19981105
++BOW_DIR = /usr/include/bow
+ 
+ CFLAGS = -g -O
+ 
+@@ -9,13 +9,13 @@
+ 
+ default: bmm evaluate train_hmm
+ 
+-evaluate: evaluate.o $(O_FILES) $(BOW_DIR)/libbow.a
++evaluate: evaluate.o $(O_FILES)
+ 	gcc $(CFLAGS) -o $@ evaluate.o $(O_FILES) -L$(BOW_DIR) -lbow -lm -ldb
+ 
+-bmm: bmm.o $(O_FILES) $(BOW_DIR)/libbow.a
++bmm: bmm.o $(O_FILES)
+ 	gcc $(CFLAGS) -o $@ bmm.o $(O_FILES) -L$(BOW_DIR) -lbow -lm -ldb
+ 
+-train_hmm: train_hmm.o $(O_FILES) $(BOW_DIR)/libbow.a
++train_hmm: train_hmm.o $(O_FILES)
+ 	gcc $(CFLAGS) -o $@ train_hmm.o $(O_FILES) -L$(BOW_DIR) -lbow -lm -ldb
+ 
+ 

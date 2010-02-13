@@ -1,0 +1,122 @@
+diff -Naur 3/Makefile 4/Makefile
+--- 3/Makefile	1997-07-23 03:44:49.000000000 +0200
++++ 4/Makefile	2005-09-19 09:59:21.918604354 +0200
+@@ -8,8 +8,8 @@
+ OBJECTS2 = gen.o main.o command.o
+ 
+ LIBES = -lm
+-CC = xlC
+-CFLAGS = -+ -O
++CC = g++
++CFLAGS = -O3 -Wno-deprecated
+ 
+ gen:	$(OBJECTS1) $(OBJECTS2)
+ 	$(CC) $(CFLAGS) $(OBJECTS1) $(OBJECTS2) $(LIBES) -o gen
+diff -Naur 3/command.c 4/command.c
+--- 3/command.c	1999-08-13 01:31:37.000000000 +0200
++++ 4/command.c	2005-09-19 09:58:07.677659522 +0200
+@@ -149,7 +149,7 @@
+   while (arg_pos < argc)
+     {
+       if (strcmp(argv[arg_pos], "-ntrans") == 0) {
+-	par.ntrans = 1000 * atof(argv[++arg_pos]);
++        par.ntrans = (LINT) (1000 * atof(argv[++arg_pos]));
+ 	cat_fname(".ntrans_", argv[arg_pos]);
+ 	arg_pos++;
+ 	if (par.ntrans < 1) err_msg("ntrans must be >= 1\n");
+@@ -163,7 +163,7 @@
+ 	continue;
+       }
+       else if (strcmp(argv[arg_pos], "-nitems") == 0) {
+-	par.nitems = 1000 * atof(argv[++arg_pos]);
++        par.nitems = (LINT) (1000 * atof(argv[++arg_pos]));
+ 	cat_fname(".nitems_", argv[arg_pos]);
+ 	arg_pos++;
+ 	if (par.nitems < 1) err_msg("nitems must be >= 1\n");
+@@ -240,7 +240,7 @@
+   while (arg_pos < argc)
+     {
+       if (strcmp(argv[arg_pos], "-ntrans") == 0) {
+-	par.ntrans = 1000 * atof(argv[++arg_pos]);
++        par.ntrans = (LINT) (1000 * atof(argv[++arg_pos]));
+ 	cat_fname(".ntrans_", argv[arg_pos]);
+ 	arg_pos++;
+ 	if (par.ntrans < 1) err_msg("ntrans must be >= 1\n");
+@@ -254,7 +254,7 @@
+ 	continue;
+       }
+       else if (strcmp(argv[arg_pos], "-nitems") == 0) {
+-	par.nitems = 1000 * atof(argv[++arg_pos]);
++        par.nitems = (LINT) (1000 * atof(argv[++arg_pos]));
+ 	cat_fname(".nitems_", argv[arg_pos]);
+ 	arg_pos++;
+ 	if (par.nitems < 1) err_msg("nitems must be >= 1\n");
+@@ -363,7 +363,7 @@
+   while (arg_pos < argc)
+     {
+       if (strcmp(argv[arg_pos], "-ncust") == 0) {
+-	par.ncust = 1000 * atof(argv[++arg_pos]);
++        par.ncust = (LINT) (1000 * atof(argv[++arg_pos]));
+ 	cat_fname(".ncust_", argv[arg_pos]);
+ 	arg_pos++;
+ 	if (par.ncust < 1) err_msg("ntrans must be >= 1\n");
+@@ -384,7 +384,7 @@
+ 	continue;
+       }
+       else if (strcmp(argv[arg_pos], "-nitems") == 0) {
+-	par.nitems = 1000 * atof(argv[++arg_pos]);
++        par.nitems = (LINT) (1000 * atof(argv[++arg_pos]));
+ 	cat_fname(".nitems_", argv[arg_pos]);
+ 	arg_pos++;
+ 	if (par.nitems < 1) err_msg("nitems must be >= 1\n");
+diff -Naur 3/gen.c 4/gen.c
+--- 3/gen.c	1999-08-13 01:32:52.000000000 +0200
++++ 4/gen.c	2005-09-19 09:58:38.713365855 +0200
+@@ -2,6 +2,9 @@
+ #include <assert.h>
+ #include <string.h>
+ #include <math.h>
++#include <iostream>
++#include <iomanip>
++using namespace std;
+ 
+ 
+ //------------------------------- Parameters -------------------------------
+@@ -58,7 +61,7 @@
+       if (nlevels == 0)		// all set!
+ 	return;
+       if (fanout != 0) {	// calculate nroots
+-	nroots = nitems / (1 + pow(DOUBLE(fanout), DOUBLE(nlevels-1)));
++        nroots = (LINT) (nitems / (1 + pow(DOUBLE(fanout), DOUBLE(nlevels-1))));
+ 	if (nroots < 1)
+ 	  nroots = 1;
+       }
+@@ -271,8 +274,8 @@
+   // find the desired pattern using cum_prob table
+   r = rand();
+   // want item i such that cum_prob[i-1] < r <= cum_prob[i];
+-  i = r * nitems;			// guess location of item
+-  i += (r-cum_prob[i]) * nitems;	// refine guess
++  i = (LINT) (r * nitems);			// guess location of item
++  i += (LINT) (r-cum_prob[i]) * nitems;	// refine guess
+   if (i >= nitems)			// check boundaries
+     i = nitems-1;
+   if (i < 0)
+@@ -305,7 +308,7 @@
+ 
+   // find the desired pattern using cum_prob table
+   r = rand();
+-  i = first + r * nchildren;
++  i = (LINT) (first + r * nchildren);
+   if (i == last)
+     i--;
+   while ( i < last && r > tax_prob[i] )
+@@ -626,7 +629,7 @@
+ 
+   // find the desired pattern using cum_prob table
+   r = rand();
+-  i = r * strset->npats;
++  i = (LINT) (r * strset->npats);
+   if (i == strset->npats)
+     i--;
+   while ( i < (strset->npats-1) && r > strset->cum_prob[i] )

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to create 3D Graphs with GD and GD::Graph 
+# URL: http://search.cpan.org/~wadg/GDGraph3d-0.56/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libgd, p5-gd, p5-gd-text-util
+
+name=p5-gd-graph3d
+version=0.56
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/W/WA/WADG/GDGraph3d-$version.tar.gz)
+
+build () {
+	cd GDGraph3d-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

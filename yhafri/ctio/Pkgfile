@@ -1,0 +1,22 @@
+# $Id: $
+# Description: The CTIO Colour Text Input/Output Library
+# URL: http://members.lycos.co.uk/ctio/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gpm, binutils
+
+name=ctio
+version=1
+release=1
+source=(http://members.lycos.co.uk/$name/$name.tar)
+
+build () {
+	tar xvf $SRC/$name.tar
+
+	make -f lnxmake
+
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+
+	chown -R root:root $PKG
+}

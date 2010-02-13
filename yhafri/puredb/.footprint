@@ -1,0 +1,18 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/example_read
+-rwxr-xr-x	root/root	usr/bin/example_write
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/puredb_read.h
+-rw-r--r--	root/root	usr/include/puredb_write.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libpuredb_read.a
+-rwxr-xr-x	root/root	usr/lib/libpuredb_read.la
+lrwxrwxrwx	root/root	usr/lib/libpuredb_read.so -> libpuredb_read.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libpuredb_read.so.0 -> libpuredb_read.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libpuredb_read.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libpuredb_write.a
+-rwxr-xr-x	root/root	usr/lib/libpuredb_write.la
+lrwxrwxrwx	root/root	usr/lib/libpuredb_write.so -> libpuredb_write.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libpuredb_write.so.0 -> libpuredb_write.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libpuredb_write.so.0.0.0

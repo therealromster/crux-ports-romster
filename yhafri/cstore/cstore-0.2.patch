@@ -1,0 +1,15 @@
+--- cstore/Build/makefile.init	2006-10-19 18:38:08.000000000 +0200
++++ cstore/Build/makefile.init-new	2006-12-07 22:05:07.000000000 +0100
+@@ -1,10 +1,10 @@
+ CC:=$(WTF) g++
+ 
+ CSTORE_INCLUDE := src
+-SLEEPYCAT_DIRECTORY := /usr/local/BerkeleyDB.4.2
++SLEEPYCAT_DIRECTORY := /usr
+ SLEEPYCAT_INCLUDE := $(SLEEPYCAT_DIRECTORY)/include/
+ SLEEPYCAT_LIB := $(SLEEPYCAT_DIRECTORY)/lib
+-LZO_LIB := /home/dna/huff/lzo-1.08/src/.libs
++LZO_LIB := /usr/lib
+ 
+ CFLAGS  := -O0 -g3 -Wall -c -Wno-deprecated -fmessage-length=0
+ #override CFLAGS with optimization flags if so desired

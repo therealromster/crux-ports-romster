@@ -1,0 +1,39 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ivyprobe
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/Ivy/
+-rw-r--r--	root/root	usr/include/Ivy/ivy.h
+-rw-r--r--	root/root	usr/include/Ivy/ivybind.h
+-rw-r--r--	root/root	usr/include/Ivy/ivybuffer.h
+-rw-r--r--	root/root	usr/include/Ivy/ivychannel.h
+-rw-r--r--	root/root	usr/include/Ivy/ivydebug.h
+-rw-r--r--	root/root	usr/include/Ivy/ivyglibloop.h
+-rw-r--r--	root/root	usr/include/Ivy/ivyglutloop.h
+-rw-r--r--	root/root	usr/include/Ivy/ivyloop.h
+-rw-r--r--	root/root	usr/include/Ivy/ivysocket.h
+-rw-r--r--	root/root	usr/include/Ivy/ivytcl.h
+-rw-r--r--	root/root	usr/include/Ivy/ivyxtloop.h
+-rw-r--r--	root/root	usr/include/Ivy/list.h
+-rw-r--r--	root/root	usr/include/Ivy/timer.h
+-rw-r--r--	root/root	usr/include/Ivy/version.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libgivy.a
+lrwxrwxrwx	root/root	usr/lib/libgivy.so -> /usr/lib/libgivy.so.3.8
+lrwxrwxrwx	root/root	usr/lib/libgivy.so.3 -> /usr/lib/libgivy.so.3.8
+-rw-r--r--	root/root	usr/lib/libgivy.so.3.8
+-rw-r--r--	root/root	usr/lib/libglibivy.a
+-rw-r--r--	root/root	usr/lib/libglibivy.so.3.8
+-rw-r--r--	root/root	usr/lib/libivy.a
+lrwxrwxrwx	root/root	usr/lib/libivy.so -> /usr/lib/libivy.so.3.8
+lrwxrwxrwx	root/root	usr/lib/libivy.so.3 -> /usr/lib/libivy.so.3.8
+-rw-r--r--	root/root	usr/lib/libivy.so.3.8
+-rw-r--r--	root/root	usr/lib/libtclivy.a
+lrwxrwxrwx	root/root	usr/lib/libtclivy.so -> /usr/lib/libtclivy.so.3.8
+lrwxrwxrwx	root/root	usr/lib/libtclivy.so.3 -> /usr/lib/libtclivy.so.3.8
+-rw-r--r--	root/root	usr/lib/libtclivy.so.3.8
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/ivy-c-functions.1.gz
+-rw-r--r--	root/root	usr/man/man1/ivy-c.1.gz
+-rw-r--r--	root/root	usr/man/man1/ivyprobe.1.gz

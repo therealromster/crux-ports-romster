@@ -1,0 +1,20 @@
+--- cnet-2.0.9/src/Makefile.linux	2004-05-10 19:27:19.000000000 +0000
++++ cnet-2.0.9/src/Makefile.linux-new	2004-11-23 16:20:42.468029112 +0000
+@@ -22,15 +22,14 @@
+ #
+ XINCLUDES	= -I/usr/X11R6/include
+ XLIBDIRS	= -L/usr/X11R6/lib
+-XLIBS		= -ltcl -ltk -lX11
++XLIBS		= -ltcl8.4 -ltk8.4 -lX11
+ 
+ # Cannot use the -pedantic option if requiring 'long long' syntax.
+ #ANSICC		= gcc -ansi -pedantic
+ ANSICC		= gcc -ansi
+ INCLUDES	= $(LIBELFINC)
+ 
+-CFLAGS		= -O -Wall -fPIC $(INCLUDES) $(XINCLUDES)
+-
++CFLAGS     = $(OPT) -Wall -fPIC $(INCLUDES) $(XINCLUDES)
+ LD		= gcc -rdynamic
+ LIBDIRS		= -L/usr/X11R6/lib $(XLIBDIRS) $(LIBELFDIR)
+ LIBS		= -lelf -ldl -lm

@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Automated testing of Erlang software
+# URL: http://user.it.uu.se/~richardc/eunit/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, subversion
+
+name=eunit
+version=svn
+release=1
+#source=(http://user.it.uu.se/~richardc/$name/$name.tar.gz)
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+
+	svn co http://svn.process-one.net/contribs/trunk/$name
+
+	cd $name
+
+	erl -make
+
+	mv ebin/ src/ include/ $PKG/usr/lib/erlang/lib/$name-$version/
+	
+	chown -R root:root $PKG
+}

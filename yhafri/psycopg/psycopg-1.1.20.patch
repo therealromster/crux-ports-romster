@@ -1,0 +1,13 @@
+--- psycopg-1.1.20/Makefile.pre.in	2005-09-12 12:27:00.000000000 +0200
++++ psycopg-1.1.20/Makefile.pre.in-new	2007-02-26 16:21:19.670728888 +0100
+@@ -178,8 +178,8 @@
+ 	@echo 'Installing shared modules...'
+ 	@if [ -n "$(SHAREDMODS)" ]; then \
+ 	  for mod in $(SHAREDMODS); do \
+-	    echo "  install -m 555 $$mod $(PY_MOD_DIR)"; \
+-	    $(INSTALL) @INSTALLOPTS@ -m 555 $$mod $(PY_MOD_DIR); \
++	    echo "  install -m 555 $$mod $(PY_MOD_DIR)/$$mod"; \
++	    $(INSTALL) @INSTALLOPTS@ -m 555 $$mod $(PY_MOD_DIR)/$$mod; \
+ 	  done; \
+ 	fi
+ 

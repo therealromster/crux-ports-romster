@@ -1,0 +1,4 @@
+#!/bin/bash
+
+(cd /usr/lib/multivalent; java -jar Multivalent20040415.jar)
+

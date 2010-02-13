@@ -1,0 +1,24 @@
+# $Id: $
+# Description: GNU SASL Library
+# URL: http://www.gnu.org/software/gsasl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=gsasl
+version=0.2.21
+release=1
+source=(http://josefsson.org/$name/releases/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/info
+
+	chown -R root:root $PKG
+}

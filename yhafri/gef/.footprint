@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gef/
+-rw-r--r--	root/root	usr/include/gef/GEF.h
+-rw-r--r--	root/root	usr/include/gef/GEFAttr.h
+-rw-r--r--	root/root	usr/include/gef/GEFExceptHandler.h
+-rw-r--r--	root/root	usr/include/gef/ansi.h
+-rw-r--r--	root/root	usr/include/gef/posix.h
+-rw-r--r--	root/root	usr/include/gef/pthreads.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libgef_ansi.so.9.0.1
+-rwxr-xr-x	root/root	usr/lib/libgef_posix.so.9.0.1
+-rwxr-xr-x	root/root	usr/lib/libgef_pthreads.so.9.0.1

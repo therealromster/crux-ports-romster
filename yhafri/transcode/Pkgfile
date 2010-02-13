@@ -1,0 +1,48 @@
+# $Id: $
+# Description: Text console video-stream processing tool
+# URL: http://www.transcoding.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ffmpeg, glib, imagemagick, libdvdread, libfame, mplayer, toolame, mpeg2dec, libsdl, gtk, rpm2targz, bzip2, libquicktime, libmpeg2
+
+name=transcode
+version=1.0.2
+release=1
+source=(ftp://ftp.pbone.net/mirror/packman.iu-bremen.de/suse/10.0/i686/$name-$version-0.pm.3.i686.rpm)
+
+build()
+{
+	rpm2targz $name-$version-0.pm.3.i686.rpm
+	tar xzvf  $name-$version-0.pm.3.i686.tar.gz -C $PKG
+
+	mv $PKG/etc/profile.d/$name.sh $PKG/usr/bin/
+	rm -rf $PKG/usr/share/doc $PKG/etc
+
+	for i in `ls /usr/lib/libMagick.so*`; do
+    	if [ ! -L "$i" ]; then
+        	ln -sf $i $PKG//usr/lib/libMagick.so.6
+    	fi
+	done
+
+	for i in `ls /usr/lib/libbz2.so*`; do
+    	if [ ! -L "$i" ]; then
+        	ln -sf $i $PKG/usr/lib/libbz2.so.1
+    	fi
+	done
+
+	for i in `ls /usr/lib/libavcodec*.so*`; do
+    	if [ ! -L "$i" ]; then
+        	ln -sf $i $PKG/usr/lib/libavcodec.so.51
+    	fi
+	done
+
+        for i in `ls /usr/lib/libmpeg2.so*`; do
+        if [ ! -L "$i" ]; then
+		if [ ! -L "/usr/lib/libmpeg2.so.0" ]; then
+                	ln -sf $i $PKG/usr/lib/libmpeg2.so.0
+		fi
+        fi
+        done
+
+	chown -R root:root $PKG
+}

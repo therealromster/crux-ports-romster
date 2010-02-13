@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/svg-cairo.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libsvg-cairo.a
+-rwxr-xr-x	root/root	usr/lib/libsvg-cairo.la
+lrwxrwxrwx	root/root	usr/lib/libsvg-cairo.so -> libsvg-cairo.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libsvg-cairo.so.1 -> libsvg-cairo.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libsvg-cairo.so.1.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libsvg-cairo.pc

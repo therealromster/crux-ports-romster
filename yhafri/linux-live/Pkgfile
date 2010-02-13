@@ -1,0 +1,21 @@
+# $Id: $
+# Description: These scripts are used to create LiveCD iso image from your real Linux distribution
+# URL: http://www.linux-live.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: busybox, ash
+
+name=linux-live
+version=5.5.0
+release=1
+source=(http://www.$name.org/dl/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cp -rf $name-$version $PKG/usr/lib/$name
+
+	rm -rf $PKG/usr/lib/$name/README
+	rm -rf $PKG/usr/lib/$name/DOC/{COPYING,LICENSE,changelog.txt}
+
+	chown -R root:root $PKG
+}

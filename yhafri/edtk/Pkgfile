@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Erlang Driver Toolkit with robust interface to Berkeley DB
+# URL: http://www.snookles.com/erlang/edtk/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, coredumper, libpcre, gsl@, db, libpcre
+
+name=edtk
+version=1.5
+release=1
+source=(http://www.snookles.com/erlang/$name/$name-$version-final.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/erlang/lib}
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	cd $name
+	make
+
+	#cd ../examples/berkeley_db
+	#make
+
+	cd ../examples/berkeley_db/releases
+	./make_release.sh $PKG/usr/lib/erlang/lib/$name-$version
+
+	ln -sf /usr/lib/erlang/lib/$name-$version/priv/pipe-main $PKG/usr/bin/pipe-main
+
+	chown -R root:root $PKG
+}

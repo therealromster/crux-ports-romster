@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# /etc/rc.d/aem: load/unload/reload AEM kenrel modules
+#
+
+case $1 in
+start|load)
+        for i in aem-core aem-fd aem-ip aem-pexit aem-timer;
+	do
+	     echo "Loading $i"
+	     echo " - module $i.ko loaded"
+	     sync && /sbin/insmod /usr/lib/$0/$i.ko &> /dev/null
+
+             major=`cat /proc/devices | grep $i | gawk '{print $1}'`
+	     mknod /dev/$i c $major 0
+	     chmod 666 /dev/$i
+	     echo " - pseudo-driver /dev/$i created"
+	done
+	;;
+stop|unload)
+        for i in aem-core aem-fd aem-ip aem-pexit aem-timer;
+        do
+	    echo "Unloading $i"
+	    /sbin/rmmod $i.ko  &> /dev/null
+	    echo " - module $i.ko unloaded" 
+	    [ -c /dev/$i ] && rm -f /dev/$i || echo -n
+	    echo " - driver /dev/$i removed" 
+        done
+	;;
+restart|reload)
+	$0 stop
+	$0 start 
+	;;
+*)
+	echo "usage: $0 [start|stop|restart] or [load|unload|reload]"
+	;;
+esac
+
+# End of file

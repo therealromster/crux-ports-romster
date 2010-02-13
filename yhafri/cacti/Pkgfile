@@ -1,0 +1,18 @@
+# $Id: $
+# Description: A complete RRDTool-based graphing solution  
+# URL: http://cacti.net/index.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rrdtool, mod_php, mysql
+
+name=cacti
+version=0.8.6i
+release=1
+source=(http://www.$name.net/downloads/$name-$version.tar.gz)
+
+build () {
+	echo "========================="
+	echo " Read the INSTALL file   "
+	echo "========================="
+	exit 1
+}

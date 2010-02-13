@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Perl interface to OpenOffice's UNO runtime
+# URL: http://search.cpan.org/~mbarbon/OpenOffice-UNO-0.04/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openoffice-sdk
+
+name=p5-openoffice-uno
+version=0.04
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MB/MBARBON/OpenOffice-UNO-$version.tar.gz)
+
+build () {
+	cd OpenOffice-UNO-$version
+	export OO_SDK_HOME=/usr/lib/openoffice-sdk
+	. /usr/bin/setsdkenv_unix.sh
+
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

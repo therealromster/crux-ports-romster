@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dap
+-rwxr-xr-x	root/root	usr/bin/dappp
+-rwxr-xr-x	root/root	usr/bin/daprun
+-rwxr-xr-x	root/root	usr/bin/dapruns
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/dap.h
+-rw-r--r--	root/root	usr/include/dap1.h
+-rw-r--r--	root/root	usr/include/ps.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libdap.a

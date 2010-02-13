@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Bigloo is another Scheme implementation
+# URL: http://www-sop.inria.fr/mimosa/fp/Bigloo/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=bigloo
+version=2.8b
+release=1
+source=(ftp://ftp-sop.inria.fr/mimosa/fp/Bigloo/$name$version.tar.gz)
+
+build () {
+	cd $name$version
+	[ -z "$ARCH" ] && ARCH="i686"
+	./configure --prefix=/usr \
+		    --jvm=no \
+		    --dotnet=no \
+		    --arch=$ARCH
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+	find $PKG/usr -iname "doc"    -type "d" | xargs rm -rf
+	find $PKG/usr -iname "info"   -type "d" | xargs rm -rf
+        chown -R root:root $PKG
+}

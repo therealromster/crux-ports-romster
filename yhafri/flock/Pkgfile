@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Revolutionary open source web browser
+# URL: http://www.flock.com/developer/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=flock
+version=0.4.10
+release=1
+source=(http://mirror.technewsonline.net/$name/releases/$version/$name-$version.en-US.linux-i686.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	mv $name $PKG/usr/lib/
+
+	ln -sf /usr/lib/$name/$name $PKG/usr/bin/
+
+	chown -R root:root $PKG
+}

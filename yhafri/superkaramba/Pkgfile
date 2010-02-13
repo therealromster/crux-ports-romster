@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A tool to easily create interactive eye-candy on KDE
+# URL: http://netdragon.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, kdebase
+
+name=superkaramba
+version=0.39
+release=1
+source=(http://easynews.dl.sourceforge.net/sourceforge/netdragon/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+        rm -rf $PKG/usr/share/doc
+        chown -R root:root $PKG
+}

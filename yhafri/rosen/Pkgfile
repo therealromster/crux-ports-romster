@@ -1,0 +1,24 @@
+# $Id: $
+# Description: RObotic Simulation Erlang eNgine
+# URL: http://rosen.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: esdl
+
+name=rosen
+version=0.3.3-pre-alpha
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+
+	cd $name-$version
+	./configure
+
+    	make
+
+	cp -rf src ebin include $PKG/usr/lib/erlang/lib/$name-$version
+
+    	chown -R root:root $PKG
+}

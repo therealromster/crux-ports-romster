@@ -1,0 +1,425 @@
+diff -ru ORIG_otp_src_R10B-8/erts/acconfig.h otp_src_R10B-8/erts/acconfig.h
+--- ORIG_otp_src_R10B-8/erts/acconfig.h	2005-06-21 09:37:40.000000000 -0700
++++ otp_src_R10B-8/erts/acconfig.h	2005-11-09 14:25:58.330158793 -0800
+@@ -188,6 +188,9 @@
+ /* Define if you have the <linux/kpoll.h> header file. */
+ #undef HAVE_LINUX_KPOLL_H
+  
++/* Define if you have the <linux/epoll.h> header file. */
++#undef HAVE_LINUX_EPOLL_H
++
+ /* Define if you have the <sys/event.h> header file. */
+ #undef HAVE_SYS_EVENT_H
+ 
+@@ -224,7 +227,7 @@
+ 
+ #if !defined(USE_SELECT)
+ #  if defined(ENABLE_KERNEL_POLL)
+-#    if defined(HAVE_SYS_DEVPOLL_H) || defined(HAVE_LINUX_KPOLL_H) || defined(HAVE_SYS_EVENT_H)
++#    if defined(HAVE_SYS_DEVPOLL_H) || defined(HAVE_LINUX_KPOLL_H) || defined(HAVE_SYS_EVENT_H) || defined(HAVE_LINUX_KPOLL_H)
+ #      define USE_KERNEL_POLL
+ #    endif
+ #  endif
+diff -ru ORIG_otp_src_R10B-8/erts/config.h.in otp_src_R10B-8/erts/config.h.in
+--- ORIG_otp_src_R10B-8/erts/config.h.in	2005-10-25 02:50:42.000000000 -0700
++++ otp_src_R10B-8/erts/config.h.in	2005-11-09 14:25:58.330158793 -0800
+@@ -175,6 +175,8 @@
+ /* Define if you have the <linux/kpoll.h> header file. */
+ #undef HAVE_LINUX_KPOLL_H
+ 
++/* Define if you have the <linux/epoll.h> header file. */
++#undef HAVE_LINUX_EPOLL_H
+  
+ /* Define if you have the <sys/event.h> header file. */
+ #undef HAVE_SYS_EVENT_H
+@@ -399,7 +401,7 @@
+ 
+ #if !defined(USE_SELECT)
+ #  if defined(ENABLE_KERNEL_POLL)
+-#    if defined(HAVE_SYS_DEVPOLL_H) || defined(HAVE_LINUX_KPOLL_H) || defined(HAVE_SYS_EVENT_H)
++#    if defined(HAVE_SYS_DEVPOLL_H) || defined(HAVE_LINUX_KPOLL_H) || defined(HAVE_SYS_EVENT_H) || defined(HAVE_LINUX_EPOLL_H)
+ #      define USE_KERNEL_POLL
+ #    endif
+ #  endif
+Only in otp_src_R10B-8/erts: config.h.in.orig
+diff -ru ORIG_otp_src_R10B-8/erts/configure otp_src_R10B-8/erts/configure
+--- ORIG_otp_src_R10B-8/erts/configure	2005-10-25 02:50:36.000000000 -0700
++++ otp_src_R10B-8/erts/configure	2005-11-09 14:25:58.334158707 -0800
+@@ -3716,6 +3716,151 @@
+ fi
+  
+ 
++
++if test "${ac_cv_header_sys_epoll_h+set}" = set; then
++  echo "$as_me:$LINENO: checking for sys/epoll.h" >&5
++echo $ECHO_N "checking for sys/epoll.h... $ECHO_C" >&6
++if test "${ac_cv_header_sys_epoll_h+set}" = set; then
++  echo $ECHO_N "(cached) $ECHO_C" >&6
++fi
++echo "$as_me:$LINENO: result: $ac_cv_header_sys_epoll_h" >&5
++echo "${ECHO_T}$ac_cv_header_sys_epoll_h" >&6
++else
++  # Is the header compilable?
++echo "$as_me:$LINENO: checking sys/epoll.h usability" >&5
++echo $ECHO_N "checking sys/epoll.h usability... $ECHO_C" >&6
++cat >conftest.$ac_ext <<_ACEOF
++/* confdefs.h.  */
++_ACEOF
++cat confdefs.h >>conftest.$ac_ext
++cat >>conftest.$ac_ext <<_ACEOF
++/* end confdefs.h.  */
++$ac_includes_default
++#include <sys/epoll.h>
++_ACEOF
++rm -f conftest.$ac_objext
++if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
++  (eval $ac_compile) 2>conftest.er1
++  ac_status=$?
++  grep -v '^ *+' conftest.er1 >conftest.err
++  rm -f conftest.er1
++  cat conftest.err >&5
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); } &&
++	 { ac_try='test -z "$ac_c_werror_flag"
++			 || test ! -s conftest.err'
++  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
++  (eval $ac_try) 2>&5
++  ac_status=$?
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); }; } &&
++	 { ac_try='test -s conftest.$ac_objext'
++  { (eval echo "$as_me:$LINENO: \"$ac_try\"") >&5
++  (eval $ac_try) 2>&5
++  ac_status=$?
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); }; }; then
++  ac_header_compiler=yes
++else
++  echo "$as_me: failed program was:" >&5
++sed 's/^/| /' conftest.$ac_ext >&5
++
++ac_header_compiler=no
++fi
++rm -f conftest.err conftest.$ac_objext conftest.$ac_ext
++echo "$as_me:$LINENO: result: $ac_header_compiler" >&5
++echo "${ECHO_T}$ac_header_compiler" >&6
++
++# Is the header present?
++echo "$as_me:$LINENO: checking sys/epoll.h presence" >&5
++echo $ECHO_N "checking sys/epoll.h presence... $ECHO_C" >&6
++cat >conftest.$ac_ext <<_ACEOF
++/* confdefs.h.  */
++_ACEOF
++cat confdefs.h >>conftest.$ac_ext
++cat >>conftest.$ac_ext <<_ACEOF
++/* end confdefs.h.  */
++#include <sys/epoll.h>
++_ACEOF
++if { (eval echo "$as_me:$LINENO: \"$ac_cpp conftest.$ac_ext\"") >&5
++  (eval $ac_cpp conftest.$ac_ext) 2>conftest.er1
++  ac_status=$?
++  grep -v '^ *+' conftest.er1 >conftest.err
++  rm -f conftest.er1
++  cat conftest.err >&5
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); } >/dev/null; then
++  if test -s conftest.err; then
++    ac_cpp_err=$ac_c_preproc_warn_flag
++    ac_cpp_err=$ac_cpp_err$ac_c_werror_flag
++  else
++    ac_cpp_err=
++  fi
++else
++  ac_cpp_err=yes
++fi
++if test -z "$ac_cpp_err"; then
++  ac_header_preproc=yes
++else
++  echo "$as_me: failed program was:" >&5
++sed 's/^/| /' conftest.$ac_ext >&5
++
++  ac_header_preproc=no
++fi
++rm -f conftest.err conftest.$ac_ext
++echo "$as_me:$LINENO: result: $ac_header_preproc" >&5
++echo "${ECHO_T}$ac_header_preproc" >&6
++
++# So?  What about this header?
++case $ac_header_compiler:$ac_header_preproc:$ac_c_preproc_warn_flag in
++  yes:no: )
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h: accepted by the compiler, rejected by the preprocessor!" >&5
++echo "$as_me: WARNING: sys/epoll.h: accepted by the compiler, rejected by the preprocessor!" >&2;}
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h: proceeding with the compiler's result" >&5
++echo "$as_me: WARNING: sys/epoll.h: proceeding with the compiler's result" >&2;}
++    ac_header_preproc=yes
++    ;;
++  no:yes:* )
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h: present but cannot be compiled" >&5
++echo "$as_me: WARNING: sys/epoll.h: present but cannot be compiled" >&2;}
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h:     check for missing prerequisite headers?" >&5
++echo "$as_me: WARNING: sys/epoll.h:     check for missing prerequisite headers?" >&2;}
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h: see the Autoconf documentation" >&5
++echo "$as_me: WARNING: sys/epoll.h: see the Autoconf documentation" >&2;}
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h:     section \"Present But Cannot Be Compiled\"" >&5
++echo "$as_me: WARNING: sys/epoll.h:     section \"Present But Cannot Be Compiled\"" >&2;}
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h: proceeding with the preprocessor's result" >&5
++echo "$as_me: WARNING: sys/epoll.h: proceeding with the preprocessor's result" >&2;}
++    { echo "$as_me:$LINENO: WARNING: sys/epoll.h: in the future, the compiler will take precedence" >&5
++echo "$as_me: WARNING: sys/epoll.h: in the future, the compiler will take precedence" >&2;}
++    (
++      cat <<\_ASBOX
++## ------------------------------------------ ##
++## Report this to the AC_PACKAGE_NAME lists.  ##
++## ------------------------------------------ ##
++_ASBOX
++    ) |
++      sed "s/^/$as_me: WARNING:     /" >&2
++    ;;
++esac
++echo "$as_me:$LINENO: checking for sys/epoll.h" >&5
++echo $ECHO_N "checking for sys/epoll.h... $ECHO_C" >&6
++if test "${ac_cv_header_sys_epoll_h+set}" = set; then
++  echo $ECHO_N "(cached) $ECHO_C" >&6
++else
++  ac_cv_header_sys_epoll_h=$ac_header_preproc
++fi
++echo "$as_me:$LINENO: result: $ac_cv_header_sys_epoll_h" >&5
++echo "${ECHO_T}$ac_cv_header_sys_epoll_h" >&6
++
++fi
++if test $ac_cv_header_sys_epoll_h = yes; then
++  cat >>confdefs.h <<\_ACEOF
++#define HAVE_LINUX_EPOLL_H 1
++_ACEOF
++
++fi
++
+ echo $ac_n "checking for SO_BSDCOMPAT declaration""... $ac_c" 1>&6
+ echo "configure:3721: checking for SO_BSDCOMPAT declaration" >&5
+ if eval "test \"`echo '$''{'ac_cv_decl_so_bsdcompat'+set}'`\" = set"; then
+diff -ru ORIG_otp_src_R10B-8/erts/configure.in otp_src_R10B-8/erts/configure.in
+--- ORIG_otp_src_R10B-8/erts/configure.in	2005-10-24 02:43:05.000000000 -0700
++++ otp_src_R10B-8/erts/configure.in	2005-11-09 14:25:58.335158685 -0800
+@@ -651,6 +651,7 @@
+ AC_CHECK_HEADER(sys/devpoll.h, AC_DEFINE(HAVE_SYS_DEVPOLL_H))
+ AC_CHECK_HEADER(linux/kpoll.h, AC_DEFINE(HAVE_LINUX_KPOLL_H))
+ AC_CHECK_HEADER(sys/event.h, AC_DEFINE(HAVE_SYS_EVENT_H)) 
++AC_CHECK_HEADER(sys/epoll.h, AC_DEFINE(HAVE_LINUX_EPOLL_H))
+ 
+ LM_DECL_SO_BSDCOMPAT
+ LM_DECL_INADDR_LOOPBACK
+Only in otp_src_R10B-8/erts: configure.in.orig
+Only in otp_src_R10B-8/erts: configure.orig
+diff -ru ORIG_otp_src_R10B-8/erts/emulator/sys/unix/sys.c otp_src_R10B-8/erts/emulator/sys/unix/sys.c
+--- ORIG_otp_src_R10B-8/erts/emulator/sys/unix/sys.c	2005-08-29 06:13:36.000000000 -0700
++++ otp_src_R10B-8/erts/emulator/sys/unix/sys.c	2005-11-09 14:25:58.337158642 -0800
+@@ -13,6 +13,12 @@
+  * Portions created by Ericsson are Copyright 1999, Ericsson Utvecklings
+  * AB. All Rights Reserved.''
+  * 
++ * 2005-08-31
++ * This has been modified by Matthew Reilly of SIPphone Inc. to 
++ * enable kernel poll (+K true) support via the epoll mechanism in Linux 2.6
++ * Portions created by SIPphone Inc. are Copyright 2005, SIPphone Inc.
++ * These modifications are released under the Erlang Public License.
++ *
+  *     $Id$
+  */
+ 
+@@ -50,6 +56,9 @@
+ #      define USE_DEVPOLL
+ #      include <sys/devpoll.h>
+ #    endif
++#    ifdef HAVE_LINUX_EPOLL_H /* Too minimize code changes, we pretend we have HAVE_LINUX_KPOLL_H as well */
++#      define HAVE_LINUX_KPOLL_H 1
++#    endif
+ #    ifdef HAVE_LINUX_KPOLL_H
+ #      define USE_DEVPOLL
+ #      include <asm/page.h>
+@@ -58,7 +67,11 @@
+ #      ifndef POLLREMOVE
+ #        define POLLREMOVE 0x1000 /* some day it will make it to bits/poll.h ;-) */
+ #      endif
+-#      include <linux/kpoll.h>
++#      ifdef HAVE_LINUX_EPOLL_H
++#        include <sys/epoll.h>
++#      else
++#        include <linux/kpoll.h>
++#      endif
+ #    endif
+ #    ifdef USE_DEVPOLL /* can only use one of them ... */
+ #      ifdef USE_KQUEUE
+@@ -201,8 +214,17 @@
+ 
+ static int             dev_poll_fd;   /* fd for /dev/poll */
+ #ifdef HAVE_LINUX_KPOLL_H
++
++#ifdef HAVE_LINUX_EPOLL_H
++static struct epoll_event* dev_epoll_map;
++/* XXX Implement correct mapping from POLLIN/POLLOUT to/from EPOLLIN/EPOLLOUT */
++/* Currenltly POLLIN/POLLOUT == EPOLLIN/EPOLLOUT. So these macros will work */
++#define EPOLL_TO_POLL(bit_map) (bit_map)
++#define POLL_TO_EPOLL(bit_map) (bit_map & (EPOLLIN|EPOLLOUT))
++#else
+ static char *          dev_poll_map;  /* mmap'ed area from kernel /dev/kpoll */
+ static struct k_poll   dev_poll;      /* control block for /dev/kpoll */
++#endif /* HAVE_LINUX_KPOLL_H */
+ static int max_poll_idx;              /* highest non /dev/kpoll fd */
+ 
+ static void kpoll_enable();
+@@ -212,7 +234,7 @@
+ static struct pollfd*  dev_poll_rfds = NULL; /* Allocated at startup */
+ 
+ static void devpoll_init(void);
+-static void devpoll_update_pix(int pix);
++static void devpoll_update_pix(int pix, int old_events);
+ #ifdef HAVE_SYS_DEVPOLL_H
+ static void devpoll_clear_pix(int pix);
+ #endif /* HAVE_SYS_DEVPOLL_H */
+@@ -2021,7 +2043,7 @@
+ 
+ #ifdef USE_DEVPOLL
+ 	    if (poll_fds[pix].events != old_events) 
+-                devpoll_update_pix(pix);
++                devpoll_update_pix(pix, old_events);
+ #endif
+ #ifdef USE_KQUEUE
+ 	    if (poll_fds[pix].events != old_events) 
+@@ -2077,7 +2099,7 @@
+ 	    if ( old_events && (dev_poll_fd != -1) ) {
+ 	       /* Tell /dev/[k]poll that we are not interested any more ... */
+ 	       poll_fds[pix].events = POLLREMOVE;
+-	       devpoll_update_pix(pix);
++	       devpoll_update_pix(pix, old_events);
+ 	       /* devpoll_update_pix may change the pix */
+ 	       pix = fd_data[fd].pix;
+ 	       poll_fds[pix].events = 0;
+@@ -2134,7 +2156,7 @@
+ #ifdef HAVE_SYS_DEVPOLL_H
+ 	    devpoll_clear_pix(pix);
+ #endif /* HAVE_SYS_DEVPOLL_H */
+-	    devpoll_update_pix(pix);
++	    devpoll_update_pix(pix, old_events);
+ 	}
+ #endif
+ #ifdef USE_KQUEUE
+@@ -2692,6 +2714,27 @@
+ 	nof_ready_fds = vr;
+ 
+ #if HAVE_LINUX_KPOLL_H
++#ifdef HAVE_LINUX_EPOLL_H
++	if ( do_event_poll ) {
++           if ((r = epoll_wait(dev_poll_fd,dev_epoll_map,max_fd_plus_one,0)) > 0) {
++	    for (i = 0; (i < r); i++) {
++	      short revents = dev_epoll_map[i].events;
++
++	      if (revents != 0) {
++	        int fd = dev_epoll_map[i].data.fd;
++		rp->pfd.fd = fd;
++		rp->pfd.events = poll_fds[fd_data[fd].pix].events;
++		rp->pfd.revents = EPOLL_TO_POLL(revents);
++		rp->iport = fd_data[fd].inport;
++		rp->oport = fd_data[fd].outport;
++		rp++;
++	        nof_ready_fds ++;
++	      } 
++	    }
++           }
++        }
++
++#else
+ 	if ( do_event_poll ) {
+ 	  /* Now do the fast poll */
+ 	  dev_poll.kp_timeout = 0;
+@@ -2714,6 +2757,7 @@
+ 	    nof_ready_fds += r;
+ 	  }
+ 	}
++#endif /*HAVE_LINUX_EPOLL_H */
+ #endif
+ 
+       } else {
+@@ -3622,6 +3666,20 @@
+     poll_fds[pix].revents = 0;
+ }
+ 
++#ifdef HAVE_LINUX_EPOLL_H
++static void epoll_init()
++{
++    /* max_files is just a hint to the kernel */
++    if ( (dev_poll_fd=epoll_create(max_files)) < 0 ) {
++        DEBUGF(("Will use poll()\n"));
++        dev_poll_fd = -1; /* We will not use ekpoll */
++    } else {
++        DEBUGF(("Will use epoll\n"));
++        dev_epoll_map = (struct epoll_event *) erts_alloc(ERTS_ALC_T_POLL_FDS, (sizeof(struct epoll_event) * max_files));
++	erts_sys_misc_mem_sz += sizeof(struct epoll_event) * max_files;
++    }
++}
++#else
+ static void kpoll_init()
+ {
+     if ( (dev_poll_fd=open("/dev/kpoll",O_RDWR)) < 0 ) {
+@@ -3643,6 +3701,7 @@
+       dev_poll_rfds =  NULL;
+     }
+ }
++#endif /* HAVE_LINUX_EPOLL_H */
+ 
+ #endif /* HAVE_LINUX_KPOLL_H */
+ 
+@@ -3672,7 +3731,11 @@
+     } else {
+         /* Determine use of poll vs. /dev/poll at runtime */
+ #ifdef HAVE_LINUX_KPOLL_H
++#ifdef HAVE_LINUX_EPOLL_H
++        epoll_init();
++#else
+         kpoll_init();
++#endif
+ #else
+ #ifdef HAVE_SYS_DEVPOLL_H
+         solaris_devpoll_init();
+@@ -3698,7 +3761,7 @@
+     return count;
+ }
+ 
+-static void devpoll_update_pix(int pix)
++static void devpoll_update_pix(int pix, int old_events)
+ {
+     int res;
+ 
+@@ -3713,10 +3776,33 @@
+ 
+ #endif
+     if ( dev_poll_fd != -1 ) {
++#ifdef HAVE_LINUX_EPOLL_H
++       int events = poll_fds[pix].events;
++       int fd = poll_fds[pix].fd;
++       if (old_events && events & POLLREMOVE) {
++            /* Delete file descriptor from epoll list */
++            res = epoll_ctl(dev_poll_fd,EPOLL_CTL_DEL,fd,NULL);
++            /* XXX check return code */
++       } else {
++            struct epoll_event epoll_ctl_event;
++            epoll_ctl_event.data.fd = fd;
++            epoll_ctl_event.events = POLL_TO_EPOLL(events);
++            if (old_events) {
++                /* Modify exiting fd */
++                res = epoll_ctl(dev_poll_fd,EPOLL_CTL_MOD,fd,&epoll_ctl_event);
++                /* XXX check return code */
++            } else {
++                /* Add fd to epoll list */
++                res = epoll_ctl(dev_poll_fd,EPOLL_CTL_ADD,fd,&epoll_ctl_event);
++                /* XXX check return code */
++            } 
++       }
++#else
+         if ( (res=devpoll_write(dev_poll_fd,&poll_fds[pix],sizeof(struct pollfd))) != 
+              (sizeof(struct pollfd)) ) {
+             erl_exit(1,"Can't write to /dev/poll\n");
+         }
++#endif /* HAVE_LINUX_EPOLL_H */
+     }
+ #if HAVE_LINUX_KPOLL_H
+     } else {

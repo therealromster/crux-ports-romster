@@ -1,0 +1,66 @@
+--- bow-20020213/argp/argp-xinl.c	1997-03-14 16:12:44.000000000 +0100
++++ bow-20020213/argp/argp-xinl.c-new	2006-07-07 18:32:22.000000000 +0200
+@@ -24,7 +24,8 @@
+ 
+ #define ARGP_EI
+ #undef __OPTIMIZE__
+-#define __OPTIMIZE__
++
++#define __OPTIMIZE__ 1
+ #include "argp.h"
+ 
+ /* Add weak aliases.  */
+--- bow-20020213/argp/argp-fmtstream.h	1997-03-14 16:12:45.000000000 +0100
++++ bow-20020213/argp/argp-fmtstream.h-new	2006-07-07 18:31:25.000000000 +0200
+@@ -30,6 +30,8 @@
+ #include <config.h>
+ #endif
+ 
++#define __OPTIMIZE__ 1
++
+ #include <stdio.h>
+ #include <string.h>
+ #include <unistd.h>
+--- bow-20020213/multiclass.c	1999-10-15 22:17:42.000000000 +0200
++++ bow-20020213/multiclass.c-new	2006-07-07 18:34:02.000000000 +0200
+@@ -1255,7 +1255,7 @@
+ 	    break;
+ 	}
+       return si;
+-    next_si:
++    next_si:;
+     }
+   return -1;
+ }
+@@ -1339,7 +1339,7 @@
+ 	  max_si = si;
+ 	  max_ci = ci;
+ 	}
+-    next_class1:
++    next_class1:;
+     }
+ 
+   if (local_exclude_cis_size + 1 < exclude_cis_capacity/2
+@@ -1420,9 +1420,9 @@
+ 	      max_ci = ci;
+ 	      max_ci2 = ci2;
+ 	    }
+-	next_class22:
++	next_class22:;
+ 	}
+-    next_class2:
++    next_class2:;
+     }
+   assert (max_si >= 0);
+ 
+--- bow-20020213/svm_base.c	2002-02-13 23:49:41.000000000 +0100
++++ bow-20020213/svm_base.c-new	2006-07-07 18:33:18.000000000 +0200
+@@ -261,7 +261,7 @@
+     case 4:
+       kernel = svm_kernel_fisher;
+       break;
+-    default:
++    default:;
+     }
+     break;
+   case AL_TEST_IN_TRAIN_ARG:

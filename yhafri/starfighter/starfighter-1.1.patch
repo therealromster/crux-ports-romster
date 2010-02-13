@@ -1,0 +1,18 @@
+--- makefile~	2003-08-18 06:48:23.000000000 -0600
++++ makefile	2005-01-02 17:33:48.300606408 -0700
+@@ -9,4 +9,5 @@
+ 
+-BINDIR = /usr/games/
+-DATADIR = /usr/share/games/parallelrealities/
++DESTDIR = 
++BINDIR = /usr/bin/
++DATADIR = /usr/share/parallelrealities/
+ DOCDIR = /usr/share/doc/starfighter/
+@@ -34,4 +35,4 @@
+ 	strip $(PROG)
+-	install -o root -g games -m 755 $(PROG) $(BINDIR)$(PROG)
+-	install -o root -g games -m 644 $(PACK) $(DATADIR)$(PACK)
+-	cp $(DOCS) $(DOCDIR)
++	install -m 755 $(PROG) $(DESTDIR)$(BINDIR)$(PROG)
++	install -m 644 $(PACK) $(DESTDIR)$(DATADIR)$(PACK)
++	cp $(DOCS) $(DESTDIR)$(DOCDIR)

@@ -1,0 +1,19 @@
+# Description: KDE systray application to monitor Gmail mailbox status
+# URL: http://kcheckgmail.sourceforge.net/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=kcheckgmail
+version=0.5.5
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

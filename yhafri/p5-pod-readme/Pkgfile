@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Convert POD to README file
+# URL: http://search.cpan.org/~rrwo/Pod-Readme-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-pod-readme
+version=0.05
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RR/RRWO/Pod-Readme-$version.tar.gz)
+
+build () {
+	cd Pod-Readme-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

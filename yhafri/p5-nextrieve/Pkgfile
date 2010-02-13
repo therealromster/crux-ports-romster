@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to NexTrieve search engine software
+# URL: http://search.cpan.org/~elizabeth/NexTrieve-0.41/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-time-date
+
+name=p5-nextrieve
+version=0.41
+release=1
+source=(http://cpan.mirror.fr/authors/id/E/EL/ELIZABETH//NexTrieve-$version.tar.gz)
+
+build () {
+	cd NexTrieve-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

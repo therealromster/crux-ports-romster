@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl regular expressions for XML tokens 
+# URL: http://search.cpan.org/~tjmather/XML-RegExp-0.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-xml-regexp
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TJ/TJMATHER/XML-RegExp-$version.tar.gz)
+
+build () {
+	cd XML-RegExp-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

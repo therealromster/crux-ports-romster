@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Allow commands to be interactively run on multiple servers over ssh
+# URL: http://clusterssh.sourceforge.net/index.php/Main_Page
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-tk, p5-x11-protocol
+
+name=clusterssh
+version=3.17.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

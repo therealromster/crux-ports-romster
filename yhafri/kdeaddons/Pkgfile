@@ -1,0 +1,20 @@
+# Description: Additional plugins and scripts for some KDE applications
+# URL: http://www.kde.org
+# Maintainer: sten, nick dot steeves at shaw dot ca
+# Packager: 
+# Depends on: kdebase, kdegraphics, kdemultimedia, kdenetwork, kdepim, kdeutils
+
+name=kdeaddons
+version=3.5.4
+release=1
+source=(http://download.kde.org/stable/3.5.4/src/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure	--prefix=/usr \
+        --disable-dependency-tracking \
+        --disable-debug \
+        --enable-final
+    make
+    make DESTDIR=$PKG install
+}

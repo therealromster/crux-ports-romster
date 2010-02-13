@@ -1,0 +1,56 @@
+# $Id: $
+# Description: A portable profiling and tracing toolkit for performance analysis of parallel programs written in Fortran, C, C++, Java, Python
+# URL: http://www.cs.uoregon.edu/research/tau/home.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcsh, jdk, python, tk
+
+name=tau
+version=2.16
+release=1
+source=(http://www.cs.uoregon.edu/research/paracomp/tau/tauprofile/dist/tau_latest.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure
+
+	make
+	make install
+
+	mv i386_linux/{bin,lib} $PKG/usr
+	mv utils $PKG/usr/
+	mv tools $PKG/usr/
+
+	rm -rf $PKG/usr/tools/doc
+	rm -rf $PKG/usr/tools/src/eclipse
+
+	find $PKG/usr -type "f" -iname "*.info"       -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*README*"     -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.cpp"        -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.cc"         -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.c"          -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.C"          -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.out"        -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.txt"        -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.h"          -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.java"       -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.class"      -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*Makefile*"   -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*.o"          -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*TODO*"       -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*CHANGELOG*"  -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*INSTALL*"    -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*LICENSE*"    -exec rm -f '{}' \;
+	find $PKG/usr -type "f" -iname "*COPYRIGHT*"  -exec rm -f '{}' \;
+
+	for i in $PKG/usr/bin/*; do sed -i "s|TAUROOT=.*|TAUROOT=/usr|" $i; sed -i "s|MACHINE=.*|MACHINE=|" $i; done 
+
+	ln -sf /usr/bin/paraprof $PKG/usr/bin/jracy
+
+	chown -R root:root $PKG
+}

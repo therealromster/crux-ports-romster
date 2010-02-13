@@ -1,0 +1,14 @@
+POST-INSTALL:
+
+		Add this lines to your ~/.emacs.el config file:
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;                       NXML MODE
+;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(load "/usr/share/emacs/site-lisp/nxml/rng-auto.el")
+(setq auto-mode-alist
+        (cons '("\\.\\(xml\\|xsl\\|kon\\|rng\\|xhtml\\)\\'" . nxml-mode)
+	      auto-mode-alist)) 
+(unify-8859-on-decoding-mode)

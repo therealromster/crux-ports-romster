@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A very small, yet very fast HTTP server
+# URL: http://www.mathopd.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mathopd
+version=1.5p5
+release=1
+source=(http://www.mathopd.org/dist/$name-$version.tar.gz)
+
+build () {
+	install -d $PKG/usr/sbin
+	cd $name-$version/src
+	make
+	make PREFIX=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

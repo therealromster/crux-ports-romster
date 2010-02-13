@@ -1,0 +1,12 @@
+POST-INSTALL:
+
+                * Copy the following lines into your "~/.mplayer/config" file:
+                vo = xv
+                double = yes
+                vfm = 5
+                skin = Terminator
+                cache = 8192
+
+		* Start "mplayer" or "gmplayer"
+
+

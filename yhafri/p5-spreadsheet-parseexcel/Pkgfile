@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Get information from Excel file
+# URL: http://search.cpan.org/~kwitknr/Spreadsheet-ParseExcel-0.2603/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-ole-storage_lite
+
+name=p5-spreadsheet-parseexcel
+version=0.2603
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KW/KWITKNR/Spreadsheet-ParseExcel-$version.tar.gz)
+
+build () {
+	cd Spreadsheet-ParseExcel-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

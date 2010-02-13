@@ -1,0 +1,10 @@
+INFO:
+		To get Postgres, MySQL, SQLite and Firebird drivers
+		usable (they are in /usr/lib/*-jdbc and /usr/lib/javasqlite), 
+		you have to select each one and put its correct path in the 
+		driver manager control panel
+		
+		* You can install as many DB driver as you like.
+		Check this URL to see the install steps:
+		http://www.dbvis.com/products/dbvis/drivers.html
+

@@ -1,0 +1,28 @@
+# $Id: $
+# Description: An open-source, standards-based, full-featured web server implemented entirely in Java
+# URL: http://www.mortbay.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=jetty
+version=6.1.5
+release=1
+source=(http://dist.codehaus.org/$name/$name-$version/$name-${version}rc0.zip \
+	$name.sh.patch $name)
+
+build () {
+	mkdir -p $PKG/usr/lib
+
+	rm -rf $name-${version}rc0/{README.txt,VERSION.txt}
+	rm -rf $name-${version}rc0/{examples,LICENSES,javadoc}
+
+	mv $name-${version}rc0 $PKG/usr/lib/$name
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+	
+	cd $PKG/usr/lib/$name
+	patch -p0<$SRC/$name.sh.patch
+	cp  $PKG/usr/lib/$name/bin/$name.sh $PKG/usr/lib/$name/$name.sh
+
+	chown -R root:root $PKG
+}

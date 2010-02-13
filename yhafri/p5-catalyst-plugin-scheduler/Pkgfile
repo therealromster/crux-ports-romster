@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Schedule events to run in a cron-like fashion
+# URL: http://84.45.18.237/~agrundma/Catalyst-Plugin-Scheduler-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-catalyst, p5-set-scalar, p5-datetime-event-cron
+
+name=p5-catalyst-plugin-scheduler
+version=0.05
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/A/AG/AGRUNDMA/Catalyst-Plugin-Scheduler-$version.tar.gz)
+
+build () {
+	cd Catalyst-Plugin-Scheduler-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

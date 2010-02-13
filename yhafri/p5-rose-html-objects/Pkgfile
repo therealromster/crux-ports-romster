@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Rose DB Object-oriented interfaces for HTML
+# URL: http://search.cpan.org/~jsiracusa/Rose-HTML-Objects-0.541/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-rose-db, p5-rose-uri, p5-email-valid
+
+name=p5-rose-html-objects
+version=0.548
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JS/JSIRACUSA/Rose-HTML-Objects-$version.tar.gz)
+
+build () {
+	cd Rose-HTML-Objects-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

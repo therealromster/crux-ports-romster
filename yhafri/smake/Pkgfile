@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A higly portable make program with automake features
+# URL: http://directory.fsf.org/smake.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=smake
+version=1.2
+release=a33
+source=(ftp://ftp.berlios.de/pub/$name/alpha/$name-$version$release.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name/lib
+
+	cd $name-$version
+	patch -p0 < ../$name-$version.patch
+
+	install -D -m 755 Gmake.linux $PKG/usr/bin/Gmake
+
+	(./Gmake.linux)
+	PKG="$PKG" ./psmake/smake
+	export SRCROOT=$PKG/usr
+	./psmake/smake INS_BASE=$PKG/usr install
+	rm -rf $PKG/usr/lib/$name/
+
+	chown -R root:root $PKG
+}

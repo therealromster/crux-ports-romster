@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Basic fonts, cursors, icons, and bitmaps for MiniGUI
+# URL: http://www.minigui.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: minigui
+
+name=minigui-res
+version=1.6
+release=1
+source=(http://www.minigui.org/downloads/minigui-$version.x/$name-str-$version.tar.gz)
+
+
+build () {
+	cd $name-str-$version
+
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

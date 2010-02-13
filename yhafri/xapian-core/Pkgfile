@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Open Source Probabilistic Information Retrieval Library
+# URL: http://www.xapian.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: swig
+
+name=xapian-core
+version=1.0.3
+release=1
+source=(http://www.oligarchy.co.uk/xapian/$version/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+        chown -R root:root $PKG
+}

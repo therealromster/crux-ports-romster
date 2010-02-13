@@ -1,0 +1,21 @@
+# $Id: $
+# Description: POSIX.1b support for Linux
+# URL: http://www.garret.ru/~knizhnik/posix1b/README
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=posix1b
+version=1
+release=1
+source=(http://www.garret.ru/~knizhnik/$name.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cd $name
+
+	make
+	make LIB_INSTALL_PATH=$PKG/usr/lib install
+
+	chown -R root:root $PKG
+}

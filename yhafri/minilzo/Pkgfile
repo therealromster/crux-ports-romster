@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Tiny implementation of LZO library
+# URL: http://www.oberhumer.com/opensource/lzo/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=minilzo
+version=2.02
+release=1
+source=(http://www.oberhumer.com/opensource/lzo/download/$name-$version.tar.gz)
+
+build () {
+
+	mkdir -p $PKG/usr/lib/$name
+
+	cd $name.202
+	cp $name.c $name.h lzoconf.h lzodefs.h $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}

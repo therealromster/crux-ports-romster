@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/usr/
+drwxr-xr-x	root/root	usr/usr/man/
+drwxr-xr-x	root/root	usr/usr/man/man1/
+-r--r--r--	root/root	usr/usr/man/man1/htpasswd.1.gz
+drwxr-xr-x	root/root	usr/usr/man/man8/
+-r--r--r--	root/root	usr/usr/man/man8/mini_httpd.8.gz
+drwxr-xr-x	root/root	usr/usr/sbin/
+-rwxr-xr-x	root/root	usr/usr/sbin/htpasswd
+-rwxr-xr-x	root/root	usr/usr/sbin/mini_httpd

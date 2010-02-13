@@ -1,0 +1,31 @@
+# $Id: $
+# Description: File type detection system
+# URL: http://pldaniels.com/filetype/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=filetype
+version=0.1.3
+release=1
+source=(http://pldaniels.com/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/{etc,usr/{lib,bin,man/man1}}
+	cd $name-$version
+
+	make
+
+	ar cvr $name.a pldstr.o logger.o lib$name.o  
+	
+        strip $name-compile
+        strip $name
+        ./$name-compile $name.list $name.spec
+        cp -v $name $name-compile $PKG/usr/bin
+        cp -v $name.a    $PKG/usr/lib
+        cp -v $name.spec $PKG/etc
+        cp -v $name.1 $PKG/usr/man/man1
+        cp -v $name-compile.1 $PKG/usr/man/man1
+
+	chown -R root:root $PKG
+}

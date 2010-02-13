@@ -1,0 +1,19 @@
+--- libcache-1.0/Makefile.in	2001-03-11 02:23:22.000000000 +0100
++++ libcache-1.0/Makefile.in-new	2006-09-27 12:42:32.000000000 +0200
+@@ -85,16 +85,6 @@
+ 		chmod $(INCMOD) $(INCDIR)/$$i;			\
+ 	done
+ 
+-.if !defined(NOMAN3)
+-maninstall: $(MAN3)
+-	cp $(MAN3) $(MANDIR)/man3
+-	for i in $(MAN3); do					\
+-		chown $(MANOWN):$(MANGRP) $(MANDIR)/man3/$$i;	\
+-		chmod $(MANMOD) $(MANDIR)/man3/$$i;		\
+-	done
+-.else
+-maninstall:
+-.endif
+ 
+ depend:
+ 	mkdep $(AFLAGS) $(SRCS) $(TSRCS)

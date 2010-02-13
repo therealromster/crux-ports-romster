@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A powerful HTTP client written in erlang
+# URL: http://cvs.sourceforge.net/viewcvs.py/jungerl/jungerl/lib/ibrowse/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=ibrowse
+version=1.2
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	#cd $name-$version
+	#echo "\n" | cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jungerl login
+	#cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jungerl co jungerl/lib/$name
+	 cvs -z3 -d:pserver:anonymous@jungerl.cvs.sourceforge.net:/cvsroot/jungerl co -P jungerl/lib/$name
+	cd jungerl/lib/$name
+	mkdir -p ebin
+	cd src/
+	make clean
+	make
+	cd -
+	cp src/*.{hrl,erl,src}  $PKG/usr/lib/erlang/lib/$name-$version/src
+	cp ebin/*.beam          $PKG/usr/lib/erlang/lib/$name-$version/ebin
+        chown -R root:root $PKG
+}
+	
+

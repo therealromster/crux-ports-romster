@@ -1,0 +1,33 @@
+--- RUNME	2007-04-25 18:05:08.000000000 +0200
++++ RUNME-new	2007-05-07 11:40:05.000000000 +0200
+@@ -82,30 +82,6 @@
+ # ask <prompt> <variable> [<possible_values>]
+ ask () {
+     eval answer=\$$2
+-    accept=
+-    while test -z "$accept"; do
+-	echo
+-	echo "$1 [$answer]? "
+-	echo $ECHO_NL "Hit return to accept, or enter new value: "
+-	read new
+-	if test -z "$new"; then
+-	    accept=y
+-	else
+-	    if test $# = 3; then
+-		for val in $3; do
+-		    if test "$new" = "$val"; then
+-			answer="$new"
+-		        break 2
+-		    fi
+-		done
+-		if test "$new" != "$answer"; then
+-		    echo "ERROR: Legal values are:" $3
+-		fi
+-	    else
+-		answer="$new"
+-	    fi
+-	fi
+-    done
+     eval $2=\"$answer\"
+ }
+ 

@@ -1,0 +1,47 @@
+POST-INSTALL
+------------
+
+After installing, make sure that the service names and port numbers listed in
+the file "services.append" (which is included with this port) are added to
+the file "/etc/services", if they don't already exist.  You may need to
+change some existing service name/number mappings--just comment out the
+existing mappings if they are wrong, and add in the new ones.
+
+CLIENT UTILITIES
+----------------
+
+The krb5 upstream developers have several utilities/servers/man pages that are
+kerberos-enabled replacements for the standard fare.  In my opinion, this is a
+little brain-dead, but they have their reasons.  Here's a list of the offending
+files:
+
+  telnet
+  ftp
+  rcp
+  rlogin
+  rsh
+  uuclient
+  ftpd
+  telnetd
+  uuserver
+  (all respective man pages)
+
+This port avoids stomping on the existing utilities (which all good Crux ports
+should), but still puts the kerberos-enabled versions in standard locations (to
+avoid making users muck around with PATH and "man.conf" changes and refer to
+either the krb5 versions of the originals by full path).
+
+It accomplishes this by renaming the kerberos-enabled versions so that they are
+prefixed by a "k"--the kerberos 'telnet' becomes 'ktelnet', and so on.  Also,
+it parses the man pages and updates the utility name in each.  The utilities,
+servers, and man pages are all installed to the standard "/usr/{bin,man,sbin}"
+directories.  It's a hack, but I think it's the best way to do things.
+
+I borrowed this idea from an old "unmaintained" port, but I forget who packaged
+it so I cannot (unfortunately) give that person their due credit.  Apologies.
+
+A sample "krb5.conf" file is installed, too, for your convenience.
+
+This port also adds some framework for running a Key Distribution Center (KDC). "/var/lib/krb5kdc" is defined as the state directory, and some sample config 
+files are installed therein.  The server can be started with '/etc/rc.d/kdc', 
+which is also installed.

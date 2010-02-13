@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A library for calendar
+# URL: http://www.muquit.com/muquit/software/libcalen/libcalen.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libcalen
+version=1.1
+release=1
+source=(http://www.muquit.com/muquit/software/libcalen/${name}${version}.tar.gz \
+    $name-$version.patch)
+
+build () {
+    mkdir -p $PKG/usr/{bin,lib}
+	cd ${name}${version}
+    patch -p1 <../$name-$version.patch
+    make CFLAGS="$CFLAGS"
+    (cd apps/holiday && make -f Makefile.unix && cp ./holiday $PKG/usr/bin)
+    cp libcalen.a $PKG/usr/lib
+    chown -R root:root $PKG
+}

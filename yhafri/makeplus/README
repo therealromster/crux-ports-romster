@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+		* Add the following environment variable to your ~/.bashrc:
+		export MAKEPLUS_HOME=/usr/share/makeplus

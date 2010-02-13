@@ -1,0 +1,25 @@
+# $Id: $
+# Description: MPICH2 is an implementation of the Message-Passing Interface
+# URL: http://www-unix.mcs.anl.gov/mpi/mpich2/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libgm, pyxml
+
+name=mpich2
+version=1.0
+release=1
+source=(http://www-unix.mcs.anl.gov/mpi/$name/downloads/$name-$version.tar.gz)
+
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+    make
+	make prefix=$PKG/usr install
+
+    rm -rf $PKG/usr/{www,doc,examples,share}
+
+    chown -R root:root $PKG
+}

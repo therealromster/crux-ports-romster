@@ -1,0 +1,1461 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/wm-icons-config
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/icons/
+drwxr-xr-x	root/root	usr/share/icons/wm-icons/
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/14x14-general/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/14x14-general/cd-player.xpm -> disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/chat.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/14x14-general/choice-no.xpm -> window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-iconify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-lower.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-shade.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window-stick.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/14x14-general/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/16x16-general/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-general/cd-player.xpm -> disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/chat.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-general/choice-no.xpm -> window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-iconify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-lower.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-shade.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window-stick.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-general/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/16x16-gnome/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/cd-player.xpm -> disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/empty.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/file-manager.xpm -> folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/file.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/folder-open.xpm -> folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/font.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/game-action.xpm -> game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/game-cards.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/game-logic.xpm -> game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/home.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/image-processor.xpm -> graphics.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/image-viewer.xpm -> graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/science.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/sound.xpm -> music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-destroy.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/window-iconify.xpm -> window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-identify.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/window-lower.xpm -> window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-raise.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/window-resize.xpm -> window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window-shade.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/16x16-gnome/window-stick.xpm -> window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-gnome/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/16x16-kde/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/_symlinks.lst (EMPTY)
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-iconify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-lower.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-shade.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window-stick.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/16x16-kde/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/ghostview.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/gnome.xpm -> gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/kde.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-delete.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-destroy.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-iconify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-identify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-lower.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-maximize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-move.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-raise.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-resize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-shade.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window-stick.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/17x14-3dpixmaps/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/20x20-martys/
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/amusement.xpm -> game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/cd-player.xpm -> sound.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/chat.xpm -> network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/choice-no.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/choice-yes.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/clock.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/colors.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/configuration.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/developement.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/disk-cd.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/disk-floppy.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/disk.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/display.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/empty.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/file-manager.xpm -> folder.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/file.xpm -> item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/folder-open.xpm -> folder.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/folder.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/game-action.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/game-board.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/game-cards.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/game-logic.xpm -> game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/ghostview.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/gnome.xpm -> gnu.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/gnu.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/graphics.xpm -> colors.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/help.xpm -> information.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/home.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/image-processor.xpm -> image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/image-viewer.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/information.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/item.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/kde.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/keyboard.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/linux.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/mail.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/modules.xpm -> item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/monitoring.xpm -> terminal.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/mouse.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/multimedia.xpm -> sound.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/music.xpm -> sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/netscape.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/network.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/news.xpm -> chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/printing.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/programs.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/quit.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/refresh.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/restart.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/science.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/sound.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/system.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/terminal.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/themes.xpm -> configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/unknown.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/utility.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/video.xpm -> multimedia.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/viewer.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/window-close.xpm -> choice-no.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/window-delete.xpm -> window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-iconify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-lower.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-shade.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window-stick.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys/window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/windows.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/word-processor.xpm -> editor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/www.xpm -> network.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys/xv.xpm -> image-viewer.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/20x20-martys2/
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/amusement.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/calculator.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/cd-player.xpm -> sound.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/chat.xpm -> network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/choice-no.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/choice-yes.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/clock.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/colors.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/configuration.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/developement.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/disk-cd.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/disk-floppy.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/disk.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/display.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/empty.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/file-manager.xpm -> folder.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/file.xpm -> item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/folder-open.xpm -> folder.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/folder.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/font.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/game-action.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/game-board.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/game-cards.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/game-logic.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/game.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/ghostview.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/gnome.xpm -> gnu.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/gnu.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/graphics.xpm -> colors.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/help.xpm -> information.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/home.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/image-processor.xpm -> colors.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/image-viewer.xpm -> colors.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/information.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/kde.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/keyboard.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/linux.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/lock.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/mail.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/modules.xpm -> item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/monitoring.xpm -> terminal.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/mouse.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/multimedia.xpm -> sound.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/music.xpm -> sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/netscape.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/network.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/news.xpm -> chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/printing.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/programs.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/quit.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/refresh.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/restart.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/science.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/sound.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/system.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/terminal-remote.xpm -> terminal.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/terminal-special.xpm -> terminal.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/terminal.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/themes.xpm -> configuration.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/todo.xpm -> empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/video.xpm -> multimedia.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/viewer.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/window-close.xpm -> choice-no.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/window-delete.xpm -> window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-iconify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-lower.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-shade.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window-stick.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/20x20-martys2/window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/windows.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/word-processor.xpm -> editor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/www.xpm -> network.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/20x20-martys2/xv.xpm -> image-viewer.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/ghostview.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/gnome.xpm -> gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/kde.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-delete.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-destroy.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-iconify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-identify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-lower.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-maximize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-move.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-raise.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-resize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-shade.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window-stick.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/21x18-3dpixmaps/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/32x32-kde/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/window-destroy.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde/window-iconify.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/window-lower.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde/window-maximize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde/window-move.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/window-raise.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde/window-resize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde/window-shade.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde/window-stick.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/32x32-kde2/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/window-delete.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/window-destroy.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde2/window-iconify.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/window-lower.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde2/window-maximize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde2/window-move.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/window-raise.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde2/window-resize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde2/window-shade.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/32x32-kde2/window-stick.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/32x32-kde2/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/44x52-penguins/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/cd-player.xpm -> disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/chat.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/choice-no.xpm -> window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/colors.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/configuration.xpm -> colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/empty.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/file-manager.xpm -> folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/file.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/folder-open.xpm -> folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/game-action.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/game-board.xpm -> game.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/game-cards.xpm -> game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/ghostview.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/gnome.xpm -> gnu.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/gnu.xpm -> science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/image-viewer.xpm -> graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/information.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/item.xpm -> empty.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/kde.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/keyboard.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/linux.xpm -> empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/mail.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/modules.xpm -> item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/monitoring.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/mouse.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/multimedia.xpm -> sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/sound.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/system.xpm -> monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/terminal.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/themes.xpm -> configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/video.xpm -> multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/window-delete.xpm -> window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window-iconify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window-identify.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/window-lower.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/window-maximize.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window-move.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/window-raise.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window-shade.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/window-stick.xpm -> choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/windows.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/44x52-penguins/word-processor.xpm -> editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/44x52-penguins/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/48x48-general/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/file-manager.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/file.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/information.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/item.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/kde.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/mouse.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/multimedia.xpm -> sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/programs.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/quit.xpm -> choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-delete.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-destroy.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-iconify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-identify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-lower.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-maximize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-move.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-raise.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-resize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-shade.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/window-stick.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-general/windows.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-general/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/48x48-gnome/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/cd-player.xpm -> disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/chat.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/choice-no.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/choice-yes.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/empty.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/file-manager.xpm -> folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/file.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/folder-open.xpm -> folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/font.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/game-action.xpm -> game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/game-cards.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/game-logic.xpm -> game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/gimp.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/gnome.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/home.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/image-processor.xpm -> graphics.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/image-viewer.xpm -> graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/science.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/sound.xpm -> music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/viewer.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/window-close.xpm -> window-destroy.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/window-delete.xpm -> window-destroy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/window-destroy.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/window-iconify.xpm -> window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/window-identify.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/window-lower.xpm -> window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/window-maximize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/window-raise.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/window-resize.xpm -> window-move.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/window-shade.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-gnome/window-stick.xpm -> window-raise.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-gnome/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/48x48-kde2/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/chat.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/choice-no.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/choice-yes.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/ghostview.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/gimp.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/gnome.xpm -> gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/gnu.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/graphics.xpm -> colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/kde.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/keyboard.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/linux.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/multimedia.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/music.xpm -> cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/programs.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/quit.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/refresh.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/restart.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/viewer.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-close.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-delete.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-destroy.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-iconify.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/window-identify.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-lower.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-maximize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-move.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-raise.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-resize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-shade.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/window-stick.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/48x48-kde2/www.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/48x48-kde2/xv.xpm -> image-viewer.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/calculator.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/cd-player.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/choice-yes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/developement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/disk-cd.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/disk-floppy.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/disk.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/display.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/file.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/folder-open.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/folder.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/game-board.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/game-cards.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/ghostview.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/gnome.xpm -> gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/gnu.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/graphics.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/help.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/kde.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/keyboard.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/linux.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/mail.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/modules.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/mouse.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/music.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/printing.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/programs.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/quit.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/refresh.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/science.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/video.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-delete.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-destroy.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-iconify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-identify.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-lower.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-maximize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-move.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-raise.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-resize.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-shade.xpm -> window.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window-stick.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/word-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/www.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x46-3dpixmaps/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/56x56-martys/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/cd-player.xpm -> multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/chat.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/choice-no.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/choice-yes.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/clock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/configuration.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/developement.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/disk-cd.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/disk-floppy.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/disk.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/display.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/file-manager.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/file.xpm -> item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/folder-open.xpm -> folder.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/folder.xpm -> file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/game-board.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/game-cards.xpm -> amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/ghostview.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/gnome.xpm -> gnu.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/gnu.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/graphics.xpm -> colors.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/help.xpm -> window-identify.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/image-viewer.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/information.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/item.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/kde.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/keyboard.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/linux.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/mail.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/modules.xpm -> item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/monitoring.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/mouse.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/multimedia.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/music.xpm -> sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/printing.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/programs.xpm -> utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/quit.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/refresh.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/science.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/sound.xpm -> multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/themes.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/video.xpm -> multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/viewer.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-close.xpm -> window-resize.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-delete.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-destroy.xpm -> window-close.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-iconify.xpm -> window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/window-identify.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-lower.xpm -> windows.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-maximize.xpm -> window-resize.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-move.xpm -> windows.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-raise.xpm -> windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/window-resize.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window-shade.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/window-stick.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/window.xpm -> terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/windows.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/word-processor.xpm -> editor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys/www.xpm -> network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys/xv.xpm
+drwxrwsr-x	root/root	usr/share/icons/wm-icons/56x56-martys2/
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/amusement.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/calculator.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/cd-player.xpm -> sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/chat.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/choice-no.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/choice-yes.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/clock.xpm -> utility.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/colors.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/configuration.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/developement.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/disk-cd.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/disk-floppy.xpm -> disk.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/disk.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/display.xpm -> terminal.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/empty.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/file-manager.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/file.xpm -> item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/folder-open.xpm -> folder.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/folder.xpm -> file-manager.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/font.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/game-action.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/game-board.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/game-cards.xpm -> game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/game-logic.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/game.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/ghostview.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/gimp.xpm -> image-processor.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/gnome.xpm -> gnu.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/gnu.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/graphics.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/help.xpm -> information.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/home.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/image-processor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/image-viewer.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/information.xpm -> window-stick.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/item.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/kde.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/keyboard.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/linux.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/lock.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/mail.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/modules.xpm -> item.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/monitoring.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/mouse.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/multimedia.xpm -> sound.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/music.xpm -> sound.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/netscape.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/network.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/news.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/printing.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/programs.xpm -> utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/quit.xpm -> todo.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/refresh.xpm -> todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/restart.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/science.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/sound.xpm -> monitoring.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/system.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/terminal-remote.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/terminal-special.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/terminal.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/themes.xpm -> configuration.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/todo.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/unknown.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/utility.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/video.xpm -> multimedia.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/viewer.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-close.xpm -> choice-no.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-delete.xpm -> window-close.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/window-destroy.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-iconify.xpm -> window-resize.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/window-identify.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-lower.xpm -> windows.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-maximize.xpm -> window-resize.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-move.xpm -> windows.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-raise.xpm -> windows.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/window-resize.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/window-shade.xpm -> window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/window-stick.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/window.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/windows.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/word-processor.xpm -> editor.xpm
+-rw-rw-r--	root/root	usr/share/icons/wm-icons/56x56-martys2/www.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/56x56-martys2/xv.xpm -> image-viewer.xpm
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/menu -> /usr/share/icons/wm-icons/16x16-general
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/mini -> /usr/share/icons/wm-icons/14x14-general
+lrwxrwxrwx	root/root	usr/share/icons/wm-icons/norm -> /usr/share/icons/wm-icons/48x48-general
+drwxr-xr-x	root/root	usr/share/wm-icons/
+-rw-r--r--	root/root	usr/share/wm-icons/fvwm1rc-wm-icons
+-rw-r--r--	root/root	usr/share/wm-icons/fvwm2rc-compact-buttons
+-rw-r--r--	root/root	usr/share/wm-icons/fvwm2rc-wm-icons
+-rw-r--r--	root/root	usr/share/wm-icons/fvwm95rc-wm-icons
+-rw-r--r--	root/root	usr/share/wm-icons/scwmrc-wm-icons

@@ -1,0 +1,7 @@
+POST-INSTALL:
+
+	* To take into account the "bibunits" class, you must execute 
+	the command "texhash" as root:
+	# texhash
+
+

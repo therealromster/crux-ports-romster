@@ -1,0 +1,18 @@
+# Description: Tag editor for MP3 and OGG files
+# URL: http://easytag.sourceforge.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: id3lib, libogg, libvorbis, flac, gtk1
+
+name=easytag
+version=1.1
+release=1
+source=(http://dl.sourceforge.net/easytag/$name-$version.tar.bz2 )
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --disable-nls
+	make
+	make install DESTDIR=$PKG
+	rm -rf $PKG/usr/share/{easytag,locale}
+}

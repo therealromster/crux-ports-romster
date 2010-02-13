@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A cool Perl script for sending short messages to gsm phones
+# URL: http://linuxsms.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=linuxsms
+version=0.77
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+    $name-$version.patch)
+
+build () {
+	cd $name-$version
+
+    patch -p1 <../$name-$version.patch
+
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

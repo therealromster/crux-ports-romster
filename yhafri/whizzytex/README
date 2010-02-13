@@ -1,0 +1,11 @@
+POST-INSTALL:
+
+		* Add the following lines to your ~/.emacs.el config file:
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		;
+		;   WHIZZY MODE (beamer...)
+		;
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		(autoload 'whizzytex-mode
+		"/usr/share/emacs/site-lisp/whizzytex.el"
+		"WhizzyTeX, a minor-mode WYSIWIG environment for LaTeX" t)

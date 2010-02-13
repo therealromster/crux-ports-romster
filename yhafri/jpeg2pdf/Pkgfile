@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Command-line tool to convert SVG files into PDF
+# URL: http://www.python.net/~gherman/svglib.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, pil, rltk
+
+name=jpeg2pdf
+version=0.5
+release=1
+source=(http://starship.python.net/~gherman/playground/$name/$name.py \
+    $name-$version.patch)
+
+
+build () {
+    mkdir -p $PKG/usr/bin
+    patch -p0<$name-$version.patch
+    chmod 755 $name.py
+    mv $name.py $PKG/usr/bin
+    ln -fs /usr/bin/$name.py $PKG/usr/bin/$name
+    chown -R root:root $PKG
+}

@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A set of general-purpose libraries used in building other Skarnet software
+# URL: http://www.skarnet.org/software/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=skalibs
+version=0.45
+release=1
+source=(http://www.skarnet.org/software/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	cd prog/$name-$version
+
+	package/install
+	mv * $PKG/usr/lib/$name	
+	#mv package $PKG/
+
+	rm -rf compile
+	ln -sf /usr/lib/skalibs $PKG/package
+
+	chown -R root:root $PKG
+}

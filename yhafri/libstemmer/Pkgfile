@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Snowball stemming algorithms in C 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libstemmer
+version=1
+release=1
+source=(http://snowball.tartarus.org/dist/${name}_c.tgz)
+
+build () {
+	cd ${name}_c
+
+	make
+
+	install -D -m 644 $name.o         $PKG/usr/lib/$name.a
+	install -D -m 644 include/$name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Open Message Queue for Java
+# URL: https://mq.dev.java.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, timed_command
+
+name=mq4
+version=4.1
+release=1
+source=(mq4)
+
+build () {
+	mkdir -p $PKG/opt/sun
+	cd $PKG/opt/sun
+	curl -o mq4_1-binary-Linux_X86-20070518.jar \
+		https://mq.dev.java.net/files/documents/5002/58252/mq4_1-binary-Linux_X86-20070518.jar
+	jar xvf mq4_1-binary-Linux_X86-20070518.jar
+	chmod +x ./mq/bin/imqbrokerd 
+	(timed_command 10 ./mq/bin/imqbrokerd -javahome /usr/lib/java)
+	sed -i "s|\# *imq.autocreate.queue.maxNumActiveConsumers|imq.autocreate.queue.maxNumActiveConsumers=20|" mq/var/instances/imqbroker/props/config.properties
+	rm -f mq4_1-binary-Linux_X86-20070518.jar
+
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+
+	chown -R root:root $PKG
+}

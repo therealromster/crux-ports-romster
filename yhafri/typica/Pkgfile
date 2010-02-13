@@ -1,0 +1,17 @@
+# $Id: $
+# Description: A Java client library for Amazon's SQS REST web service
+# URL: http://code.google.com/p/typica/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=typica
+version=0.3
+release=1
+source=(http://$name.googlecode.com/files/$name-$version.zip)
+
+build () {
+	install -D -m 755 $name.jar $PKG/usr/lib/$name/$name.jar
+
+	chown -R root:root $PKG
+}

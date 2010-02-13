@@ -1,0 +1,21 @@
+--- xinc/install.sh	2007-07-22 21:42:44.000000000 +0200
++++ xinc/install.sh-new	2007-07-22 21:53:08.000000000 +0200
+@@ -1,9 +1,14 @@
+ #!/bin/sh
+ 
+-INCLUDE=/usr/share/php
+-BIN=/bin
+-ETC=/etc
+-INIT=/etc/init.d
++prefix=$1
++INCLUDE=${prefix}/share/php
++mkdir -p $INCLUDE
++BIN=${prefix}/bin
++mkdir -p $BIN
++ETC=${prefix}/etc
++mkdir -p $ETC
++INIT=${prefix}/etc/init.d
++mkdir -p $INIT
+ 
+ # copy Xinc classes to include path
+ cp classes/Xinc.php $INCLUDE/

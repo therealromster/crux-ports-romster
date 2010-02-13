@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Client/server SOAP library in pure C
+# URL: http://csoap.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libxml2
+
+name=csoap
+version=1.1.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/csoap/libsoap-$version.tar.gz)
+
+build () {
+        cd libsoap-$version
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	install -D -m 755 examples/nanohttp/http_client $PKG/usr/bin/http_client
+	install -D -m 755 examples/nanohttp/http_server $PKG/usr/bin/http_server
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A tool for adding type qualifiers to C
+# URL: http://www.cs.umd.edu/~jfoster/cqual/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs, perl
+
+name=cqual
+version=0.991
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info/
+
+	chown -R root:root $PKG
+}

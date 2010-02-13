@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/alex -> alex-2.0.1
+-rwxr-xr-x	root/root	usr/bin/alex-2.0.1
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/alex-2.0.1/
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexTemplate
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexTemplate-debug
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexTemplate-ghc
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexTemplate-ghc-debug
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexWrapper-basic
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexWrapper-gscan
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexWrapper-monad
+-rw-r--r--	root/root	usr/lib/alex-2.0.1/AlexWrapper-posn
+-rwxr-xr-x	root/root	usr/lib/alex-2.0.1/alex.bin

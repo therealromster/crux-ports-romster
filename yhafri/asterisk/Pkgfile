@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Open source telephone system
+# URL: http://www.asterisk.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses, openssl, zlib, bison, speex, sqlite, unixodbc, curl, libogg, alsa-lib, postgresql, popt, openh323, libvorbis, freetds, pwlib, termcap, qt3, freeradius, zaptel, libpri
+
+name=asterisk
+version=1.4.2
+release=1
+source=(http://ftp.digium.com/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

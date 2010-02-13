@@ -1,0 +1,25 @@
+# $Id: $
+# Description: C Unit Testing Framework
+# URL: http://gethos.net/opensource/cunit.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libcunit
+version=0.7.5
+release=1
+source=(http://gethos.net/opensource/cunit/cunit-$version.tar.gz)
+
+build () {
+	cd cunit-$version
+	./configure --prefix=/usr
+
+	make
+
+	install -D -m 755 build/cunit/CUnitTester            $PKG/usr/bin/CUnitTester
+	install -D -m 644 src/libcunit/unittester.h          $PKG/usr/include/$name/unittester.h
+	install -D -m 644 build/libcunit/$name.a             $PKG/usr/lib/$name/$name.a
+	install -D -m 644 build/statictester/${name}static.a $PKG/usr/lib/$name/${name}static.a 
+
+	chown -R root:root $PKG
+}

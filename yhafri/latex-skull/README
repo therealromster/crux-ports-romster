@@ -1,0 +1,9 @@
+POST-INSTALL:
+
+	* To take into account the skull class, you must execute 
+	the commands below as root:
+	$ texhash
+
+LINKS:
+	Where to put your LaTeX extensions:
+	http://www.tug.org/texlive/Contents/live/texlive/texmf-dist/ls-R

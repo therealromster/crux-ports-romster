@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/most
+drwxr-xr-x	root/root	usr/doc/
+drwxr-xr-x	root/root	usr/doc/most/
+-rw-r--r--	root/root	usr/doc/most/README
+-rw-r--r--	root/root	usr/doc/most/changes.txt
+-rw-r--r--	root/root	usr/doc/most/lesskeys.rc
+-rw-r--r--	root/root	usr/doc/most/most-fun.txt
+-rw-r--r--	root/root	usr/doc/most/most.doc
+-rw-r--r--	root/root	usr/doc/most/most.rc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/most.1.gz

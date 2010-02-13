@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Library which provides a uniform interface to a large number of hash algorithms
+# URL: http://mcrypt.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mhash
+version=0.9.7.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/mhash/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

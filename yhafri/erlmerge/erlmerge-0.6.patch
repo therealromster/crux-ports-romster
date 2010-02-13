@@ -1,0 +1,10 @@
+--- erlmerge-0.6/Makefile.top	2005-09-08 12:53:13.000000000 +0200
++++ erlmerge-0.6/Makefile.top-new	2006-05-11 17:21:28.000000000 +0200
+@@ -44,5 +44,5 @@
+ 	install -d `dirname $(ERLMERGE)`
+ 	install  ./bin/erlmerge $(ERLMERGE)
+ 	chmod 755 $(ERLMERGE)
+-	-ln -s $(ERLMERGE) ${ERL}merge
+-	$(ERLMERGE) setup
++
++

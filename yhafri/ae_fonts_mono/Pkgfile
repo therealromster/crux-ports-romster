@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Font to configure X Windows for Arabic
+# URL: http://www.arabeyes.org/project.php?proj=Khotot
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ae_fonts_mono
+version=1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/$name.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/X11R6/lib/X11/fonts/misc
+    	
+	gzip ae_fonts_mono/10x21.bdf
+    	gzip ae_fonts_mono/10x21.pcf
+    	
+	cp ae_fonts_mono/* $PKG/usr/X11R6/lib/X11/fonts/misc
+    	
+	chown -R root:root $PKG
+}

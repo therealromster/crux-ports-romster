@@ -1,0 +1,62 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/m17n-config
+-rwxr-xr-x	root/root	usr/bin/m17n-conv
+-rwxr-xr-x	root/root	usr/bin/m17n-date
+-rwxr-xr-x	root/root	usr/bin/m17n-dump
+-rwxr-xr-x	root/root	usr/bin/m17n-edit
+-rwxr-xr-x	root/root	usr/bin/m17n-view
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/m17n-X.h
+-rw-r--r--	root/root	usr/include/m17n-core.h
+-rw-r--r--	root/root	usr/include/m17n-gui.h
+-rw-r--r--	root/root	usr/include/m17n-misc.h
+-rw-r--r--	root/root	usr/include/m17n.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libm17n-X.a
+-rwxr-xr-x	root/root	usr/lib/libm17n-X.la
+lrwxrwxrwx	root/root	usr/lib/libm17n-X.so -> libm17n-X.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libm17n-X.so.0 -> libm17n-X.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libm17n-X.so.0.1.0
+-rw-r--r--	root/root	usr/lib/libm17n-core.a
+-rwxr-xr-x	root/root	usr/lib/libm17n-core.la
+lrwxrwxrwx	root/root	usr/lib/libm17n-core.so -> libm17n-core.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libm17n-core.so.0 -> libm17n-core.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libm17n-core.so.0.1.0
+-rw-r--r--	root/root	usr/lib/libm17n-gd.a
+-rwxr-xr-x	root/root	usr/lib/libm17n-gd.la
+lrwxrwxrwx	root/root	usr/lib/libm17n-gd.so -> libm17n-gd.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libm17n-gd.so.0 -> libm17n-gd.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libm17n-gd.so.0.1.0
+-rw-r--r--	root/root	usr/lib/libm17n-gui.a
+-rwxr-xr-x	root/root	usr/lib/libm17n-gui.la
+lrwxrwxrwx	root/root	usr/lib/libm17n-gui.so -> libm17n-gui.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libm17n-gui.so.0 -> libm17n-gui.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libm17n-gui.so.0.1.0
+-rw-r--r--	root/root	usr/lib/libm17n.a
+-rwxr-xr-x	root/root	usr/lib/libm17n.la
+lrwxrwxrwx	root/root	usr/lib/libm17n.so -> libm17n.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libm17n.so.0 -> libm17n.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libm17n.so.0.1.0
+-rw-r--r--	root/root	usr/lib/libmimx-anthy.a
+-rwxr-xr-x	root/root	usr/lib/libmimx-anthy.la
+lrwxrwxrwx	root/root	usr/lib/libmimx-anthy.so -> libmimx-anthy.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libmimx-anthy.so.0 -> libmimx-anthy.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libmimx-anthy.so.0.1.0
+-rw-r--r--	root/root	usr/lib/libmimx-ispell.a
+-rwxr-xr-x	root/root	usr/lib/libmimx-ispell.la
+lrwxrwxrwx	root/root	usr/lib/libmimx-ispell.so -> libmimx-ispell.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/libmimx-ispell.so.0 -> libmimx-ispell.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/libmimx-ispell.so.0.1.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/m17n-core.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/m17n-gui.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/m17n-shell.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/fonts/
+drwxr-xr-x	root/root	usr/share/fonts/m17n/
+-rw-r--r--	root/root	usr/share/fonts/m17n/fonts.dir
+-rw-r--r--	root/root	usr/share/fonts/m17n/m17n-nr14.bdf
+-rw-r--r--	root/root	usr/share/fonts/m17n/m17n-nr14.pcf
+-rw-r--r--	root/root	usr/share/fonts/m17n/m17n-nr20.bdf
+-rw-r--r--	root/root	usr/share/fonts/m17n/m17n-nr20.pcf

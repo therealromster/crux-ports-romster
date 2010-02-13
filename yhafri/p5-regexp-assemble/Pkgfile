@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to parse Uniform Resource Identifiers
+# URL: http://search.cpan.org/~gaas/URI-1.33/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-regexp-assemble
+version=0.32
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DL/DLAND/Regexp-Assemble-$version.tar.gz)
+
+build () {
+	cd Regexp-Assemble-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

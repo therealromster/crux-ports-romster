@@ -1,0 +1,20 @@
+# $Id: $
+# Description: PDF writer abstraction layer
+# URL: http://search.cpan.org/~rkinyon/PDF-Writer-0.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-pdf-writer
+version=0.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RK/RKINYON/PDF-Writer-$version.tar.gz)
+
+build () {
+	cd PDF-Writer-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

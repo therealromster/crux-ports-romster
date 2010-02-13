@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Java parser generator
+# URL: http://sablecc.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant
+
+name=sablecc
+version=3.2
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version-src.tar.gz)
+
+build () {
+	cd $name-$version
+
+	ant jar
+	install -D lib/$name.jar $PKG/usr/lib/$name.jar
+
+	chown -R root:root $PKG
+}

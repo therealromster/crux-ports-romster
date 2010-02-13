@@ -1,0 +1,13 @@
+POST-INSTALL:
+		* Create the ipod directory and update /etc/fstab:
+		# mkdir -p /mnt/ipod
+		# echo "/dev/sda2 /ipod vfat rw,user,noauto  0 5" >> /etc/fstab
+
+USAGE:
+		* Have a look to the following pointers:
+		http://changelog.complete.org/posts/495-An-iPod-under-Linux.html
+		http://people.csail.mit.edu/adonovan/hacks/ipod.html
+		http://www.cavecanen.org/linux/ipod/
+		http://www.linuxjournal.com/article/8160
+
+	

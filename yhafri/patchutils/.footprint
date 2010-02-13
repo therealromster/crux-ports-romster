@@ -1,0 +1,32 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/combinediff -> interdiff
+-rwxr-xr-x	root/root	usr/bin/dehtmldiff
+-rwxr-xr-x	root/root	usr/bin/editdiff
+-rwxr-xr-x	root/root	usr/bin/espdiff
+-rwxr-xr-x	root/root	usr/bin/filterdiff
+-rwxr-xr-x	root/root	usr/bin/fixcvsdiff
+lrwxrwxrwx	root/root	usr/bin/flipdiff -> interdiff
+lrwxrwxrwx	root/root	usr/bin/grepdiff -> filterdiff
+-rwxr-xr-x	root/root	usr/bin/interdiff
+lrwxrwxrwx	root/root	usr/bin/lsdiff -> filterdiff
+-rwxr-xr-x	root/root	usr/bin/recountdiff
+-rwxr-xr-x	root/root	usr/bin/rediff
+-rwxr-xr-x	root/root	usr/bin/splitdiff
+-rwxr-xr-x	root/root	usr/bin/unwrapdiff
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/combinediff.1.gz
+-rw-r--r--	root/root	usr/man/man1/dehtmldiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/editdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/espdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/filterdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/fixcvsdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/flipdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/grepdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/interdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/lsdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/recountdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/rediff.1.gz
+-rw-r--r--	root/root	usr/man/man1/splitdiff.1.gz
+-rw-r--r--	root/root	usr/man/man1/unwrapdiff.1.gz

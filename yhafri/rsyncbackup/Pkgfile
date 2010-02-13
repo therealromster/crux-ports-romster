@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A perlscript interface to rsync
+# URL: http://rsyncbackup.erlang.no/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, rsync
+
+name=rsyncbackup
+version=7
+release=1
+source=(http://$name.erlang.no/$name.zip)
+
+build () {
+	mkdir -p $PKG/etc
+	cd $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	cp -rf config $PKG/etc/$name
+
+	chown -R root:root $PKG
+}

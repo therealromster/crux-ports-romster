@@ -1,0 +1,30 @@
+# $Id: $
+# Description: C implementation of HMMs used for information extraction in Cora
+# URL: http://www.cs.umass.edu/~mccallum/code-data.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: bow
+
+name=cora-hmm
+version=1
+release=1
+source=(http://www.cs.umass.edu/~mccallum/data/$name.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd hmm/src
+	patch -p0<$SRC/$name-$version.patch
+
+	make
+	ar rc $name.a model.o basic.o viterbi.o lm.o command.o socket.o merge.o queue.o bw.o smooth.o
+	ranlib $name.a
+
+	install -D -m 644 general.h $PKG/usr/include/general.h
+	install -D -m 644 $name.a   $PKG/usr/lib/$name.a
+
+	install -D -m 755 bmm       $PKG/usr/bin/bmm
+	install -D -m 755 evaluate  $PKG/usr/bin/evaluate
+	install -D -m 755 train_hmm $PKG/usr/bin/train_hmm
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Extremely fast library for floating-point convolution
+# URL: http://cr.yp.to/djbfft.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=djbfft
+version=0.76
+release=1
+source=(http://cr.yp.to/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	cd $name-$version
+	
+	sed -i "s|/usr/local/$name|$PKG/usr/lib/$name|" conf-home
+
+	patch -p1<../$name-$version.patch
+
+	make
+	make setup check
+
+	chown -R root:root $PKG
+}

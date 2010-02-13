@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Securely Erase Files
+# URL: http://jeenyus.net/~budney/linux/software/fwipe.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=fwipe
+version=0.35
+release=1
+source=(http://freshmeat.net/redir/fwipe/2984/url_tgz/$name-$version.tar.gz \
+        $name-$version.patch)
+
+build () {
+	cd $name-$version
+        sed -i "s|/usr/local|$PKG/usr/lib/$name|" conf-home
+
+	patch -p1<../$name-$version.patch
+	
+	make 
+
+	install -D -m 755 ${name}0 $PKG/usr/bin/$name
+	gzip -9 $name.1; install -D -m 644 $name.1.gz $PKG/usr/man/man1/$name.1.gz
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Open Clip Art
+# URL: http://cabbage.ucsd.edu/openclipart/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=openclipart
+version=0.18
+release=1
+source=(http://www.$name.org/downloads/$version/$name-$version-full.tar.bz2)
+
+build () {
+    	mkdir -p $PKG/usr/share/pixmaps/$name
+
+	cd $name-$version-full
+	sed -i "s|INSTALL = /bin/install -c|INSTALL = /usr/bin/install -c|" Makefile
+
+    	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

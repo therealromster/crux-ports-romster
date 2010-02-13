@@ -1,0 +1,20 @@
+# Description: Exposé for KDE
+# URL: http://developer.berlios.de/projects/kompose
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, imlib2
+
+name=kompose
+version=0.5.3
+release=2
+source=(http://download.berlios.de/kompose/kompose-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure	--prefix=/usr  \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

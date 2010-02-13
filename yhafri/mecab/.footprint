@@ -1,0 +1,29 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mecab
+-rwxr-xr-x	root/root	usr/bin/mecab-config
+-rwxr-xr-x	root/root	usr/bin/mkmecabdic
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/mecabrc
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/mecab.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libmecab.a
+-rwxr-xr-x	root/root	usr/lib/libmecab.la
+lrwxrwxrwx	root/root	usr/lib/libmecab.so -> libmecab.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libmecab.so.0 -> libmecab.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libmecab.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/mecab/
+drwxr-xr-x	root/root	usr/lib/mecab/dic/
+drwxr-xr-x	root/root	usr/lib/mecab/dic/ipadic/
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/connect.csv
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/da.me
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/dic.csv
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/dicrc
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/feature.me
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/info.me
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/matrix.me
+-rw-r--r--	root/root	usr/lib/mecab/dic/ipadic/token.me
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mecab.1.gz

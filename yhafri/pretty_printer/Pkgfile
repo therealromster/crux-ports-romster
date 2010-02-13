@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Hack for source code formationg
+# URL: http://yhafri.club.fr/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: a2ps, pstopdf
+
+name=pretty_printer
+version=1
+release=1
+source=($name list)
+
+build () {
+	install -D -m 755 list $PKG/usr/bin/list
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

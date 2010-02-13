@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Monitor the current weather
+# URL: http://www.godisch.de/debian/wmweather/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, curl
+
+name=wmweather
+version=2.4.3
+release=1
+source=(http://www.godisch.de/debian/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version/src
+	./configure --prefix=/usr \
+		    --with-x \
+		    --with-xmessage 
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

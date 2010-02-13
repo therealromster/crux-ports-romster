@@ -1,0 +1,21 @@
+# Description: implements double buffering and can be used to keep backup tapes streaming or printers printing
+# URL: http://linux.about.com/cs/linux101/g/buffer.htm
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=buffer
+version=1.19
+release=1
+source=(ftp://ftp.freebsd.org/pub/FreeBSD/ports/distfiles/$name-$version.tgz \
+    buffer-1.19.patch)
+
+build() {
+    cd $name-$version
+    make clean
+    patch -i $SRC/$name-$version.patch
+    make
+    install -D -m 755 buffer $PKG/usr/bin/buffer
+    mv buffer.man buffer.man1
+    gzip buffer.man1
+    install -D -m 644 buffer.man1.gz $PKG/usr/man/man1/buffer.man1.gz
+}

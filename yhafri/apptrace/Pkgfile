@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Straces any application
+# URL: http://www.stearns.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=apptrace
+version=0.1.0
+release=1
+source=(http://www.stearns.org/$name/$name.v$version)
+
+build () {
+
+	install -D -m 755 $name.v$version $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

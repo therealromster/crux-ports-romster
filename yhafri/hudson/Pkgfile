@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Extensible continuous integration engine
+# URL: http://hudson.gotdns.com/wiki/display/HUDSON/Home
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, apache-tomcat, curl
+
+name=hudson
+version=1.120
+release=1
+source=()
+
+build () {
+	curl -o $name.war https://$name.dev.java.net/files/documents/2402/62345/$name.war
+
+	install -D -m 755 $name.war $PKG/usr/lib/tomcat/$name.war
+
+	chown -R root:root $PKG
+}

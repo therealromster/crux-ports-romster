@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A tool for constructing files
+# URL: http://www.canb.auug.org.au/~millerp/cook/cook.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cook
+version=2.29
+release=1
+source=(http://miller.emu.id.au/pmiller/software/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls	
+
+	make
+	make RPM_BUILD_ROOT=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,31 @@
+# Description: an offline Web and e-book viewer for Palm OS
+# URL: http://www.plkr.org 
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: pilot-link, python-imaging, netpbm, jpeg-tools, imagemagick
+
+name=plucker
+version=1.8
+release=2
+source=(http://downloads.plkr.org/$version/plucker_parser-$version.tar.bz2\  
+http://downloads.plkr.org/$version/plucker_viewer_nonhires-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	
+	mkdir -p $PKG/usr/lib/python/site-package
+	cp -r PyPlucker $PKG/usr/lib/python/site-package
+	
+	mkdir -p $PKG/usr/share/plucker/{config,palm}
+	cp exclusionlist.txt home.html pluckerrc.sample\
+	  $PKG/usr/share/plucker/config
+# Old #	cp ../viewer/*.p?? $PKG/usr/share/plucker/palm
+	cp *.p?? $PKG/usr/share/plucker/palm
+	mkdir -p $PKG/usr/bin
+	cd $PKG/usr/bin
+	ln -s ../../usr/lib/python/site-package/PyPlucker/Spider.py\
+	  ./spider
+#	gzip *.1
+#	mkdir -p $PKG/usr/man/man1; cp *.gz $PKG/usr/man/man1
+#	rm $PKG/usr/*/*/{AUTHORS,COPYING,CREDITS,README}
+}

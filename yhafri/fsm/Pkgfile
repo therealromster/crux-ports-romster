@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Finit State Machine Tools
+# URL: http://www.stanford.edu/~laurik/fsmbook/home.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=fsm
+version=1
+release=1
+source=()
+
+build () {
+	cd $name
+	install -D -m 755 lexc     $PKG/usr/bin/lexc
+	install -D -m 755 lookup   $PKG/usr/bin/lookup
+	install -D -m 755 tokenize $PKG/usr/bin/tokenize
+	install -D -m 755 twolc    $PKG/usr/bin/twolc
+	install -D -m 755 xfst     $PKG/usr/bin/xfst
+	chown -R root:root $PKG
+}
+

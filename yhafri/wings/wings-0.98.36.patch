@@ -1,0 +1,11 @@
+--- wings-0.98.32/plugins_src/accel/Makefile	2005-04-06 20:11:46.000000000 +0200
++++ wings-0.98.32/plugins_src/accel/Makefile-new	2005-11-23 12:47:47.000000000 +0100
+@@ -33,7 +33,7 @@
+    GL_LIBS =
+  else
+    LIBS = -shared -fpic
+-   GL_LIBS = -lGLU -lGL
++   GL_LIBS = -L/usr/X11R6/lib -lGLU -lGL
+  endif
+ endif
+ 

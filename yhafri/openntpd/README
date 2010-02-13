@@ -1,0 +1,7 @@
+The upcoming ntpd(8)  program needs a new user and group _ntp. Add the group by running
+
+  # groupadd -g 83 _ntp
+
+as root, and add the user entry using vipw(8):
+
+  _ntp:x:83:83::/var/empty:/sbin/nologin

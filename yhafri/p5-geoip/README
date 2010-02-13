@@ -1,0 +1,16 @@
+POST-INSTALL:
+
+		* How to install GeoIP Country
+		(http://www.maxmind.com/app/install_country)
+
+		Here is a brief outline of the steps needed to install GeoIP Country on 
+		Linux/Unix.
+
+		First, register and download the GeoIP database tarball and run the following
+		commands:
+
+		# tar xvfz GeoIP-106_20050726.tar.gz
+		# mv GeoIP-106_20050726/GeoIP-106_20050726.dat /usr/local/share/GeoIP/GeoIP.dat
+
+		* If you don't register, you'll use an older database version (feb 2005).
+

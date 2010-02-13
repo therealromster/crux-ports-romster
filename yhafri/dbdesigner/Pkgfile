@@ -1,0 +1,43 @@
+# $Id: $
+# Description: A visual database design system
+# URL: http://www.fabforce.net/dbdesigner4/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: qt3, mysql
+
+name=dbdesigner
+version=0.5.4
+release=1
+source=(http://213.115.162.124/external/DBDesigner4/DBDesigner4.$version.tar.gz \
+	$name-$version.patch \
+	$name)
+
+build () {
+	patch -p0 < $SRC/$name-$version.patch
+
+	install -d $PKG/usr/lib
+	
+	rm -rf DBDesigner4/Examples
+
+	(
+	 cd DBDesigner4/Linuxlib
+  	 ln -s bplrtl.so.6.9.0 bplrtl.so.6.9
+	 ln -s dbxres.en.1.0 dbxres.en.1
+  	 ln -s libmidas.so.1.0 libmidas.so.1
+  	 ln -s libmysqlclient.so.10.0.0 libmysqlclient.so
+  	 ln -s libqt.so.2.3.2 libqt.so.2
+  	 ln -s libqtintf-6.9.0-qt2.3.so libqtintf-6.9-qt2.3.so
+  	 ln -s libsqlmy23.so.1.0 libsqlmy23.so
+  	 ln -s libsqlmy23.so libsqlmy.so
+  	 ln -s libsqlora.so.1.0 libsqlora.so
+  	 ln -s libDbxSQLite.so.2.8.5 libDbxSQLite.so
+  	 ln -s liblcms.so.1.0.9 liblcms.so
+  	 ln -s libpng.so.2.1.0.12 libpng.so.2
+  	 ln -s libstdc++.so.5.0.0 libstdc++.so.5
+  	)
+
+	mv DBDesigner4 $PKG/usr/lib/$name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Recording and replaying keyboard and mouse events on an X server
+# URL: http://xmacro.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xmacro
+version=pre0.3-20000911
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+
+    	strip xmacrorec;  install -D -m 755 xmacrorec  $PKG/usr/bin/${name}rec
+	strip xmacrorec2; install -D -m 755 xmacrorec2 $PKG/usr/bin/${name}rec2
+ 	strip xmacroplay; install -D -m 755 xmacroplay $PKG/usr/bin/${name}play
+	install -D -m 755 run        $PKG/usr/bin/${name}run
+
+	chown -R root:root $PKG
+}

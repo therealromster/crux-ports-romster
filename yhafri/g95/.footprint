@@ -1,0 +1,20 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/f90 -> g95
+-rwxr-xr-x	root/root	usr/bin/g95
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gcc-lib/
+drwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/
+drwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/
+lrwxrwxrwx	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/cc1 -> f951
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/crtbegin.o
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/crtbeginS.o
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/crtbeginT.o
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/crtend.o
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/crtendS.o
+-rwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/f951
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/libf95.a
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/libgcc.a
+-rw-rw-r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/libgcc_eh.a
+lrwxrwxrwx	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/libgcc_s.so -> libgcc_s.so.1
+-rwxrwxr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/4.0.3/libgcc_s.so.1

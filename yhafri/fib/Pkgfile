@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Fibonacci Heap library
+# URL: http://resnet.uoregon.edu/~gurney_j/jmpc/fib.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=fib
+version=1.1
+release=1
+source=(http://resnet.uoregon.edu/~gurney_j/jmpc/dist/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

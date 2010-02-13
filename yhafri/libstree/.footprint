@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libstree.h
+drwxr-xr-x	root/root	usr/include/stree/
+-rw-r--r--	root/root	usr/include/stree/lst_algorithms.h
+-rw-r--r--	root/root	usr/include/stree/lst_macros.h
+-rw-r--r--	root/root	usr/include/stree/lst_stree.h
+-rw-r--r--	root/root	usr/include/stree/lst_string.h
+-rw-r--r--	root/root	usr/include/stree/lst_structs.h
+-rw-r--r--	root/root	usr/include/stree/lst_timestamp.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libstree.a
+-rwxr-xr-x	root/root	usr/lib/libstree.la
+lrwxrwxrwx	root/root	usr/lib/libstree.so -> libstree.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libstree.so.0 -> libstree.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libstree.so.0.0.0

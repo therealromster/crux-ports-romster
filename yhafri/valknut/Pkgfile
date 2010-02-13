@@ -1,0 +1,23 @@
+# Description: a QT Direct Connect client
+# URL: http://dcgui.berlios.de/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: dclib
+
+name=valknut
+version=0.3.7
+release=2
+source=(http://download.berlios.de/dcgui/dc-$version.tar.bz2 \
+    valknut-0.3.7-gcc4.patch)
+
+build() {
+    cd $name-$version
+    patch -p1 -i $SRC/valknut-0.3.7-gcc4.patch
+    export QTDIR=/usr/share/qt
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

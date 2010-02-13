@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/archer
+-rwxr-xr-x	root/root	usr/bin/arrow
+-rwxr-xr-x	root/root	usr/bin/crossbow
+-rwxr-xr-x	root/root	usr/bin/rainbow
+-rwxr-xr-x	root/root	usr/bin/rainbow-ac
+-rwxr-xr-x	root/root	usr/bin/rainbow-be
+-rwxr-xr-x	root/root	usr/bin/rainbow-pr
+-rwxr-xr-x	root/root	usr/bin/rainbow-rank
+-rwxr-xr-x	root/root	usr/bin/rainbow-stats
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/bow/
+-rw-r--r--	root/root	usr/include/bow/libbow.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libargp.a
+-rw-r--r--	root/root	usr/lib/libbow.a

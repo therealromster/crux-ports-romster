@@ -1,0 +1,48 @@
+# $Id: $
+# Description: A sophisticated Object-Relational DBMS
+# URL: http://www.postgresql.org
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Maintainer: Martin Opel, mo at obbl-net dot de
+# Depends on: tcl, perl, python, openssl
+
+name=postgresql
+version=8.2.4
+release=1
+source=(ftp://ftp.fr.postgresql.org/source/v$version/$name-$version.tar.bz2 \
+	$name.conf \
+	$name)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --enable-syslog \
+		    --enable-depend \
+		    --with-gnu-ld \
+		    --with-maxbackends=1024 \
+		    --with-tcl \
+		    --with-perl \
+		    --with-python \
+		    --with-openssl \
+	            --enable-multibyte \
+		    --with-CXX
+	
+	make
+	make DESTDIR=$PKG install
+	for language in perl python;
+	do
+	   (
+	    cd src/pl/pl$language
+            make clean
+	    make all
+	    make DESTDIR=$PKG install
+           )
+	done
+	
+	#make DESTDIR=$PKG install-all-headers
+	rm -rf $PKG/usr/doc
+	
+	mkdir -p $PKG/etc/rc.d/
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+}

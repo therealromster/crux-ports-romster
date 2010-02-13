@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Perl interface to Snowball stemmers
+# URL: http://search.cpan.org/~fabpot/Lingua-Stem-Snowball-0.91/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-extutils-parsexs, p5-module-build
+
+name=p5-lingua-stem-snowbal
+version=0.941
+release=1
+source=(ftp://ftp.club-internet.fr/pub/perl/CPAN/authors/id/C/CR/CREAMYG/Lingua-Stem-Snowball-$version.tar.gz)
+
+build () {
+	cd Lingua-Stem-Snowball-$version
+	#perl Makefile.PL
+	perl Build.PL --destdir ${PKG}
+	#make OPTIMIZE="${CFLAGS}"
+	./Build
+	#make DESTDIR=${PKG} install
+	./Build install --destdir ${PKG}
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

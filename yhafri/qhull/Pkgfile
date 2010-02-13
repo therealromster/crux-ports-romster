@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Library which computes the convex hull, Delaunay triangulation, Voronoi diagram, etc.
+# URL: http://www.qhull.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=qhull
+version=2003.1
+release=1
+source=(http://www.qhull.org/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

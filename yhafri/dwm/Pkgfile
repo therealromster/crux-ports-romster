@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Dynamic window manager
+# URL: http://dwm.suckless.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dwm
+version=3.2.2
+release=1
+source=(http://libs.suckless.org/download/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/usr/local/* $PKG/usr
+	rm -rf $PKG/usr/local
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Erlang SMTP client
+# URL: http://forum.trapexit.org/viewtopic.php?t=6877
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=smtp_client
+version=1
+release=1
+source=($name.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	erl -make
+
+	mv $name.erl  $PKG/usr/lib/erlang/lib/$name-$version/src/
+	mv $name.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin/
+	
+	chown -R root:root $PKG
+}

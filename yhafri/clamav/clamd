@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# /etc/rc.d/clamd: start/stop clam daemon
+#
+if [ "$1" = "start" ]; then
+    /usr/sbin/clamd --config-file=/etc/clamd.conf
+    /usr/bin/freshclam -d --config-file=/etc/freshclam.conf
+elif [ "$1" = "stop" ]; then
+    /usr/bin/killall -qw /usr/sbin/clamd
+    /usr/bin/killall -qw /usr/bin/freshclam
+elif [ "$1" = "restart" ]; then
+    $0 stop
+    /usr/bin/sleep 1
+    $0 start
+else
+    echo "usage: $0 start|stop|restart"
+fi
+
+# End of file

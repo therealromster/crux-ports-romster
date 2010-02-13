@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Perl routines to mint and manage nice opaque identifiers
+# URL: http://search.cpan.org/~jak/Noid-0.422
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: db
+
+name=p5-noid
+version=0.423
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JA/JAK/Noid-$version.tar.gz)
+
+
+build () {
+	cd Noid-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

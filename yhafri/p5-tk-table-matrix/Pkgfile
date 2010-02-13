@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl Tk TableMatrix Widget
+# URL: http://search.cpan.org/~cerney/Tk-TableMatrix-1.2/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tk-table-matrix
+version=1.2
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CE/CERNEY/Tk-TableMatrix-$version.tar.gz)
+
+build () {
+	cd Tk-TableMatrix-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

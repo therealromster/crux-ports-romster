@@ -1,0 +1,38 @@
+# $Id: $
+# Description: A multilingual terminal emulator on X11
+# URL: http://mlterm.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, fribidi, gtk, imlib, freetype, ae_fonts_mono, m17n
+
+name=mlterm
+version=2.9.2
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+        	    --libexecdir=/usr/lib/mlterm \
+		    --with-type-engines=xcore,xft \
+        	    --with-x \
+        	    --enable-optimize-redrawing \
+        	    --with-scrollbars \
+        	    --with-tools \
+		    --enable-static=no \
+        	    --enable-fribidi \
+        	    --enable-m17nlib \
+       		    --enable-iiimf \
+		    --enable-utmp \
+        	    --enable-uim \
+		    --enable-imlib \
+        	    --with-imagelib=gdk-pixbuf2 \
+		    --enable-anti-alias \
+        	    --disable-nls
+
+	make
+    	make DESTDIR=$PKG install
+
+    	chown -R root:root $PKG
+}

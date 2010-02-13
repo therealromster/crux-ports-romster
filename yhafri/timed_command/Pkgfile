@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A utility to run a command with a timeout
+# URL: http://samba.org/junkcode/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=timed_command
+version=1
+release=1
+source=($name.c $name.patch)
+
+build () {
+	patch -p0 < $name.patch
+	gcc -o $name $name.c
+
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

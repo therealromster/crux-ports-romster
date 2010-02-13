@@ -1,0 +1,28 @@
+# $Id: $
+# Description: DNS resolver library with ability to perform both syncronous and asyncronous DNS queries
+# URL: http://www.corpit.ru/mjt/udns.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=udns
+version=0.0.8
+release=1
+source=(http://www.corpit.ru/mjt/$name/${name}_${version}.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/man/man3
+	cd $name-$version
+
+	make
+
+	install -D -m 755 ex-rdns    $PKG/usr/bin/ex-rdns
+	install -D -m 755 rblcheck   $PKG/usr/bin/rblcheck
+	install -D -m 755 dnsget     $PKG/usr/bin/dnsget
+	install -D -m 644 lib$name.a $PKG/usr/lib/lib$name.a
+	install -D -m 644 $name.h    $PKG/usr/include/$name.h
+
+	cp $name.3 $PKG/usr/man/man3
+
+	chown -R root:root $PKG
+}

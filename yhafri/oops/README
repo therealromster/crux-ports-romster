@@ -1,0 +1,280 @@
+PRE-INSTALL:
+		* Create a user under which uid Oops! will run
+		* Export that name:
+		# export OOPS_USER_NAME=my_oops_users		
+		# pkgmk -d -i
+USAGE:
+-----
+
+* vi /usr/oops/oops.cfg - change settings (nameservers, path to storages, acl, peers,...)
+
+* ./oops -z -c oops.cfg - format storages.
+
+* ./oops -c oops.cfg    - run proxy
+
+
+WARNING!!!!: If you upgrade from version prior to 1.5.0 to any later -
+reformat your storages and remove database files. Format of data on disk
+changed.
+
+
+Config for WCCP2.
+----------------
+
+1. Set up oops for transparent operation.
+   Checklist:
+	enable redir_mods transparent for desired group
+	enable and configure module transparent
+	enable and configure module wccp2
+
+   Example:
+	group myusers {
+		networks 10/8 127/8;
+		...
+		redir_mods transparent;
+	}
+
+	module transparent {
+	#
+	#       myport must be consistent with rules for ipfilter
+	#	i.e. all packets must be forwarded by firewall to this
+	#	"myport"
+	#
+		myport	80
+	}
+	module wccp2 {
+		identity write_your_ip_here
+		service-group web-cache
+        	router 10.0.0.1
+	}
+}
+
+2. Setup firewall on your proxy machine for forwarding packets to proxy.
+   This depends on your firewall. You can use Squid recomendations:
+   http://www.squid-cache.org/Doc/FAQ/FAQ-17.html#trans-freebsd
+
+   If needed - set up proper gre driver. Driver for FreeBSD 4.x you can find
+	direcory contrib.
+
+   Solaris 8 notes: you should install ip_filter 3.4.20 and apply patch to
+   sources, then install gre driver. Read instructions in README from the
+   contrib/sol8_gre.tar.gz
+
+3. Setup your Cisco router
+   In the simpliest case:
+
+   (config)# ip wccp web-cache
+   (config)# interface FastEthernet0/1
+   (config)# ip wccp web-cache redirect out
+   (config)# ^Z
+
+   Note, here FastEthernet0/1 is your interface to the world (e.g.
+   all outgoing traffic go via this interface)
+
+4. Start oops.
+   In several seconds on Cisco you should see
+
+    CS#sh ip wccp web-cache detail 
+    WCCP Cache-Engine information:
+        IP Address:            10.0.0.2
+        Protocol Version:      2.0
+        State:                 Usable
+        Initial Hash Info:     00000000000000000000000000000000
+                               00000000000000000000000000000000
+        Assigned Hash Info:    FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+                               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        Hash Allotment:        256 (100.00%)
+        Packets Redirected:    8982
+        Connect Time:          00:00:10
+
+    CS#sh ip wccp web-cache view   
+        WCCP Routers Informed of:
+        10.0.0.1
+
+        WCCP Cache Engines Visible:
+        10.0.0.2
+
+        WCCP Cache Engines NOT Visible:
+        -none-
+
+5. If something not works.
+   Check that you point out correct ip address for router(s).
+   If not helps - try to run tcpdump...
+
+Useful links:
+http://www.cisco.com/univercd/cc/td/doc/product/software/ios121/121cgcr/fun_c/fcprt3/fcd305.htm
+http://www.cisco.com/univercd/cc/td/doc/product/iaabu/webcache/ce20/ver20/wc20wcc2.htm#xtocid508575
+
+Config for NETFLOW.
+------------------
+
+Setup for netflow is easy. You have to set up collector (cflow, flowtools,
+any other), set it to collect netflow version 5 records.
+
+If you need ASNs in your records then you have to supply netflow module
+with special file which contain route prefixes and ASNs
+This file looks like this
+
+3.0.0.0/24 80
+4.0.0.0/24 3356
+4.17.225.0/24 6496
+4.17.226.0/23 6496
+...
+221.228.0.0/14 4134
+221.232.0.0/14 4134
+221.240.0.0/12 17506
+222.0.0.0/16 2516
+222.1.0.0/16 4732
+222.16.0.0/16 4538
+222.17.0.0/16 4538
+
+This file at the time of writing (Nov 2003) contain near 128000 lines.
+
+To build such file you have to have full internet routing table on your
+router.
+
+You can periodically update this file as routing change. The only important
+thing - updates visible to the module must be atomic. Module must see
+complete file, not updates in progress. You have to create complete new
+file, then remove old file then rename new file to proper name.
+
+FAQ:
+----
+
+Q1. How to force OOPS never go'DIRECT'?
+A1. There are 2 ways:
+    1) to use parent directive (not the one mentioned in the icp-peer description,
+       but that one which is 'parent xxx.yyy.zzz 3128')
+       In this case 
+       a) ALL requests (except for ones occurring in local-domain or local-networks)
+    	  will be satisfied through parent.
+       b) no icp-requests are sent
+       c) if there is no use of local-networks directive in oops.cfg,
+          then no attempts to resolve names will be made.
+       d) Requests to hosts occurring in local-domain or local-networks
+          are satisfied directly.
+
+    2) to use icp-peer parent description. In this case on getting
+       the request from a client, icp-request is sent to all icp-peer (both
+       parent and sibling). On receiving a 'HIT' reply from anywhere 
+        - we go there. Only if we get 'MISS' we go to the parent, being 
+       the quickest of all to have sent 'MISS' reply. And only if there isn't any   
+       reply from parents we go directly. If we assume the latter variant
+       is rather seldom, then oops can be considered to 
+       go always through the fastest parent.
+
+Q2. I compiled it successfully, ran it and I saw the following in oops.log:
+    > -------------------------------------------------------
+    > >>>>[0x400]db_open: Invalid argument                              
+    > [0x400]oops 1.2d Started                                      
+    > [0x400]DB engine by Sleepycat Software: DB 2.4.14: (6/2/98)   
+    At this time nothing is being written in the disk cache. Why is it so? What have I  
+    got to do?
+A2. The problem lies in the fact that OOPS was compiled with the old version of
+    DB library. You've got to install the new version, run configure and
+    make. You can download the fresh version from www.sleepycat.com.
+
+
+Q3. I formatted storages which in their sum should occupy 1Gb, but the free space  
+    volume on the disk was hardly changed, however. And should it be like that?
+A3. Yes, it should. At formatting the following operations take place:
+    1) a storage file is created, if it wasn't made before
+    2) 'super-block' and bitmap are created and get stored in the beginning of the file
+    3) seek on the last file byte of the storage is made and one byte is being written
+       That is - the storage formatted this way represents a "hole"
+       in file system, which will be filled in according to documents' saving. 
+       
+    If you don't like such behavior, it is possible to create storages in advance with 
+the help of the following command:	
+    dd if=/dev/null of=storage ...
+    In this case you'll reserve the necessary space at once.
+    After such dd don't forget, please, to run oops -z for this storage,
+    you know, dd doesn't create any bitmap and superblock...
+
+Q4. How to set up Transparent proxy?
+A4. There are two independent parts of transparent proxy setup: IP packets
+    forwarding setup and proxy setup. The first part is absolutely the same
+    as for Squid.
+
+    Second part is different.
+    1). Uncomment transparent module description in oops.cfg. You will
+	have something like this
+
+        module transparent {
+                myport 3128
+        }
+
+	myport is port where your router will forward packets.
+
+    2) In the description of your local group (for your network) edit
+       line redir_mods: add word 'transparent'. You will have something like
+       this
+
+	redir_mods transparent;
+
+	or
+
+	redir_mods      transparent redir accel;
+
+    If you can - set up ipfilter on your computer, this will allow oops to
+    handle requests which have no 'Host:' header. Oops will authomatically
+    discover ipfilter during ./configure.
+
+    If something goes wrong you will receive error messages "Bad formed URL".
+    To find what is wrong use next steps:
+
+	1) Enter command(substitute with your values):
+
+		telnet proxyhost myport
+
+	   end enter next lines:
+
+		GET / HTTP/1.0<ENTER>
+		Host: www.cnn.com<ENTER>
+		<ENTER>
+
+	   You should get CNN page as responce.  You can (and should) check
+	   this step even before you set up packet forwarding.
+
+	2) Use tcpdump or snoop to check that your forwarding is working
+	   properly.
+
+Q5. How to find which group given address belongs to?
+A5. In the group description you will see two directives:
+    networks and/or networks_acl. networks_acl have higher priority: they are
+    checked first in the order they appear in oops.cfg. If request match
+    networks_acl for some group - we use this group.
+
+    If request will not match any networks_acl, then we use networks.
+    Networks are sorted so that more 'specific' networks checked first.
+    
+    For example, networks
+
+	0/0
+	192.168.0.0/24
+	192.168.0.0/25
+                     
+     will be checked in next order:
+     
+
+        192.168.0.0/25
+        192.168.0.0/24
+        0/0
+
+     so that host 192.168.0.1 will belong to group with 192.168.0.0/25 in
+     description.
+
+Q6. Which platform is best for OOPS?
+A6. I develop and use OOPS under Solaris, and think this is best platform
+    (both intel and sparc). Next and very close go FreeBSD (may-be it is
+    even better on some parameters). Alas, as for today, you can use OOPS
+    under Linux for limited number of simultaneous connections. This is
+    because Linux use model 'one thread-one process', and OOPS use model one
+    'connection-one thread'
+
+Q7. Storages was formatted, no error messaages at startup, but disk cache
+    seems to be empty even after some time.
+A7. OOPS have two-level cache: in-memory and on-disc. Documents are swapped to
+    disc only whn total volume of in-memory cache become larger then lo_mark.
+    So, if uptime of oops is small, or your traffic is small, or you have lo_mark
+    too high you can see no documents in on-disc cache.

@@ -1,0 +1,36 @@
+# $Id: $
+# Description: VideoLAN skins
+# URL: http://www.videolan.org/vlc/download-skins.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: vlc
+
+name=vlc-skins
+version=0.8.2
+release=1
+source=(http://www.videolan.org/vlc/skins/itunes.vlt \
+	http://www.videolan.org/vlc/skins/phoenix.vlt \
+    	http://www.videolan.org/vlc/skins/winamp5.vlt \
+    	http://www.videolan.org/vlc/skins/aquax.vlt \
+    	http://www.videolan.org/vlc/skins/orange.vlt \
+    	http://www.videolan.org/vlc/skins/BSPlayer.vlt \
+    	http://www.videolan.org/vlc/skins/crane.vlt \
+	http://download.videolan.org/vlc/skins/KiND.vlt \
+	http://www.videolan.org/vlc/skins2/WB.vlt \
+	http://www.videolan.org/vlc/skins2/DPlayer.vlt \
+	http://www.videolan.org/vlc/skins2/winamp5.vlt \
+	http://www.videolan.org/vlc/skins2/chaos.vlt \
+	http://www.videolan.org/vlc/skins2/void.vlt \
+	http://www.videolan.org/vlc/skins2/itunes.vlt \
+	http://www.videolan.org/vlc/skins2/solar.vlt \
+	http://www.videolan.org/vlc/skins2/vplayer.vlt \
+	http://www.videolan.org/vlc/skins2/MediaPlayer.zip \
+	http://www.videolan.org/vlc/skins2/psvlc.vlt)
+
+build () {
+	mkdir -p $PKG/usr/share/vlc/skins2
+
+	mv *.vlt $PKG/usr/share/vlc/skins2
+
+    	chown -R root:root $PKG
+}

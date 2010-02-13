@@ -1,0 +1,104 @@
+#!/bin/sh
+
+# From: http://www.speedblue.org/less_color.php
+
+case "$1" in
+    *.e)
+ enscript --color --language=ansi --highlight=eiffel -o - -q "$1"
+ ;;
+    *akefile | *akefile.in | *akefile.am)
+ enscript --color --language=ansi --highlight=makefile -o - -q "$1"
+ ;;
+    *.cc | *.C | *.hh | *.hxx | *.cpp | *.hpp | *.yy | *.ll)
+ enscript --color --language=ansi --highlight=cpp -o - -q "$1"
+ ;;
+    *.c | *.h | *.y | *.l | *.php)
+ enscript --color --language=ansi --highlight=c -o - -q "$1"
+ ;;
+    *.sh)
+ enscript --color --language=ansi --highlight=sh -o - -q "$1"
+ ;;
+    *.tex)
+ enscript --color --language=ansi --highlight=tex -o - -q "$1"
+ ;;
+    *.el)
+ enscript --color --language=ansi --highlight=elisp -o - -q "$1"
+ ;;
+    *.pl | *.pm)
+ enscript --color --language=ansi --highlight=perl -o - -q "$1"
+ ;;
+    *.ada | *.ads | *.adb)
+ enscript --color --language=ansi --highlight=ada -o - -q "$1"
+ ;;
+    *.m | *.mi)
+ enscript --color --language=ansi --highlight=objc -o - -q "$1"
+ ;;
+    *.idl)
+ enscript --color --language=ansi --highlight=idl -o - -q "$1"
+ ;;
+    *.inf)
+ enscript --color --language=ansi --highlight=inf -o - -q "$1"
+ ;;
+    *.awk)
+ enscript --color --language=ansi --highlight=awk -o - -q "$1"
+ ;;
+    *.bash)
+ enscript --color --language=ansi --highlight=bash -o - -q "$1"
+ ;;
+    *.csh)
+ enscript --color --language=ansi --highlight=csh -o - -q "$1"
+ ;;
+    *.ksh)
+ enscript --color --language=ansi --highlight=ksh -o - -q "$1"
+ ;;
+    *.sql)
+ enscript --color --language=ansi --highlight=sql -o - -q "$1"
+ ;;
+    *.pas | *.dpk | *.pce)
+ enscript --color --language=ansi --highlight=delphi -o - -q "$1"
+ ;;
+    *.java)
+ enscript --color --language=ansi --highlight=java -o - -q "$1"
+ ;;
+    *.f | *.for | *.FOR | *.F | *.fpp | *.FPP)
+ enscript --color --language=ansi --highlight=fortran -o - -q "$1"
+ ;;
+    *.lhs | *.hs)
+ enscript --color --language=ansi --highlight=haskell -o - -q "$1"
+ ;;
+    *.m4)
+ enscript --color --language=ansi --highlight=m4 -o - -q "$1"
+ ;;
+    *.js)
+ enscript --color --language=ansi --highlight=javascript -o - -q "$1"
+ ;;
+    *.vhdl)
+ enscript --color --language=ansi --highlight=vhdl -o - -q "$1"
+ ;;
+    *.vrml)
+ enscript --color --language=ansi --highlight=vrml -o - -q "$1"
+ ;;
+    Changelog)
+ enscript --color --language=ansi --highlight=changelog -o - -q "$1"
+ ;;
+    *.html | *.htm)
+ html2text "$1"
+ ;;
+    *.ps | *.pdf)
+ pstotext "$1"
+ ;;
+    *.patch.gz | *.diff.gz)
+ gunzip -c "$1" | enscript --color --language=ansi --highlight=diff -o - 
+-q -
+ ;;
+    *.patch | *.diff)
+ enscript --color --language=ansi --highlight=diff -o - -q "$1"
+ ;;
+    *) # We don't handle this format.
+ exit 1
+ ;;
+esac
+
+# No further processing by lesspipe necessary
+
+exit

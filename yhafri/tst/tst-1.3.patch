@@ -1,0 +1,20 @@
+--- tst1.3/Makefile.in	2000-03-25 14:20:05.000000000 +0100
++++ tst1.3/Makefile.in-new	2006-10-07 11:26:33.000000000 +0200
+@@ -4,7 +4,7 @@
+ 
+ srcdir = @srcdir@
+ prefix = @prefix@
+-execprefix = @exec_prefix@
++execprefix = @prefix@
+ includedir = @includedir@
+ libdir = @libdir@
+ mandir = @mandir@
+@@ -29,7 +29,7 @@
+ 	${SHELL} ${srcdir}/mkinstalldirs ${libdir} ${includedir} ${mandir}/man8
+ 
+ install:	all installdirs
+-	${INSTALL_PROGRAM} ${srcdir}/libtst.a ${libdir}/libtst.a
++	${INSTALL_PROGRAM} ${srcdir}/libtst.a ${PKG}/usr/${libdir}/libtst.a
+ 	${INSTALL_PROGRAM} ${srcdir}/tst.h ${includedir}/tst.h
+ 	for i in ${MANPAGES}; do \
+ 	 ${INSTALL_PROGRAM} $$i ${mandir}/man8/$$i; \

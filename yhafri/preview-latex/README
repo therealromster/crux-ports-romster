@@ -1,0 +1,12 @@
+POST-INSTALL:
+
+		* Add the following lines to your ~/.emacs config file:
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		;
+		;   PREVIEW-LATEX MODE 
+		;
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		;(load "preview-latex.el" nil t t)
+		(autoload 'preview-mode
+		"/usr/share/emacs/site-lisp/preview/preview.el"
+		"PreviewLaTeX, a minor-mode WYSIWIG environment for LaTeX" t)

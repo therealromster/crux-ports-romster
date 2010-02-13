@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to perform coverage analysis
+# URL: http://search.cpan.org/~pjcj/Devel-Cover-0.55/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-storable, 5-digest-md5 
+
+name=p5-devel-cover
+version=0.55
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/P/PJ/PJCJ/Devel-Cover-$version.tar.gz)
+
+build () {
+	cd Devel-Cover-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

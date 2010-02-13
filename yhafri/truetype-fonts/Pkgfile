@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Cool TrueType fonts
+# URL: http://www.themedepot.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, chkfontpath, ttmkfdir
+
+name=truetype-fonts
+version=4.82
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/share/fonts/truetype
+        wget http://www.themedepot.org/tarballs/482-truetype_collection.tar.gz
+        unzip -a 482-truetype_collection.tar.gz
+	mv TTFnuovi/* $PKG/usr/share/fonts/truetype
+	chown -R root:root $PKG
+}

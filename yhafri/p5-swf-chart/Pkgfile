@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the SWF Chart generation tool
+# URL: http://search.cpan.org/~garth/SWF-Chart-1.3/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-swf-chart
+version=1.3
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GA/GARTH/SWF-Chart-$version.tar.gz)
+
+build () {
+	cd SWF-Chart-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

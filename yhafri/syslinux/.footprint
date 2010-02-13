@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/extlinux
+-rwxr-xr-x	root/root	usr/bin/gethostip
+-rwxr-xr-x	root/root	usr/bin/lss16toppm
+-rwxr-xr-x	root/root	usr/bin/ppmtolss16
+-rwxr-xr-x	root/root	usr/bin/syslinux
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/syslinux/
+-rw-r--r--	root/root	usr/lib/syslinux/copybs.com
+-rw-r--r--	root/root	usr/lib/syslinux/isolinux-debug.bin
+-rw-r--r--	root/root	usr/lib/syslinux/isolinux.bin
+-rw-r--r--	root/root	usr/lib/syslinux/mbr.bin
+-rw-r--r--	root/root	usr/lib/syslinux/memdisk
+-rw-r--r--	root/root	usr/lib/syslinux/pxelinux.0
+-rw-r--r--	root/root	usr/lib/syslinux/syslinux.com

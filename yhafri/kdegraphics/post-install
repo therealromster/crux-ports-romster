@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# this updates TeTeX's database--needed for kdvi to function properly
+/usr/bin/texhash

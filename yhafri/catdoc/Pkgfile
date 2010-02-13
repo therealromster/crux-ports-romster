@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A program which reads one or more Microsoft word files and outputs text
+# URL: http://www.45.free.net/~vitus/software/catdoc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=catdoc
+version=0.94.2
+release=1
+source=(http://ftp.45.free.net/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	#rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Check validity of Internet email addresses 
+# URL: http://search.cpan.org/~rjbs/Email-Valid-0.176/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-net-dns
+
+name=p5-email-valid
+version=0.176
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Email-Valid-$version.tar.gz)
+
+build () {
+	cd Email-Valid-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

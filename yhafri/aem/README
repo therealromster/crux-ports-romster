@@ -1,0 +1,24 @@
+INSTALL:
+
+		* AEM works only with kernel 2.6.6. You need
+		to install the kernel 2.6.6 and apply the 
+		patch linux-2.6.6-aem-15r10.patch to it.
+		
+		# cd /usr/src/linux-2.6.6
+		# patch -p1 < /usr/ports/yhafri/aem/linux-2.6.6-aem-15r10.patch
+
+		* Before compiling the kernel, make sure that kernel preemption
+		was disabled:
+
+		# make menuconfig
+		Processor type and features  ---> 
+		  [ ] Preemptible Kernel 
+
+		# make all
+		# make modules_install
+		# lilo
+		# reboot
+
+		* After that, install the "aem" port like any other:
+		# pkgmk -d -i
+		

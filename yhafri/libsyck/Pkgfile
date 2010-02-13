@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Syck is a YAML parser written in C
+# URL: http://yaml.kwiki.org/index.cgi?LibSyck
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libsyck
+version=cvs
+release=1
+source=()
+
+build () {
+	cvs -z3 -d:pserver:anonymous@rubyforge.org:/var/cvs/syck co syck
+
+	cd syck
+	sh bootstrap
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Hex and octal dumper
+# URL: http://www.muquit.com/muquit/software/hod/hod.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=hod
+version=1.5
+release=1
+source=(http://www.muquit.com/muquit/software/$name/${name}${version}.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/bin
+	cd ${name}${version}
+    make CFLAGS="$CFLAGS"
+    mv ${name} $PKG/usr/bin
+    chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# Description: image editor plugins for digiKam
+# URL: http://www.digikam.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: digikam
+
+name=digikamimageplugins
+version=0.8.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/digikam/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/locale/* ! -wholename "*locale/en*" -delete
+}

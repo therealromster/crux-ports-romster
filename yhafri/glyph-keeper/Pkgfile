@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A C language library for text rendering
+# URL: http://kd.lab.nig.ac.jp/glyph-keeper/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: freetype, libsdl
+
+name=glyph-keeper
+version=0.29.1
+release=1
+source=(http://kd.lab.nig.ac.jp/$name/files/$name-$version.zip \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+	cd src
+
+	gcc -I/usr/inlcude -I/usr/include/freetype2     -O3 -DGLYPH_TARGET=GLYPH_TARGET_TEXT -c -o glyph-text.o glyph.c
+	gcc -I/usr/include/SDL -I/usr/include/freetype2 -O3 -DGLYPH_TARGET=GLYPH_TARGET_SDL  -c -o glyph-sdl.o  glyph.c
+
+	ar -r libglyph.a glyph-text.o glyph-sdl.o
+
+	install -D -m 644 libglyph.a      $PKG/usr/lib/libglyph.a
+	install -D -m 644 ../include/glyph.h $PKG/usr/include/glyph.h
+
+	chown -R root:root $PKG
+}

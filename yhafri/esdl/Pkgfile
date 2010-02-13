@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Erlang library to access SDL and OpenGL
+# URL: http://esdl.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libsdl, erlang
+
+name=esdl
+version=0.96.0626
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.src.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	touch priv/empty.txt
+
+    	make
+	make INSTALLDIR=$PKG/usr/lib/erlang/lib/$name-$version install
+
+	rm -rf $PKG/usr/lib/erlang/lib/$name-$version/{doc,c_src,license.terms,vsn,priv/empty.txt}
+	rm -rf $PKG/usr/lib/erlang/lib/$name-$version/Readme*
+
+    	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Curses Development Kit
+# URL: http://www.vexus.ca/products/CDK/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses
+
+name=cdk
+version=4.9.13
+release=1
+source=(http://www.vexus.ca/products/CDK/$name.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/include/$name
+	mkdir -p $PKG//usr/man/man3
+
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make INSTALL_DIR=$PKG/usr install
+
+	cd $PKG/usr/include/$name
+	rm -rf COPYING INSTALL README TODO BUGS NOTES
+
+	chown -R root:root $PKG
+}

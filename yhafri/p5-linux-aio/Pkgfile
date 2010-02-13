@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Linux specific aio implemented using clone 
+# URL: http://search.cpan.org/~mlehmann/Linux-AIO-1.51/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-linux-aio
+version=1.9
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/Linux-AIO-$version.tar.gz)
+
+build () {
+	cd Linux-AIO-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

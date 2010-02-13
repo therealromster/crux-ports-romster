@@ -1,0 +1,9 @@
+PRE-INSTALL:
+
+                * Go to http://java.sun.com/j2se/1.5.0/download.jsp
+                Download and place in the current directory,
+		the file: jdk-1_5_0_XY-linux-i586.bin
+		from the "Download JRE 5.0 Update Y" section.
+		You need to accept the license agreement before
+		you can download it.
+		

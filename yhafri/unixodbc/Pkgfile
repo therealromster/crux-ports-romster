@@ -1,0 +1,43 @@
+# $Id: $
+# Description: ODBC API which provides data access standard for non-Windows platforms
+# URL: http://www.unixodbc.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, qt3, libiconv, rpm2targz, unixODBC-gui-qt 
+
+name=unixodbc
+version=2.2.11
+release=1
+source=(http://www.$name.org/unixODBC-$version.tar.gz \
+	http://ovh.dl.sourceforge.net/sourceforge/unixodbc/unixODBC-gui-qt-$version-1.i386.rpm
+    	$name-$version.patch)
+
+build () {
+	cd unixODBC-$version
+
+	patch -p0 <../$name-$version.patch
+    	cp include/sqp.h sqp/
+
+	./configure --prefix=/usr \
+        --enable-gui \
+        --enable-drivers \
+        --enable-threads \
+        --with-qt-includes=/usr/include/qt \
+        --with-qt-libraries=/usr/lib/qt \
+        --with-qt-bin=/usr/bin \
+	--enable-static \
+	--enable-shared
+    
+    	make
+	make prefix=$PKG/usr install
+
+	cd $SRC
+	mkdir -p $PKG/usr/lib
+	rpm2targz unixODBC-gui-qt-$version-1.i386.rpm
+	tar xzvf  unixODBC-gui-qt-$version-1.i386.tar.gz
+	cp -rf usr/lib/libodbcinstQ.so.1.0.0  $PKG/usr/lib/
+	ln -sf /usr/lib/libodbcinstQ.so.1.0.0 $PKG/usr/lib/libodbcinstQ.so
+	ln -sf /usr/lib/libodbcinstQ.so.1.0.0 $PKG/usr/lib/ibodbcinstQ.so.1
+
+    	chown -R root:root $PKG
+}

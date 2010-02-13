@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Basic utilities for writing tests
+# URL: http://search.cpan.org/~mschwern/Test-Simple-0.62/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-test-simple
+version=0.62
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSCHWERN/Test-Simple-$version.tar.gz)
+
+build () {
+	cd Test-Simple-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: The Elegant MVC Web Application Framework
+# URL: http://search.cpan.org/~sri/Catalyst-5.61/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-universal-require, p5-class-accessor, p5-class-data-inheritable, p5-class-inspector, p5-cgi, p5-file-modified, p5-http-body, p5-html-parser, p5-libwww-perl, p5-http-request-ascgi, p5-mime-types, p5-module-pluggable-fast, p5-next, p5-path-class, p5-scalar-list-utils, p5-template-toolkit, p5-text-simpletable, p5-test-mockobject, p5-time-hires, p5-test-simple, p5-tree-simple-visitorfactory, p5-uri, p5-file-copy-recursive, p5-module-install, p5-extutils-autoinstall, p5-catalyst-engine-apache, p5-par, p5-fcgi, p5-procmanager, p5-test-nowarnings, p5-fcgi, p5-fcgi-procmanager, p5-path-class, p5-tree-simple-visitorfactory, p5-test-mockobject, p5-text-simpletable
+name=p5-catalyst
+version=5.65
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSTROUT/Catalyst-$version.tar.gz)
+
+build () {
+	cd Catalyst-$version
+	echo "n" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

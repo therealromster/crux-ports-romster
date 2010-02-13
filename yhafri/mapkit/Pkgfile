@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A hash table library in C
+# URL: http://www.jeannot.org/~js/code/index.en.html#MapKit
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mapkit
+version=1.4
+release=1
+source=(http://www.jeannot.org/~js/code/$name-$version.tgz)
+
+build () {
+	cd $name
+
+	make
+	ar rc $name.a $name.o ${name}_generic.o  
+
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+	install -D $name.a $PKG/usr/lib/$name.a
+	
+	chown -R root:root $PKG
+}

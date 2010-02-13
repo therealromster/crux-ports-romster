@@ -1,0 +1,23 @@
+--- KeyJnote-0.9.4/keyjnote.py	2007-02-26 20:29:02.000000000 +0100
++++ KeyJnote-0.9.4/keyjnote.py-new	2007-03-07 23:16:41.000000000 +0100
+@@ -2226,7 +2226,10 @@
+     # prepare logo image
+     LogoTexture = glGenTextures(1)
+     glBindTexture(GL_TEXTURE_2D, LogoTexture)
+-    glTexImage2D(GL_TEXTURE_2D, 0, 1, 256, 64, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, LOGO)
++    image=Image.open('/etc/keyjnote/black.png')
++    image = image.tostring("raw", "RGBX", 0, -1)
++    glTexImage2D(GL_TEXTURE_2D,0,3,256,64,0,GL_RGBA,GL_UNSIGNED_BYTE,image)
++    #glTexImage2D(GL_TEXTURE_2D, 0, 1, 256, 64, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, LOGO)
+     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+     DrawLogo()
+     pygame.display.flip()
+@@ -2270,7 +2273,7 @@
+ 
+     # fill overlay "dummy" images
+     dummy = Image.new('L', (256, 64))
+-    dummy.fromstring(LOGO)
++    #dummy.fromstring(LOGO)
+     maxsize = (OverviewCellX - 2 * OverviewBorder, OverviewCellY - 2 * OverviewBorder)
+     if (dummy.size[0] > maxsize[0]) or (dummy.size[1] > maxsize[1]):
+         dummy.thumbnail(ZoomToFit(dummy.size, maxsize), Image.ANTIALIAS)

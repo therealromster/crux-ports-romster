@@ -1,0 +1,20 @@
+# $Id: $
+# Description: CDBI Model Class
+# URL: http://cpansearch.perl.org/~agrundma/Catalyst-Model-CDBI-0.11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-catalyst, p5-class-dbi, p5-class-dbi-loader
+
+name=p5-catalyst-model-cdbi
+version=0.11
+release=1
+source=(http://cpansearch.perl.org/CPAN/authors/id/A/AG/AGRUNDMA/Catalyst-Model-CDBI-$version.tar.gz)
+
+build () {
+	cd Catalyst-Model-CDBI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

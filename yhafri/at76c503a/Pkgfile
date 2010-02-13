@@ -1,0 +1,17 @@
+# Description: a Linux driver for the wlan USB adapter based on the Atmel at76c503 chip
+# URL:   http://developer.berlios.de/projects/at76c503a
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: wireless-tools, atmel-firmware
+
+name=at76c503a
+version=0.13
+release=1
+source=(http://download.berlios.de/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name
+    make
+    mkdir -p $PKG/lib/modules/`uname -r`
+    make DESTDIR=$PKG install
+}

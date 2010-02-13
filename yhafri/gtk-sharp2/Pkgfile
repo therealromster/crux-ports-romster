@@ -1,0 +1,18 @@
+# Description:  GTK+ 2 bindings for mono
+# URL: http://www.mono-project.com
+# Maintainer: Buddy Lindsey, percent20 at gmail.com
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: mono, gnome-vfs
+
+name=gtk-sharp2
+version=2.8.2
+release=1
+
+source=(http://go-mono.com/sources/gtk-sharp-2.8/gtk-sharp-$version.tar.gz)
+
+build() {
+    cd gtk-sharp-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}

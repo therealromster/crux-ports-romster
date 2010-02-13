@@ -1,0 +1,17 @@
+# Description: a convenience library of the functions in Tom Whittaker's malsync
+# URL: http://jasonday.home.att.net/code/libmal/libmal.html
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: pilot-link
+
+name=libmal
+version=0.40
+release=1
+source=(http://jasonday.home.att.net/code/libmal/libmal-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+        make
+        make DESTDIR=$PKG install
+}

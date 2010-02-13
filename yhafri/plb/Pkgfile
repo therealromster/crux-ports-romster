@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A free high-performance load balancer for Unix
+# URL: http://plb.sunsite.dk/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libevent
+
+name=plb
+version=0.3
+release=1
+source=(http://plb.sunsite.dk/files/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+       chown -R root:root $PKG
+}

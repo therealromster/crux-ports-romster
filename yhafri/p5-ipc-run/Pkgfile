@@ -1,0 +1,20 @@
+# $Id: $
+# Description: System and background procs w/ piping, redirs, ptys (Unix, Win32) 
+# URL: http://search.cpan.org/~rsod/IPC-Run-0.79/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-ipc-run
+version=0.79
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RS/RSOD/IPC-Run-$version.tar.gz)
+
+build () {
+	cd IPC-Run-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,36 @@
+# $Id: $
+# Description: A version control system (CVS replacement)
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# URL: http://subversion.tigris.org
+# Depends on:  apr, neon, expat, openssl, swig, zlib
+
+name=subversion
+version=1.3.2
+release=1
+source=(http://subversion.tigris.org/downloads/subversion-$version.tar.bz2)
+
+build() {
+    	cd $name-$version
+    	LDFLAGS="-L$PKG/usr/lib"         \
+        ./configure --prefix=/usr        \
+           	    --with-apr=/usr      \
+		    --with-apr-util=/usr \
+		    --with-neon=/usr     \
+		    --with-swig          \
+		    --without-jdk        \
+		    --disable-javahl     \
+		    --disable-nls        \
+		    --with-ssl           \
+	  	    --disable-dso        \
+		    --with-zlib          \
+           	    --disable-mod-activation
+
+    	make
+    	make DESTDIR=$PKG external-install local-install 
+    	sed -i -e "s|-L$PKG/usr/lib||g" $PKG/usr/lib/*.la
+
+    	rm -rf $PKG/usr/info
+
+	chown -R root:root $PKG
+}

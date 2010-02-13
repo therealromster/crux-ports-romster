@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Parse and format MySQL dates and times
+# URL: http://search.cpan.org/~drolsky/DateTime-Format-MySQL-0.04/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-datetime-format-builder
+
+name=p5-datetime-format-mysql
+version=0.04
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/DateTime-Format-MySQL-$version.tar.gz)
+
+build () {
+	cd DateTime-Format-MySQL-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

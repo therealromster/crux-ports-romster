@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A killer Perl-Tk canvas based on openGL 
+# URL:  http://www.tkzinc.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk, p5-tk, libglut
+
+name=p5-tk-zinc
+version=3.303
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/Z/ZI/ZINCDEV/tk-zinc-$version.tar.gz)
+
+build () {
+	cd tk-zinc-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

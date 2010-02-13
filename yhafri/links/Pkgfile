@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A text-based browser with support for HTML tables and frames
+# URL: http://links.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=links
+version=1.00pre12
+release=1
+source=(http://artax.karlin.mff.cuni.cz/~mikulas/$name/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-ssl
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

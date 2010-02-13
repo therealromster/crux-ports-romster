@@ -1,0 +1,19 @@
+# $Id: $
+# Description: UML modelling tool in Java
+# URL: http://argouml.tigris.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: j2sdk
+
+name=argouml
+version=0.24
+release=1
+source=(http://$name-downloads.tigris.org/nonav/$name-$version/ArgoUML-$version.tar.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	mv *.jar $PKG/usr/lib/$name
+	install -m 755 $name $PKG/usr/bin/
+        chown -R root:root $PKG
+}

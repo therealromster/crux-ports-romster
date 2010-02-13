@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Dynamic menu
+# URL: http://tools.suckless.org/view.sh/x+tools
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=dmenu
+version=2.1
+release=1
+source=(http://suckless.org/download/$name-2.1.tar.gz)
+
+build () {
+	cd $name-$version
+
+        make
+        make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

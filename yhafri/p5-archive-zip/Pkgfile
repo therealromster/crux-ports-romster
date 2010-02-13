@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to access ZIP archive files
+# URL: http://search.cpan.org/~nedkonz/Archive-Zip-1.13/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-archive-zip
+version=1.16
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/S/SM/SMPETERS/Archive-Zip-$version.tar.gz)
+
+build () {
+	cd Archive-Zip-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

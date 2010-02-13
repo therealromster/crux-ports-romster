@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/rats
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/rats.1.gz
+drwxr-xr-x	root/root	usr/share/
+-rw-r--r--	root/root	usr/share/rats-c.xml
+-rw-r--r--	root/root	usr/share/rats-openssl.xml
+-rw-r--r--	root/root	usr/share/rats-perl.xml
+-rw-r--r--	root/root	usr/share/rats-php.xml
+-rw-r--r--	root/root	usr/share/rats-python.xml

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Dockapp of the top command
+# URL: http://wmtop.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmtop
+version=0.84
+release=1
+source=(http://ftp1.sourceforge.net/$name/$name-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man/man1}
+	cd $name-$version
+
+        make linux
+	make PREFIX=$PKG/usr install
+
+        chown -R root:root $PKG
+}

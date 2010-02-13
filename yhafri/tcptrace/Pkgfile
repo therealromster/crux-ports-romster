@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Analysis of TCP dump files (tcpdump, snoop, etherpeek, HP Net Metrix and WinDump)
+# URL: http://www.tcptrace.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpcap
+
+name=tcptrace
+version=6.6.7
+release=1
+source=(http://www.tcptrace.org/download/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+	make BINDIR=$PKG/usr/bin MANDIR=$PKG/usr/man install
+
+	install -D -m 755 xpl2gpl $PKG/usr/bin/xpl2gpl
+
+	chown -R root:root $PKG
+}

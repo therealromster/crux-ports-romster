@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Tcl binding to libcurl
+# URL: http://personal1.iddeo.es/andresgarci/tclcurl/english/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends: tcl, curl
+
+name=tclcurl
+version=0.15.1
+release=3
+source=(http://personal1.iddeo.es/andresgarci/$name/download/tarball/TclCurl-$version.tar.gz)
+
+build() {
+	
+    cd TclCurl-$version
+    sh ./configure --prefix=/usr \
+                --enable-threads \
+                --enable-shared
+                
+    make
+    make DESTDIR=$PKG install
+
+    mv $PKG/usr/man/mann $PKG/usr/man/man1 	    
+
+    rm -rf $PKG/usr/{bin,include}
+
+    rm -rf $PKG/usr/info
+}

@@ -1,0 +1,99 @@
+--- OpenOffice.org1.1_SDK/configure.pl	2003-08-18 17:00:37.000000000 +0200
++++ OpenOffice.org1.1_SDK/configure.pl-new	2007-09-22 15:34:44.000000000 +0200
+@@ -47,8 +47,8 @@
+ 		((-d "$main::OO_SDK_HOME") && (! -d "$main::OO_SDK_HOME/idl")) )
+ {
+     print "Enter the Office Software Development Kit directory [$main::OO_SDK_HOME_SUGGESTION]: ";
+-    $main::OO_SDK_HOME = <STDIN>;
+-    chop($main::OO_SDK_HOME);
++    $main::OO_SDK_HOME = `pwd`;
++    chomp($main::OO_SDK_HOME);
+     if ( $main::OO_SDK_HOME eq "" ) 
+     {
+ 		$main::OO_SDK_HOME = $main::OO_SDK_HOME_SUGGESTION;
+@@ -66,8 +66,8 @@
+ 		((-d "$main::OFFICE_HOME") && (! -d "$main::OFFICE_HOME/program")) )
+ {
+     print "Enter the Office installation directory [$main::OFFICE_HOME_SUGGESTION]: ";
+-    $main::OFFICE_HOME = <STDIN>;
+-    chop($main::OFFICE_HOME);
++    $main::OFFICE_HOME = "/usr/lib/openoffice";
++    chomp($main::OFFICE_HOME);
+     if ( $main::OFFICE_HOME eq "" ) 
+     {
+ 		$main::OFFICE_HOME = $main::OFFICE_HOME_SUGGESTION;
+@@ -103,8 +103,8 @@
+ 		 ((-d "$main::OO_SDK_MAKE_HOME") && (! -e "$main::OO_SDK_MAKE_HOME/make"))) )
+ {
+     print "Enter GNU make ($main::makeVersion or higher) tools directory [$main::OO_SDK_MAKE_HOME_SUGGESTION]: ";
+-    $main::OO_SDK_MAKE_HOME = <STDIN>;
+-    chop($main::OO_SDK_MAKE_HOME);
++    $main::OO_SDK_MAKE_HOME = "/usr/bin";
++    chomp($main::OO_SDK_MAKE_HOME);
+     if ( $main::OO_SDK_MAKE_HOME eq "" ) 
+     {
+ 		$main::OO_SDK_MAKE_HOME = $main::OO_SDK_MAKE_HOME_SUGGESTION;
+@@ -150,8 +150,8 @@
+ 	print "Linux, GNU C++ compiler, gcc version 3.0.1 or higher\n";
+ 	print "Enter C++ tools directory (optional) [$main::OO_SDK_CPP_HOME_SUGGESTION]: ";
+ 	
+-	$main::OO_SDK_CPP_HOME = <STDIN>;
+-	chop($main::OO_SDK_CPP_HOME);
++	$main::OO_SDK_CPP_HOME = "/usr/bin";
++	chomp($main::OO_SDK_CPP_HOME);
+ 	if ( $main::OO_SDK_CPP_HOME eq "" ) 
+ 	{
+ 		$main::OO_SDK_CPP_HOME = $main::OO_SDK_CPP_HOME_SUGGESTION;
+@@ -237,8 +237,8 @@
+ 		  ((-d "$main::OO_SDK_JAVA_HOME") && (! -e "$main::OO_SDK_JAVA_HOME/bin/javac"))) )
+ {
+     print "Enter JAVA SDK (1.4.1_01 or higher) installation directory [$Main::OO_SDK_JAVA_HOME_SUGGESTION]: ";
+-    $main::OO_SDK_JAVA_HOME = <STDIN>;
+-    chop($main::OO_SDK_JAVA_HOME);
++    $main::OO_SDK_JAVA_HOME = "/usr/lib/java";
++    chomp($main::OO_SDK_JAVA_HOME);
+     if ( $main::OO_SDK_JAVA_HOME eq "" ) 
+     {
+ 		$main::OO_SDK_JAVA_HOME = $main::OO_SDK_JAVA_HOME_SUGGESTION;
+@@ -250,14 +250,14 @@
+ 		print "Error: A Java SDK is required, please specify a valid Java SDK directory.\n";
+     } else 
+     {
+-		#check version
+-		my $testVersion = `$main::OO_SDK_JAVA_HOME/bin/java -version 2>&1 | egrep "java version" | head -1 | sed -e 's#.*version "##' | sed -e 's#".*##'`;
++# 		#check version
++# 		my $testVersion = `$main::OO_SDK_JAVA_HOME/bin/java -version 2>&1 | egrep "java version" | head -1 | sed -e 's#.*version "##' | sed -e 's#".*##'`;
+ 
+-		$main::correctVersion = testVersion($main::javaVersion, $testVersion, "$main::OO_SDK_JAVA_HOME/bin/java");
+-		if ( !$main::correctVersion )
+-		{
+-			$main::OO_SDK_JAVA_HOME = "";
+-		}
++# 		$main::correctVersion = testVersion($main::javaVersion, $testVersion, "$main::OO_SDK_JAVA_HOME/bin/java");
++# 		if ( !$main::correctVersion )
++# 		{
++# 			$main::OO_SDK_JAVA_HOME = "";
++# 		}
+ 	}
+ }
+ 
+@@ -266,8 +266,8 @@
+ 	  (! $main::SDK_AUTO_DEPLOYMENT eq "NO")) )
+ {
+     print "Automatic deployment of UNO components (YES/NO) [$main::SDK_AUTO_DEPLOYMENT_SUGGESTION]: ";
+-    $main::SDK_AUTO_DEPLOYMENT = <STDIN>;
+-    chop($main::SDK_AUTO_DEPLOYMENT);
++    $main::SDK_AUTO_DEPLOYMENT = "YES";
++    chomp($main::SDK_AUTO_DEPLOYMENT);
+     if ( $main::SDK_AUTO_DEPLOYMENT eq "" )
+     {
+ 	$main::SDK_AUTO_DEPLOYMENT = $main::SDK_AUTO_DEPLOYMENT_SUGGESTION;
+@@ -307,7 +307,7 @@
+ 	{
+ 		print "Do you want to skip the choice of the '$msg' (YES/NO): [YES] ";
+ 		$skip = <STDIN>;
+-		chop($skip);
++		chomp($skip);
+ 		if ( $skip eq "" ) { $skip = "YES"; } # default
+ 		if ( $skip eq "YES" )
+ 		{

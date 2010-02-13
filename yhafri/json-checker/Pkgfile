@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Pushdown Automaton that very quickly determines if a JSON text is syntactically correct
+# URL: http://www.json.org/JSON_checker/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=json-checker
+version=2.2.12
+release=1
+source=(http://www.json.org/JSON_checker/JSON_checker.c  \
+	http://www.json.org/JSON_checker/JSON_checker.h  \
+	http://www.json.org/JSON_checker/utf8_to_utf16.c \
+	http://www.json.org/JSON_checker/utf8_to_utf16.h \
+	http://www.json.org/JSON_checker/utf8_decode.c   \
+	http://www.json.org/JSON_checker/utf8_decode.h   \
+	http://www.json.org/JSON_checker/main.c)
+
+build () {
+	for i in *.c; do gcc -O2 -c $i; done
+
+	gcc -O2 -o $name *.o
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

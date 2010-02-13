@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A command line program for converting perl scripts to executable files
+# URL: http://www.indigostar.com/perl2exe.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl
+
+name=perl2exe
+version=8.70
+release=1
+source=(http://www.indigostar.com/download/p2x-$version-Linux.tar.gz)
+
+build () {
+	mkdir -p  $PKG/usr/lib
+	cd $name
+	rm -rf README.TXT cgisamp.pl hellocgi.pl \
+	       lwpsamp.pl view_sample tksamp.pl \
+	       pxman.htm
+
+	cd ..
+	mv $name $PKG/usr/lib
+	chown -R root:root $PKG
+}

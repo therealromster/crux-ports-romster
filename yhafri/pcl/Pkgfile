@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Low level API for coroutines.
+# URL: http://xmailserver.org/libpcl.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libpcl
+version=1.6
+release=1
+source=(http://xmailserver.org/pcl-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+       chown -R root:root $PKG
+}

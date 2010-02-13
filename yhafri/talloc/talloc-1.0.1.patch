@@ -1,0 +1,11 @@
+--- talloc-1.0.1/Makefile.in	2007-04-30 12:49:42.000000000 +0200
++++ talloc-1.0.1/Makefile.in-new	2007-06-16 21:49:49.000000000 +0200
+@@ -13,7 +13,7 @@
+ INSTALLCMD = @INSTALL@
+ CC = @CC@
+ CFLAGS = @CFLAGS@ -DHAVE_CONFIG_H= -I. -I@srcdir@
+-EXTRA_TARGETS = @DOC_TARGET@
++EXTRA_TARGETS =
+ 
+ .SUFFIXES: .c .o .3 .3.xml .xml .html
+ 

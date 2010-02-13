@@ -1,0 +1,22 @@
+# Description: An an implementation of the Bluetooth wireless standards specifications for Linux
+# URL: http://www.bluez.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depnds on: bluez-libs
+
+name=bluez-firmware
+version=1.1
+release=1
+source=(http://bluez.sf.net/download/$name-$version.tar.gz)
+
+build() {
+
+	cd $name-$version
+    	./configure --prefix=/usr \
+	            --disable-nls
+
+    	make
+    	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

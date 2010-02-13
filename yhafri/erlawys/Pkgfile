@@ -1,0 +1,26 @@
+# $Id: $
+# Description: An Erlang implementation of the Amazon Web Services (AWS) AP
+# URL: http://code.google.com/p/erlawys/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, erlang
+
+name=erlawys
+version=svn
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,include}
+
+	svn co http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+	
+	erl -make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv *.hrl  $PKG/usr/lib/erlang/lib/$name-$version/include
+
+	chown -R root:root $PKG
+}

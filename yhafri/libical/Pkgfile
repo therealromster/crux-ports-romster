@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Calendar library
+# URL: http://sourceforge.net/project/showfiles.php?group_id=16077
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libical
+version=0.24
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/freeassociation/$name-$version.RC4.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+        chown -R root:root $PKG
+}

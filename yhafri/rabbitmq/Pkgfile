@@ -1,0 +1,33 @@
+# $Id: $
+# Description: An implementation of AMQP, the emerging standard for high performance enterprise messaging
+# URL: http://www.rabbitmq.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, ant
+
+name=rabbitmq
+version=1.0.0-alpha
+release=1
+source=(http://www.rabbitmq.com/releases/$name-$version.tar.gz \
+	${name}d)
+
+build () {
+	mkdir -p $PKG/var/{log/$name,lib/${name}/mnesia}
+	mkdir -p $PKG/usr/lib/erlang/lib
+	mkdir -p $PKG/etc/rc.d
+	mkdir -p $PKG/usr/lib/ant/lib
+
+	install -D -m 755 ${name}d $PKG/etc/rc.d/${name}d
+	cd $name-$version
+
+	make
+
+	mv java/build/lib/*.jar $PKG/usr/lib/ant/lib
+	mv erlang/rabbit/dist $PKG/usr/lib/erlang/lib/$name-$version
+	cd $PKG/usr/lib/erlang/lib/$name-$version
+	mv sbin $PKG/usr
+
+	rm -f LICENSE sbin/*.bat
+	
+	chown -R root:root $PKG
+}

@@ -1,0 +1,29 @@
+# $Id: $
+# Description: SQL shell for Unix
+# URL: http://www.sqsh.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: freetds, x11
+
+name=sqsh
+version=2.1
+release=1
+source=(http://www.sqsh.org/$name-$version-src.tar.gz)
+
+build () {
+	export SYBASE=/usr
+	export SYBASE_LIBS="-lct -ltds -ldl -lm"
+
+	unset CFLAGS
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --with-static \
+		    --with-devlib \
+		    --with-x
+
+	make SYBASE_LIBS="-lct -ltds -ldl -lm"
+	make prefix=$PKG/usr SYBASE_LIBS="-lct -ltds -ldl -lm" install
+
+	chown -R root:root $PKG
+}

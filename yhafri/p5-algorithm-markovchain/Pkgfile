@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Object oriented Markov chain generator
+# URL: http://search.cpan.org/~rclamp/Algorithm-MarkovChain-0.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-algorithm-markovchain
+version=0.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Algorithm-MarkovChain-$version.tar.gz)
+
+build () {
+	cd Algorithm-MarkovChain-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

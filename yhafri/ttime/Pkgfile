@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A simplified time management routines
+# URL: http://resnet.uoregon.edu/~gurney_j/jmpc/ttime.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ttime
+version=1.0
+release=1
+source=(http://resnet.uoregon.edu/~gurney_j/jmpc/dist/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+	install -D -m 644 lib$name.a $PKG/usr/lib/lib$name.a
+	install -D -m 755 lib$name.so.1 $PKG/usr/lib/lib$name.so.1
+	ln -sf /usr/lib/lib$name.so.1 $PKG/usr/lib/lib$name.so
+
+	chown -R root:root $PKG
+}

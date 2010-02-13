@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A Unicode/UTF-8 locale plugin
+# URL: http://www.haible.de/bruno/packages-libutf8.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libutf8
+version=0.8
+release=1
+
+# excellent UTF8 doc at: ftp://ftp.ilog.fr/pub/Users/haible/utf8/
+
+source=(ftp://ftp.ilog.fr/pub/Users/haible/utf8/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --with-traditional-mbstowcs \
+		    --with-nontraditional-wcstombs
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

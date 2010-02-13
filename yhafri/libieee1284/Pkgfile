@@ -1,0 +1,17 @@
+# Description: a library for accessing the parallel port
+# URL: http://cyberelk.net/tim/libieee1284/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=libieee1284
+version=0.2.10
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+  	cd $name-$version
+    	./configure --prefix=/usr --disable-nls
+      	make
+        make DESTDIR=$PKG install
+}

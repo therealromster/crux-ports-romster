@@ -1,0 +1,20 @@
+# $Id: $
+# Description: reate very low weight self executables
+# URL: http://84.45.18.237/~gmpassos/LibZip-0.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-pod-stripper, p5-compress-zlib, p5-archive-zip
+
+name=p5-libzip
+version=0.06
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/G/GM/GMPASSOS/LibZip-$version.tar.gz)
+
+build () {
+	cd LibZip-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

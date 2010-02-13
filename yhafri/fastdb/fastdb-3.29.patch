@@ -1,0 +1,19 @@
+--- fastdb/makefile	2006-06-13 13:12:04.000000000 +0200
++++ fastdb/makefile-new	2006-06-27 22:21:42.000000000 +0200
+@@ -376,11 +376,11 @@
+ 	mkdir -p $(INCSPATH)
+ 	cp $(INCS) $(INCSPATH)
+ 	mkdir -p $(LIBSPATH)
+-	cp $(FASTDB_LIB) $(CLI_LIB) $(FASTDB_SHARED) $(CLI_SHARED) $(LIBSPATH)
+-	(cd $(LIBSPATH) && ln -f -s $(FASTDB_SHARED) libfastdb$(SUFF).so \
+-	 && ln -f -s $(CLI_SHARED) libcli$(SUFF).so)
+-	if [ -f $(JNI_LIB) ]; then cp $(JNI_LIB) $(LIBSPATH); \
+-	  cd $(LIBSPATH) && ln -f -s $(JNI_LIB) libjnicli$(SUFF).so; fi
++# 	cp $(FASTDB_LIB) $(CLI_LIB) $(FASTDB_SHARED) $(CLI_SHARED) $(LIBSPATH)
++# 	(cd $(LIBSPATH) && ln -f -s $(FASTDB_SHARED) libfastdb$(SUFF).so \
++# 	 && ln -f -s $(CLI_SHARED) libcli$(SUFF).so)
++# 	if [ -f $(JNI_LIB) ]; then cp $(JNI_LIB) $(LIBSPATH); \
++# 	  cd $(LIBSPATH) && ln -f -s $(JNI_LIB) libjnicli$(SUFF).so; fi
+ 
+ uninstall:
+ 	rm -fr $(INCSPATH)

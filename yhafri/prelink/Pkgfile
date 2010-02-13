@@ -1,0 +1,25 @@
+# Description: ELF prelinking utility to speed up dynamic linking
+# URL: ftp://people.redhat.com/jakub/prelink
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libelf
+
+name=prelink
+version=20050610
+release=2
+source=(ftp://people.redhat.com/jakub/$name/$name-$version.tar.bz2
+    prelink.conf.bz2)
+
+build() {
+    cd $name
+    mkdir build; cd build
+    ../configure --prefix=/usr \
+        --sysconfdir=/etc \
+        --disable-debug
+    make
+    make -C testsuite check-harder
+    make -C testsuite check-cycle
+    make DESTDIR=$PKG install
+    bunzip2 $SRC/$name.conf.bz2
+    install -D $SRC/$name.conf $PKG/etc/$name.conf
+}

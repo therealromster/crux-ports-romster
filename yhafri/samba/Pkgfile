@@ -1,0 +1,59 @@
+# $Id: $
+# Description: SMB server and client for unix
+# URL: http://www.samba.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on:
+
+name=samba
+version=3.0.21
+release=1
+source=(http://us4.samba.org/samba/ftp/$name-latest.tar.gz \
+        samba)
+
+build () {
+	cd $name-$version/source
+    	
+	sed -i '/^BIN_PROGS2/s|=|= bin/smbget|' Makefile.in
+    	sed -i '31d' script/installbin.sh
+    
+	./configure --prefix=/usr \
+                    --with-fhs \
+                    --with-smbmount \
+                    --with-configdir=/etc/samba \
+                    --with-lockdir=/var/run/samba \
+                    --with-piddir=/var/run/samba \
+                    --with-logfilebase=/var/log/samba
+    
+	make
+    	make DATADIR=/usr/share MANDIR=/usr/man DESTDIR=$PKG install
+    
+    	# nsswitch extensions
+    	install nsswitch/libnss_win{s,bind}.so $PKG/usr/lib/samba
+
+    	install -d $PKG/{sbin,var/log/samba}
+    
+    	# symlinks
+    	(cd $PKG/sbin; ln -s ../usr/bin/smbmount mount.smbfs)
+    	(cd $PKG/usr/lib 
+     	ln -sf samba/libsmbclient.so   libsmbclient.so
+     	ln -sf samba/libsmbclient.so   libsmbclient.so.0
+     	ln -sf samba/libnss_winbind.so libnss_winbind.so
+     	ln -sf samba/libnss_winbind.so libnss_winbind.so.2
+     	ln -sf samba/libnss_wins.so    libnss_wins.so
+     	ln -sf samba/libnss_wins.so    libnss_wins.so.2)
+    
+    	# config-file and start-script
+    	cp ../examples/smb.conf.default $PKG/etc/samba
+    	install -D -m 755  $SRC/samba $PKG/etc/rc.d/samba
+    
+    	# cleanup
+    	rm -r $PKG/usr/{var,lib/samba/*.msg}
+    	chmod -x $PKG/usr/include/*
+
+    	# remove swat
+    	rm $PKG/usr/{sbin/swat,man/man8/swat.8}
+    	rm -r $PKG/usr/share
+
+    	chown -R root:root $PKG
+}

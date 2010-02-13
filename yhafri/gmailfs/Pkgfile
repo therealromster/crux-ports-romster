@@ -1,0 +1,21 @@
+# $Id: $
+# Description: GMail file system
+# URL: http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: fuse, fuse-python, libgmail
+
+name=gmailfs
+version=0.4
+release=1
+source=(http://richard.jones.name/google-hacks/gmail-filesystem/$name-$version.tar.gz)
+
+build () {
+        cd $name-$version
+
+	sed -i "s|constants|lgconstants|" gmailfs.py
+	install -D -m 755 gmailfs.py     $PKG/usr/bin/gmailfs.py
+	install -D -m 755 mount.gmailfs  $PKG/sbin/mount.gmailfs
+	 
+	chown -R root:root $PKG
+}

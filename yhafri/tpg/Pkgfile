@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Toy Parser Generator
+# URL: http://christophe.delord.free.fr/en/tpg/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=tpg
+version=3.0.6
+release=1
+source=(http://christophe.delord.free.fr/soft/$name/TPG-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd TPG-$version
+
+	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

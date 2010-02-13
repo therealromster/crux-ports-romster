@@ -1,0 +1,9 @@
+POST-INSTALL:
+
+		* Add the following line to your .emacs.el config file:
+		(require 'esense)
+		
+USAGE:
+
+		* When editing Erlang code, enter Esense mode by typing:
+		M-x esense-mode

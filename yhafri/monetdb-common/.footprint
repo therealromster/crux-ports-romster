@@ -1,0 +1,63 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/Mapprove.py -> Mtest.py
+lrwxrwxrwx	root/root	usr/bin/Mapprove.py.bat -> Mtest.py.bat
+-rwxr-xr-x	root/root	usr/bin/Mdiff
+-rwxr-xr-x	root/root	usr/bin/Mfilter.py
+-rwxr-xr-x	root/root	usr/bin/MkillUsers
+-rwxr-xr-x	root/root	usr/bin/Mlog
+-rwxr-xr-x	root/root	usr/bin/Mlog.bat
+lrwxrwxrwx	root/root	usr/bin/Mprofile.py -> Mtest.py
+lrwxrwxrwx	root/root	usr/bin/Mprofile.py.bat -> Mtest.py.bat
+-rwxr-xr-x	root/root	usr/bin/Mtest.py
+-rwxr-xr-x	root/root	usr/bin/Mtest.py.bat
+-rwxr-xr-x	root/root	usr/bin/Mtimeout
+-rwxr-xr-x	root/root	usr/bin/monetdb-config
+-rwxr-xr-x	root/root	usr/bin/monetdb-config.bat
+-rwxr-xr-x	root/root	usr/bin/prof.py
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/MonetDB/
+drwxr-xr-x	root/root	usr/include/MonetDB/common/
+-rw-r--r--	root/root	usr/include/MonetDB/common/dummy_gdk_utils.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/monet_getopt.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/monet_options.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/monet_utils.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/stream.h
+drwxr-xr-x	root/root	usr/include/MonetDB/gdk/
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_atoms.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_bat.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_bbp.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_delta.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_desc.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_logger.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_posix.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_scanselect.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_search.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_setop.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_storage.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_system.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_tm.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_utils.h
+-rw-r--r--	root/root	usr/include/MonetDB/sysdefs.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libbat.la
+lrwxrwxrwx	root/root	usr/lib/libbat.so -> libbat.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbat.so.0 -> libbat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libmutils.la
+lrwxrwxrwx	root/root	usr/lib/libmutils.so -> libmutils.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libmutils.so.0 -> libmutils.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libmutils.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libstream.la
+lrwxrwxrwx	root/root	usr/lib/libstream.so -> libstream.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libstream.so.0 -> libstream.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libstream.so.0.0.0
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/MonetDB/
+-rwxr-xr-x	root/root	usr/share/MonetDB/Mprofile-commands.lst
+drwxr-xr-x	root/root	usr/share/MonetDB/conf/
+-rwxr-xr-x	root/root	usr/share/MonetDB/conf/rules.mk
+drwxr-xr-x	root/root	usr/share/MonetDB/python/
+-rwxr-xr-x	root/root	usr/share/MonetDB/python/monet_options.py
+-rwxr-xr-x	root/root	usr/share/MonetDB/python/trace.py

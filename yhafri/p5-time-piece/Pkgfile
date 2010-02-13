@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Object Oriented time objects
+# URL: http://search.cpan.org/~msergeant/Time-Piece-1.08/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-datetime, p5-datetime-format-strptime
+
+name=p5-time-piece
+version=2.00_01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSERGEANT/Time-Piece-$version.tar.gz)
+
+build () {
+	cd Time-Piece-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,184 @@
+drwxr-xr-x	root/root	bin/
+-rwxr-xr-x	root/root	bin/rpm
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gendiff
+-rwxr-xr-x	root/root	usr/bin/rpm2cpio
+lrwxrwxrwx	root/root	usr/bin/rpmbuild -> ../lib/rpm/rpmb
+lrwxrwxrwx	root/root	usr/bin/rpmdb -> ../lib/rpm/rpmd
+lrwxrwxrwx	root/root	usr/bin/rpme -> ../lib/rpm/rpme
+-rwxr-xr-x	root/root	usr/bin/rpmgraph
+lrwxrwxrwx	root/root	usr/bin/rpmi -> ../lib/rpm/rpmi
+lrwxrwxrwx	root/root	usr/bin/rpmquery -> ../lib/rpm/rpmq
+lrwxrwxrwx	root/root	usr/bin/rpmsign -> ../lib/rpm/rpmk
+lrwxrwxrwx	root/root	usr/bin/rpmu -> ../lib/rpm/rpmu
+lrwxrwxrwx	root/root	usr/bin/rpmverify -> ../lib/rpm/rpmv
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/popt.h
+drwxr-xr-x	root/root	usr/include/rpm/
+-rw-r--r--	root/root	usr/include/rpm/argv.h
+-rw-r--r--	root/root	usr/include/rpm/db.h
+-rw-r--r--	root/root	usr/include/rpm/fts.h
+-rw-r--r--	root/root	usr/include/rpm/hdrinline.h
+-rw-r--r--	root/root	usr/include/rpm/header.h
+-rw-r--r--	root/root	usr/include/rpm/misc.h
+-rw-r--r--	root/root	usr/include/rpm/rpmal.h
+-rw-r--r--	root/root	usr/include/rpm/rpmbuild.h
+-rw-r--r--	root/root	usr/include/rpm/rpmcli.h
+-rw-r--r--	root/root	usr/include/rpm/rpmdav.h
+-rw-r--r--	root/root	usr/include/rpm/rpmdb.h
+-rw-r--r--	root/root	usr/include/rpm/rpmds.h
+-rw-r--r--	root/root	usr/include/rpm/rpmerr.h
+-rw-r--r--	root/root	usr/include/rpm/rpmfc.h
+-rw-r--r--	root/root	usr/include/rpm/rpmfi.h
+-rw-r--r--	root/root	usr/include/rpm/rpmfile.h
+-rw-r--r--	root/root	usr/include/rpm/rpmgi.h
+-rw-r--r--	root/root	usr/include/rpm/rpmhash.h
+-rw-r--r--	root/root	usr/include/rpm/rpmio.h
+-rw-r--r--	root/root	usr/include/rpm/rpmlib.h
+-rw-r--r--	root/root	usr/include/rpm/rpmlog.h
+-rw-r--r--	root/root	usr/include/rpm/rpmmacro.h
+-rw-r--r--	root/root	usr/include/rpm/rpmmessages.h
+-rw-r--r--	root/root	usr/include/rpm/rpmpgp.h
+-rw-r--r--	root/root	usr/include/rpm/rpmps.h
+-rw-r--r--	root/root	usr/include/rpm/rpmspec.h
+-rw-r--r--	root/root	usr/include/rpm/rpmsq.h
+-rw-r--r--	root/root	usr/include/rpm/rpmsw.h
+-rw-r--r--	root/root	usr/include/rpm/rpmsx.h
+-rw-r--r--	root/root	usr/include/rpm/rpmte.h
+-rw-r--r--	root/root	usr/include/rpm/rpmts.h
+-rw-r--r--	root/root	usr/include/rpm/rpmurl.h
+-rw-r--r--	root/root	usr/include/rpm/stringbuf.h
+-rw-r--r--	root/root	usr/include/rpm/ugid.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libpopt.a
+-rwxr-xr-x	root/root	usr/lib/libpopt.la
+lrwxrwxrwx	root/root	usr/lib/libpopt.so -> libpopt.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libpopt.so.0 -> libpopt.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libpopt.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/librpm-4.4.so
+-rw-r--r--	root/root	usr/lib/librpm.a
+-rwxr-xr-x	root/root	usr/lib/librpm.la
+lrwxrwxrwx	root/root	usr/lib/librpm.so -> librpm-4.4.so
+-rwxr-xr-x	root/root	usr/lib/librpmbuild-4.4.so
+-rw-r--r--	root/root	usr/lib/librpmbuild.a
+-rwxr-xr-x	root/root	usr/lib/librpmbuild.la
+lrwxrwxrwx	root/root	usr/lib/librpmbuild.so -> librpmbuild-4.4.so
+-rwxr-xr-x	root/root	usr/lib/librpmdb-4.4.so
+-rw-r--r--	root/root	usr/lib/librpmdb.a
+-rwxr-xr-x	root/root	usr/lib/librpmdb.la
+lrwxrwxrwx	root/root	usr/lib/librpmdb.so -> librpmdb-4.4.so
+-rwxr-xr-x	root/root	usr/lib/librpmio-4.4.so
+-rw-r--r--	root/root	usr/lib/librpmio.a
+-rwxr-xr-x	root/root	usr/lib/librpmio.la
+lrwxrwxrwx	root/root	usr/lib/librpmio.so -> librpmio-4.4.so
+drwxr-xr-x	root/root	usr/lib/rpm/
+-rwxr-xr-x	root/root	usr/lib/rpm/Specfile.pm
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-compress
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-java-gcjcompile
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-python-bytecompile
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-redhat
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-sparc64-linux
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-strip
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-strip-comment-note
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-strip-shared
+-rwxr-xr-x	root/root	usr/lib/rpm/brp-strip-static-archive
+-rwxr-xr-x	root/root	usr/lib/rpm/check-files
+-rwxr-xr-x	root/root	usr/lib/rpm/check-prereqs
+-rwxr-xr-x	root/root	usr/lib/rpm/convertrpmrc.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/cpanflute
+-rwxr-xr-x	root/root	usr/lib/rpm/cpanflute2
+-rwxr-xr-x	root/root	usr/lib/rpm/cross-build
+-rwxr-xr-x	root/root	usr/lib/rpm/find-debuginfo.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/find-lang.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/find-prov.pl
+-rwxr-xr-x	root/root	usr/lib/rpm/find-provides.perl
+-rwxr-xr-x	root/root	usr/lib/rpm/find-req.pl
+-rwxr-xr-x	root/root	usr/lib/rpm/find-requires.perl
+-rwxr-xr-x	root/root	usr/lib/rpm/freshen.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/get_magic.pl
+-rwxr-xr-x	root/root	usr/lib/rpm/getpo.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/http.req
+-rwxr-xr-x	root/root	usr/lib/rpm/magic.prov
+-rwxr-xr-x	root/root	usr/lib/rpm/magic.req
+-rwxr-xr-x	root/root	usr/lib/rpm/perl.prov
+-rwxr-xr-x	root/root	usr/lib/rpm/perl.req
+-rwxr-xr-x	root/root	usr/lib/rpm/perldeps.pl
+-rwxr-xr-x	root/root	usr/lib/rpm/pythondeps.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/rpm.daily
+-rwxr-xr-x	root/root	usr/lib/rpm/rpm.log
+-rwxr-xr-x	root/root	usr/lib/rpm/rpm.xinetd
+-rwxr-xr-x	root/root	usr/lib/rpm/rpm2cpio.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/rpmdb_loadcvt
+-rwxr-xr-x	root/root	usr/lib/rpm/rpmdiff
+-rwxr-xr-x	root/root	usr/lib/rpm/rpmdiff.cgi
+lrwxrwxrwx	root/root	usr/lib/rpm/rpme -> rpmi
+lrwxrwxrwx	root/root	usr/lib/rpm/rpmt -> rpmb
+lrwxrwxrwx	root/root	usr/lib/rpm/rpmu -> rpmi
+lrwxrwxrwx	root/root	usr/lib/rpm/rpmv -> rpmq
+-rwxr-xr-x	root/root	usr/lib/rpm/sql.prov
+-rwxr-xr-x	root/root	usr/lib/rpm/sql.req
+-rwxr-xr-x	root/root	usr/lib/rpm/tcl.req
+-rwxr-xr-x	root/root	usr/lib/rpm/tgpg
+-rwxr-xr-x	root/root	usr/lib/rpm/trpm
+-rwxr-xr-x	root/root	usr/lib/rpm/u_pkg.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/vpkg-provides.sh
+-rwxr-xr-x	root/root	usr/lib/rpm/vpkg-provides2.sh
+lrwxrwxrwx	root/root	usr/lib/rpmpopt -> rpm/rpmpopt
+lrwxrwxrwx	root/root	usr/lib/rpmrc -> rpm/rpmrc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/fr/
+drwxr-xr-x	root/root	usr/man/fr/man8/
+-rw-r--r--	root/root	usr/man/fr/man8/rpm.8
+drwxr-xr-x	root/root	usr/man/ja/
+drwxr-xr-x	root/root	usr/man/ja/man8/
+-rw-r--r--	root/root	usr/man/ja/man8/rpm.8
+-rw-r--r--	root/root	usr/man/ja/man8/rpm2cpio.8
+-rw-r--r--	root/root	usr/man/ja/man8/rpmbuild.8
+-rw-r--r--	root/root	usr/man/ja/man8/rpmcache.8
+-rw-r--r--	root/root	usr/man/ja/man8/rpmgraph.8
+drwxr-xr-x	root/root	usr/man/ko/
+drwxr-xr-x	root/root	usr/man/ko/man8/
+-rw-r--r--	root/root	usr/man/ko/man8/rpm.8
+-rw-r--r--	root/root	usr/man/ko/man8/rpm2cpio.8
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/gendiff.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/popt.3.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/rpm.8.gz
+-rw-r--r--	root/root	usr/man/man8/rpm2cpio.8.gz
+-rw-r--r--	root/root	usr/man/man8/rpmbuild.8.gz
+-rw-r--r--	root/root	usr/man/man8/rpmcache.8.gz
+-rw-r--r--	root/root	usr/man/man8/rpmdeps.8.gz
+-rw-r--r--	root/root	usr/man/man8/rpmgraph.8.gz
+drwxr-xr-x	root/root	usr/man/pl/
+drwxr-xr-x	root/root	usr/man/pl/man1/
+-rw-r--r--	root/root	usr/man/pl/man1/gendiff.1
+drwxr-xr-x	root/root	usr/man/pl/man8/
+-rw-r--r--	root/root	usr/man/pl/man8/rpm.8
+-rw-r--r--	root/root	usr/man/pl/man8/rpm2cpio.8
+-rw-r--r--	root/root	usr/man/pl/man8/rpmbuild.8
+-rw-r--r--	root/root	usr/man/pl/man8/rpmcache.8
+-rw-r--r--	root/root	usr/man/pl/man8/rpmdeps.8
+-rw-r--r--	root/root	usr/man/pl/man8/rpmgraph.8
+drwxr-xr-x	root/root	usr/man/ru/
+drwxr-xr-x	root/root	usr/man/ru/man8/
+-rw-r--r--	root/root	usr/man/ru/man8/rpm.8
+-rw-r--r--	root/root	usr/man/ru/man8/rpm2cpio.8
+drwxr-xr-x	root/root	usr/man/sk/
+drwxr-xr-x	root/root	usr/man/sk/man8/
+-rw-r--r--	root/root	usr/man/sk/man8/rpm.8
+drwxr-xr-x	root/root	usr/src/
+drwxr-xr-x	root/root	usr/src/pc/
+drwxr-xr-x	root/root	usr/src/pc/BUILD/
+drwxr-xr-x	root/root	usr/src/pc/RPMS/
+drwxr-xr-x	root/root	usr/src/pc/RPMS/athlon/
+drwxr-xr-x	root/root	usr/src/pc/RPMS/i386/
+drwxr-xr-x	root/root	usr/src/pc/RPMS/i486/
+drwxr-xr-x	root/root	usr/src/pc/RPMS/i586/
+drwxr-xr-x	root/root	usr/src/pc/RPMS/i686/
+drwxr-xr-x	root/root	usr/src/pc/RPMS/noarch/
+drwxr-xr-x	root/root	usr/src/pc/SOURCES/
+drwxr-xr-x	root/root	usr/src/pc/SPECS/
+drwxr-xr-x	root/root	usr/src/pc/SRPMS/

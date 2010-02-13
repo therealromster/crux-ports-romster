@@ -1,0 +1,32 @@
+# $Id: $
+# Description: A WYSIWYG 2D plotting tool for the X Window System and M*tif
+# URL: http://plasma-gate.weizmann.ac.il/Grace/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openmotif, pdflib-lite, zlin, libpng, linjpeg
+
+name=grace
+version=5.99.0
+release=1
+source=(ftp://plasma-gate.weizmann.ac.il/pub/$name/src/${name}6/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cd $name-$version
+	./configure --prefix=/usr/lib
+
+	make
+	make DESTDIR=$PKG install
+
+	#cd $PKG/usr
+	#mv $name lib; cd lib/$name/
+	rm -rf $PKG/usr/lib/$name/{examples,doc}
+  
+	ln -sf /usr/lib/$name/bin/xm$name-$version $PKG/usr/bin/$name
+	ln -sf /usr/lib/$name/bin/xm$name-$version $PKG/usr/bin/xm$name
+	ln -sf /usr/lib/$name/bin/convcal          $PKG/usr/bin/convcal
+	ln -sf /usr/lib/$name/bin/grconvert        $PKG/usr/bin/grconvert
+
+	chown -R root:root $PKG
+}

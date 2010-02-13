@@ -1,0 +1,23 @@
+# Description: a game is based on an old Amiga logic game Balls
+# URL: http://sourceforge.net/projects/interlogic/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: sdl_image
+
+name=interlogic
+version=0.30
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/interLOGIC-src-$version.tar.gz)
+
+build() {
+    cd $name
+    aclocal
+    autoheader
+    autoconf
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

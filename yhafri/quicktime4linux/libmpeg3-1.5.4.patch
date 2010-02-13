@@ -1,0 +1,31 @@
+--- libmpeg3-1.5.4/Makefile	2003-10-29 10:53:02.000000000 +0100
++++ libmpeg3-1.5.4/Makefile-new	2004-11-23 21:53:03.839084912 +0100
+@@ -179,7 +179,7 @@
+ 		-ldl
+ 
+ install: 
+-	cp $(UTILS) /usr/bin
++	cp $(UTILS) $(DESTDIR)/usr/bin
+ 
+ clean:
+ 	rm -rf $(OBJDIR)
+--- libmpeg3-1.5.4/mpeg3io.c	2003-12-13 22:13:43.000000000 +0100
++++ libmpeg3-1.5.4/mpeg3io.c-new	2004-11-23 22:17:51.611909064 +0100
+@@ -1,12 +1,14 @@
+-#include "mpeg3private.h"
+-#include "mpeg3protos.h"
+-
+ #include <mntent.h>
+ #include <stdint.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/stat.h>
+ 
++#include "mpeg3private.h"
++#include "mpeg3protos.h"
++#include "mpeg3io.h"
++
++
+ mpeg3_fs_t* mpeg3_new_fs(char *path)
+ {
+ 	mpeg3_fs_t *fs = calloc(1, sizeof(mpeg3_fs_t));

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Interface to pcap(3) LBL packet capture library 
+# URL: http://search.cpan.org/~kcarnut/Net-Pcap-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpcap
+
+name=p5-net-pcap
+version=0.11
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KC/KCARNUT/Net-Pcap-$version.tar.gz)
+
+build () {
+	cd Net-Pcap-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

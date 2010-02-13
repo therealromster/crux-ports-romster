@@ -1,0 +1,14 @@
+--- libowfat-0.23/GNUmakefile	2004-03-28 03:49:35.000000000 +0200
++++ libowfat-0.23/GNUmakefile-new	2004-06-25 23:37:01.547029336 +0200
+@@ -26,9 +26,9 @@
+ diet_path = $(foreach dir,$(path),$(wildcard $(dir)/diet))
+ ifeq ($(strip $(diet_path)),)
+ ifneq ($(wildcard /opt/diet/bin/diet),)
+-DIET=/opt/diet/bin/diet
++DIET=/usr/local/diet/bin/diet
+ else
+-DIET=
++DIET=/usr/local/diet/bin/diet
+ endif
+ else
+ DIET:=$(strip $(diet_path))

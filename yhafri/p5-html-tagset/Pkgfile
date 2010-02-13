@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Perl data tables useful for parsing HTML
+# URL: http://search.cpan.org/~sburke/HTML-Tagset-3.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-html-tagset
+version=3.10
+release=1
+
+source=(http://search.cpan.org/CPAN/authors/id/P/PE/PETDANCE/HTML-Tagset-$version.tar.gz)
+
+build () {
+	cd HTML-Tagset-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,35 @@
+# $Id: $
+# Description: Perl interface to Ivy
+# URL: http://www.tls.cena.fr/products/ivy/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-io-socket-multicast
+
+name=ivy-perl
+version=4.17
+release=1
+source=(http://www.tls.cena.fr/products/ivy/download/packages/${name}_$version.tar.gz)
+
+build () {
+	export PERL_SITE=`echo /usr/lib/perl5/site_perl/5.8.*`
+	mkdir -p $PKG/$PERL_SITE/linux
+	mkdir -p $PKG/usr/man/man{1,3}
+
+	cd $name-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+
+	rm -rf $PKG/usr/lib/perl5/5.8.6/linux-thread-multi
+
+	mv $PKG/Ivy.pm  $PKG/$PERL_SITE
+	mv $PKG/auto    $PKG/$PERL_SITE/linux
+
+	(cd $PKG
+	gzip Ivy.3pm;         mv Ivy.3pm.gz          $PKG/usr/man/man3
+	gzip ivyprobe.pl.1pm; mv ivyprobe.pl.1pm.gz  $PKG/usr/man/man1
+	)
+
+	chown -R root:root $PKG
+}

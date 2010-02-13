@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/doc/
+drwxr-xr-x	root/root	usr/doc/autounit-0.15.2/
+-rw-r--r--	root/root	usr/doc/autounit-0.15.2/BUGS
+-rw-r--r--	root/root	usr/doc/autounit-0.15.2/README
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/autounit/
+-rw-r--r--	root/root	usr/include/autounit/autounit.h
+drwxr-xr-x	root/root	usr/info/
+-rw-r--r--	root/root	usr/info/autounit.info
+-rw-r--r--	root/root	usr/info/dir
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libau-c-unit.a
+-rwxr-xr-x	root/root	usr/lib/libau-c-unit.la
+lrwxrwxrwx	root/root	usr/lib/libau-c-unit.so -> libau-c-unit.so.2.2.0
+lrwxrwxrwx	root/root	usr/lib/libau-c-unit.so.2 -> libau-c-unit.so.2.2.0
+-rwxr-xr-x	root/root	usr/lib/libau-c-unit.so.2.2.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/autounit.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/autounit.m4
+drwxr-xr-x	root/root	usr/share/guile/
+drwxr-xr-x	root/root	usr/share/guile/autounit/
+-rw-r--r--	root/root	usr/share/guile/autounit/assert.scm
+-rw-r--r--	root/root	usr/share/guile/autounit/backend.scm
+-rw-r--r--	root/root	usr/share/guile/autounit/suite.scm
+-rw-r--r--	root/root	usr/share/guile/autounit/test.scm

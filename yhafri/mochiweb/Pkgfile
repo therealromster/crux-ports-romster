@@ -1,0 +1,20 @@
+# $Id: $
+# Description: An erlang based webserver toolkit - fast and simple HTTP server suited to dynamic requests
+# URL: http://undefined.org/erlang/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=mochiweb
+version=r2093
+release=1
+source=(http://undefined.org/erlang/$name-$version.tgz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+
+	cd $name-$version
+	mv ebin/ src/ include/ support/ $PKG/usr/lib/erlang/lib/$name-$version/
+
+	chown -R root:root $PKG
+}

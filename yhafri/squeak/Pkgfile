@@ -1,0 +1,33 @@
+# $Id: $
+# Description: An open highly-portable Smalltalk-80 implementation
+# URL: http://www.squeak.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=squeak
+version=3.7.7
+release=3
+source=(http://ftp.squeak.org/current_stable/unix-linux/Squeak-3.8-6665-i686-pc-linux-gnu-$version.tar.gz \
+	http://ftp.squeak.org/current_stable/Squeak3.8-6665-full.zip \
+	http://ftp.squeak.org/current_stable/SqueakV3.sources.gz \
+	$name \
+	inisqueak)
+
+build () {
+	#mkdir -p $PKG/usr/local/{bin,lib,doc,man}
+
+	cd Squeak-3.7-7/i686-pc-linux-gnu
+
+	tar -cf - usr | ( cd $PKG; tar -xvf - )
+	rm -rf $PKG/usr/local/doc/
+
+	install -D $SRC/SqueakV3.sources           $PKG/usr/local/lib/$name/SqueakV3.sources
+	install -D $SRC/Squeak3.8-6665full.image   $PKG/usr/local/lib/$name/Squeak3.8-6665full.image
+	install -D $SRC/Squeak3.8-6665full.changes $PKG/usr/local/lib/$name/Squeak3.8-6665full.changes
+	
+	install -D -m 755 $SRC/$name     $PKG/usr/bin/$name
+	install -D -m 755 $SRC/inisqueak $PKG/usr/bin/inisqueak
+
+	chown -R root:root $PKG
+}

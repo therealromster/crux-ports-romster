@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Tcl binding library for Postgresql
+# URL: http://gborg.postgresql.org/project/pgtcl/projdisplay.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, postgresql
+
+name=pgtcl
+version=1.5
+release=1
+source=(ftp://gborg.postgresql.org/pub/$name/stable/$name$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name$version
+	patch -p1<../$name-$version.patch
+	./configure --prefix=/usr \
+		    --enable-threads \
+		    --enable-wince \
+		    --enable-shared
+
+	make
+	make DESTDIR=$PKG install
+	
+	ln -sf /usr/lib/$name$version/lib$name$version.so $PKG/usr/lib/lib$name.so 
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for using OpenSSL
+# URL: http://search.cpan.org/~sampo/Net_SSLeay.pm-1.25/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=p5-net-ssleay
+version=1.30
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/F/FL/FLORA/Net_SSLeay.pm-$version.tar.gz)
+
+build () {
+	cd Net_SSLeay.pm-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

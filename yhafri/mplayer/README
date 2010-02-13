@@ -1,0 +1,49 @@
+PRE-INSTALL:
+		* Recompile your kernel with RTC:
+		<*> Enhanced Real Time Clock Support
+		
+                * Run this command to install "mplayer":
+                # pkgmk -d -i -cf pkgmk.conf
+
+POST-INSTALL:
+		# If gmplayer starts with:
+		vo: X11 running at 1024x768 with depth 24 and 32 bpp (":0.0" => local display)
+		Failed to open /dev/rtc: No such file or directory (it should be readable by the user.)
+
+		- Type:
+		echo "1024" > /proc/sys/dev/rtc/max-user-freq 
+
+		or permanently add the following lines to your "/etc/sysctl.conf":
+		dev.rtc.max-user-freq=1024
+
+		- And add this to your "/etc/devfsd.conf":
+		REGISTER        misc/rtc       PERMISSIONS root.audio 664
+		
+		Notes: The group "audio" must exists and you must belong in it.
+		See /usr/ports/yhafri/alsa-driver/README
+
+STUFFS:
+		
+		* set codecs:
+		$ mkdir ~/.mplayer
+		$ cp /etc/mplayer/codecs.conf ~/.mplayer/
+		$ cp /usr/etc/mplayer/input.conf ~/.mplayer/
+		$ cp /usr/etc/mplayer/mplayer.conf ~/.mplayer/
+		$ cp /etc/mplayer/menu.conf ~/.mplayer/
+
+		* set config file: 
+		$ echo "vo = xv" >> ~/.mplayer/config
+		$ echo "double = yes" >> ~/.mplayer/config
+		$ echo "vfm = 5" >> ~/.mplayer/config
+		$ echo "skin = Blue" >> ~/.mplayer/config
+		$ echo "cache = 8192" >> ~/.mplayer/config
+
+		* set fonts:
+		$ ln -s /usr/X11R6/lib/X11/fonts/TTF/Vera.ttf ~/.mplayer/subfont.ttf
+
+		* for skins, install mplayer-skins
+
+		* Use "gmplayer" command to start the GUI 
+LINKS:
+		http://www.linuxquestions.org/questions/history/290672
+                http://www.mplayerhq.hu/DOCS/HTML-single/en/MPlayer.html#rtc

@@ -1,0 +1,22 @@
+INFO:
+		* Useful prolog examples:
+		http://courses.essex.ac.uk/lg/LG519/Programs/
+
+EMACS-MODE:
+		* Uncompress the file "prolog.el.gz" and put it
+		where emacs can see it, generally in:
+		# gunzip prolog.el.gz
+		# mv prolog.el /usr/share/emacs/21.X/site-lisp
+
+		* Insert into your ~/.emacs the following lines:
+
+;; http://turing.ubishops.ca/home/bruda/emacs-prolog/
+(autoload 'run-prolog "prolog" "Start a Prolog sub-process." t)
+    (autoload 'prolog-mode "prolog" "Major mode for editing Prolog 
+programs." t)
+    (autoload 'mercury-mode "prolog" "Major mode for editing Mercury 
+programs." t)
+    (setq prolog-system 'swi)
+    (setq auto-mode-alist (append '(("\\.pl$" . prolog-mode)
+                                    ("\\.m$" . mercury-mode))
+                                   auto-mode-alist))

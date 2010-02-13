@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A web browser written entirely in Emacs Lisp
+# URL: http://www.gnu.org/software/w3/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=w3
+version=4.0pre.47
+release=1
+source=(http://xemacsftp.miroir-francais.fr/emacs-w3/$name-$version.tar.gz)
+
+build () {
+	#cvs -qz3 -d:pserver:anonymous@cvs.savannah.gnu.org:/sources/$name co $name
+
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info
+
+	chown -R root:root $PKG
+}

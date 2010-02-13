@@ -1,0 +1,508 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/default/
+-rw-r--r--	root/root	etc/default/man
+-rw-r--r--	root/root	etc/default/ps
+-rw-r--r--	root/root	etc/default/su
+-rw-r--r--	root/root	etc/default/tar
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/5bin/
+lrwxrwxrwx	root/root	usr/5bin/STTY -> stty
+lrwxrwxrwx	root/root	usr/5bin/apropos -> man
+lrwxrwxrwx	root/root	usr/5bin/awk -> oawk
+-rwxr-xr-x	root/root	usr/5bin/banner
+-rwxr-xr-x	root/root	usr/5bin/basename
+-rwxr-xr-x	root/root	usr/5bin/bc
+-rwxr-xr-x	root/root	usr/5bin/bdiff
+-rwxr-xr-x	root/root	usr/5bin/bfs
+-rwxr-xr-x	root/root	usr/5bin/cal
+-rwxr-xr-x	root/root	usr/5bin/calendar
+-rwxr-xr-x	root/root	usr/5bin/cat
+-rwxr-xr-x	root/root	usr/5bin/catman
+lrwxrwxrwx	root/root	usr/5bin/chgrp -> chown
+-rwxr-xr-x	root/root	usr/5bin/chmod
+-rwxr-xr-x	root/root	usr/5bin/chown
+-rwxr-xr-x	root/root	usr/5bin/cksum
+-rwxr-xr-x	root/root	usr/5bin/cmp
+-rwxr-xr-x	root/root	usr/5bin/col
+-rwxr-xr-x	root/root	usr/5bin/comm
+-rwxr-xr-x	root/root	usr/5bin/copy
+-rwxr-xr-x	root/root	usr/5bin/cp
+-rwxr-xr-x	root/root	usr/5bin/cpio
+-rwxr-xr-x	root/root	usr/5bin/csplit
+-rwxr-xr-x	root/root	usr/5bin/cut
+-rwxr-xr-x	root/root	usr/5bin/date
+-rwxr-xr-x	root/root	usr/5bin/dc
+-rwxr-xr-x	root/root	usr/5bin/dd
+-rwxr-xr-x	root/root	usr/5bin/deroff
+-rwxr-xr-x	root/root	usr/5bin/df
+lrwxrwxrwx	root/root	usr/5bin/dfspace -> df
+-rwxr-xr-x	root/root	usr/5bin/diff
+-rwxr-xr-x	root/root	usr/5bin/diff3
+-rwxr-xr-x	root/root	usr/5bin/dircmp
+-rwxr-xr-x	root/root	usr/5bin/dirname
+-rwxr-xr-x	root/root	usr/5bin/du
+-rwxr-xr-x	root/root	usr/5bin/echo
+-rwxr-xr-x	root/root	usr/5bin/ed
+-rwxr-xr-x	root/root	usr/5bin/egrep
+-rwxr-xr-x	root/root	usr/5bin/env
+-rwxr-xr-x	root/root	usr/5bin/expand
+-rwxr-xr-x	root/root	usr/5bin/expr
+-rwxr-xr-x	root/root	usr/5bin/factor
+-rwxr-xr-x	root/root	usr/5bin/false
+-rwxr-xr-x	root/root	usr/5bin/fgrep
+-rwxr-xr-x	root/root	usr/5bin/file
+-rwxr-xr-x	root/root	usr/5bin/find
+-rwxr-xr-x	root/root	usr/5bin/fmt
+-rwxr-xr-x	root/root	usr/5bin/fmtmsg
+-rwxr-xr-x	root/root	usr/5bin/fold
+lrwxrwxrwx	root/root	usr/5bin/getconf -> posix/getconf
+-rwxr-xr-x	root/root	usr/5bin/getopt
+-rwxr-xr-x	root/root	usr/5bin/grep
+-rwxr-xr-x	root/root	usr/5bin/groups
+-rwxr-xr-x	root/root	usr/5bin/hd
+-rwxr-xr-x	root/root	usr/5bin/head
+-rwxr-xr-x	root/root	usr/5bin/hostname
+-rwxr-xr-x	root/root	usr/5bin/id
+lrwxrwxrwx	root/root	usr/5bin/install -> ../ucb/install
+-rwxr-xr-x	root/root	usr/5bin/join
+-rwxr-xr-x	root/root	usr/5bin/kill
+lrwxrwxrwx	root/root	usr/5bin/lc -> ls
+-rwxr-xr-x	root/root	usr/5bin/line
+-rwxr-xr-x	root/root	usr/5bin/listusers
+lrwxrwxrwx	root/root	usr/5bin/ln -> cp
+-rwxr-xr-x	root/root	usr/5bin/logins
+-rwxr-xr-x	root/root	usr/5bin/logname
+-rwxr-xr-x	root/root	usr/5bin/ls
+-rwxr-xr-x	root/root	usr/5bin/mail
+-rwxr-xr-x	root/root	usr/5bin/man
+-rwxr-xr-x	root/root	usr/5bin/mesg
+-rwxr-xr-x	root/root	usr/5bin/mkdir
+-rwxr-xr-x	root/root	usr/5bin/mkfifo
+-rwxr-xr-x	root/root	usr/5bin/mknod
+-rwxr-xr-x	root/root	usr/5bin/more
+lrwxrwxrwx	root/root	usr/5bin/mt -> tapecntl
+lrwxrwxrwx	root/root	usr/5bin/mv -> cp
+-rwxr-xr-x	root/root	usr/5bin/mvdir
+-rwxr-xr-x	root/root	usr/5bin/nawk
+-rwxr-xr-x	root/root	usr/5bin/newform
+-rwxr-xr-x	root/root	usr/5bin/news
+-rwxr-xr-x	root/root	usr/5bin/nice
+-rwxr-xr-x	root/root	usr/5bin/nl
+-rwxr-xr-x	root/root	usr/5bin/nohup
+-rwxr-xr-x	root/root	usr/5bin/oawk
+-rwxr-xr-x	root/root	usr/5bin/od
+lrwxrwxrwx	root/root	usr/5bin/page -> more
+-rwxr-xr-x	root/root	usr/5bin/paste
+-rwxr-xr-x	root/root	usr/5bin/pathchk
+-rwxr-xr-x	root/root	usr/5bin/pax
+-rwxr-xr-x	root/root	usr/5bin/pg
+-rwxr-xr-x	root/root	usr/5bin/pgrep
+lrwxrwxrwx	root/root	usr/5bin/pkill -> pgrep
+drwxr-xr-x	root/root	usr/5bin/posix/
+lrwxrwxrwx	root/root	usr/5bin/posix/awk -> nawk
+-rwxr-xr-x	root/root	usr/5bin/posix/basename
+-rwxr-xr-x	root/root	usr/5bin/posix/chmod
+-rwxr-xr-x	root/root	usr/5bin/posix/cp
+-rwxr-xr-x	root/root	usr/5bin/posix/csplit
+-rwxr-xr-x	root/root	usr/5bin/posix/date
+-rwxr-xr-x	root/root	usr/5bin/posix/du
+-rwxr-xr-x	root/root	usr/5bin/posix/echo
+-rwxr-xr-x	root/root	usr/5bin/posix/ed
+lrwxrwxrwx	root/root	usr/5bin/posix/egrep -> grep
+-rwxr-xr-x	root/root	usr/5bin/posix/expr
+lrwxrwxrwx	root/root	usr/5bin/posix/fgrep -> grep
+-rwxr-xr-x	root/root	usr/5bin/posix/file
+-rwxr-xr-x	root/root	usr/5bin/posix/find
+-rwxr-xr-x	root/root	usr/5bin/posix/getconf
+-rwxr-xr-x	root/root	usr/5bin/posix/grep
+-rwxr-xr-x	root/root	usr/5bin/posix/id
+lrwxrwxrwx	root/root	usr/5bin/posix/ln -> cp
+-rwxr-xr-x	root/root	usr/5bin/posix/ls
+-rwxr-xr-x	root/root	usr/5bin/posix/mkdir
+lrwxrwxrwx	root/root	usr/5bin/posix/mv -> cp
+-rwxr-xr-x	root/root	usr/5bin/posix/nawk
+-rwxr-xr-x	root/root	usr/5bin/posix/nl
+-rwxr-xr-x	root/root	usr/5bin/posix/nohup
+-rwxr-xr-x	root/root	usr/5bin/posix/od
+lrwxrwxrwx	root/root	usr/5bin/posix/pax -> ../pax
+-rwxr-xr-x	root/root	usr/5bin/posix/pg
+-rwxr-xr-x	root/root	usr/5bin/posix/pr
+-rwsr-xr-x	root/root	usr/5bin/posix/ps
+-rwxr-xr-x	root/root	usr/5bin/posix/rm
+-rwxr-xr-x	root/root	usr/5bin/posix/rmdir
+-rwxr-xr-x	root/root	usr/5bin/posix/sed
+-rwxr-xr-x	root/root	usr/5bin/posix/sort
+-rwxr-xr-x	root/root	usr/5bin/posix/test
+-rwxr-xr-x	root/root	usr/5bin/posix/touch
+-rwxr-xr-x	root/root	usr/5bin/posix/tr
+-rwxr-xr-x	root/root	usr/5bin/posix/wc
+-rwxr-xr-x	root/root	usr/5bin/posix/who
+drwxr-xr-x	root/root	usr/5bin/posix2001/
+lrwxrwxrwx	root/root	usr/5bin/posix2001/awk -> nawk
+lrwxrwxrwx	root/root	usr/5bin/posix2001/basename -> ../posix/basename
+lrwxrwxrwx	root/root	usr/5bin/posix2001/chmod -> ../posix/chmod
+lrwxrwxrwx	root/root	usr/5bin/posix2001/cp -> ../posix/cp
+-rwxr-xr-x	root/root	usr/5bin/posix2001/csplit
+lrwxrwxrwx	root/root	usr/5bin/posix2001/date -> ../posix/date
+lrwxrwxrwx	root/root	usr/5bin/posix2001/du -> ../posix/du
+lrwxrwxrwx	root/root	usr/5bin/posix2001/echo -> ../posix/echo
+-rwxr-xr-x	root/root	usr/5bin/posix2001/ed
+lrwxrwxrwx	root/root	usr/5bin/posix2001/egrep -> grep
+-rwxr-xr-x	root/root	usr/5bin/posix2001/expr
+lrwxrwxrwx	root/root	usr/5bin/posix2001/fgrep -> grep
+lrwxrwxrwx	root/root	usr/5bin/posix2001/file -> ../posix/file
+-rwxr-xr-x	root/root	usr/5bin/posix2001/find
+-rwxr-xr-x	root/root	usr/5bin/posix2001/getconf
+-rwxr-xr-x	root/root	usr/5bin/posix2001/grep
+lrwxrwxrwx	root/root	usr/5bin/posix2001/id -> ../posix/id
+lrwxrwxrwx	root/root	usr/5bin/posix2001/ln -> ../posix/ln
+-rwxr-xr-x	root/root	usr/5bin/posix2001/ls
+lrwxrwxrwx	root/root	usr/5bin/posix2001/mkdir -> ../posix/mkdir
+lrwxrwxrwx	root/root	usr/5bin/posix2001/mv -> ../posix/mv
+-rwxr-xr-x	root/root	usr/5bin/posix2001/nawk
+-rwxr-xr-x	root/root	usr/5bin/posix2001/nl
+lrwxrwxrwx	root/root	usr/5bin/posix2001/nohup -> ../posix/nohup
+lrwxrwxrwx	root/root	usr/5bin/posix2001/od -> ../od
+-rwxr-xr-x	root/root	usr/5bin/posix2001/pax
+-rwxr-xr-x	root/root	usr/5bin/posix2001/pg
+lrwxrwxrwx	root/root	usr/5bin/posix2001/pr -> ../posix/pr
+lrwxrwxrwx	root/root	usr/5bin/posix2001/ps -> ../posix/ps
+lrwxrwxrwx	root/root	usr/5bin/posix2001/rm -> ../posix/rm
+lrwxrwxrwx	root/root	usr/5bin/posix2001/rmdir -> ../posix/rmdir
+-rwxr-xr-x	root/root	usr/5bin/posix2001/sed
+lrwxrwxrwx	root/root	usr/5bin/posix2001/sort -> ../posix/sort
+lrwxrwxrwx	root/root	usr/5bin/posix2001/test -> ../posix/test
+lrwxrwxrwx	root/root	usr/5bin/posix2001/touch -> ../posix/touch
+lrwxrwxrwx	root/root	usr/5bin/posix2001/tr -> ../posix/tr
+lrwxrwxrwx	root/root	usr/5bin/posix2001/wc -> ../posix/wc
+lrwxrwxrwx	root/root	usr/5bin/posix2001/who -> ../posix/who
+-rwxr-xr-x	root/root	usr/5bin/pr
+-rwxr-xr-x	root/root	usr/5bin/printenv
+-rwxr-xr-x	root/root	usr/5bin/printf
+-rwxr-xr-x	root/root	usr/5bin/priocntl
+-rwsr-xr-x	root/root	usr/5bin/ps
+-rwxr-xr-x	root/root	usr/5bin/psrinfo
+-rwxr-xr-x	root/root	usr/5bin/ptime
+-rwxr-xr-x	root/root	usr/5bin/pwd
+-rwxr-xr-x	root/root	usr/5bin/random
+-rwxr-xr-x	root/root	usr/5bin/renice
+-rwxr-xr-x	root/root	usr/5bin/rm
+-rwxr-xr-x	root/root	usr/5bin/rmdir
+drwxr-xr-x	root/root	usr/5bin/s42/
+lrwxrwxrwx	root/root	usr/5bin/s42/awk -> nawk
+lrwxrwxrwx	root/root	usr/5bin/s42/basename -> ../basename
+lrwxrwxrwx	root/root	usr/5bin/s42/chmod -> ../chmod
+-rwxr-xr-x	root/root	usr/5bin/s42/cp
+lrwxrwxrwx	root/root	usr/5bin/s42/csplit -> ../posix/csplit
+lrwxrwxrwx	root/root	usr/5bin/s42/date -> ../posix/date
+lrwxrwxrwx	root/root	usr/5bin/s42/du -> ../du
+lrwxrwxrwx	root/root	usr/5bin/s42/echo -> ../echo
+-rwxr-xr-x	root/root	usr/5bin/s42/ed
+lrwxrwxrwx	root/root	usr/5bin/s42/egrep -> ../posix/egrep
+-rwxr-xr-x	root/root	usr/5bin/s42/expr
+lrwxrwxrwx	root/root	usr/5bin/s42/fgrep -> ../posix/fgrep
+lrwxrwxrwx	root/root	usr/5bin/s42/file -> ../file
+lrwxrwxrwx	root/root	usr/5bin/s42/find -> ../posix/find
+lrwxrwxrwx	root/root	usr/5bin/s42/getconf -> ../posix/getconf
+lrwxrwxrwx	root/root	usr/5bin/s42/grep -> ../posix/grep
+lrwxrwxrwx	root/root	usr/5bin/s42/id -> ../posix/id
+lrwxrwxrwx	root/root	usr/5bin/s42/lc -> ../lc
+lrwxrwxrwx	root/root	usr/5bin/s42/ln -> cp
+lrwxrwxrwx	root/root	usr/5bin/s42/ls -> ../ls
+lrwxrwxrwx	root/root	usr/5bin/s42/mkdir -> ../posix/mkdir
+lrwxrwxrwx	root/root	usr/5bin/s42/more -> ../more
+lrwxrwxrwx	root/root	usr/5bin/s42/mv -> cp
+lrwxrwxrwx	root/root	usr/5bin/s42/nawk -> ../posix/nawk
+-rwxr-xr-x	root/root	usr/5bin/s42/nl
+lrwxrwxrwx	root/root	usr/5bin/s42/nohup -> ../nohup
+lrwxrwxrwx	root/root	usr/5bin/s42/od -> ../od
+lrwxrwxrwx	root/root	usr/5bin/s42/page -> ../page
+lrwxrwxrwx	root/root	usr/5bin/s42/pax -> ../pax
+lrwxrwxrwx	root/root	usr/5bin/s42/pg -> ../posix/pg
+lrwxrwxrwx	root/root	usr/5bin/s42/pr -> ../pr
+-rwxr-xr-x	root/root	usr/5bin/s42/priocntl
+-rwsr-xr-x	root/root	usr/5bin/s42/ps
+lrwxrwxrwx	root/root	usr/5bin/s42/rm -> ../rm
+lrwxrwxrwx	root/root	usr/5bin/s42/rmdir -> ../rmdir
+-rwxr-xr-x	root/root	usr/5bin/s42/sed
+lrwxrwxrwx	root/root	usr/5bin/s42/sort -> ../sort
+lrwxrwxrwx	root/root	usr/5bin/s42/test -> ../test
+lrwxrwxrwx	root/root	usr/5bin/s42/touch -> ../touch
+lrwxrwxrwx	root/root	usr/5bin/s42/tr -> ../tr
+-rwxr-xr-x	root/root	usr/5bin/s42/wc
+lrwxrwxrwx	root/root	usr/5bin/s42/who -> ../who
+-rwxr-xr-x	root/root	usr/5bin/sdiff
+-rwxr-xr-x	root/root	usr/5bin/sed
+-rwxr-xr-x	root/root	usr/5bin/setpgrp
+lrwxrwxrwx	root/root	usr/5bin/settime -> touch
+-rwxr-xr-x	root/root	usr/5bin/shl
+-rwxr-xr-x	root/root	usr/5bin/sleep
+-rwxr-xr-x	root/root	usr/5bin/sort
+-rwxr-xr-x	root/root	usr/5bin/spell
+-rwxr-xr-x	root/root	usr/5bin/split
+-rwxr-xr-x	root/root	usr/5bin/stty
+-rwsr-xr-x	root/root	usr/5bin/su
+-rwxr-xr-x	root/root	usr/5bin/sum
+-rwxr-xr-x	root/root	usr/5bin/sync
+-rwxr-xr-x	root/root	usr/5bin/tabs
+-rwxr-xr-x	root/root	usr/5bin/tail
+lrwxrwxrwx	root/root	usr/5bin/tape -> tapecntl
+-rwxr-xr-x	root/root	usr/5bin/tapecntl
+-rwxr-xr-x	root/root	usr/5bin/tar
+-rwxr-xr-x	root/root	usr/5bin/tcopy
+-rwxr-xr-x	root/root	usr/5bin/tee
+-rwxr-xr-x	root/root	usr/5bin/test
+-rwxr-xr-x	root/root	usr/5bin/time
+-rwxr-xr-x	root/root	usr/5bin/touch
+-rwxr-xr-x	root/root	usr/5bin/tr
+-rwxr-xr-x	root/root	usr/5bin/true
+-rwxr-xr-x	root/root	usr/5bin/tsort
+-rwxr-xr-x	root/root	usr/5bin/tty
+-rwxr-xr-x	root/root	usr/5bin/ul
+-rwxr-xr-x	root/root	usr/5bin/uname
+-rwxr-xr-x	root/root	usr/5bin/unexpand
+-rwxr-xr-x	root/root	usr/5bin/uniq
+-rwxr-xr-x	root/root	usr/5bin/units
+lrwxrwxrwx	root/root	usr/5bin/uptime -> whodo
+-rwxr-xr-x	root/root	usr/5bin/users
+lrwxrwxrwx	root/root	usr/5bin/w -> whodo
+-rwxr-xr-x	root/root	usr/5bin/wc
+-rwxr-xr-x	root/root	usr/5bin/what
+lrwxrwxrwx	root/root	usr/5bin/whatis -> man
+-rwxr-xr-x	root/root	usr/5bin/who
+-rwxr-xr-x	root/root	usr/5bin/whoami
+-rwxr-xr-x	root/root	usr/5bin/whodo
+-rwxr-xr-x	root/root	usr/5bin/xargs
+-rwxr-xr-x	root/root	usr/5bin/yes
+drwxr-xr-x	root/root	usr/5lib/
+-rwxr-xr-x	root/root	usr/5lib/calprog
+-rwxr-xr-x	root/root	usr/5lib/diff3prog
+-rwxr-xr-x	root/root	usr/5lib/diffh
+-rw-r--r--	root/root	usr/5lib/lib.b
+-rw-r--r--	root/root	usr/5lib/magic
+drwxr-xr-x	root/root	usr/5lib/spell/
+-rwxr-xr-x	root/root	usr/5lib/spell/compress
+-rwxr-xr-x	root/root	usr/5lib/spell/hashcheck
+-rwxr-xr-x	root/root	usr/5lib/spell/hashmake
+-rw-r--r--	root/root	usr/5lib/spell/hlista
+-rw-r--r--	root/root	usr/5lib/spell/hlistb
+-rw-r--r--	root/root	usr/5lib/spell/hstop
+-rwxr-xr-x	root/root	usr/5lib/spell/spellin
+-rwxr-xr-x	root/root	usr/5lib/spell/spellprog
+drwxr-xr-x	root/root	usr/5lib/tmac/
+lrwxrwxrwx	root/root	usr/5lib/tmac/an-old.tmac -> tmac.an
+-rw-r--r--	root/root	usr/5lib/tmac/tmac.an
+-rw-r--r--	root/root	usr/5lib/unittab
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/5man/
+drwxr-xr-x	root/root	usr/share/man/5man/man1/
+-rw-r--r--	root/root	usr/share/man/5man/man1/apropos.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/awk.1 -> oawk.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/banner.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/basename.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/bc.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/bdiff.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/bfs.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/cal.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/calendar.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/cat.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/chgrp.1 -> chown.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/chmod.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/chown.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/cksum.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/cmp.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/col.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/comm.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/copy.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/cp.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/cpio.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/csplit.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/cut.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/date.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/dc.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/dd.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/deroff.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/df.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/dfspace.1 -> df.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/diff.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/diff3.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/dircmp.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/dirname.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/du.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/echo.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/ed.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/egrep.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/env.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/expand.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/expr.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/factor.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/false.1 -> true.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/fgrep.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/file.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/find.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/fmt.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/fmtmsg.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/fold.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/getconf.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/getopt.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/grep.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/groups.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/hd.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/head.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/hostname.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/id.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/intro.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/join.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/kill.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/lc.1 -> ls.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/line.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/listusers.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/ln.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/logins.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/logname.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/ls.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/mail.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/man.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/mesg.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/mkdir.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/mkfifo.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/more.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/mt.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/mv.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/mvdir.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/nawk.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/newform.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/news.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/nice.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/nl.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/nohup.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/oawk.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/od.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/page.1 -> more.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/paste.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/pathchk.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/pax.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/pg.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/pgrep.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/pkill.1 -> pgrep.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/pr.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/printenv.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/printf.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/priocntl.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/ps.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/psrinfo.1
+lrwxrwxrwx	root/root	usr/share/man/5man/man1/ptime.1 -> time.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/pwd.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/random.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/renice.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/rm.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/rmdir.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/sdiff.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/sed.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/setpgrp.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/settime.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/shl.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/sleep.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/sort.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/spell.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/split.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/stty.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/su.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/sum.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tabs.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tail.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tape.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tapecntl.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tar.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tcopy.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tee.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/test.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/time.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/touch.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tr.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/true.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tsort.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/tty.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/ul.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/uname.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/unexpand.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/uniq.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/units.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/uptime.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/users.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/w.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/wc.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/what.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/whatis.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/who.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/whoami.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/whodo.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/xargs.1
+-rw-r--r--	root/root	usr/share/man/5man/man1/yes.1
+drwxr-xr-x	root/root	usr/share/man/5man/man1b/
+-rw-r--r--	root/root	usr/share/man/5man/man1b/basename.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/chown.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/deroff.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/df.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/du.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/echo.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/groups.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/install.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/ln.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/ls.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/ps.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/stty.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/sum.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/test.1b
+-rw-r--r--	root/root	usr/share/man/5man/man1b/tr.1b
+drwxr-xr-x	root/root	usr/share/man/5man/man1m/
+-rw-r--r--	root/root	usr/share/man/5man/man1m/mknod.1m
+-rw-r--r--	root/root	usr/share/man/5man/man1m/sync.1m
+drwxr-xr-x	root/root	usr/share/man/5man/man2/
+drwxr-xr-x	root/root	usr/share/man/5man/man3/
+drwxr-xr-x	root/root	usr/share/man/5man/man4/
+drwxr-xr-x	root/root	usr/share/man/5man/man5/
+-rw-r--r--	root/root	usr/share/man/5man/man5/fspec.5
+drwxr-xr-x	root/root	usr/share/man/5man/man6/
+drwxr-xr-x	root/root	usr/share/man/5man/man7/
+-rw-r--r--	root/root	usr/share/man/5man/man7/man.7
+drwxr-xr-x	root/root	usr/share/man/5man/man8/
+-rw-r--r--	root/root	usr/share/man/5man/man8/catman.8
+drwxr-xr-x	root/root	usr/ucb/
+lrwxrwxrwx	root/root	usr/ucb/apropos -> ../5bin/apropos
+-rwxr-xr-x	root/root	usr/ucb/basename
+lrwxrwxrwx	root/root	usr/ucb/catman -> ../5bin/catman
+-rwxr-xr-x	root/root	usr/ucb/chown
+-rwxr-xr-x	root/root	usr/ucb/deroff
+-rwxr-xr-x	root/root	usr/ucb/df
+-rwxr-xr-x	root/root	usr/ucb/du
+-rwxr-xr-x	root/root	usr/ucb/echo
+lrwxrwxrwx	root/root	usr/ucb/expand -> ../5bin/expand
+-rwxr-xr-x	root/root	usr/ucb/groups
+lrwxrwxrwx	root/root	usr/ucb/hostname -> ../5bin/hostname
+-rwxr-xr-x	root/root	usr/ucb/install
+-rwxr-xr-x	root/root	usr/ucb/ln
+-rwxr-xr-x	root/root	usr/ucb/ls
+lrwxrwxrwx	root/root	usr/ucb/man -> ../5bin/man
+lrwxrwxrwx	root/root	usr/ucb/more -> ../5bin/more
+lrwxrwxrwx	root/root	usr/ucb/printenv -> ../5bin/printenv
+-rwsr-xr-x	root/root	usr/ucb/ps
+lrwxrwxrwx	root/root	usr/ucb/renice -> ../5bin/renice
+-rwxr-xr-x	root/root	usr/ucb/stty
+-rwxr-xr-x	root/root	usr/ucb/sum
+lrwxrwxrwx	root/root	usr/ucb/tcopy -> ../5bin/tcopy
+-rwxr-xr-x	root/root	usr/ucb/test
+-rwxr-xr-x	root/root	usr/ucb/tr
+lrwxrwxrwx	root/root	usr/ucb/ul -> ../5bin/ul
+lrwxrwxrwx	root/root	usr/ucb/unexpand -> ../5bin/unexpand
+lrwxrwxrwx	root/root	usr/ucb/uptime -> ../5bin/uptime
+lrwxrwxrwx	root/root	usr/ucb/users -> ../5bin/users
+lrwxrwxrwx	root/root	usr/ucb/w -> ../5bin/w
+lrwxrwxrwx	root/root	usr/ucb/whatis -> ../5bin/whatis
+lrwxrwxrwx	root/root	usr/ucb/whoami -> ../5bin/whoami
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/adm/
+-rw-rw-rw-	root/root	var/adm/spellhist (EMPTY)
+drwxr-xr-x	root/root	var/log/
+-rw-------	root/root	var/log/sulog (EMPTY)

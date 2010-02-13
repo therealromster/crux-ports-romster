@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl binding for libCurl API
+# URL: http://files.oook.de/WWW-Curl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: curl
+
+name=p5-curl
+version=3.0
+release=1
+source=(http://files.oook.de/WWW-Curl/WWW-Curl-$version.tar.gz)
+
+build () {
+	cd WWW-Curl-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

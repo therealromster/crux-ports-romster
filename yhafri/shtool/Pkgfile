@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Portable Shell Tool
+# URL: http://www.ossp.org/pkg/tool/shtool/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=shtool
+version=2.0.5
+release=1
+source=(ftp://ftp.ossp.org/pkg/tool/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

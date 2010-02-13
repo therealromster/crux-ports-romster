@@ -1,0 +1,18 @@
+# Description: a stream directory browser
+# URL: http://www.nongnu.org/streamtuner/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: gtk,curl 
+
+name=streamtuner
+version=0.99.99
+release=1
+source=(http://savannah.nongnu.org/download/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/{locale,doc}
+}

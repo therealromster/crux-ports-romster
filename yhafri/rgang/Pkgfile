@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Execute commands on or distribute files to many nodes (> 1000)
+# URL: http://fermitools.fnal.gov/abstracts/rgang/abstract.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=rgang
+version=2_7
+release=1
+source=(ftp://ftp.fnal.gov/pub/rgang/v$version/${name}_v${version}_Linux+2.tar)
+
+build () {
+	tar -xvf ${name}_v${version}_Linux+2.tar
+
+	install -D -m 755 bin/$name.py $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

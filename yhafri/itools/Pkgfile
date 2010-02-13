@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Arabic tools and applications
+# URL: http://www.arabeyes.org/project.php?proj=ITL
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libitl
+
+name=itools
+version=0.6.2
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./autogen.sh
+
+	./configure --prefix=/usr
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

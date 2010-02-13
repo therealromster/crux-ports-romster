@@ -1,0 +1,15 @@
+--- odt2txt-0.3/Makefile	2007-05-21 22:50:37.000000000 +0200
++++ odt2txt-0.3/Makefile-new	2007-10-07 09:06:19.000000000 +0200
+@@ -25,6 +25,12 @@
+ MANDIR  = $(PREFIX)/share/man
+ MAN1DIR = $(MANDIR)/man1
+ 
++ifeq ($(UNAME_S),Linux)
++	CFLAGS += -DICONV_CHAR="const char" -I/usr/local/include
++	LDFLAGS += -L/usr/lib
++	LIBS += -liconv
++endif
++
+ ifeq ($(UNAME_S),FreeBSD)
+ 	CFLAGS += -DICONV_CHAR="const char" -I/usr/local/include
+ 	LDFLAGS += -L/usr/local/lib

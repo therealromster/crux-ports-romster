@@ -1,0 +1,9 @@
+PRE-INSTALL:
+		Install "gcj" port from 'nym' httpup repository at
+		http://members.optushome.com.au/dfmarks/crux/ports/
+
+USAGE:
+
+		Try to merge to pdf file like this:
+		$ pdftk file1.pdf file2.pdf cat output file1and2.pdf
+

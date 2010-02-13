@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Linux Trace Toolkit
+# URL: http://www.opersys.com/LTT/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk1
+
+name=ltt
+version=0.9.6
+release=1
+source=(http://www.opersys.com/ftp/pub/LTT/$name-${version}-pre4.tar.bz2)
+
+build () {
+	cd $name-$version-pre4
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,28 @@
+# Description: a perl module for simple terminal control
+# URL: http://cpan.uwinnipeg.ca/htdocs/TermReadKey/Term/ReadKey.html
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: perl
+
+name=termreadkey
+local capsname=TermReadKey
+version=2.30
+release=1
+source=(http://cpan.uwinnipeg.ca/cpan/authors/id/J/JS/JSTOWE/$capsname-$version.tar.gz)
+
+#http://www.cpan.org/modules/by-module/${capsname%%-*}/$capsname-$version.tar.gz)
+
+build() {
+    cd $capsname-$version
+    perl Makefile.PL
+    make OPTIMIZE="$CFLAGS"
+    make install DESTDIR=$PKG
+    # Remove perlcrap
+    find $PKG \
+        -name .packlist -or \
+        -name '*.bs' -or \
+        -name autosplit.ix -or \
+        -name perllocal.pod | xargs rm
+    # Remove empty directories
+    find $PKG -depth -empty -exec rm -rf {} \;
+}

@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/nbmsnp
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libnbio/
+-rw-r--r--	root/root	usr/include/libnbio/errcompat.h
+-rw-r--r--	root/root	usr/include/libnbio/libnbio.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libnbio.a
+-rwxr-xr-x	root/root	usr/lib/libnbio.la
+lrwxrwxrwx	root/root	usr/lib/libnbio.so -> libnbio.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libnbio.so.0 -> libnbio.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libnbio.so.0.0.0

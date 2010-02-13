@@ -1,0 +1,28 @@
+# $Id: $
+# Description: The GNU compiler for the Eiffel object-oriented language 
+# URL: http://smarteiffel.loria.fr
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Eduardo Lopes <eduol@gmx.net>
+# Depends on:
+
+name=smarteiffel
+version=2.2
+release=1
+source=(http://www.loria.fr/~colnet/SmartEiffel/SmartEiffel-2-2-beta5.tar.bz2)
+
+build () {
+    mkdir -p $PKG/usr/lib
+
+    mv SmartEiffel $PKG/usr/lib/
+
+    cd $PKG/usr/lib/SmartEiffel
+
+    make SmartEiffel=$PWD/sys/system.se
+
+    rm -rf COPYING GNU_LICENSE Makefile READ_ME in* configure
+    rm -rf misc man contrib bin_c
+
+    chown -R root.root $PWD
+
+    sed -i "s|/usr/ports/clc/unstable/smarteiffel/work/pkg||" sys/system.se
+}

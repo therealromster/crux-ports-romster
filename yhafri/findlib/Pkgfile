@@ -1,0 +1,23 @@
+# $Id: $
+# Description: O'Caml package manager
+# URL:         http://www.ocaml-programming.de/packages/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  ocaml
+
+name=findlib
+version=1.0.4
+release=1
+source=(http://www.ocaml-programming.de/packages/$name-$version.tar.gz)
+
+build() {
+    mkdir -p $PKG/usr/lib/ocaml	
+    cd $name-$version
+    ./configure
+
+    make all
+    make opt
+    make prefix=$PKG/ install
+
+    chown -R root:root $PKG
+}

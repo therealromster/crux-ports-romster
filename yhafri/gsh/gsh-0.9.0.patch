@@ -1,0 +1,26 @@
+--- gsh-0.9.0/gsh	2002-12-13 00:59:42.000000000 +0100
++++ gsh-0.9.0/gsh-new	2005-11-05 22:22:18.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ # forces sh to find perl in above path and run.  This is to remain
+ # compatible with kernels that don't recognize the #! exec style
+ #
+@@ -47,6 +47,7 @@
+ $VERSION="0.9.0";
+ 
+ use POSIX "sys_wait_h";
++use lib ("/usr/bin/");
+ 
+ require "sysadmin.pl";
+ 
+--- gsh-0.9.0/ghosts	2002-12-13 00:59:32.000000000 +0100
++++ gsh-0.9.0/ghosts-new	2005-11-05 22:23:35.000000000 +0100
+@@ -28,6 +28,7 @@
+ die
+ "Usage: ghosts ghosts-line\n" if ($ARGV[0] =~ /^-h/i);
+ 
++use lib ("/usr/bin/");
+ require "sysadmin.pl";
+ 
+ &LoadGhosts;

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A distributed filesystem with its origin in AFS2
+# URL: http://www.coda.cs.cmu.edu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=coda
+version=6.9.0
+release=1
+source=(http://www.coda.cs.cmu.edu/pub/$name/src/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-lwp \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

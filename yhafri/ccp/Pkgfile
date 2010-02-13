@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A compact and fast algorithm for Regular Expression Search 
+# URL: http://www.univ-rouen.fr/LIFAR/aia/ccp.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ccp
+version=0.3
+release=1
+source=(http://www.univ-rouen.fr/LIFAR/aia/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/include
+	cd CCP-$version
+
+	make
+	rm -f main.o
+	ar cr $name.a *.o
+
+	install -D -m 755 $name   $PKG/usr/bin/$name
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	mv         *.h            $PKG/usr/include/
+	
+	chown -R root:root $PKG
+}

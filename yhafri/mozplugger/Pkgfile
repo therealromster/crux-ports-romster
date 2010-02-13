@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Streaming Multimedia Plugin for Unix Mozilla
+# URL: http://mozplugger.mozdev.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: expect
+
+name=mozplugger
+version=cvs
+release=1
+
+source=(${name}rc $name.exp)
+
+build() {
+
+	expect $name.exp
+
+	cd $name/src
+
+    	make linux
+    	sed -i 's|mozplugger\.7\.bz2|mozplugger.7|g' Makefile
+
+    	make install root=$PKG/ prefix=usr
+
+    	install -d $PKG/usr/lib/mozplugger
+	install -D ${name}rc $PKG/etc/${name}rc
+
+    	mv $PKG/usr/lib/{mozilla/plugins,mozplugger}/mozplugger.so
+    	mv $PKG/usr/{share,}/man
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

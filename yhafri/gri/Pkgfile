@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A language for scientific graphics programming
+# URL: http://gri.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gettext, netcdf, gs, tetex, imagemagick
+
+name=gri
+version=2.12.14
+release=1
+source=(http://osdn.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	#cvs -z3 -d:pserver:anonymous@gri.cvs.sourceforge.net:/cvsroot/$name co -P $name
+	#cd $name
+	#automake && autoconf
+
+        cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make install prefix=$PKG/usr
+
+	rm -rf $PKG/usr/info
+	rm -rf $PKG/usr/share/{info,gri/doc}
+
+	chown -R root:root $PKG
+}

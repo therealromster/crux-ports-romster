@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# /etc/rc.d/firebird: start/stop/restart firebird
+#
+
+FIREBIRD=/opt/firebird
+ISC_USER=SYSDBA
+ISC_PASSWORD=masterkey
+FBRunUser=firebird
+
+export FIREBIRD 
+export ISC_USER
+export ISC_PASSWORD
+
+case "$1" in
+  start)
+	echo -n "Starting Firebird server: "
+        echo '$FIREBIRD/bin/fbmgr -start -forever' | su $FBRunUser
+	;;
+  stop)
+	echo -n "Stopping Firebird server: "
+        $FIREBIRD/bin/fbmgr -shut
+	;;
+  restart|reload)
+	$0 stop
+	$0 start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart|reload}"
+	;;
+esac
+
+# End of file
+

@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Filter programs that convert ordinary English text into text that mimics a stereotyped or otherwise humorous dialect
+# URL: http://www.hyperrealm.com/main.php?s=talkfilters
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cfl
+
+name=talkfilters
+version=2.3.7
+release=1
+source=(http://www.hyperrealm.com/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info/
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A portable and tiny set of libraries for creating and reading constant databases
+# URL: http://pureftpd.sourceforge.net/puredb/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=puredb 
+version=2.1
+release=1 
+source=(http://pureftpd.sourceforge.net/$name/pure-db-$version.tar.gz)
+
+build () {
+	cd pure-db-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

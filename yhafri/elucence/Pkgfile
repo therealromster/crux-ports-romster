@@ -1,0 +1,24 @@
+# $Id: $
+# Description: New module for focus-In/out transparency
+# URL: http://edevelop.org/node/2394
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: enlightenment, xcompmgr
+
+name=elucence
+version=0.0.5
+release=1
+source=(http://rabinath.org/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	./autogen.sh
+        ./configure --prefix=/usr \
+                    --disable-nls
+	
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

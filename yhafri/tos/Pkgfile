@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Open Data Management solutions
+# URL: http://www.talend.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: eclipse-sdk, gtk, jdk, p5-dbd-mysql, p5-dbd-pg, p5-spreadsheet-parseexcel, p5-text-csv-xs, p5-mime-lite
+
+name=tos
+version=r3065-V2.0.0
+release=1
+source=(http://www.talend.com/tos/release/V$version/TOS-Linux-$version.tar.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	mv TOS-Linux-$version $PKG/usr/lib/$name
+	
+	rm -f $PKG/usr/lib/$name/InstallationGuide-TOS.pdf
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	
+	chown -R root:root $PKG
+}

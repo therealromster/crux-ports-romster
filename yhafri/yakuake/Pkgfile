@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Next-generation console
+# URL: http://yakuake.uv.ro/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: kdebase
+
+name=yakuake
+version=2.8
+release=1
+source=(http://download.berlios.de/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+	
+	rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

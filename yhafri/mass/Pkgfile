@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Split tasks on multiple machines
+# URL: http://www.lerp.com/~sic/mass/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-expect, p5-io-stty, p5-io-tty, p5-termreadkey, p5-text-balanced, p5-parse-recdescent
+
+name=mass
+version=1
+release=1
+source=(http://www.lerp.com/~sic/$name/$name.tar.bz2)
+
+build () {
+
+	install -D -m 755 $name/$name.pl $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

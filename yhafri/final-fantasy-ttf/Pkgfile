@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Final Fantasy TrueType font
+# URL: http://www.dafont.com/alpha.php?lettre=f&page=11
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, chkfontpath, ttmkfdir
+
+name=final-fantasy-ttf
+version=1
+release=1
+source=(final_fantasy.zip)
+
+build () {
+	mkdir -p $PKG/usr/X11R6/lib/X11/fonts/TTF
+
+	mv *.ttf $PKG/usr/X11R6/lib/X11/fonts/TTF
+
+	chown -R root:root $PKG
+}

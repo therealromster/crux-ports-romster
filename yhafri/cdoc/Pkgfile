@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Simple documentation tool for C programs and libraries
+# URL: http://www.annexia.org/freeware/cdoc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cdoc
+version=0.9.7
+release=1
+source=(http://www.annexia.org/_file/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+    install -D -m 755 $name $PKG/usr/bin/$name
+    chown -R root:root $PKG
+}

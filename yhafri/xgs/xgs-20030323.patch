@@ -1,0 +1,25 @@
+diff -Naur xgs/c_src/Makefile xgs-new/c_src/Makefile
+--- xgs/c_src/Makefile	2002-12-30 00:30:54.000000000 +0100
++++ xgs-new/c_src/Makefile	2006-11-01 17:44:55.000000000 +0100
+@@ -1,5 +1,5 @@
+-CFLAGS=		-Wunused -g -gstabs+ -I/usr/local/lib/erlang/lib/erl_interface-3.3.2/include `pkg-config --cflags gtk+-2.0`
+-LDFLAGS=	-L/usr/local/lib/erlang/lib/erl_interface-3.3.2/lib -lerl_interface -lei `pkg-config --libs gtk+-2.0`
++CFLAGS=		-Wunused -g -gstabs+ -I/usr/lib/erlang/lib/erl_interface-3.5.5.1/include `pkg-config --cflags gtk+-2.0`
++LDFLAGS=	-L/usr/lib/erlang/lib/erl_interface-3.5.5.1/lib -lerl_interface -lei `pkg-config --libs gtk+-2.0` -lpthread
+ 
+ OBJS=		gtk_drv.o e_mesg.o util.o
+ 
+diff -Naur xgs/mk/subdir.mk xgs-new/mk/subdir.mk
+--- xgs/mk/subdir.mk	2003-02-23 20:07:35.000000000 +0100
++++ xgs-new/mk/subdir.mk	2006-11-01 17:43:33.000000000 +0100
+@@ -1,8 +1,8 @@
+ EBIN = ../ebin
+ ESRC = .
+ 
+-ERL=/usr/local/bin/erl
+-ERLC=/usr/local/bin/erlc
++ERL=/usr/bin/erl
++ERLC=/usr/bin/erlc
+ ERL_FLAGS =
+ EMULATOR = beam
+ 

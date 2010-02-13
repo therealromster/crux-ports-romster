@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Erlang API Amazon Simple Queue Service
+# URL: http://www.amazon.com/Simple-Queue-Service-home-page/b?ie=UTF8&node=13584001
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=erlsqs
+version=0.1
+release=1
+source=($name.erl ${name}_utils.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	erl -make
+
+	mv $name*.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv $name*.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

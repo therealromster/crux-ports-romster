@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Kernel aio access library
+# URL: http://lse.sourceforge.net/io/aio.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libaio
+version=0.3.104
+release=1
+source=(http://ftp.debian.org/debian/pool/main/liba/$name/${name}_$version.orig.tar.gz)
+
+build () {
+	cd $name-$version.orig
+
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

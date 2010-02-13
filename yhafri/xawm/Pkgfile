@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Xaw with Modern look and feel
+# URL: http://xawm.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz
+
+name=xawm
+version=1.6
+release=1
+source=(http://superb.dl.sourceforge.net/sourceforge/$name/XawM-$version-2.i386.rpm)
+
+build () {
+        rpm2targz XawM-$version-2.i386.rpm
+
+        tar xzvf XawM-$version-2.i386.tar.gz -C $PKG
+
+	chown -R root:root $PKG
+}

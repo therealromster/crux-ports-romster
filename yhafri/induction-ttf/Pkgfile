@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Induction TrueType font
+# URL: http://www.coolarchive.com/fonts.php?p=i
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, chkfontpath, ttmkfdir
+
+name=induction-ttf
+version=1
+release=1
+source=(induction.zip)
+
+build () {
+	mkdir -p $PKG/usr/X11R6/lib/X11/fonts/TTF
+
+	mv *.TTF $PKG/usr/X11R6/lib/X11/fonts/TTF/INDUCTIO.ttf
+
+	chown -R root:root $PKG
+}

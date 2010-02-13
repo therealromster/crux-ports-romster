@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl text utilities for use with GD
+# URL: http://search.cpan.org/~mverb/GDTextUtil-0.86/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-gd 
+
+name=p5-gd-text-util
+version=0.86
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MV/MVERB/GDTextUtil-$version.tar.gz)
+
+build () {
+	cd GDTextUtil-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

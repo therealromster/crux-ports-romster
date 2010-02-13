@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Google hashtables that use memory the way you want them to
+# URL: https://sourceforge.net/projects/goog-sparsehash/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sparsehash
+version=0.3
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/goog-sparsehash/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/doc/
+
+	chown -R root:root $PKG
+}

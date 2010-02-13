@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Visualise Perl data structures with GraphViz
+# URL: http://search.cpan.org/~mcmahon/GraphViz-Data-Structure-0.14/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-graphviz
+
+name=p5-graphviz-data-structure
+version=0.14
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MC/MCMAHON/GraphViz-Data-Structure-$version.tar.gz)
+
+build () {
+	cd GraphViz-Data-Structure-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

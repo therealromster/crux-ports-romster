@@ -1,0 +1,13 @@
+PRE-INSTALL
+
+Add kernel support for inotify, Extended Attributes for the filesystem
+that you want to index.
+
+Add "user_xattr" to the mount options of the filesystem you would
+like to index.  Here is my /etc/fstab:
+
+/dev/hdb3   /home       reiserfs    notail,noatime,user_xattr 2 2
+
+Extended Atrributes are absolutely mandatory.
+
+Now reboot.

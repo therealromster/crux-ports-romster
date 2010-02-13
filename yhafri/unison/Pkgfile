@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A file-synchronization tool for Unix and Windows
+# URL: http://www.cis.upenn.edu/~bcpierce/unison/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ocaml, lablgtk, openssh
+
+name=unison
+version=2.9.1
+release=1
+source=(http://www.cis.upenn.edu/~bcpierce/unison/download/stable/latest/unison.linux-gtkui.gz \
+	http://www.cis.upenn.edu/~bcpierce/unison/download/stable/latest/unison.linux-textui.gz)	
+
+build () {
+	mkdir -p $PKG/usr/bin
+	gunzip $name.linux-gtkui.gz $name.linux-textui.gz
+	mv $name.linux-gtkui $name-gtkui
+	mv $name.linux-textui $name-textui
+	chmod 755 $name-gtkui $name-textui
+	mv $name-gtkui $name-textui $PKG/usr/bin
+        chown -R root:root $PKG
+}

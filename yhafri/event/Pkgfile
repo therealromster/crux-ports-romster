@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Timer and I/O Event Manager library
+# URL: http://www.corpit.ru/mjt/event.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=event
+version=0.3
+release=1
+source=(http://www.corpit.ru/mjt/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/man/man3
+	gcc -c $name.c
+
+	ar cvr $name.a *.o
+	ranlib $name.a
+	
+	install -D -m 644 $name.h  $PKG/usr/include/$name.h
+	install -D -m 644 $name.a  $PKG/usr/lib/$name.a
+	cp $name.3  $PKG/usr/man/man3/
+	
+	chown -R root:root $PKG
+}

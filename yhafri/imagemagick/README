@@ -1,0 +1,6 @@
+PRE-INSTALL:
+
+		* Install this pacakge BEFORE GraphViz.
+		If GraphViz is installed, this cause
+		troubleshooting and may be errors.
+		

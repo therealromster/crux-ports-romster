@@ -1,0 +1,30 @@
+# $Id: $
+# Description: Linux-PAM (Pluggable Authentication Modules for Linux)
+# URL: http://www.us.kernel.org/pub/linux/libs/pam/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Alan Mizrahi <alan(at)mizrahi(dot)com(dot)ve>
+
+name=linux-pam
+version=0.99.6.3
+release=1
+source=(http://www.us.kernel.org/pub/linux/libs/pam/pre/library/Linux-PAM-$version.tar.bz2)
+
+build() {
+	cd Linux-PAM-$version
+	#patch -p1 < ../$name-$version.patch
+	
+	./configure --sysconfdir=/etc \
+		    --prefix=/usr     \
+		    --disable-nls     \
+		    --enable-fakeroot="$PKG"
+
+	make
+
+	make DESTDIR=$PKG install
+
+	#tar -c -C $PKG/usr/share/man . | tar -x -C $PKG/usr/man
+
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

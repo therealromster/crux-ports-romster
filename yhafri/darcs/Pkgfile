@@ -1,0 +1,32 @@
+# $Id: $
+# Description: A powerful CVS replacement for distributed software projects written in haskell
+# URL: http://abridgegame.org/darcs/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghc, curl, expat, gettext, libgmp, libiconv, openssl, perl
+
+name=darcs
+version=1.0.8
+release=1
+source=(http://abridgegame.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	export GHC=/usr/bin/ghc
+	./configure --prefix=/usr \
+                    --libexecdir=/usr/lib/$name \
+                    --enable-optimize \
+                    --enable-color \
+                    --with-curses \
+                    --enable-antimemoize \
+                    --with-wx \
+
+    make
+
+    make DESTDIR=$PKG install
+    make DESTDIR=$PKG installserver
+
+    rm -rf $PKG/usr/share/doc
+
+    chown -R root:root $PKG
+}

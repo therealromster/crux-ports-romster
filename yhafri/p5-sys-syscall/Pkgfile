@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Access system calls that Perl doesn't normally provide access to
+# URL: http://www.danga.com/dist/Sys-Syscall/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-sys-syscall
+version=0.1
+release=1
+source=(http://www.danga.com/dist/Sys-Syscall/Sys-Syscall-$version.tar.gz)
+
+build () {
+	cd Sys-Syscall-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

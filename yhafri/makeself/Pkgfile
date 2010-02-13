@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Generate self-extractable tar.gz archives
+# URL: http://www.megastep.org/makeself/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Stoyan Zhekov <zhware@hotpop.com>
+# Depends on:
+
+name=makeself
+version=2.1.4
+release=1
+source=(http://www.megastep.org/$name/$name-$version.run)
+
+build() {
+	sh $name-$version.run
+
+	mkdir -p $PKG/usr/bin
+	mv $name-$version/$name.sh $PKG/usr/bin/
+
+	chmod 755 $PKG/usr/bin/*
+
+	chown -R root:root $PKG
+}

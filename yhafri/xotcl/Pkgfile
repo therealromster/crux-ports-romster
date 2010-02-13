@@ -1,0 +1,24 @@
+# $Id: $
+# Description: An object-oriented scripting language based on Tcl
+# URL: http://media.wu-wien.ac.at/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk
+
+name=xotcl
+version=1.5.3
+release=1
+source=(http://media.wu-wien.ac.at/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	ln -sf /usr/lib/$name$version/lib$name$version.so $PKG/usr/lib/lib$name$version.so 
+
+	chown -R root:root $PKG
+}

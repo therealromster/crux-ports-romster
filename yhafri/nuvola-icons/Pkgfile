@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Nuvola iconset for KDE
+# URL: http://www.icon-king.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=nuvola-icons
+version=1.0rc1
+release=1
+source=(http://www.icon-king.com/files/nuvola-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/pixmaps/nuvola
+	cd nuvola
+	mv 16x16/  22x22/ 32x32/     $PKG/usr/share/pixmaps/nuvola
+	mv 48x48/  64x64/ 128x128/   $PKG/usr/share/pixmaps/nuvola
+	cd $PKG/usr/share/pixmaps/nuvola
+	for i in '16x16' '22x22' '32x32' '48x48' '64x64' '128x128'; 
+	do 
+	  find "$i/" -name "*.png" -type "f" -print -exec chmod 644 '{}' \;
+	done
+        chown -R root:root $PKG
+}

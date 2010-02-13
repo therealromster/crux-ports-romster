@@ -1,0 +1,32 @@
+PREREQUISITES:
+--------------
+This package is released under the terms of the GPL2; you can read it in the
+file LICENSE. Use at your own risk.
+
+SCHED_NORMAL, SCHED_FIFO and SCHED_RR are the supported out of the box
+by every linux-kernel.
+If you want to use special scheduling policies, get the according patches
+listed below.
+
+
+o SCHED_BATCH:
+    Kernel 2.4.18+ with Ingo Molnar's O(1)-sched-patch
+    [ http://www.kernel.org/pub/linux/kernel/people/mingo ]
+
+    2.5.X kernels and the stock 2.6 don't seem to know about SCHED_BATCH.
+    Con Kolivas maintains patches for 2.6.
+    [ http://ck.kolivas.org/patches/2.6 ]
+
+
+o SCHED_ISO:
+    2.6.X and special patches by Con Kolivas
+    [ http://ck.kolivas.org/patches/2.6 ]
+
+
+o CPU-AFFINITY:
+    kernel 2.5.8 or later
+
+    RedHat9 does contain a patched kernel that supports CPU-affinity
+
+    for 2.4.X the -aa series also contain support for CPU-affinity
+    [ http://www.kernel.org/pub/linux/kernel/people/andrea ]

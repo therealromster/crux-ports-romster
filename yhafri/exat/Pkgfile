@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Erlang eXperimental Agent Platform
+# URL: http://www.diit.unict.it/users/csanto/exat/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=exat
+version=1.2
+release=1
+source=(eXAT-$version.tar.gz $name-$version.patch)
+
+# http://www.diit.unict.it/users/csanto/$name/eXAT-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/erlang/lib/$name-$version}
+
+	cd eXAT-$version/
+	patch -p1<../$name-$version.patch
+
+	make clean
+	make
+	
+	install -D -m 755 $name.sh      $PKG/usr/bin/$name.sh
+	cp -rf src/ ebin/ priv/ include/ $PKG/usr/lib/erlang/lib/$name-$version/
+	find $PKG/ -name "Makefile*" | xargs rm -rf
+
+        chown -R root:root $PKG
+}

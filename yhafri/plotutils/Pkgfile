@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A powerful C/C++ function library for exporting 2-D vector graphics ...
+# URL: http://www.gnu.org/software/plotutils/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libpng, zlib
+
+name=plotutils
+version=2.5
+release=1
+source=(http://ftp-stud.fht-esslingen.de/pub/Mirrors/ftp.gnu.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --enable-ps-fonts-in-pc \
+		    --enable-lj-fonts-in-ps \
+		    --enable-lj-fonts-in-x \
+		    --enable-libplotter \
+		    --enable-libxmi \
+		    --with-x \
+		    --with-libpng
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info
+
+	chown -R root:root $PKG
+}

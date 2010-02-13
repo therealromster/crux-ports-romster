@@ -1,0 +1,11 @@
+#!/bin/bash
+
+app_path=/usr/lib/dbdesigner
+app_ld_path=$app_path/Linuxlib
+export LD_LIBRARY_PATH="$app_ld_path:$LD_LIBRARY_PATH"
+export LANG=en_US
+mkdir -p ~/.DBDesigner4
+export CLX_USE_LIBQT=yes
+export QT_XFT=true
+echo Starting DBDesigner4 ...
+$app_path/DBDesigner4 $* 2> ~/.DBDesigner4/DBD4.log

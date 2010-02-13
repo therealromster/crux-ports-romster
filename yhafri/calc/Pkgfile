@@ -1,0 +1,21 @@
+# $Id: $
+# Description: C-style arbitrary precision system
+# URL: http://sourceforge.net/projects/calc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=calc
+version=2.11.10.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+	make
+	make prefix=$PKG install
+
+	chown -R root:root $PKG
+}

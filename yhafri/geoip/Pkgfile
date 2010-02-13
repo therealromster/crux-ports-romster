@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A free GeoIP Country database
+# URL: http://www.maxmind.com/app/c
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=geoip
+version=1.4.0
+release=1
+source=(http://www.maxmind.com/download/$name/api/c/GeoIP-$version.tar.gz)
+
+build () {
+	cd GeoIP-$version
+	./configure --prefix=/usr \
+		    --with-city=yes
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

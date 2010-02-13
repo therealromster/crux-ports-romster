@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-r--r--r--	root/root	usr/include/st.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libst.so -> libst.so.1.7
+lrwxrwxrwx	root/root	usr/lib/libst.so.1 -> libst.so.1.7
+-rwxr-xr-x	root/root	usr/lib/libst.so.1.7

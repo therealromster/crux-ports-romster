@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A perl module to send SMS messages, using the O2 web2sms gateway
+# URL: http://mirror.internet.tp/cpan/authors/id/A/AW/AWRIGLEY/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-crypt-ssleay, p5-net-sms-web
+
+name=p5-net-sms
+version=O2-0.019
+release=1
+source=(http://mirror.internet.tp/cpan/authors/id/A/AW/AWRIGLEY/Net-SMS-$version.tar.gz)
+
+build () {
+	cd Net-SMS-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

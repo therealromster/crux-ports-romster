@@ -1,0 +1,86 @@
+PRE-INSTALL:
+
+		* Uninstall any previously driver in the Kernel:
+		 <M> Sound card support
+		 < > Advanced Linux Sound Architecture
+		 < > Open Sound System (DEPRECATED)		 
+
+		* Set the ALSA_CARDS environment variable to your sound card. 
+		For example:
+
+		# export ALSA_CARDS=intel8x0   or (at work)
+		# export ALSA_CARDS=ens1371    or (at home, old box)
+		# export ALSA_CARDS="hda-intel"   (or snd-azx or 9rc3 at home, new box)  
+
+		and then type:
+
+		# pkgmk -d -i
+
+		If the variable is unset, all cards will be compiled
+
+		* After that, install "alsa-lib" and "alsa-utils" in this order
+
+		* Add to your "/etc/rc.modules":
+		/sbin/modprobe <your_snd_dev>      # ex. <your_snd_dev> = snd-intel8x0 or snd-hda-intel at home in my new box
+
+		* Create a group called audio:
+		# groupadd audio
+		
+		* Add the user you want to the 'audio' group:
+		# usermod -G audio the_user_login
+
+		* Set the right permissions. Edit your /etc/devfsd.conf to let it automatically 
+		change the device permissions:
+		LOOKUP snd MODLOAD ACTION snd
+		REGISTER        sound/.*        PERMISSIONS root.audio 666
+		REGISTER        snd/.*          PERMISSIONS root.audio 666
+
+		Or edit "/etc/modprobe.conf" instead:
+	        options snd    device_mode=0666
+		options sound  device_mode=0666
+
+		Reload the devfs daemon with:
+		# pkill -HUP devfsd
+
+		But if you are using udev insteadof devfs, don't worry about this. Add the users you want 
+		to the group audio created before. See link: 
+
+		http://crux.nu/Main/UdevInstall
+
+		* Edit your "/etc/modprobe.conf". Remember to replace <your_snd_dev> with the sound 
+		driver suitable to your soundcard:
+
+		alias /dev/snd* snd
+		alias char-major-116 snd
+  		alias char-major-14 soundcore
+  		alias sound-slot-0 <your_snd_dev>     # ex. <your_snd_dev> = snd-intel8x0         in my case
+  		alias snd-card-0 <your_snd_dev>
+  		alias sound-service-0-0 snd-mixer-oss
+  		alias sound-service-0-1 snd-seq-oss
+  		alias sound-service-0-3 snd-pcm-oss
+  		alias sound-service-0-8 snd-seq-oss
+  		alias sound-service-0-12 snd-pcm-oss
+  		# Restore mixer settings  
+  		install <your_snd_dev> /sbin/modprobe --ignore-install <your_snd_dev>; /usr/sbin/alsactl restore
+  		# Save mixer settings
+  		remove <your_snd_dev> /usr/sbin/alsactl store; /sbin/modprobe --ignore-remove -r <your_snd_dev>
+
+		* If you are not using udev, uncomment the line below in your '/etc/rc.d/sound':
+		/usr/sbin/snddevices
+
+		* Reboot
+
+USAGE:
+		* To test the sound, type:
+		/etc/rc.d/sound start
+
+                * To stop the sound, type:
+                /etc/rc.d/sound stop
+
+		* To start the sound at the boot time, add "sound" to your "/etc/rc.conf"
+
+
+LINKS:
+		http://clc.morpheus.net:6999/clc/wiki?p=AlsaConfiguration
+		http://www.ze-linux.org/howto.html?id_docs=21&version=mono
+		http://www.unixboard.de/vb3/showthread.php?t=14201  (my new box sound config)

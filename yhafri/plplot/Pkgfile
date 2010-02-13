@@ -1,0 +1,50 @@
+# $Id: $
+# Description: Library making scientific plots
+# URL: http://plplot.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, tcl, tk, octave, libpng, libjpeg, xfig, x11, p5-libxml-enno, qhull
+
+name=plplot
+version=5.6.1
+release=1
+source=(http://heanet.dl.sourceforge.net/sourceforge/plplot/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/include
+        cd $name-$version
+        ./configure --prefix=/usr \
+		    --with-qhull \
+		    --disable-gcw \
+		    --with-csa \
+		    --enable-shared \
+		    --enable-cxx \
+		    --enable-png \
+		    --enable-jpeg \
+		    --enable-null \
+		    --enable-pbm \
+		    --enable-ps \
+		    --enable-python \
+		    --enable-pstex \
+		    --enable-xterm \
+		    --enable-xwin \
+		    --enable-perl \
+		    --enable-tk \
+		    --enable-tkwin \
+		    --enable-xfig \
+		    --enable-octave \
+		    --disable-java \
+		    --disable-info \
+		    --with-double \
+		    --with-freetype \
+		    --disable-linuxvga \
+		    --with-x
+		
+		    
+
+        make CFLAGS="$CFLAGS"
+        make DESTDIR=$PKG install
+	rm -rf $PKG/usr/lib/java $PKG/usr/share/{doc,plplot$version/examples}
+	cp -rf $PKG/usr/include/plplot/* $PKG/usr/include/
+        chown -R root:root $PKG
+}

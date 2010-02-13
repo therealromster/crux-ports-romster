@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Output a Graph::Easy as Scalable Vector Graphics (SVG)
+# URL: http://84.45.18.237/~tels/Graph-Easy-As_svg-0.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=p5-graph-easy-as_svg
+version=0.17
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/T/TE/TELS/graph/Graph-Easy-As_svg-$version.tar.gz)
+
+build () {
+	cd Graph-Easy-As_svg-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

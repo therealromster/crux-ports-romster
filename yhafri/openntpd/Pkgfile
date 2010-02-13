@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Portable ntpd implementation
+# URL: http://www.openntpd.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Han Boetes <han@mijncomputer.nl>
+
+name=openntpd
+version=3.9
+release=1
+source=(http://spargel.kd85.com/ftp/pub/OpenBSD/OpenNTPD/$name-${version}p$release.tar.gz \
+    	ntpd \
+	alarm.c)
+
+build() {
+    	install -D -m 0755 ntpd $PKG/etc/rc.d/ntpd
+
+	gcc -o alarm alarm.c
+	strip alarm
+	install -D -m 0755 alarm $PKG/usr/bin/alarm
+
+	cd $name-${version}p$release
+
+    	./configure --prefix=/usr \
+		    --sysconfdir=/etc
+    
+	make
+    	make install DESTDIR=$PKG
+	install -d $PKG/var/empty
+
+	chown -R root:root $PKG
+}

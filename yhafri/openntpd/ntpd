@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# /etc/rc.d/ntpd: start/stop ntp daemon
+#
+
+timeout=/usr/bin/alarm
+
+# comment or clear $NTPD_OPTS to disable initial clock set on startup
+NTPD_OPTS="-s"
+
+case $1 in
+    start)
+	$timeout 10 /usr/sbin/ntpd $NTPD_OPTS
+	;;
+    stop)
+	killall -q /usr/sbin/ntpd
+	;;
+    restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+    *)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

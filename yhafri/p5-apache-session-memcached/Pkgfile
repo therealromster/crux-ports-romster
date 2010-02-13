@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Stores persistent data using memcached for Apache::Session storage 
+# URL: http://search.cpan.org/~enrys/Apache-Session-Memcached-0.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-apache-session, p5-cache-memcached
+
+name=p5-apache-session-memcached
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/E/EN/ENRYS/Apache-Session-Memcached-$version.tar.gz)
+
+build () {
+	cd Apache-Session-Memcached-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

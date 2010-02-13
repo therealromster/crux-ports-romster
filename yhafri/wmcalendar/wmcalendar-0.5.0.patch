@@ -1,0 +1,18 @@
+--- wmcalendar-0.5.0/Src/Makefile	2003-07-15 17:19:26.000000000 +0200
++++ wmcalendar-0.5.0/Src/Makefile-new	2005-10-05 23:38:51.852630640 +0200
+@@ -7,13 +7,13 @@
+ #LFLAGS = `gtk12-config --libs`
+ X11BASE = /usr/X11R6
+ CFLAGS =  $(INCLUDES) -DICON_TYPE=$(ICON_TYPE)
+-INCDIR = -I$(X11BASE)/include/X11 -I$(X11BASE)/include -I$/usr/include -I$/usr/local/include
++INCDIR = -I$(X11BASE)/include/X11 -I$(X11BASE)/include -I/usr/include -I/usr/local/include `pkg-config --cflags gtk+-2.0`
+ DESTDIR= /usr/local
+ LIBDIR = -L/usr/lib -L${X11BASE}/lib -L/usr/local/lib
+ PACKAGE = wmCalendar
+ 
+ # for Linux
+-LIBS   = $(LIBDIR) -lXpm -lical -lpthread
++LIBS   = $(LIBDIR) -lXpm -lical -lpthread `pkg-config --libs gtk+-2.0`
+ # for Solaris (untested!!!)
+ # LIBS   = -lXpm -lX11 -lXext -lsocket -lnsl -lical
+ 

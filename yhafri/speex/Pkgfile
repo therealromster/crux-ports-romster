@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A free codec library for speech
+# URL: http://www.speex.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libogg
+
+name=speex
+version=1.1.12
+release=1
+source=(http://downloads.us.xiph.org/releases/$name/$name-$version.tar.gz)
+
+build () {
+	cd speex-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+	rm -rf /usr/share/doc
+
+        chown -R root:root $PKG
+}

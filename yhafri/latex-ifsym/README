@@ -1,0 +1,14 @@
+POST-INSTALL:
+	* Add the following line to your /usr/share/texmf/fonts/map/fontname/special.map file :
+	ifsym           public          ikloeckl
+	ifgeo           public          ikloeckl
+	ifwea           public          ikloeckl
+	ifclk           public          ikloeckl
+	ifblk           public          ikloeckl
+
+
+	* To take into account the ifsym class, you must execute 
+	the command "texhash" as root:
+	# texhash
+
+

@@ -1,0 +1,29 @@
+--- linuxsms-0.77/Makefile	2003-03-12 00:00:00.000000000 +0100
++++ linuxsms-0.77/Makefile-new	2005-01-14 01:23:06.208228440 +0100
+@@ -1,22 +1,19 @@
+ # Makefile install script for linuxsms
+ 
+ SCRIPT  = linuxsms
+-BASEDIR = /usr/local/bin
+-DOCSDIR = /usr/local/doc/linuxsms
+-MANDIR  = /usr/local/man/man1
++BASEDIR = $(DESTDIR)/usr/bin
++MANDIR  = $(DESTDIR)/usr/man/man1
+ 
+ default:
+-	@echo "make install installs the script into /usr/local"
++	@echo "make install installs the script into /usr"
+ 	@echo "make uninstall removes all files."
+ 
+ install:
+-	@echo -n "creating dirs under /usr/local, "
++	@echo -n "creating dirs under /usr, "
+ 	@mkdir -p $(BASEDIR)
+-	@mkdir -p $(DOCSDIR)
+ 	@mkdir -p $(MANDIR)
+ 	@echo -n "copying files, "
+ 	@cp -f $(SCRIPT) $(BASEDIR)
+-	@cp -f BUGS CHANGES COPYING INSTALL README README.ES TODO $(DOCSDIR)
+ 	@cp -f linuxsms.1 $(MANDIR)
+ 	@echo "ok"
+ 

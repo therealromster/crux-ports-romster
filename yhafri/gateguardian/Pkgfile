@@ -1,0 +1,23 @@
+# $Id: $
+# Description: C/C++ library to avoid common security problems
+# URL: http://sourceforge.net/projects/gateguardian/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=gateguardian 
+version=0.9.6
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A complete Web Authoring System
+# URL: http://www.nvu.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk
+
+name=nvu
+version=1.0
+release=1
+source=(http://cvs.nvu.com/download/$name-$version-pc-linux2.6.10-gnu.tar.bz2)
+
+build () {
+    mkdir -p $PKG/usr/{bin,local}
+
+    mv $name-$version $PKG/usr/local
+    ln -s /usr/local/$name-$version/$name $PKG/usr/bin/$name
+
+    chown -R root:root $PKG
+}

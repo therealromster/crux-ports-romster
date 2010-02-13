@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Converts HTML files into indexed HTML, PostScript or PDF
+# URL: http://www.htmldoc.org/index.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=htmldoc
+version=1.9.x-r1521
+release=1
+source=(http://ftp.easysw.com/pub/$name/snapshots/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+        ./configure --prefix=/usr
+        make
+
+        mkdir -p $PKG/usr/bin
+        mkdir -p $PKG/usr/man/man1
+        mkdir -p $PKG/usr/share/htmldoc
+
+        install -m 755 htmldoc/htmldoc $PKG/usr/bin
+        install -m 644 doc/htmldoc.1 $PKG/usr/man/man1
+        cp -R {data,fonts} $PKG/usr/share/htmldoc
+        rm $PKG/usr/share/htmldoc/{data,fonts}/Makefile
+
+	chown -R root:root $PKG
+}

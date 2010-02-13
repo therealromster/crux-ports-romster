@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Trace Generation Library
+# URL: http://www.cs.uoregon.edu/research/tau
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tau
+
+name=vtf3
+version=1.43
+release=1
+source=(http://www.cs.uoregon.edu/research/paracomp/tau/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version/i386_linux/lib
+
+	ranlib lib$name.a
+	install -D lib$name.a $PKG/usr/lib/lib$name.a
+
+	chown -R root:root $PKG
+}

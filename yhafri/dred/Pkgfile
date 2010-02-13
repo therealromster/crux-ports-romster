@@ -1,0 +1,18 @@
+# $Id: $
+# Description: A lightweight, customizeable, and extensible Unicode text editor
+# URL: http://jape.comlab.ox.ac.uk:8080/jape/DRED/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=dred
+version=1
+release=1
+source=(http://jape.comlab.ox.ac.uk:8080/jape/DRED/Dred.jar \
+	$name)
+
+build () {
+	install -D -m 755 Dred.jar $PKG/usr/lib/$name/Dred.jar
+	install -D -m 755 $name    $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

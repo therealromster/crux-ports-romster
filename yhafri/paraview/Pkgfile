@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Parallel visualization application for very large data sets
+# URL: http://www.paraview.org/HTML/Index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cmake, tk
+
+name=paraview
+#version=1.6.3
+version=2.4.2
+release=1
+source=(http://www.paraview.org/files/v2.4/paraview-$version-x86-linux.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/
+	tar -xvf $name-$version-x86-linux-files.tar -C $PKG/usr/
+	rm -rf $PKG/usr/doc $PKG/usr/lib/tcl8.4 $PKG/usr/lib/tk8.4
+        chown -R root:root $PKG
+}

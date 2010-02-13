@@ -1,0 +1,30 @@
+# $Id: $
+# Description: On the fly model checking for the formal verification of distributed software systems
+# URL: http://spinroot.com/spin/whatispin.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, tk
+
+name=spin
+version=4.2.9
+release=1
+source=(http://spinroot.com/$name/Src/${name}429.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd Spin
+	patch -p1<../$name-$version.patch
+
+	cd Src$version
+	make
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	cd ../X${name}4.2
+	install -D -m 755 x${name}428.tcl $PKG/usr/bin/x$name
+
+	cd ../Man
+        install -D $name.1 $PKG/usr/man/man1/$name.1
+
+	chown -R root:root $PKG
+}

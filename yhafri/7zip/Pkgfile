@@ -1,0 +1,34 @@
+# $Id: $
+# Description: p7zip is a port of 7-Zip, the archiver with the highest compression ratio.
+# URL: http://p7zip.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p7zip
+version=4.43
+release=1
+source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name\_$version\_src_all.tar.bz2)
+
+build()
+{
+    	cd $name\_$version
+    	(
+		set +x
+		set -- $(find . -name '*.cpp' -or -name '*.h')
+		for i in $*; do
+	    	echo >> $i
+		done
+    	)
+    
+	sed -i "s|/usr/local|/usr|" makefile
+    	sed -i "s|/usr/local|$PKG/usr|" ./install.sh
+    	sed -i "s|-Wall -O2|$CFLAGS|" makefile.machine
+    
+	make 7za sfx
+    
+	./install.sh
+    	ln -sf /usr/lib/p7zip/7za $PKG/usr/bin/7za
+    
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# Description: a user friendly Internet Relay Chat client
+# URL: http://konversation.kde.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=konversation
+version=0.19
+release=2
+source=(http://download.berlios.de/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

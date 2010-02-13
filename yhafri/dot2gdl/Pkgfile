@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Convert GraphViz .dot files into aiSee .gdl files.
+# URL: http://www.theiling.de/projects/dot2gdl.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: liberror
+
+name=dot2gdl
+version=0.1.111
+release=1
+source=(http://www.theiling.de/downloads/$name-$version-src.tar.bz2)
+
+build () {
+	cd $name-$version-src
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

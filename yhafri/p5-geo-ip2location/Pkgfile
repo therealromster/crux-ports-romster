@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Fast lookup of country, region, city, latitude, longitude, ZIP code, ISP and domain name from IP address
+# URL: http://84.45.18.237/~location/Geo-IP2Location-2.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-geo-ip2location
+version=2.10
+release=1
+source=(http://www.ip2location.com/download/Geo-IP2Location-$version.tar.gz)
+
+build () {
+	cd Geo-IP2Location-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

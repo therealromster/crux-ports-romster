@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Very small Unix executable 
+# URL: http://www.muppetlabs.com/~breadbox/software/tiny/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: nasm
+
+name=tiny
+version=1
+release=1
+source=(http://www.muppetlabs.com/~breadbox/pub/software/$name.tar.gz)
+
+build () {
+	cd $name
+
+	make clean
+	make
+
+	for i in true false hello fgconsole keepalive bf \
+		      hexdump factor ls date snake;
+	do
+		install -D -m 755 $i $PKG/usr/bin/$i
+	done
+
+	chown -R root:root $PKG
+}

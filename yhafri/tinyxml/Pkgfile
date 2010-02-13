@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A simple, small, C++ XML parser
+# URL: http://www.grinninglizard.com/tinyxml/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tinyxml
+version=2.5.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/${name}_2_4_3.tar.gz)
+
+build () {
+	cd $name
+
+	make
+	ar cr $name.a tinyxml.o tinyxmlparser.o tinyxmlerror.o tinystr.o
+
+	install -D $name.a $PKG/usr/lib/$name.a
+	install -D -m 644 tinystr.h $PKG/usr/include/tinystr.h
+	install -D -m 644 $name.h   $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

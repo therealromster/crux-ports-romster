@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Foreign function call libraries
+# URL: http://www.haible.de/bruno/packages-ffcall-README.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ffcall
+version=1.10
+release=1
+source=(http://www.haible.de/bruno/gnu/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

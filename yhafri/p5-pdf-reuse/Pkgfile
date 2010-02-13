@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Reuse and mass produce PDF documents
+# URL: http://search.cpan.org/~larslund/PDF-Reuse-0.33/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-digest-md5, p5-compress-zlib
+
+name=p5-pdf-reuse
+version=0.33
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/L/LA/LARSLUND/PDF-Reuse-$version.tar.gz)
+
+build () {
+	cd PDF-Reuse-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+
+	cd Util
+	install -D -m 755 graphObj_pl       $PKG/usr/bin/graphObj.pl
+	install -D -m 755 reuseComponent_pl $PKG/usr/bin/reuseComponent.pl
+
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

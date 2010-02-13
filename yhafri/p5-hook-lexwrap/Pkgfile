@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Lexically scoped subroutine wrappers
+# URL: http://search.cpan.org/~dconway/Hook-LexWrap-0.20/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-hook-lexwrap
+version=0.20
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/Hook-LexWrap-$version.tar.gz)
+
+build () {
+	cd Hook-LexWrap-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

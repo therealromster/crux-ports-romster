@@ -1,0 +1,20 @@
+# $Id: $
+# Description: New Test TCP tool 
+# URL: ftp://ftp.lcp.nrl.navy.mil/pub/nuttcp/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=nuttcp
+version=5.5.5-pre1
+release=1
+source=($name-$version.c)
+
+build () {
+	gcc -O3 -march=i686 -pipe -o $name $name-$version.c
+
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

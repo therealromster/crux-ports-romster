@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Arbitrary Precision Math Library in C
+# URL: http://www.tc.umn.edu/~ringx004/mapm-main.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mapm
+version=4.9.2
+release=1
+source=(http://www.tc.umn.edu/~ringx004/$name-$version.tar.gz)
+
+build () {
+	cd ${name}_${version}
+
+	make
+	./make_linux_shared_lib
+
+	install -D -m 644 m_apm.h       $PKG/usr/include/m_apm.h
+	install -D -m 644 m_apm_lc.h    $PKG/usr/include/m_apm_lc.h
+	install -D -m 644 lib$name.a    $PKG/usr/lib/lib$name.a
+	install -D -m 755 lib$name.so.0 $PKG/usr/lib/lib$name.so.0
+
+	chown -R root:root $PKG
+}

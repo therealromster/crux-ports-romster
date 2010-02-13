@@ -1,0 +1,20 @@
+# $Id: $
+# Description: AUdio console player
+# URL: http://user.cs.tu-berlin.de/~zechlinm/programme/audioplay.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=audioplay
+version=0.1.0
+release=1
+source=(http://user.cs.tu-berlin.de/~zechlinm/programme/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./komp_statisch
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

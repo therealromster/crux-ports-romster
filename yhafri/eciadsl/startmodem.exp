@@ -1,0 +1,188 @@
+#!/usr/bin/expect -f
+
+########################################################################
+#
+# Author: Younès Hafri 
+# ycrux@club-internet.fr
+#
+#
+# Automate all the pppd connection and deal with any errors.
+#
+# Usage:
+#         startmodem.exp [NUM_TRIALS]
+# ex:
+#         startmodem.exp 3
+#
+# NUM_TRIALS=7 by default
+#
+#
+# * REQUIREMENT: Expect tool from http://expect.nist.gov/
+#
+# * IMPORTANT  : This script stop and restart the PPP connection 
+#                by unloading usb-uhci/usb-ohci if necessary. 
+#                This may lead to problems because some other USB
+#                devices may belong to this modules
+# 
+# * NOTE       : Tested with Linux kernel 2.6.X
+#                Please, report any bug or suggestion
+#
+########################################################################
+
+set nb_try  3
+set max_clp 5
+
+set st      3
+
+set count   1
+set connect 0
+
+
+proc unplug_proc {} {
+
+    puts ">>> Unplug/replug your modem and restart this script"
+    exit 1
+}
+
+
+proc kill_proc {mess} {
+    global pid nb_try
+
+    puts "$mess"
+    if {[catch {exec kill -9 $pid}]          != 0}  { puts ">>> Can't kill process $pid. not running" }
+    if {[catch {exec /usr/bin/eciadsl-stop}] == 2}  { unplug_proc }
+}
+
+
+proc unload_reload_hci {} {
+
+    if {[catch {exec /sbin/modprobe -r uhci_hcd}] != 0 || 
+        [catch {exec /sbin/modprobe -r ohci_hcd}] != 0 ||
+        [catch {exec /sbin/modprobe uhci_hcd}   ] != 0 ||
+        [catch {exec /sbin/modprobe uhci_hcd}   ] != 0}   { puts ">>> Unable to unload/reload uhci or ohci"; unplug_proc }
+}
+
+if {$argc == 1} { 
+    set nb_try [lindex $argv 0] 
+}
+
+
+puts "Trying to start ppp daemon $nb_try times if it fails and stop."
+unload_reload_hci
+if {[catch {exec killall -9 pppd}] != 0} {puts "pppd daemon is not running"}
+
+while { $connect == 0 } {
+
+    if {[info exists pid]} {
+
+        kill_proc ""
+    }
+
+    puts "\n----------------------------------------------------"
+    puts ">>> Unloading/Reloading UHCI and OHCI modules."
+    puts ">>> Sleeping $st sec. Trial \[$count/$nb_try\]"
+    puts "----------------------------------------------------"
+    unload_reload_hci
+    sleep $st
+
+
+    set count_lcp 0
+    set timeout   60
+
+    set pid [spawn -noecho /bin/bash]
+    send "/usr/bin/eciadsl-start\r"
+    
+    while {1} {
+
+        expect "local  IP address "  {  
+            puts "\n>>> Successfully connected :$pid\n "
+
+	    # uncomment the line below if you use dnscache server from my crux port tree
+	    #send "/etc/rc.d/dnscache start\r"
+            
+	    send "exit\r"
+            #send \032
+            #send "bg\r"
+            interact
+
+            #if [fork]  exit
+            #disconnect
+            #sleep 20
+
+            exit 
+            
+        } "sent *LCP ConfReq id=*" {
+            
+            if {$count_lcp == $max_clp} {
+                
+                puts ">>> Couldn't connect after $max_clp LCP"
+                break
+            }
+            
+            incr count_lcp 1
+            continue
+
+        } "rcvd *LCP *" {
+
+            set count_lcp 0
+            continue
+
+        } timeout {
+
+            if {$count > $nb_try} {
+                kill_proc ">>> Timeout: unable to start PPPD after $nb_try essays."
+                unload_reload_hci
+                exit 1
+            }
+
+            break
+
+        } "no * device found" {
+            kill_proc ""
+            exit 1
+
+        } "You should kill all instances of eciadsl-pppoeci and restart this script." {
+            kill_proc ""
+            exit 1
+
+        } "/dev/net/tun doesn't exist" {
+            kill_proc ""
+            exit 1
+
+        } "ERROR: failed to upload firmware" {
+            kill_proc ""
+            exit 1
+
+        } "Modem hangup" {
+            kill_proc ""
+            exit 1
+
+        } "ERROR: modem not found" {
+            kill_proc ""
+            exit 1
+
+        } "ERROR: failed to get synchronization" {
+            kill_proc ""
+            exit 1
+
+        } "ERROR: failed to connect" {
+            kill_proc ""
+            exit 1
+
+        } "If you don't use PPPoE, please check your configuration." {
+            kill_proc ""
+            exit 1
+
+        } 
+     }
+
+    if {$count == $nb_try} { 
+        
+         puts ">>> Unable to start ppp daemon correctly after $nb_try essays."
+         kill_proc ">>> Killing ppp daemon and the spawned process with pid: $pid."
+         unload_reload_hci
+         break 
+     } 
+
+    incr count 1
+}
+

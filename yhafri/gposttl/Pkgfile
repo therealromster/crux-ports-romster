@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Brill's Parts-of-Speech Tagger, with built-in Tokenizer and Lemmatizer
+# URL: http://www.imsc.res.in/~golam/gposttl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=gposttl
+version=0.8
+release=1
+source=(http://www.imsc.res.in/~golam/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

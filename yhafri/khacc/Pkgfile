@@ -1,0 +1,20 @@
+# Description: simple, KDE financial manager (1 or 2 entry bookkeeping)
+# URL: http://qhacc.sourceforge.net/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, qhacc
+
+name=khacc
+version=3.3
+release=2
+source=(http://dl.sourceforge.net/sourceforge/qhacc/khacc-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --with-qhacc-config=/usr/bin \
+        --with-qhacc-includes=/usr/include \
+        --with-qhacc-libs=/usr/lib/qhacc
+    make
+    make prefix=$PKG/usr install
+}

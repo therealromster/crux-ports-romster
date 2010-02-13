@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Singly Linked List library from any kind of data
+# URL: http://www.muquit.com/muquit/software/libsll/libsll.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libsll
+version=1
+release=1
+source=(http://www.muquit.com/muquit/software/$name/$name.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/{lib,include}
+	cd ${name}
+	./configure
+    make CFLAGS="$CFLAGS"
+    mv ${name}.a $PKG/usr/lib
+    mv sll.h     $PKG/usr/include
+
+    chown -R root:root $PKG
+}

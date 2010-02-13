@@ -1,0 +1,26 @@
+--- ugrep/Makefile	2001-04-19 14:15:16.000000000 +0200
++++ ugrep/Makefile-new	2006-02-12 23:36:14.000000000 +0100
+@@ -1,17 +1,17 @@
+-LIB=/lib
++LIB=/usr/local/dietlibc/lib
+ 
+ ugrep:		ugrep.o regex.o uio.o
+-		gcc -nostdlib -s -o ugrep uio.o regex.o ugrep.o $(LIB)/dietstart.o $(LIB)/libdietc.a
++		diet gcc -nostdlib -s -o ugrep uio.o regex.o ugrep.o
+ 		strip -R .note -R .comment ugrep
+ 		ln -fs ugrep uegrep
+ udgrep:		ugrep.o regex.o
+-		gcc -o udgrep ugrep.o regex.o
++		diet gcc -o udgrep ugrep.o regex.o uio.o
+ ugrep.o:	ugrep.c
+-		gcc -g -Wall -Os -c ugrep.c
++		diet  gcc -g -Wall -Os -c ugrep.c
+ regex.o:	regex.c regex.h
+-		gcc -g -Wall -Os -c regex.c
++		diet gcc -g -Wall -Os -c regex.c
+ uio.o:		uio.c uio.h
+-		gcc -g -Wall -Os -c uio.c
++		diet gcc -g -Wall -Os -c uio.c
+ clean:	
+ 		rm -f ugrep uegrep udgrep *.o
+ tarball:

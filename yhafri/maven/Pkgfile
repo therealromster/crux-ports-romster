@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Java software project management and comprehension tool
+# URL: http://maven.apache.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=maven
+version=2.0.6
+release=1
+source=(http://apache.cict.fr/$name/binaries/$name-$version-bin.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name-$version}
+
+	cd $name-$version
+
+	mv bin/  boot/  conf/  lib $PKG/usr/lib/$name-$version
+
+	ln -sf /usr/lib/$name-$version         $PKG/usr/lib/$name
+	ln -sf /usr/lib/$name-$version/bin/mvn $PKG/usr/bin/mvn
+
+	chown -R root:root $PKG
+}

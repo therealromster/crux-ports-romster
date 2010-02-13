@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gposttl
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/gposttl.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/gposttl/
+-rw-r--r--	root/root	usr/share/gposttl/BIGRAMS
+-rw-r--r--	root/root	usr/share/gposttl/CONTEXTUALRULEFILE
+-rw-r--r--	root/root	usr/share/gposttl/LEXICALRULEFILE
+-rw-r--r--	root/root	usr/share/gposttl/lemmatized_lexicon

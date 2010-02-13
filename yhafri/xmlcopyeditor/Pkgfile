@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A fast, free, validating XML editor
+# URL: http://xml-copy-editor.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libxml2, boost, wxgtk
+
+name=xmlcopyeditor
+version=1.0.8.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/xml-copy-editor/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	ln -sf ln -sf /usr/include/boost-*/boost/ /usr/include/boost
+	export BOOST_DIR=`echo /usr/include/boost-*`
+	CXXFLAGS="-I$BOOST_DIR" \
+		   ./configure --prefix=/usr \
+		    --enable-unicode \
+		    --enable-shared \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	cd contrib/src/stc
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Abstract Syntax Notation One to C compiler
+# URL: http://lionet.info/asn1c/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=asn1c
+version=0.9.21
+release=1
+source=(http://lionet.info/soft/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+    	rm -rf $PKG/usr/share/doc \
+	       $PKG/usr/share/$name/standard-modules/README
+
+    	chown -R root:root $PKG
+}

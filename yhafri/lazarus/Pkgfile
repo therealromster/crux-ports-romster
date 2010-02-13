@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Free Pascal Lazarus Project (Delphi-like RAD tool)
+# URL: http://www.lazarus.freepascal.org
+# Packager: Oleksiy V. Khilkevich <centericq at ukr.net>
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: fpc, gdk-pixbuf, gtk-smooth-engine
+
+name=lazarus
+version=0.9.14
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version-1.tar.gz)
+
+build() {
+	mkdir -p $PKG/usr/{bin,lib}
+	cd $name
+
+	make all
+	rm -rf COPYING* README Makefile.fpc localize.bat examples docs debian
+
+	cd ..
+	mv $name $PKG/usr/lib
+	
+	ln -sf /usr/lib/$name/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

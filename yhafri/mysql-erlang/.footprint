@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/mysql-erlang-1/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/mysql-erlang-1/ebin/
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/ebin/mysql.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/ebin/mysql_auth.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/ebin/mysql_conn.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/ebin/mysql_recv.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/mysql-erlang-1/src/
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/src/mysql.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/src/mysql_auth.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/src/mysql_conn.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/mysql-erlang-1/src/mysql_recv.erl

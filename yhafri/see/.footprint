@@ -1,0 +1,38 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/libsee-config
+-rwxr-xr-x	root/root	usr/bin/see-shell
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/see/
+-rw-r--r--	root/root	usr/include/see/cfunction.h
+-rw-r--r--	root/root	usr/include/see/context.h
+-rw-r--r--	root/root	usr/include/see/debug.h
+-rw-r--r--	root/root	usr/include/see/error.h
+-rw-r--r--	root/root	usr/include/see/eval.h
+-rw-r--r--	root/root	usr/include/see/input.h
+-rw-r--r--	root/root	usr/include/see/intern.h
+-rw-r--r--	root/root	usr/include/see/interpreter.h
+-rw-r--r--	root/root	usr/include/see/mem.h
+-rw-r--r--	root/root	usr/include/see/module.h
+-rw-r--r--	root/root	usr/include/see/native.h
+-rw-r--r--	root/root	usr/include/see/no.h
+-rw-r--r--	root/root	usr/include/see/object.h
+-rw-r--r--	root/root	usr/include/see/see.h
+-rw-r--r--	root/root	usr/include/see/string.h
+-rw-r--r--	root/root	usr/include/see/system.h
+-rw-r--r--	root/root	usr/include/see/try.h
+-rw-r--r--	root/root	usr/include/see/type.h
+-rw-r--r--	root/root	usr/include/see/value.h
+-rw-r--r--	root/root	usr/include/see/version.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libsee.a
+-rwxr-xr-x	root/root	usr/lib/libsee.la
+lrwxrwxrwx	root/root	usr/lib/libsee.so -> libsee.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libsee.so.1 -> libsee.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libsee.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/see/
+-rw-r--r--	root/root	usr/lib/see/libFile.a
+-rwxr-xr-x	root/root	usr/lib/see/libFile.la
+lrwxrwxrwx	root/root	usr/lib/see/libFile.so -> libFile.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/see/libFile.so.0 -> libFile.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/see/libFile.so.0.0.0

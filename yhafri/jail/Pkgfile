@@ -1,0 +1,37 @@
+# $Id: $
+# Description: Tool that builds chrooted environment
+# URL: http://www.jmcresearch.com/projects/jail/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Stoyan Zhekov <zhware@hotpop.com>
+# Depends on: 
+
+name=jail
+version=1.9
+release=1
+source=(http://www.jmcresearch.com/static/dwn/projects/$name/${name}_${version}a.tar.gz)
+
+build () {
+	cd $name/src
+    	
+	make COPT="${CFLAGS}"
+    	mkdir -p $PKG/usr/{bin,etc}
+    	mkdir -p $PKG/usr/lib/arch/{generic,linux}
+    	echo "\$VERSION=\"${version}\";" >> $PKG/usr/etc/jail.conf
+    	echo "\$ARCH=\"__LINUX__\";" >> $PKG/usr/etc/jail.conf
+    	echo "\$DEBUG=0;" >> $PKG/usr/etc/jail.conf
+    	echo "\$INSTALL_DIR=\"/usr\";" >> $PKG/usr/etc/jail.conf
+    	cd ../
+    	sed -e 's%__INSTALLDIR__%/usr%g' lib/libjail.pm > $PKG/usr/lib/libjail.pm
+    	for lb in generic linux; do
+       		mv lib/arch/$lb/{definitions,functions} $PKG/usr/lib/arch/$lb/
+    	done
+    	cd bin
+    	mv jail $PKG/usr/bin/
+    	for jl in addjailsw addjailuser mkjailenv; do
+       		sed -e 's%__PERL__%/usr/bin/perl%g' $jl > sed.tmp && \
+          		sed -e 's%__INSTALLDIR__%/usr%g' sed.tmp > $PKG/usr/bin/$jl
+    	done	  
+    	
+	chmod 755 $PKG/usr/bin/*  && chown -R root.root $PKG 
+	chown -R root:root $PKG
+}

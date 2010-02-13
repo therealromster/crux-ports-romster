@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Rough Auditing Tool for Security
+# URL: http://www.fortifysoftware.com/security-resources/rats.jsp
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: expat
+
+name=rats
+version=2.1
+release=1
+source=(http://www.fortifysoftware.com/servlet/downloads/public/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

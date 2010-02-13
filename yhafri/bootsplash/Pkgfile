@@ -1,0 +1,226 @@
+# $Id: $
+# Description: Graphical boot process for the linux kernel
+# URL: http://www.bootsplash.de
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: freetype2, libmng
+
+name=bootsplash
+version=3.2
+release=1
+source=(http://www.bootsplash.de/files/splashutils/$name-$version.tar.bz2 \
+	$name-3.1.6-2.6.11.diff $name.conf rc.multi.diff\
+	$name-${version}_makefile.patch post-install all-tty $name-change-theme\
+	http://www.bootsplash.de/files/themes/Theme-73labAllstar.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ASP.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ASPLinux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-AquaMatrix.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Arch.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ArchLinux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ArchPool.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ArchRelief.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-AthlonXP.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Ayo.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-BabyTux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Berry.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Black.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Burek.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-CCux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-CLEE.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-CM.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-CRUX.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-CaixaMagica.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Cargal.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Compact.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Cybercity.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Cynapses.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-DangerGirl.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Dark-0.1.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Dark-2-0.2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-DarkBlue.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-DebBlue-Gnome.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-DebBlue-Gnoppix.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-DebBlue.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian-Mist.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian-Sarge.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian-Tux-Gnulinex.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian-Tux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian-Wave.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Debian3.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Deflorist.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-DimmuBorgir.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Dolphin.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Dragon.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ERPOSS3.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ElvinTooka.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Emergance.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Enterprise-spot.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Enterprise.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-EvenNewerTux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-FarCry.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Fedora.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-FedoraCore2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Flower.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Freepia.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-FrozenBubble.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Frugalware.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GANT.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GNU.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Galantine.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GalaxySlack2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GeeXboX-Halloween.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GeeXboX-OMC.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GeeXboX-Xmas.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GeeXboX.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Gentoo-Hornet.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Gentoo-LiveCD-2004.0.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Gentoo-LiveCD-2004.1.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Gentoo-LiveCD-2004.2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Gentoo-LiveCD-2004.3.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Gentoo.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Gentool.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-GoGentooGo.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Ignite.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Jollix.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Juicy.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Junior.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Kanotix.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Keramik.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-KillBillTux-Grey.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-KillBillTux-Yellow.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-KnoppMyth.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-KnoppixKDE.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-KnoppixLT.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Konsole.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-KuruminOrgBR.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Leopard.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Lila.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Linux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Lunar.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-MaiHoshino.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Mandrake-10.0.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Mandrake-9.2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Master.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Matrix.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Metal-Tosh.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-MetallTux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Misspingus3.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Misspingus4.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Momonga.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Morphix.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-MyLittleTux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-MythTV.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-NewFreepia.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-NewLinux-Deb.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-NewLinux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-NewTux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-NightWorld.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Notes.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-OfficeDesktop.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Oneill.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-OpenSchool.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-OpenXchange.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-PLF1.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-PLF2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-PLF5.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Pativo.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Pho.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Popcorn.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-PowerBook.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Psychotoxic.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Pyro.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-QiLinux-LiveCD-1.1.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-RH9.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-RadiantStar.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Ratatouille.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Raziel.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Redmond.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Rojo.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Rollmops.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Rustenguin.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-SMGL.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Shodan.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slack-3D.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slack-Black-Tux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slack-Blue.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slack-Glass.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slack-Gray-B.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slack-Gray.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slack.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slackware.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slackware2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-SlackwareLinux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Slide.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Spinner.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Stargate-Tux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-SuSE-8.2.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-SuSE-Home.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-SuSE-SLES.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-SuSE.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-SwirlPool.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-ThinkLinux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxInfo-Conectiva.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxInfo-Debian.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxInfo-Mandrake.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxInfo-RedHat.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxInfo-Slackware.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxInfo-SuSE.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxInfo.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxNTosh.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-TuxSplash.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Ubuntu.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-UnitedLinux.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-UrbanVisions-Debian.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-UrbanVisions-Mandrake.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-UrbanVisions-SuSE.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-VDR.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Vortex.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-WarmAqua.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-Warty.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-acKme.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-dotf.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-iRu.tar.bz2 \
+	http://www.bootsplash.de/files/themes/Theme-libertnl.tar.bz2)
+
+build () {
+	mkdir -p $PKG/etc/$name/themes
+
+	cd $name-$version
+
+	install  -D -m 755 Scripts/bootanim        $PKG/sbin/bootanim
+	#install -D -m 755 Scripts/rcsplash        $PKG/sbin/rcsplash
+	#install -D -m 755 Scripts/splash_early    $PKG/sbin/splash_early
+
+	#install -D -m 644 Scripts/sysconfig.$name $PKG/usr/share/$name/sysconfig.$name
+
+	cd Utilities
+	patch -p2<$SRC/$name-3.2_makefile.patch
+
+	make LIBDIR=/usr/lib
+
+	install  -D -m 755  fbresolution    $PKG/sbin/fbresolution
+	install  -D -m 755  fbmngplay       $PKG/sbin/fbmngplay
+	install  -D -m 755  splash          $PKG/sbin/splash
+	install  -D -m 755   fbtruetype      $PKG/sbin/fbtruetype
+	install  -D -m 755  splashpbm       $PKG/sbin/splashpbm
+
+	cd $SRC
+	for i in `find . -maxdepth 1 -type "d"`;
+	do
+		if [ "$i" != "$name-$version" ] && [ "$i" != "." ] && [ "$i" != ".." ]; then
+			mv $i $PKG/etc/$name/themes
+		fi
+	done
+
+	find $PKG/etc/$name/themes -name "README" -exec rm -f '{}' \;
+
+	cd 
+	ln -s /etc/$name/themes/Matrix $PKG/etc/$name/themes/current
+
+	install -D -m 755  $SRC/$name-change-theme $PKG/sbin/$name-change-theme
+	install -D -m 644  $SRC/$name.conf         $PKG/etc/$name/$name.conf 
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl native interface to ADNS  
+# URL: http://dotat.at/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depens on: adns
+
+name=adns-perl
+version=1.1
+release=1
+source=(http://www.apache.org/~fanf/adns-perl.tar.gz)
+
+build () {
+	cd adns-perl
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

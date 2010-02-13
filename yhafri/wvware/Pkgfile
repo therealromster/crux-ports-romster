@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A library which allows access to Microsoft Word files
+# URL: http://wvware.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib, imagemagick, libpng, libgsf
+
+name=wvware
+version=0.2.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/wv2-$version.tar.bz2)
+
+build () {
+	cd wv2-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --with-libiconv=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

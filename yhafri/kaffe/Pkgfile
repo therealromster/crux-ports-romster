@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A clean room implementation of the Java virtual machine
+# URL: http://www.kaffe.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libgmp, x11
+
+name=kaffe
+version=1.1.4
+release=1
+
+source=(http://www.kaffe.org/ftp/pub/kaffe/v1.1.x-development/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --enable-shared \
+		    --disable-rpath \
+		    --disable-gcj \
+		    --with-profiling \
+		    --with-x \
+		    --without-libffi
+		    
+        make
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

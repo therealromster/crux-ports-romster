@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to create and manipulate PAR distributions 
+# URL: http://search.cpan.org/~autrijus/PAR-Dist-0.07/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-par-dist
+version=0.07
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AU/AUTRIJUS/PAR-Dist-$version.tar.gz)
+
+build () {
+	cd PAR-Dist-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+		* Set the environment variable:
+		export GRACE_HOME=/usr/lib/grace

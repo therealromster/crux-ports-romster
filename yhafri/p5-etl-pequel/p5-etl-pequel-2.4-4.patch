@@ -1,0 +1,27 @@
+--- ETL-Pequel-2.4-4/Makefile.PL	2005-10-27 21:51:34.000000000 +0200
++++ ETL-Pequel-2.4-4/Makefile.PL-new	2005-11-06 22:19:11.000000000 +0100
+@@ -12,15 +12,15 @@
+ 	INST_SCRIPT		=> 'scripts',
+ 	INST_LIB		=> 'lib',
+ # Uncomment the following if you intend to use Inline:
+-#   PREREQ_PM => {
+-#       Data::Dumper => 2.09,
+-#       Digest::MD5 => 2.09,
+-#   	Parse::RecDescent => 1.80,
+-#       File::Spec => 0.8,
+-#   	Inline => 0.44,
+-#   	MIME::Base64 => 3.05,
+-#   	Text::Balanced => 1.95,
+-#   },
++   PREREQ_PM => {
++       'Data::Dumper' => 2.09,
++       'Digest::MD5' => 2.09,
++   	'Parse::RecDescent' => 1.80,
++       'File::Spec' => 0.8,
++   	'Inline' => 0.44,
++   	'MIME::Base64' => 3.05,
++   	'Text::Balanced' => 1.95,
++   },
+     dist       		=>
+     {
+         SUFFIX       => ".gz",

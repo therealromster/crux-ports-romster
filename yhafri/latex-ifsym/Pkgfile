@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Symbols for alpinistic, electronic, meteorological, geometric etc
+# URL: http://www.ctan.org/tex-archive/fonts/ifsym/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-ifsym
+version=1
+release=1
+source=(ftp://tug.ctan.org/pub/tex-archive/fonts/ifsym.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/source/public/ikloeckl
+	mkdir -p $PKG/usr/share/texmf/tex/latex/ikloeckl
+
+	cd ifsym
+        rm -rf *.ps
+
+        mv *.mf *.gen $PKG/usr/share/texmf/source/public/ikloeckl
+        mv *.fd *.sty $PKG/usr/share/texmf/tex/latex/ikloeckl
+	
+	chown -R root:root $PKG
+}

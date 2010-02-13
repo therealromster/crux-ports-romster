@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Small GUI generating engine for Java applications and applets
+# URL: http://www.swixml.org/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=swixml
+version=1.5
+release=1
+source=(http://www.$name.org/$name\_144.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name/
+
+	cd $name\_144
+	export JAVA_HOME=/usr/lib/java
+
+	sh ./build.sh
+	mv ./lib/*.jar ./build/swixml.jar $PKG/usr/lib/$name/
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,103 @@
+--- Template-Toolkit-2.15/Makefile.PL	2006-05-25 14:12:50.000000000 +0200
++++ Template-Toolkit-2.15/Makefile.PL-new	2006-08-16 19:22:36.000000000 +0200
+@@ -427,13 +427,10 @@
+ 
+ EOF
+ 
+-    $TT_XS_ENABLE = (ttprompt('Do you want to build the XS Stash module?', 
+-			      $TT_XS_ENABLE) =~ /^y/i);
++    $TT_XS_ENABLE = 1;
+ 
+     if ($TT_XS_ENABLE) {
+-        $TT_XS_DEFAULT =
+-            (ttprompt('Do you want to use the XS Stash by default?', 
+-                      $TT_XS_DEFAULT) =~ /^y/i); 
++                     $TT_XS_DEFAULT = 1;
+     }
+     else {
+         # If the XS stash is disabled, we cannot use it as the default stash.
+@@ -482,23 +479,8 @@
+ 
+ EOF
+ 
+-    if ($TT_EXTRAS = (
+-        ttprompt('Do you want to install these components?',
+-            $TT_EXTRAS) =~ /^y/i)) {
+-	message(<<EOF);
+-
+-You can chose any directory for the installation of the additional
+-Template Toolkit components.  The proposed default assumes a $FLAVOUR
+-flavour to your operating system (suggestions for suitable defaults
+-for other platforms welcome).
+-
+-EOF
+-	$TT_PREFIX = ttprompt('Installation directory', $TT_PREFIX || $PREFIX);
+-        $TT_PREFIX =~ s[/$][];
+-    }
+-    else {
+-        $TT_PREFIX = '';
+-    }
++    $TT_EXTRAS = 1;
++    $TT_PREFIX ='/usr/ports/yhafri/p5-template-toolkit/work/pkg/usr/etc/tt2';
+ 
+     fix_file(catfile('lib','Template','Config.pm'), '$INSTDIR', $TT_PREFIX);
+ }
+@@ -560,8 +542,8 @@
+ EOF
+     }
+ 
+-    $TT_IMAGES = ttprompt('URL base for TT2 images?', $TT_IMAGES || $IMAGES);
+-    $TT_IMAGES =~ s[/$][]g;	# just in case
++$TT_IMAGES = '/usr/ports/yhafri/p5-template-toolkit/work/pkg/usr/local/tt2/images';
++
+ 
+     fix_file(catfile('templates','splash','config'), 'images', "$TT_IMAGES/splash");
+ }
+@@ -580,35 +562,7 @@
+     my $style = 'plain';
+     my $style_cfg = '';
+ 
+-    message(<<EOF);
+-
+-
+-HTML Documentation
+-------------------
+-
+-The modules comprising the Template Toolkit contain comprehensive POD
+-documentation which can be browsed using 'perldoc' or 'man' (if your
+-system supports it).  In additional, the distribution also includes a
+-set of source templates and style elements for generating the same
+-documentation in HTML format.  These will be installed in the
+-directory:
+-
+-    $TT_PREFIX/docs
+-
+-The HTML documentation can be built for you at "make install" time in
+-a plain and simple HTML format or using the Splash! library.  You can
+-see examples of these different styles and browse the documentation
+-online at:
+-
+-    http://www.template-toolkit.org/docs/
+-
+-EOF
+-
+-    $TT_BUILD_DOCS = ( 
+-    	ttprompt('Do you want to build the HTML documentation?', 
+-                 $TT_BUILD_DOCS) =~ /^y/i 
+-    );
+-
++    $TT_BUILD_DOCS = 0;
+ }
+ 
+ 
+@@ -632,9 +586,7 @@
+ use plain HTML.
+ 
+ EOF
+-    $TT_SPLASH_DOCS = ( 
+-    	ttprompt('Do you want to use the Splash! library?', $TT_SPLASH_DOCS) =~ /^y/i 
+-    );
++    $TT_SPLASH_DOCS = 0;;
+ 
+     if ($TT_SPLASH_DOCS) {
+         my $splash_style = '';

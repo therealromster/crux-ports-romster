@@ -1,0 +1,18 @@
+# $Id: $
+# Description: LaTeX subclass for writing algorithms
+# URL: http://www.ctan.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-algorithms
+version=1
+release=1
+source=(algorithm.sty  algorithmic.sty)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/algorithms
+
+	mv *.sty $PKG/usr/share/texmf/tex/latex/algorithms
+	chown -R root:root $PKG
+}

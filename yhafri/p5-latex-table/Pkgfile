@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for the automatic generation of LaTeX tables
+# URL: http://search.cpan.org/~limaone/LaTeX-Table-v0.0.3/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, p5-version, p5-class-std, p5-regexp-common
+
+name=p5-latex-table
+version=0.0.3
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/L/LI/LIMAONE/LaTeX-Table-v$version.tar.gz)
+
+build () {
+	cd LaTeX-Table-v$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

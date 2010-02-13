@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Ted, an easy rich text processor
+# URL: http://scrinchy.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libtiff, libjpeg, libpng, zlib, libxpm
+
+name=ted
+version=2.17
+release=1
+source=(ftp://ftp.nluug.nl/pub/editors/$name/$name-$version.src.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	mkdir -p $PKG/usr/bin
+
+	cd Ted-$version
+
+	make
+	make package
+
+	tar xzf ./tedPackage/Ted_${version}_Linux_i686.tar.gz -C $PKG/usr/lib/$name 
+	ln -sf /usr/lib/$name/bin/Ted $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

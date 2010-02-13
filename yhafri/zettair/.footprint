@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/zet
+-rwxr-xr-x	root/root	usr/bin/zet_cat
+-rwxr-xr-x	root/root	usr/bin/zet_impactify
+-rwxr-xr-x	root/root	usr/bin/zet_trec
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libzet.a
+-rwxr-xr-x	root/root	usr/lib/libzet.la
+lrwxrwxrwx	root/root	usr/lib/libzet.so -> libzet.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libzet.so.0 -> libzet.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libzet.so.0.0.0
+drwxr-xr-x	root/root	usr/share/
+-rw-r--r--	root/root	usr/share/psettings.xml

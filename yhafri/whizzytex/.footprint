@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/whizzytex
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/whizzytex/
+drwxr-xr-x	root/root	usr/share/whizzytex/emacs/
+-rw-r--r--	root/root	usr/share/whizzytex/emacs/whizzytex.el
+drwxr-xr-x	root/root	usr/share/whizzytex/latex/
+-rw-r--r--	root/root	usr/share/whizzytex/latex/whizzytex.sty
+drwxr-xr-x	root/root	usr/share/whizzytex/xemacs/
+-rw-r--r--	root/root	usr/share/whizzytex/xemacs/whizzytex.el

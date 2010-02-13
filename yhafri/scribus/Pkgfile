@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Open Source Desktop Publishing
+# URL: http://www.scribus.org.uk/index.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, qt3, freetype, cups, libtiff, libxml2, python, ghostscript, libart
+
+name=scribus
+version=1.3.3.6
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	(find $PKG/usr/{lib/$name/dicts,share/$name/doc}/* \
+         		! -wholename "*doc/en*" ! -wholename "*hyph_en.dic*" -delete)
+	
+	(rm -rf $PKG/usr/man/pl/)
+
+	chown -R root:root $PKG
+}

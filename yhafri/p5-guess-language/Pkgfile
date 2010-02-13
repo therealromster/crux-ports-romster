@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to text language detection
+# URL: http://crawler.archive.org/cgi-bin/wiki.pl?GuessLanguage
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-guess-language
+version=0.03
+release=1
+source=(http://bibnum.bnf.fr/downloads/guesslanguage/GuessLanguage-$version.tar.gz)
+
+build () {
+	cd GuessLanguage-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

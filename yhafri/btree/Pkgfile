@@ -1,0 +1,21 @@
+# $Id: $
+# Description: B-Tree data structure
+# URL: http://resnet.uoregon.edu/~gurney_j/jmpc/btree.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=btree
+version=1.0
+release=1
+source=(http://resnet.uoregon.edu/~gurney_j/jmpc/dist/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr/lib/$name install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A free, open source 3D modelling and rendering studio
+# URL: http://www.artofillusion.org/index
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, jdk
+
+name=aoi
+version=221
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name$version.zip \
+	$name)
+
+build () {
+	
+	mkdir -p $PKG/usr/lib/$name
+
+	cd ArtOfIllusion2.2.1
+	rm -rf README HISTORY  LICENSE
+	mv * $PKG/usr/lib/$name/
+
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

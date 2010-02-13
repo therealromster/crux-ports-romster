@@ -1,0 +1,23 @@
+# $Id: $
+# Description: LALR(1) parser generator for Ruby
+# URL: http://i.loveruby.net/en/projects/racc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ruby
+
+name=racc
+version=1.4.5
+release=1
+source=(http://i.loveruby.net/archive/$name/$name-$version-all.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+ 
+	cd $name-$version-all
+
+	ruby setup.rb config --prefix=/usr
+	ruby setup.rb setup
+	ruby setup.rb install --prefix=$PKG
+
+	chown -R root:root $PKG
+}

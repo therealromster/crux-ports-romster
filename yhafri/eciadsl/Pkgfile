@@ -1,0 +1,67 @@
+# $Id: $
+# Description: Linux driver for ECI HiFocus ADSL USB Modems
+# URL: http://eciadsl.flashtux.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ppp, pciutils, tk
+
+name=eciadsl
+version=0.10
+release=5
+source=(http://eciadsl.flashtux.org/download/$name-usermode-$version.tar.bz2 \
+	http://eciadsl.flashtux.org/download/$name-synch_bin.tar.bz2 \
+	$name-$version.patch \
+	$name-$version-Makefile.config.patch \
+	startmodem.exp \
+	stopmodem
+	)
+
+
+
+build () {
+
+    mkdir -p $PKG/usr/local/bin
+
+	cd $name-usermode-$version
+
+ 	patch -p1 < ../$name-$version.patch
+
+    	# prefix must have the last traling slash /usr/
+	./configure --prefix=/usr \
+	            --disable-debug
+		   
+	patch -p1 < ../$name-$version-Makefile.config.patch 
+ 
+  	make
+	make ROOT=$PKG install
+
+	mv $SRC/$name-synch_bin/*.bin  $PKG/etc/eciadsl
+
+	find $PKG/usr/ -iname "doc" -type "d" | xargs rm -rf
+
+    	for i in startmodem.exp stopmodem
+    	do 
+      		install -D -m 755 $SRC/$i $PKG/usr/bin/$i
+    	done
+
+    	for i in $PKG/usr/bin/*
+    	do 
+      		sed -i "s/BIN_DIR=.*/BIN_DIR=\/usr\/bin/" $i
+            sed -i "s/set BIN_DIR .*/set BIN_DIR \"\/usr\/bin\"/" $i
+
+      		sed -i "s/ETC_DIR=.*/ETC_DIR=\/etc/" $i
+            sed -i "s/set ETC_DIR .*/set ETC_DIR \#\/etc\"/" $i
+
+      		sed -i "s/CONF_DIR=.*/CONF_DIR=\/etc\/eciadsl/" $i
+            sed -i "s/set CONF_DIR .*/set CONF_DIR \"\/etc\/eciadsl\"/" $i
+
+      		sed -i "s/PPPD_DIR=.*/PPPD_DIR=\/etc\/ppp/" $i
+            sed -i "s/set PPPD_DIR .*/set PPPD_DIR \"\/etc\/ppp\"/" $i
+    	done
+
+
+        ln -fs /usr/bin/eciadsl-pppoeci $PKG/usr/local/bin/pppoeci
+        rm -rf $PKG/tmp
+
+	chown -R root:root $PKG
+}

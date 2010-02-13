@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# http://www.splike.com/howtos/bash_faq.html
+
+#
+# JAVA_HOME is the installation directory
+# for Java 2 version 1.4
+#
+JAVA=`which java`
+JAVA_BIN=`dirname $JAVA`
+JAVA_HOME=${JAVA_BIN%/*}
+
+PATH=$JAVA_HOME/bin:$PATH
+
+#
+# classpath for Unix cannot have spaces between components
+#
+WHERE="/usr/lib/ncbrowse"
+
+classpath="$WHERE/ncBrowse.jar:$WHERE/visad.jar:\
+$WHERE/noaa_pmel.jar:$WHERE/netcdfAll.jar:$WHERE/dods.jar:\
+$WHERE/png.jar:$WHERE/lashandler.jar"
+
+java -cp $classpath ncBrowse.Browser $1

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for writing RPC clients and servers
+# URL: http://search.cpan.org/~jwied/PlRPC-0.2018/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-net-daemon
+
+name=p5-plrpc
+version=0.2018
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JW/JWIED/PlRPC-$version.tar.gz)
+
+build () {
+	cd PlRPC-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A library that adds Xinput management capabilities to the Tk toolkit
+# URL: http://www.tls.cena.fr/divisions/PII/produits/tkxinput/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, tk
+
+name=tkxinput
+version=1.0
+release=1
+source=(http://www.tls.cena.fr/divisions/PII/produits/$name/packages/${name}_${version}-2.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/TkXInput}
+	cd $name-$version
+
+	sed -i "s|8\.0|8\.4|g" Makefile
+
+	make
+	make prefix=$PKG/usr install
+
+	install -D -m 755 button.tcl $PKG/usr/bin/button.tcl
+	install -D -m 755 calibrate  $PKG/usr/bin/calibrate
+
+	chown -R root:root $PKG
+}

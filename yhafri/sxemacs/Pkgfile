@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A highly customisable, extensible, self-documenting real-time display editor and IDE
+# URL: http://www.sxemacs.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk1, postgresql, libpng, libjpeg, libtiff, alsa-driver, sox, openssl, ncurses, texinfo
+
+name=sxemacs
+version=22.1.5
+release=1
+source=(http://ftp.$name.org/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-ent=yes \
+		    --with-external-widget=yes \
+		    --with-openssl=yes \
+		    --with-pop=yes \
+		    --with-canna=no \
+		    --with-x=yes
+	    
+#		    --with-tooltalk=yes \
+		    
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

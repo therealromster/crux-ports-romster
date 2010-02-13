@@ -1,0 +1,131 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/_jot
+-rwxr-xr-x	root/root	usr/bin/_sorttable
+-rwxr-xr-x	root/root	usr/bin/abssorttable
+-rwxr-xr-x	root/root	usr/bin/appendtable
+-rwxr-xr-x	root/root	usr/bin/applyxyfittable
+-rwxr-xr-x	root/root	usr/bin/avg3dtable
+lrwxrwxrwx	root/root	usr/bin/calc -> table
+lrwxrwxrwx	root/root	usr/bin/check -> column
+-rwxr-xr-x	root/root	usr/bin/classifytable
+-rwxr-xr-x	root/root	usr/bin/clock
+-rwxr-xr-x	root/root	usr/bin/coltorowtable
+-rwxr-xr-x	root/root	usr/bin/column
+lrwxrwxrwx	root/root	usr/bin/compute -> table
+-rwxr-xr-x	root/root	usr/bin/compute3dtable
+-rwxr-xr-x	root/root	usr/bin/coproctable
+-rwxr-xr-x	root/root	usr/bin/cprodtable
+-rwxr-xr-x	root/root	usr/bin/cvstattable
+-rwxr-xr-x	root/root	usr/bin/daophototable
+lrwxrwxrwx	root/root	usr/bin/dashline -> column
+-rwxr-xr-x	root/root	usr/bin/diffrtable
+-rwxr-xr-x	root/root	usr/bin/domaintable
+-rwxr-xr-x	root/root	usr/bin/edittable
+-rwxr-xr-x	root/root	usr/bin/evalpolytable
+-rwxr-xr-x	root/root	usr/bin/expr3dtable
+-rwxr-xr-x	root/root	usr/bin/extracttable
+-rwxr-xr-x	root/root	usr/bin/filebytes
+-rwxr-xr-x	root/root	usr/bin/fitsbase
+-rwxr-xr-x	root/root	usr/bin/fitshdr
+-rwxr-xr-x	root/root	usr/bin/fixtotable
+-rwxr-xr-x	root/root	usr/bin/fldtotable
+-rwxr-xr-x	root/root	usr/bin/formattable
+-rwxr-xr-x	root/root	usr/bin/fun3dtable
+-rwxr-xr-x	root/root	usr/bin/gridtable
+lrwxrwxrwx	root/root	usr/bin/header -> column
+lrwxrwxrwx	root/root	usr/bin/headline -> column
+lrwxrwxrwx	root/root	usr/bin/headoff -> column
+-rwxr-xr-x	root/root	usr/bin/headtable
+-rwxr-xr-x	root/root	usr/bin/histtable
+-rwxr-xr-x	root/root	usr/bin/index
+-rwxr-xr-x	root/root	usr/bin/indexsorttable
+-rwxr-xr-x	root/root	usr/bin/intertable
+-rwxr-xr-x	root/root	usr/bin/jiggletable
+-rwxr-xr-x	root/root	usr/bin/jointable
+-rwxr-xr-x	root/root	usr/bin/jottable
+lrwxrwxrwx	root/root	usr/bin/justify -> column
+-rwxr-xr-x	root/root	usr/bin/listtotable
+lrwxrwxrwx	root/root	usr/bin/maxtable -> statstable
+lrwxrwxrwx	root/root	usr/bin/meantable -> statstable
+lrwxrwxrwx	root/root	usr/bin/mediantable -> statstable
+lrwxrwxrwx	root/root	usr/bin/medtable -> statstable
+lrwxrwxrwx	root/root	usr/bin/mintable -> statstable
+-rwxr-xr-x	root/root	usr/bin/pastetable
+lrwxrwxrwx	root/root	usr/bin/prectable -> statstable
+lrwxrwxrwx	root/root	usr/bin/project -> column
+-rwxr-xr-x	root/root	usr/bin/radecbox
+-rwxr-xr-x	root/root	usr/bin/radecboxtable
+lrwxrwxrwx	root/root	usr/bin/radeccirc -> radecbox
+-rwxr-xr-x	root/root	usr/bin/radialsorttable
+-rwxr-xr-x	root/root	usr/bin/rand
+-rwxr-xr-x	root/root	usr/bin/randtable
+lrwxrwxrwx	root/root	usr/bin/rangetable -> statstable
+lrwxrwxrwx	root/root	usr/bin/reckon -> table
+-rwxr-xr-x	root/root	usr/bin/report
+-rwxr-xr-x	root/root	usr/bin/resampletable
+-rwxr-xr-x	root/root	usr/bin/reseqtable
+-rwxr-xr-x	root/root	usr/bin/rms3dtable
+lrwxrwxrwx	root/root	usr/bin/rmstable -> statstable
+lrwxrwxrwx	root/root	usr/bin/rngtable -> statstable
+-rwxr-xr-x	root/root	usr/bin/rotatetable
+lrwxrwxrwx	root/root	usr/bin/row -> table
+-rwxr-xr-x	root/root	usr/bin/rowtocoltable
+-rwxr-xr-x	root/root	usr/bin/rttoxytable
+-rwxr-xr-x	root/root	usr/bin/scaletable
+-rwxr-xr-x	root/root	usr/bin/search
+lrwxrwxrwx	root/root	usr/bin/select -> table
+-rwxr-xr-x	root/root	usr/bin/sextotable
+-rwxr-xr-x	root/root	usr/bin/shifttable
+-rwxr-xr-x	root/root	usr/bin/smoothtable
+-rwxr-xr-x	root/root	usr/bin/sorttable
+-rwxr-xr-x	root/root	usr/bin/statstable
+lrwxrwxrwx	root/root	usr/bin/stdevtable -> statstable
+lrwxrwxrwx	root/root	usr/bin/stdtable -> statstable
+-rwxr-xr-x	root/root	usr/bin/sub3dtable
+-rwxr-xr-x	root/root	usr/bin/sum3dtable
+lrwxrwxrwx	root/root	usr/bin/sumtable -> statstable
+-rwxr-xr-x	root/root	usr/bin/table
+-rwxr-xr-x	root/root	usr/bin/tabletodaophot
+-rwxr-xr-x	root/root	usr/bin/tabletofits
+-rwxr-xr-x	root/root	usr/bin/tabletohtml
+-rwxr-xr-x	root/root	usr/bin/tabletolist
+-rwxr-xr-x	root/root	usr/bin/tabletosetenv
+-rwxr-xr-x	root/root	usr/bin/tabletosh
+-rwxr-xr-x	root/root	usr/bin/tactable
+-rwxr-xr-x	root/root	usr/bin/tailtable
+-rwxr-xr-x	root/root	usr/bin/tawk
+-rwxr-xr-x	root/root	usr/bin/teeproc
+-rwxr-xr-x	root/root	usr/bin/total
+lrwxrwxrwx	root/root	usr/bin/tottable -> statstable
+lrwxrwxrwx	root/root	usr/bin/trim -> column
+-rwxr-xr-x	root/root	usr/bin/uniontable
+lrwxrwxrwx	root/root	usr/bin/validate -> table
+-rwxr-xr-x	root/root	usr/bin/wctable
+lrwxrwxrwx	root/root	usr/bin/widthtable -> statstable
+-rwxr-xr-x	root/root	usr/bin/xinc
+-rwxr-xr-x	root/root	usr/bin/xycoefftable
+-rwxr-xr-x	root/root	usr/bin/xytorttable
+-rwxr-xr-x	root/root	usr/bin/xytotng
+drwxr-xr-x	root/root	usr/include/
+-rw-rw-r--	root/root	usr/include/cache.h
+-rw-rw-r--	root/root	usr/include/except.h
+-rw-rw-r--	root/root	usr/include/filelist.h
+-rw-rw-r--	root/root	usr/include/range.h
+-rw-r--r--	root/root	usr/include/table.h
+-rw-rw-r--	root/root	usr/include/xfile.h
+-rw-rw-r--	root/root	usr/include/xlist.h
+-rw-rw-r--	root/root	usr/include/xos.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libtable.a
+-rw-r--r--	root/root	usr/lib/libutil.a
+-rw-r--r--	root/root	usr/lib/table.inc
+drwxr-xr-x	root/root	usr/lib/tablefun/
+-rw-r--r--	root/root	usr/lib/tablefun/avg3d
+-rw-r--r--	root/root	usr/lib/tablefun/colvalue
+-rw-r--r--	root/root	usr/lib/tablefun/paramcheck
+-rw-r--r--	root/root	usr/lib/tablefun/paramrange
+-rw-r--r--	root/root	usr/lib/tablefun/radecbox
+-rw-r--r--	root/root	usr/lib/tablefun/sub3d
+-rw-r--r--	root/root	usr/lib/tablefun/sum3d
+-rw-r--r--	root/root	usr/lib/tablefun/table_colnum

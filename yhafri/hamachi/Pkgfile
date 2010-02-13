@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A zero-configuration virtual private networking (VPN) application
+# URL: http://hamachi.cc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hamachi
+version=0.9.9.9
+release=20
+source=(http://files.$name.cc/linux/$name-$version-$release-lnx.tar.gz)
+
+build () {
+	mkdir -p $PKG/{usr/bin,sbin}
+
+	cd $name-$version-$release-lnx
+
+	strip tuncfg/tuncfg
+
+	make HAMACHI_DST=$PKG/usr/bin TUNCFG_DST=$PKG/sbin install
+	ln -sf /usr/bin/$name $PKG/usr/bin/$name-init
+
+	chown -R root:root $PKG
+}

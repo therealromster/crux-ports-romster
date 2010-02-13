@@ -1,0 +1,44 @@
+# $Id: $
+# Description: Apache module that allows Apache to serve SOAP requests via the Gsoap library
+# URL: http://sourceforge.net/projects/mod-gsoap
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: apache, gsoap
+
+name=mod_gsoap
+version=0.7
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/mod-gsoap/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/apache
+
+	cd $name-$version/apache_20
+
+	#
+	# This command is equals to the below lines.
+	# The problem is that its install the module directly
+	# in the Apache tree
+	# apxs -i -a -c mod_gsoap.c
+	#
+
+	apxs -a -c mod_gsoap.c
+	
+	/usr/share/apr/libtool --silent --mode=link gcc -o mod_gsoap.la  \
+	-rpath /usr/lib/apache -module -avoid-version    mod_gsoap.lo
+
+	/usr/lib/apache/build/instdso.sh SH_LIBTOOL='/usr/share/apr/libtool' \
+	mod_gsoap.la /usr/lib/apache
+
+	/usr/share/apr/libtool --mode=install cp mod_gsoap.la /usr/lib/apache/
+
+	cp .libs/mod_gsoap.so $PKG/usr/lib/apache/mod_gsoap.so
+	cp .libs/mod_gsoap.lai $PKG/usr/lib/apache/mod_gsoap.la
+	cp .libs/mod_gsoap.a $PKG/usr/lib/apache/mod_gsoap.a
+	ranlib $PKG/usr/lib/apache/mod_gsoap.a
+
+	chmod 644 /usr/lib/apache/mod_gsoap.a
+	PATH="$PATH:/sbin" ldconfig -n /usr/lib/apache
+
+	chown -R root:root $PKG
+}

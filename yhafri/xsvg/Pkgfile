@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A program viewer for SVG files
+# URL: http://cairographics.org/snapshots/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libsvgcairo, x11
+
+name=xsvg
+version=0.2.0
+release=1
+source=(http://cairographics.org/snapshots/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-shared	
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

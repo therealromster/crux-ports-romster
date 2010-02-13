@@ -1,0 +1,22 @@
+# $Id: $
+# Description: PostgreSQL JDBC driver
+# URL: http://jdbc.postgresql.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant
+
+name=postgresql-jdbc
+version=8.2-504
+release=1
+source=(http://jdbc.postgresql.org/download/$name-$version.src.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd $name-$version.src
+	ant
+
+	install -D jars/postgresql.jar $PKG/usr/lib/$name/postgresql.jar
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,11 @@
+--- pstill_dist/linkAllFonts.sh	2004-11-26 01:08:26.000000000 +0100
++++ pstill_dist/linkAllFonts.sh-new	2006-02-06 16:34:49.000000000 +0100
+@@ -8,7 +8,7 @@
+ echo "- Starting in 10 seconds..."
+ echo
+ sleep 10
+-for file in /usr/lib/X11/fonts/Type1/*
++for file in /usr/X11R6/lib/X11/fonts/Type1/*
+ do
+ newname=`pwd`/`basename $file`
+ echo $file

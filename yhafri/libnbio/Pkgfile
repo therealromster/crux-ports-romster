@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A C library that can function as the main event loop of a non-blocking-I/O based application
+# URL: http://www.zigamorph.net/libnbio/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libnbio
+version=0.20
+release=1
+source=(http://www.zigamorph.net/$name/files/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

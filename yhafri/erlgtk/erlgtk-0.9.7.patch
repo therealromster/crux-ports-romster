@@ -1,0 +1,13 @@
+--- config/configure.in	2003-09-02 23:17:18.000000000 +0200
++++ config/configure.in-new	2005-04-23 02:03:46.737184592 +0200
+@@ -177,8 +177,8 @@
+ AC_SUBST(GTK_REL)
+ 
+ 
+-ERLC_FLAGS=
+-EI_DIR=`$ERLC eiconf.erl; $ERL -noshell -s eiconf`
++ERLC_FLAGS="-W0"
++EI_DIR=`$ERLC -W0 eiconf.erl; $ERL -noshell -s eiconf`
+ EI_CFLAGS="-I$EI_DIR/include"
+ AC_CHECK_LIB(erl_interface_st, erl_init, 
+ 	[EI_LIBS="-L$EI_DIR/lib -lerl_interface_st -lei_st"],

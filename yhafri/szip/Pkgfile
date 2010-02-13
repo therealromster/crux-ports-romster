@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Compression software, providing lossless compression of scientific data (HDF4, HDF5)
+# URL: http://hdf.ncsa.uiuc.edu/doc_resource/SZIP/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=szip
+version=2.0
+release=1
+source=(ftp://ftp.ncsa.uiuc.edu/HDF/lib-external/$name/$version/src/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

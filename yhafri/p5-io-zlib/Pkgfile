@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the Compress::Zlib
+# URL: http://search.cpan.org/~tomhughes/IO-Zlib-1.04/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib, p5-compress-zlib
+
+name=p5-io-zlib
+version=1.04
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TO/TOMHUGHES/IO-Zlib-$version.tar.gz)
+
+build () {
+	cd IO-Zlib-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

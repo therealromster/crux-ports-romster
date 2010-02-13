@@ -1,0 +1,22 @@
+# $Id: $
+# Description: XOSD displays text on your screen
+# URL: http://www.ignavus.net/software.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xosd
+version=2.2.12
+release=1
+source=(http://www.ignavus.net/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

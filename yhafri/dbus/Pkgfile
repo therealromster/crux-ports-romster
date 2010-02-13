@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A message bus system
+# URL: http://www.freedesktop.org/Software/dbus
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, x11, libxml-2
+
+name=dbus
+version=1.0.1
+release=1
+source=(http://dbus.freedesktop.org/releases/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+	            --disable-qt \
+        	    --disable-glib \
+         	    --enable-gtk \
+	            --disable-python \
+             	    --with-x
+
+#          	    --enable-ansi \
+
+    make
+    make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

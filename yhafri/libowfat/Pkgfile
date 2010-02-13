@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A nice reimplementation of libdjb under GPL
+# URL: http://www.fefe.de/embutils/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: dietlibc
+
+name=libowfat
+version=0.24
+release=1
+
+source=(http://dl.fefe.de/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+        mkdir -p $PKG/usr/local/diet
+
+	cd $name-$version
+	patch -p1 < ../$name-$version.patch
+
+        make prefix=/usr/local/diet
+        make prefix=$PKG/usr/local/diet install
+
+	mv $PKG/usr/local/diet/man $PKG/usr/local/man/
+	install -D -m 644 $name.a $PKG/usr/local/diet/lib/$name.a
+
+ 	chown -R root:root $PKG
+}

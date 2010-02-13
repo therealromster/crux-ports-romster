@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python interface to Judy Array library
+# URL: http://dalkescientific.com/Python/PyJudy.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, libjudy
+
+name=pyjudy
+version=1.0
+release=1
+source=(http://dalkescientific.com/Python/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

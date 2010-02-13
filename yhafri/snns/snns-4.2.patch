@@ -1,0 +1,10 @@
+--- SNNSv4.2/tools/sources/symtab.c	1998-09-03 15:37:59.000000000 +0200
++++ SNNSv4.2/tools/sources/symtab.c-new	2004-10-23 18:47:27.010838472 +0200
+@@ -23,6 +23,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <math.h>             /* for MAXFLOAT */
++#  define MAXFLOAT	3.40282347e+38F
+ 
+ #include "symtab.ph"
+ #include "arglist.h"

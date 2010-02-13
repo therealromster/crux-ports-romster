@@ -1,0 +1,35 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/trace
+-rwxr-xr-x	root/root	usr/bin/traceanalyze
+-rwxr-xr-x	root/root	usr/bin/tracecore
+-rwxr-xr-x	root/root	usr/bin/tracecpuid
+-rwxr-xr-x	root/root	usr/bin/tracedaemon
+-rwxr-xr-x	root/root	usr/bin/tracedcore
+-rwxr-xr-x	root/root	usr/bin/tracedump
+-rwxr-xr-x	root/root	usr/bin/traceu
+-rwxr-xr-x	root/root	usr/bin/traceview
+-rwxr-xr-x	root/root	usr/bin/tracevisualizer
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/DevCommand.h
+-rw-r--r--	root/root	usr/include/EventDB.h
+-rw-r--r--	root/root	usr/include/EventOptions.h
+-rw-r--r--	root/root	usr/include/LTTTypes.h
+-rw-r--r--	root/root	usr/include/LinuxEvents.h
+-rw-r--r--	root/root	usr/include/LinuxTables.h
+-rw-r--r--	root/root	usr/include/RTAIDB.h
+-rw-r--r--	root/root	usr/include/RTAIEvents.h
+-rw-r--r--	root/root	usr/include/RTAITables.h
+-rw-r--r--	root/root	usr/include/Tables.h
+-rw-r--r--	root/root	usr/include/UserTrace.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libltt-0.9.so.6 -> libltt-0.9.so.6.0.0
+-rwxr-xr-x	root/root	usr/lib/libltt-0.9.so.6.0.0
+-rw-r--r--	root/root	usr/lib/libltt.a
+-rwxr-xr-x	root/root	usr/lib/libltt.la
+lrwxrwxrwx	root/root	usr/lib/libltt.so -> libltt-0.9.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libusertrace-0.9.so.6 -> libusertrace-0.9.so.6.0.0
+-rwxr-xr-x	root/root	usr/lib/libusertrace-0.9.so.6.0.0
+-rw-r--r--	root/root	usr/lib/libusertrace.a
+-rwxr-xr-x	root/root	usr/lib/libusertrace.la
+lrwxrwxrwx	root/root	usr/lib/libusertrace.so -> libusertrace-0.9.so.6.0.0

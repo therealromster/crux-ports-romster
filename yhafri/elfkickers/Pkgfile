@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Collection of programs to help understanding of ELF file format
+# URL: http://www.muppetlabs.com/~breadbox/software/elfkickers.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=elfkickers
+version=2.0a
+release=1
+#source=(http://www.muppetlabs.com/~breadbox/pub/software/ELFkickers-$version.tar.gz)
+source=(ELFkickers-$version.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/bin
+	cd ELFkickers/sstrip
+    make
+    cp sstrip $PKG/usr/bin
+    cd ../ebfc
+    make 
+    cp ebfc $PKG/usr/bin
+    cd ../elftoc
+    make
+    cp elftoc $PKG/usr/bin
+    cd ../elfls
+    make
+    cp elfls $PKG/usr/bin
+    cd ../rebind
+    make
+    cp rebind $PKG/usr/bin
+    
+    chown -R root:root $PKG
+}

@@ -1,0 +1,42 @@
+--- gtk-server-1.3.3/Makefile.in	2005-01-30 14:33:38.000000000 +0100
++++ gtk-server-1.3.3/Makefile.in-new	2005-03-20 02:18:14.877289848 +0100
+@@ -1,3 +1,4 @@
++prefix = /usr/local
+ CC =		@CC@
+ CFLAGS =	-Wall -pedantic @CFLAGS@ @CPPFLAGS@ @DEFS@
+ LDFLAGS =	@LDFLAGS@ @LIBS@
+@@ -17,21 +18,21 @@
+ 	./gen_src.awk > funcs.c
+ 
+ install :
+-	mkdir -p /usr/local/bin
+-	$(INSTALL) gtk-server /usr/local/bin
+-	mkdir -p /usr/local/etc
+-	$(INSTALL) gtk-server.cfg /usr/local/etc
+-	mkdir -p /usr/local/man/man1
+-	$(INSTALL) gtk-server.1 /usr/local/man/man1
+-	$(INSTALL) gtk-server.cfg.1 /usr/local/man/man1
+-	$(INSTALL) kill-gtk-server.sh /usr/local/bin
++	mkdir -p ${prefix}/bin
++	$(INSTALL) gtk-server ${prefix}/bin
++	mkdir -p ${prefix}/etc
++	$(INSTALL) gtk-server.cfg ${prefix}/etc
++	mkdir -p ${prefix}/man/man1
++	$(INSTALL) gtk-server.1 ${prefix}/man/man1
++	$(INSTALL) gtk-server.cfg.1 ${prefix}/man/man1
++	$(INSTALL) kill-gtk-server.sh ${prefix}/bin
+ 
+ uninstall:
+-	rm -f /usr/local/bin/gtk-server
+-	rm -f /usr/local/etc/gtk-server.cfg
+-	rm -f /usr/local/man/man1/gtk-server.1
+-	rm -f /usr/local/man/man1/gtk-server.cfg.1
+-	rm -f /usr/local/bin/kill-gtk-server.sh
++	rm -f ${prefix}/bin/gtk-server
++	rm -f ${prefix}/etc/gtk-server.cfg
++	rm -f ${prefix}/man/man1/gtk-server.1
++	rm -f ${prefix}/man/man1/gtk-server.cfg.1
++	rm -f ${prefix}/bin/kill-gtk-server.sh
+ 
+ clean:
+ 	rm -f gtk-server *.o funcs.c

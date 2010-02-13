@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/addjailsw
+-rwxr-xr-x	root/root	usr/bin/addjailuser
+-rwxr-xr-x	root/root	usr/bin/jail
+-rwxr-xr-x	root/root	usr/bin/mkjailenv
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/jail.conf
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/arch/
+drwxr-xr-x	root/root	usr/lib/arch/generic/
+-rwxrwxr-x	root/root	usr/lib/arch/generic/definitions
+-rwxrwxr-x	root/root	usr/lib/arch/generic/functions
+drwxr-xr-x	root/root	usr/lib/arch/linux/
+-rwxrwxr-x	root/root	usr/lib/arch/linux/definitions
+-rwxrwxr-x	root/root	usr/lib/arch/linux/functions
+-rw-r--r--	root/root	usr/lib/libjail.pm

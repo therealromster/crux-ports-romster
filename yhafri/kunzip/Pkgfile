@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A free library for decompressing ZIP archives
+# URL: http://www.mikekohn.net/file_formats/kunzip.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=kunzip
+version=2006-11-14
+release=1
+source=(http://downloads.mikekohn.net/programs/$name-$version.tar.gz)
+
+build () {
+	cd $name
+	make && make lib
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	install -D -m 755 $name.h $PKG/usr/include/$name.h
+	install -D -m 755 lib$name.so $PKG/usr/lib/lib$name.so
+
+	chown -R root:root $PKG
+}

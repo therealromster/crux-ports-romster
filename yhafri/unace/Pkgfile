@@ -1,0 +1,14 @@
+# Description: command-line ace unarchiver for Linux
+# URL: http://www.winace.com/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=unace
+version=2.5
+release=1
+source=(http://www.winace.com/files/linunace25.tgz)
+
+build() {
+	mkdir -p $PKG/usr/bin
+	install -o root -g root -m 755 unace $PKG/usr/bin
+}

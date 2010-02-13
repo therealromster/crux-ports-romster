@@ -1,0 +1,22 @@
+# $Id: $
+# Description: XML package for Python
+# URL: http://pyxml.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=pyxml
+version=0.8.4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/PyXML-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd PyXML-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

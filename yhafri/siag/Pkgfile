@@ -1,0 +1,35 @@
+# $Id: $
+# Description: A spreadsheet based on X and Scheme
+# URL: http://siag.nu/siag/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, t1ligmp, gdbm, sdb, libstocks, nextaw, ruby, tcl, xawm, mowitz
+
+name=siag
+version=3.6.0
+release=1
+source=(ftp://siag.nu/pub/$name/$name-$version.tar.gz)
+
+build () {
+        ln -sf /usr/lib/libpython2.4.so /usr/lib/libpython2.2.so
+	cd $name-$version
+	./configure --prefix=/usr    \
+                    --with-ndbm=gdbm \
+		    --with-tcl=tcl8.4   \
+                    --with-xawm      \
+                    --without-guile     \
+                    --without-python    \
+                    --without-ruby      \
+                    --with-stocks    \
+                    --with-gmp       \
+                    --without-sdb       \
+                    --with-ccmath    \
+                    --with-t1lib 
+
+	make
+	make prefix=$PKG/usr install
+
+        rm -rf $PKG/usr/doc/
+
+	chown -R root:root $PKG
+}

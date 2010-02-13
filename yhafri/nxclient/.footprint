@@ -1,0 +1,92 @@
+drwxr-xr-x	root/root	bin/
+-rwxr-xr-x	root/root	bin/nxclient
+-rwxr-xr-x	root/root	bin/nxesd
+-rwxr-xr-x	root/root	bin/nxkill
+-rwxr-xr-x	root/root	bin/nxprint
+-rwxr-xr-x	root/root	bin/nxservice
+-rwxr-xr-x	root/root	bin/nxssh
+drwxr-xr-x	root/root	usr/
+lrwxrwxrwx	root/root	usr/NX -> /usr/lib/NX
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/NX/
+drwxr-xr-x	root/root	usr/lib/NX/lib/
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libXcomp.so -> libXcomp.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libXcomp.so.2 -> libXcomp.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/NX/lib/libXcomp.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libXcompsh.so -> libXcompsh.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libXcompsh.so.2 -> libXcompsh.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/NX/lib/libXcompsh.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libcrypto.so -> libcrypto.so.0.9.8
+-rwxr-xr-x	root/root	usr/lib/NX/lib/libcrypto.so.0.9.8
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libjpeg.so -> libjpeg.so.62.0.0
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libjpeg.so.62 -> libjpeg.so.62.0.0
+-rwxr-xr-x	root/root	usr/lib/NX/lib/libjpeg.so.62.0.0
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libpng12.so -> libpng12.so.0
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libpng12.so.0 -> libpng12.so.0.1.2.8
+-rwxr-xr-x	root/root	usr/lib/NX/lib/libpng12.so.0.1.2.8
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libz.so -> libz.so.1.2.1
+lrwxrwxrwx	root/root	usr/lib/NX/lib/libz.so.1 -> libz.so.1.2.1
+-rwxr-xr-x	root/root	usr/lib/NX/lib/libz.so.1.2.1
+drwxr-xr-x	root/root	usr/lib/NX/share/
+drwxr-xr-x	root/root	usr/lib/NX/share/cups/
+-rw-r--r--	root/root	usr/lib/NX/share/cups/mime.convs
+-rw-r--r--	root/root	usr/lib/NX/share/cups/mime.types
+drwxr-xr-x	root/root	usr/lib/NX/share/icons/
+-rw-r--r--	root/root	usr/lib/NX/share/icons/nx-desktop.ico
+-rw-r--r--	root/root	usr/lib/NX/share/icons/nx-desktop.png
+-rw-r--r--	root/root	usr/lib/NX/share/icons/nx.png
+-rw-r--r--	root/root	usr/lib/NX/share/icons/nxclient-admin.png
+-rw-r--r--	root/root	usr/lib/NX/share/icons/nxclient-wizard.png
+drwxr-xr-x	root/root	usr/lib/NX/share/images/
+-rw-r--r--	root/root	usr/lib/NX/share/images/about-down.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/about-up.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-01.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-02.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-03.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-04.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-05.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-06.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-07.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-08.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-09.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-10.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-fail-01.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/connect-fail-02.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/folder-shared-disabled.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/folder-shared.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/kill-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/kill.png
+-rwxr-xr-x	root/root	usr/lib/NX/share/images/multimedia-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/multimedia.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/new-session-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/new-session.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/nomachine-no-background.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/printer-default-icon-disabled.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/printer-default-icon.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/printer-icon-disabled.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/printer-icon.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/printer-shared-disabled.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/printer-shared.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/pulldown-close.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/pulldown-suspend.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/pulldown-terminate.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/refresh-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/refresh.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/remove-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/remove.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/session-stats-01-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/session-stats-01.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/session-stats-02-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/session-stats-02.png
+-rwxr-xr-x	root/root	usr/lib/NX/share/images/sharing-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/sharing.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/terminate-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/terminate.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/view-log-dsb.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/view-log.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/warning.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/wizard.png
+-rw-r--r--	root/root	usr/lib/NX/share/keyboards
+drwxr-xr-x	root/root	usr/lib/NX/share/keys/
+-rw-r--r--	root/root	usr/lib/NX/share/keys/server.id_dsa.key
+-rw-r--r--	root/root	usr/lib/NX/share/rgb

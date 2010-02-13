@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Open Source administration and development platform for PostgreSQL
+# URL: http://www.pgadmin.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: wxgtk, libxml2, postgresql
+
+name=pgadmin3
+version=1.4.3
+release=1
+source=(ftp://ftp.fr.postgresql.org/$name/release/v$version/src/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/pgadmin3/docs/
+	chown -R root:root $PKG
+}

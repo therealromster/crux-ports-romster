@@ -1,0 +1,37 @@
+# $Id: $
+# Description: Berkeley DB
+# URL: http://www.sleepycat.com/products/db.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=db
+version=4.5.20
+release=2
+source=(http://download.oracle.com/berkeley-$name/$name-$version.tar.gz \
+	http://www.oracle.com/technology/products/berkeley-$name/$name/update/$version/patch.4.5.20.{1,2} \
+	edtk-$name-$version-patchs.tar.bz2)
+
+build() {
+	cd $name-$version
+    	cat $SRC/patch.4.5.20.{1,2} | patch -p0
+ 	
+	# EDTK patches from DB (linked in driver)
+	sh $SRC/examples/berkeley_db/patches-to-berkeley-$name/$name-$version/apply-patches.sh \
+	   $SRC/examples/berkeley_db/patches-to-berkeley-$name/$name-$version
+
+    	cd build_unix
+    	LDFLAGS="-lpthread" \
+    		../dist/configure --prefix=/usr \
+		      		  --enable-compat185 \
+		      		  --enable-shared \
+		      		  --enable-static \
+		      		  --enable-cxx
+    	
+	make
+    	make DESTDIR=$PKG install
+    
+	rm -rf $PKG/usr/docs
+    
+	chmod -R +w $PKG
+}

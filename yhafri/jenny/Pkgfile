@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A tool for generating regression tests
+# URL: http://www.burtleburtle.net/bob/math/jenny.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=jenny
+version=1
+release=1
+source=($name.c)
+
+build () {
+	gcc -O4 $name.c -o $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,18 @@
+--- micro_httpd/Makefile	1999-09-17 09:17:18.000000000 +0200
++++ micro_httpd/Makefile-new	2005-04-16 23:33:13.961593912 +0200
+@@ -1,10 +1,11 @@
+-BINDIR =	/usr/local/sbin
+-MANDIR =	/usr/local/man/man8
++PREFIX =        /usr
++BINDIR =	${PREFIX}/usr/sbin
++MANDIR =	${PREFIX}/usr/man/man8
+ CC =		gcc
+ CFLAGS =	-O
+ #CFLAGS =	-g
+-#SYSVLIBS =	-lnsl -lsocket
+-LDFLAGS =	-s ${SYSVLIBS}
++SYSVLIBS =	-lnsl -lsocket
++#LDFLAGS =	-s ${SYSVLIBS}
+ #LDFLAGS =	-g ${SYSVLIBS}
+ 
+ all:		micro_httpd

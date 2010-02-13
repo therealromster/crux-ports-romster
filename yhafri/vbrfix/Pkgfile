@@ -1,0 +1,20 @@
+# Description: rebuilds mp3 headers, tags, queue-points, bitrate info, etc.
+# URL: http://www.willwap.co.uk/Programs/vbrfix.php
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qt3
+
+name=vbrfix
+version=0.25
+release=1
+source=(http://www.willwap.co.uk/Downloads/vbrfix-$version.tar.gz)
+
+build() {
+    cd $name
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

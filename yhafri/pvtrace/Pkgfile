@@ -1,0 +1,21 @@
+# $Id: $
+# Description: To visualize function calls with Graphviz
+# URL: http://www-128.ibm.com/developerworks/linux/library/l-graphvis/?ca=dgr-lnxw18Graphviz
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: graphviz
+
+name=pvtrace
+version=1
+release=1
+source=(http://www.mtjones.com/developerworks/pvtrace.zip)
+
+build () {
+	make
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	install -D -m 644 $name $PKG/etc/$name/instrument.c
+	
+	chown -R root:root $PKG
+}

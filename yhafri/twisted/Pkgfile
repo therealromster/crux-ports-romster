@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python event-driven networking framework
+# URL: http://www.twistedmatrix.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, pyserial, pyshadow, gmpy, pycrypto, pyopenssl, zope-interface
+
+name=twisted
+version=2.2.0
+release=1
+source=(http://tmrc.mit.edu/mirror/twisted/Twisted/2.2/Twisted-$version.tar.bz2)
+
+build () {
+    	mkdir -p $PKG/usr
+
+	cd Twisted-$version
+
+   	python setup.py build
+        python setup.py install --root=$PKG --prefix=/usr
+
+    	chown -R root:root $PKG
+}

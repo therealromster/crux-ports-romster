@@ -1,0 +1,156 @@
+--- gatling-0.8/bindbench.c	2004-01-08 16:31:27.000000000 +0100
++++ gatling-0.8/bindbench.c-new	2006-02-17 14:34:59.000000000 +0100
+@@ -13,7 +13,7 @@
+ #include <sys/time.h>
+ #include <sys/resource.h>
+ #include <stdlib.h>
+-#include "havealloca.h"
++/* #include "havealloca.h" */
+ 
+ #ifdef __i386__
+ #define rdtscl(low) \
+--- gatling-0.8/httpbench.c	2004-01-08 16:31:27.000000000 +0100
++++ gatling-0.8/httpbench.c-new	2006-02-17 14:34:59.000000000 +0100
+@@ -15,7 +15,7 @@
+ #include <sys/resource.h>
+ #include <stdlib.h>
+ #include <errno.h>
+-#include "havealloca.h"
++/* #include "havealloca.h" */
+ 
+ static void carp(const char* routine) {
+   buffer_flush(buffer_1);
+--- gatling-0.8/dl.c	2005-05-19 07:30:48.000000000 +0200
++++ gatling-0.8/dl.c-new	2006-02-17 14:40:42.000000000 +0100
+@@ -20,7 +20,6 @@
+ #include <utime.h>
+ #include <sys/uio.h>
+ #include <sys/stat.h>
+-#include "havealloca.h"
+ 
+ static void carp(const char* routine) {
+   buffer_puts(buffer_2,"dl: ");
+--- gatling-0.8/ioerr.c	2004-01-08 16:31:27.000000000 +0100
++++ gatling-0.8/ioerr.c-new	2006-02-17 14:34:59.000000000 +0100
+@@ -15,7 +15,7 @@
+ #include <sys/resource.h>
+ #include <stdlib.h>
+ #include <errno.h>
+-#include "havealloca.h"
++/* #include "havealloca.h" */
+ 
+ static void carp(const char* routine) {
+   buffer_puts(buffer_2,"ioerr: ");
+--- gatling-0.8/gatling.c	2005-05-20 17:32:27.000000000 +0200
++++ gatling-0.8/gatling.c-new	2006-02-17 14:48:13.000000000 +0100
+@@ -44,7 +44,6 @@
+ #include <grp.h>
+ #include <netinet/in.h>
+ #include <netinet/tcp.h>
+-#include "version.h"
+ #include <assert.h>
+ #include <fnmatch.h>
+ #include <sys/wait.h>
+@@ -57,7 +56,7 @@
+ #endif
+ #include <limits.h>
+ #include <string.h>
+-#include "havealloca.h"
++
+ 
+ unsigned long timeout_secs=23;
+ tai6464 next;
+@@ -101,6 +100,7 @@
+ #if defined(__OpenBSD__) || defined(__NetBSD__)
+ #define __broken_itojun_v6__
+ #endif
++#define VERSION 0.8
+ #define RELEASE "Gatling/" VERSION
+ 
+ int virtual_hosts;
+@@ -555,7 +555,7 @@
+       int j;
+       x=malloc(i+100);
+       if (!x) goto nomem;
+-      j=fmt_str(x,"HTTP/1.0 200 Here you go\r\nServer: " RELEASE "\r\n");
++      j=fmt_str(x,"HTTP/1.0 200 Here you go\r\nServer: Gatling/0.8\r\n");
+       byte_copy(x+j,i,buf);
+       i+=j;
+     } else {
+@@ -720,7 +720,7 @@
+       c+=fmt_str(c,title);
+       c+=fmt_str(c,"\r\nContent-Type: text/html\r\nConnection: ");
+       c+=fmt_str(c,r->keepalive?"keep-alive":"close");
+-      c+=fmt_str(c,"\r\nServer: " RELEASE "\r\nContent-Length: ");
++      c+=fmt_str(c,"\r\nServer: Gatling/0.8\r\nContent-Length: ");
+       c+=fmt_ulong(c,str_len(message)+str_len(title)+16-4);
+       if (realm) {
+ 	c+=fmt_str(c,"\r\nWWW-Authenticate: Basic realm=\"");
+@@ -1085,7 +1085,7 @@
+ 
+ 	i=fmt_str(h->hdrbuf,"HTTP/1.0 301 Go Away\r\nConnection: ");
+ 	i+=fmt_str(h->hdrbuf+i,h->keepalive?"keep-alive":"close");
+-	i+=fmt_str(h->hdrbuf+i,"\r\nServer: " RELEASE "\r\nContent-Length: ");
++	i+=fmt_str(h->hdrbuf+i,"\r\nServer: Gatling/0.8\r\nContent-Length: ");
+ 	i+=fmt_ulong(h->hdrbuf+i,h->blen);
+ 	i+=fmt_str(h->hdrbuf+i,"\r\nLocation: ");
+ 	i+=fmt_str(h->hdrbuf+i,buf);
+@@ -1320,7 +1320,7 @@
+     cleanup(s);
+     return;
+   }
+-  i=fmt_str(nh,"HTTP/1.0 302 Over There\r\nServer: " RELEASE "\r\nLocation: ");
++  i=fmt_str(nh,"HTTP/1.0 302 Over There\r\nServer: Gatling/0.8\r\nLocation: ");
+   i+=fmt_str(nh+i,redir);
+   i+=fmt_str(nh+i,filename);
+   i+=fmt_str(nh+i,"\r\nContent-Type: text/html\r\nContent-Length: ");
+@@ -1458,7 +1458,7 @@
+ 
+ 	  c+=fmt_str(c,"HTTP/1.1 200 Here you go\r\nContent-Type: text/html\r\nConnection: ");
+ 	  c+=fmt_str(c,h->keepalive?"keep-alive":"close");
+-	  c+=fmt_str(c,"\r\nServer: " RELEASE "\r\nContent-Length: ");
++	  c+=fmt_str(c,"\r\nServer: Gatling/0.8\r\nContent-Length: ");
+ 	  c+=fmt_ulong(c,h->blen);
+ 	  if (h->encoding!=NORMAL) {
+ 	    c+=fmt_str(c,"\r\nContent-Encoding: ");
+@@ -1547,7 +1547,7 @@
+ 
+ 	c+=fmt_str(c,"\r\nContent-Type: ");
+ 	c+=fmt_str(c,h->mimetype);
+-	c+=fmt_str(c,"\r\nServer: " RELEASE "\r\nContent-Length: ");
++	c+=fmt_str(c,"\r\nServer: Gatling/0.8\r\nContent-Length: ");
+ 	c+=fmt_ulonglong(c,range_last-range_first);
+ 	c+=fmt_str(c,"\r\nLast-Modified: ");
+ 	c+=fmt_httpdate(c,ss.st_mtime);
+@@ -3040,7 +3040,7 @@
+ 			  if (str_start(_envp[i],cgivars[j])) { found=1; break; }
+ 		      if (!found) envp[envc++]=_envp[i];
+ 		    }
+-		    envp[envc++]="SERVER_SOFTWARE=" RELEASE;
++		    envp[envc++]="SERVER_SOFTWARE=Gatling/0.8";
+ 		    envp[envc++]=servername;
+ 		    envp[envc++]="GATEWAY_INTERFACE=CGI/1.1";
+ 		    envp[envc++]=httpversion;
+--- gatling-0.8/Makefile	2005-05-04 15:48:39.000000000 +0200
++++ gatling-0.8/Makefile-new	2006-02-17 14:50:32.000000000 +0100
+@@ -48,10 +48,7 @@
+ cgi: cgi.c
+ 	$(CC) -o $@ cgi.c $(LDFLAGS)
+ 
+-gatling.o: version.h
+-
+-version.h: CHANGES
+-	(head -n 1 CHANGES | sed 's/\([^:]*\):/#define VERSION "\1"/') > version.h
++gatling.o:
+ 
+ %.o: %.c
+ 	$(CC) -c $< -I. $(CFLAGS)
+@@ -82,7 +79,7 @@
+ 	rm -f $(BINDIR)/gatling $(BINDIR)/tlsgatling $(man1dir)/gatling.1
+ 
+ clean:
+-	rm -f $(TARGET) *.o version.h core *.core libsocket libsocketkludge.a dummy.c
++	rm -f $(TARGET) *.o core *.core libsocket libsocketkludge.a dummy.c
+ 
+ cert: server.pem
+ 

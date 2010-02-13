@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module for URL-encoding strings and hashes
+# URL: http://mirror.internet.tp/cpan/authors/id/J/JE/JENDA/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-cgi-enurl
+version=1.07
+release=1
+source=(http://mirror.internet.tp/cpan/authors/id/J/JE/JENDA/CGI-Enurl-$version.tar.gz)
+
+build () {
+	cd CGI-Enurl-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

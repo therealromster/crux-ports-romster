@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Terminal control using ANSI escape sequences
+# URL: http://search.cpan.org/~autrijus/Term-ANSIScreen-1.42/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=pp5-term-ansiscreen
+version=1.42
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AU/AUTRIJUS/Term-ANSIScreen-$version.tar.gz)
+
+build () {
+	cd Term-ANSIScreen-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

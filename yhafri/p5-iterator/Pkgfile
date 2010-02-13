@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A general-purpose iterator class
+# URL: http://search.cpan.org/~roode/Iterator-0.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-exception-class
+
+name=p5-iterator
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RO/ROODE/Iterator-$version.tar.gz)
+
+build () {
+	cd Iterator-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A shell script to create Makefile based on architecture
+# URL: http://www.firestuff.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=firemake
+version=1.9.9
+release=1
+source=(http://www.firestuff.org/projects/$name-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd $name
+
+	cp -rf 	configure modules $PKG/usr/lib/$name/
+
+	chown -R root:root $PKG
+}

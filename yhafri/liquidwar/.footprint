@@ -1,0 +1,30 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/liquidwar
+-rwxr-xr-x	root/root	usr/bin/liquidwar-mapgen
+-rwxr-xr-x	root/root	usr/bin/liquidwar-server
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man6/
+lrwxrwxrwx	root/root	usr/man/man6/liquidwar-mapgen.6.gz -> liquidwar.6.gz
+lrwxrwxrwx	root/root	usr/man/man6/liquidwar-server.6.gz -> liquidwar.6.gz
+-rw-r--r--	root/root	usr/man/man6/liquidwar.6.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/liquidwar.desktop
+drwxr-xr-x	root/root	usr/share/liquidwar/
+-rw-r--r--	root/root	usr/share/liquidwar/liquidwar.dat
+drwxr-xr-x	root/root	usr/share/liquidwar/map/
+-rw-r--r--	root/root	usr/share/liquidwar/map/meditate.bmp
+-rw-r--r--	root/root	usr/share/liquidwar/map/pacman.bmp
+-rw-r--r--	root/root	usr/share/liquidwar/map/paille.bmp
+-rw-r--r--	root/root	usr/share/liquidwar/map/t4.bmp
+drwxr-xr-x	root/root	usr/share/liquidwar/music/
+-rw-r--r--	root/root	usr/share/liquidwar/music/colossus.mid
+drwxr-xr-x	root/root	usr/share/liquidwar/texture/
+-rw-r--r--	root/root	usr/share/liquidwar/texture/bluesq.bmp
+-rw-r--r--	root/root	usr/share/liquidwar/texture/clovers.bmp
+-rw-r--r--	root/root	usr/share/liquidwar/texture/meditate.bmp
+-rw-r--r--	root/root	usr/share/liquidwar/texture/rust.bmp
+-rw-r--r--	root/root	usr/share/liquidwar/texture/warning.bmp
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/liquidwar.xpm

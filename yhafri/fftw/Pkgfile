@@ -1,0 +1,35 @@
+# $Id: $
+# Description: Subroutine library for computing the discrete Fourier transform
+# URL: http://www.fftw.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=fftw
+version=3.1.2
+release=1
+source=(http://www.fftw.org/fftw-$version.tar.gz)
+build () {
+    cd fftw-$version
+
+## compiling double precision library
+    ./configure --prefix=/usr --enable-threads --enable-shared \
+    --with-gnu-ld --enable-type-prefix --disable-nls
+    
+    make
+    make DESTDIR=$PKG install
+    make clean
+    
+## compiling single precision library
+    ./configure --prefix=/usr --enable-float --enable-threads --enable-shared \
+    --with-gnu-ld --enable-type-prefix --disable-nls \
+#       --enable-k7
+#       --enable-sse
+#       --enable-sse2
+#       --enable-altivec
+
+    make
+    make DESTDIR=$PKG install
+
+    rm -rf $PKG/usr/info
+}

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A fast BerkeleyDB style database implemented with skip lists instead of a b-tree
+# URL: http://directory.fsf.org/database/admin/SkipDB.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=skipdb
+version=0.6.1
+release=1
+source=(http://www.dekorte.com/projects/opensource/SkipDB/SkipDBPackage.tgz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{include,lib}
+	cd SkipDBPackage/SkipDB
+
+	patch -p2 < $SRC/$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

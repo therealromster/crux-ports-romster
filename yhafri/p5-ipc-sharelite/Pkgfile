@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Light-weight interface to shared memory
+# URL: http://84.45.18.237/~maurice/IPC-ShareLite-0.09/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-ipc-sharelite
+version=0.09
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/M/MA/MAURICE/IPC-ShareLite-$version.tar.gz)
+
+build () {
+	cd IPC-ShareLite-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

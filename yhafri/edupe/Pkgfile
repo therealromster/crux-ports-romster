@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Duplicate file finder in Erlang
+# URL: http://blog.diginux.net/2007/04/03/writing-a-duplicate-file-finder-in-erlang/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=edupe
+version=1
+release=1
+source=($name-latest.tar.gz \
+	$name.sh)
+
+build () {
+	install -D -m 755 $name.sh $PKG/usr/bin/$name
+
+	cd $name
+	erl -make
+	install -D $name.beam $PKG/usr/lib/$name/ebin/$name.beam
+
+	chown -R root:root $PKG
+}

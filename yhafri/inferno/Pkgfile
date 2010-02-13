@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A compact operating system for building cross-platform distributed systems
+# URL: http://www.vitanuova.com/inferno/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk
+
+name=inferno
+version=4e
+release=20070202
+source=(http://www.vitanuova.com/dist/4e/$name-$release.tgz \
+	http://www.vitanuova.com/dist/$version/$release/Linux.tgz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	umask 0
+	sh $SRC/install/Linux-386.sh $PKG/usr/lib/$name
+	rm -rf $PKG/usr/lib/inferno/{doc,Nt,Plan9,Solaris,FreeBSD,Hp,Irix}
+
+	find $PKG/usr/lib/inferno -iname "CHANGES" -type "f"  | xargs rm -rf
+	find $PKG/usr/lib/inferno -iname "LICENCE" -type "f"  | xargs rm -rf
+	find $PKG/usr/lib/inferno -iname "NOTICE"  -type  "f" | xargs rm -rf
+	find $PKG/usr/lib/inferno -iname "README"  -type  "f" | xargs rm -rf
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

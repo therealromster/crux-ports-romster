@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Free implementation of the Object Exchange (OBEX) protocol
+# URL: http://openobex.sourceforge.net/projects.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=openobex
+version=1.0.1
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

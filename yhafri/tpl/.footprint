@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/tpl.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libtpl.a
+-rwxr-xr-x	root/root	usr/lib/libtpl.la
+lrwxrwxrwx	root/root	usr/lib/libtpl.so -> libtpl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libtpl.so.0 -> libtpl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libtpl.so.0.0.0

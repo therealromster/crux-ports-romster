@@ -1,0 +1,32 @@
+POST-INSTALL:
+
+		* Copy the file below where you want and load it from 
+		your ~/.emacs config file:
+
+		(load "dictionary-init")
+
+		* Add the following lines t your ~/.emacs config file:
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		;;
+		;;          DICTIONARY
+		;;
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		(load "dictionary-init")
+
+		;; Key binding to invoke the dictionary client
+		(global-set-key "\C-cs" 'dictionary-search)
+		(global-set-key "\C-cm" 'dictionary-match-words)
+
+		;; The dictionary server is running on the local machine
+		;; (setq dictionary-server "localhost")
+
+		;; Popup menu for GNU Emacs 21, and XEmacs 21
+		(if (boundp 'running-xemacs)
+		(global-set-key [(control button3)] 'dictionary-mouse-popup-matching-words)
+		(global-set-key [mouse-3] 'dictionary-mouse-popup-matching-words))
+
+		;; Tool-tip support for GNU Emacs 21
+		(setq dictionary-tooltip-dictionary "eng-deu")
+		(global-dictionary-tooltip-mode 1)
+ 		;; Activate for all text-based modes
+ 		(add-hook 'text-mode-hook 'dictionary-tooltip-mode)

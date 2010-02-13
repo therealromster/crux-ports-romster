@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Provides interface to low-level networking routines
+# URL: http://libdnet.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libdnet
+version=1.10
+release=1
+source=(http://voxel.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-nls
+    make
+    make DESTDIR=$PKG install
+}

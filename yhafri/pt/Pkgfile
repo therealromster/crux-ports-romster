@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Extremely lightweight stackless threads designed for severely memory constrained systems
+# URL: http://www.sics.se/~adam/pt/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pt
+version=1.4
+release=1
+source=(http://www.sics.se/~adam/download/?f=$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/include
+	
+	cp $name-$version/*.h $PKG/usr/include
+
+	chown -R root:root $PKG
+}

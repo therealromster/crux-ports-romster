@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Mixin to add / call inheritable triggers
+# URL: http://search.cpan.org/~miyagawa/Class-Trigger-0.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-class-data-inheritable, p5-io-stringy
+
+name=p5-class-trigger
+version=0.10
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/Class-Trigger-$version.tar.gz)
+
+build () {
+	cd Class-Trigger-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

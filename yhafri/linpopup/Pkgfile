@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Linux enhanced port of Winpopup
+# URL: http://www.littleigloo.org/software_002.php3
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk1, samba
+
+name=linpopup
+version=2.0.3
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/${name}2/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make 
+	make DESTDIR=$PKG install
+        chown -R root:root $PKG
+}

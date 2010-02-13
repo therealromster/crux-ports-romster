@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A high-level concurrency extension for C++
+# URL: http://plg.uwaterloo.ca/~usystem/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcsh
+
+name=u++
+version=5.3.0
+release=1
+source=(http://plg.uwaterloo.ca/~usystem/pub/uSystem/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	if [ ! -e "/bin/tcsh" ]; then
+		ln -sf /bin/tcsh /bin/csh
+	fi
+
+	make INSTALLPREFIX=$PKG/usr linux-i386
+	make install
+
+	mv $PKG/usr/inc $PKG/usr/include
+
+	chown -R root:root $PKG
+}

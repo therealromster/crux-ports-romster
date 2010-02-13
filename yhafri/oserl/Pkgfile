@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Open SMPP Erlang Library
+# URL: http://www.des.udc.es/~mpquique/oserl-en.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, libiconv, expat 
+
+name=oserl
+version=1.1
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/oserl/$name-$version.tar.gz \
+	http://switch.dl.sourceforge.net/sourceforge/oserl/common_lib-1.0.tar.gz)
+
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/{$name-$version,common_lib-1.0}
+	cd $name-$version
+	make clean
+	make 
+	cp -rf ebin/ include/ src/ $PKG/usr/lib/erlang/lib/$name-$version
+	cd ../common_lib-1.0
+	make
+	cp -rf ebin/ src/ $PKG/usr/lib/erlang/lib/common_lib-1.0
+	find $PKG -name "Makefile" -exec rm -rf {} \;	 	
+        chown -R root:root $PKG/
+}

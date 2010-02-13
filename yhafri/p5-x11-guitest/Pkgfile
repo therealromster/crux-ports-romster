@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Provides GUI testing/interaction facilities
+# URL: http://search.cpan.org/~ctrondlp/X11-GUITest-0.20/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=p5-x11-guitest
+version=0.21
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CT/CTRONDLP/X11-GUITest-$version.tar.gz)
+
+build () {
+	cd X11-GUITest-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

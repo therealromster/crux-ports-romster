@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class and object builder, hash version 
+# URL: http://search.cpan.org/~gomor/Class-Gomor-Hash-0.20/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-class-gomor-hash
+version=0.20
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GO/GOMOR/Class-Gomor-Hash-$version.tar.gz)
+
+build () {
+	cd Class-Gomor-Hash-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

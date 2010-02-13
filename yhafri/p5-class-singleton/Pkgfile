@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Implementation of a "Singleton" class 
+# URL: http://search.cpan.org/~abw/Class-Singleton-1.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-class-singleton
+version=1.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABW/Class-Singleton-$version.tar.gz)
+
+build () {
+	cd Class-Singleton-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

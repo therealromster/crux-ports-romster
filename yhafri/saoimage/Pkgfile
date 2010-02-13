@@ -1,0 +1,22 @@
+# $Id: $
+# Description: An utility for displaying astronomical images 
+# URL: http://tdc-www.harvard.edu/software/saoimage.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=saoimage
+version=1.35.1
+release=1
+source=(http://tdc-www.harvard.edu/software/saoimage/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,include}
+	cd $name-$version
+	make linux
+	cp -rf saoimage          $PKG/usr/bin/
+	cp -rf wcssubs/*.h       $PKG/usr/include/
+	cp -rf libbtn.a imtoolrc $PKG/usr/lib/
+	find $PKG/usr -name "COPYING" | xargs rm -rf
+        chown -R root:root $PKG
+}

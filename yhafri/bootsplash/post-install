@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/sbin/splash -s -f \
+       /etc/bootsplash/themes/current/config/bootsplash-1024x768.cfg > \
+       /boot/bootsplash-initrd

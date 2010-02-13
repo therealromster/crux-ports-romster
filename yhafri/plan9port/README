@@ -1,0 +1,17 @@
+POST-INSTALL:
+		- Add th following variables to your ~/.bashrc 
+        	
+		export PLAN9=/usr/local/plan9
+        	export PATH=$PATH:$PLAN9/bin
+
+		And reload your bash conf:
+		# . ~/.bashrc
+ 
+		- Finish to install process by typing
+		# sh post-install.sh
+
+UNINSTALL:
+		
+		# pkgrm plan9port
+		
+		and remove the directory /usr/local/plan9

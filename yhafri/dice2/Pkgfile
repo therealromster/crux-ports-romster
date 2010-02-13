@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Dice Rolling System version
+# URL: http://kilobug.free.fr/dice2/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dice2
+version=0.6.2
+release=1
+source=(http://kilobug.free.fr/dice2/${name}_${version}-1.tar.gz)
+
+build () {
+	cd ${name}
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

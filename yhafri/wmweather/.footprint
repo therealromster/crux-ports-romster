@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/wmWeather -> wmweather
+-rwxr-xr-x	root/root	usr/bin/wmweather
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/wmweather.conf
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+lrwxrwxrwx	root/root	usr/man/man1/wmWeather.1.gz -> wmweather.1.gz
+-rw-r--r--	root/root	usr/man/man1/wmweather.1.gz

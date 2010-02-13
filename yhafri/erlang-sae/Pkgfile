@@ -1,0 +1,89 @@
+# $Id: $
+# Description: A programming language and runtime environment with built-in support for concurrency, distribution and fault tolerance with SAE support
+# URL: http://www.erlang.org/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk, expat, openssl, jdk, unixodbc
+
+name=erlang-sae
+version=R10B-10
+release=7
+source=(http://www.erlang.org/download/otp_src\_$version.tar.gz \
+  	http://www.erlang.org/download/otp_doc_man\_$version.tar.gz \
+	$name-$version.patch \
+	otp_src_${version}_epoll.patch \
+	supervisor-dict.patch \
+	run_erl.patch \
+	cerl_hipeify.erl \
+	skip \
+	sae \
+	adjust)
+
+build () {
+	set -x
+
+	mkdir -p $PKG/usr/share
+	mkdir -p $PKG/usr/lib/$name
+
+	unset CFLAGS
+	unset CXXFLAGS
+	unset CPPFLAGS
+
+	export LANG=C
+	cd otp_src\_${version}
+    
+	sh $SRC/skip
+
+	# apply patch from Dialyzer
+	cp -rf $SRC/cerl_hipeify.erl lib/hipe/cerl/    
+
+	patch -p1<../otp_src_${version}_epoll.patch
+	(cd lib/stdlib/src; patch -p0< $SRC/supervisor-dict.patch)
+	#patch -p0<../run_erl.patch
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr        \
+		    --enable-hipe        \
+        	    --enable-threads     \
+        	    --enable-odbc        \
+	            --with-odbc=/usr     \
+		    --with-ssl           \
+		    --enable-kernel-poll
+
+	make
+
+	export ERL_ROOT=$PKG/usr/lib/$name
+
+	make INSTALL_PREFIX=$PKG install
+    	(
+        	export ERL_TOP=$SRC/otp_src\_${version};
+        	export PATH=../../../bin:$PATH;
+        	cd erts/boot/src; make; sh $SRC/sae $PKG $ERL_TOP
+	)
+
+	find $PKG/usr -iname "doc*"         -type "d" | xargs rm -rf
+	find $PKG/usr -iname "demo*"        -type "d" | xargs rm -rf
+	find $PKG/usr -iname "example*"     -type "d" | xargs rm -rf
+	find $PKG/usr -iname "tutorial*"    -type "d" | xargs rm -rf
+
+	find $PKG/usr -name  "*\.txt"       -type "f" | xargs rm -rf
+	find $PKG/usr -name  "*\.htm*"      -type "f" | xargs rm -rf
+	find $PKG/usr -name  "*\.info*"     -type "f" | xargs rm -rf
+	find $PKG/usr -name  "*\.java"      -type "f" | xargs rm -rf
+	find $PKG/usr -iname "README"       -type "f" | xargs rm -rf
+	find $PKG/usr -iname "RELEASE*"     -type "f" | xargs rm -rf
+	find $PKG/usr -iname "COPYRIGHT"    -type "f" | xargs rm -rf
+
+	ln -sf /usr/lib/erlang/bin/ear		$PKG/usr/bin/ear     
+	ln -sf /usr/lib/erlang/bin/ecc    	$PKG/usr/bin/ecc     
+	ln -sf /usr/lib/erlang/bin/elink     	$PKG/usr/bin/elink   
+	ln -sf /usr/lib/erlang/bin/erl  	$PKG/usr/bin/erl     
+	ln -sf /usr/lib/erlang/bin/erlc 	$PKG/usr/bin/erlc    
+	ln -sf /usr/lib/erlang/bin/escript 	$PKG/usr/bin/escript
+
+	mv $SRC/man $PKG/usr/share
+	cd $PKG/usr/lib
+	sh $SRC/adjust
+
+	chown -R root:root $PKG
+}

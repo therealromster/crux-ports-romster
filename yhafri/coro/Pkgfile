@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A C library that implements the low level handling of coroutines
+# URL: http://www.goron.de/~froese/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=coro
+version=1.0.3
+release=1
+source=(http://www.goron.de/~froese/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --arch arch/x86-linux
+
+	make
+	make LINST=$PKG/usr/lib     \
+	     HINST=$PKG/usr/include \
+	     MINST=$PKG/usr/lib     \
+	     install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A complete rewrite of the NASM assembler under the new BSD License
+# URL: http://www.tortall.net/projects/yasm/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=yasm
+version=0.6.0
+release=1
+source=(http://www.tortall.net/projects/yasm/releases/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

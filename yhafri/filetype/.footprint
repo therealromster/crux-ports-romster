@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/filetype.spec
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/filetype
+-rwxr-xr-x	root/root	usr/bin/filetype-compile
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/filetype.a
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/filetype-compile.1.gz
+-rw-r--r--	root/root	usr/man/man1/filetype.1.gz

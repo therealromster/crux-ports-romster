@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Transform a LaTeX document to RTF format
+# URL: http://www.wxwindows.org/tex2rtf/download.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpng
+
+name=tex2rtf
+version=2.01
+release=1
+source=(ftp://biolpc22.york.ac.uk/pub/$name/linux/$name-$version-i386-linux.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/{bin,lib}
+    mv $name-$version/$name $PKG/usr/bin/
+    ln -sf /usr/lib/libpng.so.3 $PKG/usr/lib/libpng.so.2
+    chown -R root:root $PKG
+}

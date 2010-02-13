@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dumbout
+-rwxr-xr-x	root/root	usr/bin/dumbplay
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/aldumb.h
+-rw-r--r--	root/root	usr/include/dumb.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libaldmb.a
+-rw-r--r--	root/root	usr/lib/libaldmd.a
+-rw-r--r--	root/root	usr/lib/libdumb.a
+-rw-r--r--	root/root	usr/lib/libdumbd.a

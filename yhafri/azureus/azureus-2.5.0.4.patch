@@ -1,0 +1,11 @@
+--- azureus/azureus	2005-06-15 05:43:10.000000000 +0200
++++ azureus/azureus-new	2005-11-25 11:27:00.000000000 +0100
+@@ -2,7 +2,7 @@
+ 
+ ######## CONFIGURATION OPTIONS ########
+ JAVA_PROGRAM_DIR=""				# use full path to java bin dir, ex. "/usr/java/j2sdk1.4.2/bin/"
+-#PROGRAM_DIR="/home/username/apps/azureus"	# use full path to Azureus bin dir
++PROGRAM_DIR="/usr/lib/azureus"			# use full path to Azureus bin dir
+ #######################################
+ 
+ 

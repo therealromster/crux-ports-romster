@@ -1,0 +1,34 @@
+# $Id: $
+# Description: A messaging language for distributed Internet applications
+# URL: http://www.rebol.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=rebolcore
+version=042
+release=1
+source=(http://www.rebol.com/downloads/rebol-core-2602$version.tar.gz \ 	rebol.el)
+
+PKGMK_NO_STRIP="yes"
+
+build () {
+    mkdir -p $PKG/usr/bin $PKG/usr/lib/$name $PKG/usr/share/emacs/site-lisp
+
+    if [ ! -f /usr/share/emacs/site-lisp/rebol.el ]
+	then 
+	    cp -rf $SRC/rebol.el $PKG/usr/share/emacs/site-lisp
+	fi    
+
+    cd $SRC/rebol-core-2602$version
+
+    rm -rf *html *txt graphics/
+
+    cp -rf * $PKG/usr/lib/$name
+
+    chown -R root:root $PKG
+
+    ln -sf /usr/lib/$name/rebol $PKG/usr/bin/rebol 
+}
+
+

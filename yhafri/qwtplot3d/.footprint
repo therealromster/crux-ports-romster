@@ -1,0 +1,36 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/qwtplot3d/
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_autoptr.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_autoscaler.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_axis.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_color.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_colorlegend.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_coordsys.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_drawable.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_enrichment.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_enrichment_std.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_function.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_global.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_graphplot.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_gridmapping.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_helper.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_io.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_io_gl2ps.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_io_reader.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_label.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_mapping.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_multiplot.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_openglhelper.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_parametricsurface.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_plot.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_portability.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_scale.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_surfaceplot.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_types.h
+-rw-r--r--	root/root	usr/include/qwtplot3d/qwt3d_volumeplot.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libqwtplot3d.so -> libqwtplot3d.so.0.2.6
+lrwxrwxrwx	root/root	usr/lib/libqwtplot3d.so.0 -> libqwtplot3d.so.0.2.6
+lrwxrwxrwx	root/root	usr/lib/libqwtplot3d.so.0.2 -> libqwtplot3d.so.0.2.6
+-rwxr-xr-x	root/root	usr/lib/libqwtplot3d.so.0.2.6

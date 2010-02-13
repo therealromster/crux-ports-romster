@@ -1,0 +1,22 @@
+POST-INSTALL:
+
+                * Copy the sample config file sample.email2smsrc to
+                 ~/.email2smsrc (or to somewhere else if you want).
+
+                * Edit the config file (it's fully commented and should 
+                all be very obvious).
+
+                * Put something like this in a sensible place in your
+                 ~/.procmailrc:
+
+                 :0 c
+                 | email2sms | send_SMS
+
+                 where send_SMS is a program which sends anything it
+                 receives on STDIN to your phone.  
+
+
+NOTE:
+                 * See sample.send_SMS for an example script
+                 which sends a message via a typical WWW -> SMS gateway.
+

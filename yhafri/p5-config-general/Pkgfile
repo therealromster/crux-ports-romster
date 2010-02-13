@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl generic config module 
+# URL: http://search.cpan.org/~tlinden/Config-General-2.27/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-config-general
+version=2.27
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TL/TLINDEN/Config-General-$version.tar.gz)
+
+build () {
+	cd Config-General-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

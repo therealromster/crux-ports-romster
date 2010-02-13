@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl contribution to the Tk Widgets
+# URL: http://search.cpan.org/~srezic/Tk-GBARR-2.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tk-gbarr
+version=2.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SR/SREZIC/Tk-GBARR-$version.tar.gz)
+
+build () {
+	cd Tk-GBARR-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

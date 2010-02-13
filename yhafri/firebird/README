@@ -1,0 +1,37 @@
+PRE-INSTALL:
+                * Start the preinstall script as root:
+                # sh preinstall
+
+POST-INSTALL:
+		* Set the following environment variables:
+		export FIREBIRD_HOME=/opt/firebird
+		export PATH=$FIREBIRD_HOME/bin:$PATH
+
+		* Start the postinstall script as root:
+		# sh postinstall
+
+WARNING:	
+		* A link called "fsql" to Firebird command "isql" is created
+		to avoid the confusion with the "isql" command of "unixODBC"
+		if it is installed.
+
+		* In a real-world installation, you should not put the 
+		SYSDBA password in a publicly-readable file /etc/rc.d/firebird. 
+		Eventually this file should not need to contain any passwords.
+		As root user alone should be sufficient priviledge to stop/start 
+		the server.
+
+		* The current host where the firebird DB is installed must be a trusted host.
+		The postinstall script add some entries(localhost,localhost.localdomain,`hostname`,
+		"`hostname`.DomaineName") to the "/etc/hosts.equiv" file to turn the host into a trusted one.
+		If you have to deal with any security issue, change this options to whatever you want.
+		Read this documentation for more details:
+		http://bdn.borland.com/article/interbase/trbshot_ib_connection_errs.pdf 
+
+DOCS:
+		* Have a look to online manual to setup the databas 
+		http://www.ibphoenix.com/downloads/Firebird_v15.108_ReleaseNotes.pdf
+		http://bdn.borland.com/article/interbase/trbshot_ib_connection_errs.pdf
+		http://www.destructor.de/firebird/
+		http://sxs.thexdershome.com/internet_serving/firebird102.html
+

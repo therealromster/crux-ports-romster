@@ -1,0 +1,27 @@
+# $Id: $
+# Description: C/C++ Configuration File Library
+# URL: http://www.hyperrealm.com/main.php?s=libconfig
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cfl
+
+name=libconfig
+version=1.0
+release=1
+source=(http://www.hyperrealm.com/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info/
+
+	chown -R root:root $PKG
+}

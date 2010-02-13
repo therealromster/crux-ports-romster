@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A lightweight C library for programming with the Jabber protocol
+# URL: http://developer.imendio.com/wiki/Loudmouth
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libgcrypt, gnutls, openssl
+
+name=loudmouth
+version=0.90
+release=1
+source=(http://ftp.imendio.com/pub/imendio/loudmouth/src/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --with-ssl=yes
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

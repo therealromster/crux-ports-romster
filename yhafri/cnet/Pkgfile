@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Cnet network simulator
+# URL: http://www.csse.uwa.edu.au/cnet/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, tcl, tk
+
+name=cnet
+version=2.0.9
+release=1
+source=(http://www.csse.uwa.edu.au/$name/$name-$version.tgz \
+    $name-$version.patch)
+
+build () {
+    mkdir -p $PKG/usr/local/{bin,cnetlib,man/man1}
+	cd $name-$version
+    patch -p1<../$name-$version.patch
+    make OPT="$CFLAGS"
+	make PREFIX=$PKG/usr/local install
+    chown -R root:root $PKG
+}

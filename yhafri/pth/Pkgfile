@@ -1,0 +1,22 @@
+# $Id: $
+# Description: The GNU Portable Threads
+# URL: http://www.gnu.org/software/pth/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=pth
+version=2.0.6
+release=1
+source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --enable-optimize
+
+    make
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

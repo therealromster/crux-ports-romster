@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Arabeyes TrueType Fonts
+# URL: http://www.arabeyes.org/project.php?proj=Khotot
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: chkfontpath, ttmkfdir
+
+name=ae_fonts1_ttf
+version=1.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/${name}_$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/share/fonts/truetype
+
+	cd ae_fonts1-$version    	
+	for d in AAHS/  AGA/  FS/  Kasr/  MCS/  Shmookh/;
+	do
+		cp -rf $d/* $PKG/usr/share/fonts/truetype
+	done
+
+	chown -R root:root $PKG
+}

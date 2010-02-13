@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Json and Erlang Tuple Parsing/encoding library
+# URL: http://code.google.com/p/ktuo/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: eunit
+
+name=ktuo
+version=svn
+release=1
+source=($name.patch)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+
+	patch ../$name.patch
+
+	make clean && make
+
+	mv src/ ebin/ $PKG/usr/lib/erlang/lib/$name-$version
+	
+	chown -R root:root $PKG
+}

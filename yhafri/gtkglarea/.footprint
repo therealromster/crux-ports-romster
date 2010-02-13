@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gtkgl/
+-rw-r--r--	root/root	usr/include/gtkgl/gdkgl.h
+-rw-r--r--	root/root	usr/include/gtkgl/gtkglarea.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libgtkgl.a
+-rwxr-xr-x	root/root	usr/lib/libgtkgl.la
+lrwxrwxrwx	root/root	usr/lib/libgtkgl.so -> libgtkgl.so.5.0.0
+lrwxrwxrwx	root/root	usr/lib/libgtkgl.so.5 -> libgtkgl.so.5.0.0
+-rwxr-xr-x	root/root	usr/lib/libgtkgl.so.5.0.0

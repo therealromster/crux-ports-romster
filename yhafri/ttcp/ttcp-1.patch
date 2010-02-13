@@ -1,0 +1,88 @@
+--- ttcp.c	1990-11-04 10:07:52.000000000 +0100
++++ ttcp.c-new	2007-04-23 16:30:05.000000000 +0200
+@@ -7,6 +7,8 @@
+  * Usable on 4.2, 4.3, and 4.1a systems by defining one of
+  * BSD42 BSD43 (BSD41a)
+  *
++ * Modified to remove all warnings, 23 apr 2006
++ *      Younes HAFRI, France
+  * Modified for operation under 4.2BSD, 18 Dec 84
+  *      T.C. Slattery, USNA
+  * Minor improvements, Mike Muuss and Terry Slattery, 16-Oct-85.
+@@ -151,7 +153,7 @@
+ 			sinhim.sin_addr = addr_tmp;
+ #else
+ 			sinhim.sin_addr.s_addr = addr_tmp;
+-#endif cray
++#endif
+ 		}
+ 		sinhim.sin_port = htons(port);
+ 		sinme.sin_port = 0;		/* free choice */
+@@ -170,7 +172,7 @@
+ 		err("socket");
+ 	mes("socket");
+ 
+-	if (bind(fd, &sinme, sizeof(sinme)) < 0)
++	if (bind(fd, (const struct sockaddr *) &sinme, sizeof(sinme)) < 0)
+ 		err("bind");
+ 
+ 	if (!udp)  {
+@@ -179,12 +181,12 @@
+ 		if(options)  {
+ #ifdef BSD42
+ 			if( setsockopt(fd, SOL_SOCKET, options, 0, 0) < 0)
+-#else BSD43
++#else
+ 			if( setsockopt(fd, SOL_SOCKET, options, &one, sizeof(one)) < 0)
+ #endif
+ 				err("setsockopt");
+ 		}
+-		if(connect(fd, &sinhim, sizeof(sinhim) ) < 0)
++		if(connect(fd, (const struct sockaddr *) &sinhim, sizeof(sinhim) ) < 0)
+ 			err("connect");
+ 		mes("connect");
+ 	    } else {
+@@ -195,14 +197,14 @@
+ 		if(options)  {
+ #ifdef BSD42
+ 			if( setsockopt(fd, SOL_SOCKET, options, 0, 0) < 0)
+-#else BSD43
++#else
+ 			if( setsockopt(fd, SOL_SOCKET, options, &one, sizeof(one)) < 0)
+ #endif
+ 				err("setsockopt");
+ 		}
+ 		fromlen = sizeof(frominet);
+ 		domain = AF_INET;
+-		if((fd=accept(fd, &frominet, &fromlen) ) < 0)
++		if((fd=accept(fd, (struct sockaddr *) &frominet, &fromlen) ) < 0)
+ 			err("accept");
+ 		mes("accept");
+ 	    }
+@@ -543,7 +545,7 @@
+ 	int len = sizeof(from);
+ 	register int cnt;
+ 	if( udp )  {
+-		cnt = recvfrom( fd, buf, count, 0, &from, &len );
++		cnt = recvfrom( fd, (void *) buf, count, 0, (struct sockaddr *) &from, &len );
+ 	} else {
+ 		if( b_flag )
+ 			cnt = mread( fd, buf, count );	/* fill buf */
+@@ -561,7 +563,7 @@
+ 	register int cnt;
+ 	if( udp )  {
+ again:
+-		cnt = sendto( fd, buf, count, 0, &sinhim, sizeof(sinhim) );
++		cnt = sendto( fd, (const void *) buf, count, 0, (const struct sockaddr *) &sinhim, sizeof(sinhim) );
+ 		if( cnt<0 && errno == ENOBUFS )  {
+ 			delay(18000);
+ 			errno = 0;
+@@ -579,7 +581,7 @@
+ 
+ 	tv.tv_sec = 0;
+ 	tv.tv_usec = us;
+-	(void)select( 1, (char *)0, (char *)0, (char *)0, &tv );
++	(void) select( 1, (fd_set *) 0, (fd_set *) 0, (fd_set *) 0, &tv );
+ 	return(1);
+ }
+ 

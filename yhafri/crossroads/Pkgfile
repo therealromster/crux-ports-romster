@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Crossroads Load Balancer
+# URL: http://crossroads.e-tunity.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion
+
+name=crossroads
+version=svn
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/{bin,man/{man1,man7}}
+
+	svn co svn://svn.e-tunity.com/$name/trunk $name
+	cd $name
+
+	make local
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

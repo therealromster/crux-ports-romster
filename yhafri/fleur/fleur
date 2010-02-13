@@ -1,0 +1,6 @@
+#!/bin/bash
+
+(
+	cd /usr/lib/fleur2
+	./fleur2
+)

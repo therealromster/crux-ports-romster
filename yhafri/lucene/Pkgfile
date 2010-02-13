@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A high-performance, full-featured text search engine library written in Java
+# URL: http://lucene.apache.org/java/docs/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant, javacc
+
+name=lucene
+version=2.1.0
+release=1
+source=(http://mir2.ovh.net/ftp.apache.org/dist/lucene/java/$name-$version-src.tar.gz)
+
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd $name-$version
+
+	ant
+	ant war-demo
+	
+	rm -rf build/classes
+	mv build/* $PKG/usr/lib/$name/
+	
+    	chown -R root:root $PKG
+}

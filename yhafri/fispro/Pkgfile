@@ -1,0 +1,43 @@
+# $Id: $
+# Description: Fuzzy inference system design and optimization
+# URL: http://www.inra.fr/bia/M/fispro/indexen.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, jdk
+
+name=fispro
+version=2.1
+release=1
+source=(http://www.inra.fr/bia/M/$name/${name}21src.zip \
+	fispro \
+	$name-$version.patch)
+
+build () {
+	install -d $PKG/usr/bin/
+	install -d $PKG/usr/lib/$name-$version/
+
+	cd FISPRO-$version
+	patch -p1<../$name-$version.patch
+
+	(cd cpp; make -f makefile.gcc)
+	rm -rf bin/{*.o,class,*.bat}
+	
+	mv bin   $PKG/usr/lib/$name-$version/
+	for i in $PKG/usr/lib/$name-$version/bin/*; 
+	do
+		if [ -x $i ];
+		then
+			j=`basename $i`
+			if [ $j != "libfispro.so" -a $j != "libjnifis.so" ]; 
+			then
+				ln -sf /usr/lib/$name-$version/bin/$j $PKG/usr/bin/$j
+			else
+				ln -sf /usr/lib/$name-$version/bin/$j $PKG/usr/lib/$j
+			fi
+		fi
+	done
+
+	install -D -m 755 ../$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

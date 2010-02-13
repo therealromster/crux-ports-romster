@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Gnuplot from within Emacs or XEmacs 
+# URL: http://feff.phys.washington.edu/~ravel/gnuplot/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=gnuplotmode
+version=0.6.0
+release=1
+source=(http://feff.phys.washington.edu/~ravel/gnuplot/gnuplot-mode.$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/emacs/site-lisp
+	cd gnuplot-mode.$version
+	./configure --prefix=/usr
+
+        make
+	mv *.el* $PKG/usr/share/emacs/site-lisp
+	
+        chown -R root:root $PKG
+}

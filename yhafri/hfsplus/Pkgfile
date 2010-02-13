@@ -1,0 +1,20 @@
+# Description: HFS+ Filesystem Access Utilities
+# URL: http://penguinppc.org/historical/hfsplus/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=hfsplus
+version=1.0.4
+release=1
+source=(http://penguinppc.org/historical/$name/$name_$version.src.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

@@ -1,0 +1,220 @@
+#!/bin/bash
+#
+# Utility to check, and publish (upload-sync) a httpup repository
+#
+# Martin Opel's prtcheck enabled me to quickly write surveil()
+# Johannes Winkelmann was a irreplaceable source of guidance for the
+# direction of this project.
+#
+# Distributed under the terms of the GPL license
+# If you have any ideas, I'd love to hear them.
+# (c) 2004, Nick Steeves, nick dot steeves at shaw dot ca
+#
+# USE AT YOUR OWN RISK
+#
+VERSION=0.5.2.1
+#
+# location of your httpup ports collection
+HTPORTS=/home/$USER/work/ports
+# name of the weex profile associated with your httpup server
+HOST=weex_profile_name
+# title of page.  $TITLE is also the banner/pre-header
+TITLE="CRUX ports"
+# location of your long-repository-description
+HEADER=""
+# optional footer
+FOOTER=""
+
+mort() {
+    if [ $? = 1 ]; then
+        echo "Aborting..."
+        exit 1
+    fi
+}
+
+prep() {
+    if [ ! -f $HOME/.weexrc ]; then
+        echo "You need to configure $HOME/.weexrc"
+        echo "An example can be found at: /usr/ports/sten/htup/dot_weexrc.example"
+        echo "For further information, please see: the manpage for weex"
+    fi
+    echo "Removing obsolete index.html"
+    rm -f $HTPORTS/index.html
+    echo "Removing obsolete REPO"
+    rm -f $HTPORTS/REPO
+    count=0
+    for i in `ls $HTPORTS`; do
+        count=$((count + 1))
+        if [ -d $HTPORTS/$i/work  ]; then
+            echo -e "\n***WARNING***\nstale work dir[s] found in repository"
+            pkgmk_pid=`ps -C pkgmk | sed -e '1d' -e '2q' | awk '{print $1}'`
+            if [ "${pkgmk_pid}" != "" ]; then
+                echo -e "Active pkgmk found\nrm -rf $HTPORTS/*/work to override"
+                return 1
+            fi
+            while true; do
+                printf "Inactive work dir[s] will now be removed.(y/n) "
+                read choice
+                case "$choice" in
+                    yes | y | Yes | YES ) {
+                            sudo rm -rf $HTPORTS/*/work > /dev/null
+                            break
+                        }
+                        ;;
+                    no | n | No | NO ) {
+                            echo "work dirs are not part of ports"
+                            return 1
+                        }
+                        ;;
+                    * ) {
+                            printf "Please answer yes or no\n\n"
+                        }
+                        ;;
+                esac
+            done
+        fi
+        if [ ! -f $HTPORTS/$i/Pkgfile ]; then
+            printf "\nPkgfile missing for $i\n"
+            return 1
+        fi
+    done
+    return 0
+}
+
+surveil() {
+    echo "Checking status of source URL's"
+    bad=0
+    for i in `ls $HTPORTS`; do
+        unset bad_pkgfile bad_source bad_footprint bad_md5sum
+    # Pkgfile checks
+        desc="`cat $HTPORTS/$i/Pkgfile | grep '^# Description:' | sed -e 's,# Description:,,'`"
+        url="`cat $HTPORTS/$i/Pkgfile | grep '^# URL:' | sed -e 's,# URL:,,'`"
+        packager="`cat $HTPORTS/$i/Pkgfile | grep '^# Packager:' | sed -e 's,# Packager:,,'`"
+        case "" in
+            $desc | $url | $packager)
+                printf  "[ ]Pkgfile\t"
+                bad_pkgfile=1
+                ;;
+            *)
+                printf  "[X]Pkgfile\t"
+        esac
+    # URL checks
+        source $HTPORTS/$i/Pkgfile
+        if [ "$source" = "" ]; then
+            printf "[ ]sources\t"
+            bad_source=1
+        elif [ `echo $source | grep :` ]; then
+            wget -T 30 -q --spider $source
+            url=$?
+            if [ $url = 1 ]; then
+                printf "[ ]sources\t"
+                bad_source=1
+            elif [ $url = 0 ]; then
+                printf "[X]sources\t"
+            fi
+	    else printf "[ ]sources\t"
+        fi
+        if [ ! -s $HTPORTS/$i/.md5sum ]; then
+            printf  "[ ].md5sum\t"
+            bad_md5sum=1
+        else
+            printf "[X].md5sum\t"
+        fi
+    # Footprint check
+        if [ ! -s $HTPORTS/$i/.footprint ]; then
+            printf  "[ ].footprint\t"
+            bad_footprint=1
+        else
+            printf "[X].footprint\t"
+        fi
+        printf "$name\n"
+        case "1" in $bad_pkgfile | $bad_footprint | $bad_source | $bad_md5sum)
+                bad=$((bad + 1))
+                ;;
+        esac
+    done
+}
+
+synchro(){
+    cwd=`pwd`
+    cd $HTPORTS
+    httpup-repgen $HTPORTS
+    portspage --title="$TITLE" --header="$HEADER" --footer="$FOOTER" . \
+        > index.html
+    cd $cwd
+    weex $HOST
+}
+
+nettoyer(){
+    printf "Would you like to cleanup backup~ files and fix user-created .footprints?(y/n) "
+    read choice
+    case "$choice" in
+        yes | y | Yes | YES ) {
+                sudo rm -rf $HTPORTS/*/*~ > /dev/null
+                uid="`id -nu`"
+                gid="`id -ng`"
+                for file in `ls $HTPORTS/*/.footprint`; do
+                    cat $file | sed -e "s,$uid/$gid,root/root," > $file.tmp 2> /dev/null
+                    mv $file.tmp $file
+                done
+                printf "Done\n"
+                exit 0
+            }
+            ;;
+        no | n | No | NO ) {
+                printf "Exiting\n"
+                exit 1
+            }
+            ;;
+    esac
+}
+
+stats(){
+    printf "\n\n$count ports checked successfully\n"
+    echo "$bad bad ports found"
+}
+
+sortie(){
+    stats
+    nettoyer
+}
+
+# main()
+case $1 in
+    -v | --version)
+        printf "htup $VERSION THIS IS BETA SOFTWARE"
+        printf "\nCopyright (c) 2004 Nick Steeves\n\n"
+        ;;
+    
+    -h | --help)
+        cat << !EOF!
+usage: htup [action]
+actions:
+   -c,   --check              check consistency of repository, and cleanup junk
+   -v,   --version            print version and exit
+   -h,   --help               print help and exit
+
+Default action is to publish repository to a ftp server.
+!EOF!
+        ;;
+    
+    -c | --check)
+        prep
+        mort
+        trap sortie INT
+        surveil
+        mort
+        stats
+        nettoyer
+        ;;
+    
+    *)
+        prep
+        mort
+        synchro
+        mort
+        echo "$count ports published to $HOST"
+        ;;
+esac
+
+exit 0

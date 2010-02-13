@@ -1,0 +1,51 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/usr/
+drwxr-xr-x	root/root	usr/usr/include/
+drwxr-xr-x	root/root	usr/usr/include/dal/
+-rw-r--r--	root/root	usr/usr/include/dal/dal.h
+-rw-r--r--	root/root	usr/usr/include/dal/file_dal.h
+drwxr-xr-x	root/root	usr/usr/include/reiserfs/
+-rw-r--r--	root/root	usr/usr/include/reiserfs/bitmap.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/block.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/core.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/dir.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/endian.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/exception.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/file.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/filesystem.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/gauge.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/geom.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/hashes.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/journal.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/key.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/object.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/path.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/reiserfs.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/tools.h
+-rw-r--r--	root/root	usr/usr/include/reiserfs/tree.h
+drwxr-xr-x	root/root	usr/usr/lib/
+lrwxrwxrwx	root/root	usr/usr/lib/libdal-0.3.so.0 -> libdal-0.3.so.0.0.0
+-rwxr-xr-x	root/root	usr/usr/lib/libdal-0.3.so.0.0.0
+-rw-r--r--	root/root	usr/usr/lib/libdal.a
+-rwxr-xr-x	root/root	usr/usr/lib/libdal.la
+lrwxrwxrwx	root/root	usr/usr/lib/libdal.so -> libdal-0.3.so.0.0.0
+lrwxrwxrwx	root/root	usr/usr/lib/libreiserfs-0.3.so.0 -> libreiserfs-0.3.so.0.0.0
+-rwxr-xr-x	root/root	usr/usr/lib/libreiserfs-0.3.so.0.0.0
+-rw-r--r--	root/root	usr/usr/lib/libreiserfs.a
+-rwxr-xr-x	root/root	usr/usr/lib/libreiserfs.la
+lrwxrwxrwx	root/root	usr/usr/lib/libreiserfs.so -> libreiserfs-0.3.so.0.0.0
+drwxr-xr-x	root/root	usr/usr/man/
+drwxr-xr-x	root/root	usr/usr/man/man8/
+-rw-r--r--	root/root	usr/usr/man/man8/cpfs.reiserfs.8.gz
+-rw-r--r--	root/root	usr/usr/man/man8/mkfs.reiserfs.8.gz
+-rw-r--r--	root/root	usr/usr/man/man8/reiserfs.8.gz
+-rw-r--r--	root/root	usr/usr/man/man8/resizefs.reiserfs.8.gz
+-rw-r--r--	root/root	usr/usr/man/man8/tunefs.reiserfs.8.gz
+drwxr-xr-x	root/root	usr/usr/sbin/
+-rwxr-xr-x	root/root	usr/usr/sbin/cpfs.reiserfs
+-rwxr-xr-x	root/root	usr/usr/sbin/mkfs.reiserfs
+-rwxr-xr-x	root/root	usr/usr/sbin/resizefs.reiserfs
+-rwxr-xr-x	root/root	usr/usr/sbin/tunefs.reiserfs
+drwxr-xr-x	root/root	usr/usr/share/
+drwxr-xr-x	root/root	usr/usr/share/aclocal/
+-rw-r--r--	root/root	usr/usr/share/aclocal/progsreiserfs.m4

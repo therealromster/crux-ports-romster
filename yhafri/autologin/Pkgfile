@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Automated Login
+# URL: http://linuxgazette.net/issue72/chung.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=autologin
+version=1
+release=1
+source=($name.c)
+
+build () {
+	echo -n "Enter your login name please: "
+	read mylogin
+
+	sed -i "s|LOGIN_NAME|$mylogin|" autologin.c
+
+	gcc -o $name $name.c
+	strip $name
+
+	install -D -m 700 $name $PKG/usr/sbin/$name
+
+	chown -R root:root $PKG
+}

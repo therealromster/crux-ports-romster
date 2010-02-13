@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Smooth GTK1/GTK2 Theme Engine
+# URL: http://sourceforge.net/projects/smooth-engine/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, gtk1
+
+name=gtk-smooth-engine
+version=0.6.0.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/smooth-engine/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	ln -sf /usr/lib/gtk-2.0/2.4.0/engines/libsmooth.so $PKG/usr/lib/libsmooth.so
+
+	chown -R root:root $PKG
+}

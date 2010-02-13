@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl modules  to create Charts
+# URL: http://search.cpan.org/~chartgrp/Chart-2.3/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-gd
+
+name=p5-chart
+version=2.3
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CH/CHARTGRP/Chart-$version.tar.gz)
+
+build () {
+	cd Chart-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

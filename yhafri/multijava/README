@@ -1,0 +1,12 @@
+POST-INSTALL:
+
+* Add the complete path up to and including the mjc-XXX.jar file to your Java CLASSPATH. 
+This makes the MultiJava packages, antlr (version 2.7.2), gnu.getopts, and junit (version 3.8.1) 
+available to your Java environment. If you have a newer version of antlr, gnu.getopts, or 
+junit installed you can put the paths to these ahead of the mjc-XXX.jar 
+entry in your CLASSPATH. (Be warned that we test with the versions included in the jar file.)
+
+* If you want to use the mjdoc documentation tool, then you must complete one more step. 
+Locate the directory containing the JDK on your system. Inside this directory should be a 
+subdirectory lib. Inside lib should be a file tools.jar. Add the complete path up to and including 
+the tools.jar file to your Java CLASSPATH. 

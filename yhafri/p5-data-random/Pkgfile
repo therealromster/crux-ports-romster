@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to generate random data
+# URL: http://search.cpan.org/~adeo/Data-Random-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-data-random
+version=0.05
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AD/ADEO/Data-Random-$version.tar.gz)
+
+build () {
+	cd Data-Random-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

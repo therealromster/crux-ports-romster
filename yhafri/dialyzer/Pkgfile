@@ -1,0 +1,34 @@
+# $Id: $
+# Description: DIscrepancy AnaLYZer of ERlang programs
+# URL: http://www.it.uu.se/research/group/hipe/dialyzer/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=dialyzer
+version=1.4.0
+release=1
+source=(http://www.it.uu.se/research/group/hipe/dialyzer/snapshots/$name-$version.tar.gz \
+	$name-$version-gui.patch
+	$name-$version.patch)
+
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/erlang/lib/$name-$version}
+	cd $name
+	patch -p1 <../$name-$version.patch
+	patch -p1 <../$name-$version-gui.patch
+
+	./setup.sh /usr/lib/erlang
+	sed -i "s|$SRC/$name|/usr/lib/erlang/lib/$name-$version|" $name
+
+	install -D -m 755 ./$name $PKG/usr/bin/$name
+
+	mv ./doc ./ebin $PKG/usr/lib/erlang/lib/$name-$version/
+	mv plt $PKG/usr/lib/erlang/lib/$name-$version/
+
+	rm -rf erl_crash.dump
+	rm -rf $PKG/usr/lib/erlang/lib/$name-$version/doc
+	
+    	chown -R root:root $PKG
+}

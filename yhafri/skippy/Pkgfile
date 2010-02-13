@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A killer full-screen task-switcher for X11
+# URL: http://thegraveyard.org/skippy.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, imlib2
+
+name=skippy
+version=0.5.0
+release=1
+source=(http://thegraveyard.org/files/$name-$version.tar.bz2 \
+        ${name}rc)
+
+build () {
+	cd $name-$version
+    make
+    install -D -m 755 $name $PKG/usr/bin/$name
+    chown -R root:root $PKG
+}

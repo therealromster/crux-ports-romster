@@ -1,0 +1,18 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/perfex
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/asm/
+-r--r--r--	root/root	usr/include/asm/perfctr.h
+-r--r--r--	root/root	usr/include/libperfctr.h
+drwxr-xr-x	root/root	usr/include/linux/
+-r--r--r--	root/root	usr/include/linux/perfctr.h
+-rw-r--r--	root/root	usr/include/perfctr_event_codes.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libperfctr.a
+lrwxrwxrwx	root/root	usr/lib/libperfctr.so -> libperfctr.so.5
+lrwxrwxrwx	root/root	usr/lib/libperfctr.so.5 -> libperfctr.so.5.2.6.25
+-rwxr-xr-x	root/root	usr/lib/libperfctr.so.5.2.6.25
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/perfex.1.gz

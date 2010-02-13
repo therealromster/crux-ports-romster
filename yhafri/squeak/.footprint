@@ -1,0 +1,29 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/inisqueak
+-rwxr-xr-x	root/root	usr/bin/squeak
+drwxr-xr-x	root/root	usr/local/
+drwxr-xr-x	root/root	usr/local/bin/
+lrwxrwxrwx	root/root	usr/local/bin/squeak -> ../lib/squeak/3.7-7/squeak
+drwxr-xr-x	root/root	usr/local/lib/
+drwxr-xr-x	root/root	usr/local/lib/squeak/
+drwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/Squeak3D
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/SqueakFFIPrims
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/XDisplayControlPlugin
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/npsqueak.so
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/squeak
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/vm-display-X11
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/vm-display-fbdev
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/vm-display-null
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/vm-sound-OSS
+-rwxr-xr-x	root/root	usr/local/lib/squeak/3.7-7/vm-sound-null
+-rwxr-xr-x	root/root	usr/local/lib/squeak/Squeak3.8-6665full.changes
+-rwxr-xr-x	root/root	usr/local/lib/squeak/Squeak3.8-6665full.image
+-rwxr-xr-x	root/root	usr/local/lib/squeak/SqueakV3.sources
+-rwxr-xr-x	root/root	usr/local/lib/squeak/npsqueakregister
+-rwxr-xr-x	root/root	usr/local/lib/squeak/npsqueakrun
+drwxr-xr-x	root/root	usr/local/man/
+drwxr-xr-x	root/root	usr/local/man/man1/
+lrwxrwxrwx	root/root	usr/local/man/man1/inisqueak.1.gz -> squeak.1.gz
+-rw-r--r--	root/root	usr/local/man/man1/squeak.1.gz

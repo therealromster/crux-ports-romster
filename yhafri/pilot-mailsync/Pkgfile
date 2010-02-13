@@ -1,0 +1,17 @@
+# Description: app to sync one's mailbox to one's Palm, so that one use it as a MUA
+# URL: http://wissrech.iam.uni-bonn.de/people/garcke/pms/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: pilot-link
+
+name=pilot-mailsync
+version=0.9.0
+release=1
+source=(http://wissrech.iam.uni-bonn.de/people/garcke/pms/pilot-mailsync.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/$PKG/usr
+	make
+	make install
+}

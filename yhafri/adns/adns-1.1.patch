@@ -1,0 +1,19 @@
+--- adns-1.1/src/parse.c	2003-06-22 15:01:11.000000000 +0200
++++ adns-1.1/src/parse.c-new	2005-11-09 18:23:04.000000000 +0100
+@@ -113,9 +113,14 @@
+ }
+ 
+ adns_status adns__parse_domain(adns_state ads, int serv, adns_query qu,
+-			       vbuf *vb, adns_queryflags flags,
++			       vbuf *vb, parsedomain_flags flags,
+ 			       const byte *dgram, int dglen, int *cbyte_io,
+-			       int max) {
++                               int max) {
++
++/* adns_status adns__parse_domain(adns_state ads, int serv, adns_query qu, */
++/* 			       vbuf *vb, adns_queryflags flags, */
++/* 			       const byte *dgram, int dglen, int *cbyte_io, */
++/* 			       int max) { */
+   findlabel_state fls;
+   
+   adns__findlabel_start(&fls,ads, serv,qu, dgram,dglen,max,

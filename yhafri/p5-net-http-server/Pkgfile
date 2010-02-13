@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A light weight Perl HTTP server
+# URL: http://search.cpan.org/~reatmon/Net-HTTPServer-1.1.1/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-http-server
+version=1.1.1
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RE/REATMON/Net-HTTPServer-$version.tar.gz)
+
+build () {
+	cd Net-HTTPServer-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

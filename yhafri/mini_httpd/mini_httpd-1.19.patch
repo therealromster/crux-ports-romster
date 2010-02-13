@@ -1,0 +1,25 @@
+--- mini_httpd-1.19/Makefile	2002-11-02 00:02:57.000000000 +0100
++++ mini_httpd-1.19/Makefile-new	2005-04-16 23:20:48.257958096 +0200
+@@ -14,14 +14,14 @@
+ # http://www.openssl.org/  Make sure the SSL_TREE definition points to the
+ # tree with your OpenSSL installation - depending on how you installed it,
+ # it may be in /usr/local instead of /usr/local/ssl.
+-#SSL_TREE =	/usr/local/ssl
+-#SSL_DEFS =	-DUSE_SSL
+-#SSL_INC =	-I${SSL_TREE}/include
+-#SSL_LIBS =	-L${SSL_TREE}/lib -lssl -lcrypto
+-
+-
+-BINDIR =	/usr/local/sbin
+-MANDIR =	/usr/local/man
++SSL_TREE =	/usr
++SSL_DEFS =	-DUSE_SSL
++SSL_INC =	-I${SSL_TREE}/include/openssl
++SSL_LIBS =	-L${SSL_TREE}/lib -lssl -lcrypto
++
++PREFIX =    /usr
++BINDIR =	${PREFIX}/usr/sbin
++MANDIR =	${PREFIX}/usr/man
+ CC =		gcc
+ CDEFS =		${SSL_DEFS} ${SSL_INC}
+ CFLAGS =	-O ${CDEFS}

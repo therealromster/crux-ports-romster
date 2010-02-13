@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Open Source Texinfo to HTML Conversion Script
+# URL: http://www.nongnu.org/texi2html/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: texinfo
+
+name=texi2html
+version=1.76
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

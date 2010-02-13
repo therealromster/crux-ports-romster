@@ -1,0 +1,18 @@
+# Description: a GUI for generation pseudo-random WEP keys
+# URL: http://kde-apps.org/content/show.php?content=17627
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qt3
+
+name=wepper
+version=0.8
+release=1
+source=(http://kde-apps.org/content/files/17627-$name-$version.tar.bz2)
+
+build() {
+	export QTDIR=/usr/share/qt
+	cd $name-$version
+	qmake
+        make
+	install -D passgen $PKG/usr/bin/wepper
+}

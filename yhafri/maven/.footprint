@@ -1,0 +1,18 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/mvn -> /usr/lib/maven-2.0.6/bin/mvn
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/maven -> /usr/lib/maven-2.0.6
+drwxr-xr-x	root/root	usr/lib/maven-2.0.6/
+drwxr-xr-x	root/root	usr/lib/maven-2.0.6/bin/
+-rwxr-xr-x	root/root	usr/lib/maven-2.0.6/bin/m2
+-rw-r--r--	root/root	usr/lib/maven-2.0.6/bin/m2.bat
+-rw-r--r--	root/root	usr/lib/maven-2.0.6/bin/m2.conf
+-rwxr-xr-x	root/root	usr/lib/maven-2.0.6/bin/mvn
+-rw-r--r--	root/root	usr/lib/maven-2.0.6/bin/mvn.bat
+drwxr-xr-x	root/root	usr/lib/maven-2.0.6/boot/
+-rw-r--r--	root/root	usr/lib/maven-2.0.6/boot/classworlds-1.1.jar
+drwxr-xr-x	root/root	usr/lib/maven-2.0.6/conf/
+-rw-r--r--	root/root	usr/lib/maven-2.0.6/conf/settings.xml
+drwxr-xr-x	root/root	usr/lib/maven-2.0.6/lib/
+-rw-r--r--	root/root	usr/lib/maven-2.0.6/lib/maven-core-2.0.6-uber.jar

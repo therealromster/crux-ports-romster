@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A collection of GTK+ widgets that extend the functionality of standard widgets
+# URL: http://www.chipx86.com/wiki/Libsexy
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk
+
+name=libsexy
+version=0.1.5
+release=1
+source=(http://osiris.chipx86.com/projects/libsexy/releases/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

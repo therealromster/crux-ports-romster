@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Predictive abbreviation expansion for Emacs
+# URL: http://homepages.cs.ncl.ac.uk/phillip.lord/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: firefox, emacs
+
+name=pabbrev
+version=1
+release=1
+source=($name.el)
+
+build () {
+	install -D $name.el $PKG/usr/share/emacs/site-lisp/$name.el
+
+	chown -R root:root $PKG
+}

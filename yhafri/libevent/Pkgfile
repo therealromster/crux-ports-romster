@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A scalable events handling API
+# URL: http://www.monkey.org/~provos/libevent
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libevent
+version=1.4.2-rc
+release=6
+source=(http://www.monkey.org/~provos/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

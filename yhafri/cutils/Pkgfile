@@ -1,0 +1,21 @@
+# $Id: $
+# Description: C source code utilities (highlight C source files, make a C source file unreadable but compilable ...)
+# URL: http://packages.debian.org/testing/devel/cutils
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cutils
+version=1.6
+release=1
+source=(http://ftp.debian.org/debian/pool/main/c/$name/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

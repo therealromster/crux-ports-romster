@@ -1,0 +1,24 @@
+# $Id: $
+# Description: GNOME frontend, for the remote desktop client rdesktop
+# URL: http://www.nongnu.org/grdesktop/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rdesktop, gtk
+
+name=grdesktop
+version=0.23
+release=1
+source=(http://savannah.nongnu.org/download/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-keymap-path=/usr/share/rdesktop/keymaps
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+POST-INSTALL:
+
+		* Add the m17nfonts directory to your fontpath
+                in the /etc/X11/xorg.conf file:
+
+	        ---snip---
+		..
+	        Section "Files"
+	        ..
+                	FontPath "/usr/share/fonts/m17n/"
+	        EndSection
+	        ..
+
+	        ---snip---
+
+		* To finish the installation, type this commands as root:    
+		# cd /usr/share/fonts/m17n/
+		# mkfontdir
+		# fc-cache -f
+		# xset fp rehash
+
+

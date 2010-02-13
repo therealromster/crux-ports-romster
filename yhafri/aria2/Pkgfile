@@ -1,0 +1,23 @@
+# $Id: $
+# Description: High speed download utility with resuming and segmented features
+# URL: http://aria2.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: c-ares, openssl, libxml2
+
+name=aria2
+version=0.9.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/
+
+	chown -R root:root $PKG
+}

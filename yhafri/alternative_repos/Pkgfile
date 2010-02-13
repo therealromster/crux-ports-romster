@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Collection of altenative port repositories
+# URL: http://www.crux.nu/portdb/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=alternative_repos
+version=5
+release=1
+
+source=($name-$version.tar.bz2)
+
+build() {
+	mkdir -p $PKG/etc/ports
+
+	mv *.httpup $PKG/etc/ports/
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,47 @@
+# $Id: $
+# Description: A language and environment for statistical computing and graphics
+# URL: http://www.r-project.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gcc_f77, readline, tcl, tk, zlib, libpng, libjpeg, libpcre, blas, lapack
+
+name=r
+version=2.6.0
+release=1
+source=(http://cran.r-project.org/src/base/R-2/R-$version.tar.gz)
+
+build () {
+	cd R-$version
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr \
+		    --enable-R-shlib \
+		    --enable-shared \
+		    --with-libpng \
+ 		    --with-jpeglib \
+		    --with-readline \
+		    --with-tcltk \
+		    --with-zlib \
+		    --with-blas \
+		    --with-lapack \
+		    --with-x
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+	sed -i -e "s/R_HOME_DIR=.*$/R_HOME_DIR=\/usr\/lib\/R/" $PKG/usr/bin/R
+	sed -i -e "s/R_HOME_DIR=.*$/R_HOME_DIR=\/usr\/lib\/R/" $PKG/usr/lib/R/bin/R
+
+	find $PKG/usr -iname "latex"    -type "d" | xargs rm -rf
+	find $PKG/usr -iname "doc"      -type "d" | xargs rm -rf
+	find $PKG/usr -iname "html"     -type "d" | xargs rm -rf
+	rm -rf $PKG/usr/lib/R/{AUTHORS,COPYING,COPYING.LIB,COPYRIGHTS,FAQ}
+	rm -rf $PKG/usr/lib/R/{NEWS,RESOURCES,THANKS}
+	#find $PKG/usr -name  "CONTENTS"     -type "f" | xargs rm -rf
+	find $PKG/usr -name  "Changes"       -type "f" | xargs rm -rf
+	#find $PKG/usr -name  "INDEX"        -type "f" | xargs rm -rf
+	#find $PKG/usr -name  "CITATION"     -type "f" | xargs rm -rf
+	#find $PKG/usr -name  "DESCRIPTION"  -type "f" | xargs rm -rf
+	#find $PKG/usr -name  "NEWS"         -type "f" | xargs rm -rf
+	#find $PKG/usr -name  "NAMESPACE"    -type "f" | xargs rm -rf
+	#find $PKG/usr -name  "LICENCE"      -type "f" | xargs rm -rf
+        chown -R root:root $PKG
+}

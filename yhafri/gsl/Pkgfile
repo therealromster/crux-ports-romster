@@ -1,0 +1,19 @@
+# $Id: $
+# Description: GNU Scientific Library is a collection of routines for numerical computing
+# URL: http://www.gnu.org/software/gsl/gsl.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Erlend Bergsås Mikkelsen <howl@online.no>
+# Depends on:
+
+name=gsl
+version=1.5
+release=1
+source=(ftp://ftp.gnu.org/gnu/gsl/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf "$PKG/usr/info"
+}

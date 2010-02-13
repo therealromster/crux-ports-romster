@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Cross-platform path specification manipulation
+# URL: http://search.cpan.org/~kwilliams/Path-Class-0.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-path-class
+version=0.15
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Path-Class-$version.tar.gz)
+
+build () {
+	cd Path-Class-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,65 @@
+POST-INSTALL:
+
+                * Create a directory named ~/.mlterm in your home-directory 
+                with three files: "main", "font", "color" and "key".
+
+                - File main:
+
+		ENCODING = utf8
+		fontsize = 20
+		receive_string_via_ucs = true
+		use_anti_alias = false
+		use_transbg = false
+		wall_picture = 
+		mod_meta_mode = esc
+		scrollbar_mode = none
+		use_bidi = true
+		bg_color = prev_bg
+		fg_color = prev_fg
+		brightness = 100
+		contrast = 100
+		gamma = 100
+		fade_ratio = 90
+
+		- File font:
+
+		ISO10646_UCS2_1 = 20,-arabeyes-fixed-medium-r-normal--20-200-75-75-c-100-ISO10646-1;
+		#ISO8859_1 = --sony-fixed-medium-r-normal--16-150-75-75-c-80-iso8859-1;
+		#BIG5 = -eten-fixed-medium-r-normal--16-150-75-75-c-160-big5.eten-0;
+		#ISO10646_UCS4_1 = -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1;
+		#ISO10646_UCS4_1_BIWIDTH = -gnu-unifont-medium-r-normal--16-160-75-75-c-80-iso10646-1;
+
+		- File color:
+
+		prev_fg    = #DDDDDD
+		prev_bg    = #000000
+		red        = #CC3333
+		green      = #33CC33
+		yellow     = #CCCC33
+		blue       = #3333CC
+		magenta    = #CC33CC
+		cyan       = #33CCCC
+		white      = #CCCCCC
+		hl_red     = #FF6666
+		hl_green   = #66FF66
+		hl_yellow  = #FFFF66
+		hl_blue    = #6666FF
+		hl_magenta = #FF66FF
+		hl_cyan    = #66FFFF
+		hl_white   = #FFFFFF
+		
+
+                -File key:
+
+                EXT_KBD=Control+backslash
+
+
+NOTES:
+
+                * Now once you start mlterm, you should be able to read Arabic
+                 under any text-based application that supports UTF-8. Also, 
+                 note that less may not work unless you set the LESSCHARSET 
+                 environment to 'UTF-8'.
+                 In order to input in Arabic all you have to do is
+                 Ctrl-\ (or whatever else you would like to define in
+                 your key file. 

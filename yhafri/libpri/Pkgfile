@@ -1,0 +1,20 @@
+# $Id: $
+# Description: C implementation of the Primary Rate ISDN specification
+# URL: http://ftp.digium.com/pub/libpri/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libpri
+version=1.4.0
+release=1
+source=(http://ftp.digium.com/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

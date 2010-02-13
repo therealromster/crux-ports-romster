@@ -1,0 +1,38 @@
+# $Id: $
+# Description: SWF Flash library in C with bindings to PHP, Perl, Python and Ruby
+# URL: http://ming.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpng, libungif, zlib
+
+name=ming
+version=0.3.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+
+build () {
+	cd $name-$version
+       
+	make
+	
+    install -D -m 644 src/$name.h          $PKG/usr/include/$name.h
+    install -D -m 644 src/${name}_config.h $PKG/usr/include/${name}_config.h
+    install -D -m 644 ${name}pp.h          $PKG/usr/include/${name}pp.h
+
+    mv lib$name.so lib$name.so.0.3
+    install -D lib$name.so.0.3 $PKG/usr/lib/lib$name.so.0.3
+    ln -sf /usr/lib/lib$name.so.0.3 $PKG/usr/lib/lib$name.so
+    ln -sf /usr/lib/lib$name.so.0.3 $PKG/usr/lib/lib$name.so.0
+
+    for f in makeswf bindump hexdump listswf listaction listfdb listmp3 \
+        listjpeg swftoperl swftophp swftopython makefdb png2dbl gif2dbl \
+        gif2mask raw2adpcm;
+    do
+      if [ -f util/$f ]; then
+          install -D -m 755 util/$f $PKG/usr/bin/$f
+      fi
+    done
+
+	chown -R root:root $PKG
+}

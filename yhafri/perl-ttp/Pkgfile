@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Perl phonetizer
+# URL: http://tcts.fpms.ac.be/synthesis/mbrola.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=perl-ttp
+version=1
+release=1
+source=(http://tcts.fpms.ac.be/synthesis/mbrola/tts/English/perl_ttp.zip)
+
+build () {
+
+	mkdir -p $PKG/usr/lib/$name/{Lib,doc}
+	cd ttp-English
+	cp RuleEng.pm  english_rules  french_rules  $PKG/usr/lib/$name/Lib
+	cp phoncode.doc $PKG/usr/lib/$name/doc
+
+	chown -R root:root $PKG
+}

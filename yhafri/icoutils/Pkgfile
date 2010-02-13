@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Extract MS Windows icons and cursors
+# URL: http://freshmeat.net/redir/icoutils/4306/url_homepage/icoutils.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=icoutils
+version=0.13.0
+release=1
+source=(http://ftp.debian.org/debian/pool/main/i/icoutils/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd ${name}-${version}
+	./configure --prefix=/usr
+
+    make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    chown -R root:root $PKG
+}

@@ -1,0 +1,17 @@
+# Description: a simple C API for reading and writing ESRI Shapefiles
+# URL: http://shapelib.maptools.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=shapelib
+version=1.2.10
+release=1
+source=(http://dl.maptools.org/dl/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    sed -i -e s:'-O2':"${CFLAGS}": Makefile
+    make lib
+    sed -i -e s:/usr/local:$PKG/usr: Makefile
+    make lib_install
+}

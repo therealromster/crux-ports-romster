@@ -1,0 +1,16 @@
+--- avahi-0.6.15/avahi-daemon/dbus-protocol.c	2006-11-06 02:03:21.000000000 +0100
++++ avahi-0.6.15/avahi-daemon/dbus-protocol.c-new	2006-12-06 16:11:31.000000000 +0100
+@@ -1067,10 +1067,10 @@
+     if (dbus_bus_request_name(
+             server->bus,
+             AVAHI_DBUS_NAME,
+-#if (DBUS_VERSION_MAJOR == 0) && (DBUS_VERSION_MINOR >= 60)
+-            DBUS_NAME_FLAG_DO_NOT_QUEUE,
+-#else
++#if (DBUS_VERSION_MAJOR == 0) && (DBUS_VERSION_MINOR < 60)
+             DBUS_NAME_FLAG_PROHIBIT_REPLACEMENT,
++#else
++            DBUS_NAME_FLAG_DO_NOT_QUEUE,
+ #endif
+             &error) != DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER) {
+         if (dbus_error_is_set(&error)) {

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Showns and controls XKB groups from XFree86 key maps
+# URL: http://www.geocities.com/wmalms/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmxkb
+version=1.2.2
+release=1
+source=(http://www.geocities.com/wmalms/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

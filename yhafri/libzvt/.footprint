@@ -1,0 +1,20 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libzvt-2.0/
+drwxr-xr-x	root/root	usr/include/libzvt-2.0/libzvt/
+-rw-r--r--	root/root	usr/include/libzvt-2.0/libzvt/background.h
+-rw-r--r--	root/root	usr/include/libzvt-2.0/libzvt/libzvt.h
+-rw-r--r--	root/root	usr/include/libzvt-2.0/libzvt/lists.h
+-rw-r--r--	root/root	usr/include/libzvt-2.0/libzvt/vt.h
+-rw-r--r--	root/root	usr/include/libzvt-2.0/libzvt/vtx.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libzvt-2.0.a
+-rwxr-xr-x	root/root	usr/lib/libzvt-2.0.la
+lrwxrwxrwx	root/root	usr/lib/libzvt-2.0.so -> libzvt-2.0.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libzvt-2.0.so.0 -> libzvt-2.0.so.0.0.1
+-rwxr-xr-x	root/root	usr/lib/libzvt-2.0.so.0.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libzvt-2.0.pc
+drwxr-xr-x	root/root	usr/libexec/
+drwxr-xr-x	root/root	usr/libexec/libzvt-2.0/
+-rwsr-xr-x	root/root	usr/libexec/libzvt-2.0/gnome-pty-helper

@@ -1,0 +1,16 @@
+# $Id: $
+# Description: JS Thumbnail Expander 
+# URL: http://vikjavev.no/highslide/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=highslide
+version=2.1
+release=1
+source=(http://vikjavev.no/highslide/download/$name-$version.zip)
+
+build () {
+	mkdir -p $PKG/etc/$name
+	mv * $PKG/etc/$name
+}

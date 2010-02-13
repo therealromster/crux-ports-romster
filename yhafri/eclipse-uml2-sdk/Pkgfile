@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Eclipse C/C++ Development Tooling
+# URL: http://www.eclipse.org/cdt/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Simone Rota, sip at varlock dot com
+# Depends on: eclipse-sdk
+
+name=eclipse-uml2-sdk
+version=2.1.0
+release=1
+source=(http://mirror.yoxos-eclipse-distribution.de/eclipse.org/modeling/mdt/uml2-uml/downloads/drops/$version/S200611161552/uml2-SDK-2.1M3.zip)
+
+build() {
+    	mkdir -p $PKG/usr/lib
+
+    	mv eclipse $PKG/usr/lib/
+	rm -f $PKG/usr/lib/eclipse/{notice.html,epl-v10.html}
+
+	chown -R root:root $PKG
+}

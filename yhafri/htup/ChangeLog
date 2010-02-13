@@ -1,0 +1,78 @@
+ChangeLog:
+
+0.1
+        - initial, monolithic kludge
+        - it works, but is error-prone, inflexible, and ugly
+
+0.2
+        - decided to share script with others
+        - added configurable variables
+        - not good enough...rewrite!
+
+0.3
+        - htup no longer works.  Functionality disabled until re-write complete
+        - broke main() into separate functions
+        - added checks to prevent active work dir from being accidentally
+	    deleted
+
+0.4
+        - cleaned out debug-related echos & TODOs
+        - wrote README, and added dot_weexrc.example
+        - first publicly available/usable release
+
+0.5
+        - rm index.html, before generating REPO
+        - changed description.  Misc cosmetic fixes
+        - fixed crash with multiple work dirs in $HTPORTS/*
+        - ignore tarballs and packages#
+        - check for Pkgfile's before httpup-repgen
+        - added optional footer support, for sake of completeness
+        - cleaned up contributed files
+        - beta-grade functionality
+
+0.5.1
+        - code is stable enough, that 0.0.x can be used instead of 0.x
+	    in the future, features will bump 0.0.x.  Bugfix's will
+	    usually be denoted by incrementing $release.  When a
+	    major TODO is completed, I'll increment 0.x.
+        - htup is going to be 0.5.x for a while
+        - fixed redundant '/' between portdir//portname
+        - add "usage:" output
+        - began supporting thorough port checks
+        - new dependency: wget
+        - checks entire repository for bad sources
+        - minor streamlining, to prevent redundancy
+        - htup now outputs basic, helpful statistics
+        - changed description again
+
+0.5.2
+        - misc style/efficiency fixes
+        - nice, informative output during surveil() "htup --check"
+        - .footprint check
+        - .footprint fix? (yes/no)
+        - Pkgfile sanity checking
+        - htup is definitely BETA now
+        - trap INT cleanly, during "htup --check", output stats, cleanup
+        - after surveil() completes, ask if user wishes to rm junk,
+	    and fix broken .footprints
+        - more helpful stats
+R2	- fixed reporting wrong # of ports, if work dir is found
+        - oops!  I didn't realize that my public branch of htup needed sudo
+R3	- fixed addition of backup~ files to REPO, then not uploading them
+        - found a dangling cd $HTPORTS.  Now one can sync from any dir without
+	    interruption
+        - thanks Johannes!  httpup-repgen changes solve R3 "fix" #1 for real
+
+0.5.2.1
+	- released due to httpup-repgen 0.6pre1 internal changes
+R2	- fixed a regression caused by calling portspage from external dir
+R3	- fixed broken handling of .footprints in surveil()
+R4	- fixed broken sanity checks for active work dir
+R5	- fixed broken and redundant pkgmk check...R4 didn't fix!
+	- added useful output after fail on [ -d $HTPORTS/*/work ]
+R6	- use httpup-repgen2, because it is now shipped standard
+	  (previously, a manual download was required)
+R7	- httpup 4.0 was just released.  Undo R6 changes.
+R8	- use sudo to remove work directories too
+R9	- changed indents to spaces, and let emacs auto-indent
+	- aesthetic, and grammatical fixes ;-)

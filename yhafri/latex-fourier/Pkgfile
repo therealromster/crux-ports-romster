@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Fourier-GUTenberg fonts for LaTeX
+# URL: http://ftp.ktug.or.kr/mirrors/CTAN/fonts/fourier-GUT/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex, latex-utopia
+
+name=latex-fourier
+version=1
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/share/texmf
+
+	wget -r --no-parent -nc http://ftp.ktug.or.kr/mirrors/CTAN/fonts/fourier-GUT/
+	mv ftp.ktug.or.kr/mirrors/CTAN/fonts/fourier-GUT/ .
+	cd fourier-GUT/
+	find . -name "index*" -exec rm -rf '{}' \;
+	rm -rf makefile doc/ tst/
+	mv * $PKG/usr/share/texmf/
+	chown -R root:root $PKG
+}

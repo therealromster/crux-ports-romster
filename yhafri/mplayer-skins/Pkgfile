@@ -1,0 +1,38 @@
+# $Id: $
+# Description: Media player skins
+# URL: http://www.mplayerhq.hu/homepage/design7/dload.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: mplayer
+
+name=mplayer-skins
+version=1
+release=1
+
+source=(http://www.mplayerhq.hu/MPlayer/Skin/Terminator3-1.1.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/Abyss-1.6.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/krystal-1.1.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/neutron-1.5.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/plastic-1.2.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/phony-1.1.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/proton-1.2.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/gnome-1.1.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/Cyrus-1.2.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/BlueHeart-1.5.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/xine-lcd-1.2.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/OSX-Brushed-2.3.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/tvisor-1.1.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/ultrafina-1.1.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/XFce4-1.0.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/JiMPlayer-1.4.tar.bz2 \
+    http://www.mplayerhq.hu/MPlayer/Skin/QuickSilver-1.0.tar.bz2)
+
+
+
+build () {
+    mkdir -p $PKG/usr/share/mplayer/Skin
+    
+    mv Abyss/ Cyrus/ OSX-Brushed/ Terminator3/ gnome/ neutron/ plastic/ tvisor/ xine-lcd/ BlueHeart/  JiMPlayer/  QuickSilver/  XFce4/ krystal/  phony/ proton/ ultrafina $PKG/usr/share/mplayer/Skin
+    ln -s /usr/share/mplayer/Skin/Terminator3 $PKG/usr/share/mplayer/Skin/default
+    chown -R root:root $PKG
+}

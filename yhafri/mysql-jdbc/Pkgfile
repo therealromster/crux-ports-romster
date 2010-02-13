@@ -1,0 +1,20 @@
+# $Id: $
+# Description: MySQL JDBC driver
+# URL: http://dev.mysql.com/downloads/connector/j/3.1.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant
+
+name=mysql-jdbc
+version=5.0.0
+release=1
+source=(ftp://mir1.ovh.net/ftp.mysql.com/Downloads/Connector-J/mysql-connector-java-$version-beta.tar.gz)
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd mysql-connector-java-$version-beta
+
+	install -D mysql-connector-java-$version-beta-bin.jar $PKG/usr/lib/$name/mysql-connector-java-$version-beta-bin.jar
+
+	chown -R root:root $PKG
+}

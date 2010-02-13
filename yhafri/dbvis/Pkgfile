@@ -1,0 +1,25 @@
+# $Id: $
+# Description: The Universal Database Tool
+# URL: http://www.dbvis.com/products/dbvis/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant, javasqlite, postgresql-jdbc, firebird-jdbc, mysql-jdbc
+
+name=dbvis
+version=4.3.6
+release=1
+source=(http://www.dbvis.com/product_download/$name-$version/media/${name}_unix_4_3_6.tar.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	cd DbVisualizer-$version
+	rm -rf README.txt doc
+	cd -
+
+	mv DbVisualizer-$version $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}

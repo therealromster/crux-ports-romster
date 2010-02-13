@@ -1,0 +1,38 @@
+# $Id: $
+# Description: SQLite ODBC Driver
+# URL: http://www.ch-werner.de/sqliteodbc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: unixodbc, sqlite3
+
+name=sqliteodbc
+version=0.65
+release=1
+source=(http://www.ch-werner.de/$name/$name-$version.tar.gz)
+
+build () {
+	local sqlite="$SRC/sqlite"
+	local sqlite3="$SRC/sqlite3"
+	mkdir -p $PKG/usr/lib $sqlite $sqlite3
+
+	(cd /usr/ports/yhafri/sqlite;
+        pkgmk -d;
+        tar xzvf sqlite#*.tar.gz -C $sqlite; 
+        pkgmk -c)
+
+	(cd /usr/ports/yhafri/sqlite3;
+	pkgmk -d;
+	tar xzvf sqlite3#*.tar.gz -C $sqlite3;
+	pkgmk -c)
+
+
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-sqlite="$sqlite/usr" \
+		    --with-sqlite3="$sqlite3/usr"
+
+    	make
+	make prefix=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

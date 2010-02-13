@@ -1,0 +1,22 @@
+# Description: a graphical Usenet file grabber for KDE
+# URL: http://klibido.sf.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, uudeview
+
+name=klibido
+version=0.2.4.1
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    CPPFLAGS='-I/usr/include/uulib' \
+        LDFLAGS='-L/usr/lib/uulib' \
+        ./configure \
+        --prefix=/usr \
+        --disable-nls
+    make
+    make install DESTDIR=$PKG
+    find $PKG/usr/share/doc/HTML/* ! -wholename "*HTML/en*" -delete
+}

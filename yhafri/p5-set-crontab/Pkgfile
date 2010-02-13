@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Expand crontab(5)-style integer lists 
+# URL: http://84.45.18.237/~ams/Set-Crontab-1.00/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-set-crontab
+version=1.00
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/A/AM/AMS/Set-Crontab-$version.tar.gz)
+
+build () {
+	cd Set-Crontab-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

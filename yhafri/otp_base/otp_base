@@ -1,0 +1,52 @@
+#!/bin/sh
+
+set -e
+
+if [ $# != 4 ]; then
+    echo "Usage: $0 username email applivction_name application_acronym"
+    echo "Example:"
+    echo "       $0 \"Joe Armstrong\" \"joe@home.com\" \"x11_gui\" \"xg\""
+    exit 1
+fi
+
+
+framework="/tmp/otp_base$$"
+cp -rf /usr/lib/otp $framework
+
+user="$1"
+email=`echo $2 | perl -ple "s|@| AT |"`
+appli="$3"
+acronym="$4"
+
+udate=`date +"%Y/%m/%d"`
+utime=`date +"%T"`
+core=`echo $email | perl -ple 's|([^@]*).*|$1|'`
+
+(cd $framework/tools/utilities/; ./appgen $appli $acronym &>/dev/null)
+echo -n "Creating application $(color cyan)$appli$(color off) "
+echo "$(color ltgreen)[OK]$(color off)"
+
+echo -n "Preparing the framework in $(color cyan)$framework$(color off) "
+
+for i in `find "$framework/lib/$appli" "$framework/release/${appli}_rel" -type "f" | xargs grep -li "logan"`;
+do
+
+  perl -i -ple "s|mlogan|$user|;" \
+      -e "s|%+ Author.*|%%% Author  : $user <$email>|;"             \
+      -e "s|%+ Created.*|%%% Created : $udate by $user <$email>|;"  \
+      -e "s|%+ Modified.*|%%% Modified : $udate by $user <$email>|;"  \
+      -e "s|\d{4}/\d\d/\d\d|$udate|;"    \
+      -e "s|\d\d:\d\d:\d\d|$utime|;"     \
+      -e "s|martinjlogan|$core|;" \
+      $i
+
+done
+
+echo "$(color ltgreen)[OK]$(color off)"
+
+echo "Please, change to:"
+echo "$(color ltcyan)$framework/lib/$appli$(color off)"
+echo "$(color ltcyan)$framework/release/${appli}_rel$(color off)"
+echo "to start working !!!"
+
+exit 0

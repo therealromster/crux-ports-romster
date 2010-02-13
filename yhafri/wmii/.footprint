@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/wmii
+-rwxr-xr-x	root/root	usr/bin/wmiir
+-rwxr-xr-x	root/root	usr/bin/wmiiwm
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/wmii-3.5/
+-rwxr-xr-x	root/root	usr/etc/wmii-3.5/quit
+-rwxr-xr-x	root/root	usr/etc/wmii-3.5/status
+-rwxr-xr-x	root/root	usr/etc/wmii-3.5/welcome
+-rwxr-xr-x	root/root	usr/etc/wmii-3.5/wmiirc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/wmii.1.gz
+-rw-r--r--	root/root	usr/share/man/man1/wmiir.1.gz
+-rw-r--r--	root/root	usr/share/man/man1/wmiiwm.1.gz

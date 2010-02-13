@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/pgdisp
+-rwxr-xr-x	root/root	usr/bin/pgxwin_server
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/cpgplot.h
+-rw-r--r--	root/root	usr/include/tkpgplot.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libcpgplot.a
+-rw-r--r--	root/root	usr/lib/libpgplot.a
+-rwxr-xr-x	root/root	usr/lib/libpgplot.so
+-rw-r--r--	root/root	usr/lib/libtkpgplot.a
+drwxr-xr-x	root/root	usr/lib/pgplot/
+-rw-r--r--	root/root	usr/lib/pgplot/grfont.dat
+-rw-r--r--	root/root	usr/lib/pgplot/rgb.txt

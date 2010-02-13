@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A new distributed file system with a focus on high availability
+# URL: http://www.inter-mezzo.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=intermezzo
+version=0.9.5
+release=1
+source=(ftp://ftp.inter-mezzo.org/pub/$name/intersync-0.9.5.tar.gz)
+
+build () {
+	cd intersync-$version
+	./configure --prefix=/usr \
+		    --enable-linuxdir=/usr/src/linux \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

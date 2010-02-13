@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Graph visualization
+# URL: http://www.aisee.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=aisee
+version=2.2.12
+release=1
+source=($name.patch aiSee_linux.tgz)
+
+build () {
+	mkdir -p $PKG/usr
+	cd aiSee
+
+	patch -p1<../$name.patch
+	./setup $PKG/usr
+
+	sed -i "s|/usr/ports/yhafri/aisee/work/pkg/usr|/usr|" $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

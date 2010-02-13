@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Python and Tcl interfaces to Xapian
+# URL: http://www.xapian.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: xapian-core, python, tcl, swig
+
+name=xapian-bindings
+version=1.0.3
+release=1
+source=(http://www.oligarchy.co.uk/xapian/$version/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+	            --without-java \
+                    --without-php
+
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+        rm -rf $PKG/usr/share
+        chown -R root:root $PKG
+}

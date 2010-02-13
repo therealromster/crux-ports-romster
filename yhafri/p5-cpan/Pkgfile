@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Query, download and build perl modules from CPAN sites
+# URL: http://84.45.18.237/~andk/CPAN-1.83/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=p5-cpan
+version=1.86_52
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/A/AN/ANDK/CPAN-$version.tar.gz)
+
+build () {
+	cd CPAN-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

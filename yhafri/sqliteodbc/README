@@ -1,0 +1,27 @@
+DOC:
+	* See the link below for an example of hot to use sqliteodbc 
+	with unixODBC:
+	http://fr.openoffice.org/Documentation/How-to/Bdd/08SQLite.pdf
+
+EXAMPLE:
+	Configuration example of database called ALIX:
+
+	* /etc/odbcinst.ini
+	[SQLite]
+	Description     = ODBC for SQLite 3.1.6
+	Driver          = /usr/lib/libsqlite3odbc.so
+	FileUsage       = 1
+	CPTimeout       =
+	CPReuse         =
+
+	* /etc/odbc.ini
+	[SQLite-example]
+	Description     = Base de donnees example
+	Driver          = SQLite
+	Database        = /home/ycrux/sqlite_database/ALIX.db
+
+        * /home/ycrux/.odbc.ini
+        [SQLite-example]
+        Description     = Base de donnees example
+        Driver          = SQLite
+        Database        = /home/ycrux/sqlite_database/ALIX.db

@@ -1,0 +1,11 @@
+README for XMMS2 DR1
+
+See the following table to see what packages are required to enable XMMS2
+to play back the following codecs.
+It's highly recommended to install libmad and libvorbis.
+
+Codec          Package
+----------------------
+MP3            libmad
+Vorbis         libvorbis
+Flac           libflac

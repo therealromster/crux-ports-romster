@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A fast, efficient, small and easy to configure web server
+# URL: http://monkeyd.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=monkey
+version=0.9.0
+release=1
+source=(http://monkeyd.sourceforge.net/versions/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		--lang=en \
+		--bindir=/usr/bin \
+		--cgibin=/usr/etc/$name/cgi-bin \
+		--sysconfdir=/usr/etc/$name/conf \
+		--datadir=/var/www/$name/htdocs \
+		--logdir=/var/log/$name
+
+	patch -p1 < ../$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install	
+	chown -R root:root $PKG
+}

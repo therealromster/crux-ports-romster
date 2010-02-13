@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/slang.h
+-rw-r--r--	root/root	usr/include/slcurses.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libslang.a
+lrwxrwxrwx	root/root	usr/lib/libslang.so -> libslang.so.1
+lrwxrwxrwx	root/root	usr/lib/libslang.so.1 -> libslang.so.1.4.9
+-rw-r--r--	root/root	usr/lib/libslang.so.1.4.9

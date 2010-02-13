@@ -1,0 +1,3 @@
+#!/bin/sh
+
+(cd /usr/lib/vtcl; wish vtcl.tcl >/dev/null 2>&1)

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A pure, non-strict, polymorphic, higher order functional programming language 
+# URL: http://miranda.org.uk/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=miranda
+version=2027
+release=1
+source=(http://www.cs.kent.ac.uk/people/staff/dat/$name/linux/mira-$version-i686.tgz)
+
+build () {
+	mkdir -p $PKG/usr/{lib,bin,share}
+
+	cd usr/
+
+	mv lib/miralib $PKG/usr/lib/
+	mv bin/* $PKG/usr/bin
+        mv man $PKG/usr/share
+
+	chown -R root:root $PKG
+}

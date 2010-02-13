@@ -1,0 +1,9 @@
+POST-INSTALL:
+
+		* Export the following environment variable:
+		export OZHOME=/usr/lib/mozart
+		export PATH=$OZHOME/bin:$PATH
+
+
+PATCH:
+		http://www.mozart-oz.org/pipermail/mozart-users/2005/013020.html		

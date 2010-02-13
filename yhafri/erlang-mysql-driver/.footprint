@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/ebin/
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/ebin/mysql.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/ebin/mysql_auth.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/ebin/mysql_conn.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/ebin/mysql_recv.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/src/
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/src/mysql.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/src/mysql.hrl
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/src/mysql_auth.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/src/mysql_conn.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlang-mysql-driver-svn/src/mysql_recv.erl

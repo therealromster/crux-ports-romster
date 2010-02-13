@@ -1,0 +1,25 @@
+# $Id: $
+# Description: http://members.tripod.com/~ashimg/ooyacc.html
+# URL: Object Oriented YACC
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=ooyacc
+version=1
+release=1
+source=($name.zip $name.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man/man1}
+
+	patch -p0<./$name.patch
+
+	make linux
+	strip bin/linux/$name
+
+	install -D -m 755 bin/linux/$name   $PKG/usr/bin/$name
+	install -D -m 644 yacc.1 $PKG/usr/man/man1/$name.1
+
+	chown -R root:root $PKG
+}

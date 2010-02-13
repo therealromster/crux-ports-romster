@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A robust replacement for make
+# URL: http://public.perforce.com/public/jam/src/Jam.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=jam
+version=2.5
+release=1
+source=(ftp://ftp.perforce.com/pub/$name/$name-$version.tar)
+
+build () {
+	tar xvf $SRC/$name-$version.tar
+	cd $name-$version
+	
+	make
+	
+	install -D -m 755 ./bin.linuxx86/$name         $PKG/usr/bin/$name
+	install -D -m 755 ./bin.linuxx86/mk${name}base $PKG/usr/bin/${name}base
+
+	chown -R root:root $PKG
+}

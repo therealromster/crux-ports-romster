@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Keyed-Hashing for Message Authentication 
+# URL: http://search.cpan.org/~gaas/Digest-HMAC-1.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-digest-sha1
+
+name=p5-digest-hmac
+version=1.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Digest-HMAC-$version.tar.gz)
+
+build () {
+	cd Digest-HMAC-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

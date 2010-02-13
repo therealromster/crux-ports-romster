@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ical
+-rwxr-xr-x	root/root	usr/bin/idate
+-rwxr-xr-x	root/root	usr/bin/ipraytime
+-rwxr-xr-x	root/root	usr/bin/ireminder
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/ical.1.gz
+-rw-r--r--	root/root	usr/man/man1/idate.1.gz
+-rw-r--r--	root/root	usr/man/man1/ipraytime.1.gz
+-rw-r--r--	root/root	usr/man/man1/ireminder.1.gz

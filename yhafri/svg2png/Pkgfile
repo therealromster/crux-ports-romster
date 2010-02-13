@@ -1,0 +1,21 @@
+# $Id: $
+# Description: SVG to PNG convertor
+# URL: http://cairographics.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cairo
+
+name=svg2png
+version=0.1.2
+release=1
+source=(http://cairographics.org/snapshots/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    	make
+	make prefix=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

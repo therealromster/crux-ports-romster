@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr--	root/root	etc/rc.d/omuscd
+drwxr-xr-x	root/root	etc/sysconfig/
+-rw-r--r--	root/root	etc/sysconfig/omuscd
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/omuscd
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/omuscd.8.gz

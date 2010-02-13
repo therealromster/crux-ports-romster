@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python serial port API
+# URL: http://pyserial.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=pyserial
+version=1.11
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

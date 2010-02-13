@@ -1,0 +1,19 @@
+# Description: KDE style based on mosfet-liquid0.9.6pre4
+# URL: http://baghira.sourceforge.net/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=baghira
+version=0.7
+release=2
+source=(http://dl.sourceforge.net/sourceforge/baghira/baghira-$version.tar.bz2)
+
+build() {
+    cd $name-release
+    ./configure --prefix=/usr \
+        --disable-debug \
+        --enable-final
+    make
+    make prefix=$PKG/usr install
+}

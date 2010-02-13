@@ -1,0 +1,21 @@
+PRE-INSTALL:
+
+			* You'll need at least kernel 2.6.16
+
+
+POST-INSTALL:
+
+			* Load "cdemu" module as root:
+			# /sbin/modprobe cdemu
+
+			or save it in /etc/rc.modules
+
+USAGE:
+			* To load a bin/cue image:
+			$ cdemu 0 image.cue
+
+			$ mount /dev/cdemu0 /mnt/cdrom
+			(some things may be different on your system, YMMV)
+
+			# for more information, please review the help output:
+			$ cdemu -h

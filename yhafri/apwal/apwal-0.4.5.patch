@@ -1,0 +1,31 @@
+--- apwal/src/Makefile	2004-12-19 21:23:27.000000000 +0100
++++ apwal/src/Makefile-new	2006-01-29 21:28:27.000000000 +0100
+@@ -1,12 +1,15 @@
+ 
+ include ../Makefile.inc
+ 
++
+ ifdef APWAL_DEBUG
+ CFLAGS=-g -Wall -Werror `pkg-config --cflags gtk+-2.0 gthread-2.0` -DGTK_DISABLE_DEPRECATED -DAPWAL_DEBUG
+ LDFLAGS=`pkg-config --libs gtk+-2.0 gthread-2.0` `xml2-config --libs`
+ else
+-CFLAGS=-O2 `pkg-config --cflags gtk+-2.0 gthread-2.0`
+-LDFLAGS=-O2 `pkg-config --libs gtk+-2.0 gthread-2.0` `xml2-config --libs`
++CFLAGS=-O3 `pkg-config --cflags gtk+-2.0 gthread-2.0`
++LDFLAGS=-O3 `pkg-config --libs gtk+-2.0 gthread-2.0` `xml2-config --libs`
++PREFIX=/usr/loca/bin
++BINDIR=${PREFIX}/bin
+ endif
+ 
+ OBJS=main.o app.o launcher.o editor.o property.o \
+@@ -33,8 +36,8 @@
+ endif
+ 
+ install: all
+-	cp apwal /usr/local/bin/
+-	ln -sf /usr/local/bin/apwal /usr/local/bin/apwal-editor
++	cp apwal ${BINDIR}
++	ln -sf /usr/bin/apwal ${BINDIR}/apwal-editor
+ 
+ .c.o: $(INCS)
+ 	gcc -c $< -o $*.o $(CFLAGS)

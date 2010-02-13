@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A hash library implemented in C
+# URL: http://uthash.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=uthash
+version=1.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version/src
+
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

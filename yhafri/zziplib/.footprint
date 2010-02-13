@@ -1,0 +1,38 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/zzcat
+-rwxr-xr-x	root/root	usr/bin/zzdir
+-rwxr-xr-x	root/root	usr/bin/zzip-config
+-rwxr-xr-x	root/root	usr/bin/zzxorcat
+-rwxr-xr-x	root/root	usr/bin/zzxorcopy
+-rwxr-xr-x	root/root	usr/bin/zzxordir
+drwxr-xr-x	root/root	usr/include/
+lrwxrwxrwx	root/root	usr/include/zzip-io.h -> zzip/plugin.h
+lrwxrwxrwx	root/root	usr/include/zzip.h -> zzip/lib.h
+drwxr-xr-x	root/root	usr/include/zzip/
+-rw-r--r--	root/root	usr/include/zzip/_config.h
+-rw-r--r--	root/root	usr/include/zzip/_msvc.h
+-rw-r--r--	root/root	usr/include/zzip/conf.h
+-rw-r--r--	root/root	usr/include/zzip/file.h
+-rw-r--r--	root/root	usr/include/zzip/format.h
+-rw-r--r--	root/root	usr/include/zzip/lib.h
+-rw-r--r--	root/root	usr/include/zzip/plugin.h
+-rw-r--r--	root/root	usr/include/zzip/stdint.h
+-rw-r--r--	root/root	usr/include/zzip/wrap.h
+-rw-r--r--	root/root	usr/include/zzip/zzip.h
+lrwxrwxrwx	root/root	usr/include/zzipformat.h -> zzip/format.h
+lrwxrwxrwx	root/root	usr/include/zziplib.h -> zzip/zzip.h
+lrwxrwxrwx	root/root	usr/include/zzipwrap.h -> zzip/wrap.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libzzip-0.so.10 -> libzzip-0.so.10.0.82
+-rwxr-xr-x	root/root	usr/lib/libzzip-0.so.10.0.82
+-rw-r--r--	root/root	usr/lib/libzzip.a
+-rwxr-xr-x	root/root	usr/lib/libzzip.la
+lrwxrwxrwx	root/root	usr/lib/libzzip.so -> libzzip-0.so.10.0.82
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/zzip-zlib-config.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/zziplib.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/zzipwrap.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/zziplib.m4

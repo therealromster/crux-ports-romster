@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A remote desktop protocol client for accessing Windows NT Terminal Server
+# URL: http://www.rdesktop.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, openssl
+
+name=rdesktop
+version=1.5.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-x \
+		    --with-sound=oss \
+		    --with-ipv6
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

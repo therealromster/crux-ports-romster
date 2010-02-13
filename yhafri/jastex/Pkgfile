@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A Graphical User Interface written in Java for GasTeX
+# URL: http://www.lsv.ens-cachan.fr/~gastin/JasTeX/JasTeX.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=jastex
+version=1.1
+release=1
+source=(http://www.lsv.ens-cachan.fr/~gastin/JasTeX/JasTeX_v1.1.tgz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd JasTeX_v$version
+
+	mv Jastex.jar configuration.properties  docs/  images/ lang/ $PKG/usr/lib/$name/
+	
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

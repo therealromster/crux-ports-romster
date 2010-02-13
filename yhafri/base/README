@@ -1,0 +1,6 @@
+POST-INSTALL:
+
+
+		* Add "IBASE" environment variable to your bash config file:
+		export IBASE=/usr/lib/ibase
+		export PATH=$PATH:$IBASE/bin 

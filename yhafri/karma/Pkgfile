@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A toolkit for interprocess communications, authentication, encryption, graphics display, user interface and manipulating the Karma network data structure
+# URL: http://www.atnf.csiro.au/computing/software/karma/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: netkit-rsh
+
+name=karma
+version=v1.7.25
+release=1
+source=(ftp://ftp.atnf.csiro.au/pub/software/$name/current/i386_Linux_libc6.2-$version.tar.gz \
+	ftp://ftp.atnf.csiro.au/pub/software/karma/current/$name.share-$version.tar.gz) 
+
+build () {
+	mkdir -p $PKG/usr/local
+	mv $name $PKG/usr/local
+	rm -rf $PKG/usr/local/$name/{ToDo,Release*}
+	rm -rf $PKG/usr/local/$name/{doc,www}
+        chown -R root:root $PKG
+}

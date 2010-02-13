@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Gtk language binding for Erlang with Glade/Gnome support
+# URL: http://erlgtk.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, gtk
+
+name=erlgtk
+version=0.9.7
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p0< $SRC/$name-$version.patch
+
+	(cd config; autoconf; 
+         ./configure --prefix=$PKG/usr/lib/erlang/lib --without-gnome)
+
+	make
+	make install
+
+	chown -R root:root $PKG
+}

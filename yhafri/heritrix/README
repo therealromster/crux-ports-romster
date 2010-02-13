@@ -1,0 +1,15 @@
+NOTES:
+
+		* After the installation, Heritrix jobs directory
+		 points to:
+		/tmp/heritrix/jobs
+
+		You can modify this behaviour in:
+		/usr/lib/heritrix-$VERSION/conf/heritrix.properties
+
+		* To start Heritrix, have a look on the start script:
+		/etc/rc.d/heritrix
+
+		* If you are behind a proxy, change the parameters, 
+		"http-proxy-host" and "http-proxy-port" in the config file:
+		/usr/lib/heritrix-$VERSION/conf/profiles/Simple/order.xml

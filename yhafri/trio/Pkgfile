@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Portable and complete scanf and printf implementation
+# URL: http://daniel.haxx.se/projects/trio/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=trio
+version=1.11
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/ctrio/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{lib,include}
+
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+	mv *.h $PKG/usr/include
+
+        chown -R root:root $PKG
+}

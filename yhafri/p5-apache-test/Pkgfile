@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Test.pm wrapper with helpers for testing Apache 
+# URL: http://search.cpan.org/~stas/Apache-Test-1.23/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-apache-test
+version=1.29
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/P/PG/PGOLLUCCI/Apache-Test-$version.tar.gz)
+
+build () {
+	cd Apache-Test-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

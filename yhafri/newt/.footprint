@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/whiptail
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/newt.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libnewt.a
+lrwxrwxrwx	root/root	usr/lib/libnewt.so -> libnewt.so.0.52.1
+-rwxr-xr-x	root/root	usr/lib/libnewt.so.0.52.1
+drwxr-xr-x	root/root	usr/lib/python2.4/
+drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/
+-rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/_snackmodule.so
+-rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/snack.py
+-rwxr-xr-x	root/root	usr/lib/whiptcl.so

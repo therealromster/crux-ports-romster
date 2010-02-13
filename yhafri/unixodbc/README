@@ -1,0 +1,18 @@
+INFO:
+
+                * Don't forget to have a database (MySQL, PostgreSQL, msql...)
+                 installed to use this API
+
+
+POST-INSTALL:
+
+		* Create the environment variable LTDL_LIBRARY_PATH:
+		export LTDL_LIBRARY_PATH=/usr/lib
+
+		* Copy the example files "odbcinst.ini" and "odbc.ini" in
+		the "/etc" directory and create their corresponding links.
+		# cp odbc*.ini /etc
+		# ln -sf /etc/odbcinst.ini /usr/etc
+		# ln -sf /etc/odbc.ini     /usr/etc
+		
+

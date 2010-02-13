@@ -1,0 +1,2755 @@
+diff -NBbwur linux-2.6.6/arch/i386/kernel/entry.S linux-2.6.6-aem-15r9/arch/i386/kernel/entry.S
+--- linux-2.6.6/arch/i386/kernel/entry.S	Sun May  9 22:32:26 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/entry.S	Mon May 17 10:50:04 2004
+@@ -205,9 +205,17 @@
+ 	testl $(VM_MASK | 3), %eax
+ 	jz resume_kernel		# returning to kernel or vm86-space
+ ENTRY(resume_userspace)
++	call do_event
+  	cli				# make sure we don't miss an interrupt
+ 					# setting need_resched or sigpending
+ 					# between sampling and the iret
++ 	pushl %eax
++  	movl (%ebp), %eax
++  	addl keep_alive, %eax
++  	cmpl $0,(%eax)
++  	popl %eax
++  	jne restore_all
++
+ 	movl TI_FLAGS(%ebp), %ecx
+ 	andl $_TIF_WORK_MASK, %ecx	# is there any work to be done on
+ 					# int/exception return?
+@@ -299,6 +307,9 @@
+ 	movl TI_FLAGS(%ebp), %ecx
+ 	testw $_TIF_ALLWORK_MASK, %cx	# current->work
+ 	jne syscall_exit_work
++	sti
++	call do_event
++	cli
+ restore_all:
+ 	RESTORE_ALL
+ 
+@@ -891,5 +902,11 @@
+ 	.long sys_mq_timedreceive	/* 280 */
+ 	.long sys_mq_notify
+ 	.long sys_mq_getsetattr
++    	.long sys_aem_evctl           
++   	.long sys_aem_entry
++    	.long sys_aem_evreturn          /* 285 */
++    	.long sys_aem_evshutdn	
++    	.long sys_aem_evkeepalive
++
+ 
+ syscall_table_size=(.-sys_call_table)
+diff -NBbwur linux-2.6.6/arch/i386/kernel/i386_ksyms.c linux-2.6.6-aem-15r9/arch/i386/kernel/i386_ksyms.c
+--- linux-2.6.6/arch/i386/kernel/i386_ksyms.c	Sun May  9 22:33:21 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/i386_ksyms.c	Mon May 17 10:50:04 2004
+@@ -34,6 +34,8 @@
+ #include <asm/nmi.h>
+ #include <asm/ist.h>
+ 
++decl_asm_symbol (keep_alive);
++
+ extern void dump_thread(struct pt_regs *, struct user *);
+ extern spinlock_t rtc_lock;
+ 
+diff -NBbwur linux-2.6.6/arch/i386/kernel/i387.c linux-2.6.6-aem-15r9/arch/i386/kernel/i387.c
+--- linux-2.6.6/arch/i386/kernel/i387.c	Sun May  9 22:33:21 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/i387.c	Mon May 17 10:50:04 2004
+@@ -560,3 +560,7 @@
+ 	}
+ 	return fpvalid;
+ }
++
++#include <linux/module.h>
++EXPORT_SYMBOL(save_i387);
++EXPORT_SYMBOL(restore_i387);
+diff -NBbwur linux-2.6.6/arch/i386/kernel/init_task.c linux-2.6.6-aem-15r9/arch/i386/kernel/init_task.c
+--- linux-2.6.6/arch/i386/kernel/init_task.c	Sun May  9 22:33:20 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/init_task.c	Mon May 17 10:50:04 2004
+@@ -36,6 +36,7 @@
+ struct task_struct init_task = INIT_TASK(init_task);
+ 
+ EXPORT_SYMBOL(init_task);
++EXPORT_SYMBOL(init_thread_union);
+ 
+ /*
+  * per-CPU TSS segments. Threads are completely 'soft' on Linux,
+diff -NBbwur linux-2.6.6/arch/i386/kernel/process.c linux-2.6.6-aem-15r9/arch/i386/kernel/process.c
+--- linux-2.6.6/arch/i386/kernel/process.c	Sun May  9 22:31:54 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/process.c	Mon May 17 10:50:04 2004
+@@ -779,3 +779,6 @@
+ 	return 0;
+ }
+ 
++#include <linux/module.h>
++EXPORT_SYMBOL(copy_thread);
++EXPORT_SYMBOL(prepare_to_copy);
+diff -NBbwur linux-2.6.6/arch/i386/kernel/signal.c linux-2.6.6-aem-15r9/arch/i386/kernel/signal.c
+--- linux-2.6.6/arch/i386/kernel/signal.c	Sun May  9 22:32:29 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/signal.c	Mon May 17 10:50:04 2004
+@@ -219,6 +219,7 @@
+ 	
+ 	if (restore_sigcontext(regs, &frame->sc, &eax))
+ 		goto badframe;
++	atomic_dec (&current->execlvl);
+ 	return eax;
+ 
+ badframe:
+@@ -259,6 +260,7 @@
+ 	 */
+ 	do_sigaltstack(&st, NULL, regs->esp);
+ 
++	atomic_dec (&current->execlvl);
+ 	return eax;
+ 
+ badframe:
+@@ -588,6 +590,7 @@
+ 		__asm__("movl %0,%%db7"	: : "r" (current->thread.debugreg[7]));
+ 
+ 		/* Whee!  Actually deliver the signal.  */
++ 		atomic_inc (&current->execlvl);
+ 		handle_signal(signr, &info, oldset, regs);
+ 		return 1;
+ 	}
+diff -NBbwur linux-2.6.6/arch/i386/kernel/smp.c linux-2.6.6-aem-15r9/arch/i386/kernel/smp.c
+--- linux-2.6.6/arch/i386/kernel/smp.c	Sun May  9 22:32:00 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/smp.c	Mon May 17 10:50:04 2004
+@@ -607,3 +607,5 @@
+ 	}
+ }
+ 
++#include <linux/module.h>
++EXPORT_SYMBOL(flush_tlb_mm);
+diff -NBbwur linux-2.6.6/arch/i386/kernel/timers/timer_tsc.c linux-2.6.6-aem-15r9/arch/i386/kernel/timers/timer_tsc.c
+--- linux-2.6.6/arch/i386/kernel/timers/timer_tsc.c	Sun May  9 22:32:53 2004
++++ linux-2.6.6-aem-15r9/arch/i386/kernel/timers/timer_tsc.c	Mon May 17 10:50:04 2004
+@@ -515,3 +515,5 @@
+ 	.monotonic_clock =	monotonic_clock_tsc,
+ 	.delay = delay_tsc,
+ };
++
++EXPORT_SYMBOL(sched_clock);
+diff -NBbwur linux-2.6.6/fs/binfmt_aout.c linux-2.6.6-aem-15r9/fs/binfmt_aout.c
+--- linux-2.6.6/fs/binfmt_aout.c	Sun May  9 22:32:02 2004
++++ linux-2.6.6-aem-15r9/fs/binfmt_aout.c	Mon May 17 10:50:04 2004
+@@ -34,6 +34,7 @@
+ static int load_aout_library(struct file*);
+ static int aout_core_dump(long signr, struct pt_regs * regs, struct file *file);
+ 
++extern void task_opt_init (struct task_struct *);
+ extern void dump_thread(struct pt_regs *, struct user *);
+ 
+ static struct linux_binfmt aout_format = {
+@@ -309,6 +310,8 @@
+ 		(current->mm->start_brk = N_BSSADDR(ex));
+ 	current->mm->free_area_cache = TASK_UNMAPPED_BASE;
+ 
++	task_opt_init (current);
++
+ 	current->mm->rss = 0;
+ 	current->mm->mmap = NULL;
+ 	compute_creds(bprm);
+diff -NBbwur linux-2.6.6/fs/binfmt_elf.c linux-2.6.6-aem-15r9/fs/binfmt_elf.c
+--- linux-2.6.6/fs/binfmt_elf.c	Sun May  9 22:32:29 2004
++++ linux-2.6.6-aem-15r9/fs/binfmt_elf.c	Wed May 19 14:24:13 2004
+@@ -49,6 +49,8 @@
+ static unsigned long elf_map (struct file *, unsigned long, struct elf_phdr *, int, int);
+ extern int dump_fpu (struct pt_regs *, elf_fpregset_t *);
+ 
++extern void task_opt_init (struct task_struct *);
++
+ #ifndef elf_addr_t
+ #define elf_addr_t unsigned long
+ #endif
+@@ -682,6 +684,8 @@
+ 		files = NULL;
+ 	}
+ 
++ 	task_opt_init (current);
++
+ 	/* OK, This is the point of no return */
+ 	current->mm->start_data = 0;
+ 	current->mm->end_data = 0;
+diff -NBbwur linux-2.6.6/fs/exec.c linux-2.6.6-aem-15r9/fs/exec.c
+--- linux-2.6.6/fs/exec.c	Sun May  9 22:32:28 2004
++++ linux-2.6.6-aem-15r9/fs/exec.c	Mon May 17 10:50:04 2004
+@@ -1407,3 +1407,5 @@
+ 	unlock_kernel();
+ 	return retval;
+ }
++
++EXPORT_SYMBOL(put_dirty_page);
+diff -NBbwur linux-2.6.6/fs/file_table.c linux-2.6.6-aem-15r9/fs/file_table.c
+--- linux-2.6.6/fs/file_table.c	Sun May  9 22:31:59 2004
++++ linux-2.6.6-aem-15r9/fs/file_table.c	Mon May 17 10:50:04 2004
+@@ -63,7 +63,7 @@
+  * Returns NULL, if there are no more free file structures or
+  * we run out of memory.
+  */
+-struct file *get_empty_filp(void)
++struct file * get_empty_filp_task (struct task_struct *task)
+ {
+ static int old_max;
+ 	struct file * f;
+@@ -82,8 +82,8 @@
+ 			}
+ 			eventpoll_init_file(f);
+ 			atomic_set(&f->f_count, 1);
+-			f->f_uid = current->fsuid;
+-			f->f_gid = current->fsgid;
++			f->f_uid = task->fsuid;
++			f->f_gid = task->fsgid;
+ 			f->f_owner.lock = RW_LOCK_UNLOCKED;
+ 			/* f->f_version: 0 */
+ 			INIT_LIST_HEAD(&f->f_list);
+@@ -106,6 +106,11 @@
+ 
+ EXPORT_SYMBOL(get_empty_filp);
+ 
++struct file * get_empty_filp(void)
++{
++	return get_empty_filp_task (current);
++}
++	
+ /*
+  * Clear and initialize a (private) struct file for the given dentry,
+  * allocate the security structure, and call the open function (if any).  
+diff -NBbwur linux-2.6.6/fs/inode.c linux-2.6.6-aem-15r9/fs/inode.c
+--- linux-2.6.6/fs/inode.c	Sun May  9 22:33:21 2004
++++ linux-2.6.6-aem-15r9/fs/inode.c	Tue Jun  1 10:31:02 2004
+@@ -135,6 +135,16 @@
+ 		inode->i_rdev = 0;
+ 		inode->i_security = NULL;
+ 		inode->dirtied_when = 0;
++ 		wq_job_head_init(&inode->i_async.i_in);
++ 		wq_job_head_init(&inode->i_async.i_out);
++ 		wq_job_head_init(&inode->i_async.i_hup);
++ 		wq_job_head_init(&inode->i_async.i_open);
++ 		wq_job_head_init(&inode->i_async.i_owner);
++ 		wq_job_head_init(&inode->i_async.i_mode);
++ 		wq_job_head_init(&inode->i_async.i_lock);
++ 		wq_job_head_init(&inode->i_async.i_create);
++ 		wq_job_head_init(&inode->i_async.i_remove);
++ 		wq_job_head_init(&inode->i_async.i_rename);
+ 		if (security_inode_alloc(inode)) {
+ 			if (inode->i_sb->s_op->destroy_inode)
+ 				inode->i_sb->s_op->destroy_inode(inode);
+@@ -180,6 +190,16 @@
+ 	INIT_HLIST_NODE(&inode->i_hash);
+ 	INIT_LIST_HEAD(&inode->i_dentry);
+ 	INIT_LIST_HEAD(&inode->i_devices);
++	wq_job_head_init(&inode->i_async.i_in);
++	wq_job_head_init(&inode->i_async.i_out);
++	wq_job_head_init(&inode->i_async.i_hup);
++	wq_job_head_init(&inode->i_async.i_open);
++	wq_job_head_init(&inode->i_async.i_owner);
++	wq_job_head_init(&inode->i_async.i_mode);
++	wq_job_head_init(&inode->i_async.i_lock);
++	wq_job_head_init(&inode->i_async.i_create);
++	wq_job_head_init(&inode->i_async.i_remove);
++	wq_job_head_init(&inode->i_async.i_rename);
+ 	sema_init(&inode->i_sem, 1);
+ 	init_rwsem(&inode->i_alloc_sem);
+ 	INIT_RADIX_TREE(&inode->i_data.page_tree, GFP_ATOMIC);
+diff -NBbwur linux-2.6.6/fs/locks.c linux-2.6.6-aem-15r9/fs/locks.c
+--- linux-2.6.6/fs/locks.c	Sun May  9 22:33:20 2004
++++ linux-2.6.6-aem-15r9/fs/locks.c	Fri May 28 09:59:02 2004
+@@ -134,6 +134,8 @@
+ int leases_enable = 1;
+ int lease_break_time = 45;
+ 
++extern void fdevents_wake_up (struct dentry *, struct dentry *, int, int);
++
+ #define for_each_lock(inode, lockp) \
+ 	for (lockp = &inode->i_flock; *lockp != NULL; lockp = &(*lockp)->fl_next)
+ 
+@@ -685,8 +687,10 @@
+ 	}
+ 	unlock_kernel();
+ 
+-	if (new_fl->fl_type == F_UNLCK)
++	if (new_fl->fl_type == F_UNLCK) {
++		fdevents_wake_up (filp->f_dentry, NULL, current->pid, B_LOCK);
+ 		return 0;
++	}
+ 
+ 	/*
+ 	 * If a higher-priority process was blocked on the old file lock,
+@@ -712,6 +716,7 @@
+ 	}
+ 	locks_insert_lock(&inode->i_flock, new_fl);
+ 	error = 0;
++	fdevents_wake_up (filp->f_dentry, NULL, current->pid, B_LOCK);
+ 
+ out:
+ 	unlock_kernel();
+diff -NBbwur linux-2.6.6/fs/namei.c linux-2.6.6-aem-15r9/fs/namei.c
+--- linux-2.6.6/fs/namei.c	Sun May  9 22:32:27 2004
++++ linux-2.6.6-aem-15r9/fs/namei.c	Wed Jun  2 12:42:47 2004
+@@ -30,8 +30,12 @@
+ #include <asm/namei.h>
+ #include <asm/uaccess.h>
+ 
++#include <asm/job.h>
++
+ #define ACC_MODE(x) ("\000\004\002\006"[(x)&O_ACCMODE])
+ 
++extern void fdevents_wake_up (struct dentry *, struct dentry *, int, int);
++
+ /* [Feb-1997 T. Schoebel-Theuer]
+  * Fundamental changes in the pathname lookup mechanisms (namei)
+  * were necessary because of omirr.  The reason is that omirr needs
+@@ -1157,6 +1161,7 @@
+ 	DQUOT_INIT(dir);
+ 	error = dir->i_op->create(dir, dentry, mode, nd);
+ 	if (!error) {
++		fdevents_wake_up (dentry->d_parent, dentry, current->pid, B_CREATE);
+ 		inode_dir_notify(dir, DN_CREATE);
+ 		security_inode_post_create(dir, dentry, mode);
+ 	}
+@@ -1458,6 +1463,7 @@
+ 	DQUOT_INIT(dir);
+ 	error = dir->i_op->mknod(dir, dentry, mode, dev);
+ 	if (!error) {
++		fdevents_wake_up (dentry->d_parent, dentry, current->pid, B_CREATE);
+ 		inode_dir_notify(dir, DN_CREATE);
+ 		security_inode_post_mknod(dir, dentry, mode, dev);
+ 	}
+@@ -1531,6 +1537,7 @@
+ 	DQUOT_INIT(dir);
+ 	error = dir->i_op->mkdir(dir, dentry, mode);
+ 	if (!error) {
++		fdevents_wake_up (dentry->d_parent, dentry, current->pid, B_CREATE);
+ 		inode_dir_notify(dir, DN_CREATE);
+ 		security_inode_post_mkdir(dir,dentry, mode);
+ 	}
+@@ -1626,6 +1633,7 @@
+ 	}
+ 	up(&dentry->d_inode->i_sem);
+ 	if (!error) {
++		fdevents_wake_up (dentry, NULL, current->pid, B_REMOVE);
+ 		inode_dir_notify(dir, DN_DELETE);
+ 		d_delete(dentry);
+ 	}
+@@ -1699,6 +1707,7 @@
+ 
+ 	/* We don't d_delete() NFS sillyrenamed files--they still exist. */
+ 	if (!error && !(dentry->d_flags & DCACHE_NFSFS_RENAMED)) {
++		fdevents_wake_up (dentry, NULL, current->pid, B_REMOVE);
+ 		d_delete(dentry);
+ 		inode_dir_notify(dir, DN_DELETE);
+ 	}
+@@ -1776,6 +1785,7 @@
+ 	DQUOT_INIT(dir);
+ 	error = dir->i_op->symlink(dir, dentry, oldname);
+ 	if (!error) {
++		fdevents_wake_up (dentry->d_parent, dentry, current->pid, B_CREATE);
+ 		inode_dir_notify(dir, DN_CREATE);
+ 		security_inode_post_symlink(dir, dentry, oldname);
+ 	}
+@@ -1849,6 +1859,7 @@
+ 	error = dir->i_op->link(old_dentry, dir, new_dentry);
+ 	up(&old_dentry->d_inode->i_sem);
+ 	if (!error) {
++		fdevents_wake_up (new_dentry->d_parent, new_dentry, current->pid, B_CREATE);
+ 		inode_dir_notify(dir, DN_CREATE);
+ 		security_inode_post_link(old_dentry, dir, new_dentry);
+ 	}
+@@ -2039,6 +2050,7 @@
+ 	else
+ 		error = vfs_rename_other(old_dir,old_dentry,new_dir,new_dentry);
+ 	if (!error) {
++		fdevents_wake_up (old_dentry->d_parent, old_dentry, current->pid, B_RENAME);
+ 		if (old_dir == new_dir)
+ 			inode_dir_notify(old_dir, DN_RENAME);
+ 		else {
+diff -NBbwur linux-2.6.6/fs/open.c linux-2.6.6-aem-15r9/fs/open.c
+--- linux-2.6.6/fs/open.c	Sun May  9 22:31:59 2004
++++ linux-2.6.6-aem-15r9/fs/open.c	Fri May 28 16:02:40 2004
+@@ -23,6 +23,8 @@
+ #include <linux/fs.h>
+ #include <linux/pagemap.h>
+ 
++extern void fdevents_wake_up (struct dentry *, struct dentry *, int, int);
++
+ int vfs_statfs(struct super_block *sb, struct kstatfs *buf)
+ {
+ 	int retval = -ENODEV;
+@@ -617,6 +619,8 @@
+ 	newattrs.ia_mode = (mode & S_IALLUGO) | (inode->i_mode & ~S_IALLUGO);
+ 	newattrs.ia_valid = ATTR_MODE | ATTR_CTIME;
+ 	err = notify_change(dentry, &newattrs);
++	if (!err)
++		fdevents_wake_up (dentry, NULL, current->pid, B_MODE);
+ 	up(&inode->i_sem);
+ 
+ out_putf:
+@@ -651,6 +655,8 @@
+ 	newattrs.ia_mode = (mode & S_IALLUGO) | (inode->i_mode & ~S_IALLUGO);
+ 	newattrs.ia_valid = ATTR_MODE | ATTR_CTIME;
+ 	error = notify_change(nd.dentry, &newattrs);
++	if (!error)
++		fdevents_wake_up (nd.dentry, NULL, current->pid, B_MODE);
+ 	up(&inode->i_sem);
+ 
+ dput_and_out:
+@@ -689,6 +695,8 @@
+ 		newattrs.ia_valid |= ATTR_KILL_SUID|ATTR_KILL_SGID;
+ 	down(&inode->i_sem);
+ 	error = notify_change(dentry, &newattrs);
++	if (!error)
++		fdevents_wake_up (dentry, NULL, current->pid, B_OWNER);
+ 	up(&inode->i_sem);
+ out:
+ 	return error;
+@@ -833,9 +841,9 @@
+ /*
+  * Find an empty file descriptor entry, and mark it busy.
+  */
+-int get_unused_fd(void)
++int get_unused_fd_task (struct task_struct *task)
+ {
+-	struct files_struct * files = current->files;
++	struct files_struct * files = task->files;
+ 	int fd, error;
+ 
+   	error = -EMFILE;
+@@ -894,6 +902,11 @@
+ 
+ EXPORT_SYMBOL(get_unused_fd);
+ 
++int get_unused_fd (void)
++{
++	return get_unused_fd_task (current);
++}
++
+ static inline void __put_unused_fd(struct files_struct *files, unsigned int fd)
+ {
+ 	__FD_CLR(fd, files->open_fds);
+@@ -901,14 +914,19 @@
+ 		files->next_fd = fd;
+ }
+ 
+-void fastcall put_unused_fd(unsigned int fd)
++void fastcall put_unused_fd_task(struct task_struct *task, unsigned int fd)
+ {
+-	struct files_struct *files = current->files;
++	struct files_struct *files = task->files;
+ 	spin_lock(&files->file_lock);
+ 	__put_unused_fd(files, fd);
+ 	spin_unlock(&files->file_lock);
+ }
+ 
++void fastcall put_unused_fd(unsigned int fd)
++{
++	put_unused_fd_task (current, fd);
++}
++
+ EXPORT_SYMBOL(put_unused_fd);
+ 
+ /*
+@@ -924,9 +942,9 @@
+  * will follow.
+  */
+ 
+-void fastcall fd_install(unsigned int fd, struct file * file)
++void fd_install_task (struct task_struct *task, unsigned int fd, struct file * file)
+ {
+-	struct files_struct *files = current->files;
++	struct files_struct *files = task->files;
+ 	spin_lock(&files->file_lock);
+ 	if (unlikely(files->fd[fd] != NULL))
+ 		BUG();
+@@ -936,6 +954,11 @@
+ 
+ EXPORT_SYMBOL(fd_install);
+ 
++void fastcall fd_install (unsigned int fd, struct file * file)
++{
++	fd_install_task (current, fd, file);
++}
++
+ asmlinkage long sys_open(const char __user * filename, int flags, int mode)
+ {
+ 	char * tmp;
+@@ -953,6 +976,7 @@
+ 			error = PTR_ERR(f);
+ 			if (IS_ERR(f))
+ 				goto out_error;
++			fdevents_wake_up (f->f_dentry, NULL, current->pid, B_OPEN);
+ 			fd_install(fd, f);
+ 		}
+ out:
+@@ -1004,6 +1028,7 @@
+ 			retval = err;
+ 	}
+ 
++	fdevents_wake_up (filp->f_dentry, NULL, current->pid, B_HUP);
+ 	dnotify_flush(filp, id);
+ 	locks_remove_posix(filp, id);
+ 	fput(filp);
+diff -NBbwur linux-2.6.6/fs/read_write.c linux-2.6.6-aem-15r9/fs/read_write.c
+--- linux-2.6.6/fs/read_write.c	Sun May  9 22:32:52 2004
++++ linux-2.6.6-aem-15r9/fs/read_write.c	Tue Jun  1 10:40:25 2004
+@@ -12,8 +12,10 @@
+ #include <linux/smp_lock.h>
+ #include <linux/dnotify.h>
+ #include <linux/security.h>
++#include <linux/namei.h>
+ #include <linux/module.h>
+ 
++#include <asm/job.h>
+ #include <asm/uaccess.h>
+ 
+ struct file_operations generic_ro_fops = {
+@@ -25,6 +27,148 @@
+ 
+ EXPORT_SYMBOL(generic_ro_fops);
+ 
++static __inline__ char *build_posix_pathname (struct dentry *de, char *path)
++{ 
++	int pos=PATH_MAX - 1;
++	
++	if (!path)
++		return NULL;
++
++	path[pos] = '\0';
++	pos -= (de->d_name.len);
++	strncpy (path+pos, de->d_name.name, de->d_name.len);
++
++	while (de != de->d_parent && pos>=0) {
++		dget (de->d_parent);
++		de = de->d_parent;
++		if (*(de->d_name.name) == '/') {
++			dput (de);
++			break;
++		}
++		if (--pos <= 0) {
++			dput (de);
++			break;
++		}
++		path[pos] = '/';
++		pos -= (de->d_name.len);
++		if (pos < 0) {
++			dput (de);
++			break;
++		}
++		strncpy (path+pos, de->d_name.name, de->d_name.len);
++		dput (de);
++	}
++
++	if (--pos < 0)
++		return NULL;
++	
++	path[pos] = '/';
++
++	return path+pos;
++}
++
++static __inline__ char *clone_posix_pathname (char *path)
++{
++	int len;
++	char *newpath;
++	
++	if (!path)
++		return NULL;
++
++	len = strlen (path);
++	newpath = kmalloc ((len+1) * sizeof (char ), GFP_KERNEL);
++	if (!newpath)
++		return NULL;
++	strncpy (newpath, path, len);
++	newpath[len] = '\0';
++
++	return newpath;
++}
++
++void fdevents_wake_up (struct dentry *dqueue, struct dentry *dname, int pid, int band)
++{
++	wq_job_head_t *wq = NULL;
++	struct list_head *curr;
++	unsigned long f;
++
++	if (!dqueue) 
++		return;
++	
++	if (!dqueue->d_inode)
++		return;
++
++	if (!dname)
++		dname = dqueue;
++
++	switch (band) {
++	case B_IN:
++		wq = &dqueue->d_inode->i_async.i_in;
++		break;
++	case B_OUT:
++		wq = &dqueue->d_inode->i_async.i_out;
++		break;
++	case B_HUP:
++		wq = &dqueue->d_inode->i_async.i_hup;
++		break;
++	case B_OPEN:
++		wq = &dqueue->d_inode->i_async.i_open;
++		break;
++	case B_OWNER:
++		wq = &dqueue->d_inode->i_async.i_owner;
++		break;
++	case B_MODE:
++		wq = &dqueue->d_inode->i_async.i_mode;
++		break;
++	case B_LOCK:
++		wq = &dqueue->d_inode->i_async.i_lock;
++		break;
++	case B_CREATE:
++		wq = &dqueue->d_inode->i_async.i_create;
++		break;
++	case B_REMOVE:
++		wq = &dqueue->d_inode->i_async.i_remove;
++		break;
++	case B_RENAME:
++		wq = &dqueue->d_inode->i_async.i_rename;
++		break;
++	default:
++		printk ("fdevents_wake_up: invalid band value %d\n", band);
++		return;
++	}
++	
++	write_lock_irqsave (&wq->lock, f);
++	if (!wq_empty (wq)) {
++		char buff[PATH_MAX];
++		char *pname;
++
++		pname = build_posix_pathname (dname, buff);
++
++		list_for_each (curr, &wq->list) {
++			struct job_struct *st_job = list_entry (curr, struct job_struct, wq);
++			struct job_args *jargs;
++			struct fdevents_struct *data;
++
++			if (!st_job)
++				continue;
++
++			jargs = (struct job_args *)st_job->job.data;
++			data  = (struct fdevents_struct *)jargs->data;
++
++			/* we keep the name of the file/dir */
++			data->name = clone_posix_pathname (pname);
++
++			/* we keep info on who did it */
++			data->pid = pid;
++
++			simple_wlock_job (st_job);
++			__job_activate (st_job);
++			simple_wunlock_job (st_job);
++         	}
++	}
++
++	write_unlock_irqrestore (&wq->lock, f);
++}
++
+ loff_t generic_file_llseek(struct file *file, loff_t offset, int origin)
+ {
+ 	long long retval;
+@@ -214,10 +358,12 @@
+ 				ret = file->f_op->read(file, buf, count, pos);
+ 			else
+ 				ret = do_sync_read(file, buf, count, pos);
+-			if (ret > 0)
++			if (ret > 0) {
++				fdevents_wake_up (file->f_dentry, NULL, current->pid, B_IN);
+ 				dnotify_parent(file->f_dentry, DN_ACCESS);
+ 		}
+ 	}
++	}
+ 
+ 	return ret;
+ }
+@@ -258,10 +404,12 @@
+ 				ret = file->f_op->write(file, buf, count, pos);
+ 			else
+ 				ret = do_sync_write(file, buf, count, pos);
+-			if (ret > 0)
++			if (ret > 0) {
++				fdevents_wake_up (file->f_dentry, NULL, current->pid, B_OUT);
+ 				dnotify_parent(file->f_dentry, DN_MODIFY);
+ 		}
+ 	}
++	}
+ 
+ 	return ret;
+ }
+@@ -473,9 +621,19 @@
+ out:
+ 	if (iov != iovstack)
+ 		kfree(iov);
+-	if ((ret + (type == READ)) > 0)
++	if ((ret + (type == READ)) > 0) {
+ 		dnotify_parent(file->f_dentry,
+ 				(type == READ) ? DN_ACCESS : DN_MODIFY);
++		switch (type) {
++		case READ:
++			fdevents_wake_up (file->f_dentry, NULL, current->pid, B_IN);
++			break;
++		case WRITE:
++			fdevents_wake_up (file->f_dentry, NULL, current->pid, B_OUT);
++			break;
++		}
++	}
++
+ 	return ret;
+ }
+ 
+diff -NBbwur linux-2.6.6/include/asm-i386/events.h linux-2.6.6-aem-15r9/include/asm-i386/events.h
+--- linux-2.6.6/include/asm-i386/events.h	Wed Dec 31 19:00:00 1969
++++ linux-2.6.6-aem-15r9/include/asm-i386/events.h	Mon May 17 10:50:04 2004
+@@ -0,0 +1,107 @@
++/* ------------------------------------------------------------------------
++ *
++ * file: include/asm/events.h
++ *
++ * Short description:
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Copyright (C) 2001, 2002, 2003 by
++ *  Ericsson Research Canada
++ *  8400 Decarie Blvd
++ *  Town of Mount Royal
++ *  Quebec H4P 2N2
++ *  Tel:  +1 514 345 7900
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *   
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *  
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Created 2001/10/21 12:46:41 by lmcfros (Frederic.Rossi@Ericsson.CA)
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  $Id: linux-2.6.6-aem-15r9.patch,v 1.1 2004/06/21 13:20:19 fjrossi Exp $
++ *
++ *  Revision history:
++ *  ----------------
++ *
++ *  * 2001/10/21 - 2002/09/19        Frederic.Rossi@Ericsson.CA
++ *    Initial Revision
++ *
++ * ------------------------------------------------------------------------
++*/
++
++#ifndef _ASMi_EVENTS_H_
++#define _ASMi_EVENTS_H_
++
++#include <asm/ptrace.h>
++
++struct context_struct {
++	struct _fpstate *fpstate;
++	unsigned long cr2;
++	unsigned long eflags;
++	unsigned long trapno;
++	unsigned long err;
++	unsigned short gs;
++	unsigned short fs;
++	unsigned long eax;
++	void *ev;
++	struct pt_regs regs;
++};
++
++struct frame_struct
++{
++	char *bfp;
++	struct context_struct ctxt;
++	struct _fpstate fpstate;
++	char bf[8];
++};
++
++#include <linux/job.h>
++
++struct event_struct 
++{
++	jid_t jid;
++
++	int limit;
++
++	struct pt_regs *regs;
++
++	struct task_struct *root;  /* task we belong to */
++
++	unsigned long hasync; /* job handler */
++
++	struct job_args *jargs; /* arguments for this job + constructor/destructor */
++	unsigned long (*ja_cons)(struct job_args **, struct job_args *, void *);
++	unsigned long (*ja_dest)(struct event_struct *, struct job_struct *);
++
++	void *hargs;   /* arguments for this job's handler + constructor/destructor */
++	unsigned long (*ha_cons)(struct task_struct *, struct event_struct *, struct frame_struct *);
++	unsigned long (*ha_dest)(struct event_struct *);
++
++	spinlock_t lock;
++
++	atomic_t reactivate;      /* internal only to prevent race condition       */
++	atomic_t running;         /* 0: not executing - i.e used for event removal */
++
++	struct list_head sptr;    /* siblings */
++	struct list_head cptr;    /* child    */
++	struct list_head dptr;    /* direct child for cloner */
++	struct list_head active;  /* active list of events */
++};
++
++#endif /* #ifndef _ASMi_EVENTS_H_ */
++
+diff -NBbwur linux-2.6.6/include/asm-i386/job.h linux-2.6.6-aem-15r9/include/asm-i386/job.h
+--- linux-2.6.6/include/asm-i386/job.h	Wed Dec 31 19:00:00 1969
++++ linux-2.6.6-aem-15r9/include/asm-i386/job.h	Tue May 18 18:30:25 2004
+@@ -0,0 +1,136 @@
++/* ------------------------------------------------------------------------
++ *
++ * file: include/asm/job.h
++ *
++ * Short description:
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Copyright (C) 2001, 2002, 2003 by
++ *  Ericsson Research Canada
++ *  8400 Decarie Blvd
++ *  Town of Mount Royal
++ *  Quebec H4P 2N2
++ *  Tel:  +1 514 345 7900
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *   
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *  
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Created 2001/08/10 17:26:06 by lmcfros (Frederic.Rossi@Ericsson.CA)
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  $Id: linux-2.6.6-aem-15r9.patch,v 1.1 2004/06/21 13:20:19 fjrossi Exp $
++ *
++ *  Revision history:
++ *  ----------------
++ *
++ *  * 2001/08/10 - 2002/09/16        Frederic.Rossi@Ericsson.CA
++ *    Initial Revision
++ *
++ *
++ * ------------------------------------------------------------------------
++*/
++
++#ifndef _ASM_JOB_H_
++#define _ASM_JOB_H_
++
++/*
++ * This file should belong to <linux/job.h> but has been split
++ * dut to an SMP chicken and egg compilation issue (caused by the 
++ * tasklet definition precedence in interrupt.h)
++ */ 
++
++#include <linux/init.h>
++#include <linux/list.h>
++#include <asm/system.h>
++#include <linux/interrupt.h>
++
++struct job_args {
++	struct task_struct *task;
++	void *ev;
++	unsigned long flags;
++
++	void *data;
++};
++
++struct job_struct {
++	struct list_head list;
++	struct list_head dlist;
++	struct list_head hash;
++	struct list_head wq;
++
++	struct tasklet_struct job;
++	struct job_struct *this;
++
++	unsigned long timeout;
++
++	rwlock_t lock;
++
++	int state;
++	int limit;
++
++	unsigned char shutdown;
++
++	unsigned long overrun;
++	unsigned long ctime;         /* creation time */
++	unsigned long age;
++	unsigned long freq;          /* frequency */
++
++	unsigned long wstate;        /* waiting condition */
++	unsigned char priority;
++
++	struct list_head task_list;
++
++	int id;
++};
++
++/*
++ * add a job to a waitqueue and suspend it.
++ */
++#define job_suspend_interruptible(job,waitq,lck)       \
++do {                                                   \
++    simple_wlock_job (job);                            \
++                                                       \
++    switch ((job)->state) {                            \
++    case JOB_SUSPENDED_NONBLOCK:                       \
++         goto restart;                                 \
++    case JOB_ENABLED:                                  \
++         goto suspend;                                 \
++    default:                                           \
++        simple_wunlock_job (job);                      \
++        return;                                        \
++    }                                                  \
++                                                       \
++suspend:                                               \
++    job->state = JOB_SUSPENDED_NONBLOCK;               \
++                                                       \
++    spin_lock (lck);                                   \
++    wq_add_job ((waitq), (job));                       \
++    spin_unlock (lck);                                 \
++                                                       \
++    simple_wunlock_job (job);                          \
++    return;                                            \
++                                                       \
++restart:                                               \
++    spin_lock (lck);                                   \
++    wq_del_job ((waitq), (job));                       \
++    spin_unlock (lck);                                 \
++                                                       \
++    simple_wunlock_job (job);                          \
++} while (0)
++
++#endif /* #ifndef _ASM_JOB_H_ */
+diff -NBbwur linux-2.6.6/include/asm-i386/task.h linux-2.6.6-aem-15r9/include/asm-i386/task.h
+--- linux-2.6.6/include/asm-i386/task.h	Wed Dec 31 19:00:00 1969
++++ linux-2.6.6-aem-15r9/include/asm-i386/task.h	Mon May 17 10:50:04 2004
+@@ -0,0 +1,10 @@
++#ifndef __ASM_TASK_OPT_H
++#define __ASM_TASK_OPT_H
++
++/* Per task allocator and operators */
++struct task_struct_opt {
++	void *(*alloc)(kmem_cache_t *, int);
++	void  (*free)(kmem_cache_t *, void *);
++};
++
++#endif /* #ifndef __ASM_TASK_OPT_H */
+diff -NBbwur linux-2.6.6/include/asm-i386/unistd.h linux-2.6.6-aem-15r9/include/asm-i386/unistd.h
+--- linux-2.6.6/include/asm-i386/unistd.h	Sun May  9 22:32:52 2004
++++ linux-2.6.6-aem-15r9/include/asm-i386/unistd.h	Mon May 17 10:50:05 2004
+@@ -288,8 +288,13 @@
+ #define __NR_mq_timedreceive	(__NR_mq_open+3)
+ #define __NR_mq_notify		(__NR_mq_open+4)
+ #define __NR_mq_getsetattr	(__NR_mq_open+5)
++#define __NR_aem_evctl          283
++#define __NR_aem_entry          284
++#define __NR_aem_evreturn	285
++#define __NR_aem_evshutdn       286
++#define __NR_aem_evkeepalive    287
+ 
+-#define NR_syscalls 283
++#define NR_syscalls 288
+ 
+ /* user-visible error numbers are in the range -1 - -124: see <asm-i386/errno.h> */
+ 
+diff -NBbwur linux-2.6.6/include/linux/file.h linux-2.6.6-aem-15r9/include/linux/file.h
+--- linux-2.6.6/include/linux/file.h	Sun May  9 22:33:22 2004
++++ linux-2.6.6-aem-15r9/include/linux/file.h	Mon May 17 10:50:05 2004
+@@ -48,6 +48,7 @@
+ extern void put_filp(struct file *);
+ extern int get_unused_fd(void);
+ extern void FASTCALL(put_unused_fd(unsigned int fd));
++extern void FASTCALL(put_unused_fd_task (struct task_struct *, unsigned int fd));
+ struct kmem_cache_s;
+ extern void filp_ctor(void * objp, struct kmem_cache_s *cachep, unsigned long cflags);
+ extern void filp_dtor(void * objp, struct kmem_cache_s *cachep, unsigned long dflags);
+diff -NBbwur linux-2.6.6/include/linux/fs.h linux-2.6.6-aem-15r9/include/linux/fs.h
+--- linux-2.6.6/include/linux/fs.h	Sun May  9 22:32:26 2004
++++ linux-2.6.6-aem-15r9/include/linux/fs.h	Tue Jun 15 16:00:29 2004
+@@ -22,6 +22,8 @@
+ #include <asm/atomic.h>
+ #include <linux/audit.h>
+ 
++#include <linux/job.h>
++
+ struct iovec;
+ struct nameidata;
+ struct pipe_inode_info;
+@@ -405,6 +407,39 @@
+ #define i_size_ordered_init(inode) do { } while (0)
+ #endif
+ 
++/* AEM */
++#define B_IN     0
++#define B_OUT    1
++#define B_HUP    2
++#define B_OPEN   3
++#define B_OWNER  4
++#define B_MODE   5
++#define B_LOCK   6
++#define B_CREATE 7
++#define B_REMOVE 8
++#define B_RENAME 9
++
++struct fdevents_struct {
++	char *name;
++	struct inode *inode;
++	int band;
++	int pid;
++};
++
++struct inode_async {
++	atomic_t                status;
++ 	wq_job_head_t           i_in;      /* read on the inode */
++ 	wq_job_head_t           i_out;     /* write to the inode */
++ 	wq_job_head_t           i_hup;     /* close up the inode */
++ 	wq_job_head_t           i_open;    /* open the inode */
++ 	wq_job_head_t           i_owner;   /* owner changed */
++ 	wq_job_head_t           i_mode;    /* mode changed */
++ 	wq_job_head_t           i_lock;    /* lock changed */
++ 	wq_job_head_t           i_create;  
++ 	wq_job_head_t           i_remove;  
++ 	wq_job_head_t           i_rename;  
++};
++
+ struct inode {
+ 	struct hlist_node	i_hash;
+ 	struct list_head	i_list;
+@@ -453,12 +488,16 @@
+ 	unsigned int		i_flags;
+ 	unsigned char		i_sock;
+ 
++        /* used by AEM */
++	struct inode_async       i_async;
++
+ 	atomic_t		i_writecount;
+ 	void			*i_security;
+ 	__u32			i_generation;
+ 	union {
+ 		void		*generic_ip;
+ 	} u;
++        
+ #ifdef __NEED_I_SIZE_ORDERED
+ 	seqcount_t		i_size_seqcount;
+ #endif
+diff -NBbwur linux-2.6.6/include/linux/init_task.h linux-2.6.6-aem-15r9/include/linux/init_task.h
+--- linux-2.6.6/include/linux/init_task.h	Sun May  9 22:32:00 2004
++++ linux-2.6.6-aem-15r9/include/linux/init_task.h	Mon May 17 10:50:05 2004
+@@ -112,6 +112,16 @@
+ 	.proc_lock	= SPIN_LOCK_UNLOCKED,				\
+ 	.switch_lock	= SPIN_LOCK_UNLOCKED,				\
+ 	.journal_info	= NULL,						\
++        .events         = LIST_HEAD_INIT(tsk.events),                   \
++        .active         = LIST_HEAD_INIT(tsk.active),                   \
++        .cloner         = NULL,                                         \
++        .evlock	        = SPIN_LOCK_UNLOCKED,                           \
++        .execlvl        = ATOMIC_INIT(0),                               \
++        .keep_alive     = 0,                                            \
++        .vmtable        = INIT_TABLE,                                   \
++        .pexit          = {                                             \
++                           .list = LIST_HEAD_INIT(tsk.pexit.list),      \
++                          },                                            \
+ }
+ 
+ 
+diff -NBbwur linux-2.6.6/include/linux/job.h linux-2.6.6-aem-15r9/include/linux/job.h
+--- linux-2.6.6/include/linux/job.h	Wed Dec 31 19:00:00 1969
++++ linux-2.6.6-aem-15r9/include/linux/job.h	Tue May 18 17:59:55 2004
+@@ -0,0 +1,205 @@
++/* ------------------------------------------------------------------------
++ *
++ * file: include/linux/job.h
++ *
++ * Short description:
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Copyright (C) 2001, 2002, 2003 by
++ *  Ericsson Research Canada
++ *  8400 Decarie Blvd
++ *  Town of Mount Royal
++ *  Quebec H4P 2N2
++ *  Tel:  +1 514 345 7900
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *   
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *  
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Created 2001/08/10 17:26:06 by lmcfros (Frederic.Rossi@Ericsson.CA)
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  $Id: linux-2.6.6-aem-15r9.patch,v 1.1 2004/06/21 13:20:19 fjrossi Exp $
++ *
++ *  Revision history:
++ *  ----------------
++ *
++ *  * 2001/08/10 - 2002/09/16        Frederic.Rossi@Ericsson.CA
++ *    Initial Revision
++ *
++ *
++ * ------------------------------------------------------------------------
++*/
++
++#ifndef _JOB_H_
++#define _JOB_H_
++
++#include <linux/init.h>
++#include <asm/atomic.h>
++
++#define wlock_job(j)              do{ write_lock_bh (&(j)->lock); } while (0)
++#define rlock_job(j)              do{ read_lock_bh (&(j)->lock); } while (0)
++#define simple_wlock_job(j)       do{ write_lock (&(j)->lock); } while (0)
++#define simple_rlock_job(j)       do{ read_lock (&(j)->lock); } while (0)
++
++#define wunlock_job(j)            do{ write_unlock_bh (&(j)->lock); } while (0)
++#define runlock_job(j)            do{ read_unlock_bh (&(j)->lock); } while (0)
++#define simple_wunlock_job(j)     do{ write_unlock (&(j)->lock); } while (0)
++#define simple_runlock_job(j)     do{ read_unlock (&(j)->lock); } while (0)
++
++#define local_job_enable()        local_bh_enable()
++#define local_job_disable()       local_bh_disable()
++
++#define runnable(j)          ((atomic_read (&(j)->job.count)>=1)? 0 : 1)
++#define __prepare_to_run(j)  atomic_dec (&(j)->job.count)
++#define __prepare_to_stop(j) atomic_inc (&(j)->job.count)
++#define prepare_to_run(j)    do { local_bh_disable () ; __prepare_to_run (j) ; local_bh_enable (); } while (0)
++#define prepare_to_stop(j)   do { local_bh_disable () ; __prepare_to_stop (j) ; local_bh_enable (); } while (0)
++
++#define __job_limit_inc(j)             \
++do {                                   \
++    if ((j)->limit>JOB_SCHED_NO_SCHED) \
++        (j)->limit++;                  \
++} while (0)
++
++#define __job_limit_dec(j)             \
++do {                                   \
++    if ((j)->limit>JOB_SCHED_NO_SCHED) \
++        (j)->limit--;                  \
++} while (0)
++
++#define __job_desactivate(j)                 \
++do {                                         \
++    if (runnable (j))                        \
++        __prepare_to_stop (j);               \
++} while (0)
++
++#define __do_job_activate(j)                 \
++do {                                         \
++    if (!runnable (j))                       \
++        __prepare_to_run (j);                \
++                                             \
++    __job_limit_dec (j);                     \
++    tasklet_schedule (&(j)->job);            \
++} while (0)
++
++#define __job_activate(j)                    \
++do {                                         \
++    switch ((j)->state) {                    \
++    case JOB_SUSPENDED_NONBLOCK:             \
++        __do_job_activate (j);               \
++        break;                               \
++    case JOB_SUSPENDED_BLOCK:                \
++        __do_job_activate (j);               \
++        break;                               \
++    case JOB_DISABLED:                       \
++        (j)->state = JOB_ENABLED;            \
++    case JOB_ENABLED:                        \
++        __do_job_activate (j);               \
++        break;                               \
++    default:                                 \
++        break;                               \
++    }                                        \
++} while (0)
++
++typedef void (*job_t)(unsigned long);
++typedef unsigned long    job_arg_t;
++typedef int              jid_t;
++
++struct __wq_job {
++	rwlock_t lock;
++	struct job_struct *job;
++	struct list_head list;
++};
++typedef struct __wq_job wq_job_t;
++
++struct __wq_job_head {
++	rwlock_t lock;
++	struct job_struct *job;
++	struct list_head list;
++	unsigned int len;
++};
++typedef struct __wq_job_head wq_job_head_t;
++
++/* flags */
++#define JOB_STATE_RUN        0
++#define JOB_STATE_SCHED      1
++
++/* job priorities */
++enum {
++	JOB_BACKGROUND=1,
++	JOB_LOW,
++	JOB_NORMAL,
++	JOB_HIGH
++};
++
++/* job states */
++enum {
++	JOB_FREE=0,
++	JOB_ENABLED,
++	JOB_SCHED,
++	JOB_DISABLED,
++	JOB_CANCELED,
++	JOB_SUSPENDED_BLOCK,    /* keep these two at the end */
++	JOB_SUSPENDED_NONBLOCK, /* */
++};
++
++/* job limits */
++enum {
++	JOB_SCHED_ERR = -2,
++	JOB_SCHED_NO_LIMIT = -1,
++	JOB_SCHED_NO_SCHED = 0
++};
++
++/* job shutdown state */
++enum {
++	JOB_SHUTDOWN_INIT = 0,
++	JOB_SHUTDOWN      = 1
++};
++
++#include <asm/system.h>
++
++static __inline__ unsigned int wq_empty (wq_job_head_t *wq)
++{
++	return wq->len == 0;
++}
++
++void wq_add_job (wq_job_head_t *, struct job_struct *);
++void wq_del_job (wq_job_head_t *, struct job_struct *);
++
++static __inline__ void wq_job_head_init (wq_job_head_t *wq)
++{
++	wq->len  = 0;
++	wq->lock = RW_LOCK_UNLOCKED;
++	wq->job  = NULL;
++	INIT_LIST_HEAD (&wq->list);
++}
++
++static __inline__ void wq_job_init (wq_job_t *wq)
++{
++	wq->lock = RW_LOCK_UNLOCKED;
++	wq->job  = NULL;
++	INIT_LIST_HEAD (&wq->list);
++}
++
++void job_wake_up_common (wq_job_head_t *, unsigned int, unsigned long);
++
++#define job_wake_up(wq)             job_wake_up_common (wq, 0, 0)
++#define job_wake_up_cond(wq,cond)   job_wake_up_common (wq, 1, cond)
++#define job_wake_up_excl(wq,excl)   job_wake_up_common (wq, 2, excl)
++
++#endif /* #ifndef _JOB_H_ */
+diff -NBbwur linux-2.6.6/include/linux/net.h linux-2.6.6-aem-15r9/include/linux/net.h
+--- linux-2.6.6/include/linux/net.h	Sun May  9 22:32:28 2004
++++ linux-2.6.6-aem-15r9/include/linux/net.h	Mon May 17 10:50:05 2004
+@@ -60,6 +60,9 @@
+ #define SOCK_ASYNC_NOSPACE	0
+ #define SOCK_ASYNC_WAITDATA	1
+ #define SOCK_NOSPACE		2
++#define SOCK_SOCKASYNC          3
++
++#include <linux/job.h>
+ 
+ /**
+  *  struct socket - general BSD socket
+@@ -81,6 +84,8 @@
+ 	struct file		*file;
+ 	struct sock		*sk;
+ 	wait_queue_head_t	wait;
++ 	wq_job_head_t           jwq_read;        /* job wait queue for read operations */
++ 	wq_job_head_t           jwq_close;       /* job wait queue for close operations */
+ 	short			type;
+ 	unsigned char		passcred;
+ };
+diff -NBbwur linux-2.6.6/include/linux/sched.h linux-2.6.6-aem-15r9/include/linux/sched.h
+--- linux-2.6.6/include/linux/sched.h	Sun May  9 22:32:00 2004
++++ linux-2.6.6-aem-15r9/include/linux/sched.h	Mon May 17 10:50:05 2004
+@@ -30,6 +30,11 @@
+ #include <linux/pid.h>
+ #include <linux/percpu.h>
+ 
++#include <asm/task.h>
++
++#include <linux/job.h>
++#include <linux/vmtables.h>
++
+ struct exec_domain;
+ 
+ /*
+@@ -54,6 +59,7 @@
+ #define CLONE_UNTRACED		0x00800000	/* set if the tracing process can't force CLONE_PTRACE on this clone */
+ #define CLONE_CHILD_SETTID	0x01000000	/* set the TID in the child */
+ #define CLONE_STOPPED		0x02000000	/* Start in stopped state */
++#define CLONE_EVENTS	        0x10000000
+ 
+ /*
+  * List of flags we want to share for kernel threads,
+@@ -504,6 +510,33 @@
+ 
+ 	unsigned long ptrace_message;
+ 	siginfo_t *last_siginfo; /* For ptrace use.  */
++
++#ifndef __HAVE_ARCH_TASK_STRUCT_ALLOCATOR
++/* task opt */
++	struct task_struct_opt task_opt;
++#endif
++
++/* events handler */
++ 	struct list_head active;      /* active list of event */
++ 	struct list_head events;      /* event list */
++ 	struct event_struct *cloner;  /* event that created us */
++ 	unsigned long cflags;         /* creation flag */
++ 	spinlock_t evlock;
++ 	atomic_t execlvl;
++ 	int keep_alive;
++
++/* memory management per process */
++ 	struct table_struct vmtable;
++
++/* process exit notification */
++	wq_job_head_t pexit;
++};
++
++/* AEM - pexit notification */
++struct pexit_struct {
++	struct task_struct *task;
++	int pid;
++	int exit_code;
+ };
+ 
+ static inline pid_t process_group(struct task_struct *tsk)
+@@ -599,6 +632,15 @@
+ extern void set_special_pids(pid_t session, pid_t pgrp);
+ extern void __set_special_pids(pid_t session, pid_t pgrp);
+ 
++/*
++ * Define symbol names to use in the assembler code. 
++ */
++#define task_entry(__entry)    (unsigned long)(&((struct task_struct *)0)->__entry)
++#define ASM_SYMBOL(__sym, __asm)  unsigned long asm_##__sym asm(__asm) = task_entry(__sym)
++#define __SYMBOL_STR(x)      #x
++#define SYMBOL_STR(x)        __SYMBOL_STR(x)
++#define decl_asm_symbol(sym)   ASM_SYMBOL(sym,SYMBOL_STR(sym))
++
+ /* per-UID process charging. */
+ extern struct user_struct * alloc_uid(uid_t);
+ extern void free_uid(struct user_struct *);
+@@ -874,7 +916,13 @@
+ 
+ static inline int signal_pending(struct task_struct *p)
+ {
+-	return unlikely(test_tsk_thread_flag(p,TIF_SIGPENDING));
++	if (atomic_read (&p->execlvl) == 0) {
++		if (!list_empty (&p->active)) {
++			return 1;
++		}
++	}
++
++	return test_tsk_thread_flag(p,TIF_SIGPENDING);
+ }
+   
+ static inline int need_resched(void)
+diff -NBbwur linux-2.6.6/include/linux/tcp.h linux-2.6.6-aem-15r9/include/linux/tcp.h
+--- linux-2.6.6/include/linux/tcp.h	Sun May  9 22:32:29 2004
++++ linux-2.6.6-aem-15r9/include/linux/tcp.h	Mon May 17 10:50:05 2004
+@@ -375,6 +375,7 @@
+ 	int			linger2;
+ 
+ 	unsigned long last_synq_overflow; 
++ 	wq_job_head_t           jwq_accept;
+ 
+ /* TCP Westwood structure */
+         struct {
+diff -NBbwur linux-2.6.6/include/linux/vmtables.h linux-2.6.6-aem-15r9/include/linux/vmtables.h
+--- linux-2.6.6/include/linux/vmtables.h	Wed Dec 31 19:00:00 1969
++++ linux-2.6.6-aem-15r9/include/linux/vmtables.h	Mon May 17 11:29:32 2004
+@@ -0,0 +1,135 @@
++/* ------------------------------------------------------------------------
++ *
++ * file: include/linux/vmtables.h
++ *
++ * Short description:
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Copyright (C) 2001, 2002, 2003 by
++ *  Ericsson Research Canada
++ *  8400 Decarie Blvd
++ *  Town of Mount Royal
++ *  Quebec H4P 2N2
++ *  Tel:  +1 514 345 7900
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *   
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *  
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Created 2002/06/18 01:34:22 by lmcfros (Frederic.Rossi@Ericsson.CA)
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  $Id: linux-2.6.6-aem-15r9.patch,v 1.1 2004/06/21 13:20:19 fjrossi Exp $
++ *
++ *  Revision history:
++ *  ----------------
++ *
++ *  * 2002/06/18 - 2002/09/11        Frederic.Rossi@Ericsson.CA
++ *    Initial Revision
++ *
++ *
++ * ------------------------------------------------------------------------
++*/
++
++#ifndef _VMTABLES_H_
++#define _VMTABLES_H_
++
++#define TBL_UZONE    0
++#define TBL_UZONEL   1
++#define TBL_VZONE    2
++#define TBL_MMAP     3
++
++#define MMTABLE_SZ    16
++
++#define INIT_TABLE {\
++        .vm_init =  ATOMIC_INIT(0),\
++        .vm_base =  0,\
++        .vm_size =  ((1<<MMTABLE_SZ)*sizeof (ulong)),\
++}
++        
++struct vm_stat {
++	int bcnt;    /* buddy count */
++	int bfree;   /* buddy free */
++
++	int alloc;   /* buddy allocated */
++	int freed;   /* buddy freed */
++
++	unsigned long lalloc;  /* timestamp last allocation */
++	unsigned long lfreed;  /* timestamp last set free */
++};
++
++struct vm_pool {
++	struct vm_pool *next;
++	struct vm_pool *prev;
++
++	struct vm_table *tbl;
++
++	struct vm_stat stat;  /* stats for this buddy */
++
++	unsigned long addr;
++	unsigned int sz;
++	unsigned int state;
++};
++
++struct vm_table {
++
++	unsigned int sz;
++
++	struct vm_stat stat;  /* stats for this block */
++
++	struct vm_pool *vmp;
++};
++
++struct table_struct {
++
++	atomic_t vm_init;
++
++	unsigned long vm_base;
++	unsigned long vm_size;
++
++	unsigned int type;
++	
++	struct vm_table tbl[MMTABLE_SZ];
++};
++
++#define exit_vmt    vmtable_shutd
++
++#define VMT_WORDALIGN	(sizeof(unsigned long) - 1)
++#define VMT_ALIGN(p)	(((unsigned long)(p) + VMT_WORDALIGN) & ~VMT_WORDALIGN)
++
++int vmtable_merge (struct task_struct *, unsigned int);
++int vmtable_order (unsigned long);
++void vmtable_free (struct task_struct *, void *, unsigned int);
++struct page *page_ptr (struct mm_struct *, unsigned long);
++unsigned long vmtable_alloc (struct task_struct *, unsigned int);
++unsigned long vmtable_try_alloc (struct task_struct *, unsigned int);
++int vmtable_shutd (struct task_struct *);
++int vmtable_init (struct task_struct *);
++int vmtable_start (struct task_struct *, unsigned int);
++int vmtable_is_valid (struct mm_struct *, unsigned long, unsigned int);
++int vmtable_unmap (struct mm_struct *, unsigned long, unsigned int);
++unsigned long get_kaddr (struct task_struct *, unsigned long);
++unsigned long get_uaddr (struct task_struct *, unsigned long);
++unsigned long va_to_pa (struct task_struct *, unsigned long, unsigned int);
++unsigned long put_user_pages (struct task_struct *, unsigned long, int, struct page *);
++
++extern void FASTCALL(free_pages(unsigned long addr, unsigned int order));
++
++int alloc_pgblock (unsigned long *, int);
++void free_pgblock (struct task_struct *, unsigned long, int );
++
++#endif /* #ifndef _VMTABLES_H_ */
+diff -NBbwur linux-2.6.6/include/net/sock.h linux-2.6.6-aem-15r9/include/net/sock.h
+--- linux-2.6.6/include/net/sock.h	Sun May  9 22:32:54 2004
++++ linux-2.6.6-aem-15r9/include/net/sock.h	Mon May 17 10:50:05 2004
+@@ -54,6 +54,8 @@
+ #include <asm/atomic.h>
+ #include <net/dst.h>
+ 
++#include <linux/job.h>
++
+ /*
+  * This structure really needs to be cleaned up.
+  * Most of it is for TCP, and not used by any of
+@@ -214,6 +216,10 @@
+ 	unsigned long	        sk_lingertime;
+ 	int			sk_hashent;
+ 	struct sock		*sk_pair;
++
++  	wq_job_head_t           *wrq;           /* jobs waiting on this socket receive queue */
++   	wq_job_head_t           *wclose;        /* jobs waiting on this socket state for closing */
++
+ 	/*
+ 	 * The backlog queue is special, it is always used with
+ 	 * the per-socket spinlock held and requires low latency
+@@ -759,12 +765,16 @@
+ 	sock_set_flag(sk, SOCK_DEAD);
+ 	sk->sk_socket = NULL;
+ 	sk->sk_sleep  = NULL;
++ 	sk->wrq    = NULL;
++ 	sk->wclose = NULL;
+ 	write_unlock_bh(&sk->sk_callback_lock);
+ }
+ 
+ static inline void sock_graft(struct sock *sk, struct socket *parent)
+ {
+ 	write_lock_bh(&sk->sk_callback_lock);
++  	sk->wrq    = &parent->jwq_read;
++  	sk->wclose = &parent->jwq_close;
+ 	sk->sk_sleep = &parent->wait;
+ 	parent->sk = sk;
+ 	sk->sk_socket = parent;
+diff -NBbwur linux-2.6.6/include/net/tcp.h linux-2.6.6-aem-15r9/include/net/tcp.h
+--- linux-2.6.6/include/net/tcp.h	Sun May  9 22:32:01 2004
++++ linux-2.6.6-aem-15r9/include/net/tcp.h	Mon May 17 10:50:05 2004
+@@ -38,6 +38,8 @@
+ #endif
+ #include <linux/seq_file.h>
+ 
++#include <linux/job.h>
++
+ /* This is for all connections with a full identity, no wildcards.
+  * New scheme, half the table is for TIME_WAIT, the other half is
+  * for the rest.  I'll experiment with dynamic table growth later.
+@@ -1811,6 +1813,7 @@
+ 
+ 	req->sk = child;
+ 	tcp_acceptq_added(sk);
++	job_wake_up (&tp->jwq_accept);
+ 
+ 	if (!tp->accept_queue_tail) {
+ 		tp->accept_queue = req;
+diff -NBbwur linux-2.6.6/init/main.c linux-2.6.6-aem-15r9/init/main.c
+--- linux-2.6.6/init/main.c	Sun May  9 22:32:01 2004
++++ linux-2.6.6-aem-15r9/init/main.c	Mon May 17 10:50:05 2004
+@@ -42,10 +42,13 @@
+ #include <linux/cpu.h>
+ #include <linux/efi.h>
+ #include <linux/unistd.h>
++#include <linux/job.h>
+ 
+ #include <asm/io.h>
+ #include <asm/bugs.h>
+ 
++extern void task_opt_init (struct task_struct *);
++
+ /*
+  * This is one of the first .c files built. Error out early
+  * if we have compiler trouble..
+@@ -411,6 +414,7 @@
+ 	setup_arch(&command_line);
+ 	setup_per_cpu_areas();
+ 
++	task_opt_init (current);
+ 	/*
+ 	 * Mark the boot cpu "online" so that it can call console drivers in
+ 	 * printk() and can access its per-cpu storage.
+@@ -588,6 +592,8 @@
+ 	 * assumptions about where in the task array this
+ 	 * can be found.
+ 	 */
++	task_opt_init (current);
++ 	wq_job_head_init (&current->pexit);
+ 	child_reaper = current;
+ 
+ 	/* Sets up cpus_possible() */
+diff -NBbwur linux-2.6.6/kernel/Makefile linux-2.6.6-aem-15r9/kernel/Makefile
+--- linux-2.6.6/kernel/Makefile	Sun May  9 22:32:02 2004
++++ linux-2.6.6-aem-15r9/kernel/Makefile	Mon May 17 10:50:05 2004
+@@ -6,7 +6,7 @@
+ 	    exit.o itimer.o time.o softirq.o resource.o \
+ 	    sysctl.o capability.o ptrace.o timer.o user.o \
+ 	    signal.o sys.o kmod.o workqueue.o pid.o \
+-	    rcupdate.o intermodule.o extable.o params.o posix-timers.o \
++            rcupdate.o intermodule.o extable.o params.o posix-timers.o events.o job.o \
+ 	    kthread.o
+ 
+ obj-$(CONFIG_FUTEX) += futex.o
+diff -NBbwur linux-2.6.6/kernel/events.c linux-2.6.6-aem-15r9/kernel/events.c
+--- linux-2.6.6/kernel/events.c	Wed Dec 31 19:00:00 1969
++++ linux-2.6.6-aem-15r9/kernel/events.c	Mon May 17 17:10:05 2004
+@@ -0,0 +1,263 @@
++/*
++ * file: kernel/events.c
++ *
++ * Short description:
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Copyright (C) 2001, 2002, 2003 by
++ *  Ericsson Research Canada
++ *  8400 Decarie Blvd
++ *  Town of Mount Royal
++ *  Quebec H4P 2N2
++ *  Tel:  +1 514 345 7900
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *   
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *  
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Created 2001/9/10 10:10:34 by lmcfros (Frederic.Rossi@Ericsson.CA)
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  $Id: linux-2.6.6-aem-15r9.patch,v 1.1 2004/06/21 13:20:19 fjrossi Exp $
++ *
++ *  Revision history:
++ *  ----------------
++ *
++ *  * 2001/9/10 - 2002/09/23        Frederic.Rossi@Ericsson.CA
++ *    Initial revision
++ * 
++ *  * 2003/02/05                   Frederic.Rossi@Ericsson.CA
++ *    + Fixed do_event. Do not restart a job if the event is shutting down.
++ *      (used to provoked many occurances of the same event in the case of event processes).
++ *    + Now we test before starting the event if the job has been marked has shutting down.
++ *    + Fixed forget_child. For some reason the (new) parent wont start.
++ *    + Minor fixes.
++ * 
++ *  * 2003/02/25                    Frederic.Rossi@Ericsson.CA
++ *    + EVJOBSTART/EVJOBSTOP: start/stop jobs from user space
++ *    + EVJOBSHTDN: shutdn one or more jobs from user space
++ * 
++ *  * 2003/05/20
++ *    Ported to 2.5
++ * 
++ * ------------------------------------------------------------------------
++*/
++
++#define __KERNEL_SYSCALLS__
++#include <stdarg.h>
++
++#include <linux/module.h>
++#include <linux/sched.h>
++#include <linux/mm.h>
++#include <linux/smp.h>
++#include <linux/smp_lock.h>
++#include <linux/kernel.h>
++#include <linux/signal.h>
++#include <linux/errno.h>
++#include <linux/wait.h>
++#include <linux/ptrace.h>
++#include <linux/slab.h>
++#include <linux/mm.h>
++#include <asm/pgalloc.h>
++#include <linux/unistd.h>
++#include <linux/stddef.h>
++#include <linux/tty.h>
++#include <asm/ucontext.h>
++#include <asm/uaccess.h>
++#include <asm/i387.h>
++#include <asm/job.h>
++#include <linux/job.h>
++#include <linux/vmtables.h>
++#include <asm/cacheflush.h>
++
++#define _EXIT_SIGS_    (sigmask(SIGINT) | sigmask(SIGQUIT) | sigmask(SIGKILL) | sigmask(SIGTERM))
++
++struct task_struct *capm = &init_task;
++
++#define logm(format,args...)
++//#define logm printk
++
++/* 
++ * AEM generic system call convention
++ *    ebx = event call number
++ *    ecx = event call arguments
++ */
++static __inline__ int aem_noentry (int sys_nr, void *args)
++{
++	return -ENOSYS;
++}
++int (*aem_entry_pfn)(int, void *) = aem_noentry;
++
++static __inline__ int aem_nosys1 (void *args)
++{
++	return -ENOSYS;
++}
++
++static __inline__ int aem_nosys2 (void *args, void *args2)
++{
++	return -ENOSYS;
++}
++
++static __inline__ int aem_nosys3 (void *args, void *args2, void *arg3)
++{
++	return -ENOSYS;
++}
++
++static __inline__ int aem_nosys4 (void *args, void *args2, void *arg3, void *arg4)
++{
++	return -ENOSYS;
++}
++
++static int aem_copy_events_default (int flags, struct task_struct *task, long eax)
++{
++	INIT_LIST_HEAD (&task->events);
++	INIT_LIST_HEAD (&task->active);
++	INIT_LIST_HEAD (&task->pexit.list);
++
++	task->evlock = SPIN_LOCK_UNLOCKED;
++	task->keep_alive = 0;
++	
++	atomic_set (&task->execlvl, 0);
++
++	task->cloner = NULL;
++
++	return 0;
++}
++
++static int aem_copy_vmt_default (int clone_flags, struct task_struct *task)
++{
++	atomic_set (&task->vmtable.vm_init, 0);
++	task->vmtable.vm_base = 0;
++	task->vmtable.vm_size = 0;
++
++	return 0;
++}
++
++/*
++ * Default settings
++ */
++int (*aem_handle_event_pfn)(void *) = aem_nosys1;
++int (*aem_copy_events_pfn)(int, struct task_struct *, long) = aem_copy_events_default;
++int (*aem_copy_vmt_pfn)(int, struct task_struct *)          = aem_copy_vmt_default;
++int (*aem_vmtable_shutdn_pfn)(void *)           = aem_nosys1;
++int (*aem_vmtable_start_pfn)(void *, void *)    = aem_nosys2;
++int (*aem_do_event_pfn)(void *)               = aem_nosys1;
++int (*aem_evctl_pfn)(void *, void *, void *, void *)  = aem_nosys4;
++int (*aem_exit_events_pfn)(void *, void *)    = aem_nosys2;
++int (*aem_evreturn_pfn)(void *)               = aem_nosys1;
++
++asmlinkage int sys_aem_evshutdn (unsigned long __unused)
++{
++	do_exit (0);
++}
++
++asmlinkage int sys_aem_entry (struct pt_regs regs)
++{
++	return aem_entry_pfn ((int )regs.ebx, (void *)regs.ecx);
++}
++
++asmlinkage void do_event (struct pt_regs regs)
++{
++	aem_do_event_pfn (&regs);
++}
++
++asmlinkage int sys_aem_evctl (jid_t jid, unsigned int opt, unsigned long args, unsigned int sz)
++{
++	return aem_evctl_pfn ((void *)jid, (void *)opt, (void *)args, (void *)sz);
++}
++
++void exit_events (struct task_struct *task, int exit_code)
++{
++	job_wake_up (&task->pexit);
++	aem_exit_events_pfn ((void *)task, (void *)exit_code);
++}
++
++void aem_entry_reset (void)
++{
++	aem_entry_pfn           = aem_noentry;
++
++	aem_handle_event_pfn    = aem_nosys1;
++	aem_copy_events_pfn     = aem_copy_events_default;
++	aem_copy_vmt_pfn        = aem_copy_vmt_default;
++	aem_vmtable_shutdn_pfn  = aem_nosys1;
++	aem_vmtable_start_pfn   = aem_nosys2;
++	aem_do_event_pfn        = aem_nosys1;
++	aem_evreturn_pfn        = aem_nosys1;
++	aem_exit_events_pfn     = aem_nosys2;
++	aem_evctl_pfn           = aem_nosys4;
++}	
++
++#define KA_EIP  7
++
++static __inline__ int __enter_keepalive (struct pt_regs *regs)
++{
++	current->keep_alive = 0;
++	
++	if (signal_pending (current)) {
++
++		if (sigismember (&(current->pending.signal), SIGCHLD))
++			while (waitpid (-1, NULL, __WALL|WNOHANG) != -1);
++		
++		if (sigismember (&(current->pending.signal), SIGKILL) ||
++		    sigismember (&(current->pending.signal), SIGQUIT) ||
++		    sigismember (&(current->pending.signal), SIGTERM) ||
++		    sigismember (&(current->pending.signal), SIGINT)) 
++		
++			return 0;
++		
++		flush_signals (current);
++	}
++
++	current->state = TASK_INTERRUPTIBLE;
++	if (list_empty (&current->active)) {
++		schedule ();
++	}
++	current->state = TASK_RUNNING;
++	
++	regs->eip -= KA_EIP;
++	current->keep_alive = 1;
++	
++	return 0;
++}
++
++asmlinkage int sys_aem_evkeepalive (struct pt_regs regs)
++{
++	return __enter_keepalive (&regs);
++}
++
++asmlinkage int sys_aem_evreturn (unsigned long __unused)
++{
++	struct pt_regs *regs = (struct pt_regs *) &__unused;
++	return aem_evreturn_pfn (regs);
++}
++
++EXPORT_SYMBOL(aem_entry_reset);
++EXPORT_SYMBOL(aem_entry_pfn);
++
++EXPORT_SYMBOL(aem_handle_event_pfn);
++EXPORT_SYMBOL(aem_copy_events_pfn);
++EXPORT_SYMBOL(aem_copy_vmt_pfn);
++EXPORT_SYMBOL(aem_vmtable_start_pfn);
++EXPORT_SYMBOL(aem_vmtable_shutdn_pfn);
++EXPORT_SYMBOL(aem_do_event_pfn);
++EXPORT_SYMBOL(aem_exit_events_pfn);
++EXPORT_SYMBOL(aem_evctl_pfn);
++EXPORT_SYMBOL(aem_evreturn_pfn);
++
++EXPORT_SYMBOL(errno);
++EXPORT_SYMBOL(capm);
++EXPORT_SYMBOL(do_event);
+diff -NBbwur linux-2.6.6/kernel/exec_domain.c linux-2.6.6-aem-15r9/kernel/exec_domain.c
+--- linux-2.6.6/kernel/exec_domain.c	Sun May  9 22:32:39 2004
++++ linux-2.6.6-aem-15r9/kernel/exec_domain.c	Mon May 17 10:50:05 2004
+@@ -325,3 +325,5 @@
+ EXPORT_SYMBOL(abi_defhandler_libcso);
+ EXPORT_SYMBOL(abi_traceflg);
+ EXPORT_SYMBOL(abi_fake_utsname);
++
++EXPORT_SYMBOL(default_exec_domain);
+diff -NBbwur linux-2.6.6/kernel/exit.c linux-2.6.6-aem-15r9/kernel/exit.c
+--- linux-2.6.6/kernel/exit.c	Sun May  9 22:33:19 2004
++++ linux-2.6.6-aem-15r9/kernel/exit.c	Mon May 17 10:50:05 2004
+@@ -755,6 +755,8 @@
+ 
+ }
+ 
++extern void exit_events (struct task_struct *, int);
++ 
+ asmlinkage NORET_TYPE void do_exit(long code)
+ {
+ 	struct task_struct *tsk = current;
+@@ -775,6 +777,8 @@
+ 				current->comm, current->pid,
+ 				preempt_count());
+ 
++	exit_events (tsk, code);
++
+ 	profile_exit_task(tsk);
+  
+ 	if (unlikely(current->ptrace & PT_TRACE_EXIT)) {
+@@ -1170,3 +1174,5 @@
+ }
+ 
+ #endif
++
++EXPORT_SYMBOL(do_exit);
+diff -NBbwur linux-2.6.6/kernel/fork.c linux-2.6.6-aem-15r9/kernel/fork.c
+--- linux-2.6.6/kernel/fork.c	Sun May  9 22:32:00 2004
++++ linux-2.6.6-aem-15r9/kernel/fork.c	Mon May 17 10:50:05 2004
+@@ -34,6 +34,8 @@
+ #include <linux/mount.h>
+ #include <linux/audit.h>
+ 
++#include <asm/task.h>
++
+ #include <asm/pgtable.h>
+ #include <asm/pgalloc.h>
+ #include <asm/uaccess.h>
+@@ -67,11 +69,17 @@
+ }
+ 
+ #ifndef __HAVE_ARCH_TASK_STRUCT_ALLOCATOR
+-# define alloc_task_struct()	kmem_cache_alloc(task_struct_cachep, GFP_KERNEL)
+-# define free_task_struct(tsk)	kmem_cache_free(task_struct_cachep, (tsk))
++# define alloc_task_struct()	current->task_opt.alloc (task_struct_cachep, GFP_KERNEL)
++# define free_task_struct(tsk)	tsk->task_opt.free (task_struct_cachep, tsk)
+ static kmem_cache_t *task_struct_cachep;
+ #endif
+ 
++void task_opt_init (struct task_struct *tsk)
++{
++	tsk->task_opt.alloc = kmem_cache_alloc;
++	tsk->task_opt.free  = kmem_cache_free;
++}
++
+ static void free_task(struct task_struct *tsk)
+ {
+ 	free_thread_info(tsk->thread_info);
+@@ -249,6 +257,8 @@
+ 	if (!tsk)
+ 		return NULL;
+ 
++	task_opt_init (tsk);
++
+ 	ti = alloc_thread_info(tsk);
+ 	if (!ti) {
+ 		free_task_struct(tsk);
+@@ -509,7 +519,7 @@
+ 	}
+ }
+ 
+-static int copy_mm(unsigned long clone_flags, struct task_struct * tsk)
++int copy_mm(unsigned long clone_flags, struct task_struct * tsk)
+ {
+ 	struct mm_struct * mm, *oldmm;
+ 	int retval;
+@@ -778,7 +788,7 @@
+ 
+ EXPORT_SYMBOL(unshare_files);
+ 
+-static inline int copy_sighand(unsigned long clone_flags, struct task_struct * tsk)
++/*static inline*/ int copy_sighand(unsigned long clone_flags, struct task_struct * tsk)
+ {
+ 	struct sighand_struct *sig;
+ 
+@@ -796,7 +806,7 @@
+ 	return 0;
+ }
+ 
+-static inline int copy_signal(unsigned long clone_flags, struct task_struct * tsk)
++/*static inline*/ int copy_signal(unsigned long clone_flags, struct task_struct * tsk)
+ {
+ 	struct signal_struct *sig;
+ 
+@@ -844,6 +854,9 @@
+ 	return current->pid;
+ }
+ 
++extern int (*aem_copy_events_pfn)(int, struct task_struct *, long);
++extern int (*aem_copy_vmt_pfn)(int, struct task_struct *);
++
+ /*
+  * This creates a new process as a copy of the old one,
+  * but does not actually start it yet.
+@@ -889,6 +902,8 @@
+ 	if (!p)
+ 		goto fork_out;
+ 
++	aem_copy_events_pfn (clone_flags, p, regs->eax);
++
+ 	retval = -EAGAIN;
+ 	if (atomic_read(&p->user->processes) >=
+ 			p->rlim[RLIMIT_NPROC].rlim_cur) {
+@@ -978,6 +993,9 @@
+ 	if (retval)
+ 		goto bad_fork_cleanup_namespace;
+ 
++ 	if (aem_copy_vmt_pfn (clone_flags, p))
++  		goto bad_fork_cleanup_namespace;
++
+ 	p->set_child_tid = (clone_flags & CLONE_CHILD_SETTID) ? child_tidptr : NULL;
+ 	/*
+ 	 * Clear TID on mm_release()?
+@@ -1180,7 +1198,8 @@
+ 			set_tsk_thread_flag(p, TIF_SIGPENDING);
+ 		}
+ 
+-		if (!(clone_flags & CLONE_STOPPED))
++ 		if (!(clone_flags & CLONE_STOPPED) &&
++ 		    !(clone_flags & CLONE_EVENTS))
+ 			wake_up_forked_process(p);	/* do this last */
+ 		else
+ 			p->state = TASK_STOPPED;
+@@ -1261,3 +1280,22 @@
+ 	if(!mm_cachep)
+ 		panic("vma_init: Cannot alloc mm_struct SLAB cache");
+ }
++
++void get_cpu_process_counts (void)
++{
++	__get_cpu_var(process_counts)++;
++}
++
++EXPORT_SYMBOL(do_fork);
++EXPORT_SYMBOL(total_forks);
++EXPORT_SYMBOL(nr_threads);
++EXPORT_SYMBOL(vm_area_cachep);
++EXPORT_SYMBOL(files_cachep);
++EXPORT_SYMBOL(signal_cachep);
++EXPORT_SYMBOL(sighand_cachep);
++EXPORT_SYMBOL(copy_mm);
++EXPORT_SYMBOL(copy_signal);
++EXPORT_SYMBOL(copy_sighand);
++EXPORT_SYMBOL(__put_task_struct);
++EXPORT_SYMBOL(get_cpu_process_counts);
++EXPORT_SYMBOL(task_opt_init);
+diff -NBbwur linux-2.6.6/kernel/itimer.c linux-2.6.6-aem-15r9/kernel/itimer.c
+--- linux-2.6.6/kernel/itimer.c	Sun May  9 22:32:29 2004
++++ linux-2.6.6-aem-15r9/kernel/itimer.c	Mon May 17 10:50:05 2004
+@@ -142,3 +142,6 @@
+ 		return -EFAULT; 
+ 	return 0;
+ }
++
++#include <linux/module.h>
++EXPORT_SYMBOL(it_real_fn);
+diff -NBbwur linux-2.6.6/kernel/job.c linux-2.6.6-aem-15r9/kernel/job.c
+--- linux-2.6.6/kernel/job.c	Wed Dec 31 19:00:00 1969
++++ linux-2.6.6-aem-15r9/kernel/job.c	Mon May 17 10:50:05 2004
+@@ -0,0 +1,166 @@
++/*
++ * file: kernel/job.c
++ *
++ * Short description:
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Copyright (C) 2001, 2002, 2003 by
++ *  Ericsson Research Canada
++ *  8400 Decarie Blvd
++ *  Town of Mount Royal
++ *  Quebec H4P 2N2
++ *  Tel:  +1 514 345 7900
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *   
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *  
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  Created 2001/8/10 17:22:08 by lmcfros (Frederic.Rossi@Ericsson.CA)
++ *
++ * ------------------------------------------------------------------------
++ *
++ *  $Id: linux-2.6.6-aem-15r9.patch,v 1.1 2004/06/21 13:20:19 fjrossi Exp $
++ *
++ *  Revision history:
++ *  ----------------
++ *
++ *  * 2001/08/10 - 2002/09/19         Frederic.Rossi@Ericsson.CA
++ *    Initial revision
++ *
++ *  * 2003/08/09 
++ *    Fixed routines
++ *
++ * ------------------------------------------------------------------------
++*/
++
++#include <linux/init.h>
++#include <linux/sched.h>
++#include <linux/module.h>
++#include <linux/unistd.h>
++#include <asm/param.h>
++#include <linux/config.h>
++#include <linux/sched.h>
++#include <linux/interrupt.h>
++#include <linux/slab.h>
++#include <asm/job.h>
++#include <asm/events.h>
++
++#define logm(format,args...)
++//#define logm printk
++
++/*
++ * wq_add_job and wq_del_job are called with the job lock held!
++ */
++void wq_add_job (wq_job_head_t *wq, struct job_struct *job)
++{
++	struct job_args *jargs;
++	struct event_struct *ev;
++	unsigned long f;
++
++	if (!job) 
++		return;
++
++	if (!wq) 
++		return;
++
++	/* it's already awaken */
++	if (!list_empty (&job->wq)) 
++		goto out;
++
++	jargs = (struct job_args *)job->job.data;
++	ev = jargs->ev;
++
++	/* it's already active */
++ 	if (!list_empty (&ev->active))
++		goto out;
++
++	write_lock_irqsave (&wq->lock, f);
++	list_add_tail (&job->wq, &wq->list);
++	wq->len++;
++	write_unlock_irqrestore (&wq->lock, f);
++out:
++	return;
++}
++
++void wq_del_job (wq_job_head_t *wq, struct job_struct *job)
++{
++	unsigned long f;
++
++	if (!wq) 
++		return;
++
++	if (!job) 
++		return;
++
++	write_lock_irqsave (&wq->lock, f);
++	if (wq->len>0) {
++		list_del_init (&job->wq);
++		wq->len--;
++	}
++	write_unlock_irqrestore (&wq->lock, f);
++}
++
++void job_wake_up_common (wq_job_head_t *wq, unsigned int __type, unsigned long __cond)
++{
++	struct list_head *curr;
++	unsigned long f;
++
++	if (!wq) return;
++
++	write_lock_irqsave (&wq->lock, f);
++
++	if (!wq_empty (wq)) {
++
++		list_for_each (curr, &wq->list) {
++
++			struct job_struct *st_job = list_entry (curr, struct job_struct, wq);
++			if (!st_job)
++				continue;
++
++			if (st_job->state == JOB_CANCELED)
++				continue;
++			
++			simple_wlock_job (st_job);
++
++			switch (__type) {
++ 			case 0:
++				/* no condition */
++				__job_activate (st_job);
++				break;
++			case 1:
++				/* strict condition */
++				if (st_job->wstate == __cond)
++					__job_activate (st_job);
++				break;
++			case 2:
++				/* exclusive condition */
++				if (st_job->wstate & __cond)
++					__job_activate (st_job);
++				break;
++			default:
++				logm ("job_wake_up_common: error __type=%u not valid\n", __type);
++			}
++
++			simple_wunlock_job (st_job);
++         	}
++	}
++
++	write_unlock_irqrestore (&wq->lock, f);
++}
++
++EXPORT_SYMBOL(wq_add_job);
++EXPORT_SYMBOL(wq_del_job);
++EXPORT_SYMBOL(job_wake_up_common);
+diff -NBbwur linux-2.6.6/kernel/pid.c linux-2.6.6-aem-15r9/kernel/pid.c
+--- linux-2.6.6/kernel/pid.c	Sun May  9 22:32:38 2004
++++ linux-2.6.6-aem-15r9/kernel/pid.c	Mon May 17 10:50:05 2004
+@@ -306,3 +306,9 @@
+ 	for (i = 0; i < PIDTYPE_MAX; i++)
+ 		attach_pid(current, i, 0);
+ }
++
++#include<linux/module.h>
++EXPORT_SYMBOL(attach_pid);
++EXPORT_SYMBOL(alloc_pidmap);
++EXPORT_SYMBOL(find_pid);
++EXPORT_SYMBOL(link_pid);
+diff -NBbwur linux-2.6.6/kernel/sched.c linux-2.6.6-aem-15r9/kernel/sched.c
+--- linux-2.6.6/kernel/sched.c	Sun May  9 22:33:13 2004
++++ linux-2.6.6-aem-15r9/kernel/sched.c	Mon May 17 10:50:05 2004
+@@ -3053,3 +3053,5 @@
+ 
+ EXPORT_SYMBOL(__preempt_write_lock);
+ #endif /* defined(CONFIG_SMP) && defined(CONFIG_PREEMPT) */
++
++EXPORT_SYMBOL(scheduler_tick);
+diff -NBbwur linux-2.6.6/kernel/signal.c linux-2.6.6-aem-15r9/kernel/signal.c
+--- linux-2.6.6/kernel/signal.c	Sun May  9 22:32:28 2004
++++ linux-2.6.6-aem-15r9/kernel/signal.c	Mon May 17 10:50:05 2004
+@@ -2572,3 +2572,5 @@
+ 	if (!sigqueue_cachep)
+ 		panic("signals_init(): cannot create sigqueue SLAB cache");
+ }
++
++EXPORT_SYMBOL(recalc_sigpending_tsk);
+diff -NBbwur linux-2.6.6/kernel/user.c linux-2.6.6-aem-15r9/kernel/user.c
+--- linux-2.6.6/kernel/user.c	Sun May  9 22:32:28 2004
++++ linux-2.6.6-aem-15r9/kernel/user.c	Mon May 17 10:50:05 2004
+@@ -155,3 +155,9 @@
+ }
+ 
+ module_init(uid_cache_init);
++
++
++#include <linux/module.h>
++EXPORT_SYMBOL(alloc_uid);
++EXPORT_SYMBOL(free_uid);
++EXPORT_SYMBOL(root_user);
+diff -NBbwur linux-2.6.6/mm/memory.c linux-2.6.6-aem-15r9/mm/memory.c
+--- linux-2.6.6/mm/memory.c	Sun May  9 22:32:29 2004
++++ linux-2.6.6-aem-15r9/mm/memory.c	Mon May 17 10:50:05 2004
+@@ -1784,6 +1784,8 @@
+ 	return page;
+ }
+ 
++#include <linux/module.h>
++EXPORT_SYMBOL(zap_page_range);
+ EXPORT_SYMBOL(vmalloc_to_page);
+ 
+ #if !defined(CONFIG_ARCH_GATE_AREA)
+diff -NBbwur linux-2.6.6/mm/mmap.c linux-2.6.6-aem-15r9/mm/mmap.c
+--- linux-2.6.6/mm/mmap.c	Sun May  9 22:32:52 2004
++++ linux-2.6.6-aem-15r9/mm/mmap.c	Fri May 21 15:55:17 2004
+@@ -187,7 +187,7 @@
+ #define validate_mm(mm) do { } while (0)
+ #endif
+ 
+-static struct vm_area_struct *
++struct vm_area_struct *
+ find_vma_prepare(struct mm_struct *mm, unsigned long addr,
+ 		struct vm_area_struct **pprev, struct rb_node ***rb_link,
+ 		struct rb_node ** rb_parent)
+@@ -276,7 +276,7 @@
+ 	__vma_link_file(vma);
+ }
+ 
+-static void vma_link(struct mm_struct *mm, struct vm_area_struct *vma,
++void vma_link(struct mm_struct *mm, struct vm_area_struct *vma,
+ 			struct vm_area_struct *prev, struct rb_node **rb_link,
+ 			struct rb_node *rb_parent)
+ {
+@@ -1047,7 +1047,7 @@
+  * "prev", if it exists, points to a vma before the one
+  * we just free'd - but there's no telling how much before.
+  */
+-static void free_pgtables(struct mmu_gather *tlb, struct vm_area_struct *prev,
++void free_pgtables(struct mmu_gather *tlb, struct vm_area_struct *prev,
+ 	unsigned long start, unsigned long end)
+ {
+ 	unsigned long first = start & PGDIR_MASK;
+@@ -1534,3 +1534,11 @@
+ 	}
+ 	return new_vma;
+ }
++
++#include <linux/module.h>
++EXPORT_SYMBOL(find_vma_prepare);
++EXPORT_SYMBOL(find_vma_prev);
++EXPORT_SYMBOL(vma_link);
++EXPORT_SYMBOL(protection_map);
++EXPORT_SYMBOL(insert_vm_struct);
++EXPORT_SYMBOL(free_pgtables);
+diff -NBbwur linux-2.6.6/net/ax25/af_ax25.c linux-2.6.6-aem-15r9/net/ax25/af_ax25.c
+--- linux-2.6.6/net/ax25/af_ax25.c	Sun May  9 22:33:19 2004
++++ linux-2.6.6-aem-15r9/net/ax25/af_ax25.c	Mon May 17 10:50:05 2004
+@@ -871,6 +871,8 @@
+ 	sk->sk_debug    = osk->sk_debug;
+ 	sk->sk_state    = TCP_ESTABLISHED;
+ 	sk->sk_sleep    = osk->sk_sleep;
++ 	sk->wrq         = NULL;
++ 	sk->wclose      = NULL;
+ 	sk->sk_zapped   = osk->sk_zapped;
+ 
+ 	oax25 = ax25_sk(osk);
+@@ -1340,6 +1342,9 @@
+ 	newsk->sk_socket = newsock;
+ 	newsk->sk_sleep	 = &newsock->wait;
+ 
++	newsk->wrq    = NULL;
++	newsk->wclose = NULL;
++ 
+ 	/* Now attach up the new socket */
+ 	kfree_skb(skb);
+ 	sk->sk_ack_backlog--;
+diff -NBbwur linux-2.6.6/net/core/sock.c linux-2.6.6-aem-15r9/net/core/sock.c
+--- linux-2.6.6/net/core/sock.c	Sun May  9 22:32:54 2004
++++ linux-2.6.6-aem-15r9/net/core/sock.c	Mon May 17 10:50:05 2004
+@@ -136,6 +136,8 @@
+ #define SK_WMEM_MAX		(_SK_MEM_OVERHEAD * _SK_MEM_PACKETS)
+ #define SK_RMEM_MAX		(_SK_MEM_OVERHEAD * _SK_MEM_PACKETS)
+ 
++#include <linux/job.h>
++
+ /* Run time adjustable parameters. */
+ __u32 sysctl_wmem_max = SK_WMEM_MAX;
+ __u32 sysctl_rmem_max = SK_RMEM_MAX;
+@@ -1064,6 +1066,7 @@
+ 	if (sk->sk_sleep && waitqueue_active(sk->sk_sleep))
+ 		wake_up_interruptible(sk->sk_sleep);
+ 	sk_wake_async(sk,1,POLL_IN);
++ 	job_wake_up (sk->wrq);
+ 	read_unlock(&sk->sk_callback_lock);
+ }
+ 
+@@ -1119,8 +1122,13 @@
+ 		sk->sk_type	=	sock->type;
+ 		sk->sk_sleep	=	&sock->wait;
+ 		sock->sk	=	sk;
+-	} else
++ 		sk->wrq         =       &sock->jwq_read;
++ 		sk->wclose      =       &sock->jwq_close;
++	} else {
+ 		sk->sk_sleep	=	NULL;
++ 		sk->wrq         =       NULL;
++ 		sk->wclose      =       NULL;
++ 	}
+ 
+ 	sk->sk_dst_lock		=	RW_LOCK_UNLOCKED;
+ 	sk->sk_callback_lock	=	RW_LOCK_UNLOCKED;
+diff -NBbwur linux-2.6.6/net/ipv4/tcp.c linux-2.6.6-aem-15r9/net/ipv4/tcp.c
+--- linux-2.6.6/net/ipv4/tcp.c	Sun May  9 22:32:26 2004
++++ linux-2.6.6-aem-15r9/net/ipv4/tcp.c	Mon May 17 10:50:05 2004
+@@ -541,6 +541,7 @@
+ 	sk->sk_max_ack_backlog = 0;
+ 	sk->sk_ack_backlog = 0;
+ 	tp->accept_queue = tp->accept_queue_tail = NULL;
++	wq_job_head_init (&tp->jwq_accept);
+ 	tp->syn_wait_lock = RW_LOCK_UNLOCKED;
+ 	tcp_delack_init(tp);
+ 
+@@ -601,6 +602,7 @@
+ 	tp->listen_opt = NULL;
+ 	write_unlock_bh(&tp->syn_wait_lock);
+ 	tp->accept_queue = tp->accept_queue_tail = NULL;
++	wq_job_head_init (&tp->jwq_accept);
+ 
+ 	if (lopt->qlen) {
+ 		for (i = 0; i < TCP_SYNQ_HSIZE; i++) {
+@@ -2234,6 +2236,9 @@
+ 	 * and that it has something pending.
+ 	 */
+ 	error = -EINVAL;
++	if (sock_flag(sk, SOCK_SOCKASYNC))
++ 		goto sockasync;
++ 
+ 	if (sk->sk_state != TCP_LISTEN)
+ 		goto out;
+ 
+@@ -2251,6 +2256,8 @@
+ 			goto out;
+ 	}
+ 
++sockasync:
++
+ 	req = tp->accept_queue;
+ 	if ((tp->accept_queue = req->dl_next) == NULL)
+ 		tp->accept_queue_tail = NULL;
+diff -NBbwur linux-2.6.6/net/ipv4/tcp_input.c linux-2.6.6-aem-15r9/net/ipv4/tcp_input.c
+--- linux-2.6.6/net/ipv4/tcp_input.c	Sun May  9 22:32:54 2004
++++ linux-2.6.6-aem-15r9/net/ipv4/tcp_input.c	Mon May 17 10:50:05 2004
+@@ -72,6 +72,8 @@
+ #include <net/inet_common.h>
+ #include <linux/ipsec.h>
+ 
++#include <linux/job.h>
++
+ int sysctl_tcp_timestamps = 1;
+ int sysctl_tcp_window_scaling = 1;
+ int sysctl_tcp_sack = 1;
+@@ -2990,6 +2992,8 @@
+ 	sk->sk_shutdown |= RCV_SHUTDOWN;
+ 	sock_set_flag(sk, SOCK_DONE);
+ 
++ 	job_wake_up (sk->wclose);
++ 
+ 	switch (sk->sk_state) {
+ 		case TCP_SYN_RECV:
+ 		case TCP_ESTABLISHED:
+@@ -4387,6 +4391,7 @@
+ 		 * Particularly, it can be connect to self.
+ 		 */
+ 		tcp_set_state(sk, TCP_SYN_RECV);
++		job_wake_up (&tp->jwq_accept);
+ 
+ 		if (tp->saw_tstamp) {
+ 			tp->tstamp_ok = 1;
+@@ -4561,6 +4566,7 @@
+ 				mb();
+ 				tcp_set_state(sk, TCP_ESTABLISHED);
+ 				sk->sk_state_change(sk);
++ 				job_wake_up (&tp->jwq_accept);
+ 
+ 				/* Note, that this wakeup is only for marginal
+ 				 * crossed SYN case. Passively open sockets
+@@ -4612,6 +4618,7 @@
+ 			if (tp->snd_una == tp->write_seq) {
+ 				tcp_set_state(sk, TCP_FIN_WAIT2);
+ 				sk->sk_shutdown |= SEND_SHUTDOWN;
++ 				job_wake_up (sk->wclose);
+ 				dst_confirm(sk->sk_dst_cache);
+ 
+ 				if (!sock_flag(sk, SOCK_DEAD))
+@@ -4692,6 +4699,7 @@
+ 		/* Fall through */
+ 	case TCP_ESTABLISHED: 
+ 		tcp_data_queue(sk, skb);
++		job_wake_up (sk->wrq);
+ 		queued = 1;
+ 		break;
+ 	}
+diff -NBbwur linux-2.6.6/net/ipv4/tcp_minisocks.c linux-2.6.6-aem-15r9/net/ipv4/tcp_minisocks.c
+--- linux-2.6.6/net/ipv4/tcp_minisocks.c	Sun May  9 22:33:06 2004
++++ linux-2.6.6-aem-15r9/net/ipv4/tcp_minisocks.c	Mon May 17 10:50:05 2004
+@@ -791,6 +791,7 @@
+ 		newtp->urg_data = 0;
+ 		newtp->listen_opt = NULL;
+ 		newtp->accept_queue = newtp->accept_queue_tail = NULL;
++		wq_job_head_init (&newtp->jwq_accept);
+ 		/* Deinitialize syn_wait_lock to trap illegal accesses. */
+ 		memset(&newtp->syn_wait_lock, 0, sizeof(newtp->syn_wait_lock));
+ 
+@@ -809,6 +810,8 @@
+ 		newsk->sk_socket = NULL;
+ 		newsk->sk_sleep = NULL;
+ 		newsk->sk_owner = NULL;
++  		newsk->wrq = NULL;
++  		newsk->wclose = NULL;
+ 
+ 		newtp->tstamp_ok = req->tstamp_ok;
+ 		if((newtp->sack_ok = req->sack_ok) != 0) {
+diff -NBbwur linux-2.6.6/net/netrom/af_netrom.c linux-2.6.6-aem-15r9/net/netrom/af_netrom.c
+--- linux-2.6.6/net/netrom/af_netrom.c	Sun May  9 22:32:37 2004
++++ linux-2.6.6-aem-15r9/net/netrom/af_netrom.c	Mon May 17 10:50:05 2004
+@@ -478,6 +478,8 @@
+ 	sk->sk_debug    = osk->sk_debug;
+ 	sk->sk_state    = TCP_ESTABLISHED;
+ 	sk->sk_sleep    = osk->sk_sleep;
++ 	sk->wrq    = NULL;
++ 	sk->wclose = NULL;
+ 	sk->sk_zapped   = osk->sk_zapped;
+ 
+ 	skb_queue_head_init(&nr->ack_queue);
+diff -NBbwur linux-2.6.6/net/rose/af_rose.c linux-2.6.6-aem-15r9/net/rose/af_rose.c
+--- linux-2.6.6/net/rose/af_rose.c	Sun May  9 22:32:37 2004
++++ linux-2.6.6-aem-15r9/net/rose/af_rose.c	Mon May 17 10:50:05 2004
+@@ -574,6 +574,8 @@
+ 	sk->sk_debug    = osk->sk_debug;
+ 	sk->sk_state    = TCP_ESTABLISHED;
+ 	sk->sk_sleep    = osk->sk_sleep;
++ 	sk->wrq         = NULL;
++ 	sk->wclose      = NULL;
+ 	sk->sk_zapped   = osk->sk_zapped;
+ 
+ 	init_timer(&rose->timer);
+diff -NBbwur linux-2.6.6/net/socket.c linux-2.6.6-aem-15r9/net/socket.c
+--- linux-2.6.6/net/socket.c	Sun May  9 22:32:27 2004
++++ linux-2.6.6-aem-15r9/net/socket.c	Mon May 17 10:50:05 2004
+@@ -279,6 +279,9 @@
+ 		return NULL;
+ 	init_waitqueue_head(&ei->socket.wait);
+ 	
++ 	wq_job_head_init(&ei->socket.jwq_read);
++ 	wq_job_head_init(&ei->socket.jwq_close);
++
+ 	ei->socket.fasync_list = NULL;
+ 	ei->socket.state = SS_UNCONNECTED;
+ 	ei->socket.flags = 0;
+@@ -360,7 +363,11 @@
+  *	but we take care of internal coherence yet.
+  */
+ 
+-int sock_map_fd(struct socket *sock)
++extern void fd_install_task (struct task_struct *, unsigned int, struct file *);
++extern int get_unused_fd_task (struct task_struct *);
++extern struct file *get_empty_filp_task (struct task_struct *);
++
++int sock_map_fd_task (struct task_struct *task, struct socket *sock)
+ {
+ 	int fd;
+ 	struct qstr this;
+@@ -370,12 +377,12 @@
+ 	 *	Find a file descriptor suitable for return to the user. 
+ 	 */
+ 
+-	fd = get_unused_fd();
++	fd = get_unused_fd_task (task);
+ 	if (fd >= 0) {
+-		struct file *file = get_empty_filp();
++		struct file *file = get_empty_filp_task (task);
+ 
+ 		if (!file) {
+-			put_unused_fd(fd);
++			put_unused_fd_task (task, fd);
+ 			fd = -ENFILE;
+ 			goto out;
+ 		}
+@@ -388,7 +395,7 @@
+ 		file->f_dentry = d_alloc(sock_mnt->mnt_sb->s_root, &this);
+ 		if (!file->f_dentry) {
+ 			put_filp(file);
+-			put_unused_fd(fd);
++			put_unused_fd_task (task, fd);
+ 			fd = -ENOMEM;
+ 			goto out;
+ 		}
+@@ -402,13 +409,19 @@
+ 		file->f_mode = 3;
+ 		file->f_flags = O_RDWR;
+ 		file->f_pos = 0;
+-		fd_install(fd, file);
++		fd_install_task (task, fd, file);
+ 	}
+ 
+ out:
+ 	return fd;
+ }
+ 
++int sock_map_fd (struct socket *sock)
++{
++	return sock_map_fd_task (current, sock);
++}
++
++
+ /**
+  *	sockfd_lookup	- 	Go from a file number to its socket slot
+  *	@fd: file handle
+@@ -422,13 +435,35 @@
+  *	On a success the socket object pointer is returned.
+  */
+ 
+-struct socket *sockfd_lookup(int fd, int *err)
++static inline struct file *fcheck_task (struct files_struct *files, unsigned int fd)
++{
++	struct file * file = NULL;
++
++	if (fd < files->max_fds)
++		file = files->fd[fd];
++	return file;
++}
++
++struct file *fget_task (struct task_struct *task, unsigned int fd)
++{
++	struct file *file;
++	struct files_struct *files = task->files;
++
++	spin_lock (&files->file_lock);
++	file = fcheck_task (files, fd);
++	if (file)
++		get_file (file);
++	spin_unlock (&files->file_lock);
++	return file;
++}
++
++struct socket *do_sockfd_lookup(struct task_struct *task, int fd, int *err)
+ {
+ 	struct file *file;
+ 	struct inode *inode;
+ 	struct socket *sock;
+ 
+-	if (!(file = fget(fd)))
++	if (!(file = fget_task (task, fd)))
+ 	{
+ 		*err = -EBADF;
+ 		return NULL;
+@@ -449,6 +484,11 @@
+ 	return sock;
+ }
+ 
++struct socket *sockfd_lookup (int fd, int *err)
++{
++	return do_sockfd_lookup (current, fd, err);
++}
++
+ /**
+  *	sock_alloc	-	allocate a socket
+  *	
+@@ -1277,13 +1317,18 @@
+  *	clean when we restucture accept also.
+  */
+ 
+-asmlinkage long sys_accept(int fd, struct sockaddr __user *upeer_sockaddr, int __user *upeer_addrlen)
++/*
++ * This is the socket mapping function used when want to create a 
++ * mapping outside of the current process context.
++ */
++
++long do_accept (struct task_struct *task, int fd, struct sockaddr *upeer_sockaddr, int *upeer_addrlen)
+ {
+ 	struct socket *sock, *newsock;
+ 	int err, len;
+ 	char address[MAX_SOCK_ADDR];
+ 
+-	sock = sockfd_lookup(fd, &err);
++	sock = do_sockfd_lookup(task, fd, &err);
+ 	if (!sock)
+ 		goto out;
+ 
+@@ -1320,7 +1365,7 @@
+ 
+ 	/* File flags are not inherited via accept() unlike another OSes. */
+ 
+-	if ((err = sock_map_fd(newsock)) < 0)
++	if ((err = sock_map_fd_task (task, newsock)) < 0)
+ 		goto out_release;
+ 
+ 	security_socket_post_accept(sock, newsock);
+@@ -1334,6 +1379,10 @@
+ 	goto out_put;
+ }
+ 
++asmlinkage long sys_accept (int fd, struct sockaddr *upeer_sockaddr, int *upeer_addrlen)
++{
++	return do_accept (current, fd, upeer_sockaddr, upeer_addrlen);
++}
+ 
+ /*
+  *	Attempt to connect to a socket with the server address.  The address
+@@ -2031,3 +2080,6 @@
+ EXPORT_SYMBOL(sock_unregister);
+ EXPORT_SYMBOL(sock_wake_async);
+ EXPORT_SYMBOL(sockfd_lookup);
++EXPORT_SYMBOL(do_sockfd_lookup);
++EXPORT_SYMBOL(fget_task);
++EXPORT_SYMBOL(do_accept);
+diff -NBbwur linux-2.6.6/net/wanrouter/af_wanpipe.c linux-2.6.6-aem-15r9/net/wanrouter/af_wanpipe.c
+--- linux-2.6.6/net/wanrouter/af_wanpipe.c	Sun May  9 22:33:20 2004
++++ linux-2.6.6-aem-15r9/net/wanrouter/af_wanpipe.c	Mon May 17 10:50:06 2004
+@@ -470,6 +470,8 @@
+ 	sk->sk_sndbuf	= osk->sk_sndbuf;
+ 	sk->sk_debug	= osk->sk_debug;
+ 	sk->sk_state	= WANSOCK_CONNECTING;
++ 	sk->wrq         = NULL;
++ 	sk->wclose      = NULL;
+ 	sk->sk_sleep	= osk->sk_sleep;
+ 
+ 	return sk;
+@@ -2426,6 +2428,8 @@
+ 	newsk->sk_pair = NULL;
+ 	newsk->sk_socket = newsock;
+ 	newsk->sk_sleep = &newsock->wait;
++ 	newsk->wrq    = NULL;
++ 	newsk->wclose = NULL;
+ 
+ 	/* Now attach up the new socket */
+ 	sk->sk_ack_backlog--;

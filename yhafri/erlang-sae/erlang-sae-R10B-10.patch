@@ -1,0 +1,75 @@
+--- otp_src_R10B-6/lib/odbc/c_src/Makefile.in	2005-03-22 15:11:37.000000000 +0100
++++ otp_src_R10B-6/lib/odbc/c_src/Makefile.in-new	2005-03-23 16:05:18.918358336 +0100
+@@ -18,13 +18,13 @@
+ include $(ERL_TOP)/make/target.mk
+ include $(ERL_TOP)/make/$(TARGET)/otp.mk
+ 
+-ifeq ($(TYPE),debug)
+-TYPEMARKER = .debug
+-TYPEFLAGS = -g
+-else
++#ifeq ($(TYPE),debug)
++#TYPEMARKER = .debug
++#TYPEFLAGS = -g
++#else
+ TYPEMARKER =
+-TYPEFLAGS =
+-endif
++#TYPEFLAGS =
++#endif
+ 
+ WIN_BIN_DIR = ../priv/bin
+ BIN_DIR = ../priv/bin/$(TARGET)
+--- otp_src_R10B-6/lib/odbc/configure	2005-03-23 21:12:17.404322864 +0100
++++ otp_src_R10B-6/lib/odbc/configure-new	2005-03-23 21:13:45.437939720 +0100
+@@ -45,6 +45,7 @@
+ oldincludedir='/usr/include'
+ infodir='${prefix}/info'
+ mandir='${prefix}/man'
++with_odbc=/usr
+ 
+ # Initialize some other variables.
+ subdirs=
+--- otp_src_R10B-6/erts/emulator/Makefile.in	2005-05-10 17:08:05.000000000 +0200
++++ otp_src_R10B-6/erts/emulator/Makefile.in-new	2005-05-12 00:31:09.257486016 +0200
+@@ -213,7 +213,7 @@
+ UNIX_ONLY_BUILDS =
+ endif
+ 
+-all: generate erts_lib zlib $(BINDIR)/$(EMULATOR_EXECUTABLE) $(UNIX_ONLY_BUILDS)
++all: generate erts_lib zlib $(BINDIR)/$(EMULATOR_EXECUTABLE) $(BINDIR)/$(EMULATOR_EXECUTABLE_SAE) $(UNIX_ONLY_BUILDS)
+ 
+ zlib:
+ 	@set -e ; cd zlib && $(MAKE) $(TYPE)
+--- otp_src_R10B-10/Makefile.in	2006-03-07 15:26:09.000000000 +0100
++++ otp_src_R10B-10/Makefile.in-new	2006-03-09 00:58:01.000000000 +0100
+@@ -520,7 +520,7 @@
+ endif
+ 
+ install.Install:
+-	cd $(ERLANG_LIBDIR) && ./Install -minimal $(ERLANG_LIBDIR)
++	cd $(ERLANG_LIBDIR) && sh ./Install -minimal $(ERLANG_LIBDIR)
+ 
+ #
+ # Erlang base public files
+@@ -528,12 +528,14 @@
+ install.bin:
+ 	rm -f $(BINDIR)/erl $(BINDIR)/erlc \
+ 	      $(BINDIR)/ecc $(BINDIR)/elink $(BINDIR)/ear $(BINDIR)/escript
+-	${LN_S} $(ERLANG_BINDIR)/erl      $(BINDIR)/erl
+-	${LN_S} $(ERLANG_BINDIR)/erlc     $(BINDIR)/erlc
+-	${LN_S} $(ERLANG_BINDIR)/ecc      $(BINDIR)/ecc
+-	${LN_S} $(ERLANG_BINDIR)/elink    $(BINDIR)/elink
+-	${LN_S} $(ERLANG_BINDIR)/ear      $(BINDIR)/ear
+-	${LN_S} $(ERLANG_BINDIR)/escript  $(BINDIR)/escript
++	${LN_S} /usr/lib/erlang/bin/erl      $(BINDIR)/erl
++	${LN_S} /usr/lib/erlang/bin/erlc     $(BINDIR)/erlc
++	${LN_S} /usr/lib/erlang/bin/ecc      $(BINDIR)/ecc
++	${LN_S} /usr/lib/erlang/bin/elink    $(BINDIR)/elink
++	${LN_S} /usr/lib/erlang/bin/ear      $(BINDIR)/ear
++	${LN_S} /usr/lib/erlang/bin/escript  $(BINDIR)/escript
++	${LN_S} /usr/lib/erlang/bin/esh      $(BINDIR)/esh
++	${LN_S} /usr/lib/erlang/bin/beam_evm $(BINDIR)/beam_evm
+ 
+ #
+ # Directories needed before we can install

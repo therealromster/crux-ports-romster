@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A high performance messaging service that is resilient to faults across external or internal networks
+# URL: http://www.spread.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=spread
+version=4.0.0
+release=1
+source=($name-src-$version.tar.gz)
+
+build () {
+	cd $name-src-$version
+	./configure --prefix=/usr
+
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+    
+	chown -R root:root $PKG
+}

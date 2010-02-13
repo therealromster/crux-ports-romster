@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Log4C light
+# URL: https://sourceforge.net/project/showfiles.php?group_id=38627
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=log4c_light
+version=1.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/log4c/log4c.tgz)
+
+build () {
+	cd log4c/src
+
+	make clean && make
+
+	ar cvr log4c.a log4c.o defaultAppender.o
+
+	install -D -m 644 log4c.h $PKG/usr/include/log4c.h
+	install -D -m 644 log4c.a $PKG/usr/lib/log4c.a
+ 
+	chown -R root:root $PKG
+}

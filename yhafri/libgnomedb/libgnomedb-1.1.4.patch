@@ -1,0 +1,21 @@
+diff -ruN libgnomedb-1.1.4.org/configure libgnomedb-1.1.4/configure
+--- libgnomedb-1.1.4.orig/configure	2004-04-20 09:13:19.506798416 -0400
++++ libgnomedb-1.1.4/configure	2004-04-20 09:13:19.611782456 -0400
+@@ -3622,7 +3622,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -4679,7 +4679,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi

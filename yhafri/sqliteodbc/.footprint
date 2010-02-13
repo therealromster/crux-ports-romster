@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libsqlite3odbc-0.65.so
+-rw-r--r--	root/root	usr/lib/libsqlite3odbc.a
+-rwxr-xr-x	root/root	usr/lib/libsqlite3odbc.la
+lrwxrwxrwx	root/root	usr/lib/libsqlite3odbc.so -> libsqlite3odbc-0.65.so
+-rwxr-xr-x	root/root	usr/lib/libsqliteodbc-0.65.so
+-rw-r--r--	root/root	usr/lib/libsqliteodbc.a
+-rwxr-xr-x	root/root	usr/lib/libsqliteodbc.la
+lrwxrwxrwx	root/root	usr/lib/libsqliteodbc.so -> libsqliteodbc-0.65.so

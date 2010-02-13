@@ -1,0 +1,24 @@
+# $Id: $
+# Description: TTY capturing daemon for Linux, *BSD and Solaris
+# URL: http://www.ignavus.net/software.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libhx
+
+name=ttyrpld
+version=2.19
+release=1
+source=(http://garr.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

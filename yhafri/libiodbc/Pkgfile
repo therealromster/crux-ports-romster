@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Independent Open DataBase Connectivity
+# URL: http://www.iodbc.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk
+
+name=libiodbc
+version=3.52.2
+release=1
+source=(http://www.iodbc.org/downloads/iODBC/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-gui
+
+    	make
+	make prefix=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

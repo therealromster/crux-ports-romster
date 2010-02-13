@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Write Perl subroutines in other programming languages
+# URL: http://search.cpan.org/~ingy/Inline-0.44/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-parse-recdescent
+
+name=p5-inline
+version=0.44
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/I/IN/INGY/Inline-$version.tar.gz)
+
+build () {
+	cd Inline-$version
+	echo "y" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

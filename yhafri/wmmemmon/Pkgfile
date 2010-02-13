@@ -1,0 +1,23 @@
+# $Id: $
+# Description: WMMemMon is a memory/swap monitor dockapp
+# URL: http://www.bensinclair.com/dockapp/showapp.php3?id=183
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmmemmon
+version=1.0.1
+release=1
+source=(http://www.sh.rim.or.jp/~ssato/src/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1 <../$name-$version.patch
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

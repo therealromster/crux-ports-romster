@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A full screen menuing system for Unix
+# URL: http://kitenet.net/programs/pdmenu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, libslang2
+
+name=pdmenu
+#version=1.2.87
+version=svn
+release=1
+source=()
+#http://kitenet.net/programs/pdmenu/${name}_${version}.tar.gz)
+
+build () {
+	svn checkout svn://svn.kitenet.net/joey/trunk/src/packages/$name
+
+	cd ${name}
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Multiplatform C++ Standard Library
+# URL: http://sourceforge.net/projects/stlport
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=stlport
+version=5.1.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/STLport-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/{include,lib}
+	cd STLport-$version
+
+	(cd build/lib
+	make -f gcc.mak clean
+	make -f gcc.mak)
+	
+	tar cf - $name   | (cd $PKG/usr/include; tar xf -)
+      	chmod -R a+r       $PKG/usr/include/$name
+      	chown -R root:root $PKG/usr/include/$name
+	
+	cd $SRC/STLport-$version/build/lib/obj/gcc/
+	for i in so so_g so_stlg; \
+	do \
+	(cd $i; mv libstlport*.so* $PKG/usr/lib); \
+	done
+
+	chown -R root:root $PKG
+}

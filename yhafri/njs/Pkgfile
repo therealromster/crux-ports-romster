@@ -1,0 +1,31 @@
+# $Id: $
+# Description: NJS JavaScript Interpreter
+# URL: http://www.njs-javascript.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=njs
+version=0.2.5
+release=1
+source=(http://www.$name-javascript.org/js-$version.tar.gz)
+
+build () {
+	cd js-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --enable-shared \
+		    --enable-static \
+		    --enable-all-dispatchers \
+		    --disable-profiling \
+		    --without-curses \
+	   	    --with-js \
+		    --with-md5
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info
+
+	chown -R root:root $PKG
+}

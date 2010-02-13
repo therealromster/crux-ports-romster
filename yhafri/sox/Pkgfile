@@ -1,0 +1,23 @@
+# $Id: $
+# Description: The swiss army knife of sound processing programs
+# URL: http://sox.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  
+
+name=sox
+version=12.18.2
+release=1
+source="http://kent.dl.sourceforge.net/sourceforge/sox/$name-$version.tar.gz"
+
+build()
+{
+    cd $name-$version
+    ./configure --prefix=/usr
+
+    make
+
+    make install install-lib prefix=$PKG/usr
+
+	chown -R root:root $PKG
+}

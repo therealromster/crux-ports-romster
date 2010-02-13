@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/xaos
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man6/
+-r--r--r--	root/root	usr/man/man6/xaos.6.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/XaoS/
+drwxr-xr-x	root/root	usr/share/XaoS/catalogs/
+-r--r--r--	root/root	usr/share/XaoS/catalogs/cesky.cat
+-r--r--r--	root/root	usr/share/XaoS/catalogs/deutsch.cat
+-r--r--r--	root/root	usr/share/XaoS/catalogs/english.cat
+-r--r--r--	root/root	usr/share/XaoS/catalogs/espanhol.cat
+-r--r--r--	root/root	usr/share/XaoS/catalogs/francais.cat
+-r--r--r--	root/root	usr/share/XaoS/catalogs/magyar.cat
+-r--r--r--	root/root	usr/share/XaoS/catalogs/romanian.cat

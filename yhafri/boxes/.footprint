@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/boxes/
+-rw-r--r--	root/root	etc/boxes/boxes-config
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/boxes
+-rwxr-xr-x	root/root	usr/bin/boxes0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/boxes.1.gz

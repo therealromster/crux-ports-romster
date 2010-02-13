@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Template Toolkit plugin for HTML::Tooltip::JavaScript 
+# URL: http://search.cpan.org/~adamk/Template-Plugin-Tooltip-0.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-html-tooltip-javascript, p5-extutils-autoinstall
+
+name=p5-template-plugin-tooltip
+version=0.04
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/Template-Plugin-Tooltip-$version.tar.gz)
+
+build () {
+	cd Template-Plugin-Tooltip-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

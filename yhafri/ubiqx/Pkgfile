@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Data structures and algorithms library (binary splay trees, sparse arrays, linked lists, and suchlike)
+# URL: http://ubiqx.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ubiqx
+version=1
+release=1
+source=(http://$name.org/pub/lib$name.tgz)
+
+build () {
+	mkdir -p $PKG/usr/include
+	cd $name
+
+	make
+	make lib$name.a
+
+	install -D -m 644 lib$name.a $PKG/usr/lib/lib$name.a
+	mv library/*.h $PKG/usr/include
+	
+	chown -R root:root $PKG
+}

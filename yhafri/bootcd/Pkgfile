@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Run your system from cd without need for disks
+# URL: http://packages.debian.org/unstable/utils/bootcd
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bootcd
+version=2.51
+release=1
+source=(http://ftp.debian.org/debian/pool/main/b/$name/${name}_${version}.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,sbin,share/bootcd}
+	mkdir -p $PKG/etc/bootcd
+
+	mv $name-*  ${name}-${version}
+	cd ${name}-${version}
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

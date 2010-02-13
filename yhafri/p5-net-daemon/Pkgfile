@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for portable daemons 
+# URL: http://search.cpan.org/~jwied/Net-Daemon-0.38/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-net-daemon
+version=0.39
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JW/JWIED/Net-Daemon-$version.tar.gz)
+
+build () {
+	cd Net-Daemon-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

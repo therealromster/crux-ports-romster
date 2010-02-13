@@ -1,0 +1,36 @@
+# $Id: $
+# Description: Free Pascal Compiler
+# URL: http://www.freepascal.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gpm
+
+name=fpc
+version=2.0.2
+release=1
+
+source=(ftp://ftp.freepascal.org/pub/$name/dist/i386-linux-$version/$name-$version.i386-linux.tar)
+
+build() {
+        tar xf $name-$version.i386-linux.tar
+        tar xf binary.i386-linux.tar
+
+        mkdir -p $PKG/usr/bin
+        mkdir $PKG/etc
+
+        tar xfz base.i386-linux.tar.gz -C $PKG/usr
+        tar xfz utils.i386-linux.tar.gz -C $PKG/usr
+        for fpfile in units*.tar.gz 
+        do
+                tar xfz $fpfile -C $PKG/usr
+        done
+
+        ln -sf /usr/lib/$name/$version/ppc386 $PKG/usr/bin/ppc386
+        $PKG/usr/lib/$name/$version/samplecfg $PKG/usr $PKG/etc
+
+        rm -r $PKG/usr/share/doc
+        sed -i 's|'$PKG/usr'|'/usr/lib/$name/$version'|g' $PKG/etc/fpc.cfg
+
+        chown root:root $PKG
+}
+

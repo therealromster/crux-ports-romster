@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libpgtcl.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libpgtcl.so -> /usr/lib/pgtcl1.5/libpgtcl1.5.so
+drwxr-xr-x	root/root	usr/lib/pgtcl1.5/
+-rwxr-xr-x	root/root	usr/lib/pgtcl1.5/libpgtcl1.5.so
+-rw-r--r--	root/root	usr/lib/pgtcl1.5/pgtcl.tcl
+-rw-r--r--	root/root	usr/lib/pgtcl1.5/pkgIndex.tcl

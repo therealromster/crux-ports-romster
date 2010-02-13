@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libtdom0.8.0.so
+-rwxr-xr-x	root/root	usr/lib/libtdomstub0.8.0.a
+-rw-r--r--	root/root	usr/lib/pkgIndex.tcl
+-rw-r--r--	root/root	usr/lib/tdom.tcl
+-rw-r--r--	root/root	usr/lib/tdomConfig.sh
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/mann/
+-rw-r--r--	root/root	usr/man/mann/dom.n.gz
+-rw-r--r--	root/root	usr/man/mann/domDoc.n.gz
+-rw-r--r--	root/root	usr/man/mann/domNode.n.gz
+-rw-r--r--	root/root	usr/man/mann/expat.n.gz
+-rw-r--r--	root/root	usr/man/mann/expatapi.n.gz
+-rw-r--r--	root/root	usr/man/mann/tdomcmd.n.gz
+-rw-r--r--	root/root	usr/man/mann/tnc.n.gz

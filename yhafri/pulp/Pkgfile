@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A collection of perl/zinc utilities
+# URL: http://www.tls.cena.fr/~etienne/tkzincfx/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-tk-zinc
+
+name=pulp
+version=0.12
+release=1
+source=(http://perso.tls.cena.fr/etienne/wootz/downloads/${name}_${version}.tar.gz)
+
+build () {
+	cd $name-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

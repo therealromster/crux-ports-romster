@@ -1,0 +1,21 @@
+--- DEFAULTS/Defaults.linux	2003-02-16 01:01:48.000000000 +0100
++++ DEFAULTS/Defaults.linux-new	2006-05-02 11:39:33.000000000 +0200
+@@ -19,15 +19,15 @@
+ CWARNOPTS=
+ 
+ DEFINCDIRS=	$(SRCROOT)/include /usr/src/linux/include
+-LDPATH=		-L/opt/schily/lib
+-RUNPATH=	-R $(INS_BASE)/lib -R /opt/schily/lib -R $(OLIBSDIR)
++LDPATH=		-L$(PKG)/usr/lib/smake/lib
++RUNPATH=	-R $(INS_BASE)/lib -R $(PKG)/usr/lib/smake/lib -R $(OLIBSDIR)
+ 
+ ###########################################################################
+ #
+ # Installation config stuff
+ #
+ ###########################################################################
+-INS_BASE=	/opt/schily
++INS_BASE=	/usr/lib/smake
+ INS_KBASE=	/
+ #
+ DEFUMASK=	002

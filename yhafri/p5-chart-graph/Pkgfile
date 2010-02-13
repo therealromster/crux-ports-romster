@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl front-end to gnuplot, XRT and Xmgrace.
+# URL: http://search.cpan.org/~caidaperl/Chart-Graph-2.0/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gnuplot
+
+name=p5-chart-graph
+version=2.0
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CA/CAIDAPERL/Chart-Graph-$version.tar.gz)
+
+build () {
+	cd Chart-Graph-2
+	echo "gnuplot" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

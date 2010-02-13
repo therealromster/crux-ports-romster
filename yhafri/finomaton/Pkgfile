@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Visual tool to create finite automaton with output in MetaPost format for La(TeX)t 
+# URL: http://ftp.jussieu.fr/ftp/pub/tex-archive/graphics/finomaton/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk
+
+name=finomaton
+version=1
+release=1
+source=(http://ftp.jussieu.fr/ftp/pub/tex-archive/graphics/finomaton/finomaton.tcl)
+
+build () {
+    install -D -m 755 $name.tcl $PKG/usr/bin/$name
+    chown -R root:root $PKG
+}

@@ -1,0 +1,32 @@
+--- dialyzer/setup.sh	2006-03-15 12:12:12.000000000 +0100
++++ dialyzer/setup.sh-new	2006-05-09 08:57:16.000000000 +0200
+@@ -64,7 +64,7 @@
+ DIALYZER_OTP_OTP="$DIALYZER_OTP_DIR/bin/erl"
+ DIALYZER_OTP_ERLC="$DIALYZER_OTP_DIR/bin/erlc"
+ DIALYZER_HIPE_DIR="$DIALYZER_OTP_DIR/lib/hipe*"
+-DIALYZER_HIPE_VSN="$DIALYZER_OTP_DIR/lib/hipe*/vsn.mk"
++DIALYZER_HIPE_VSN="$DIALYZER_OTP_DIR/lib/hipe*"
+ 
+ if (test -f "$DIALYZER_OTP_OTP") ; then
+     echo "  $DIALYZER_OTP_OTP exists..."
+@@ -81,9 +81,9 @@
+ fi
+ 
+ ## there should NOT be any quotes in the filename of the next line
+-if (test -f $DIALYZER_HIPE_VSN) ; then
++if (test -e $DIALYZER_HIPE_VSN) ; then
+     ## the file contains something like HIPE_VSN = 3.4.0 or HiPE_VSN = 3.5
+-    HIPE_VSN=`cat $DIALYZER_HIPE_VSN | sed s/.*=\ //`	# OBS: strips the space
++    HIPE_VSN=`basename $DIALYZER_HIPE_VSN | sed "s|hipe-\(.*\)|\1|"`
+     case $HIPE_VSN in
+       [0-9]\.[0-9]\.[0-9]*)
+ 	HIPE_VSN_MAJOR=`echo $HIPE_VSN | sed s/\\\\.[0-9]*\\\\.[0-9]*//`
+@@ -149,7 +149,7 @@
+     ## remove the file unconditionally to avoid problems when using
+     ## symbolic links across filesystems in different machines.
+     rm -f src/hipe_icode_type.hrl
+-    echo "  Creating a symbolic link to $DIALYZER_OTP_DIR/lib/hipe/icode/hipe_icode_type.hrl"
++    echo "  Creating a symbolic link to $DIALYZER_OTP_DIR/lib/hipe-$HIPE_VSN/icode/hipe_icode_type.hrl"
+     $LN $DIALYZER_OTP_DIR/lib/hipe*/icode/hipe_icode_type.hrl src
+     ## create all files in src
+     cd src

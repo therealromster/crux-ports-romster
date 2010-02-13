@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/qamoose/
+-rwxr-xr-x	root/root	usr/lib/qamoose/dict_admin.cgi
+-rwxr-xr-x	root/root	usr/lib/qamoose/dict_create.pl
+-rw-r--r--	root/root	usr/lib/qamoose/dict_header.pl
+-rw-r--r--	root/root	usr/lib/qamoose/dict_lib.pl
+-rwxr-xr-x	root/root	usr/lib/qamoose/dict_main.cgi
+drwxr-xr-x	root/root	usr/lib/qamoose/html/
+-rw-r--r--	root/root	usr/lib/qamoose/html/dict_kb.html
+drwxr-xr-x	root/root	usr/lib/qamoose/images/
+-rw-r--r--	root/root	usr/lib/qamoose/images/kb.gif
+-rw-r--r--	root/root	usr/lib/qamoose/images/kb_icon.gif
+-rw-r--r--	root/root	usr/lib/qamoose/images/kb_sh.gif
+-rw-r--r--	root/root	usr/lib/qamoose/images/qamoose.png
+-rwxr-xr-x	root/root	usr/lib/qamoose/miniQ.cgi

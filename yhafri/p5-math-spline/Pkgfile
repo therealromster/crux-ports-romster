@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Cubic Spline Interpolation of data 
+# URL: http://search.cpan.org/~jarw/Math-Spline-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-math-spline
+version=0.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JA/JARW/Math-Spline-$version.tar.gz)
+
+build () {
+	cd Math-Spline-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

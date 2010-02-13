@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Extract delimited text sequences from strings for Perl
+# URL: http://search.cpan.org/~dconway/Text-Balanced-1.95/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-text-balanced
+version=1.95
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/Text-Balanced-$version.tar.gz)
+
+build () {
+	cd Text-Balanced-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

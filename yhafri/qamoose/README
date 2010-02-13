@@ -1,0 +1,58 @@
+INFO:
+
+Some of the Features offered by QaMoose:
+
+ + Two modes of operation
+   a. Interface to a DICT server for public queries
+      - Term search form includes exact and substring search options
+   b. Interface to suggest and approve terms (local)
+      - Ability to suggest new terms for approval
+      - Ability to search an approved database (db) of terms
+      - An 'admin' page to apply for a term inspector/approver position
+      - An 'admin' page to approve/reject terms [& users]
+      - Ability to upload/download terms to the local dictionary
+      - Term form includes (English, Arabic & Latin - Arabic in latin chars)
+ + All code is UTF-8 friendly (ie. terms in Arabic are stored/displayed
+   in Arabic - browser allowing)
+ + A virtual keyboard so as to type in UTF-8 Arabic
+
+among others...
+
+	http://www.arabeyes.org/project.php?proj=QaMoose
+
+QaMoose has had extensive testing (through the various public releases)
+and has been successfully deployed and incorporated into www.arabeyes.org
+
+NOTE: Of interest might also be Arabeyes.org's English/Arabic wordlist.
+      A GPL translation list of words in access of 88,000 words.
+
+	http://www.arabeyes.org/project.php?proj=Wordlist
+
+POST-INSTALL:
+
++ Modify dict_header.pl
+   - Inspect and modify file with YOUR info (username/password/domain, etc)
+   - Insure $embed's value is 0 (unless you're embedding this code into
+     your site and would like to extend the look-n-feel of the package
+     NOTE: setting this to 1 will require some customization work on your
+     end as well on dict_main, dict_admin and dict_lib)
+
++ Insure availability of mySQL on your local machine - if a different
+  database is used, make appropriate modification in dict_header.pl
+
++ Run `dict_create.pl'
+
++ Invoke (click-on) dict_admin.cgi within your browser
+
++ Login by entering your Super admin email and password
+
++ Click on 'Account:Password' to change Super admin's password
+  NOTE: Once Password is changed the entry in dict_lib.pl is irrelevant.
+  NOTE: All passwords are stored in the mySQL db in encrypted form.
+
++ Logout and now the package is ready for usage
+
++ Invoke (click-on) dict_main.cgi within your browser - MAIN start point
+
++ In order to access the DICT abilities, either start one on your machine
+  or point to an available server on the 'net.

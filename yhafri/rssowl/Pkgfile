@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Collect and organize Web-based news and information (RSS/RDF/ATOM...)
+# URL: http://rssowl.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant, gtk
+
+name=rssowl
+version=1.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/rssowl_1_0_src.zip \
+    ftp://download.eclipse.org/S-3.1M4-200412162000/swt-3.1M4-linux-gtk.zip \
+    $name-$version.patch \
+    $name)
+
+build () {
+    mkdir -p $PKG/usr/lib/$name
+    mv *.jar ${name}_1_0_src/lib    
+    mv *.so ${name}_1_0_src
+	cd ${name}_1_0_src/src
+    patch -p2<$SRC/$name-$version.patch
+    ant deploy_linux
+    cd ..
+    cp -rf *.so img/ lib/ $name.jar  $PKG/usr/lib/$name
+    install -D -m 755 $SRC/$name $PKG/bin/$name
+    chown -R root:root $PKG
+}

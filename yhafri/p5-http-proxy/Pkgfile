@@ -1,0 +1,25 @@
+# $Id: $
+# Description:  A pure Perl HTTP proxy
+# URL: http://at.cpan.org/modules/by-module/HTTP/HTTP-Proxy-0.13.readme
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-http-proxy
+version=0.17
+release=1
+source=(http://at.cpan.org/modules/by-module/HTTP/HTTP-Proxy-$version.tar.gz 
+\
+$name-$version.patch)
+
+
+build () {
+	cd HTTP-Proxy-$version
+	patch -p1<../$name-$version.patch
+
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

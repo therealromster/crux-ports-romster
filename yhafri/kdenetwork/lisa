@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# /etc/rc.d/lisa: start/stop LISa daemon
+#
+
+if [ "$1" = "start" ]; then
+    /usr/bin/lisa -c /etc/lisa.conf > /dev/null
+elif [ "$1" = "stop" ]; then
+    killall -q /usr/bin/lisa
+elif [ "$1" = "restart" ]; then
+    killall -q /usr/bin/lisa
+    /usr/bin/lisa -c /etc/lisa.conf > /dev/null
+else
+    echo "usage: $0 start|stop|restart"
+fi
+
+# End of file

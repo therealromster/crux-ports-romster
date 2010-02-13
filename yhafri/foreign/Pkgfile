@@ -1,0 +1,27 @@
+# $Id: $
+# Description: iMatrix Foreign Package Management
+# URL: http://download.imatix.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=foreign
+version=1.1d4
+release=1
+source=(http://download.imatix.com/pub/$name-$version-src.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/ibase
+
+	cd $name-$version
+
+	export IBASE=/usr/lib/ibase
+	./boomake build
+
+	export IBASE=$PKG/usr/lib/ibase
+	./boomake install
+
+	rm -rf $PKG/usr/lib/ibase/doc
+
+	chown -R root:root $PKG
+}

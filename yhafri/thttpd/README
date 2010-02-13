@@ -1,0 +1,4 @@
+PRE-INSTALL:
+
+		* Create the group name 'www' before the installation
+		# groupadd www

@@ -1,0 +1,17 @@
+# $Id: $
+# Description: 'cat' with ASCII progress bar
+# URL: http://www.theiling.de/projects/bar.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=barcat
+version=1.4
+release=1
+source=(http://www.theiling.de/downloads/bar-$version-src.tar.bz2)
+
+build () {
+	install -D -m 755 bar-$version/bar $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

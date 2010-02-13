@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Commandline screen capture
+# URL: http://linuxbrit.co.uk/scrot/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Justin Rebelo <justin@pfusch.ca>
+# Depends on: imlib2, giblib
+
+name=scrot
+version=0.8
+release=1
+source=(http://www.linuxbrit.co.uk/downloads/$name-$version.tar.gz)
+
+build() {
+     cd $name-$version
+     ./configure --prefix=/usr
+
+     make
+     make DESTDIR=$PKG install
+     rm -rf $PKG/usr/doc/
+     
+     chown -R root:root $PKG
+}

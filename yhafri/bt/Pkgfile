@@ -1,0 +1,22 @@
+# $Id: $
+# Description: B Tree Library
+# URL: http://www.hydrus.org.uk/doc/bt/html/pr01.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bt
+version=2.0.3
+release=1
+source=(http://www.hydrus.org.uk/downloads/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 644 ./lib/lib$name.a $PKG/usr/lib/lib$name.a
+	for i in ./inc/{bc.h,bt.h,btree.h}; do install -D -m 644 $i $PKG/usr/include/`echo $i | sed -e "s|inc/||"`; done
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

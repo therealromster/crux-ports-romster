@@ -1,0 +1,21 @@
+# Description: xanim 2.92.0 video player including plugins
+# URL: http://xanim.va.pubnix.com/home.html (n/a)
+# Maintainer: 
+# Packager: 
+# Depends on: zlib, xfree86
+
+name=xanim
+version=2920
+release=3
+source=(ftp://ftp.freebsd.org/pub/FreeBSD/ports/local-distfiles/dinoex/${name}${version}.tar.gz \
+	http://cabmec1.cnea.gov.ar/linux/soft/xanim-modules/vid_{{cyuv,h261,iv50}_1.0,{h263,iv41}_1.1,{iv32,cvid}_2.1}_linuxELFx86c6.tgz)
+
+build() {
+    mkdir -p $PKG/usr/{bin,lib/xanim}
+    cd $SRC/${name}${version}/
+    sed -i "s|/usr/local/xanim/mods|/usr/lib/xanim|" xa_vid_codec.c
+    make OPTIMIZE="${CFLAGS/-O3/-O2}" XA_DLL_PATH="/usr/lib/xanim"
+    mv xanim $PKG/usr/bin/
+    mv $SRC/*.xa $PKG/usr/lib/xanim/
+    chown -R root:root $PKG
+}

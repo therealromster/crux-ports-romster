@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A rule-processing engine written in Erlang
+# URL: http://www.diit.unict.it/users/csanto/eres.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=eresye
+version=1.2.2
+release=1
+source=($name-$version.tar.gz)
+#http://www.diit.unict.it/users/csanto/eres-$version.alpha.zip
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+	cd ERESYE-$version/src
+
+	make clean && make && cd ..
+	cp -rf src ebin include $PKG/usr/lib/erlang/lib/$name-$version/
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,10 @@
+--- HTTP-Proxy-0.15/Makefile.PL	2005-04-05 21:22:20.000000000 +0200
++++ HTTP-Proxy-0.15/Makefile.PL-new	2005-05-10 15:17:06.000000000 +0200
+@@ -3,6 +3,7 @@
+ WriteMakefile(
+     NAME         => 'HTTP::Proxy',
+     VERSION_FROM => 'lib/HTTP/Proxy.pm',
++    PL_FILES => {},
+     PREREQ_PM    => {
+         Test::More     => 0,
+         HTTP::Daemon   => 1.25,

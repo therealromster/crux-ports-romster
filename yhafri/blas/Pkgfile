@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Basic Linear Algebra Subprograms
+# URL: http://www.netlib.org/blas/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=blas
+version=1
+release=1
+source=(http://www.netlib.org/blas/$name.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	g77 -O3 -c *.f
+	ar rv libblas.a *.o
+	mv libblas.a  $PKG/usr/lib
+        chown -R root:root $PKG
+}

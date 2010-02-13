@@ -1,0 +1,33 @@
+# $Id: $
+# Description: A library in ANSI C for manipulation of various types of binary trees
+# URL: http://www.stanford.edu/~blp/avl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: texinfo
+
+name=libavl
+version=2.0.2a
+release=1
+source=(http://fresh.t-systems-sfr.com/unix/src/misc/avl-$version.tar.gz)
+#source=(ftp://ftp.gnu.org/pub/gnu/avl/avl-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/include
+	cd avl-$version
+
+	sed -i "s|all: docs programs|all: programs|" Makefile
+ 
+	make
+	
+       	rm -f bst-test.o avl-test.o rb-test.o tbst-test.o tavl-test.o trb-test.o \
+              rtbst-test.o rtavl-test.o rtrb-test.o pbst-test.o pavl-test.o    \
+              prb-test.o bin-ary-test.o bsts.o seq-test.o slr.o srch-test.o
+
+	ar cvr $name.a *.o
+
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	cp avl.h  bst.h  pavl.h  pbst.h  prb.h  rb.h  rtavl.h  rtbst.h  rtrb.h  \
+	   tavl.h  tbst.h  trb.h $PKG/usr/include
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Nova TrueType font
+# URL: http://www.coolarchive.com/fonts.php?p=n
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, chkfontpath, ttmkfdir
+
+name=nova-ttf
+version=1
+release=1
+source=(nova.zip)
+
+build () {
+	mkdir -p $PKG/usr/X11R6/lib/X11/fonts/TTF
+
+	mv *.TTF $PKG/usr/X11R6/lib/X11/fonts/TTF/Nova.ttf
+
+	chown -R root:root $PKG
+}

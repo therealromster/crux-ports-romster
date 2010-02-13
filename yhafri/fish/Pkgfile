@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A user friendly command line shell for UNIX-like operating systems
+# URL: http://fishshell.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: doxygen, ncurses
+
+name=fish
+version=1.22.3
+release=1
+source=(http://fishshell.org/files/$version/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	LDFLAGS="-lncurses -liconv" \
+	./configure --prefix=/usr \
+	            --with-xsel \
+                    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/{locale,doc}
+
+	chown -R root:root $PKG
+}

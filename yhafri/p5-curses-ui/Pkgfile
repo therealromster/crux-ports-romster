@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A curses based OO user interface framework
+# URL: http://search.cpan.org/~marcus/Curses-UI-0.95/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-curses
+
+name=p5-curses-ui
+version=0.95
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MA/MARCUS/Curses-UI-$version.tar.gz)
+
+build () {
+	cd Curses-UI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Add contextual fetches to DBI
+# URL: http://search.cpan.org/~tmtm/DBIx-ContextualFetch-1.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-dbi
+
+name=p5-dbix-contextualfetch
+version=1.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TM/TMTM/DBIx-ContextualFetch-$version.tar.gz)
+
+build () {
+	cd DBIx-ContextualFetch-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

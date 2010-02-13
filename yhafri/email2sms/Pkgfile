@@ -1,0 +1,17 @@
+# $Id: $
+# Description: A Perl filter which converts an e-mail into a compressed form suitable for sending as an SMS message
+# URL: http://www.adamspiers.org/computing/email2sms/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-mime-tools, p5-lingua-en-squeeze
+
+name=email2sms
+version=1
+release=1
+source=(http://www.adamspiers.org/computing/$name/$name.tar.gz)
+
+build () {
+
+    install -D -m 755 $name $PKG/usr/bin/$name
+    chown -R root:root $PKG
+}

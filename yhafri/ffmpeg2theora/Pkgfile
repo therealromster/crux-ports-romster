@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A simple converter to create Ogg Theora files
+# URL: http://www.v2v.cc/~j/ffmpeg2theora/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ffmpeg, libtheora, libogg, libvorbis
+
+name=ffmpeg2theora
+version=0.12
+release=1
+source=(http://www.v2v.cc/~j/$name/$name-$version.linux.bin.bz2)
+
+build() {
+    mkdir -p $PKG/usr/bin
+    bunzip2 $name-$version.linux.bin.bz2
+    mv $name-$version.linux.bin $name
+    chmod +x $name
+    mv $name $PKG/usr/bin
+    chown -R root:root $PKG    
+}

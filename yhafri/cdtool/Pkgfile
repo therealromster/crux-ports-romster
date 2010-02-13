@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Control audio functions of an attached CDROM from the command line 
+# URL: http://hinterhof.net/cdtool/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cdtool
+version=2.1.8pre4
+release=1
+source=(http://hinterhof.net/cdtool/dist/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

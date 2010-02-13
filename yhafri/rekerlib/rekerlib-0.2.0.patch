@@ -1,0 +1,23 @@
+--- rekerlib-0.2.0/Makefile	1999-09-28 17:16:37.000000000 +0200
++++ rekerlib-0.2.0/Makefile-new	2006-08-25 01:22:16.000000000 +0200
+@@ -79,9 +79,6 @@
+ docs:
+ 	$(MAKE) -C doc docs
+ 
+-docinstall:
+-	$(MAKE) -C doc docinstall
+-
+ docclean:
+ 	$(MAKE) -C doc distclean
+ 
+@@ -105,8 +102,7 @@
+ 
+ #you must be root to do this
+ install:
+-	$(CP) lib/$(SHARED_OUT) /usr/lib/$(SHARED_OUT)
+-	$(LN) /usr/lib/$(SHARED_OUT) /usr/lib/$(SHARED_LIB)
+-	$(CP) include/$(HEADER) /usr/include/$(HEADER)
++	$(CP) $(SHARED_OUT) ${PREFIX}/usr/lib/$(SHARED_OUT)
++	$(CP) include/$(HEADER) ${PREFIX}/usr/include/$(HEADER)
+ 	ldconfig
+ 

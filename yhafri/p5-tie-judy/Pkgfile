@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for using a Judy Array library
+# URL: http://search.cpan.org/~bholzman/Tie-Judy-0.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libjudy
+
+name=p5-tie-judy
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BH/BHOLZMAN/Tie-Judy-$version.tar.gz)
+
+build () {
+	cd Tie-Judy-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

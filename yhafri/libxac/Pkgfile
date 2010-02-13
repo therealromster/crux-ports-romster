@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Memory-Mapped Transactions
+# URL: http://supertech.csail.mit.edu/~sukhaj/libxac/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libxac
+version=0.5
+release=1
+source=(http://supertech.csail.mit.edu/~sukhaj/$name/$name.tar.gz \
+	$name.patch)
+
+build () {
+	cd ${name}_code
+	patch -p1<../$name.patch
+
+	make clean
+	make
+	make bdbTester
+
+	install -D -m 755 btTester          $PKG/usr/bin/btTester
+	install -D -m 755 bdbTester         $PKG/usr/bin/bdbTester
+	install -D -m 644 ./runtime/$name.h $PKG/usr/include/$name.h
+	install -D -m 644 ./runtime/$name.a $PKG/usr/lib/$name.a
+
+	chown -R root:root $PKG
+}

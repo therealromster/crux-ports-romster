@@ -1,0 +1,18 @@
+# Description: a kio-slave which performs Beagle queries
+# URL: http://www.kde-apps.org/content/show.php?content=28437
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase, beagle
+
+name=kio-beagle
+version=0.3.1
+release=1
+source=(http://www.kde-apps.org/content/files/28437-kio-beagle-0.3.1.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+}

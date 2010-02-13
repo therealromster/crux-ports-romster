@@ -1,0 +1,11 @@
+--- FISPRO-2.1/cpp/makefile.gcc	2004-09-16 15:44:46.000000000 +0200
++++ FISPRO-2.1/cpp/makefile.gcc-new	2005-05-02 22:42:59.956800904 +0200
+@@ -5,7 +5,7 @@
+ 
+ # JAVA JDK:  this line should point onto
+ # your java developpment kit top directory
+-JDK=/usr/local/j2sdk1.4.1
++JDK=/usr/lib/java
+ # C Compiler - make sure gcc-v returns gcc version >=3.0
+ CC=g++
+ INCLUDE=-I$(JDK)/include -I$(JDK)/include/linux -I$(JDK)/include/win32 -Ibase -Ifpa -Igenfis -Ifistree -Ilinks -Ihfp -Isimple -Ifisopt -Iwm

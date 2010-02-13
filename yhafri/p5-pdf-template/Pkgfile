@@ -1,0 +1,20 @@
+# $Id: $
+# Description: PDF::Template
+# URL: http://search.cpan.org/~rkinyon/PDF-Template-0.29_01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-pdf-writer
+
+name=p5-pdf-template
+version=0.29_01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RK/RKINYON/PDF-Template-0.29_01.tar.gz)
+
+build () {
+	cd PDF-Template-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

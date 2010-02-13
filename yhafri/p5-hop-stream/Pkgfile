@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Higher Order Perl streams
+# URL: http://search.cpan.org/~ovid/HOP-Stream-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:m
+
+name=p5-hop-stream
+version=0.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/O/OV/OVID/HOP-Stream-$version.tar.gz)
+
+build () {
+	cd HOP-Stream-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

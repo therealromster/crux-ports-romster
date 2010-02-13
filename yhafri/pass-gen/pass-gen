@@ -1,0 +1,123 @@
+#!/usr/bin/perl
+#############################################################################
+#
+#                 NOTE: This file under revision control using RCS
+#                       Any changes made without RCS will be lost
+#
+#              $Source: U:\\mhansen\\bin\\RCS\\pass_gen,v $
+#            $Revision: 1.2 $
+#                $Date: 2002-11-09 17:22:45-06 $
+#              $Author: mhansen $
+#              $Locker: mhansen $
+#               $State: Exp $
+#
+#
+#              Purpose: Generates random password using with alternating
+#                       consonants and vowels to make the passwords easier to 
+#                       remember. Also include one numeric character randomly
+#                       positioned in the password.
+#
+#          Description: The built-in Perl rand() function uses the standard C
+#                       library routine rand (3) to generate pseudo-random
+#                       numbers. Some implementations of the rand function
+#                       return only 16-bit random numbers or have algorithmic
+#                       weaknesses and may not be sufficiently random. A further
+#                       weakness is the source of the seed for the generator.
+#                       The default seed is based on the time and process ID,
+#                       not a particularly large range of possible seeds.
+#
+#                       This implementation uses /dev/urandom, a kernel module
+#                       available on most UNIX systems as the source of random
+#                       data. The /dev/urandom driver gathers environmental
+#                       noise from various non-deterministic sources within the
+#                       operating system environment.
+#
+#                       /dev/urandom like /dev/random but considerably faster.
+#                       The /dev/urandom driver does not wait for the entropy-
+#                       pool to recharge and immediately returns as many bytes 
+#                       as requested. For password generation this is 
+#                       acceptable. Applications that requires a high quality of 
+#                       randomness should use /dev/random instead.
+#
+#
+#           Directions: Usage: pass_gen
+#                       return generated password to STDOUT
+#
+#     Default Location: /share/local/bin/pass_gen
+#
+#           Invoked by: user
+#
+#           Depends on: Random device driver such as /dev/urandom
+#
+#       Copyright (C) 1999  Marc Hansen
+#
+#       This program is free software; you can redistribute it and/or
+#       modify it under the terms of version 2 of the GNU General Public
+#       License as published by the Free Software Foundation available at:
+#       http://http://www.gnu.org/copyleft/gpl.html
+#
+#       This program is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#
+#############################################################################
+#
+#
+#       REVISION HISTORY:
+#
+#       $Log: pass_gen,v $
+#       Revision 1.2  2002-11-09 17:22:45-06  mhansen
+#       Changed from /dev/random to /dev/urandom
+#
+#       Revision 1.1  1999-02-05 15:10:49-06  mhansen
+#       Added numeric character
+#
+#       Revision 1.0  1999-01-29 17:07:13-06  mhansen
+#       Initial revision
+#
+#
+#
+
+#
+# Constants
+#
+$SIZE=8;                                                # Size of password
+
+$DEVRANDOM="/dev/urandom";                              # Random byte device
+                                                        #   For higher quality 
+                                                        #   randomness set to 
+                                                        #   /dev/random
+                                                        
+@vwl = qw(a e i o u);                                   # 5 vowels
+@con = qw(b c d f g h j k l m n p r s t v w y z);       # 19 consonants
+@num = qw(2 3 4 5 6 7 8 9);                             # 8 numbers
+
+
+#
+# Get random bytes from /dev/urandom
+# Put $SIZE+1 random bytes in array @rand
+#
+open RND, "$DEVRANDOM";
+read (RND, $rand, $SIZE+1);
+@rand  = split //, $rand;
+ 
+ 
+ 
+#
+# Loop for each character in password
+#   Convert random byte to number 0-255 with ord()
+#   Scale random byte to required range with % modulus operator
+#   Use last random byte to choose position of numeric component
+#
+for ($i=0; $i<$SIZE; $i++) {
+    if    ($i==ord(@rand[$SIZE])%$SIZE) {print @num[ord(@rand[$i])%8 ]}
+    elsif ($i%2)                        {print @vwl[ord(@rand[$i])%5 ]}
+    else                                {print @con[ord(@rand[$i])%19]}
+}
+print "\n";
+
+exit 0;
+
+__END__
+

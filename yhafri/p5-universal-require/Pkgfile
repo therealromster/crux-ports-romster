@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Require modules from a variable
+# URL: http://search.cpan.org/~mschwern/UNIVERSAL-require-0.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-scalar-list-utils, p5-test-simple, p5-test-warn
+
+name=p5-universal-require
+version=0.10
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSCHWERN/UNIVERSAL-require-$version.tar.gz)
+
+build () {
+	cd UNIVERSAL-require-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

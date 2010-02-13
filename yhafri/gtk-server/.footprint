@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gtk-server
+-rwxr-xr-x	root/root	usr/bin/kill-gtk-server.sh
+drwxr-xr-x	root/root	usr/etc/
+-rwxr-xr-x	root/root	usr/etc/gtk-server.cfg
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rwxr-xr-x	root/root	usr/man/man1/gtk-server.1.gz
+-rwxr-xr-x	root/root	usr/man/man1/gtk-server.cfg.1.gz

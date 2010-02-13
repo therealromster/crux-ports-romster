@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Commandline text rendering utility for creating images from text
+# URL: http://linuxbrit.co.uk/gozer/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: giblib
+
+name=gozer
+version=0.7
+release=1
+source=(http://linuxbrit.co.uk/downloads/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/doc
+        chown -R root:root $PKG
+}

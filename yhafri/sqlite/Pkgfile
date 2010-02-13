@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A self-contained, embeddable, zero-configuration SQL database
+# URL:         http://www.sqlite.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sqlite
+version=2.8.17
+release=4
+source=(http://www.sqlite.org/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr 
+    make
+    make DESTDIR=$PKG install
+    chown -R root:root $PKG
+}

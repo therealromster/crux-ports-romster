@@ -1,0 +1,23 @@
+POST-INSTALL:
+
+		* Add the line below to your X11 configuration file:
+		FontPath     "/usr/X11R6/lib/X11/fonts/misc"
+				
+
+		* Type the following commands:
+		# cd /usr/X11R6/lib/X11/fonts/misc
+
+		# ttmkfdir > fonts.dir 
+		or
+		# mkfontdir .
+
+                and then:
+                # chkfontpath --add /usr/X11R6/lib/X11/fonts/misc
+                # xset fp rehash
+
+TEST:
+
+		* To test the font :
+	       xlsfonts | grep orly
+
+

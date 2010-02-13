@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A non validating conformant XML processor for the Ruby 
+# URL: http://www.germane-software.com/software/rexml/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ruby
+
+name=ruby-rexml
+version=3.1.7
+release=1
+source=(http://www.germane-software.com/archives/rexml_${version}.tgz)
+
+build () {
+        cd rexml_${version}
+
+	ruby ./bin/install.rb --destdir "$PKG"
+
+#        ruby setup.rb config
+#        ruby setup.rb setup
+
+#        DESTDIR=$PKG ruby setup.rb install
+
+	chown -R root:root $PKG
+}

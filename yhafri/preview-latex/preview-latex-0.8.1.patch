@@ -1,0 +1,20 @@
+--- preview-latex-0.8.1/Makefile.in	2003-11-11 18:45:36.000000000 +0000
++++ preview-latex-0.8.1/Makefile.in-new	2004-09-27 13:06:41.743451384 +0000
+@@ -29,7 +29,7 @@
+ INSTALL_DATA = @INSTALL_DATA@#
+ MKINSTALLDIRS = ./mkinstalldirs
+ 
+-all: texmf elisp docs install-hint
++all: texmf elisp install-hint
+ 
+ elisp: $(LISP_OBJS) preview-latex.el
+ 
+@@ -45,7 +45,7 @@
+ 	@echo 'Now, run "make install" as root, or whatever user has permissions'
+ 	@echo 'to write to the install directory.'
+ 
+-install: install-texmf install-el install-icons install-docs use-hint
++install: install-texmf install-el install-icons  use-hint
+ 
+ install-docs:
+ 	(cd doc ; $(MAKE) DESTDIR=$(DESTDIR) install)

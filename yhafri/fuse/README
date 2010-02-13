@@ -1,0 +1,9 @@
+PRE-INSTALL:
+
+		* check that you've your kernel source in :
+		/usr/src
+
+POST-INSTALL:
+
+		* Load the module in the kernel:
+		# modprobe fuse

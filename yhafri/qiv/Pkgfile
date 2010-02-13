@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A very small and pretty fast gdk/Imlib image viewer
+# URL: http://www.klografx.net/qiv/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk, imlib
+
+name=qiv
+version=2.0
+release=1
+source=(http://www.klografx.net/$name/download/$name-$version-src.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+	install -D -m 755 $name-command.example $PKG/usr/bin/$name-command.example
+
+	chown -R root:root $PKG
+}

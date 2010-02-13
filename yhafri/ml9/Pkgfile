@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Erlang markup language
+# URL: http://www.sics.se/~joe/ml9/doc.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=ml9
+version=1
+release=1
+source=(http://www.sics.se/~joe/$name/$name.tgz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	cd $name
+	sed -i "s/doc tarball//" Makefile
+	make clean
+	make 
+	mv *.erl *.yrl          $PKG/usr/lib/erlang/lib/$name-$version/src
+	chmod +x $name
+	mv $name *.beam base.css  $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	ln -sf /usr/lib/erlang/lib/$name-$version/ebin/$name $PKG/usr/bin/
+        chown -R root:root $PKG/
+}

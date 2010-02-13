@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Simple X screen locker
+# URL: http://tools.suckless.org/view.sh/x+tools
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=slock
+version=0.3
+release=1
+source=(http://suckless.org/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

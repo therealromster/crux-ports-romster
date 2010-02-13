@@ -1,0 +1,18 @@
+# Description: an OS abstraction layer
+# URL: http://gwenhywfar.sourceforge.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=gwenhywfar
+version=2.2.0
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale/
+}

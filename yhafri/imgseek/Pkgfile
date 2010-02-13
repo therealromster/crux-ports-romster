@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A photo collection manager and viewer with content-based search and many other features
+# URL: http://www.imgseek.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: sip, pyqt, imagemagick
+
+name=imgseek
+version=0.8.6
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/imgSeek-$version.tar.bz2)
+
+build () {
+    	mkdir -p $PKG/usr
+	cd imgSeek-$version
+	
+	python setup.py install --home=$PKG/usr
+
+	for i in `find $PKG -type "f"`;
+	do
+		sed -i "s|/usr/ports/yhafri/imgseek/work/pkg||" $i
+	done
+
+    	chown -R root:root $PKG
+}

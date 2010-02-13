@@ -1,0 +1,33 @@
+--- libwww-perl-5.803/Makefile.PL	2004-11-30 12:51:58.000000000 +0100
++++ libwww-perl-5.803/Makefile.PL-new	2005-11-07 11:54:06.000000000 +0100
+@@ -72,7 +72,7 @@
+ 
+ EOT
+ 
+-        if (prompt("Do you want to enable these tests?", "y") =~ /^y/i) {
++        if (0) {
+ 	    open(ENABLED, ">t/live/ENABLED") || die "Can't enable: $!";
+ 	    close(ENABLED);
+ 
+@@ -110,9 +110,7 @@
+ EOT
+     my @tmp;
+     for (@programs_to_install) {
+-	if (prompt("Do you want to install $_?", "y") =~ /^y/) {
+-	    push(@tmp, $_);
+-	}
++
+     }
+     @programs_to_install = @tmp;
+ }
+@@ -129,9 +127,7 @@
+     my @tmp;
+     for my $alias (@request_aliases) {
+ 	my $default = "n";
+-	if (prompt("Do you want to install the $alias alias?", $default) =~ /^y/) {
+-	    push(@tmp, $alias);
+-	}
++
+     }
+     @request_aliases = @tmp;
+ }

@@ -1,0 +1,18 @@
+# $Id: $
+# Description: LaTeX subclass for printing context free grammar
+# URL: http://www.ctan.org/tools/filesearch?preferredCTAN=ctan.unsw.edu.au&action=/search/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-bnf
+version=1
+release=1
+source=(bnf.sty)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/bnf
+
+	mv bnf.sty $PKG/usr/share/texmf/tex/latex/bnf
+	chown -R root:root $PKG
+}

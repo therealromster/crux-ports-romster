@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for easily overriding subroutines
+# URL: http://search.cpan.org/~ovid/Sub-Override-0.08/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-sub-override
+version=0.08
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/O/OV/OVID/Sub-Override-$version.tar.gz)
+
+build () {
+	cd Sub-Override-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

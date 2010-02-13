@@ -1,0 +1,22 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/vstr-arch.h
+-rw-r--r--	root/root	usr/include/vstr-conf.h
+-rw-r--r--	root/root	usr/include/vstr-const.h
+-rw-r--r--	root/root	usr/include/vstr-def.h
+-rw-r--r--	root/root	usr/include/vstr-extern.h
+-rw-r--r--	root/root	usr/include/vstr-inline.h
+-rw-r--r--	root/root	usr/include/vstr-switch.h
+-rw-r--r--	root/root	usr/include/vstr.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libvstr-1.0.so.0 -> libvstr-1.0.so.0.13.2
+-rwxr-xr-x	root/root	usr/lib/libvstr-1.0.so.0.13.2
+-rw-r--r--	root/root	usr/lib/libvstr.a
+-rwxr-xr-x	root/root	usr/lib/libvstr.la
+lrwxrwxrwx	root/root	usr/lib/libvstr.so -> libvstr-1.0.so.0.13.2
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/vstr.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/vstr.3.gz
+-rw-r--r--	root/root	usr/man/man3/vstr_const.3.gz

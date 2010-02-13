@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Zlib binding for Erlang
+# URL: http://www.erlang-projects.org/Public/projects/libraries/zlib_binding_for_erl
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, zlib
+
+name=erlzlib
+version=1
+release=1
+source=(zlib.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,priv/lib}
+
+	cd zlib
+	(cd c_src
+	gcc -DLOADABLE \
+		-I/usr/lib/erlang/lib/erl_interface-3.5.5.1/include \
+		-I/usr/lib/erlang/erts-5.5.1/include/ \
+		-L/usr/lib/erlang/lib/erl_interface-3.5.5.1/lib \
+		zlib_drv.c \
+		-lerl_interface -lei -lz \
+		-o $PKG/usr/lib/erlang/lib/$name-$version/priv/lib/$name.so \
+		-fpic -shared)
+	
+	(cd src/ && erl -make 
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src)
+	
+	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A full featured impressively small text editor
+# URL: http://www.sax.de/~adlibit/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=e3
+version=2.6.3
+release=2
+source=(http://sax.sax.de/~adlibit/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+        make
+	make PREFIX=$PKG/usr install
+
+	rm $PKG/usr/bin/e3??
+	ln -sf /usr/bin/e3 $PKG/usr/bin/e3ne
+	ln -sf /usr/bin/e3 $PKG/usr/bin/e3ws
+	ln -sf /usr/bin/e3 $PKG/usr/bin/e3pi
+	ln -sf /usr/bin/e3 $PKG/usr/bin/e3em
+	ln -sf /usr/bin/e3 $PKG/usr/bin/e3vi
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Super Sed
+# URL: http://sed.sourceforge.net/grabbag/ssed/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ssed
+version=3.62
+release=1
+source=(http://sed.sourceforge.net/grabbag/$name/sed-$version.tar.gz)
+
+build () {
+	cd sed-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/{share,info,man}
+	mv $PKG/usr/bin/sed $PKG/usr/bin/$name
+	#cd $PKG/usr/man/man1; 	mv sed.1.gz $name.1.gz
+
+	chown -R root:root $PKG
+}

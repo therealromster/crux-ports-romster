@@ -1,0 +1,38 @@
+--- leex.erl	2007-07-12 16:36:12.487564136 +0200
++++ leex.erl-new	2007-07-12 16:38:02.256876664 +0200
+@@ -36,8 +36,9 @@
+ file(File) ->
+     file(File, []).
+ 
+-file(File, Opts) ->
+-    Infile = assure_extension(File, ".xrl"),
++file(File0, Opts) ->
++    File   = Opts,
++    Infile = assure_extension(File0, ".xrl"),
+     Outfile = assure_extension(filename:rootname(File, ".xrl"), ".erl"),
+     Module = list_to_atom(filename:basename(Outfile, ".erl")),
+     St0 = #leex{infile=Infile,
+@@ -477,7 +478,7 @@
+ 
+ out_file(St, DFA, DF, Actions, Code) ->
+     io:fwrite("Writing file ~s, ", [St#leex.outfile]),
+-    case file:path_open([".", [code:lib_dir(),"/tools/include"]],
++    case file:path_open([".", [code:lib_dir(),"/leex-1.0/include"]],
+ 			"leex.hrl", read) of
+ 	{ok,Ifile,Iname} ->
+ 	    case file:open(St#leex.outfile, write) of
+@@ -489,11 +490,11 @@
+ 		    ok;
+ 		{error,E} ->
+ 		    file:close(Ifile),
+-		    io:fwrite("open error~n"),
++		    io:format("open error: ~p~n", [E]),
+ 		    error
+ 	    end;
+-	{error,R} ->
+-	    io:fwrite("open error~n"),
++        {error,R} ->
++		    io:format("open error: ~p~n", [R]),
+ 	    error
+     end.
+ 

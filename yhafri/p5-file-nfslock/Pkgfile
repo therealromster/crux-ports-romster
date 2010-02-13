@@ -1,0 +1,26 @@
+# Description: perl nfs lock support
+# URL: http://search.cpan.org/~bbb/File-NFSLock-1.20/lib/File/NFSLock.pm
+# Maintainer: 
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: perl
+
+name=p5-file-nfslock
+local capsname=File-NFSLock
+version=1.20
+release=1
+source=(http://www.cpan.org/modules/by-module/${capsname%%-*}/$capsname-$version.tar.gz)
+
+build() {
+    cd $capsname-$version
+    perl Makefile.PL
+    make OPTIMIZE="$CFLAGS"
+    make install DESTDIR=$PKG
+    # Remove perlcrap
+    find $PKG \
+        -name .packlist -or \
+        -name '*.bs' -or \
+        -name autosplit.ix -or \
+        -name perllocal.pod | xargs rm
+    # Remove empty directories
+    find $PKG -depth -empty -exec rm -rf {} \;
+}

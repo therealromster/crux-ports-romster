@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/pcl.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libpcl.a
+-rwxr-xr-x	root/root	usr/lib/libpcl.la
+lrwxrwxrwx	root/root	usr/lib/libpcl.so -> libpcl.so.1.0.6
+lrwxrwxrwx	root/root	usr/lib/libpcl.so.1 -> libpcl.so.1.0.6
+-rwxr-xr-x	root/root	usr/lib/libpcl.so.1.0.6
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/pcl.3.gz

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A program for creating, destroying, resizing, checking and copying partitions, and the file systems on them
+# URL: http://www.gnu.org/software/parted/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libiconv
+
+name=parted
+version=1.6.25
+release=2
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --disable-nls
+
+    make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+    rm -rf $PKG/usr/info
+    chown -R root:root $PKG
+}

@@ -1,0 +1,44 @@
+# $Id: $
+# Description: SpiderMonkey (JavaScript-C) Engine
+# URL: http://www.mozilla.org/js/spidermonkey/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=spidermonkey
+version=1.60
+release=1
+source=(ftp://ftp.mozilla.org/pub/mozilla.org/js/js-$version.tar.gz \
+	$name-$version.patch \
+	http://elinks.or.cz/download/elinks-0.11.1.tar.bz2 \
+	perlconnect.patch)
+
+build () {
+	cd js
+	patch -p1 <$SRC/elinks-0.11.1/contrib/js-1.5-rc6a+elinks.patch
+	cd src
+	patch -p2 <$SRC/$name-$version.patch
+
+	sed 's#^PREFIX = /opt/spidermonkey#PREFIX = /usr#' < config.mk > config.mk.t
+	mv -f config.mk.t config.mk
+
+	export BUILD_OPT=1
+        export PERL_CONNECT=1
+        #export JS_LIVECONNECT=1
+
+	make -f Makefile.ref PREFIX=/usr
+	make -f Makefile.ref PREFIX=usr export
+
+	make -f Makefile.ref PREFIX=$PKG/usr install && (ldconfig -v | grep libjs)
+
+	ln -sf dist/lib/libjs.so .
+        cd perlconnect
+	patch -p0 < $SRC/perlconnect.patch
+
+        perl Makefile.PL
+        make OPTIMIZE="${CFLAGS}"
+        make DESTDIR=${PKG} install
+        find ${PKG} -name perllocal.pod -exec rm {} \;
+
+	chown -R root:root $PKG
+}

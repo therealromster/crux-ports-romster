@@ -1,0 +1,112 @@
+--- sqp/lex.l	2005-03-11 23:48:24.444543184 +0100
++++ sqp/lex.l-new	2005-03-11 23:47:41.917008352 +0100
+@@ -236,6 +236,16 @@
+ void yyerror( char *s )
+ {
+ 	sprintf( g_szError, "%s processing '%s' on line %d", s, yytext, g_nLineNo );
++
++#ifndef YY_CURRENT_BUFFER
++#define YY_CURRENT_BUFFER ( (yy_buffer_stack)                        \
++                          ? (yy_buffer_stack)[(yy_buffer_stack_top)] \
++                          : NULL)
++#endif
++
++#ifndef YY_FLUSH_BUFFER
++#define YY_FLUSH_BUFFER yy_flush_buffer(YY_CURRENT_BUFFER)
++#endif
+ 	
+ 	YY_FLUSH_BUFFER;
+ }
+--- DataManager/classISQL.h.orig	Thu Dec 13 04:55:58 2001
+++++ DataManager/classISQL.h	Sat Feb 15 03:22:44 2003
++@@ -17,7 +17,7 @@
++ #include <qcombo.h>
++ #include <qslider.h>
++ #include <qtabbar.h>
++-#include <qmlined.h>
+++#include <qtextedit.h>
++ #include <qfile.h>
++ #include <qfiledialog.h>
++ #include <qtextstream.h>
+--- DataManagerII/Makefile.in.orig	Sun Oct 31 02:06:57 2004
++++ DataManagerII/Makefile.in	Sun Oct 31 02:06:57 2004
+@@ -200,7 +200,7 @@
+ 
+ @QT_TRUE@bin_PROGRAMS = DataManagerII
+ 
+-@QT_TRUE@INCLUDES = -I@top_srcdir@/include @QT_INCLUDES@
++@QT_TRUE@INCLUDES = -I@top_srcdir@/include @X_INCLUDES@	@QT_INCLUDES@	@USER_INCLUDES@
+ 
+ @QT_TRUE@DataManagerII_LDADD = @X_LDFLAGS@ \
+ @QT_TRUE@	@QT_LDFLAGS@ \
+--- DataManager/Makefile.in.orig	Tue Sep 28 17:48:15 2004
++++ DataManager/Makefile.in	Sun Oct 31 02:04:31 2004
+@@ -200,7 +200,7 @@
+ 
+ @QT_TRUE@bin_PROGRAMS = DataManager
+ 
+-@QT_TRUE@INCLUDES = -I@top_srcdir@/include @QT_INCLUDES@
++@QT_TRUE@INCLUDES = -I@top_srcdir@/include @X_INCLUDES@	@QT_INCLUDES@	@USER_INCLUDES@
+ 
+ @QT_TRUE@DataManager_LDADD = @X_LDFLAGS@ \
+ @QT_TRUE@	@QT_LDFLAGS@ \
+--- Drivers/MiniSQL/Makefile.in.orig	Tue Sep 28 17:48:19 2004
++++ Drivers/MiniSQL/Makefile.in	Sun Oct 31 02:09:32 2004
+@@ -197,13 +197,13 @@
+ qt_libraries = @qt_libraries@
+ x_includes = @x_includes@
+ x_libraries = @x_libraries@
+-@MSQL_TRUE@lib_LTLIBRARIES = libodbcmini.la
++#@MSQL_TRUE@lib_LTLIBRARIES = libodbcmini.la
+ 
+ @MSQL_TRUE@INCLUDES = -I@top_srcdir@/include -I. -I@msql_headers@ -I${INCLTDL}
+ 
+ 
+ # PAH - Redundant?
+-# DEFS = -DUNIXODBC @DEFS@ -DDRIVER_NAME=\"odbcminisql\"
++DEFS = -DUNIXODBC @DEFS@ -DDRIVER_NAME=\"odbcminisql\"
+ @MSQL_TRUE@libodbcmini_la_SOURCES = \
+ @MSQL_TRUE@	SQLAllocConnect.c \
+ @MSQL_TRUE@	SQLAllocEnv.c \
+@@ -439,7 +439,7 @@
+ @MSQL_TRUE@	sqlFreeConnect.lo sqlFreeEnv.lo sqlFreeStmt.lo
+ libodbcmini_la_OBJECTS = $(am_libodbcmini_la_OBJECTS)
+ 
+-DEFS = @DEFS@
++#DEFS = @DEFS@
+ DEFAULT_INCLUDES =  -I. -I$(srcdir)
+ CPPFLAGS = @CPPFLAGS@
+ LDFLAGS = @LDFLAGS@
+--- ODBCConfig/Makefile.in.orig	Tue Sep 28 17:48:25 2004
++++ ODBCConfig/Makefile.in	Sun Oct 31 02:09:58 2004
+@@ -200,7 +200,7 @@
+ 
+ @QT_TRUE@bin_PROGRAMS = ODBCConfig
+ 
+-@QT_TRUE@INCLUDES = -I@top_srcdir@/include @QT_INCLUDES@ \
++@QT_TRUE@INCLUDES = -I@top_srcdir@/include @X_INCLUDES@	@QT_INCLUDES@	@USER_INCLUDES@ \
+ @QT_TRUE@    -DSYSTEM_FILE_PATH=\"@sysconfdir@\" -DDEFLIB_PATH=\"@libdir@\" $(INCLTDL)
+ 
+ 
+--- odbcinstQ/Makefile.in.orig	Tue Sep 28 17:48:35 2004
++++ odbcinstQ/Makefile.in	Sun Oct 31 02:10:20 2004
+@@ -206,7 +206,7 @@
+ 
+ @QT_TRUE@lib_LTLIBRARIES = libodbcinstQ.la 
+ 
+-@QT_TRUE@INCLUDES = -I@top_srcdir@/include @QT_INCLUDES@ \
++@QT_TRUE@INCLUDES = -I@top_srcdir@/include @X_INCLUDES@	@QT_INCLUDES@	@USER_INCLUDES@ \
+ @QT_TRUE@    -DSYSTEM_FILE_PATH=\"@sysconfdir@\" -DDEFLIB_PATH=\"@libdir@\" $(INCLTDL)
+ 
+ 
+--- odbctest/Makefile.in.orig	Tue Sep 28 17:48:35 2004
++++ odbctest/Makefile.in	Sun Oct 31 02:10:44 2004
+@@ -200,7 +200,7 @@
+ 
+ @QT_TRUE@bin_PROGRAMS = odbctest
+ 
+-@QT_TRUE@INCLUDES = -I@top_srcdir@/include @QT_INCLUDES@ -DSYSTEM_FILE_PATH=\"@sysconfdir@\" $(INCLTDL)
++@QT_TRUE@INCLUDES = -I@top_srcdir@/include @X_INCLUDES@	@QT_INCLUDES@	@USER_INCLUDES@ -DSYSTEM_FILE_PATH=\"@sysconfdir@\" $(INCLTDL)
+ 
+ @QT_TRUE@odbctest_LDADD = @X_LDFLAGS@ \
+ @QT_TRUE@	@QT_LDFLAGS@ \

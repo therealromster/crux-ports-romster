@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A collection of modules portably written in ANSI C
+# URL: http://users.footprints.net/~kaz/kazlib.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=kazlib
+version=1.20
+release=1
+source=(http://users.footprints.net/~kaz/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	
+	make -f Makefile.gcc
+	gcc -c dict.c
+	ar cvr $name.a *.o
+	
+	install -D -m 644 $name.a  $PKG/usr/lib/$name.a
+	install -D -m 644 dict.h   $PKG/usr/include/dict.h
+	install -D -m 644 hash.h   $PKG/usr/include/hash.h
+	install -D -m 644 except.h $PKG/usr/include/except.h
+
+	chown -R root:root $PKG
+}

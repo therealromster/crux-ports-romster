@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Erlang interface to MySQL
+# URL: http://support.process-one.net/doc/display/CONTRIBS/Yxa/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=mysql-erlang
+version=1
+release=1
+source=(mysql.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	cd mysql
+	erl -make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

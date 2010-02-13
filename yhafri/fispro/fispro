@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export FISPRO=/usr/lib/fispro-2.1
+
+alias fisprogui='java -Dfispropath=$FISPRO -Djava.library.path=$FISPRO/bin -classpath $FISPRO/bin/jar/fispro.jar:$FISPRO/bin/jar/util.jar:$FISPRO/bin/jar/plot.jar:$FISPRO/bin/jar/freehep-base.jar:$FISPRO/bin/jar/freehep-graphics2d.jar:$FISPRO/bin/jar/freehep-graphicsio-emf:$FISPRO/bin/jar/freehep-graphicsio-gif.jar:$FISPRO/bin/jar/freehep-graphicsio-pdf.jar:$FISPRO/bin/jar/freehep-graphicsio-ps.jar:$FISPRO/bin/jar/freehep-graphicsio.jar fis/MainFIS'
+
+fisprogui

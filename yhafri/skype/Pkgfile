@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Free Internet telephony system
+# URL: http://www.skype.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: qt3
+
+name=skype
+version=1.3.0.53
+release=1
+source=(http://download.$name.com/linux/${name}_staticQT-$version-generic.tar.bz2)
+
+build()
+{
+	cd $name-$version
+
+     	install -D -m 755 skype $PKG/usr/bin/skype
+        install -D -m 644 lang/skype_en.qm $PKG/usr/share/skype/lang/skype_en.qm
+        cp -R sound $PKG/usr/share/skype
+        install -D -m 644 icons/skype_16_32.png $PKG/usr/share/icons/hicolor/16x16/apps/skype.png
+        install -D -m 644 icons/skype_32_32.png $PKG/usr/share/icons/hicolor/32x32/apps/skype.png
+        install -D -m 644 icons/skype_48_32.png $PKG/usr/share/icons/hicolor/48x48/apps/skype.png
+        install -D -m 644 skype.desktop $PKG/usr/share/applications/skype.desktop
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: POD Object Model 
+# URL: http://search.cpan.org/~abw/Pod-POM-0.17/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-pod-pom
+version=0.17
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABW/Pod-POM-$version.tar.gz)
+
+build () {
+	cd Pod-POM-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

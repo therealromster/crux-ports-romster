@@ -1,0 +1,31 @@
+# $Id: $
+# Description: The PDF Toolkit
+# URL: http://www.accesspdf.com/pdftk/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  gcj
+
+name=pdftk
+version=1.12
+release=1
+source=(http://www.pdfhacks.com/$name/$name-$version.tar.bz2 \
+	$name-$version.patch \
+	libgcj-config.h)
+
+build () {
+	cd $name-$version/pdftk
+
+	patch -p2< $SRC/$name-$version.patch
+
+        if [ ! -e "/usr/include/gcj/libgcj-config.h" ]; then
+	      cp $SRC/libgcj-config.h /usr/include/gcj
+	      #install -D -m 644 $SRC/libgcj-config.h $PKG/usr/include/gcj/libgcj-config.h
+        fi
+
+	make -f Makefile.Generic
+
+	sstrip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

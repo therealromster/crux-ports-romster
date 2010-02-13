@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for defining constants for use in Array-based objects 
+# URL: http://search.cpan.org/~dmlloyd/enum-fields-1.0/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-enum-fields
+version=1.0
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DM/DMLLOYD/enum-fields-$version.tar.gz)
+
+build () {
+	cd enum-fields-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

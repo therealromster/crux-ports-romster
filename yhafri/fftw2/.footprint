@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/fftw.h
+-rw-r--r--	root/root	usr/include/rfftw.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libfftw.a
+-rwxr-xr-x	root/root	usr/lib/libfftw.la
+lrwxrwxrwx	root/root	usr/lib/libfftw.so -> libfftw.so.2.0.7
+lrwxrwxrwx	root/root	usr/lib/libfftw.so.2 -> libfftw.so.2.0.7
+-rwxr-xr-x	root/root	usr/lib/libfftw.so.2.0.7
+-rw-r--r--	root/root	usr/lib/librfftw.a
+-rwxr-xr-x	root/root	usr/lib/librfftw.la
+lrwxrwxrwx	root/root	usr/lib/librfftw.so -> librfftw.so.2.0.7
+lrwxrwxrwx	root/root	usr/lib/librfftw.so.2 -> librfftw.so.2.0.7
+-rwxr-xr-x	root/root	usr/lib/librfftw.so.2.0.7

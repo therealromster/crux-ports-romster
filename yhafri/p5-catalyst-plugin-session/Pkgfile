@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Generic Session plugin
+# URL: http://84.45.18.237/~nuffin/Catalyst-Plugin-Session-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-object-signature, p5-test-deep
+
+name=p5-catalyst-plugin-session
+version=0.05
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/N/NU/NUFFIN/Catalyst-Plugin-Session-$version.tar.gz)
+
+build () {
+	cd Catalyst-Plugin-Session-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

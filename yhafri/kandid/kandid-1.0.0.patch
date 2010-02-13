@@ -1,0 +1,6 @@
+--- kandid-1.0.0/kandid	2004-04-23 20:39:06.000000000 +0200
++++ kandid-1.0.0/kandid-new	2005-02-07 20:12:10.860152624 +0100
+@@ -1,2 +1,2 @@
+ #!/bin/sh
+-nice -5 java -Xfuture -Xmx450m -jar kandid.jar
++(cd /usr/lib/kandid-1.0.0; nice -5 java -Xfuture -Xmx450m -jar kandid.jar)

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A dockapp for monitoring network interfaces
+# URL: http://www.yuv.info/wmnd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmnd
+version=0.4.10
+release=1
+source=(ftp://ftp.yuv.info/pub/wmnd/releases/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+	rm -rf $PKG/usr/info/
+        chown -R root:root $PKG
+}

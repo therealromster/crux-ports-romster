@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Universally Unique Identifier
+# URL: http://www.ossp.org/pkg/lib/uuid/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: postgresql
+
+name=uuid
+version=1.4.2
+release=1
+source=(ftp://ftp.ossp.org/pkg/lib/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+	            --with-cxx \
+                    --with-perl \
+                    --with-perl-compat \
+                    --with-pgsql
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

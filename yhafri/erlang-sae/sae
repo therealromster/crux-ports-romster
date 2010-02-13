@@ -1,0 +1,14 @@
+#!/bin/sh
+PKG=$1
+ERL_TOP=$2
+
+echo "Copy SAE file : beam_evm ..."
+cp $ERL_TOP/bin/i686-pc-linux-gnu/beam_evm $PKG/usr/lib/erlang/bin
+
+for i in elink ecc ear escript esh erlang.ear; 
+do
+  if [ -e $i ]; then
+      echo "Copy SAE file : $i ..."
+      cp $i $PKG/usr/lib/erlang/bin
+  fi
+done;

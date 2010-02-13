@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec java -jar `pwd`/Jape.jar -engine `pwd`/jape_engine $@

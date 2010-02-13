@@ -1,0 +1,43 @@
+#!/bin/sh
+
+
+set -e
+
+if [ ! -f "$1" ];
+then
+    echo "Can't open C file $1"
+    echo
+    echo "Usage:   Show disassembled code of a C program/snippet"
+    echo "         $0 c_filename"
+    echo "Example: $0 foo.c"
+    echo
+    exit
+fi
+
+fileext=${1##*.}
+if [ "$fileext" == "$1" -o -z "$fileext" ];
+then
+    echo "File $1 has no extension."
+    exit
+fi
+
+if [ "$fileext" != "c" -a "$fileext" != "C" ];
+then
+    echo "$0 like only C code"
+    exit
+fi
+
+prefixname=`echo "$1" | sed -e "s|\.$fileext||"`
+
+echo
+echo "---- objdump disassemble ----"
+echo
+
+gcc -c -g "$1"
+objdump -d "${prefixname}.o"
+
+echo
+echo "---- gcc disassemble ----"
+echo
+
+gcc -c -g -Wa,-ahl,-L "$1"

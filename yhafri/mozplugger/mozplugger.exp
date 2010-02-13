@@ -1,0 +1,30 @@
+#!/usr/bin/expect -f
+
+# http://www.usenix.org/publications/login/2003-08/pdfs/flynt.pdf
+
+set passwd "guest\r"
+
+spawn cvs -d :pserver:guest@mozdev.org:/cvs login
+
+sleep 2
+
+while {1} {
+
+    expect {
+        "CVS password:" { exp_send "$passwd" }
+        "warning:"      { puts "don't worry" }
+        "failed:"       { puts "oups... cvs error"; exit 1 }
+        timeout         { puts "Timeout waiting for password"; exit 1 }
+        eof             { break }
+    }
+}
+
+spawn cvs -d :pserver:guest@mozdev.org:/cvs co mozplugger/src
+
+expect {
+    timeout         { puts "Timeout waiting for password"; exit 1 }
+    eof             { exit 0 }
+}
+
+puts "oops! never see this message normaly"
+exit 1

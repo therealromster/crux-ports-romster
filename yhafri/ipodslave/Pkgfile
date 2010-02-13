@@ -1,0 +1,20 @@
+# Description: This ioslave enables KIO aware apps like konqueror or amarok to access the Music stored on an Apple iPod
+# URL: http://kpod.sourceforge.net/ipodslave/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase, id3lib
+
+name=ipodslave
+version=0.7.2
+release=2
+source=(http://dl.sourceforge.net/sourceforge/kpod/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

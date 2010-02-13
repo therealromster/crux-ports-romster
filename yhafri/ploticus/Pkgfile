@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A non-interactive software for producing plots, charts, and graphics from data
+# URL: http://ploticus.sourceforge.net/doc/welcome.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=ploticus
+version=233
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/pl${version}src.tar.gz)
+
+build () {
+	mkdir -p $PKG/etc/share/$name
+
+	cd pl${version}src/src
+	make
+	install -D -m 755 pl $PKG/usr/bin/ploticus
+	mv ../prefabs $PKG/etc/share/$name
+	chown -R root:root $PKG
+}

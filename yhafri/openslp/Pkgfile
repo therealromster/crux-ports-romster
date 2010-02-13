@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Service Location Protocol 
+# URL: http://www.openslp.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=openslp
+version=1.0.11
+release=1
+source=(http://download.videolan.org/pub/videolan/vlc/0.8.1/contrib/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+  	./configure --prefix=/usr \
+        	    --disable-nls
+  	
+	make
+  	make DESTDIR=$PKG install
+  
+	rm -rf $PKG/usr/doc
+  	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Utilites for translating between bitmap images and PostScript files
+# URL: http://imgtops.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, pil, ghostscript
+
+name=imgtops
+version=1.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+
+	cd $name-$version
+
+	python setup.py install --home=$PKG/usr
+
+	chown -R root:root $PKG
+}

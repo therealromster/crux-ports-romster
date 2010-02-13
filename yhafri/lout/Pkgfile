@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A document formatting system
+# URL: http://snark.ptc.spbu.ru/~uwe/lout/lout.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=lout
+version=3.31
+release=1
+source=(ftp://ftp.cs.usyd.edu.au/jeff/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,share,man/man1/lout.man}
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install
+	make PREFIX=$PKG/usr installman
+
+	mv $PKG/usr/man/man1/lout.man/* $PKG/usr/man/man1/
+	rm -rf $PKG/usr/{share,man/man1/lout.man}
+
+	chown -R root:root $PKG
+}

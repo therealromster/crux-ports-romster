@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A tool to quickly search the documents on a computer
+# URL: http://gnunet.org/doodle/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libextractor, fam
+
+name=doodle
+version=svn
+release=1
+source=()
+
+build () {
+	svn checkout https://gnunet.org/svn/$name/
+	cd $name
+
+	./bootstrap
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

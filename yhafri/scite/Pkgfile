@@ -1,0 +1,21 @@
+# $Id: $
+# Description: SCIntilla based Text Editor
+# URL: http://www.scintilla.org/SciTE.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk, libiconv, hicolor-icon-theme, gnome-icon-theme
+
+name=scite
+version=1.62
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/scintilla/${name}162.tgz \
+    $name-$version.patch)
+
+build () {
+    cd $name/gtk
+    patch -p2< $SRC/$name-$version.patch
+    (cd ../../scintilla/gtk; make CFLAGS="$CFLAGS")
+    make CFLAGS="$CFLAGS"
+    make DESTDIR=$PKG install
+    chown -R root:root $PKG
+}

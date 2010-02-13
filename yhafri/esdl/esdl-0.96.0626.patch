@@ -1,0 +1,11 @@
+--- esdl-0.95.0630/c_src/Makefile	2005-06-30 21:27:20.000000000 +0200
++++ esdl-0.95.0630/c_src/Makefile-new	2005-11-23 13:17:44.000000000 +0100
+@@ -18,7 +18,7 @@
+ #GL_INCLUDE_DIR      = OpenGL
+ #USE_GL_INCLUDE_DIR  = -DFULL_PATH_TO_GL_INCLUDE_DIR
+ 
+-  GL_LIBS		= -L$(OGLDIR)/lib -lGL -lGLU 
++  GL_LIBS		= -L$(OGLDIR)/lib -L/usr/X11R6/lib -lGL -lGLU 
+   GL_INCS		= -I$(OGLDIR)/include/$(GL_INCLUDE_DIR)
+ 
+   SDL_LIBS		= $(shell sdl-config --libs)

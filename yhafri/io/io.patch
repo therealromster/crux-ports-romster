@@ -1,0 +1,76 @@
+--- IoVM-2004-09-26/IoVM/base/RandomGen.c	2005-10-02 01:03:51.545436320 +0200
++++ IoVM-2004-09-26/IoVM/base/RandomGen.c-new	2005-10-02 01:04:23.598563504 +0200
+@@ -50,7 +50,7 @@
+ */
+ 
+ #include "Base.h" 
+-#include <RandomGen.h>
++#include "RandomGen.h"
+ 
+ /* Period parameters */  
+ #define N RANDOMGEN_N
+--- IoVM-2004-09-26/IoVM/IoCatch.c	2005-10-02 01:11:06.475316928 +0200
++++ IoVM-2004-09-26/IoVM/IoCatch.c-new	2005-10-02 01:11:27.790076592 +0200
+@@ -8,7 +8,7 @@
+ #undef IoCatch_C
+ #include "IoState.h"
+ #include "IoNil.h"
+-#include "Scheduler.h"
++#include "base/Scheduler.h"
+ 
+ 
+ IoCatch *IoCatch_new(void *state)
+--- IoVM-2004-09-26/IoVM/IoException.c	2004-09-26 13:25:27.000000000 +0200
++++ IoVM-2004-09-26/IoVM/IoException.c-new	2005-10-02 01:14:21.955599408 +0200
+@@ -26,7 +26,7 @@
+ #include "IoCatch.h"
+ #include "IoObject.h"
+ #include "IoObject_actor.h"
+-#include "Scheduler.h"
++#include "base/Scheduler.h"
+ #include "IoList.h"
+ #include "base/ByteArray.h"
+ 
+--- IoVM-2004-09-26/IoVM/parser/IoToken.h	2004-09-26 13:25:26.000000000 +0200
++++ IoVM-2004-09-26/IoVM/parser/IoToken.h-new	2005-10-02 01:17:58.553671496 +0200
+@@ -5,7 +5,7 @@
+ #ifndef IOTOKEN_DEFINED
+ #define IOTOKEN_DEFINED 1
+ 
+-#include "base/List.h"
++#include "../base/List.h"
+ #include <string.h>
+ 
+ typedef enum 
+--- IoVM-2004-09-26/IoVM/parser/IoLexer.h	2004-09-26 13:25:26.000000000 +0200
++++ IoVM-2004-09-26/IoVM/parser/IoLexer.h-new	2005-10-02 01:18:26.506422032 +0200
+@@ -7,8 +7,8 @@
+ #ifndef IOLEXER_DEFINED
+ #define IOLEXER_DEFINED 1
+ 
+-#include "base/List.h"
+-#include "base/Stack.h"
++#include "../base/List.h"
++#include "../base/Stack.h"
+ #include "IoToken.h"
+ 
+ typedef struct
+--- IoVM-2004-09-26/IoVM/parser/IoToken_parser.c	2004-09-26 13:25:26.000000000 +0200
++++ IoVM-2004-09-26/IoVM/parser/IoToken_parser.c-new	2005-10-02 01:21:36.028610280 +0200
+@@ -4,7 +4,7 @@
+ 
+ #include "IoLexer.h"
+ #include "IoToken_parser.h"
+-#include "Stack.h"
++#include "../base/Stack.h"
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+--- IoVM-2004-09-26/IoVM/extras/IoImporterInit.c	2004-09-26 13:25:26.000000000 +0200
++++ IoVM-2004-09-26/IoVM/extras/IoImporterInit.c-new	2005-10-02 01:24:54.109497408 +0200
+@@ -1,4 +1,4 @@
+-#include "IoState.h"
++#include "../IoState.h"
+ 
+ void IoImporterInit(IoState *self, IoObject *context)
+ {

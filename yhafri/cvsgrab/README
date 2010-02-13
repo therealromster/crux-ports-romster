@@ -1,0 +1,6 @@
+POST-INSTALL:
+
+		* You may need to define the CVSGRAB_HOME:
+		export CVSGRAB_HOME=/usr/lib/cvsgrab
+
+

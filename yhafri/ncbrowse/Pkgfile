@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A Java application to displays netCDF data
+# URL: http://www.epic.noaa.gov/java/ncBrowse/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: j2sdk
+
+name=ncbrowse
+version=1.4.0
+release=1
+source=(ftp://www.epic.noaa.gov/java/ncBrowse/ver140jars/ncBrowse.jar \
+	ftp://www.epic.noaa.gov/java/ncBrowse/ver140jars/lashandler.jar \
+	ftp://www.epic.noaa.gov/java/ncBrowse/ver140jars/noaa_pmel.jar \
+	ftp://www.epic.noaa.gov/java/ncBrowse/ver140jars/netcdfAll.jar \
+	ftp://www.epic.noaa.gov/java/ncBrowse/ver140jars/dods.jar \
+	ftp://www.epic.noaa.gov/java/ncBrowse/ver140jars/visad.jar \
+	ftp://www.epic.noaa.gov/java/ncBrowse/ver140jars/png.jar \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	mv *.jar $PKG/usr/lib/$name
+	install -m 755 $name   $PKG/usr/bin/$name
+        chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# Description: PlayStation Emulation for the PC
+# URL: http://www.pcsx.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: gtk
+
+name=pcsx
+version=1.5
+release=1
+source=(http://www.pcsx.net/downloads/PcsxSrc-$version.tgz)
+build() {
+    cd PcsxSrc-$version
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

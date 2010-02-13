@@ -1,0 +1,22 @@
+# $Id: $
+# Description: AutoOpts option parser library that supports stand alone config files
+# URL: http://directory.fsf.org/All_GNU_Packages/libopts.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libopts
+version=27.4
+release=1
+source=(http://ftp-stud.fht-esslingen.de/pub/Mirrors/ftp.gnu.org/$name/rel$version/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A sticky note application
+# URL: http://xpad.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk
+
+name=xpad
+version=2.12
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+    	./configure --prefix=/usr \
+                    --disable-nls 
+
+    	make
+    	make DESTDIR=$PKG install
+    
+	rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A fast, memory-efficient implementation of malloc for Unix systems
+# URL: http://www.malloc.de/en/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ptmalloc
+version=3
+release=1
+source=(http://www.malloc.de/malloc/$name$version-current.tar.gz)
+
+build () {
+	cd $name$version
+
+	make "linux-pthread"
+        make "linux-shared"
+
+	install -D -m 644 lib$name$version.a $PKG/usr/lib/lib$name$version.a
+	install -D lib$name$version.so $PKG/usr/lib/lib$name$version.so
+
+	chown -R root:root $PKG
+}

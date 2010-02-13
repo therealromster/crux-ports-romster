@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Yet Another Test Server - Yaws compatible
+# URL: http://code.google.com/p/yatsy/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=yatsy
+version=svn
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name	
+
+	for d in `find . -name ".svn" -type "d"`; do rm -rf $d; done
+	cd $name
+
+	make
+
+	mv ebin    $PKG/usr/lib/erlang/lib/$name-$version/
+	mv src     $PKG/usr/lib/erlang/lib/$name-$version/
+	mv include $PKG/usr/lib/erlang/lib/$name-$version/
+	mv priv    $PKG/usr/lib/erlang/lib/$name-$version/
+	
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+POST-INSTALL:
+		* copy dillorc in your "~/.dillo" directory.
+
+INFO:
+		* By default, dillo disable all cookies. See
+		http://www.dillo.org/Cookies.txt
+		for more informations
+
+PATCHES: 
+                * http://www.hyperborea.org/software/dillo/modified.html
+                * character-set localization patches:
+                  http://bobuk.ipost.ru/packages/dillo/index.html
+                * frames and tabbed browsing:
+                  http://www.geocities.com/ikbenfrank/
+                * collection of many small changes:
+	          http://www.hyperborea.org/software/dillo/modified.html
+                * scale down a page:
+                  http://pigeond.net/dillo/
+

@@ -1,0 +1,39 @@
+# $Id: $
+# Description: Analyzes C program to determine to prevent memory safety violations
+# URL: http://manju.cs.berkeley.edu/ccured/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ocaml, cil
+
+name=ccured
+version=1.3.5
+release=1
+source=(http://manju.cs.berkeley.edu/$name/distrib/$name-$version.tar.gz \
+	template)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd $name
+
+	./configure --prefix=/usr
+	make
+	rm -f bin/*.bat*
+	export WHERE="/usr/lib/$name"
+    
+    for i in `find cil/ -name "*.pm"`;
+    do
+      sed -i "s|use lib.*|use lib \"../lib\";|"         $i
+      sed -i "s|$::cilhome.*|$::cilhome = \"$WHERE\";|" $i
+    done
+
+	rm -rf obj/{ppc_DARWIN,x86_WIN32}
+	mv bin/ lib/ obj/ include/ $PKG/usr/lib/$name	
+
+	for i in $name cilly patcher teetwo test-bad;
+	do
+		install -D -m 755 $SRC/template   $PKG/usr/bin/$i    
+	done
+
+	chown -R root:root $PKG
+}

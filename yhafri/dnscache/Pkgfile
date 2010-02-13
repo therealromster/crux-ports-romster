@@ -1,0 +1,16 @@
+# $Id: $
+# Description: A robust DNS caching system
+# URL: http://www.luxnyx.com/linux/documents/djbdns.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: djbdns
+
+name=dnscache
+version=1.05
+release=1
+source=($name)
+
+build () {
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+	chown -R root:root $PKG
+}

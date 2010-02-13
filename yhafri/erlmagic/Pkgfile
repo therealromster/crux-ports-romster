@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Erlang mapping for the image magick++ library
+# URL: http://code.google.com/p/erlmagic/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, subversion, imagemagick
+
+name=erlmagic
+version=svn
+release=1
+source=($name-svn.patch)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,priv}
+	
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+
+	patch -p0<$SRC/$name-svn.patch
+	eiinc=/usr/lib/erlang/lib/erl_interface-*/include
+	eilib=/usr/lib/erlang/lib/erl_interface-*/lib
+	sed -i "s|EI_INC|`echo $eiinc`|" Makefile
+	sed -i "s|EI_LIB|`echo $eilib`|" Makefile
+
+	make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv im     $PKG/usr/lib/erlang/lib/$name-$version/priv
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Yet Another Part-of-Speech and Morphological Analyzer
+# URL: http://chasen.org/~taku/software/mecab/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, swig
+
+name=mecab
+version=0.81
+release=1
+source=(http://chasen.org/~taku/software/$name/src/$name-$version.tar.gz \
+	http://chasen.naist.jp/stable/ipadic/ipadic-2.6.0.tar.gz)
+
+build () {
+	mv ipadic-2.6.0 $name-$version/dic
+
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --with-perl5=/usr/lib/perl5
+
+        sed -i  "s|lib/perl5|bin/perl|" dic/ipa2mecab.pl
+	
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

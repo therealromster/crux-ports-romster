@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Converts LaTeX formulas into high resolution pixmap graphics
+# URL: http://www.nought.de/tex2im.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=tex2im
+version=1.8
+release=1
+source=(http://www.nought.de/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

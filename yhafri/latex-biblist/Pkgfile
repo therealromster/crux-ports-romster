@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Print a listing with all entries of a BibTeX database
+# URL: ftp://ftp.inria.fr/pub/TeX/CTAN/macros/latex209/contrib/biblist/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-biblist
+version=1
+release=1
+source=(ftp://ftp.inria.fr/pub/TeX/CTAN/macros/latex209/contrib/biblist/biblist.sty.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/biblist
+
+	gunzip biblist.sty.gz
+	mv biblist.sty $PKG/usr/share/texmf/tex/latex/biblist
+	chown -R root:root $PKG
+}

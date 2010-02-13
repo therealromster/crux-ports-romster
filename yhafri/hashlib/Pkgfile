@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Generalized hash storage data base package which has O(1) storage and retrieval performance
+# URL: http://cbfalconer.home.att.net/download/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hashlib
+version=1.0.0.0
+release=1
+source=(http://cbfalconer.home.att.net/download/$name.zip)
+
+build () {
+	mkdir -p $PKG/usr/bin/
+	cd $name
+
+	make all
+
+	install -D -m 644 cokusmt.h $PKG/usr/include/cokusmt.h
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+
+	ar cr $name.a hashlib.o cokusmt.o
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+
+	mv *.exe $PKG/usr/bin/
+
+	chown -R root:root $PKG
+}

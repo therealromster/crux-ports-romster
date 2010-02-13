@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Command line tool to manage the X-servers font path
+# URL: http://www.tuxfinder.com/thematic/tree.php?category=12
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on: x11, rpm2targz, popt
+
+name=chkfontpath
+version=1.9.7
+release=1
+source=(ftp://ftp.dti.ad.jp/.1/NetBSD/packages/distfiles/$name-$version-1.src.rpm \
+	patch-aa)
+
+build() {
+    rpm2targz $name-$version-1.src.rpm
+
+    tar xzf $name-$version-1.src.tar.gz
+    tar xzf $name-$version.tar.gz
+
+    cd $name-$version
+    patch -b -z .orig2 < $SRC/patch-aa
+    sed -i 's|/sbin/pidof|/bin/pidof|' $name.c
+
+    make
+    install -D $name $PKG/usr/bin/$name
+    install -D man/en/$name.8 $PKG/usr/man/man8/$name.8
+
+    chown -R root:root $PKG
+}

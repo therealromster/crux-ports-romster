@@ -1,0 +1,7 @@
+POST-INSTALL:
+
+
+		* Set this environment variables in your ~/.bashrc config file:
+		$ export GROOVY_HOME=/usr/lib/groovy
+                $ export JAVA_HOME=/usr/lib/j2sdk1.4.2_04
+

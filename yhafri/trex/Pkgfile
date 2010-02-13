@@ -1,0 +1,22 @@
+# $Id: $
+# Description: T-Rex a tiny regular expression library
+# URL: http://tiny-rex.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=trex
+version=1.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/tiny-rex/${name}_1_3.tar.gz)
+
+build () {
+	cd $name
+
+	gcc -c $name.c 
+	ar cvr $name.a $name.o
+
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+
+	chown -R root:root $PKG
+}

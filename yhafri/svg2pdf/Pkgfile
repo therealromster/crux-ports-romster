@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Command-line tool to convert SVG files into PDF
+# URL: http://www.python.net/~gherman/svglib.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, rltk
+
+name=svg2pdf
+version=0.5
+release=1
+source=(http://starship.python.net/~gherman/projects/svglib/svglib.tar.gz)
+
+
+build () {
+    mkdir -p $PKG/usr/{bin,lib/python/svglib-$version}
+    mv sources/svglib.py $PKG/usr/lib/python/svglib-$version
+    ln -fs /usr/lib/python/svglib-$version/svglib.py $PKG/usr/bin/$name
+    chown -R root:root $PKG
+}

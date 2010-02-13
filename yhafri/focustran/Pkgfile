@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Transparency using X11 composite extension and transset-df
+# URL: http://www.binrev.com/forums/index.php?showtopic=12234
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, transset-df
+
+name=focustran
+version=1
+release=1
+source=($name)
+
+build () {
+	install -D -m 755 $name $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

@@ -1,0 +1,64 @@
+# Description: The standard termulator
+# URL: http://dickey.his.com/xterm/xterm.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on: x11, xaw3d
+
+name=xterm
+version=229
+release=1
+source=(ftp://invisible-island.net/xterm/xterm-$version.tgz)
+
+build()
+{
+    cd $name-$version
+    ./configure --prefix=/usr \
+        	--disable-nls \
+		--enable-ansi-color \
+		--enable-16-color \
+		--enable-256-color \
+		--enable-88-color \
+		--enable-blink-cursor \
+		--enable-broken-osc \
+		--enable-broken-st \
+		--enable-c1-print \
+		--enable-bold-color \
+		--enable-color-class \
+		--enable-color-mode \
+		--enable-highlighting \
+		--enable-doublechars \
+		--enable-boxchars \
+		--enable-freetype \
+		--enable-i18n \
+		--enable-initial-erase \
+		--enable-input-method \
+		--enable-load-vt-fonts \
+		--enable-logging \
+		--enable-logfile-exec \
+		--enable-maximize \
+		--enable-num-lock \
+		--enable-paste64 \
+		--enable-pty-handshake \
+		--enable-rightbar \
+		--enable-samename \
+		--enable-session-mgt \
+		--enable-tcap-query \
+		--enable-tek4014 \
+		--enable-toolbar \
+		--enable-vt52 \
+		--enable-mini-luit \
+		--enable-luit \
+		--enable-wide-chars \
+		--enable-dabbrev \
+		--enable-dec-locator \
+		--enable-ziconbeep \
+		--enable-xmc-glitch \
+		--disable-setuid \
+		--with-Xaw3d \
+		--with-x
+
+    make
+    make install DESTDIR=$PKG
+
+    chown -R root:root $PKG
+}

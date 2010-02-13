@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A program for executing the same command on many hosts in parallel
+# URL: http://web.taranis.org/shmux/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=shmux
+version=1.0b6
+release=1
+source=(http://web.taranis.org/$name/dist/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

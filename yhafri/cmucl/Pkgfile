@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A high performance Common Lisp implementation.
+# URL: http://www.cons.org/cmucl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Aaron Marks <nymacro AT gmail DOT com>
+# Depends on:
+
+name=cmucl
+version=19d
+release=1
+
+source=(http://www.pmsf.de/pub/$name/release/$version/$name-$version-x86-linux.tar.bz2 \
+	http://www.pmsf.de/pub/$name/release/$version/$name-$version-x86-linux.extra.tar.bz2)
+
+build() {
+	mkdir -p $PKG/usr
+
+	cp -rp bin  $PKG/usr
+	cp -rp lib  $PKG/usr
+	cp -rp man/ $PKG/usr
+
+	chown -R root:root $PKG
+}

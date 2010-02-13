@@ -1,0 +1,145 @@
+#!/bin/bash
+
+#
+# Path to the required files
+# USB-ID-Liste von http://www.linux-usb.org/usb.ids
+USBIDS="/etc/hardware-detection/usb.ids"     
+USBMAP=/lib/modules/`uname -r`/modules.usbmap
+
+#
+# Tab and newline as variables for easier understanding
+Tab=$'\t'
+Newline=$'\n'
+
+#
+# We need access to /[proc/sys]/bus/pci, so check if these directories exist
+if [ ! -d /proc/bus/usb ]; then
+  echo "/proc/bus/usb existiert nicht."
+  exit 1
+fi
+
+#
+# read the usb id list (http://www.linux-usb.org/usb.ids)
+if [ -r "$USBIDS" ]; then
+  USBIDCMD="cat $USBIDS"
+else
+  USBIDCMD="wget -q -O - http://www.linux-usb.org/usb.ids"
+fi
+
+#
+# read usb id list line for line
+LastVendor=""
+IFS="${Newline}"
+for z in `eval ${USBIDCMD}`; do
+  case "${z:0:1}" in
+    [0123456789abcdef])
+      # 0-9 and a-f indicate a vendor description
+      LastVendor=${z:0:4}
+      declare v${LastVendor}="${z:6}"
+      ;;
+    $Tab)
+      if [ -n "$LastVendor" ]; then
+        # tab indicates a device description
+        declare d${LastVendor}${z:1:4}="${z:7}"
+      fi
+      ;;
+    *)
+      LastVendor=""
+      ;;
+  esac
+done
+
+#
+# read usb module list line by line
+IFS="${Newline}"
+for z in `cat $USBMAP`; do
+  # columns are separated by multiple spaces
+  IFS=" "
+  set -- $z
+
+  # column 3 and 4 contain vendor and device id, 10 and 11 the class id
+  if [ "$3" = "0x0000" -a "$4" = "0x0000" ]; then
+    # generic driver for a whole device class
+    id="c${10:2:2}${11:2:2}${12:2:2}"
+  elif [ "$4" = "0xffff" ]; then
+    # generic driver for all devices of a specific vendor
+    id="m${3:2}"
+  else
+    id="m${3:2}${4:2}"
+  fi
+  
+  if [ -z "${!id}" ]; then
+    # column 1 lists the module name
+    declare ${id}="$1"
+  else
+    declare ${id}="${!id}${Tab}${1}"
+  fi
+done
+
+IFS=",${Tab}${Newline}"
+#
+# scan /sys/bus/usb/devices/* or /proc/bus/usb/[0-9]*/* for devices
+if [ -e /sys/bus/usb/devices ]; then
+  USBDevices=/sys/bus/usb/devices/*
+  Method="sysfs"
+elif [ -e /proc/bus/usb ]; then
+  USBDevices=/proc/bus/usb/[0-9]*/[0-9]*
+  Method="proc"
+else
+  echo "Neiter proc nor sysfs support. Emergency exit."
+  exit 1
+fi
+
+# fetch the device data from /proc or /sys
+for device in $USBDevices; do
+  Vendor=0000
+  Device=0000
+  Class=000000
+  if [ "$Method" = "sysfs" ]; then
+    if [ -e ${device}/idVendor -a -e ${device}/idProduct ]; then
+      read Vendor < ${device}/idVendor
+      read Device < ${device}/idProduct
+    fi
+    if [ -e ${device}/*/bInterfaceClass ]; then
+      read Class < ${device}/*/bInterfaceClass
+      read SubClass < ${device}/*/bInterfaceSubClass
+      read Protocol < ${device}/*/bInterfaceProtocol
+      Class=${Class}${SubClass}${Protocol}
+    fi
+  elif [ "$Method" = "proc" ]; then
+    # convert vendor and device id to hex
+    Vendor=`hexdump -s 8 -n 2 -e '1/2 "%04x"' $device`
+    Device=`hexdump -s 10 -n 2 -e '1/2 "%04x"' $device`
+  
+    # same for class id and sub class id
+    Class=`hexdump -s 32 -n 3 -e '1/1 "%02x"' $device`
+  fi
+
+  if [ "$Vendor" = "0000" -a "$Device" = "0000" ]; then
+    continue
+  fi
+
+  # create the variable names of the variables
+  v="v${Vendor}"             # name of vendor variable
+  d="d${Vendor}${Device}"    # name of device variable
+  m="m${Vendor}${Device}"    # name of kernel module variable
+  g="m${Vendor}"             # name of generic kernel module variables
+  k="k${Vendor}${Device}"    # name of kernel symbol variable
+  c="c${Class}"              # usb device class
+
+  echo "vendor:   ${!v}${Tab}[0x${Vendor}]"
+  echo "device:   ${!d}${Tab}[0x${Device}]"
+  # echo "class:    [0x${Class}]"
+
+  if [ -n "${!m}" -o -n "${!g}" -o -n "${!c}" ]; then
+    set -- ${!m} ${!g} ${!c}
+    if [ "$#" -gt "1" ]; then
+      echo "kernel modules: $*"
+    else
+      echo "kernel module: $1"
+    fi
+  else
+    echo "unsupported"
+  fi
+  echo
+done

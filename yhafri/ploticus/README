@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+		* Set environment variable PLOTICUS_PREFABS to:
+		export PLOTICUS_PREFABS=/etc/share/ploticus/prefabs		

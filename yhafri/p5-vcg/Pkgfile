@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Interface to the VCG graphing tool
+# URL: http://84.45.18.237/~teejay/VCG-0.5/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-ipc-run
+
+name=p5-vcg
+version=0.5
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/T/TE/TEEJAY/VCG-$version.tar.gz)
+
+build () {
+	cd VCG-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

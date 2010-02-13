@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A SIP software written in Erlang
+# URL: http://www.stacken.kth.se/project/yxa/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=yxa
+version=1.0rc1
+release=1
+source=(http://www.stacken.kth.se/project/$name/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure -prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{priv,src,ebin}
+	mv $PKG/usr/lib/$name/include/* $PKG/usr/lib/erlang/lib/$name-$version/src
+
+	mv $PKG/usr/lib/$name/priv/* $PKG/usr/lib/erlang/lib/$name-$version/priv
+
+	mv $PKG/usr/lib/$name/ebin/* $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	rm -rf $PKG/usr/lib/$name/
+
+	chown -R root:root $PKG
+}

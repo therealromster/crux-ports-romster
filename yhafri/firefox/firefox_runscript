@@ -1,0 +1,16 @@
+#!/bin/sh
+
+firefoxdir='@prefix@/firefox'
+homepage='crux.nu'
+
+export LD_LIBRARY_PATH=$firefoxdir:$firefoxdir/plugins
+# Check if firefox is already running.
+if $firefoxdir/firefox-bin -remote "ping()" > /dev/null 2>&1; then
+    if [ -z "$1" ]; then
+        exec $firefoxdir/firefox-bin -remote "openURL($homepage,new-window)"
+    else
+        exec $firefoxdir/firefox-bin -remote "openURL($1,new-tab)"
+    fi
+else
+    exec $firefoxdir/firefox-bin "$@"
+fi

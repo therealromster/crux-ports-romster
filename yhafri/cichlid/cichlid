@@ -1,0 +1,3 @@
+#!/bin/sh
+
+(cd /usr/lib/cichlid/bin; ./cichlid)

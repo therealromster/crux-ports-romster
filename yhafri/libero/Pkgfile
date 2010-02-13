@@ -1,0 +1,25 @@
+# $Id: $
+# Description: iMatrix Libero programming language
+# URL: http://legacy.imatix.com/html/libero/lrinst2.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gsl@, pdksh
+
+name=libero
+version=232
+release=1
+source=(http://legacy.imatix.com/pub/$name/src/lrsrc$version.tgz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+
+	patch -p0<./$name-$version.patch
+	chmod +x ./install
+
+	unset IBASE
+
+	./install 
+
+	chown -R root:root $PKG
+}

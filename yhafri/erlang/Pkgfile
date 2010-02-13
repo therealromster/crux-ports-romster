@@ -1,0 +1,101 @@
+# $Id: $
+# Description: A programming language and runtime environment with built-in support for concurrency, distribution and fault tolerance
+# URL: http://www.erlang.org/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk, expat, openssl, jdk, unixodbc
+
+name=erlang
+version=R12B-1
+release=8
+source=(http://www.erlang.org/download/otp_src\_$version.tar.gz \
+  	http://www.erlang.org/download/otp_doc_man\_$version.tar.gz \
+	$name-$version.patch \
+	cerl_hipeify.erl \
+	supervisor-dict.patch \
+	shell.erl.diff \
+	otp_src_R11B-1-erl_ddll-reference_count.patch \
+	code_server.R11B-5.patch \
+	skip \
+	adjust)
+
+build () {
+	set -x
+
+	mkdir -p $PKG/usr/share
+	mkdir -p $PKG/usr/lib/$name
+
+	unset CFLAGS
+	unset CXXFLAGS
+	unset CPPFLAGS
+
+	if [ -z "$SMP_SUPPORT" ]; then
+        	SMP_SUPPORT="--disable-smp-support --enable-kernel-poll"
+    	else
+       		SMP_SUPPORT="--enable-smp-support"
+    	fi
+
+	export LANG=C
+	cd otp_src\_${version}
+
+	# for Erlang mailing list "Serge Aleynikov"
+    	patch -p0<$SRC/code_server.R11B-5.patch
+
+	sh $SRC/skip
+
+	# apply erl_ddll patch from: http://www.erlang.org/pipermail/erlang-patches/2006-October/000165.html
+	#patch -p1<$SRC/otp_src_R11B-1-erl_ddll-reference_count.patch
+
+	# apply patch from Dialyzer
+	cp -rf $SRC/cerl_hipeify.erl lib/hipe/cerl/    
+
+	patch -p1<../$name-$version.patch
+	(cd lib/stdlib/src/; patch -p0<$SRC/shell.erl.diff)
+	
+	./configure --prefix=/usr        \
+		    --enable-hipe        \
+        	    --enable-threads     \
+        	    --enable-odbc        \
+	            --with-odbc=/usr     \
+		    --with-ssl           \
+		    --disable-erlang-mandir \
+		    $SMP_SUPPORT
+
+	make 
+
+	export ERL_ROOT=$PKG/usr/lib/$name
+
+	make INSTALL_PREFIX=$PKG install
+
+	find $PKG/usr -iname "doc*"         -type "d" | xargs rm -rf
+	find $PKG/usr -iname "demo*"        -type "d" | xargs rm -rf
+	find $PKG/usr -iname "example*"     -type "d" | xargs rm -rf
+	find $PKG/usr -iname "tutorial*"    -type "d" | xargs rm -rf
+
+	find $PKG/usr -name  "*\.txt"       -type "f" | xargs rm -rf
+	find $PKG/usr -name  "*\.htm*"      -type "f" | xargs rm -rf
+	find $PKG/usr -name  "*\.info*"     -type "f" | xargs rm -rf
+	find $PKG/usr -name  "*\.java"      -type "f" | xargs rm -rf
+	find $PKG/usr -iname "README"       -type "f" | xargs rm -rf
+	find $PKG/usr -iname "RELEASE*"     -type "f" | xargs rm -rf
+	find $PKG/usr -iname "COPYRIGHT"    -type "f" | xargs rm -rf
+
+        ln -sf /usr/lib/erlang/bin/erl        $PKG/usr/bin/erl
+        ln -sf /usr/lib/erlang/bin/erlc       $PKG/usr/bin/erlc
+        ln -sf /usr/lib/erlang/bin/epmd	      $PKG/usr/bin/epmd
+        ln -sf /usr/lib/erlang/bin/run_erl    $PKG/usr/bin/run_erl
+        ln -sf /usr/lib/erlang/bin/to_erl     $PKG/usr/bin/to_erl
+
+        ln -sf /usr/lib/erlang/bin/escript    $PKG/usr/bin/escript
+        ln -sf /usr/lib/erlang/bin/typer      $PKG/usr/bin/typer
+
+	#(cd $PKG/usr/bin; mv dialyzer dialyzer-erl)
+        ln -sf /usr/lib/erlang/bin/dialyzer   $PKG/usr/bin/dialyzer
+	#ln -sf /usr/lib/erlang/bin/dialyzer   $PKG/usr/bin/erl-dialyzer
+	
+	mv $SRC/man $PKG/usr/share
+	cd $PKG/usr/lib
+	sh $SRC/adjust
+
+	chown -R root:root $PKG
+}

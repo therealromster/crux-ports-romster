@@ -1,0 +1,11 @@
+--- embutils-0.16/Makefile	2003-08-14 16:36:38.000000000 +0200
++++ embutils-0.16/Makefile-new	2004-06-25 23:49:26.745741912 +0200
+@@ -3,7 +3,7 @@
+ # Set the following to install to a different root
+ #DESTDIR=/tmp/fefix
+ # Set the following to use the diet libc
+-DIET=diet -Os
++DIET=/usr/local/diet/bin/diet -Os
+ 
+ FLAGS=
+ 

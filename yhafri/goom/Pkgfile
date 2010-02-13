@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Visual effects generator for mp3 players
+# URL: http://www.ios-software.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libsdl
+
+name=goom
+version=2k4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version-0-src.tar.gz)
+
+build () {
+	cd $name$version-0
+	./configure --prefix=/usr
+
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

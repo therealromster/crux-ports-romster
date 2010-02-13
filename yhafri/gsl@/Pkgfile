@@ -1,0 +1,27 @@
+# $Id: $
+# Description: iMatrix code construction tool
+# URL: http://download.imatix.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: foreign, base
+
+name=gsl@
+version=4.0c19
+release=1
+source=(http://download.imatix.com/pub/gsl-$version-src.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/ibase
+
+	cd gsl-$version
+
+	export IBASE=/usr/lib/ibase
+	./boomake build
+
+	export IBASE=$PKG/usr/lib/ibase
+	./boomake install
+
+	rm -rf $PKG/usr/lib/ibase/doc
+
+	chown -R root:root $PKG
+}

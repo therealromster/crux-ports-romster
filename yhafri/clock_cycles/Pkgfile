@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Test programs for measuring clock cycles and performance monitoring
+# URL: http://www.agner.org/assem/#testp
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=clock_cycles
+version=1
+release=1
+source=(http://www.agner.org/assem/testp.zip)
+
+build () {
+	unzip -a TSCUni.zip
+	sh lg32.sh
+
+	install -D -m 755 a.out       $PKG/usr/bin/$name	
+	install -D -m 644 TSCTest.cpp $PKG/usr/include/clock_cycles.cpp	
+
+	chown -R root:root $PKG
+}

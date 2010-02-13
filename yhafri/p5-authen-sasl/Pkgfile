@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl SASL Authentication framework
+# URL: http://search.cpan.org/~gbarr/Authen-SASL-2.09/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-digest-md5, p5-digest-sha1, p5-digest-hmac
+
+name=p5-authen-sasl
+version=2.09
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GB/GBARR/Authen-SASL-$version.tar.gz)
+
+build () {
+	cd Authen-SASL-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,18 @@
+# Description: a simple Control Center module one can use to change the look of the shadows under the KDE desktop icons
+# URL: http://www.kde-look.org/content/show.php?content=19329
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=textshadowedit
+version=0.1.1
+release=2
+source=(http://download.berlios.de/segfaultskde/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+}

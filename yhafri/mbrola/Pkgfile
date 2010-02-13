@@ -1,0 +1,43 @@
+# $Id: $
+# Description: A speech synthesizer  based  on the concatenation of diphones
+# URL: http://tcts.fpms.ac.be/synthesis/mbrola/mbrola_entrypage.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=mbrola
+version=3.01h
+release=1
+source=(http://tcts.fpms.ac.be/synthesis/$name/bin/pclinux/mbr301h.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/ar1/ar1-981103.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/ar2/ar2-001015.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/fr1/fr1-990204.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/fr2/fr2-980806.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/fr3/fr3-990324.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/fr4/fr4-990521.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/fr5/fr5-991020.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/fr6/fr6-010330.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/fr7/fr7-010330.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/us1/us1-980512.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/us2/us2-980812.zip \
+	http://tcts.fpms.ac.be/synthesis/mbrola/dba/us3/us3-990208.zip \
+    http://tcts.fpms.ac.be/synthesis/mbrola/dba/hb1/hb1-000308.zip \
+    http://tcts.fpms.ac.be/synthesis/mbrola/dba/hb2/hb2.zip)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	mkdir -p $PKG/etc/$name/voices
+	install -D -m 755 $name-linux-i386 $PKG/usr/bin/$name
+
+    for i in ar1 ar2 fr1 fr2 fr3 fr4 fr5 fr6 us1 us2 us3 hb1 hb2; 
+    do
+      mkdir -p $PKG/etc/$name/voices/$i
+      if [ $i = "ar2" -o $i = "fr4" ]; then
+          cp $i $PKG/etc/$name/voices/$i
+      else
+          cp $i/$i $PKG/etc/$name/voices/$i
+      fi
+    done
+
+	chown -R root:root $PKG
+}

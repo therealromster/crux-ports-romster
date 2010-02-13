@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Perl CGI module
+# URL: http://84.45.18.237/~lds/CGI.pm-3.10/
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=p5-cgi
+version=3.20
+release=2
+source=(http://search.cpan.org/CPAN/authors/id/L/LD/LDS/CGI.pm-$version.tar.gz)
+
+build(){
+	cd CGI.pm-$version
+
+        perl Makefile.PL
+        
+	make OPTIMIZE="${CFLAGS}"
+        make DESTDIR=${PKG} install
+        
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+        chown -R root:root $PKG
+}

@@ -1,0 +1,44 @@
+# Description: A a system which facilitates service discovery on a local network
+# URL: http://avahi.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libdaemon, expat, dbus, glib, gtk, libglade, python, pygtk, qt3
+
+name=avahi
+version=0.6.15
+release=1
+source=(http://avahi.org/download/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build() {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --enable-qt3 \
+		    --disable-qt4 \
+		    --disable-python-dbus \
+		    --disable-doxygen-doc \
+		    --disable-doxygen-dot \
+		    --with-avahi-user=avahi \
+		    --with-avahi-group=avahi \
+		    --with-distro=none \
+		    --enable-autoipd \
+		    --disable-mono \
+		    --disable-monodoc \
+ 		    --disable-doxygen-xml \
+  		    --disable-doxygen-chm \
+  		    --disable-doxygen-chi \
+  		    --disable-doxygen-html \
+		    --disable-doxygen-ps \
+		    --disable-doxygen-pdf \
+		    --disable-manpages \
+		    --disable-xmltoman \
+		    --disable-tests
+
+	make
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}
+

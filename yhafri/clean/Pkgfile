@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Clean Programming language
+# URL: http://www.cs.ru.nl/~clean/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=clean
+version=2.1.1
+release=1
+source=(http://www.cs.ru.nl/~clean/download/Clean21/linux/Clean$version.tar.gz)
+
+build () {
+	cd $name
+
+	make
+	make INSTALL_DIR=$PKG/usr install
+
+
+	ln -sf /usr/lib/CleanIDE        $PKG/usr/bin/CleanIDE
+	ln -sf /usr/lib/ShowHeapProfile $PKG/usr/bin/ShowHeapProfile
+	ln -sf /usr/lib/CleanIDE        $PKG/usr/bin/ShowTimeProfile
+
+	chown -R root:root $PKG
+}

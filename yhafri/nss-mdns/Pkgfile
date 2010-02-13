@@ -1,0 +1,22 @@
+# $Id: $
+# Description: NSS module for Multicast DNS name resolution
+# URL: http://0pointer.de/lennart/projects/nss-mdns/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=nss-mdns
+version=0.8
+release=1
+source=(http://0pointer.de/lennart/projects/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

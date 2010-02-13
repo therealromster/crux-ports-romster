@@ -1,0 +1,10 @@
+POST-INSTALL:
+
+		* Recompile gcc with option --enable-languages=c,c++,objc,f77,ada 
+		  or use the gcc port in this repository
+
+		* Set this environment variables in your ~/.bashrc:
+		export PGPLOT_DIR=/usr/lib/pgplot
+		export PGPLOT_FONT=/usr/lib/pgplot/grfont.dat
+		export PGPLOT_RGB=/usr/lib/pgplot/rgb.txt
+

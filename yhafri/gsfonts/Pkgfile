@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Fonts for the Ghostscript interpreter(s)
+# URL: http://packages.debian.org/stable/text/gsfonts
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghostcript
+
+name=gsfonts
+version=8.14
+release=1
+source=(http://ftp.debian.org/debian/pool/main/g/$name/${name}_${version}+v8.11+urw.orig.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/ghostscript/fonts
+	cd $name-$version+v8.11+urw-0.1.orig
+
+	rm -rf COPYING ChangeLog README README.tweaks TODO       
+
+	cp *.* $PKG/usr/share/ghostscript/fonts 
+
+	chown -R root:root $PKG
+}

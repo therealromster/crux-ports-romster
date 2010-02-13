@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Simple Class for OLE document interface
+# URL: http://search.cpan.org/~jmcnamara/OLE-Storage_Lite-0.14/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-ole-storage_lite
+version=0.14
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JM/JMCNAMARA/OLE-Storage_Lite-$version.tar.gz)
+
+build () {
+	cd OLE-Storage_Lite-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

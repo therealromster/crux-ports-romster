@@ -1,0 +1,17 @@
+# $Id: $
+# Description: UltraWorld font
+# URL: http://www.themedepot.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: chkfontpath, ttmkfdir
+
+name=ultraworld-font
+version=4.3
+release=1
+source=(http://www.themedepot.org/tarballs/43-ultra_world.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/fonts/truetype
+	mv UltraWorld/* $PKG/usr/share/fonts/truetype
+	chown -R root:root $PKG
+}

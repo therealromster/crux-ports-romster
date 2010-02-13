@@ -1,0 +1,21 @@
+INFO:
+
+		* I changed one behaviour of DBC to not collide with other C source parsing
+		  tools. Thus, instead of writing contract like this:
+
+                  /**
+                   * pre: input != NULL
+                   * post: input != NULL
+                   */
+
+		   write them like this:
+
+		  /**!dbc
+ 		   * pre: input != NULL
+		   * post: input != NULL
+		   */
+
+		  A lot of C source parser use start comment "/**". I changed that to "/**!dbc" which is 
+		  more clear. Moreover, you can continue to use Doxygen with this new tag. 
+		
+

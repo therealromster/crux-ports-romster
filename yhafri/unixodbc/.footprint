@@ -1,0 +1,135 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/DataManager
+-rwxr-xr-x	root/root	usr/bin/DataManagerII
+-rwxr-xr-x	root/root	usr/bin/ODBCConfig
+-rwxr-xr-x	root/root	usr/bin/dltest
+-rwxr-xr-x	root/root	usr/bin/isql
+-rwxr-xr-x	root/root	usr/bin/iusql
+-rwxr-xr-x	root/root	usr/bin/odbc_config
+-rwxr-xr-x	root/root	usr/bin/odbcinst
+-rwxr-xr-x	root/root	usr/bin/odbctest
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/ODBCDataSources/
+-rw-r--r--	root/root	usr/etc/odbc.ini (EMPTY)
+-rw-r--r--	root/root	usr/etc/odbcinst.ini (EMPTY)
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/autotest.h
+-rw-r--r--	root/root	usr/include/odbcinst.h
+-rw-r--r--	root/root	usr/include/odbcinstext.h
+-rw-r--r--	root/root	usr/include/sql.h
+-rw-r--r--	root/root	usr/include/sqlext.h
+-rw-r--r--	root/root	usr/include/sqltypes.h
+-rw-r--r--	root/root	usr/include/sqlucode.h
+-rw-r--r--	root/root	usr/include/uodbc_stats.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/ibodbcinstQ.so.1 -> /usr/lib/libodbcinstQ.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libesoobS.a
+-rwxr-xr-x	root/root	usr/lib/libesoobS.la
+lrwxrwxrwx	root/root	usr/lib/libesoobS.so -> libesoobS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libesoobS.so.1 -> libesoobS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libesoobS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libgtrtst.a
+-rwxr-xr-x	root/root	usr/lib/libgtrtst.la
+lrwxrwxrwx	root/root	usr/lib/libgtrtst.so -> libgtrtst.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libgtrtst.so.1 -> libgtrtst.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libgtrtst.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libmimerS.a
+-rwxr-xr-x	root/root	usr/lib/libmimerS.la
+lrwxrwxrwx	root/root	usr/lib/libmimerS.so -> libmimerS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libmimerS.so.1 -> libmimerS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libmimerS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libnn.a
+-rwxr-xr-x	root/root	usr/lib/libnn.la
+lrwxrwxrwx	root/root	usr/lib/libnn.so -> libnn.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libnn.so.1 -> libnn.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libnn.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbc.a
+-rwxr-xr-x	root/root	usr/lib/libodbc.la
+lrwxrwxrwx	root/root	usr/lib/libodbc.so -> libodbc.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbc.so.1 -> libodbc.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbc.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbccr.a
+-rwxr-xr-x	root/root	usr/lib/libodbccr.la
+lrwxrwxrwx	root/root	usr/lib/libodbccr.so -> libodbccr.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbccr.so.1 -> libodbccr.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbccr.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbcdrvcfg1S.a
+-rwxr-xr-x	root/root	usr/lib/libodbcdrvcfg1S.la
+lrwxrwxrwx	root/root	usr/lib/libodbcdrvcfg1S.so -> libodbcdrvcfg1S.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcdrvcfg1S.so.1 -> libodbcdrvcfg1S.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcdrvcfg1S.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbcdrvcfg2S.a
+-rwxr-xr-x	root/root	usr/lib/libodbcdrvcfg2S.la
+lrwxrwxrwx	root/root	usr/lib/libodbcdrvcfg2S.so -> libodbcdrvcfg2S.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcdrvcfg2S.so.1 -> libodbcdrvcfg2S.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcdrvcfg2S.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbcinst.a
+-rwxr-xr-x	root/root	usr/lib/libodbcinst.la
+lrwxrwxrwx	root/root	usr/lib/libodbcinst.so -> libodbcinst.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcinst.so.1 -> libodbcinst.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcinst.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcinstQ.so -> /usr/lib/libodbcinstQ.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcinstQ.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbcminiS.a
+-rwxr-xr-x	root/root	usr/lib/libodbcminiS.la
+lrwxrwxrwx	root/root	usr/lib/libodbcminiS.so -> libodbcminiS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcminiS.so.1 -> libodbcminiS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcminiS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbcmyS.a
+-rwxr-xr-x	root/root	usr/lib/libodbcmyS.la
+lrwxrwxrwx	root/root	usr/lib/libodbcmyS.so -> libodbcmyS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcmyS.so.1 -> libodbcmyS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcmyS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbcnnS.a
+-rwxr-xr-x	root/root	usr/lib/libodbcnnS.la
+lrwxrwxrwx	root/root	usr/lib/libodbcnnS.so -> libodbcnnS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcnnS.so.1 -> libodbcnnS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcnnS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbcpsql.a
+-rwxr-xr-x	root/root	usr/lib/libodbcpsql.la
+lrwxrwxrwx	root/root	usr/lib/libodbcpsql.so -> libodbcpsql.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcpsql.so.1 -> libodbcpsql.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcpsql.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcpsql.so.2 -> libodbcpsql.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcpsql.so.2.0.0
+-rw-r--r--	root/root	usr/lib/libodbcpsqlS.a
+-rwxr-xr-x	root/root	usr/lib/libodbcpsqlS.la
+lrwxrwxrwx	root/root	usr/lib/libodbcpsqlS.so -> libodbcpsqlS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbcpsqlS.so.1 -> libodbcpsqlS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbcpsqlS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbctxt.a
+-rwxr-xr-x	root/root	usr/lib/libodbctxt.la
+lrwxrwxrwx	root/root	usr/lib/libodbctxt.so -> libodbctxt.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbctxt.so.1 -> libodbctxt.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbctxt.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libodbctxtS.a
+-rwxr-xr-x	root/root	usr/lib/libodbctxtS.la
+lrwxrwxrwx	root/root	usr/lib/libodbctxtS.so -> libodbctxtS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libodbctxtS.so.1 -> libodbctxtS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libodbctxtS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/liboplodbcS.a
+-rwxr-xr-x	root/root	usr/lib/liboplodbcS.la
+lrwxrwxrwx	root/root	usr/lib/liboplodbcS.so -> liboplodbcS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/liboplodbcS.so.1 -> liboplodbcS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/liboplodbcS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/liboraodbcS.a
+-rwxr-xr-x	root/root	usr/lib/liboraodbcS.la
+lrwxrwxrwx	root/root	usr/lib/liboraodbcS.so -> liboraodbcS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/liboraodbcS.so.1 -> liboraodbcS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/liboraodbcS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libsapdbS.a
+-rwxr-xr-x	root/root	usr/lib/libsapdbS.la
+lrwxrwxrwx	root/root	usr/lib/libsapdbS.so -> libsapdbS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libsapdbS.so.1 -> libsapdbS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libsapdbS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libtdsS.a
+-rwxr-xr-x	root/root	usr/lib/libtdsS.la
+lrwxrwxrwx	root/root	usr/lib/libtdsS.so -> libtdsS.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libtdsS.so.1 -> libtdsS.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libtdsS.so.1.0.0
+-rw-r--r--	root/root	usr/lib/libtemplate.a
+-rwxr-xr-x	root/root	usr/lib/libtemplate.la
+lrwxrwxrwx	root/root	usr/lib/libtemplate.so -> libtemplate.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libtemplate.so.1 -> libtemplate.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libtemplate.so.1.0.0

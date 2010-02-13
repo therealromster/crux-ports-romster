@@ -1,0 +1,22 @@
+# $Id: $
+# Description: STL for C (and C++)
+# URL: http://www.theiling.de/projects/erwin.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: liberror
+
+name=erwin
+version=2.1.58633
+release=1
+source=(http://www.theiling.de/downloads/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

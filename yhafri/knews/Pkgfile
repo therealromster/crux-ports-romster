@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A threaded newsreader with an X Window interface
+# URL: http://www.math.su.se/~kjj/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, nail
+
+name=knews
+version=1.0b.1
+release=1
+source=(http://www.matematik.su.se/~kjj/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+
+	cd $name-$version
+	patch -p0<../$name-$version.patch
+
+	xmkmf
+        make Makefiles
+        make clean
+        make all
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/X11R6/lib/X11/app-defaults
+	ln -sf /usr/X11R6/bin/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

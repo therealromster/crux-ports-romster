@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Reads the repository via its web interface (ViewCVS,CvsWeb) 
+# URL: http://cvsgrab.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=cvsgrab
+version=2.2.2
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.zip)
+
+build () {
+	install -D -m 755 $name-$version/$name.sh $PKG/usr/bin/$name
+	install -D -m 644 $name-$version/lib/$name.jar $PKG/usr/lib/$name/$name.jar
+	chown -R root:root $PKG
+}

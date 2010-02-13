@@ -1,0 +1,24 @@
+diff -rU1 Imaging-1.1.4/_imagingft.c /tmp/Imaging-1.1.4/_imagingft.c
+--- Imaging-1.1.4/_imagingft.c	2003-04-22 10:11:25.000000000 -0600
++++ /tmp/Imaging-1.1.4/_imagingft.c	2004-11-20 20:23:21.857924776 -0700
+@@ -17,3 +17,4 @@
+ 
+-#include <freetype/freetype.h>
++#include <ft2build.h>
++#include FT_FREETYPE_H
+ 
+diff -rU1 Imaging-1.1.4/setup.py /tmp/Imaging-1.1.4/setup.py
+--- Imaging-1.1.4/setup.py	2003-05-09 06:00:56.000000000 -0600
++++ /tmp/Imaging-1.1.4/setup.py	2004-11-20 20:43:51.824941368 -0700
+@@ -218,3 +218,5 @@
+                 library_dirs=LIBRARY_DIRS,
+-                libraries=LIBRARIES
++		libraries=LIBRARIES,
++		extra_compile_args=EXTRA_COMPILE_ARGS,
++                extra_link_args=EXTRA_LINK_ARGS
+                 )
+@@ -286,4 +288,2 @@
+                 libraries=LIBRARIES,
+-                extra_compile_args=EXTRA_COMPILE_ARGS,
+-                extra_link_args=EXTRA_LINK_ARGS
+                 )

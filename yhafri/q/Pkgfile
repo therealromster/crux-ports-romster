@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Equational Programming Language
+# URL: http://q-lang.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, unixodbc, imagemagick, tk, gdbm, curl, freetype2, libxml2, libxslt, 
+
+name=q
+version=7.6
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name-lang/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS=-liconv ./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	cd $PKG
+	rm -rf usr/share/$name/examples \
+		usr/share/$name/etc/README* \
+		usr/share/$name/gqbuilder/examples \
+		usr/info \
+		usr/share/q/etc/{AUTHORS,COPYING,ChangeLog,NEWS}
+				
+	ln -sf /usr/share/$name/gqbuilder/gqbuilder.q $PKG/usr/bin/gqbuilder
+
+	chown -R root:root $PKG
+}

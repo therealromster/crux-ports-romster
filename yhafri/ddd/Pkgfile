@@ -1,0 +1,25 @@
+# $Id: $ 
+# Description: A graphical frontend for the commandline debugger GDB
+# URL: http://www.gnu.org/software/ddd
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gdb, lesstif
+
+name=ddd
+version=3.3.12
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/ddd/ddd-3.3.12-test2.tar.gz)
+
+build () {
+	cd $name-$version-test2
+	./configure --prefix=/usr
+	
+	make 
+	make DESTDIR=$PKG install
+	
+	rm -rf $PKG/usr/info
+	rm -rf $PKG/usr/share/$name-$version/{COPYING,NEWS}
+	rm -rf $PKG/usr/lib
+
+	chown -R root:root $PKG
+}

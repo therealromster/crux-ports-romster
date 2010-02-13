@@ -1,0 +1,14 @@
+USAGE :
+
+
+		* Restart Jetty (as root) :
+		
+		# /etc/rc.d/jetty stop
+		# /etc/rc.d/jetty start
+
+		# Point your browser to:
+		http://localhost:8080/
+		
+		then click on link (/limo ---> org.mortbay):
+		http://localhost:8080/limo
+

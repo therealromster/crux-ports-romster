@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Fast download manager
+# URL: http://dfast.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, wxgtk
+
+name=wxdfast
+version=0.5.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/dfast/${name}_${version}.tar.gz)
+
+build () {
+	cd ${name}-${version}
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

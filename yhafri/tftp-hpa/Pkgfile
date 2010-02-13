@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Enhanced version of the BSD TFTP
+# URL: http://freshmeat.net/projects/tftp-hpa/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Erlend Bergsås Mikkelsen <howl@online.no>
+# Depends on: 
+
+name=tftp-hpa
+version=0.41
+release=1
+source=(http://www.kernel.org/pub/software/network/tftp/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make 
+	make INSTALLROOT="$PKG" install
+}

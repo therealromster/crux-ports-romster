@@ -1,0 +1,29 @@
+# $Id: $
+# Description: An Encode::Encoding subclass that detects the encoding of data
+# URL: http://search.cpan.org/~jgmyers/Encode-Detect-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-encode-detect
+version=0.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JG/JGMYERS/Encode-Detect-$version.tar.gz)
+
+build () {
+        # Update the paths and directories
+        PERL_VERSION=`perl -e 'printf "%vd", $^V'`
+
+	mkdir -p $PKG/usr/lib/perl5/site_perl/$PERL_VERSION
+
+	cd Encode-Detect-$version
+	perl Build.PL
+	perl Build install install_base=${PKG}/usr
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+
+	mv $PKG/usr/lib/perl5/linux $PKG/usr/lib/perl5/site_perl/$PERL_VERSION 
+	mv $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux/Encode \
+	   $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/
+
+	chown -R root:root $PKG
+}

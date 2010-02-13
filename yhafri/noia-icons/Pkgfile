@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Complete iconset with around 600 beautiful icons
+# URL: http://www.kde-look.org/content/show.php?content=3883
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=noia-icons
+version=1
+release=1
+source=(http://ic1.deviantart.com/files/f/2003/37/1/0/noiakdeicon100.tgz)
+
+build () {
+	mkdir -p $PKG/usr/share/pixmaps/noia
+	cd noia_kde_100
+	mv 16x16/  22x22/ 32x32/     $PKG/usr/share/pixmaps/noia
+	mv 48x48/  64x64/ 128x128/   $PKG/usr/share/pixmaps/noia
+	cd $PKG/usr/share/pixmaps/noia
+	for i in '16x16' '22x22' '32x32' '48x48' '64x64' '128x128'; 
+	do 
+	  find "$i/" -name "*.png" -type "f" -print -exec chmod 644 '{}' \;
+	done
+        chown -R root:root $PKG
+}

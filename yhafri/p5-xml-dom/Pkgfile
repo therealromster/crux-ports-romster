@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A perl module for building DOM Level 1 compliant document structures 
+# URL: http://search.cpan.org/~tjmather/XML-DOM-1.43/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-xml-parser, libxml-perl, p5-xml-regexp
+
+name=p5-xml-dom
+version=1.44
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TJ/TJMATHER/XML-DOM-$version.tar.gz)
+
+build () {
+	cd XML-DOM-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

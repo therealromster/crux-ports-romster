@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Higher Order Perl Lexer 
+# URL: http://search.cpan.org/~ovid/HOP-Lexer-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-hop-stream
+
+name=p5-hop-lexer
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/O/OV/OVID/HOP-Lexer-$version.tar.gz)
+
+build () {
+	cd HOP-Lexer-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

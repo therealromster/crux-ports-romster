@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Initiate a persistent database connection
+# URL: http://search.cpan.org/~abh/Apache-DBI/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-dbi
+
+name=p5-apache-dbi
+version=0.94
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABH/Apache-DBI-$version.tar.gz)
+
+build () {
+	cd Apache-DBI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

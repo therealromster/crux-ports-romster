@@ -1,0 +1,23 @@
+# $Id: $
+# Description: SQLite JDBC driver
+# URL: http://www.ch-werner.de/javasqlite/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant
+
+name=javasqlite
+version=20050608
+release=1
+source=(http://www.ch-werner.de/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd javasqlite-20050608
+	./configure
+	make
+
+	install -D sqlite.jar $PKG/usr/lib/$name/sqlite.jar
+
+	chown -R root:root $PKG
+}

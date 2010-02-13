@@ -1,0 +1,51 @@
+# $Id: $
+# Description: High performance DNS services
+# URL: http://cr.yp.to/djbdns.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Stoyan Zhekov <zhware@hotpop.com>
+# Depends on: daemontools, ucspi-tcp
+
+#
+# If you want ipv6 support comment out the comments
+#
+
+name=djbdns
+version=1.05
+release=2
+source=(
+    http://cr.yp.to/djbdns/$name-$version.tar.gz
+    # http://www.fefe.de/dns/$name-$version-test21.diff.bz2
+    $name-$version-ignoreip2.patch
+    http://www.qmail.org/moni.csi.hu/pub/glibc-2.3.1/djbdns-1.05.errno.patch \
+    http://smarden.org/pape/djb/manpages/$name-$version-man.tar.gz	
+)
+
+build()
+{
+   mkdir -p ${PKG}/usr/man/{man1,man5,man8}
+   cd $name-$version
+   # bzcat $name-$version-test21.diff.bz2 | patch
+   patch < $SRC/$name-$version-ignoreip2.patch
+   patch < $SRC/djbdns-1.05.errno.patch
+   echo "gcc ${CFLAGS}" > conf-cc
+   echo "gcc ${LDFLAGS}" > conf-ld
+   echo "/usr" > conf-home
+   make
+   install -d $PKG/usr/bin
+   install \
+       *-conf dnscache tinydns walldns \
+       rbldns pickdns axfrdns *-get *-data \
+       *-edit dnsip dnsipq dnsname dnstxt \
+       dnsmx dnsfilter random-ip dnsqr \
+       dnsq dnstrace dnstracesort \
+       $PKG/usr/bin/
+   # dnsip6 dnsip6q
+   install -d              $PKG/etc
+   install dnsroots.global $PKG/etc
+   cd $SRC/$name-man
+   gzip *.1; mv *.1.gz ${PKG}/usr/man/man1
+   gzip *.5; mv *.5.gz ${PKG}/usr/man/man5
+   gzip *.8; mv *.8.gz ${PKG}/usr/man/man8
+
+   chown -R root:root $PKG
+}

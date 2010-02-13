@@ -1,0 +1,19 @@
+# Description: allows you to reclaim disk space by finding unneeded files
+# URL: http://linux.bydg.org/~yogin/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase, scons
+
+name=kleansweep
+version=0.2.8
+release=1
+source=(http://linux.bydg.org/~yogin/kleansweep-$version.tar.bz2)
+
+build() {
+    export QTDIR=/usr/share/qt
+    cd $name-$version
+    scons configure prefix=/usr
+    scons
+    scons DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale/ru/
+}

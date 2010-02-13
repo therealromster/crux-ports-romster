@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Transfer files via IrDA the OBEX way
+# URL: http://openobex.sourceforge.net/applications.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openobex
+
+name=ircp
+version=0.3
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/openobex/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

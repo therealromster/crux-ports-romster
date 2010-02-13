@@ -1,0 +1,20 @@
+# Description: a KDE frontend to the Subversion version control system
+# URL: http://www.alwins-world.de/programs/kdesvn
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase, svn
+
+name=kdesvn
+version=0.8.4
+release=1
+source=(http://www.alwins-world.de/programs/download/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

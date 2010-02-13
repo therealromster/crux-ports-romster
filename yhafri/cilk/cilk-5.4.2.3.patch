@@ -1,0 +1,11 @@
+--- 5.4.2.3/Makefile.in	2006-04-24 19:42:39.000000000 +0200
++++ 5.4.2.3/Makefile.in-new	2006-05-08 18:58:51.000000000 +0200
+@@ -105,7 +105,7 @@
+ am__quote = @am__quote@
+ install_sh = @install_sh@
+ ACLOCAL_AMFLAGS = -I m4dir
+-SUBDIRS = cilk2c runtime support examples doc FAQ
++SUBDIRS = cilk2c runtime support FAQ
+ EXTRA_DIST = THANKS bootstrap.sh
+ 
+ CLEANFILES = EXCLUDE

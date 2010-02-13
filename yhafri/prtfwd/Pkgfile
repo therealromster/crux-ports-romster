@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Forward std{in,out} to a host/port
+# URL: http://resnet.uoregon.edu/~gurney_j/jmpc/prtfwd.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=prtfwd
+version=1
+release=1
+source=(http://resnet.uoregon.edu/~gurney_j/jmpc/dist/$name.tar.gz)
+
+build () {
+	cd $name
+
+	make
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

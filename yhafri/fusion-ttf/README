@@ -1,0 +1,26 @@
+POST-INSTALL:
+
+		* Add the line below to your X11 configuration file:
+		FontPath     "/usr/share/fonts/truetype"
+				
+
+		* Type the following command:
+		# chkfontpath --add /usr/X11R6/lib/X11/fonts/TTF
+		# (cd /usr/X11R6/lib/X11/fonts/TTF; ttmkfdir)
+
+                * Make sur that the directory "/usr/X11R6/lib/X11/fonts/TTF" is
+                added to the "catalogue=" in the "/etc/X11/fs/config" file
+
+
+USAGE:
+		* For E17, change font as this:
+		
+		$ enlightenment_remote -font-available-list | grep -i fusion
+		$ enlightenment_remote -font-default-set default    Fusion 12
+		$ enlightenment_remote -font-default-set title_bar  Fusion 12
+		$ enlightenment_remote -font-default-set menu_item  Fusion 12
+		$ enlightenment_remote -restart
+
+		* To restore E17 default fonts:
+		$ enlightenment_remote -font-default-set default   Vera 10
+		$ enlightenment_remote -font-default-set title_bar Vera 10

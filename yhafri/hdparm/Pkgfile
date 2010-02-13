@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Get/set ATA drive parameters under Linux
+# URL: http://sourceforge.net/projects/hdparm/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hdparm
+version=6.6
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    make
+    mkdir -p $PKG/usr/sbin $PKG/usr/man/man8
+    install -m 755 hdparm $PKG/usr/sbin
+    install -m 644 hdparm.8 $PKG/usr/man/man8
+
+	chown -R root:root $PKG
+}

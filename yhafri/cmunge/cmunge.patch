@@ -1,0 +1,23 @@
+--- cmunger/cmunge	1998-08-28 19:10:45.000000000 +0200
++++ cmunger/cmunge-new	2006-05-14 22:59:24.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/csh -f
++#!/bin/tcsh -f
+ 
+ #-----------------------------------------------------------------------
+ # cmunge: a tool for encrypting and compacting C source code.
+@@ -73,12 +73,12 @@
+ # ${cmunger}/bin, where ${cmunger} is the absolute pathname	#
+ # of the `cmunger' directory.					#
+ #===============================================================#
+-set  cmunger_bin_dir = /vcpc_users/jhm/bin/cmunger/bin
++set  cmunger_bin_dir = /usr/bin
+ 
+ #===============================================================#
+ # Substitute the pathname of the C pre-processor, `cpp', here...#
+ #===============================================================#
+-set  cpp = /usr/ccs/lib/cpp
++set  cpp = /usr/bin/cpp
+ 
+ 
+ set  proc_incl = ${cmunger_bin_dir}/proc-incl

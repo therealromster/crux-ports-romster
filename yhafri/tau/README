@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+			* Add the following env variable:
+			export TAUROOT=/usr 

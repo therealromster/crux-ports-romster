@@ -1,0 +1,49 @@
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/clamd.conf
+-rw-r--r--	root/root	etc/freshclam.conf
+drwxr-xr-x	root/root	etc/rc.d/
+-rwx------	root/root	etc/rc.d/clamd
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/clamav-config
+-rwxr-xr-x	root/root	usr/bin/clamdscan
+-rwxr-xr-x	root/root	usr/bin/clamscan
+-rwxr-xr-x	root/root	usr/bin/freshclam
+-rwxr-xr-x	root/root	usr/bin/sigtool
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/clamav.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libclamav.a
+-rwxr-xr-x	root/root	usr/lib/libclamav.la
+lrwxrwxrwx	root/root	usr/lib/libclamav.so -> libclamav.so.1.0.18
+lrwxrwxrwx	root/root	usr/lib/libclamav.so.1 -> libclamav.so.1.0.18
+-rwxr-xr-x	root/root	usr/lib/libclamav.so.1.0.18
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libclamav.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/clamdscan.1.gz
+-rw-r--r--	root/root	usr/man/man1/clamscan.1.gz
+-rw-r--r--	root/root	usr/man/man1/freshclam.1.gz
+-rw-r--r--	root/root	usr/man/man1/sigtool.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/clamd.conf.5.gz
+-rw-r--r--	root/root	usr/man/man5/freshclam.conf.5.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/clamav-milter.8.gz
+-rw-r--r--	root/root	usr/man/man8/clamd.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/clamd
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	clamav/clamav	var/clamav/
+drwxr-xr-x	clamav/clamav	var/clamav/quarantine/
+drwxr-xr-x	clamav/clamav	var/clamav/tmp/
+drwxr-xr-x	root/root	var/lib/
+drwxr-xr-x	clamav/clamav	var/lib/clamav/
+-rw-r--r--	clamav/clamav	var/lib/clamav/daily.cvd
+-rw-r--r--	clamav/clamav	var/lib/clamav/main.cvd
+drwxr-xr-x	root/root	var/log/
+-rw-r--r--	clamav/clamav	var/log/clamd.log (EMPTY)
+-rw-r--r--	clamav/clamav	var/log/freshclam.log (EMPTY)
+drwxr-xr-x	root/root	var/run/
+drwxr-xr-x	clamav/clamav	var/run/clamav/

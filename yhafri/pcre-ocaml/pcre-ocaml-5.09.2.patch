@@ -1,0 +1,11 @@
+--- pcre-ocaml-5.09.2/OCamlMakefile	2004-09-16 23:43:31.000000000 +0000
++++ pcre-ocaml-5.09.2/OCamlMakefile-new	2004-10-13 13:00:30.486720536 +0000
+@@ -1101,7 +1101,7 @@
+ .PHONY: libinstall
+ libinstall:	all
+ 	$(QUIET)printf "\nInstalling library with ocamlfind\n"
+-	$(OCAMLFIND) install $(OCAMLFIND_INSTFLAGS) $(RESULT) META $(LIBINSTALL_FILES)
++	$(OCAMLFIND) install -destdir $(DESTDIR) $(OCAMLFIND_INSTFLAGS) $(RESULT) META $(LIBINSTALL_FILES)
+ 	$(QUIET)printf "\nInstallation successful.\n"
+ 
+ .PHONY: libuninstall

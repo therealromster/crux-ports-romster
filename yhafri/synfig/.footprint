@@ -1,0 +1,166 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/synfig
+-rwxr-xr-x	root/root	usr/bin/synfig-config
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/synfig_modules.cfg
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/synfig-0.0/
+drwxr-xr-x	root/root	usr/include/synfig-0.0/synfig/
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/activepoint.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/angle.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/blinepoint.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/blur.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/canvas.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/canvasbase.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/color.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/context.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/curve_helper.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/curveset.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/distance.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/exception.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/gamma.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/general.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/gradient.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/guid.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/guidset.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/importer.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/interpolation.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/keyframe.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_bitmap.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_composite.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_mime.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_motionblur.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_pastecanvas.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_polygon.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_shape.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/layer_solidcolor.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/listimporter.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/loadcanvas.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/main.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/module.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/mutex.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/node.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/palette.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/paramdesc.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/polynomial_root.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/protocol.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/real.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/rect.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/renddesc.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/render.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/savecanvas.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/segment.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/smartfile.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/string.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/string_decl.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/surface.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/surfacenew.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/synfig.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/target.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/target_multi.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/target_null.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/target_null_tile.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/target_scanline.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/target_tile.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/time.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/timepointcollect.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/transform.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/types.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/uniqueid.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/value.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_animated.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_bline.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_composite.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_const.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_dynamiclist.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_gradientrotate.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_linear.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_radialcomposite.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_reference.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_scale.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_segcalctangent.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_segcalcvertex.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_sine.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_stripes.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_subtract.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_timedswap.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/valuenode_twotone.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/vector.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/version.h
+-rw-r--r--	root/root	usr/include/synfig-0.0/synfig/waypoint.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libsynfig.la
+lrwxrwxrwx	root/root	usr/lib/libsynfig.so -> libsynfig.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libsynfig.so.0 -> libsynfig.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsynfig.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/synfig.pc
+drwxr-xr-x	root/root	usr/lib/synfig/
+drwxr-xr-x	root/root	usr/lib/synfig/modules/
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/liblyr_freetype.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/liblyr_freetype.so -> liblyr_freetype.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/liblyr_freetype.so.0 -> liblyr_freetype.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/liblyr_freetype.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/liblyr_std.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/liblyr_std.so -> liblyr_std.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/liblyr_std.so.0 -> liblyr_std.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/liblyr_std.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_bmp.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_bmp.so -> libmod_bmp.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_bmp.so.0 -> libmod_bmp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_bmp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_dv.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_dv.so -> libmod_dv.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_dv.so.0 -> libmod_dv.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_dv.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_ffmpeg.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_ffmpeg.so -> libmod_ffmpeg.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_ffmpeg.so.0 -> libmod_ffmpeg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_ffmpeg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_filter.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_filter.so -> libmod_filter.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_filter.so.0 -> libmod_filter.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_filter.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_geometry.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_geometry.so -> libmod_geometry.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_geometry.so.0 -> libmod_geometry.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_geometry.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_gif.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_gif.so -> libmod_gif.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_gif.so.0 -> libmod_gif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_gif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_gradient.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_gradient.so -> libmod_gradient.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_gradient.so.0 -> libmod_gradient.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_gradient.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_imagemagick.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_imagemagick.so -> libmod_imagemagick.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_imagemagick.so.0 -> libmod_imagemagick.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_imagemagick.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_jpeg.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_jpeg.so -> libmod_jpeg.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_jpeg.so.0 -> libmod_jpeg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_jpeg.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_noise.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_noise.so -> libmod_noise.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_noise.so.0 -> libmod_noise.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_noise.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_particle.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_particle.so -> libmod_particle.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_particle.so.0 -> libmod_particle.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_particle.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_png.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_png.so -> libmod_png.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_png.so.0 -> libmod_png.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_png.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_ppm.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_ppm.so -> libmod_ppm.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_ppm.so.0 -> libmod_ppm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_ppm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_yuv420p.la
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_yuv420p.so -> libmod_yuv420p.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/synfig/modules/libmod_yuv420p.so.0 -> libmod_yuv420p.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/synfig/modules/libmod_yuv420p.so.0.0.0

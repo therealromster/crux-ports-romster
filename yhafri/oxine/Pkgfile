@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Lightweight pure OSD (on screen display) GUI for Xine engine
+# URL: http://oxine.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, xine-lib, imagemagick, netpbm, mjpegtools, gettext, subversion
+
+name=oxine
+version=svn
+release=1
+source=()
+
+build () {
+	svn co https://svn.sourceforge.net/svnroot/$name/trunk/$name
+	cd $name
+
+	./autogen.sh --prefix=/usr/lib/$name \
+		     --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,159 @@
+#!/bin/sh
+
+#
+# Path to the required files
+# pci id list from von http://pciids.sourceforge.net/pci.db
+PCIIDS="/etc/hardware-detection/pci.db"
+PCIMAP=/lib/modules/`uname -r`/modules.pcimap
+SYSTEMMAP=/boot/System.map
+
+#
+# Tab and newline as variables for easier understanding
+Tab=$'\t'
+Newline=$'\n'
+
+#
+# We need access to /[proc/sys]/bus/pci, so check if these directories exist
+if [ ! /sys/bus/pci -a ! -d /proc/bus/pci ]; then
+  echo "/sys/bus/pci and/or /proc/bus/pci don't exist"
+  exit 1
+fi
+
+#
+# Read the pci id list (http://pciids.sf.net/pci.db)
+if [ -r "$PCIIDS" ]; then
+  PCIIDCMD="cat $PCIIDS"
+else
+  PCIIDCMD="wget -q -O - http://pciids.sf.net/pci.db"
+fi
+
+# check pci module list (/lib/modules/[kernel version]/modules.pcimap) and
+# kernel symbol table (/boot/System.map)
+if [ ! -r "$PCIMAP" -o ! -r "$SYSTEMMAP" ]; then
+  echo "PCI-Modul-Liste oder System.map nicht gefunden."
+  exit 1
+fi
+
+#
+# read pci id list line for line
+IFS="${Newline}"
+for z in `eval ${PCIIDCMD}`; do
+  # split the columns along the tabs
+  IFS="${Tab}"
+  set -- $z
+
+  # the first character indicates vendor and device descriptions
+  case "$1" in
+    v)
+      # vendor description: allow only verified descriptions ($4=0)
+      if [ "$4" = "0" ]; then
+        declare v${2}=$3
+      fi
+      ;;
+    d)
+      # device descriptions
+      declare d${2}=$3
+      ;;
+  esac
+done
+
+#
+# read pci module list line for line
+IFS="${Newline}"
+for z in `cat $PCIMAP`; do
+  # columns are seperated by multiple spaces
+  IFS=" "
+  set -- $z
+
+  # column 2 and 3 contain the vendor and device id, column 6 the class id
+  if [ "$2" = "0xffffffff" -a "$3" = "0xffffffff" ]; then
+    # generic driver for a whole device class
+    id="c${6:4:4}"
+  elif [ "$3" = "0xffffffff" ]; then
+    # generic driver for all devices of a specific vendor
+    id="m${2:6}"
+  else
+    id="m${2:6}${3:6}"
+  fi
+  
+  if [ -z "${!id}" ]; then
+    # column 1 lists the module name
+    declare ${id}="$1"
+  else
+    declare ${id}="${!id}${Tab}${1}"
+  fi
+done
+
+#
+# read the list of kernel supported devices line by line
+IFS="${Newline}"
+for z in `cat $SYSTEMMAP`; do
+  # columns are seperated by multiple spaces
+  IFS="${Tab} "
+  set -- $z
+
+  # filter all symbols starting with "__devicestr_" in the third column
+  if [ "${3:0:12}" = "__devicestr_" ]; then
+    # the device string is seperated with an underscore from the id
+    IFS="_"
+    set -- $3
+    # parameter 4 contains the combined vendor and device id
+    declare k${4}=1
+  fi
+done
+
+IFS=",${Tab}${Newline}"
+#
+# scan /sys/bus/pci/devices/* or /proc/bus/pci/??/* for devices
+if [ -e /sys/bus/pci/devices ]; then
+  PCIDevices=/sys/bus/pci/devices/*
+  Method="sysfs"
+elif [ -e /proc/bus/pci ]; then
+  PCIDevices=/proc/bus/pci/??/*
+  Method="proc"
+fi
+
+# fetch the device data from /proc or /sys
+for device in $PCIDevices; do
+  if [ "$Method" = "sysfs" ]; then
+    read Vendor < ${device}/vendor
+    Vendor=${Vendor:2:4}
+    read Device < ${device}/device
+    Device=${Device:2:4}
+    read Class < ${device}/class
+    Class=${Class:2:4}
+  elif [ "$Method" = "proc" ]; then
+    # convert vendor and device id to hex
+    Vendor=`hexdump -s 0 -n 2 -e '1/2 "%04x"' $device`
+    Device=`hexdump -s 2 -n 2 -e '1/2 "%04x"' $device`
+
+    # same for class id
+    Class=`hexdump -s 10 -n 2 -e '1/2 "%04x"' $device`
+  fi
+
+  # create the variable names of the variables
+  v="v${Vendor}"             # name of vendor variable
+  d="d${Vendor}${Device}"    # name of device variable
+  m="m${Vendor}${Device}"    # name of kernel module variable
+  g="m${Vendor}"             # name of generic kernel module variables
+  k="k${Vendor}${Device}"    # name of kernel symbol variable
+  c="c${Class}"              # pci device class
+
+  echo "vendor:   ${!v}${Tab}[0x${Vendor}]"
+  echo "device:   ${!d}${Tab}[0x${Device}]"
+  # echo "class:    [0x${Class}]"
+
+  if [ -n "${!m}" -o -n "${!g}" -o -n "${!c}" ]; then
+    set -- ${!m} ${!g} ${!c}
+    if [ "$#" -gt "1" ]; then
+      echo "kernel modules: $*"
+    else
+      echo "kernel module: $1"
+    fi
+  elif [ -n "${!k}" ]; then
+    echo "supported by kernel"
+  else
+    echo "unsupported"
+  fi
+  echo
+done

@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A vector graphics library which provide high-quality display
+# URL: http://cairographics.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libpixman, glitz
+
+name=cairo
+version=0.4.0
+release=1
+source=(http://cairographics.org/snapshots/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr \
+                                 --enable-shared \
+                                 --with-x \
+              				     --disable-gl \
+				                 --disable-xcb \
+                                 --enable-png \
+                                 --enable-ps \
+                                 --enable-glitz \
+                                 --enable-xlib
+
+    make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    chown -R root:root $PKG
+}

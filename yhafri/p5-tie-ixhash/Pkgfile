@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl ordered associative arrays
+# URL: http://search.cpan.org/~gsar/Tie-IxHash/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tie-ixhash
+version=1.21
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GS/GSAR/Tie-IxHash-$version.tar.gz)
+
+build () {
+	cd Tie-IxHash-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

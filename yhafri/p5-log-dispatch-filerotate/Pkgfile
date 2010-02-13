@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Log to files that archive/rotate themselves
+# URL: http://search.cpan.org/~markpf/Log-Dispatch-FileRotate-1.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-log-log4perl, p5-datemanip, p5-params-validate, p5-log-dispatch
+
+name=p5-log-dispatch-filerotate
+version=1.15
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MA/MARKPF/Log-Dispatch-FileRotate-$version.tar.gz)
+
+build () {
+	cd Log-Dispatch-FileRotate-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

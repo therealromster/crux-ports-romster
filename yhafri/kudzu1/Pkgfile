@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Linux hardware identification library
+# URL: http://fedora.redhat.com/projects/additional-projects/kudzu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz, pciutils, python, newt, popt
+
+name=kudzu1
+version=1.1.116.3
+release=1
+source=(ftp://rpmfind.net/linux/fedora/core/updates/4/i386/kudzu-$version-1.i386.rpm)
+
+build () {
+	rpm2targz kudzu-$version-1.i386.rpm
+
+	tar xzf kudzu-$version-1.i386.tar.gz -C $PKG
+	rm -rf $PKG/usr/share/{locale,doc}
+
+	chown -R root:root $PKG
+}

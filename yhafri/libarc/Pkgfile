@@ -1,0 +1,21 @@
+# $Id: $
+# Description: C++ library to access compressed ARC format from Heritrix crawler
+# URL: http://libarc.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib
+
+name=libarc
+version=0.2.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Memory supervision system
+# URL: http://hem.passagen.se/blizzar/mss/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=mss
+version=1.2.1
+release=1
+source=(http://hem.passagen.se/blizzar/$name/${name}121.zip \
+	$name-$version.patch $name.cfg  ${name}logread.pl)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name,include}
+
+	cp $name.cfg $PKG/usr/lib/$name/
+	install -m 755 ${name}logread.pl $PKG/usr/lib/$name
+
+	cd ${name}121
+	patch -p1 < ../$name-$version.patch
+
+        make DJDIR=/usr TARGET=linux
+	make DJDIR=$PKG/usr install
+	
+	ln -sf /usr/lib/$name/${name}logread.pl $PKG/usr/bin/${name}logread.pl
+        chown -R root:root $PKG
+}

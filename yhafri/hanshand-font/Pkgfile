@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Hanshand font
+# URL: http://www.highfonts.com/freealpha.asp?bok=H&f=0
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: chkfontpath, ttmkfdir
+
+name=hanshand-font
+version=1
+release=1
+source=(http://www.highfonts.com/fonts/free/zip/hanshand.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/fonts/truetype
+	mv hanshand.TTF $PKG/usr/share/fonts/truetype
+	chown -R root:root $PKG
+}

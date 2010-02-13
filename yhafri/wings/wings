@@ -1,0 +1,3 @@
+#!/bin/sh
+ESDL_PATH=/usr/lib/erlang/lib/esdl-*
+exec erl -pa $ESDL_PATH/ebin -pa /usr/lib/erlang/lib/wings-$WINGS_VERSION/ebin -run wings_start start_halt ${1+"$@"}

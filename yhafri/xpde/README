@@ -1,0 +1,7 @@
+POST-INSTALL:
+		* Edit your ".xinitrc" file and put this line:
+		 /usr/share/xpde/bin/startxpde
+
+		* Test XPDE:
+		$ startx
+

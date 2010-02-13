@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Java (TM) Open Application Server
+# URL: http://jonas.objectweb.org/download/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: bcel
+
+name=jonas
+version=4.7.2
+release=1
+source=(http://download.fr2.forge.objectweb.org/$name/$name$version-tomcat5.5.15.tgz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	mkdir -p $PKG/var/log/$name
+
+	cd JONAS_4_7_2
+
+	rm -rf install.html LicenceAgreement.txt install.html  ReleaseNotes.txt index.html 
+	rm -rf bin/nt demoserver/ examples webapps/autoload/jonas-doc-en lib/examples webapps/autoload/jonas-javadoc
+
+	find . -name "README" -type f -exec rm -rf '{}' \;
+	find . -name "*.bat" -type f -exec rm -rf '{}' \;
+
+	mv logs $PKG/var/log/$name/
+	mv * $PKG/usr/lib/$name/
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+	ln -sf /var/log/$name/logs $PKG/usr/lib/$name/logs
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,9 @@
+POST-INSALL:
+
+
+		* Add these lines to your Emacs configuration file:
+
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime")
+(setq inferior-lisp-program "sbcl")
+(require 'slime)
+(slime-setup)

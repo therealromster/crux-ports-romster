@@ -1,0 +1,11 @@
+POST-INSTALL
+
+Taken from klinpop README:
+
+For this to work you must configure samba correctly (e.g. name resolution).
+Add or change the line smb.conf:
+message command = sh -c '_PATH_TO_/receivepopup.sh "%f" "%m" "%I" "%s"' &
+(of course the real path for _PATH_TO_)
+
+Then you should create the appropriate directory where the messages go to.
+mkdir -vp -m 0777 /var/lib/klinpopup

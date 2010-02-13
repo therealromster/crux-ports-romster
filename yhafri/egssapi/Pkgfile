@@ -1,0 +1,34 @@
+# $Id: $
+# Description: Erlang GSSAPI and SPNEGO library
+# URL: http://www.hem.za.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, kerberos, esasl
+
+name=egssapi
+version=0.1
+release=1
+source=(http://www.hem.za.org/$name/$name-${version}~pre2.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,include}
+	
+        ln -sf /usr/lib/erlang/lib/erl_interface-*/include/libei.h              /usr/include/libei.h
+	ln -sf /usr/lib/erlang/lib/erl_interface-*/lib/libei.a               	/usr/lib/libei.a
+	ln -sf /usr/lib/erlang/lib/erl_interface-*/lib/libei_st.a		/usr/lib/libei_st.a
+	ln -sf /usr/lib/erlang/lib/erl_interface-*/lib/liberl_interface.a 	/usr/lib/liberl_interface.a
+	ln -sf /usr/lib/erlang/lib/erl_interface-*/lib/liberl_interface_st.a 	/usr/lib/liberl_interface_st.a
+
+	cd $name-${version}~pre2
+	./configure --prefix=/usr \
+		    --with-kerberos5=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/lib/erlang/lib/$name-$version/src/
+	rm -rf $PKG/usr/lib/erlang/lib/$name-$version/ebin/
+	rm -rf $PKG/usr/lib/erlang/lib/$name-$version/include/
+
+	chown -R root:root $PKG
+}

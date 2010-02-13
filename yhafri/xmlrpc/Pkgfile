@@ -1,0 +1,24 @@
+# $Id: $
+# Description: HTTP 1.1 compliant XML-RPC library for Erlang
+# URL: http://www.erlang.org/user.html#xmlrpc-1.13
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, xmerl
+
+name=xmlrpc
+version=1.13
+release=1
+source=(http://www.erlang.org/contrib/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+	cd $name-$version/src
+	sed -i -e "s/XMERL\_PATH\=.*$/XMERL\_PATH\=\/usr\/lib\/erlang\/lib\/xmerl\-0\.19/" Makefile
+	make clean
+	make 
+	cd ..
+	cp -rf ebin/ src/ $PKG/usr/lib/erlang/lib/$name-$version/
+	find $PKG -name "Makefile" -exec rm -rf {} \;
+	rm -rf $PKG/usr/lib/erlang/lib/xmlrpc-1.13/src/example_serv.erl
+        chown -R root:root $PKG/
+}

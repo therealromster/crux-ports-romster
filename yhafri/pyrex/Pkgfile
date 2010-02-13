@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Language for writing Python extension modules
+# URL: http://nz.cosc.canterbury.ac.nz/~greg/python/Pyrex/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=pyrex
+version=0.9.4.1
+release=1
+source=(http://nz.cosc.canterbury.ac.nz/~greg/python/Pyrex/Pyrex-$version.tar.gz)
+
+build () {
+    	mkdir -p $PKG/usr
+	cd Pyrex-$version
+	
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Perl software construction tool
+# URL: http://www.dsmit.com/cons/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=cons
+version=2.3.0
+release=1
+source=(http://www.dsmit.com/cons/dev/$name-$version.tgz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1 < ../$name-$version.patch
+	mkdir -p $PKG/usr/{bin,man/man1}
+	mv $name $PKG/usr/bin
+	mv $name.1.gz $PKG/usr/man/man1
+	chown -R root:root $PKG
+}

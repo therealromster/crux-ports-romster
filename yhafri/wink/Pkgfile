@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A Tutorial and Presentation creation software
+# URL: http://www.debugmode.com/wink/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk
+
+name=wink
+version=1.5
+release=1
+source=(http://mirror.kriebeltjesmarkt.com/$name/${name}15.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	echo "$PKG/usr/lib/$name" | ./installer.sh
+
+	ln -sf /usr/lib/$name/$name $PKG/usr/bin/$name
+	rm -f  $PKG/usr/lib/$name/*.txt
+	rm -rf $PKG/usr/lib/$name/{Docs,Samples}
+
+	chown -R root:root $PKG
+}

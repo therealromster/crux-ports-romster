@@ -1,0 +1,20 @@
+# Description: an advanced digital photo management application for KDE
+# URL: http://www.digikam.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: sqlite3, libkexif, kipi-plugins, libgphoto2, dcraw
+
+name=digikam
+version=0.8.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

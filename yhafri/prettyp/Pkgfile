@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A suite of programs that generates "pretty" PostScript source code listings using TeX
+# URL: http://www.ee.ryerson.ca/~elf/prettyp/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=prettyp
+version=2.0.2
+release=1
+source=(http://www.ee.ryerson.ca/~elf/pub/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+    mkdir -p $PKG/usr/{bin,man/man}
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG install
+
+	chown -R root:root $PKG
+}

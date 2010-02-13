@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A web server, and also provides basic HTTP client support
+# URL: http://twistedmatrix.com/projects/web/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: twisted
+
+name=twisted-web
+version=0.5.0
+release=1
+source=(http://tmrc.mit.edu/mirror/twisted/Web/0.5/TwistedWeb-$version.tar.bz2)
+
+build() {
+	cd TwistedWeb-$version
+
+   	python setup.py build
+        python setup.py install --root=$PKG --prefix=/usr
+
+    	chown -R root:root $PKG
+}

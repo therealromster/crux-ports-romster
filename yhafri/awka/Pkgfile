@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Awk to C translator
+# URL: http://awka.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=awka
+version=0.7.5
+release=1
+source=(http://awka.sourceforge.net/awka-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

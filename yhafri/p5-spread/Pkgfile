@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to Spread Toolkit
+# URL: http://www.spread.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, spread
+
+name=p5-spread
+version=3.17.3
+release=1
+source=(spread-src-$version.tar.gz)
+
+build () {
+	cd spread-src-$version/perl/Spread
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

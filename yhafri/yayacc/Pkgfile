@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Yet Another Yacc for C++
+# URL: http://www.gradsoft.com.ua/eng/Products/YaYacc/yayacc.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=yayacc
+version=1.0.1
+release=1
+source=(http://www.gradsoft.kiev.ua/common/YaYacc/$name-$version.tar.gz)
+
+build () {
+	cd $name
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	mv $PKG/usr/GradSoft $PKG/usr/include
+
+	chown -R root:root $PKG
+}

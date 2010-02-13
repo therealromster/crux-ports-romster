@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A try/catch/throw exception-handling interface for C
+# URL: http://www.nicemice.net/cexcept/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cexcept
+version=2.0.0
+release=1
+source=($name-2-0-0.tar.gz)
+#http://www.nicemice.net/$name/$name-2-0-0.tar.gz
+
+build () {
+	cd $name-2-0-0
+
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

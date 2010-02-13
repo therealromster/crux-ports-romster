@@ -1,0 +1,12 @@
+#!/bin/sh
+echo "Killing PPPD..."
+/usr/bin/eciadsl-stop
+
+echo "Unloading modules UHCI and OHCI"
+/sbin/modprobe -r uhci_hcd
+/sbin/modprobe -r ohci_hcd
+
+echo "Reloading modules UHCI and OHCI"
+/sbin/modprobe uhci_hcd
+/sbin/modprobe uhci_hcd
+

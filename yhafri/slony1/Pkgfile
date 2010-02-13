@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A replication system for PostgreSQL
+# URL: http://gborg.postgresql.org/project/slony1/projdisplay.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: postgresql
+
+name=slony1
+version=1.2-rc1
+release=1
+source=(http://pgfoundry.org/frs/download.php/1148/$name-$version-tar.bz2)
+
+build () {
+	tar xjf slony1-1.2-rc1-tar.bz2
+	cd slony1-1.2.1-rc1
+	./configure --prefix=/usr \
+		    --with-perltools=/usr/bin \
+	            --without-docs
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

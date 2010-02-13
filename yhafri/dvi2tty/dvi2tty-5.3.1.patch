@@ -1,0 +1,15 @@
+--- dvi2tty-5.3.1/disdvi.c	2003-01-23 11:31:00.000000000 +0100
++++ dvi2tty-5.3.1/disdvi.c-new	2007-10-09 10:51:31.000000000 +0200
+@@ -107,9 +107,9 @@
+  * Function declarations
+  */
+ 
+-#if !defined(THINK_C)
+-char *          malloc          ();
+-#endif
++/* #if !defined(THINK_C) */
++/* char *          malloc          (); */
++/* #endif */
+ 
+ #if defined(VMS)
+                 main            (int argc, char ** argv);

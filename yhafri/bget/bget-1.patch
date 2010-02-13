@@ -1,0 +1,24 @@
+--- bget.c	1995-10-11 19:47:42.000000000 +0100
++++ bget.c-new	2006-04-27 11:18:16.000000000 +0200
+@@ -1268,7 +1268,7 @@
+ extern long time();
+ #endif
+ 
+-extern char *malloc();
++extern void *malloc(size_t);
+ extern int free _((char *));
+ 
+ static char *bchain = NULL;	      /* Our private buffer chain */
+--- makefile	1995-10-11 19:49:59.000000000 +0100
++++ makefile-new	2006-04-27 11:22:00.000000000 +0200
+@@ -1,8 +1,9 @@
+ 
+ CC = cc
+-COPTS = -O
++COPTS = -Os
+ 
+ bget:	bget.c bget.h
++	$(CC) $(COPTS) -c bget.c
+ 	$(CC) $(COPTS) bget.c -o bget -lm
+ 	rm -f core
+ 

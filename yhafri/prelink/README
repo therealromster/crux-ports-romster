@@ -1,0 +1,4 @@
+Turn off the sanity checks at your own risk by commenting out the following two lines:
+
+make -C testsuite check-harder
+make -C testsuite check-cycle

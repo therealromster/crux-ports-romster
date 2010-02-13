@@ -1,0 +1,27 @@
+# $Id: $
+# Description: C, C++, SGML and XML Beautifier
+# URL: http://www.faqs.org/docs/Linux-HOWTO/C-C++Beautifier-HOWTO.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl
+
+name=bcpp
+version=20050725
+release=1
+source=(ftp://invisible-island.net/$name/$name.tar.gz \
+	sgml_xml_beautifier)
+
+build () {
+	install -D -m 755 sgml_xml_beautifier $PKG/usr/bin/sgml_xml_beautifier
+
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+
+	install -D -m 755 code/$name         $PKG/usr/bin/$name
+	install -D -m 644 code/$name.cfg     $PKG/usr/bin/$name.cgf
+
+	chown -R root:root $PKG
+}

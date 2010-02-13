@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/portaudio.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libportaudio.a
+lrwxrwxrwx	root/root	usr/lib/libportaudio.so -> libportaudio.so.0.0.18
+-rw-r--r--	root/root	usr/lib/libportaudio.so.0.0.18

@@ -1,0 +1,16 @@
+--- Makefile	2007-09-24 00:56:19.000000000 +0200
++++ Makefile-new	2007-09-24 01:08:01.000000000 +0200
+@@ -1,11 +1,11 @@
+ .SUFFIXES: .erl .beam .yrl
+ 
+ CXX = gcc
+-CXXFLAGS = -g -Wall `Magick++-config --cppflags --cxxflags`  -I/usr/lib/erlang/lib/erl_interface-3.5.5.1/include -I.
++CXXFLAGS = -g -Wall `Magick++-config --cppflags --cxxflags` -IEI_INC -I.
+ COMPILE = $(CXX) $(CXXFLAGS) -c
+ LD = $(CXX)
+ LDFLAGS = `Magick++-config --ldflags` --Wl,--stack,67108864
+-LIBS = `Magick++-config --libs`  -lerl_interface -lei `pkg-config --libs gthread`
++LIBS = `Magick++-config --libs` -LEI_LIB -lerl_interface -lei `pkg-config --libs gthread`
+ OBJS = im.o composite_def.o
+ 
+ .erl.beam:

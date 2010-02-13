@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Extremely flexible deep comparison
+# URL: http://84.45.18.237/~fdaly/Test-Deep-0.093/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-test-deep
+version=0.093
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/F/FD/FDALY/Test-Deep-$version.tar.gz)
+
+build () {
+	cd Test-Deep-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

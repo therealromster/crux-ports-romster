@@ -1,0 +1,37 @@
+# $Id: $
+# Description: The Enlightenment Terminal Emulator
+# URL: http://www.eterm.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libast, imlib2
+
+name=eterm
+version=0.9.4
+release=1
+source=(http://www.mirrorservice.org/sites/www.ibiblio.org/gentoo/distfiles/Eterm-$version.tar.gz \
+	http://www.mirrorservice.org/sites/www.ibiblio.org/gentoo/distfiles/Eterm-bg-$version.tar.gz)
+
+build() {
+	cp -R $SRC/bg $SRC/Eterm-$version
+
+	cd Eterm-$version
+
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --with-gnu-ld \
+		    --with-x \
+		    --enable-trans \
+		    --enable-mmx \
+		    --without-terminfo \
+		    --without-sense-of-humor \
+		    --enable-escreen-fx \
+		    --enable-utmp \
+		    --enable-multi-charset \
+		    --with-imlib=/usr
+
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

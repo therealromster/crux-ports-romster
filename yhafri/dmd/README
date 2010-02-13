@@ -1,0 +1,3 @@
+POST-INSTALL:
+
+		*  Put /usr/lib/dmd/bin on your PATH, or copy the linux executables to /usr/local/bin

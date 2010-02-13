@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Tiny, in C
+# URL: http://home.comcast.net/~pete.gray/TinC.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tinc
+version=1.0
+release=1
+source=(http://home.comcast.net/~pete.gray/${name}10.c \
+	http://home.comcast.net/~pete.gray/$name.h)
+
+build () {
+	gcc -o $name ${name}10.c
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

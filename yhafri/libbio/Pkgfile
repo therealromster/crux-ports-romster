@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Libbio is a port of Plan 9's buffered I/O library
+# URL: http://swtch.com/plan9port/unix/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libbio
+version=1
+release=1
+source=(http://swtch.com/plan9port/unix/$name.tgz)
+
+build () {
+	cd $name
+
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

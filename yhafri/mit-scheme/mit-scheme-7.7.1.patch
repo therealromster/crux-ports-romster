@@ -1,0 +1,26 @@
+--- scheme-7.7.1/src/microcode/pruxdld.c	2001-03-08 19:01:45.000000000 +0100
++++ scheme-7.7.1/src/microcode/pruxdld-new.c	2004-06-28 13:44:01.484445984 +0200
+@@ -74,10 +74,7 @@
+ }
+ 
+ DEFINE_PRIMITIVE ("OBJECT-LOOKUP-SYMBOL", Prim_object_lookup_symbol, 3, 3,
+-		  "(HANDLE SYMBOL TYPE)\n\
+-Look up SYMBOL, a Scheme string, in the dynamically-loaded file\n\
+-referenced by HANDLE.  TYPE is obsolete and must be specified as zero.
+-Returns the symbol's address, or signals an error if no such symbol.")
++		  "(HANDLE SYMBOL TYPE)\n\nLook up SYMBOL, a Scheme string, in the dynamically-loaded file\n\n referenced by HANDLE.  TYPE is obsolete and must be specified as zero.  Returns the symbols address, or signals an error if no such symbol.")
+ {
+   PRIMITIVE_HEADER (3);
+   if ((ARG_REF (3)) != FIXNUM_ZERO)
+@@ -88,10 +85,7 @@
+ }
+ 
+ DEFINE_PRIMITIVE ("INVOKE-C-THUNK", Prim_invoke_C_thunk, 1, 1,
+-		  "(ADDRESS)\n\
+-Treat ADDRESS, a Scheme integer corresponding to a C unsigned long, as\n\
+-the address of a C procedure of no arguments that returns an unsigned\n\
+-long.  Invoke it, and return the corresponding Scheme integer.")
++		  "(ADDRESS)\nTreat ADDRESS, a Scheme integer corresponding to a C unsigned long, as\n the address of a C procedure of no arguments that returns an unsigned\n\n long.  Invoke it, and return the corresponding Scheme integer.")
+ {
+   PRIMITIVE_HEADER (1);
+   PRIMITIVE_RETURN

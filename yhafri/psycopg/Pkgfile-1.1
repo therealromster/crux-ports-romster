@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Python interface to Postgresql DB
+# URL: http://initd.org/pub/software/psycopg/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, egenix-mx-base, postgresql
+
+name=psycopg
+version=1.1.20
+release=1
+source=(http://initd.org/pub/software/$name/PSYCOPG-1-1/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd ${name}-$version
+	patch -p1<../$name-$version.patch
+
+        ./configure --prefix=/usr \
+                    --disable-nls
+
+        make
+        make exec_prefix=$PKG/usr prefix=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

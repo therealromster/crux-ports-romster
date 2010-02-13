@@ -1,0 +1,63 @@
+--- DBDesigner4/startdbd	2003-10-31 01:48:13.000000000 +0100
++++ DBDesigner4/startdbd-new	2005-04-26 16:16:29.189782507 +0200
+@@ -2,28 +2,16 @@
+ 
+ thepwd=`pwd`/$0
+ 
+-case $0 in
+-  /*) app_path=`echo "$0" | sed 's/\/startdbd//'` ;;
+-  *)  app_path=`echo $thepwd | sed 's/\/startdbd//'` ;;
+-esac
+-
+-if [ -f /opt/DBDesigner4/DBDesigner4 ]; then
+-	app_path=/opt/DBDesigner4
+-fi 
+-
+-if [ -f /usr/lib/DBDesigner4/bplrtl.so.6.9.0 ]; then
+-	app_ld_path=/usr/lib/DBDesigner4
+-else
+-	app_ld_path=$app_path/Linuxlib
+-fi
++app_path="/usr/lib/dbdesigner"
++app_ld_path="/usr/lib/dbdesigner/Linuxlib"
+ 
+ # First check to see if we have an LD_LIBRARY_PATH environment variable
+ if [ -n "$LD_LIBRARY_PATH" ]; then
+ # we do, so prepend our path first
+-  export LD_LIBRARY_PATH="$app_ld_path:$LD_LIBRARY_PATH"
++  export LD_LIBRARY_PATH="$app_path:$app_ld_path:$LD_LIBRARY_PATH"
+ else
+   # we do not, so we will create the env var.
+-  export LD_LIBRARY_PATH="$app_ld_path"
++  export LD_LIBRARY_PATH="$app_path:$app_ld_path"
+ fi
+ 
+ # make sure we have something specified for the LANG environment variable
+@@ -32,27 +20,6 @@
+   export LANG=en_US
+ fi
+ 
+-if [ -f "$app_ld_path/bplrtl.so.6.9" ]; then
+-  # symbolic links exist
+-  echo Symbolic links exist
+-else
+-  cd $app_ld_path
+-  echo Create symbolic links in $app_ld_path ...
+-  ln -s bplrtl.so.6.9.0 bplrtl.so.6.9
+-  ln -s dbxres.en.1.0 dbxres.en.1
+-  ln -s libmidas.so.1.0 libmidas.so.1
+-  ln -s libmysqlclient.so.10.0.0 libmysqlclient.so
+-  ln -s libqt.so.2.3.2 libqt.so.2
+-  ln -s libqtintf-6.9.0-qt2.3.so libqtintf-6.9-qt2.3.so
+-  ln -s libsqlmy23.so.1.0 libsqlmy23.so
+-  ln -s libsqlmy23.so libsqlmy.so
+-  ln -s libsqlora.so.1.0 libsqlora.so
+-  ln -s libDbxSQLite.so.2.8.5 libDbxSQLite.so
+-  ln -s liblcms.so.1.0.9 liblcms.so
+-  ln -s libpng.so.2.1.0.12 libpng.so.2
+-  ln -s libstdc++.so.5.0.0 libstdc++.so.5
+-  cd -
+-fi
+ 
+ if [ ! -d ~/.DBDesigner4 ]; then
+   mkdir ~/.DBDesigner4

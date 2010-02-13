@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Library for handling OpenType fonts
+# URL: http://www.m17n.org/libotf/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=libotf
+version=0.9.3
+release=1
+source=(http://www.m17n.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --with-x
+
+    make
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

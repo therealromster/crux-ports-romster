@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Tcl/Tk high-quality application development (RAD Tool)
+# URL: http://vtcl.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk
+
+name=vtcl
+version=1.6.1a1
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+        $name)
+
+build () {
+    	mkdir -p $PKG/usr/lib/$name
+
+	cd $name-$version
+    	rm -rf ChangeLog  LICENSE  README demo/ sample/ vtclmac doc/
+
+    	mv * $PKG/usr/lib/$name
+    	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+    	chown -R root:root $PKG
+}

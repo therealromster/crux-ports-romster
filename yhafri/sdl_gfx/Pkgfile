@@ -1,0 +1,22 @@
+# $Id$
+# Description: SDL graphics drawing primitives
+# URL: http://www.ferzkopp.net/Software/SDL_gfx-2.0/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libsdl
+
+name=sdl_gfx
+version=2.0.13
+release=1
+source=(http://www.ferzkopp.net/Software/SDL_gfx-2.0/SDL_gfx-$version.tar.gz)
+
+build()
+{
+	cd SDL_gfx-$version
+    	./configure --prefix=/usr \
+        	    --disable-nls
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

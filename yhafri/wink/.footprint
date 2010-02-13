@@ -1,0 +1,145 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/wink -> /usr/lib/wink/wink
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/wink/
+drwxr-xr-x	root/root	usr/lib/wink/Backgrounds/
+-rw-r--r--	root/root	usr/lib/wink/Backgrounds/createdusing.png
+-rw-r--r--	root/root	usr/lib/wink/Backgrounds/sampleback.png
+drwxr-xr-x	root/root	usr/lib/wink/Buttons/
+-rw-r--r--	root/root	usr/lib/wink/Buttons/back.png
+-rw-r--r--	root/root	usr/lib/wink/Buttons/goto1.png
+-rw-r--r--	root/root	usr/lib/wink/Buttons/goto2.png
+-rw-r--r--	root/root	usr/lib/wink/Buttons/goto_light.png
+-rw-r--r--	root/root	usr/lib/wink/Buttons/next.png
+drwxr-xr-x	root/root	usr/lib/wink/Callouts/
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Arrow.Yellow.Bottom.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Arrow.Yellow.Left.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Arrow.Yellow.Right.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Arrow.Yellow.Top.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Bottom Left.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Bottom Right.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Left Bottom.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Left Top.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Right Bottom.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Right Top.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Top Left.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Beak.Yellow.Top Right.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box With Handles.Yellow.Top.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box.Gray.Straight.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box.Yellow.Rounded.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Box.Yellow.Straight.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3D Note.Yellow.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/3DBox.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Blue left arrow.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Blue right arrow.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Box.Blue.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Bubbles.Green.Bottom Left.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Bubbles.Green.Bottom Right.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Bubbles.Green.Top Left.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Bubbles.Green.Top Right.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Green left arrow rounded back.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Green right arrow rounded back.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/MiddleArrow-Yellow-1.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/MiddleArrow-Yellow-2.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/MiddleArrow-Yellow-3.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/MiddleArrow-Yellow-4.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Note-Yellow.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Road Sign.Blue.Straight Left.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Road Sign.Blue.Straight Right.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Road Sign.Green.Rounded Left.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Road Sign.Green.Rounded Right.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/RoundEdge-Beak Bottom.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/RoundEdge-Beak LeftSide Top.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/RoundEdge-Beak Top.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/RoundEdge-Beak-2.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/RoundEdge-Beak-3.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/RoundEdge-Beak-4.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/SolidBlueFill.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/SolidYellowFill.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Thinking Orange.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Thinking-1.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Thinking-2.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Thinking-3.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/Thinking-4.svg
+-rw-r--r--	root/root	usr/lib/wink/Callouts/test.svg
+drwxr-xr-x	root/root	usr/lib/wink/FlashControlBars/
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream.wfc
+drwxr-xr-x	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/pausemouseover.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/pausenormal.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/playmouseover.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/playnormal.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/progressemptymiddle.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/progressleft.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/progressright.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/cartoon_cream/progressthumb.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green.wfc
+drwxr-xr-x	root/root	usr/lib/wink/FlashControlBars/rounded_green/
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/pausemouseover.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/pausenormal.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/playmouseover.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/playnormal.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/progressemptymiddle.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/progressfilledmiddle.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/progressleft.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/rounded_green/progressright.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver.wfc
+drwxr-xr-x	root/root	usr/lib/wink/FlashControlBars/simple_silver/
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/pausemouseover.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/pausenormal.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/playmouseover.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/playnormal.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/progressemptymiddle.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/progressfilledmiddle.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/progressleft.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/progressright.png
+-rw-r--r--	root/root	usr/lib/wink/FlashControlBars/simple_silver/progressthumb.png
+drwxr-xr-x	root/root	usr/lib/wink/FlashPreloaders/
+-rw-r--r--	root/root	usr/lib/wink/FlashPreloaders/rounded_green.png
+-rw-r--r--	root/root	usr/lib/wink/FlashPreloaders/rounded_green.wfp
+-rw-r--r--	root/root	usr/lib/wink/FlashPreloaders/simple_large.png
+-rw-r--r--	root/root	usr/lib/wink/FlashPreloaders/simple_large.wfp
+-rw-r--r--	root/root	usr/lib/wink/FlashPreloaders/simple_small.png
+-rw-r--r--	root/root	usr/lib/wink/FlashPreloaders/simple_small.wfp
+-rw-r--r--	root/root	usr/lib/wink/FlashPreloaders/very_simple.wfp
+drwxr-xr-x	root/root	usr/lib/wink/Resources/
+drwxr-xr-x	root/root	usr/lib/wink/Resources/da_DK/
+-rw-r--r--	root/root	usr/lib/wink/Resources/da_DK/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/da_DK/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/de_DE/
+-rw-r--r--	root/root	usr/lib/wink/Resources/de_DE/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/de_DE/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/en_GB/
+-rw-r--r--	root/root	usr/lib/wink/Resources/en_GB/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/en_GB/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/es_ES/
+-rw-r--r--	root/root	usr/lib/wink/Resources/es_ES/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/es_ES/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/fr_FR/
+-rw-r--r--	root/root	usr/lib/wink/Resources/fr_FR/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/fr_FR/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/it_IT/
+-rw-r--r--	root/root	usr/lib/wink/Resources/it_IT/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/it_IT/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/ja_JP/
+-rw-r--r--	root/root	usr/lib/wink/Resources/ja_JP/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/ja_JP/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/pt_BR/
+-rw-r--r--	root/root	usr/lib/wink/Resources/pt_BR/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/pt_BR/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/sr_YU/
+-rw-r--r--	root/root	usr/lib/wink/Resources/sr_YU/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/sr_YU/wxstd.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/wink.xrs
+-rw-r--r--	root/root	usr/lib/wink/Resources/winkcust.xrs
+drwxr-xr-x	root/root	usr/lib/wink/Resources/zh_CN/
+-rw-r--r--	root/root	usr/lib/wink/Resources/zh_CN/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/zh_CN/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Resources/zh_TW/
+-rw-r--r--	root/root	usr/lib/wink/Resources/zh_TW/wink.mo
+-rw-r--r--	root/root	usr/lib/wink/Resources/zh_TW/wxstd.mo
+drwxr-xr-x	root/root	usr/lib/wink/Templates/
+-rw-r--r--	root/root	usr/lib/wink/Templates/sample.wtp
+-rwxr-xr-x	root/root	usr/lib/wink/uninstall.sh
+-rwxr-xr-x	root/root	usr/lib/wink/wink

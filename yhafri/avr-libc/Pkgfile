@@ -1,0 +1,19 @@
+# $Id: $
+# Description: http://savannah.nongnu.org/projects/avr-libc/
+# URL: AVR C Runtime Library
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=avr-libc
+version=1.4.0
+release=1
+source=(http://savannah.nongnu.org/download/avr/${name}-bin-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib
+
+	mv avr/ $PKG/usr/lib
+
+	chown -R root:root $PKG
+}

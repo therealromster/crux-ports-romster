@@ -1,0 +1,30 @@
+PRE-INSTALL:
+
+		* Unpack Adeos patches (replace A,B,C by the current version):
+		# tar xjvf xenomai-A.B.C.tar.bz2 -C /tmp/
+
+		* Patch your kernel with the patch corresponding to
+		your kernel version (replace the X in the patch name):
+		# cd /usr/src/linux-`uname -r`
+		# patch -p1 < /tmp/xenomai-A.B.C/arch/i386/patches/adeos-ipipe-`uname -r`-i386-X.Y-Z.patch
+
+		* Before recompilng the kernel, make sure that
+		"Power Management" option is disabled in the kernel.
+
+INSTALL:
+		* When starting the install process, a console GUI will appear.
+		Select the options you want and press save and exit button (like in 
+		kernel configuration GUI).
+		The compile process will continue from this point.
+
+ADVICE:	
+
+		* For a first test, you can just keep the default values. But if you have
+		an Intel processor, you may activate the SMI (System Management Interrupt) in
+		the Machine(x86)/SMI workaround submenu.
+
+LINKS:
+		* Some cool links:
+		http://pficheux.free.fr/articles/lmf/realtime/linux_realtime4_img.pdf
+				
+

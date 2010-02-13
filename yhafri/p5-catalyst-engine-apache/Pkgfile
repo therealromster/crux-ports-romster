@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Catalyst Apache Engines
+# URL: http://search.cpan.org/~agrundma/Catalyst-Engine-Apache-1.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-cpan, apache
+
+name=p5-catalyst-engine-apache
+version=1.05
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AG/AGRUNDMA/Catalyst-Engine-Apache-$version.tar.gz)
+
+build () {
+	cd Catalyst-Engine-Apache-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

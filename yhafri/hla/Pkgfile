@@ -1,0 +1,22 @@
+# $Id: $
+# Description: High Level Assembly Language
+# URL: http://webster.cs.ucr.edu/AsmTools/HLA/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=hla
+version=1.81
+release=1
+source=(http://webster.cs.ucr.edu/AsmTools/HLA/HLAv$version/$name.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	mv usr/$name $PKG/usr/lib/$name
+
+	ln -sf /usr/lib/$name/$name        $PKG/usr/bin/$name
+	ln -sf /usr/lib/$name/${name}parse $PKG/usr/bin/${name}parse	
+
+	chown -R root:root $PKG
+}

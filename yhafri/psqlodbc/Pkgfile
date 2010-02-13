@@ -1,0 +1,23 @@
+# $Id: $
+# Description: The PostgreSQL ODBC Driver
+# URL: http://pgfoundry.org/projects/psqlodbc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: postgresql, unixodbc
+
+name=psqlodbc
+version=08.00.0102
+release=1
+source=(ftp://ftp.be.postgresql.org/postgresql/odbc/versions/src/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-pthreads
+ 
+   	make
+	make prefix=$PKG/usr install
+	ln -sf /usr/lib/psqlodbc.la $PKG/usr/lib/libpsqlodbc.la
+	ln -sf /usr/lib/psqlodbc.so $PKG/usr/lib/libpsqlodbc.so
+    	chown -R root:root $PKG
+}

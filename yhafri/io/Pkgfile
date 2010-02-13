@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Io is a small and pure OOP language
+# URL: http://www.iolanguage.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=io
+version=1
+release=1
+source=(http://io.urbanape.com/release/IoVM-2004-09-26.tar.gz \
+	$name.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd IoVM-2004-09-26
+	patch -p1 < ../io.patch
+        make CFLAGS="$CFLAGS"
+	mv ./IoVM/io $PKG/usr/bin
+        chown -R root:root $PKG
+}

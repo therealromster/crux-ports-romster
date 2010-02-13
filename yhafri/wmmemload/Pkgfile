@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A simple dockapp that displays memory and swap space usage
+# URL: http://www.markstaggs.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Olle Gustafsson <ogg@linux.se>
+# Depends on: x11
+
+name=wmmemload
+version=0.1.6
+release=1
+source=(http://www.markstaggs.net/$name/$name-$version.tar.gz)
+
+build () {
+  cd $name-$version
+  ./configure --prefix=/usr --disable-nls
+  aclocal
+  make
+  make DESTDIR=$PKG install
+}

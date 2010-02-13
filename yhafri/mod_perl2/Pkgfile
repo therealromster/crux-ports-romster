@@ -1,0 +1,44 @@
+# $Id: $
+# Description: Persistent Perl interpreter for the Apache HTTP server
+# URL: http://search.cpan.org/~pgollucci/mod_perl-2.0.2/
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  apache, p5-cgi
+
+name=mod_perl2
+version=2.0.2
+release=1
+source=(http://perl.apache.org/dist/mod_perl-$version.tar.gz \
+	startup.pl)
+
+build(){
+  	cd mod_perl-$version
+
+	perl Makefile.PL \
+             MP_USE_DSO=1 \
+	     MP_APXS=/usr/sbin/apxs \
+	     MP_APR_LIB=aprext \
+	     MP_COMPAT_1X=1 \
+             MP_GENERATE_XS=1 \
+             MP_LIBNAME=mod_perl
+
+        make OPTIMIZE="${CFLAGS}"
+        make DESTDIR=${PKG} install
+
+    	install -D -m 644 $SRC/startup.pl $PKG/etc/apache/startup.pl
+  
+	rm -rf $PKG/usr/bin
+    	rm -rf $PKG/usr/lib/perl5/site_perl/5.8.6/linux/{Apache,Bundle}
+    	rm -rf $PKG/usr/man/man3/{Bundle::*,Apache::*}
+    	find $PKG \
+        	-name perllocal.pod -or \
+        	-name .packlist -or \
+        	-name '*.bs' -or \
+        	-name autosplit.ix | xargs rm
+    	find $PKG -depth -empty -exec rm -rf {} \;
+
+        find ${PKG} -name perllocal.pod -exec rm {} \;
+
+        chown -R root:root $PKG
+}
+

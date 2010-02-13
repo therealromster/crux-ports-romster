@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Singleton to context
+# URL: http://84.45.18.237/~mramberg/Catalyst-Plugin-Singleton-0.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-catalyst
+
+name=p5-catalyst-singleton
+version=0.02
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/M/MR/MRAMBERG/Catalyst-Plugin-Singleton-$version.tar.gz)
+
+build () {
+	cd Catalyst-Plugin-Singleton-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

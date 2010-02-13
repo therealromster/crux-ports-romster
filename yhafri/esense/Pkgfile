@@ -1,0 +1,36 @@
+# $Id: $
+# Description: Erlang IntelliSense for Emacs
+# URL: http://esense.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs, erlang, yaws
+
+name=esense
+version=1.12
+release=3
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-${version}beta.tgz \
+	$name-${version}.patch \
+	$name.sh)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	mkdir -p $PKG/usr/share/emacs/site-lisp
+	mkdir -p $PKG/usr/share/$name/
+
+	cd $name-$version/
+
+	patch -p1 < ../$name-$version.patch
+	export KERNEL=`echo /usr/lib/erlang/lib/kernel-2.*`
+	make
+
+	cp -f $SRC/$name.sh .
+
+	./$name.sh -full /usr/lib/erlang $PKG/usr/share/$name/
+
+	install -D $name.erl  $PKG/usr/lib/erlang/lib/$name-$version/src/$name.erl
+	install -D $name.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin/$name.beam
+	install -D $name.el   $PKG/usr/share/emacs/site-lisp/$name.el
+	install -D -m 755 $name.sh $PKG/usr/bin/$name.sh
+
+        chown -R root:root $PKG/
+}

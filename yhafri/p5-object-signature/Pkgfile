@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Generate cryptographic signatures for objects
+# URL: http://84.45.18.237/~adamk/Object-Signature-1.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-digest-md5
+
+name=p5-object-signature
+version=1.03
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/A/AD/ADAMK/Object-Signature-$version.tar.gz)
+
+build () {
+	cd Object-Signature-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

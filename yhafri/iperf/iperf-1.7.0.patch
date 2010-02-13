@@ -1,0 +1,16 @@
+--- iperf-1.7.0/Makefile	2003-03-12 21:57:31.000000000 +0100
++++ iperf-1.7.0/Makefile-new	2007-04-24 13:13:16.000000000 +0200
+@@ -60,13 +60,6 @@
+ 
+ install: $(PROG)
+ 	@echo
+-	@echo "Where should the iperf binary be installed? [/usr/local/bin]"
+-	@read  INSTALL_DIR;                                                 \
+-	export INSTALL_DIR;                                                 \
+-	INSTALL_DIR=`echo $$INSTALL_DIR | perl -p -e 's/~/$$ENV{"HOME"}/'`; \
+-	if test -z "$$INSTALL_DIR"; then                                    \
+-	  INSTALL_DIR=/usr/local/bin;                                       \
+-	fi;                                                                 \
+ 	echo ; (cd src  ; make install); 
+ 
+ bindist: all

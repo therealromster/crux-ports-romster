@@ -1,0 +1,20 @@
+--- xlinuxsms.pl	2003-08-24 17:46:20.000000000 +0200
++++ xlinuxsms.pl-new	2005-01-14 01:35:37.002090424 +0100
+@@ -44,13 +44,13 @@
+ 
+ my $topf=$win->Frame()->pack(-side=>'top',-fill=>'x');
+ my $number_l=$topf->Label(-text=>'Mobile-Nr.')->pack();
+-my $number_f=$topf->Entry(-width=>12,-background=>'white')->pack(pady=>1);
++my $number_f=$topf->Entry(-width=>12,-background=>'white')->pack(-pady => 1);
+ my $prefix_l=$topf->Label(-text=>'Prefix')->pack();
+-my $prefix_f=$topf->Entry(-width=>3,-background=>'white')->pack(pady=>1);
++my $prefix_f=$topf->Entry(-width=>3,-background=>'white')->pack(-pady => 1);
+ my $server_l=$topf->Label(-text=>'Server')->pack();
+-my $server_f=$topf->Entry(-width=>10,-background=>'white')->pack(pady=>1);
++my $server_f=$topf->Entry(-width=>10,-background=>'white')->pack(-pady => 1);
+ my $message_l=$topf->Label(-text=>'Message')->pack();
+-my $message_f=$topf->Entry(-width=>30,-background=>'white')->pack(pady=>1);
++my $message_f=$topf->Entry(-width=>30,-background=>'white')->pack(-pady => 1);
+ $message_f->bind("<KeyRelease>" =>sub{textUpdated()});
+ my $messageLength_l=$topf->Label(-text=>'0')->pack();
+ my $send_b=$topf->Button(-text=>'Send',-command=>\&send)->pack();

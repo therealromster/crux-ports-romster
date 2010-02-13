@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to use HTML Templates from CGI scripts
+# URL: http://search.cpan.org/~samtregar/HTML-Template-2.7/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-html-template
+version=2.8
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/S/SA/SAMTREGAR/HTML-Template-$version.tar.gz)
+
+build () {
+	cd HTML-Template-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

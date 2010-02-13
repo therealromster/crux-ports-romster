@@ -1,0 +1,26 @@
+# $Id: $
+# Description: RedBlack-Tree C implementation
+# URL: http://www.trade-ideas.com/home/phil/RBTree/RBTree.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=rbtree
+version=1.1.2
+release=1
+source=(http://www.trade-ideas.com/home/phil/rbtree/RBTree-1.1.2.zip)
+
+build () {
+	mkdir -p $PKG/usr/{include,lib} 
+#	gcc $CFLAGS tcl_${name}.c $name.c -Wall -shared -o $name.so 
+	gcc $CFLAGS $name.c -Wall -shared -o $name.so 
+
+	gcc $CFLAGS -c $name.c
+	ar cr $name.a $name.o
+
+	install -D -m 644 $name.h  $PKG/usr/include/$name.h
+	install -D -m 755 $name.so $PKG/usr/lib/$name.so
+	install -D -m 644 $name.a  $PKG/usr/lib/$name.a
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Database for multilingualization of applications
+# URL: http://www.m17n.org/emacs-bidi/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=m17n-db
+version=1.2.0
+release=1
+source=(http://www.m17n.org/m17n-lib/download/$name-$version.tar.gz)
+
+build () {
+    install -d $PKG/usr/share/fonts/m17n
+    cd $SRC/$name-$version
+
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+
+    cp -rf $PKG/usr/share/m17n/* $PKG/usr/share/fonts/m17n
+    rm -rf $PKG/usr/share/m17n
+
+    chown -R root:root $PKG
+}

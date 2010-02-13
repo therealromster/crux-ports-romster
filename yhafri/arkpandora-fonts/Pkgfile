@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Arkpandora fonts
+# URL: http://www.themedepot.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: chkfontpath, ttmkfdir
+
+name=arkpandora-fonts
+version=1.0
+release=1
+source=(http://www.themedepot.org/tarballs/1085-arkpandora_font_pack.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/fonts/truetype
+	mv ttf-arkpandora-2.00/*.ttf $PKG/usr/share/fonts/truetype
+	chown -R root:root $PKG
+}

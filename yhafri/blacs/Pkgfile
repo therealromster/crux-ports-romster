@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Basic Linear Algebra Communication Subprograms
+# URL: http://www.netlib.org/blacs/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: mpich
+
+name=blacs_MPI-LINUX
+version=0
+release=1
+source=(http://www.netlib.org/blacs/archives/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	mv *.a $PKG/usr/lib
+        chown -R root:root $PKG
+}

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+(
+cd /usr/X11R6/lib/X11/fonts/misc;
+mkfontdir;
+xset fp+ `pwd`;
+xset fp rehash
+)

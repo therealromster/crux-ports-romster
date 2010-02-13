@@ -1,0 +1,16 @@
+# Description: a command line tool to retrieve the ink level of a printer 
+# URL: http://home.arcor.de/markusheinz/
+# Packager: Markus Heinz <su1690@studserver.uni-dortmund.de>
+# Maintainer:
+# Depends on: libinklevel
+
+name=ink
+version=0.3
+release=1
+source=(http://download.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+  	cd $name
+    	make
+        make DESTDIR=$PKG/usr install
+}

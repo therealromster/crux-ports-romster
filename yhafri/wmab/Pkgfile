@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Dockapp ACPI monitor with multiple batteries support
+# URL: http://web.tiscali.it/kalem/dockapps.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmab
+version=0.3
+release=1
+source=(http://web.tiscali.it/kalem/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+	cd $name-$version/$name
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG/usr install
+
+        chown -R root:root $PKG
+}

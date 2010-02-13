@@ -1,0 +1,7 @@
+POST-INSTALL:
+		
+		* Add CLOVER_HOME to your CLASSPATH system
+		environment variable:
+
+		export CLOVER_HOME=/usr/lib/clover
+		export CLASSPATH=$CLOVER_HOME:$CLASSPATH

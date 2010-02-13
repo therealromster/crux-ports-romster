@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Concurrent Applicative Language
+# URL: http://herpolhode.com/rob/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=newsqueak
+version=2000
+release=1
+source=(http://herpolhode.com/rob/$name.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/man
+
+	make
+	mv include/ lib/ $PKG/usr
+	mv man9/ $PKG/usr/man
+
+	install -D -m 755 squint/squint $PKG/usr/bin/squint
+
+	find $PKG/usr -name "Makefile*" -type "f" -exec rm -f '{}' \;
+
+	chown -R root:root $PKG
+}

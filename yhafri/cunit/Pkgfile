@@ -1,0 +1,24 @@
+# $Id: $
+# Description: http://cunit.sourceforge.net/
+# URL: A Unit Testing Framework for C
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses
+
+name=cunit
+version=2.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/CUnit-$version-0-src.tar.gz)
+
+build () {
+	cd CUnit-$version-0
+	./configure --prefix=/usr \
+		    --enable-curses
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/doc/
+
+	chown -R root:root $PKG
+}

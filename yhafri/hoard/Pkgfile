@@ -1,0 +1,20 @@
+# $Id: $
+# Description: The Hoard Multiprocessor Memory Allocator
+# URL: http://www.cs.umass.edu/~emery/hoard/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hoard
+version=3.4.0
+release=1
+source=(http://www.cs.umass.edu/~emery/hoard/$name-$version/heaplayers-3-4-0.tar.gz)
+
+build () {
+	cd heaplayers-3-4-0/allocators/$name
+
+	./compile
+	install -D libhoard.so $PKG/usr/lib/libhoard.so
+
+	chown -R root:root $PKG
+}

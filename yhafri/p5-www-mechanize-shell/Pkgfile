@@ -1,0 +1,20 @@
+# $Id: $
+# Description: An interactive shell for WWW::Mechanize
+# URL: http://search.cpan.org/~corion/WWW-Mechanize-Shell-0.36/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-www-mechanize, p5-www-mechanize-formfiller, p5-term-shell, p5-hook-lexwrap, p5-file-modified, p5-html-tokeparser-simple
+
+name=p5-www-mechanize-shell
+version=0.40
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CO/CORION/WWW-Mechanize-Shell-$version.tar.gz)
+
+build () {
+	cd WWW-Mechanize-Shell-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

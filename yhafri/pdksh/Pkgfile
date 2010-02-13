@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Public Domain Korn Shell
+# URL: http://web.cs.mun.ca/~michael/pdksh/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pdksh
+version=5.2.14
+release=1
+source=(http://ftp.debian.org/debian/pool/main/p/$name/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,38 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cdadd
+lrwxrwxrwx	root/root	usr/bin/cdclose -> ../lib/cdtool/cdtool
+-rwxr-xr-x	root/root	usr/bin/cdctrl
+lrwxrwxrwx	root/root	usr/bin/cdeject -> ../lib/cdtool/cdtool
+lrwxrwxrwx	root/root	usr/bin/cdinfo -> ../lib/cdtool/cdtool
+lrwxrwxrwx	root/root	usr/bin/cdir -> ../lib/cdtool/cdtool
+-rwxr-xr-x	root/root	usr/bin/cdloop
+-rwxr-xr-x	root/root	usr/bin/cdown
+lrwxrwxrwx	root/root	usr/bin/cdpause -> ../lib/cdtool/cdtool
+lrwxrwxrwx	root/root	usr/bin/cdplay -> ../lib/cdtool/cdtool
+lrwxrwxrwx	root/root	usr/bin/cdreset -> ../lib/cdtool/cdtool
+lrwxrwxrwx	root/root	usr/bin/cdshuffle -> ../lib/cdtool/cdtool
+lrwxrwxrwx	root/root	usr/bin/cdstop -> ../lib/cdtool/cdtool
+-rwxr-xr-x	root/root	usr/bin/cdtool2cddb
+lrwxrwxrwx	root/root	usr/bin/cdvolume -> ../lib/cdtool/cdtool
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/cdtool/
+-rwxr-xr-x	root/root	usr/lib/cdtool/cdtool
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rwxr-xr-x	root/root	usr/man/man1/cdadd.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdclose.1.gz -> cdtool.1.gz
+-rwxr-xr-x	root/root	usr/man/man1/cdctrl.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdeject.1.gz -> cdtool.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdinfo.1.gz -> cdtool.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdir.1.gz -> cdtool.1.gz
+-rwxr-xr-x	root/root	usr/man/man1/cdloop.1.gz
+-rwxr-xr-x	root/root	usr/man/man1/cdown.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdpause.1.gz -> cdtool.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdplay.1.gz -> cdtool.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdreset.1.gz -> cdtool.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdshuffle.1.gz -> cdtool.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdstop.1.gz -> cdtool.1.gz
+-rwxr-xr-x	root/root	usr/man/man1/cdtool.1.gz
+-rwxr-xr-x	root/root	usr/man/man1/cdtool2cddb.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/cdvolume.1.gz -> cdtool.1.gz

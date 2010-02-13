@@ -1,0 +1,19 @@
+# $Id: $
+# Description: NLTK-Lite Corpora Package
+# URL: http://nltk.sourceforge.net/install-lite_unix.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=nltk-corpora
+version=0.7a1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/nltk/nltk_lite-corpora-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/nltk_lite	
+
+	mv corpora $PKG/usr/share/nltk_lite
+
+	chown -R root:root $PKG
+}

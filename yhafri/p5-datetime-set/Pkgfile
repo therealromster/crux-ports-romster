@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Datetime sets and set math
+# URL: http://84.45.18.237/~fglock/DateTime-Set-0.25/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-datetime, p5-set-infinite
+
+name=p5-datetime-set
+version=0.25
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/F/FG/FGLOCK/DateTime-Set-$version.tar.gz)
+
+build () {
+	cd DateTime-Set-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

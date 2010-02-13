@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to PGPLOT graphics library
+# URL: http://search.cpan.org/~kgb/PGPLOT-2.18/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pgplot, p5-extutils-f77
+
+name=p5-pgplot
+version=2.19
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KG/KGB/PGPLOT-$version.tar.gz)
+
+build () {
+	cd PGPLOT-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

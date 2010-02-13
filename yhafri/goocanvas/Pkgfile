@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A canvas widget for GTK+ that uses the cairo 2D
+# URL: http://sourceforge.net/projects/goocanvas
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk2
+
+name=goocanvas
+version=0.9
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

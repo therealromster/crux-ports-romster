@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Generates random password using with alternating consonants and vowels 
+# URL: http://www.marchansen.com/bin/txt.cgi/tn108/pass_gen
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=pass-gen
+version=1
+release=1
+source=($name)
+
+build () {
+	install -D $name -m 755 $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

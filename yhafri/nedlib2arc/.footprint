@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/nedlib2arc -> /usr/lib/nedlib2arc/NedlibToArc.sh
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/nedlib2arc/
+-rwxrwxr-x	root/root	usr/lib/nedlib2arc/NedlibToArc.sh
+drwxrwxr-x	root/root	usr/lib/nedlib2arc/bin/
+drwxrwxr-x	root/root	usr/lib/nedlib2arc/bin/dk/
+drwxrwxr-x	root/root	usr/lib/nedlib2arc/bin/dk/kb/
+-rw-rw-r--	root/root	usr/lib/nedlib2arc/bin/dk/kb/Nedlib.class
+-rw-rw-r--	root/root	usr/lib/nedlib2arc/bin/dk/kb/NedlibToArc.class
+drwxrwxr-x	root/root	usr/lib/nedlib2arc/lib/
+-rw-r--r--	root/root	usr/lib/nedlib2arc/lib/commons-cli-1.0.jar
+-rw-r--r--	root/root	usr/lib/nedlib2arc/lib/heritrix-0.6.0.jar

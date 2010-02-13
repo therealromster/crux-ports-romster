@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Search & replace filter for a large number of search strings
+# URL: http://www.goron.de/~froese/subst/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=subst
+version=1.0.0
+release=1
+source=(http://www.goron.de/~froese/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Install subroutines into packages easily  
+# URL: http://search.cpan.org/~rjbs/Sub-Install-0.922/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-sub-install
+version=0.922
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Sub-Install-$version.tar.gz)
+
+build () {
+	cd Sub-Install-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Tools to measure network performance
+# URL: http://dast.nlanr.net/Projects/Iperf/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=iperf
+version=1.7.0
+release=1
+source=(http://dast.nlanr.net/Projects/Iperf/$name-$version-source.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make INSTALL_DIR=$PKG/usr/bin prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

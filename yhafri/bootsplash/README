@@ -1,0 +1,100 @@
+PRE-INSTALL:
+		* Patch  tour kernel (only for 2.6.11.x):
+		# patch -p1 < HERE/bootsplash-3.1.6-2.6.11.diff
+
+		* Recompile your kernel with:
+
+		Code maturity level options --->
+		[*] Prompt for development and/or incomplete code/drivers
+		Processor type and features --->
+		[*] MTRR (Memory Type Range Register) support
+		Device Drivers --->
+		Block devices --->
+		<*> Loopback device support
+		<*> RAM disk support
+		(4096) Default RAM disk size
+		[*] Initial RAM disk (initrd) support
+		Graphics support --->
+		[*] Support for frame buffer devices
+		[*] VESA VGA graphics support
+		Console display driver support --->
+		[*] Video mode selection support
+		<*> Framebuffer Console support
+		Bootsplash configuration --->
+		[*] Bootup splash screen
+
+		* Be sure that the following options are not selected:
+		Device Drivers --->
+		Graphics support --->
+		< > nVidia Riva support
+		Logo configuration --->
+		[ ] Bootup logo
+
+
+POST-INSTALL:
+		1) Create an initial ramdisk by typing:
+		# sh post-install	
+		
+		Bootsplash can display a picture on the background
+		of your terminals, but this is only automatically
+		done for tty1. To add a background to tty2, tty3, tty4,
+		tty5 and tty6, run the following command:
+		# sh all-tty 
+
+		To have all your tty's get a nice background on 
+		startup, you can put "all-tty" command into a bootscript (/etc/rc.local).
+
+		2) Configure the bootloader:
+		2.1) for lilo (edit /etc/lilo.conf):
+	        vga=791
+
+		and below the image:
+       		initrd=/boot/bootsplash-initrd
+       		append="splash=silent"
+
+		2.1.1) Now apply your changes by running the following command:
+	        # lilo
+
+		2.2) for grub (edit /boot/grub/menu.lst):
+
+	        vga=791 splash=silent
+     
+		Below the kernel entry, add:
+       		initrd /boot/bootsplash-initrd
+
+
+		3.) To have the progression bar working,
+		patch your "/etc/rc.multi" file like this:
+		# cd /etc
+		# patch -p0 < HERE/rc.multi.diff
+		
+
+		4.) Eventually, you may want to change the 
+		default theme. Then, type:
+		# bootsplash-change-theme
+
+
+		5.) Reboot and enjoy
+
+		
+
+INFO:
+		* Themes for bootsplash:
+		http://www.kde-look.org/ (in the bootsplash screen section)
+		http://www.bootsplash.de/files/themes/ (all this themes are installed with the port)
+
+		* To create themes for bootsplash, have a look to:
+		http://archlinux.veloxis.de/howtos/bootsplash/US/arch-bootsplash-howto_us.html
+		http://www.bootsplash.org/
+
+		* Cool links about bootsplash:
+		http://www.linuxfromscratch.org/hints/downloads/files/bootsplash.txt
+		http://www.hants.lug.org.uk/cgi-bin/wiki.pl?LinuxHints/BootSplash
+		http://blub.free.fr/lilograph/lilo.htm
+		http://www.bxlug.be/articles/149
+		http://www.trustonme.net/didactels/286.html
+		http://www.bootsplash.de/
+		http://www.minet.net/spip/article.php3?id_article=121
+
+
+

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Network Common Data Form library
+# URL: http://www.unidata.ucar.edu/packages/netcdf/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=netcdf
+version=3.6.0-p1
+release=1
+source=(ftp://ftp.unidata.ucar.edu/pub/binary/linux_2.6-i686/netcdf-3.6.0-p1.tar.Z)
+
+
+build () {
+	mkdir -p $PKG/usr
+	cd $name-$version
+	mv * $PKG/usr/
+        chown -R root:root $PKG
+}

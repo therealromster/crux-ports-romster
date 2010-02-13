@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension to provide a PerlIO layer to gzip/gunzip 
+# URL: http://search.cpan.org/~nwclark/PerlIO-gzip-0.17/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib
+
+name=p5-io-gzip
+version=0.17
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/N/NW/NWCLARK/PerlIO-gzip-$version.tar.gz)
+
+build () {
+	cd PerlIO-gzip-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,98 @@
+--- pdict.erl	2007-04-30 16:53:02.000000000 +0200
++++ pdict.erl-new	2007-04-30 16:57:57.000000000 +0200
+@@ -1,3 +1,11 @@
++%% Robust and safe "Process Dictionary" module
++%%
++%% created by: Ulf Wiger, 30 april 2007
++%%   use dict and list as base implementation
++%% modified by: Younes Hafri, 30 april 2007
++%%   change list by balanced tree for fast retrieval
++%%
++
+ -module(pdict).
+ 
+ -export([init/0]).
+@@ -44,44 +52,58 @@
+ handle_req(get, Pid, Dicts) ->
+     {dict_of(Pid, Dicts), Dicts};
+ handle_req({get,K}, Pid, Dicts) ->
+-    {proplists:get_value(K, dict_of(Pid, Dicts), undefined), Dicts};
++    case dict_of(Pid, Dicts) of
++        undefined -> {undefined, Dicts};
++        GBTree -> 
++            case gb_trees:lookup(K, GBTree) of
++                none ->
++                    {undefined, Dicts};
++                {value, V} ->
++                    {V, Dicts}
++            end
++    end;
+ handle_req({put,Key,Val}, Pid, Dicts) ->
+     case dict:find(Pid, Dicts) of
+-	{ok, KVL} ->
+-	    {Bef,KVL1} = case [V || {K,V} <- KVL, K =:= Key] of
+-			     [] ->
+-				 {undefined, [{Key,Val} | KVL]};
+-			     [OldV] ->
+-				 {OldV, [{Key,Val}|KVL -- [{Key,OldV}]]}
+-			 end,
+-	    Dicts1 = dict:store(Pid, KVL1, Dicts),
+-	    {Bef, Dicts1};
+-	error ->
+-	    erlang:monitor(process, Pid),
+-	    {undefined, dict:store(Pid, [{Key, Val}], Dicts)}
++	{ok, GBTree} ->
++            {Bef,GBTree1} = case gb_trees:lookup(Key, GBTree) of
++                                none ->
++                                    {undefined, gb_trees:insert(Key,Val,GBTree)};
++                                {value, OldV} ->
++                                    {OldV, gb_trees:update(Key,Val,GBTree)}
++                            end,
++            Dicts1 = dict:store(Pid, GBTree1, Dicts),
++            {Bef, Dicts1};
++        error ->
++            erlang:monitor(process, Pid),
++            GBTree = gb_trees:empty(),
++            {undefined, dict:store(Pid, gb_trees:insert(Key, Val, GBTree), Dicts)}
+     end;
+ handle_req(erase, Pid, Dicts) ->
+     {dict_of(Pid, Dicts), dict:erase(Pid, Dicts)};
+ handle_req({erase,Key}, Pid, Dicts) ->
+     case dict:find(Pid, Dicts) of
+-	{ok, KVL} ->
+-	    case [V || {K,V} <- KVL, K =:= Key] of
+-		[] ->
+-		    {undefined, Dicts};
+-		[V] ->
+-		    {V, dict:store(Pid, KVL -- [{Key,V}], Dicts)}
+-	    end;
+-	error ->
+-	    {undefined, Dicts}
++        {ok, GBTree} ->
++            case gb_trees:lookup(Key, GBTree) of
++                none ->
++                    {undefined, Dicts};
++                {value, V} ->
++                    {V, dict:store(Pid, gb_trees:delete(Key, GBTree), Dicts)}
++            end;
++        error ->
++            {undefined, Dicts}
+     end;
+ handle_req({get_keys, Val}, Pid, Dicts) ->
+-    {[K || {K,V} <- dict_of(Pid, Dicts), V =:= Val], Dicts};
++    case dict_of(Pid, Dicts) of
++        undefined -> {[], Dicts};
++        GBTree -> 
++            {[K || K <- gb_trees:keys(GBTree), gb_trees:get(K, GBTree) =:= Val], Dicts}
++    end;
+ handle_req({info, Pid}, _, Dicts) ->
+     {dict_of(Pid, Dicts), Dicts}.
+ 
+     
+ dict_of(Pid, Dicts) ->
+     case dict:find(Pid, Dicts) of
+-	{ok, KVL} -> KVL;
+-	error     -> []
++	{ok, GBTree} -> GBTree;
++	error     -> undefined
+     end.

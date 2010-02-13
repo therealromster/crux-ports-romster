@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A scientific application for data analysis and technical graphics 
+# URL: http://scigraphica.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk+extra, termcap, libxml, numpy
+
+name=scigraphica
+version=0.8.0
+release=1
+source=(http://scigraphica.sourceforge.net/src/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    	make
+	make prefix=$PKG/usr install
+	rm -rf $PKG/usr/share/$name/examples
+ 
+   	chown -R root:root $PKG
+}

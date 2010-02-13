@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Expect for Perl 
+# URL: http://search.cpan.org/~rgiersig/Expect-1.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-io-tty
+
+name=p5-expect
+version=1.15
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RG/RGIERSIG/Expect-$version.tar.gz)
+
+build () {
+	cd Expect-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

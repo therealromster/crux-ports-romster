@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Free 3D Modelling and Animation software
+# URL: http://www.blender3d.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: jolupa <jolupa@ya.com>
+# Depends on: glibc, libjpeg, libpng, libsdl, libz, mesalib, python, ftgl, scons
+
+name=blender
+version=2.42a
+release=1
+source=(http://download.blender.org/source/$name-$version.tar.gz \
+	blender.png)
+
+build() {
+	mkdir -p $PKG/usr/{bin,share/pixmaps}
+	cd $name-$version
+
+	sed -i -e "s/-O2/${CFLAGS// /\' ,\'}/g" SConstruct
+	scons
+
+	cp blender $PKG/usr/bin
+	cp $SRC/blender.png $PKG/usr/share/pixmaps
+
+	chown -R root:root $PKG
+}

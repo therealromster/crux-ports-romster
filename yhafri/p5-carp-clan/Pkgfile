@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Report errors from perspective of caller of a "clan" of modules
+# URL: http://search.cpan.org/~stbey/Carp-Clan-5.3/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-carp-clan
+version=5.3
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/ST/STBEY/Carp-Clan-$version.tar.gz)
+
+build () {
+	cd Carp-Clan-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,30 @@
+# $Id: $
+# Description: Enhanced version of the links textmode WWW browser with frame/table support
+# URL: http://elinks.or.cz/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: openssl, python, spidermonkey
+
+name=elinks
+version=0.11.3
+release=1
+source=(http://elinks.or.cz/download/$name-$version.tar.bz2 \
+	$name.conf)
+
+build () {
+    install -d $PKG/usr/etc
+
+    cd $name-$version
+    ./configure --prefix=/usr \
+                --sysconfdir=/usr/etc \
+	        --enable-utf-8 \
+		--enable-html-highlight
+#                --disable-nls \
+
+    make
+    make DESTDIR=$PKG install
+    #ln -s elinks $PKG/usr/bin/links 
+
+    cp $SRC/$name.conf $PKG/usr/etc/
+    chown -R root:root $PKG
+}

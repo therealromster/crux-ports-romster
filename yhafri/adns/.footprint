@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/adnshost
+-rwxr-xr-x	root/root	usr/bin/adnslogres
+-rwxr-xr-x	root/root	usr/bin/adnsresfilter
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/adns.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libadns.a
+lrwxrwxrwx	root/root	usr/lib/libadns.so.1 -> libadns.so.1.0
+-rwxr-xr-x	root/root	usr/lib/libadns.so.1.0

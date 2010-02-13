@@ -1,0 +1,9 @@
+PRE-INSTALL:
+
+		* Set the environment variable LD_LIBRARY_PATH in your ~/.bashrc:
+		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+
+		* Set the following 2 environment variables in your ~/.bashrc:
+		export KARMABASE=/usr/local/karma
+		export PATH=$PATH:/usr/local/karma/bin:/usr/local/karma/cm_script:/usr/local/karma/csh_script

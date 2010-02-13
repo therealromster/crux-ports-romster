@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Creating FLV video streams
+# URL: http://klaus.geekserver.net/libflv/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libflv
+version=0.2
+release=1
+source=(http://klaus.geekserver.net/$name/$name.tar.gz)
+
+build () {
+	cd $name/src
+
+	make
+
+	install -D -m 755 $name.so $PKG/usr/lib/$name.so
+	install -D -m 755 $name.h  $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,24 @@
+diff -r -U3 src/crashme.c work/crashme.c
+--- src/crashme.c	1998-06-25 12:23:52.000000000 -0600
++++ work/crashme.c	2004-10-13 02:17:44.337037408 -0600
+@@ -260,10 +260,7 @@
+ #else
+  struct sigaction act;
+  act.sa_handler = func;
+- act.sa_mask = 0;
+-#ifdef linux
+- act.sa_restorer = 0;
+-#endif /* linux */
++ bzero(&act.sa_mask,sizeof(sigset_t));
+  act.sa_flags = SA_NOMASK;
+ #ifdef SA_RESTART
+  act.sa_flags |= SA_RESTART;
+@@ -592,7 +589,7 @@
+     status = fork();
+ #endif
+     if (status == 0)
+-      {status = execl(cmd,cmd,nb,arg2,nt,arg4,arg5,subprocess_ind,0);
++      {status = execlp(cmd,cmd,nb,arg2,nt,arg4,arg5,subprocess_ind,0);
+        if (status == -1)
+ 	 {perror(cmd);
+ 	  exit(1);}}

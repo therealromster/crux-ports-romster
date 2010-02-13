@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Revamped MySQL driver for Erlang
+# URL: http://code.google.com/p/erlang-mysql-driver/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, erlang, mysql
+
+name=erlang-mysql-driver
+version=svn
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+	mkdir -p ebin
+
+	(cd src; erl -make; mv *.beam ../ebin)
+
+	mv ebin/*.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv src/*  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

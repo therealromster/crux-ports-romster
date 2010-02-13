@@ -1,0 +1,22 @@
+# $Id: $
+# Description: [incr Tk] 
+# URL: http://incrtcl.sourceforge.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: itcl, tk
+
+name=itk
+version=3.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/incrtcl/$name$version.tar.gz)
+
+build () {
+	cd $name$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

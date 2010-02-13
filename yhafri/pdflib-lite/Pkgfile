@@ -1,0 +1,51 @@
+# $Id: $
+# Description: An ANSI C library to dynamically generate PDF files with bindings to Perl, Tcl, Python and Ruby
+# URL: http://www.pdflib.com/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libong, libjpeg, jdk, tcl, python, ruby
+
+name=pdflib-lite
+version=6.0.3
+release=1
+source=(http://www.pdflib.com/products/pdflib/download/603src/PDFlib-Lite-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd PDFlib-Lite-$version
+
+	./configure --prefix=/usr
+	patch -p1<../$name-$version.patch
+
+	make
+	make prefix=$PKG/usr install
+
+	install -D -m 755 progs/pdflib/pdfimpose $PKG/usr/bin/pdfimpose
+	install -D -m 755 progs/pdflib/text2pdf $PKG/usr/bin/text2pdf
+
+	# java binding
+	install -D -m 644 ./bind/pdflib/java/pdflib.jar $PKG/usr/lib/java/pdflib.jar
+
+	# perl binding
+	PERL_VERSION=`echo /usr/lib/perl5/site_perl/[1-9].[1-9].[1-9]`
+	install -D -m 644 bind/pdflib/perl/pdflib_pl.la $PKG/$PERL_VERSION/pdflib_pl.la
+	install -D -m 644 bind/pdflib/perl/pdflib_pl.pm $PKG/$PERL_VERSION/pdflib_pl.pm
+
+	# tcl binding
+	cd bind/pdflib/tcl
+	TCL_VERSION=`echo /usr/lib/tcl[1-9].[1-9]`
+	install -D -m 644 pkgIndex.tcl $PKG/$TCL_VERSION/pdflib/pkgIndex.tcl	
+	mv .libs/* $PKG/$TCL_VERSION/pdflib/
+	cd -
+
+	# python binding
+	cd bind/pdflib/python
+	PYTHON_VERSION=`echo /usr/lib/python[1-9].[1-9]`
+        install -D -m 644 pdflib_py.la $PKG/$PYTHON_VERSION/lib-dynload/pdflib_py.la
+        mv .libs/* $PKG/$PYTHON_VERSION/lib-dynload/
+	cd -
+
+	# ruby binding (no time to do that)
+
+	chown -R root:root $PKG
+}

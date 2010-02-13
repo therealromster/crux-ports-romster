@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Hardware Abstraction Layer
+# URL: http://www.freedesktop.org/wiki/Software/hal
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: dbus-glib, libvolume_id, pciutils, expat, python
+
+name=libhal1
+version=0.5.8.1
+release=1
+source=(http://people.freedesktop.org/~david/dist/hal-$version.tar.gz)
+
+build () {
+	cd hal-$version
+	./configure --prefix=/usr \
+		    --disable-policy-kit \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

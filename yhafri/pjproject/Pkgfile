@@ -1,0 +1,34 @@
+# $Id: $
+# Description: Small footprint and scalable C library, media stack and SIP prototol stack
+# URL: http://www.pjproject.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion
+
+name=pjproject
+version=svn
+release=1
+source=()
+
+build () {
+	svn --username anonymous --password "" co http://anonymous@svn.pjproject.net/repos/pjproject/trunk
+
+	cd trunk
+
+	./configure
+	touch pjlib/include/pj/config_site.h
+
+	make dep && make clean && make
+
+	for d in `find . -name ".svn" -type "d"`; do rm -rf $d; done
+	rm -rf ./pjlib/docs ./pjsip/docs ./pjsip-apps/docs                \
+	       ./pjmedia/docs ./pjlib-util/docs ./pjsip/src/test-pjsip    \
+	       ./pjlib-util/build ./pjlib/build ./pjlib/src               \
+	       ./pjmedia/build ./pjmedia/src ./pjsip/src ./pjlib-util/src \
+	       ./pjsip-apps/build/ ./pjsip-apps/src ./pjsip/build         \
+	       ./pjmedia/README.txt
+
+	mv pjlib pjlib-util pjmedia pjsip-apps pjsip $PKG
+
+	chown -R root:root $PKG
+}

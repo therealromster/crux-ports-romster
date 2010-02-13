@@ -1,0 +1,29 @@
+# $Id: $
+# Description: The graphical version of REBOL/Core.
+# URL: http://www.rebol.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=rebolview
+version=042
+release=1
+source=(http://www.rebol.com/downloads/view-pro$version.tar.gz \
+	rebol.el)
+
+PKGMK_NO_STRIP="yes"
+
+build () {
+    mkdir -p $PKG/usr/bin $PKG/usr/lib/$name $PKG/usr/share/emacs/site-lisp
+    if [ ! -f /usr/share/emacs/site-lisp/rebol.el ]
+	then 
+	    cp -rf $SRC/rebol.el $PKG/usr/share/emacs/site-lisp
+	fi   
+    cd $SRC
+    cp -rf * $PKG/usr/lib/$name
+
+    chmod +x $PKG/usr/lib/$name/rebol
+    chown -R root:root $PKG
+    ln -sf /usr/lib/$name/rebol $PKG/usr/bin/rebolv
+}
+

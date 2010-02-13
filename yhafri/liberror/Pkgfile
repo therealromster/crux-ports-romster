@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Message printing with colors support
+# URL: http://www.theiling.de/projects/liberror.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=liberror
+version=2.1.58643
+release=1
+source=(http://www.theiling.de/downloads/error-$version-src.tar.bz2)
+
+
+build () {
+	cd error-$version-src
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Unix software from Plan 9
+# URL: http://swtch.com/plan9port/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=plan9port
+version=1
+release=1
+source=(http://swtch.com/$name/$name.tgz \
+	post-install.sh)
+
+build () {
+	install -d $PKG/usr/local/
+
+	mv $SRC/plan9 $PKG/usr/local/
+
+	chown -R root:root $PKG
+}

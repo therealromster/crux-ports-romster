@@ -1,0 +1,30 @@
+# $Id: $
+# Description: Wrapper for OOP in Erlang
+# URL: http://ceylan.sourceforge.net/main/documentation/wooper/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=wooper
+version=0.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/ceylan/$name-$version.tar.bz2)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,include}
+	cd $name-$version
+	make -f GNUmakefile all
+	
+	cd $name/src
+	cp *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	cp *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	(cp *.hrl  $PKG/usr/lib/erlang/lib/$name-$version/include)
+
+	cd -
+	cd common
+        cp *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+        cp *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+        (cp *.hrl  $PKG/usr/lib/erlang/lib/$name-$version/include)
+
+	chown -R root:root $PKG
+}

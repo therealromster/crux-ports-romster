@@ -1,0 +1,8 @@
+#
+# /etc/ports/example.httpup: Jack's ports collection
+#
+
+ROOT_DIR=/usr/ports/jack
+URL=http://somehost.net/ports
+
+# End of file

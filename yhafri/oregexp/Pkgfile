@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Erlang interface to Oniguruma regular expressions library
+# URL: http://glozer.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: onig, erlang
+
+name=oregexp
+version=1.2
+release=1
+source=(http://glozer.net/code/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	chmod +x configure
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make PREFIX=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+--- WWW-Mechanize-1.20/Makefile.PL	2006-08-19 08:26:07.000000000 +0200
++++ WWW-Mechanize-1.20/Makefile.PL-new	2006-10-23 00:15:26.000000000 +0200
+@@ -55,16 +55,7 @@
+     clean           => { FILES => 'WWW-Mechanize-*' },
+ };
+ 
+-if ( not defined $mechdump ) {
+-    $mechdump = (prompt( 'Do you want to install the mech-dump utility?', 'y' ) =~ /^y/i );
+-    print <<EOT;
+-
+-Note that you can skip this question with --mech-dump or --nomech-dump on the
+-command line when you run Makefile.PL.
+-
+-EOT
+-}
+-
++$mechdump = 1;
+ if ( $mechdump ) {
+     $parms->{EXE_FILES} = [ 'bin/mech-dump' ];
+     $parms->{PREREQ_PM}->{'Getopt::Long'} = 0;

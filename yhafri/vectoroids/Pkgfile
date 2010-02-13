@@ -1,0 +1,19 @@
+# Description: a clone of the classic arcade game "Asteroids" by Atari.
+# URL: http://www.newbreedsoftware.com/vectoroids/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: sdl_image, sdl_mixer
+
+name=vectoroids
+version=1.1.0
+release=2
+source=(ftp://ftp.billsgames.com/unix/x/$name/src/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+        mkdir -p $PKG/usr/bin
+	sed -i 's/\/local//' Makefile
+#	sed -i '/chmod/d' Makefile
+	make
+	make PREFIX=$PKG/usr install
+}

@@ -1,0 +1,45 @@
+# $Id: $
+# Description: Linux hardware identification library
+# URL: http://fedora.redhat.com/projects/additional-projects/kudzu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz, pciutils, python, newt, popt
+
+name=kudzu
+version=1.2.64
+release=1
+source=(ftp://fr2.rpmfind.net/linux/fedora/core/development/i386/os/Fedora/RPMS/$name-$version-1.i386.rpm \
+	ftp://fr2.rpmfind.net/linux/fedora/core/development/source/SRPMS/$name-$version-1.src.rpm \	
+	$name.patch)
+
+# patch from: http://mir2.ovh.net/gentoo-portage/sys-apps/kudzu/files/1.2.52-remove-sata-ata-storage-classes.patch
+
+build () {
+	mkdir -p $PKG/usr/{include/$name,lib}
+
+	## install library and binaries
+	#rpm2targz $name-$version-1.i386.rpm
+	#tar xzf $name-$version-1.i386.tar.gz -C $PKG
+	#rm -rf $PKG/usr/share/{locale,doc}
+
+	## install header hiles
+	#rpm2targz $name-$version-1.src.rpm
+	#tar xzf   $name-$version-1.src.tar.gz
+	#tar xzf   $name-$version.tar.gz
+	#cd $name-$version
+	#patch -p1<$SRC/$name.patch
+	#make lib$name.a RPM_OPT_FLAGS="$CFLAGS"
+	#cp lib$name.a $PKG/usr/lib
+	#cp *.h $PKG/usr/include/$name/	
+	#make DESTDIR=$PKG install
+
+	cvs -d :pserver:anonymous:@rhlinux.redhat.com:/usr/local/CVS co $name
+	cd $name
+        patch -p1<$SRC/$name.patch
+        make lib$name.a RPM_OPT_FLAGS="$CFLAGS"
+        cp lib$name.a $PKG/usr/lib
+        cp *.h $PKG/usr/include/$name/
+        make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

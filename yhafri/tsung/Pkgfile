@@ -1,0 +1,25 @@
+# $Id: $
+# Description: An open-source multi-protocol distributed load testing tool
+# URL: http://tsung.erlang-projects.org/index.en.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=tsung
+version=1.2.1
+release=1
+source=(http://$name.erlang-projects.org/dist/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make 
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+	
+	chown -R root:root $PKG
+}

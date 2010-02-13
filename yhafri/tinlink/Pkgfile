@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A tool to create very small elf binary from pure binary files
+# URL: http://sed.free.fr/tinlink/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tinlink
+version=1.0.0
+release=1
+source=(http://sed.free.fr/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

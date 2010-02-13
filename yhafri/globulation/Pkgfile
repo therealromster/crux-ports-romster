@@ -1,0 +1,17 @@
+# Description: a RTS which minimizes micro-management by automatically assigning tasks to the units.
+# URL: http://globulation2.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: sdl_ttf, sdl_mixer, sdl_net, speex
+
+name=globulation
+version=0.8.19
+release=1
+source=(http://globulation2.org/releases/$version/glob2-$version.tar.gz)
+
+build() {
+	cd glob2-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

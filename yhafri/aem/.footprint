@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/aem
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/aem.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/aem/
+-rwxr-xr-x	root/root	usr/lib/aem/aem-core.ko
+-rwxr-xr-x	root/root	usr/lib/aem/aem-fd.ko
+-rwxr-xr-x	root/root	usr/lib/aem/aem-ip.ko
+-rwxr-xr-x	root/root	usr/lib/aem/aem-pexit.ko
+-rwxr-xr-x	root/root	usr/lib/aem/aem-timer.ko
+-rw-r--r--	root/root	usr/lib/libaem.a
+-rwxr-xr-x	root/root	usr/lib/libaem.so

@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Erlang Flex like scanner generator
+# URL: http://www.erlang.org/user.html#parser_tutorial-1.0
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=leex
+version=1.0
+release=1
+source=($name.erl $name.hrl $name.patch $name-old.zip $name-old.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,include}
+
+	#cd $name
+	#patch -p0<../$name-old.patch
+	
+	patch -p0<$name.patch
+	erl -make
+
+	cp $name.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	cp $name.hrl  $PKG/usr/lib/erlang/lib/$name-$version/include
+	cp $name.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+
+	chown -R root:root $PKG
+}
+

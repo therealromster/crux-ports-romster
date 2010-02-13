@@ -1,0 +1,35 @@
+# $Id: 
+# Description: FOX Toolkit, a nice GUI C++ toolkit
+# URL: http://www.fox-toolkit.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Petr Fischer, petr.fischer at praguesoft dot cz
+# Depends on: x11, libtiff
+
+name=fox
+version=1.6.29
+release=1
+source=(http://www.$name-toolkit.org/ftp/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+    
+	./configure --prefix=/usr \
+        	    --enable-shared \
+        	    --disable-static \
+        	    --enable-release \
+        	    --with-opengl=no \
+        	    --with-xft=yes \
+		    --disable-nls
+		
+    	make
+    	make DESTDIR=$PKG install
+    
+	install -m 755 fox-config $PKG/usr/bin
+    
+	rm -r $PKG/usr/share
+    
+	cd $PKG/usr/include
+    	ln -s fox-1.4 fox
+
+	chown -R root:root $PKG
+}

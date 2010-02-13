@@ -1,0 +1,73 @@
+#!/bin/sh
+
+if [ $# = 0 ]; then
+	echo "Choose your theme name before in:"
+	echo "# ls /etc/bootsplash/themes/"
+	echo
+	echo
+	echo "Usage:"
+	echo "`basename $0` THEME_DIR_NAME"
+	echo "   ex. `basename $0` ArchLinux"
+	exit 1
+
+fi
+
+if [ ! -d "/etc/bootsplash/themes/$1" ]; then
+	echo "$1 theme don't exist"
+	exit 1
+fi
+
+if [ "$UID" != "0" ]; then
+      echo "Packages should be built as root."
+      exit 1
+fi
+
+
+rm -f /etc/bootsplash/themes/current
+#echo "ln -sf "/etc/bootsplash/themes/$1" /etc/bootsplash/themes/current"
+ln -sf "/etc/bootsplash/themes/$1" /etc/bootsplash/themes/current
+
+for r in "640x480" "800x600" "600x800" "1024x768" "1280x1024";
+do
+	config=`find /etc/bootsplash/themes/$1/config -name "bootsplash-$r.cfg"`
+	if [ "$r" = "1024x768" ] && [ -e "$config" ]; then
+		break
+	fi 
+	#echo ">>> $config"
+done
+
+if [ ! -e "$config" ]; then
+	echo "No config file"
+	exit 1
+fi
+
+rm -f /boot/bootsplash-initrd
+/sbin/splash -s -f $config > /boot/bootsplash-initrd
+
+lilo
+
+res=`echo $(basename $config) | sed -e "s|bootsplash\-\(.*\)\.cfg|\1|"`
+#echo ">>> res = $res"
+
+echo "Bootsplash using theme \"$1\" with resolution \"$res\" ... [ OK ]"
+cat <<EOF
+
+
+[NOTE]: 
+If you want to boot into a resolution other than 1024x768, change
+"vga=791" to the number that matches your setup (see README).
+The table below shows the theoretically possible values.
+Note that some of these resolutions aren't implemented yet.
++---------+---------+---------+----------+-----------+
+|         | 640x480 | 600x800 | 1024x768 | 1280x1024 |
++---------+---------+---------+----------+-----------+
+|  8 bit  |   769   |   771   |    773   |    775    |
+|  15 bit |   784   |   787   |    790   |    793    |
+|  16 bit |   785   |   788   |    791   |    794    |
+|  24 bit |   786   |   789   |    792   |    795    |
++---------+---------+---------+----------+-----------+
+
+In this case, don't forget to reload lilo:
+# lilo
+
+EOF

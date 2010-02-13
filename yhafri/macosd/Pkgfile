@@ -1,0 +1,24 @@
+# $Id: $
+# Description: On-Screen-Display wrappre for PBButtonsd 
+# URL: http://www.exactcode.de/oss/macosd/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: xosd, pbbuttonsd
+
+name=macosd
+version=0.2.0
+release=1
+source=(http://dl.exactcode.de/oss/$name/$name-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/bin/
+
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-xosd
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

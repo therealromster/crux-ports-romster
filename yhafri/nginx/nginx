@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# adapted from ArchLinux port: http://aur.archlinux.org/packages/nginx/nginx/
+
+case "$1" in
+  start)
+    echo "Starting Nginx"
+    if [ -s /var/run/nginx.pid ]; then
+      echo "Nginx is already running"
+      exit 1
+     fi
+    /usr/sbin/nginx &>/dev/null
+    if [ $? -ne 0 ]; then
+      exit 1
+    else
+      exit 0
+    fi
+    ;;
+  stop)
+    echo "Stopping Nginx"
+    kill -QUIT `cat /var/run/nginx.pid` &>/dev/null
+    if [ $? -ne 0 ]; then
+      exit 1
+    else
+      exit 0
+    fi
+    ;;
+  restart)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+  *)
+    echo "usage: $0 {start|stop|restart}"  
+esac

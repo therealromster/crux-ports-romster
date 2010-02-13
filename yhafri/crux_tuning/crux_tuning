@@ -1,0 +1,59 @@
+	HACK 1:	"Increase the maximum TCP buffers to 8MB (default 64KB)" 
+
+	- Edit your "/etc/sysctl.conf":
+
+        net.core.rmem_max=8388608
+        net.core.rmem_default=65536 
+        net.core.wmem_max=8388608
+        net.core.wmem_default=65536
+
+
+	HACK 2:  "Increase the size of the largest contiguous chunk of memory"
+
+	- Edit your "/etc/sysctl.conf":
+
+        kernel.shmmax=70000000
+        kernel.shmall=13500000
+
+	HACK 3:  "Setting the Semaphore Kernel Parameters"
+	
+	- Edit your "/etc/sysctl.conf":
+
+	kernel.sem=250 32000 100 128
+
+
+	HACK 4:  "Setting System Wide Limit for File Handles"
+
+        - Edit your "/etc/sysctl.conf":
+
+	fs.file-max=65536
+
+
+	HACK 5:  "Setting Limits for the Maximum Number of Open File Descriptors"
+
+	# ulimit -n 65536
+	To make this change permanent, add "ulimit -n 65536" to the 
+	"/etc/rc.local" file.
+
+
+	HACK 6:  "Setting Limits for the Maximum Number of Processes"
+
+	# ulimit -u 16384
+        To make this change permanent, add "ulimit -u 16384" to the 
+        "/etc/rc.local" file.
+
+	HACK 7:   "Setting the Kernel Asynchronous I/O"
+
+	See my port module "libposix-aio"
+
+
+	HACK 8:   "Disabling Unneeded Background Processes"
+
+	Disable or remove slocate from your system. The nightly
+	slocate cron job can become a real performance killer
+	for your database! (oracle) 
+
+
+
+	Need your hacks ;-)
+

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl widgets library based on TkZinc 
+# URL: http://www.tls.cena.fr/divisions/PII/produits/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tkzinc, p5-tk-zinc
+
+name=digikit
+version=0.40
+release=1
+source=(http://perso.tls.cena.fr/etienne/wootz/downloads/${name}_${version}.tar.gz)
+
+build () {
+	cd $name-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

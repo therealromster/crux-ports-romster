@@ -1,0 +1,21 @@
+# $Id: $
+# Description: HTTrack web site copier
+# URL: http://www.httrack.com/page/1/en/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=httrack
+version=3.42
+release=1
+source=(http://www.httrack.com/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version.1
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

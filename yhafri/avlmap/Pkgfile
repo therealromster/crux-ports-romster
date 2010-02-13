@@ -1,0 +1,26 @@
+# $Id: $
+# Description: AVL balanced binary tree and mapping library
+# URL: http://avlmap.slashusr.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=avlmap
+version=0.12.4
+release=1
+source=(http://$name.slashusr.org/download/$name-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr
+	cd $name-$version
+
+	./configure --prefix=/usr
+	sed -i "s|-fgnu-linker| |"  build/Makefile
+
+	make
+
+	mv build/{bin,include,lib} $PKG/usr/
+
+
+	chown -R root:root $PKG
+}

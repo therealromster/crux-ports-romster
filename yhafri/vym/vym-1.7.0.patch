@@ -1,0 +1,63 @@
+diff -ur ../vym-1.7.0.orig/linkablemapobj.cpp ./linkablemapobj.cpp
+--- ../vym-1.7.0.orig/linkablemapobj.cpp	2006-04-08 04:01:22.000000000 -0600
++++ ./linkablemapobj.cpp	2006-04-08 04:01:31.000000000 -0600
+@@ -1,3 +1,5 @@
++#include <math.h>
++
+ #include "linkablemapobj.h"
+ #include "branchobj.h"
+ #include "mapeditor.h"
+diff -ur ../vym-1.7.0.orig/mainwindow.cpp ./mainwindow.cpp
+--- ../vym-1.7.0.orig/mainwindow.cpp	2006-04-08 04:01:22.000000000 -0600
++++ ./mainwindow.cpp	2006-04-08 04:02:08.000000000 -0600
+@@ -57,6 +57,8 @@
+ #include "settings.h"
+ #include "options.h"
+ 
++#include <unistd.h>
++
+ extern TextEditor *textEditor;
+ extern Main *mainWindow;
+ extern int statusbarTime;
+@@ -2322,7 +2324,7 @@
+ 		docpath="./vym.app/Contents/vym.pdf";
+ 	#else
+ 		// default path in SUSE LINUX
+-		docpath="/usr/share/doc/packages/vym/doc/vym.pdf";
++		docpath="/usr/share/vym/vym.pdf";
+ 	#endif
+ 
+ 	if (!QFile (docpath).exists() )
+diff -ur ../vym-1.7.0.orig/mapeditor.cpp ./mapeditor.cpp
+--- ../vym-1.7.0.orig/mapeditor.cpp	2006-04-08 04:01:22.000000000 -0600
++++ ./mapeditor.cpp	2006-04-08 04:01:31.000000000 -0600
+@@ -58,6 +58,8 @@
+ #include "icons/flag-flash.xpm"
+ #include "icons/flag-lifebelt.xpm"
+ 
++#include <unistd.h>
++
+ extern TextEditor *textEditor;
+ extern int statusbarTime;
+ extern Main *mainWindow;
+diff -ur ../vym-1.7.0.orig/misc.cpp ./misc.cpp
+--- ../vym-1.7.0.orig/misc.cpp	2006-04-08 04:01:22.000000000 -0600
++++ ./misc.cpp	2006-04-08 04:01:31.000000000 -0600
+@@ -1,5 +1,6 @@
+ #include <qregexp.h>
+ #include <qpoint.h>
++#include <math.h>
+ 
+ #include "misc.h"
+ 
+diff -ur ../vym-1.7.0.orig/xml.cpp ./xml.cpp
+--- ../vym-1.7.0.orig/xml.cpp	2006-04-08 04:01:22.000000000 -0600
++++ ./xml.cpp	2006-04-08 04:01:31.000000000 -0600
+@@ -4,6 +4,7 @@
+ #include <qcolor.h>
+ #include <qstylesheet.h>
+ #include <iostream>
++#include <typeinfo>
+ 
+ #include "misc.h"
+ #include "settings.h"

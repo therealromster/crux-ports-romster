@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A Perl Module Chain to faciliate the Creation and Modification of High-Quality PDF files
+# URL: http://search.cpan.org/~areibens/PDF-API2-0.60/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-compress-zlib
+
+name=p5-pdf-api2
+version=0.60
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AR/AREIBENS/PDF-API2-$version.tar.gz)
+
+build () {
+	cd PDF-API2-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

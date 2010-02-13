@@ -1,0 +1,11 @@
+--- misctools-2.4/scripts/Makefile.in	2006-04-17 23:15:26.000000000 +0200
++++ misctools-2.4/scripts/Makefile.in-new	2006-11-13 10:48:46.000000000 +0100
+@@ -128,7 +128,7 @@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+ bin_SCRIPTS = man2ps ps2pdf texi2pdf psprint
+-man_MANS = man2ps.1 ps2pdf.1 texi2pdf.1 psprint.1 
++man_MANS = 
+ EXTRA_DIST = $(bin_SCRIPTS)
+ all: all-am
+ 

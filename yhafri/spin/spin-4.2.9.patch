@@ -1,0 +1,10 @@
+--- Spin/Xspin4.2/xspin428.tcl	2007-01-05 16:57:21.000000000 +0100
++++ Spin/Xspin4.2/xspin428.tcl-new	2007-05-10 22:10:46.000000000 +0200
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ # the next line restarts using wish \
+-exec wish c:/cygwin/bin/xspin -- $*
++exec wish8.4 /usr/bin/xspin -- $*
+ 
+ # cd	;# enable to cd to home directory by default
+ 

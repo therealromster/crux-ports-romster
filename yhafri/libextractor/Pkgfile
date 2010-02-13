@@ -1,0 +1,33 @@
+# $Id: $
+# Description: A library used to extract meta-data from files of arbitrary type
+# URL: http://gnunet.org/libextractor/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libiconv
+
+name=libextractor
+version=0.5.19
+release=1
+source=(http://gnunet.org/$name/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="-liconv" \
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --enable-xpdf \
+		    --enable-printable \
+		    --disable-gnome \
+		    --disable-glibtest \
+		    --disable-glib \
+		    --disable-gtktest \
+		    --disable-qt
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -f $PKG/usr/lib/$name/${name}_thumbnail.so
+	ln -sf /usr/lib/$name/${name}_thumbnailqt.so $PKG/usr/lib/$name/${name}_thumbnail.so  
+
+	chown -R root:root $PKG
+}

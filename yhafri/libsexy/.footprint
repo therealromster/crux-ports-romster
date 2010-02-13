@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libsexy/
+-rw-r--r--	root/root	usr/include/libsexy/sexy-enum-types.h
+-rw-r--r--	root/root	usr/include/libsexy/sexy-icon-entry.h
+-rw-r--r--	root/root	usr/include/libsexy/sexy-spell-entry.h
+-rw-r--r--	root/root	usr/include/libsexy/sexy-url-label.h
+-rw-r--r--	root/root	usr/include/libsexy/sexy.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libsexy.a
+-rwxr-xr-x	root/root	usr/lib/libsexy.la
+lrwxrwxrwx	root/root	usr/lib/libsexy.so -> libsexy.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libsexy.so.1 -> libsexy.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libsexy.so.1.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libsexy.pc

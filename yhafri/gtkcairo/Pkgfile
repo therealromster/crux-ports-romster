@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Gtk binding for Cairo library
+# URL: http://cairographics.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, cairo, glitz
+
+name=gtkcairo
+version=0.3
+release=1
+source=(ftp://ftp.freebsd.org/pub/FreeBSD/ports/local-distfiles/ahze/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --with-x
+
+    make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    chown -R root:root $PKG
+}

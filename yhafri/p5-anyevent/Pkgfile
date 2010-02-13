@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Provide framework for multiple event loops
+# URL: http://search.cpan.org/~mlehmann/AnyEvent-2.52/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-event, p5-coro, p5-glib, p5-tk
+
+name=p5-anyevent
+version=2.52
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/AnyEvent-$version.tar.gz)
+
+build () {
+	cd AnyEvent-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

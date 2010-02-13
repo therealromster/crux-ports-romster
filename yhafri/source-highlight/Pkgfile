@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Given a source file, produces a document with syntax highlighting
+# URL: http://www.gnu.org/software/src-highlite/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: help2man, ctags
+
+name=source-highlight
+version=2.5
+release=1
+source=(http://ftp-stud.fht-esslingen.de/pub/Mirrors/ftp.gnu.org/src-highlite/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

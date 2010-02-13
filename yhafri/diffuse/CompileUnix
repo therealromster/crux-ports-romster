@@ -1,0 +1,21 @@
+#!/bin/sh
+
+cd discus/prog
+make -f Makefile.unix clean
+make -f Makefile.unix
+
+cd ../../pdffit/prog
+make -f Makefile.unix clean
+make -f Makefile.unix
+
+cd ../../kuplot/prog
+make -f Makefile.unix clean
+make -f Makefile.unix
+
+cd ../../diffev/prog
+make -f Makefile.unix clean
+make -f Makefile.unix
+
+cd ../../..
+
+echo "Done .."

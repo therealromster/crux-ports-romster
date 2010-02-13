@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Cross-Platform Software Publishing and Package Manager/Installer
+# URL: http://www.easysw.com/epm/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, fltk
+
+name=epm
+version=4.1
+release=1
+source=(ftp://ftp.rz.tu-bs.de/pub/mirror/ftp.easysw.com/ftp/pub/$name/$version/$name-$version-source.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTROOT=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

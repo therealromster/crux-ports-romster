@@ -1,0 +1,5 @@
+PRE-INSTALL:
+
+		* "txt2regex" requires a Bash version 2.04 or 
+		later. To verifiy type:
+		# bash --version

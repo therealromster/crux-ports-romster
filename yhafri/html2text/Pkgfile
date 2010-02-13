@@ -1,0 +1,20 @@
+# Description: Converts HTML documents into plain text
+# URL: http://www.mbayer.de/html2text/ 
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=html2text
+version=1.3.2a
+release=1
+source=(http://www.mbayer.de/html2text/downloads/html2text-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    install -D -m 755 html2text $PKG/bin/html2text
+    install -D -m 644 html2text.1.gz $PKG/usr/man/man1/html2text.1.gz
+    install -D -m 644 html2textrc.5.gz $PKG/usr/man/man5/html2textrc.5.gz
+}

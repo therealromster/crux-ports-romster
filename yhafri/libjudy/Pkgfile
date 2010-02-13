@@ -1,0 +1,22 @@
+# $Id: $
+# Description: C library for creating and accessing dynamic arrays.
+# URL: http://judy.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libjudy
+version=1.0.4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/judy/Judy-$version.tar.gz)
+
+build () {
+	cd Judy-$version
+
+	./configure --prefix=/usr \
+                    --enable-32-bit 
+    	make
+	make DESTDIR=$PKG install
+	cp src/obj/.libs/{libJudy.a,libJudy.so} $PKG/usr/lib
+    	chown -R root:root $PKG
+}

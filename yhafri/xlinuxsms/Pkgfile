@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A graphical interface to the linuxsms tool
+# URL: http://xlinuxsms.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk, linuxsms
+
+name=xlinuxsms
+version=0.1.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+    $name-$version.patch)
+
+
+build () {
+    patch -p0 < $name-$version.patch
+
+    install -D -m 755 $name.pl $PKG/usr/bin/$name.pl
+
+    chown -R root:root $PKG
+}

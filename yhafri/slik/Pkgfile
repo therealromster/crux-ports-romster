@@ -1,0 +1,23 @@
+# $Id: $
+# Description: SimpLIstic sKin interface
+# URL: http://gqmpeg.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, libpng
+
+name=slik
+version=0.92.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/gqmpeg/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		     --disable-nls
+
+    	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+    	chown -R root:root $PKG
+}

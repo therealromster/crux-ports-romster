@@ -1,0 +1,17 @@
+# $Id: $
+# Description: A  course management system (CMS) to help educators create quality online courses 
+# URL: http://moodle.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: apache, php, libgd, zlib, mysql, postgresql
+
+
+name=moodle
+version=1.4.3
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/moodle/$name-$version.tgz)
+
+build () {
+    mkdir -p $PKG/home/www/htdocs
+	mv $name $PKG/home/www/htdocs
+}

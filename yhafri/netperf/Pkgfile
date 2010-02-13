@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Network performance measurement 
+# URL: http://www.netperf.org/netperf/NetperfPage.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=netperf
+version=2.4.1
+release=1
+source=(ftp://ftp.cup.hp.com/dist/networking/benchmarks/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+    	make
+	make prefix=$PKG/usr exec_prefix=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

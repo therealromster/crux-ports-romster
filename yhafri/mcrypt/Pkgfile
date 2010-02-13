@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Mcrypt replacement of the old command crypt
+# URL: http://mcrypt.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libmcrypt, mhash
+
+name=mcrypt
+version=2.6.4
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --disable-nls
+
+    make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

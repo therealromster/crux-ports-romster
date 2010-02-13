@@ -1,0 +1,22 @@
+# $Id: $
+# Description: The Superior Lisp Interaction Mode for Emacs
+# URL: http://common-lisp.net/project/slime/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs, cmucl
+
+name=slime
+version=2.0
+release=1
+source=(http://common-lisp.net/project/$name/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/share/emacs/site-lisp
+
+	mv $name-$version $PKG/usr/share/emacs/site-lisp/$name
+
+	cd $PKG/usr/share/emacs/site-lisp/$name
+	rm -rf doc ChangeLog HACKING NEWS PROBLEMS README *.sh
+
+	chown -R root:root $PKG
+}

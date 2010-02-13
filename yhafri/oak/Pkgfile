@@ -1,0 +1,26 @@
+# $Id: $
+# Description: System Log Reporting Tool
+# URL: http://www.ktools.org/oak/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=oak
+version=1.5.0
+release=1
+source=(http://www.ktools.org/dist/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	patch -p1<../$name-$version.patch
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the NETCDF library
+# URL: http://pdl.perl.org/libraries/index_en.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: netcdf
+
+name=p5-pdl-netcdf
+version=0.89
+release=1
+source=(http://www.perl.com/CPAN/modules/by-module/PDL/DHUNT/PDL-NetCDF-$version.tar.gz)
+
+build () {
+	cd PDL-NetCDF-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

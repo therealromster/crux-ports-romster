@@ -1,0 +1,5 @@
+POST-INSTALL:
+
+
+		* Set the env variable:
+		export SBCL_HOME=/usr/lib/sbcl

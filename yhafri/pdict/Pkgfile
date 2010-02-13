@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Process dictionary in Erlang 
+# URL: http://www.erlang.org/pipermail/erlang-questions/2007-April/026165.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=pdict
+version=1
+release=1
+source=($name.erl $name.patch)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	patch -p0<./$name.patch
+
+	erl -make
+
+	mv $name.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv $name.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

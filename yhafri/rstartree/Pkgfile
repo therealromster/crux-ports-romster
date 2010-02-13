@@ -1,0 +1,24 @@
+# $Id: $
+# Description: R*-tree library
+# URL: http://www.rtreeportal.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=rstartree
+version=1
+release=1
+source=(http://www.mathematik.uni-marburg.de/~seeger/RStarTree.tar.gz \
+	$name.patch)
+
+build () {
+	patch -p0<$name.patch
+
+	make
+
+	install -D -m 644 ../libcSmRST.a $PKG/usr/lib/libcSmRST.a
+	install -D -m 644 ../RStarTree.h $PKG/usr/include/RStarTree.h
+	install -D -m 644 ../RSTBase.h   $PKG/usr/include/RSTBase.h
+
+	chown -R root:root $PKG
+}

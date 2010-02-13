@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Manual text wrapping and reformatting 
+# URL: http://search.cpan.org/~dconway/Text-Reform-1.11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-text-reform
+version=1.11
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/Text-Reform-$version.tar.gz)
+
+build () {
+	cd Text-Reform-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

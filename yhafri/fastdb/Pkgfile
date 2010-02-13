@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Main Memory Relational Database Management System
+# URL: http://www.garret.ru/~knizhnik/fastdb.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=fastdb
+version=3.31
+release=1
+source=(http://www.garret.ru/~knizhnik/$name-$version.tar.gz)
+#	$name-$version.patch
+
+build () {
+	cd $name
+	#patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install
+
+	cp lib${name}_r.a libcli_r.a $PKG/usr/lib
+	cd $PKG/usr/lib
+	ln -sf lib${name}_r.so.2 lib${name}_r.so
+	ln -sf libcli_r.so.2     libcli_r.so
+	
+	chown -R root:root $PKG
+}

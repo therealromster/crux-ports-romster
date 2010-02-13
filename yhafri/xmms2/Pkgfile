@@ -1,0 +1,21 @@
+# Description: Second generation of the XMMS music player
+# URL: http://xmms2.sourceforge.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Rene Lengwinat <rugek@btcl.de>
+# Depends on: x11, scons, libmad, sqlite3
+# Nice to have: alsa-lib, curl, ecore, pyrex, ruby, samba
+
+name=xmms2
+version=0.2DrJekyll
+release=1
+
+source=(http://kent.dl.sourceforge.net/sourceforge/xmms2/$name-$version.tar.bz2)
+
+build () {
+  	cd $name-$version
+  
+	scons PREFIX=/usr CCFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS"
+  	scons PREFIX=/usr INSTALLDIR=$PKG install
+
+	chown -R root:root $PKG
+}

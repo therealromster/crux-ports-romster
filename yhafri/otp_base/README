@@ -1,0 +1,16 @@
+POST-INSTALL:
+
+		* Add the following environment variable:
+		export ERL_RUN_TOP=/usr/lib/erlang
+
+		* Each time you need to use 'otp_base', invoke
+		a new instance of it like this:
+		$ otp_base
+
+		This will create a clean copy of the framework on 
+		/tmp/otp_base$$ (where $$ is procid)
+
+INFO:
+		* Read the excellent article describing 'otp_base' usage 
+		written by Martin Logan at:
+		http://wiki.trapexit.org/index.php/Building_An_OTP_Application

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A lightweight, robust, and efficient POSIX compliant regexp matching library
+# URL: http://laurikari.net/tre/download.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tre
+version=0.7.5
+release=1
+source=(http://laurikari.net/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	mv $PKG/usr/bin/agrep $PKG/usr/bin/agrep@
+
+	chown -R root:root $PKG
+}

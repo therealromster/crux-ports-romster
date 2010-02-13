@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Provides a perl interface for easy use of Walter Zorn's javascript tooltip library
+# URL : http://search.cpan.org/~unisolve/HTML-Tooltip-Javascript-0.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-html-tooltip-javascript
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/U/UN/UNISOLVE/HTML-Tooltip-Javascript-$version.tar.gz)
+
+build () {
+	cd HTML-Tooltip-Javascript-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

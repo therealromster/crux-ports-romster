@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl script which indents and reformats Perl scripts to make them easier to read
+# URL: http://perltidy.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tidy
+version=1
+release=1
+source=(http://belnet.dl.sourceforge.net/sourceforge/perltidy/Perl-Tidy-20031021.tar.gz)
+
+build () {
+	cd Perl-Tidy-20031021
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

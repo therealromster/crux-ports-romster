@@ -1,0 +1,27 @@
+# $Id: $
+# Description: The Universal Database Tool
+# URL: http://www.dbvis.com/products/dbvis/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant, javasqlite, postgresql-jdbc, firebird-jdbc, mysql-jdbc
+
+name=dbvis5
+version=5.1.1
+release=1
+source=(http://www.dbvis.com/product_download/dbvis/media/dbvis_linux_5_1_1.sh)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	sh $SRC/dbvis_linux_5_1_1.sh
+
+	cd $PKG/usr/lib/dbvis5/
+	rm -rf "DbVisualizer Uninstaller.desktop" \
+	       README.txt uninstall 
+
+	rm -rf $PKG/usr/bin/dbvis
+
+	ln -sf /usr/lib/$name/dbvis $PKG/usr/bin/$name
+ 
+	chown -R root:root $PKG
+}

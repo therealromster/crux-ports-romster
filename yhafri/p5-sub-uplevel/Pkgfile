@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Apparently run a function in a higher stack frame
+# URL: http://search.cpan.org/~mschwern/Sub-Uplevel-0.09/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-sub-uplevel
+version=0.09
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSCHWERN/Sub-Uplevel-$version.tar.gz)
+
+build () {
+	cd Sub-Uplevel-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

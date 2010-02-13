@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Multi-tabbed X terminal emulator based on rxvt
+# URL: http://materm.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libiconv
+
+
+name=mrxvt
+version=0.3.13
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/materm/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure \
+        --prefix=/usr \
+        --enable-everything \
+        --disable-debug \
+        --disable-nls \
+        --with-x
+    sed -i "s/\(-lXrender\)/\1 \-liconv/" Makefile src/Makefile
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share
+    chown -R root:root $PKG
+}

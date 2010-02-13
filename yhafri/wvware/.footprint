@@ -1,0 +1,34 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/wv2-config
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/wv2/
+-rw-r--r--	root/root	usr/include/wv2/associatedstrings.h
+-rw-r--r--	root/root	usr/include/wv2/convert.h
+-rw-r--r--	root/root	usr/include/wv2/dllmagic.h
+-rw-r--r--	root/root	usr/include/wv2/fields.h
+-rw-r--r--	root/root	usr/include/wv2/fonts.h
+-rw-r--r--	root/root	usr/include/wv2/functor.h
+-rw-r--r--	root/root	usr/include/wv2/functordata.h
+-rw-r--r--	root/root	usr/include/wv2/global.h
+-rw-r--r--	root/root	usr/include/wv2/handlers.h
+-rw-r--r--	root/root	usr/include/wv2/lists.h
+-rw-r--r--	root/root	usr/include/wv2/olestorage.h
+-rw-r--r--	root/root	usr/include/wv2/olestream.h
+-rw-r--r--	root/root	usr/include/wv2/paragraphproperties.h
+-rw-r--r--	root/root	usr/include/wv2/parser.h
+-rw-r--r--	root/root	usr/include/wv2/parserfactory.h
+-rw-r--r--	root/root	usr/include/wv2/sharedptr.h
+-rw-r--r--	root/root	usr/include/wv2/styles.h
+-rw-r--r--	root/root	usr/include/wv2/textconverter.h
+-rw-r--r--	root/root	usr/include/wv2/ustring.h
+-rw-r--r--	root/root	usr/include/wv2/utilities.h
+-rw-r--r--	root/root	usr/include/wv2/word95_generated.h
+-rw-r--r--	root/root	usr/include/wv2/word97_generated.h
+-rw-r--r--	root/root	usr/include/wv2/word_helper.h
+-rw-r--r--	root/root	usr/include/wv2/wvlog.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libwv2.la
+lrwxrwxrwx	root/root	usr/lib/libwv2.so -> libwv2.so.1.0.8
+lrwxrwxrwx	root/root	usr/lib/libwv2.so.1 -> libwv2.so.1.0.8
+-rwxr-xr-x	root/root	usr/lib/libwv2.so.1.0.8

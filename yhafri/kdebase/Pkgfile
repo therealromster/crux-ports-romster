@@ -1,0 +1,28 @@
+# Description: Basic applications for the KDE system  
+# URL: http://www.kde.org
+# Maintainer: sten, nick dot steeves at shaw dot ca
+# Packager: 
+# Depends on: kdelibs, samba, ghostscript, cdparanoia, lame 
+
+name=kdebase
+version=3.5.4
+release=1
+source=(http://download.kde.org/stable/3.5.4/src/$name-$version.tar.bz2 kdm \
+    kicker-taskbar-resize.diff ksystraycmd-quoting.diff)
+
+build() {
+    cd $name-$version
+    patch -p0 -i $SRC/kicker-taskbar-resize.diff
+    patch -p0 -i $SRC/ksystraycmd-quoting.diff
+    ./configure	--prefix=/usr \
+        --with-shadow \
+        --disable-debug \
+        --disable-dependency-tracking \
+        --enable-final
+    make 
+    make DESTDIR=$PKG GENKDMCONF_FLAGS="--no-old" install
+    mkdir -p $PKG/etc/rc.d
+    install -m 755 ../kdm $PKG/etc/rc.d/kdm
+    rm -rf $PKG/usr/share/doc/kdm/
+    find $PKG/usr/share/doc/HTML/* ! -wholename "*HTML/en*" -delete
+}

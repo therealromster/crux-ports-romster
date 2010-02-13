@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Memory allocation debugging
+# URL: http://www.rasterman.com/index.php?page=Memprof
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk
+
+name=memprof
+version=0.5.9
+release=1
+source=(http://www.rasterman.com/files/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

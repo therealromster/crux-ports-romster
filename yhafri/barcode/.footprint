@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/barcode
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/barcode.h
+drwxr-xr-x	root/root	usr/info/
+-rw-r--r--	root/root	usr/info/barcode.info
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libbarcode.a
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/barcode.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/barcode.3.gz

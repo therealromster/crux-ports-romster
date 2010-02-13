@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Perl script to send SMS via some French Telecom operators
+# URL: http://julien23.free.fr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-date-manip, p5-bundle-lwp, p5-net-sms
+
+name=sms4nothing
+version=0.8
+release=1
+source=(http://julien23.free.fr/pub/$name.$version.tar.gz \
+    	$name-$version.patch)
+
+build () {
+    	PERL_VERSION=`perl -v | grep -oE "[[:digit:]].[[:digit:]].[[:digit:]]"`
+    	mkdir -p $PKG/usr/lib/perl5/site_perl/$PERL_VERSION
+	
+	cd sms
+    	patch -p1 < $SRC/$name-$version.patch
+    	
+	install -D -m 755 $name.pl $PKG/usr/bin/$name
+    	cp wopnum.rtf $PKG/usr/bin/
+    	cp -rf Net $PKG/usr/lib/perl5/site_perl/$PERL_VERSION
+	
+	chown -R root:root $PKG
+}

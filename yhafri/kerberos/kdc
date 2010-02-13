@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# /etc/rc.d/kdc: start/stop kerberos key distribution center and kadmind daemons
+#
+
+if [ "$1" = "start" ]; then
+	/usr/sbin/krb5kdc
+	/usr/sbin/kadmind
+elif [ "$1" = "stop" ]; then
+	if [ -f /var/run/krb5kdc.pid ]; then kill `cat /var/run/krb5kdc.pid`
+	else killall -q /usr/sbin/krb5kdc; fi
+	if [ -f /var/run/kadmind.pid ]; then kill 'cat /var/run/kadmind.pid'
+	else killall -q /usr/sbin/kadmind; fi
+else
+	echo "usage: $0 start|stop"
+fi
+
+# End of file

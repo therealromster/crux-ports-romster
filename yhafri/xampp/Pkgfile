@@ -1,0 +1,21 @@
+# $Id: $
+# Description: An easy to install Apache distribution containing MySQL, PHP and Perl
+# URL: http://www.apachefriends.org/en/xampp.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=xampp
+version=1.6.3b
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-linux-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/opt
+	mkdir -p $PKG/etc/rc.d/
+
+	mv lampp $PKG/opt/
+	ln -sf /opt/lampp/lampp $PKG/etc/rc.d/$name
+
+	chown -R root:root $PKG
+}

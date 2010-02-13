@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A Tcl/Tk tool for automating interactive applications
+# URL: http://expect.nist.gov/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk, x11
+
+name=expect
+version=5.43
+release=1
+source=(http://expect.nist.gov/$name.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --sysconfdir=/etc \
+		    --with-tclinclude=/usr/include \
+		    --with-{tcl,tk}=/usr/lib \
+                    --enable-symbols \
+                    --enable-shared  \
+                    --with-x \
+                    --enable-gcc
+
+	make
+	make INSTALL_ROOT=$PKG install
+	ln -sf ${name}${version}/lib${name}${version}.a \
+	$PKG/usr/lib/lib${name}${version}.a
+        chown -R root:root $PKG
+}
+

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Software for Large-scale Unconstrained Optimization
+# URL: http://www.ece.northwestern.edu/~nocedal/CG+.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: g95
+
+name=cg+
+version=1.1
+release=1
+source=(http://www.ece.northwestern.edu/~nocedal/Software/CG+.$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd CG+
+
+	f90 *.f -o $PKG/usr/bin/$name
+	f90 *.f -o lib$name.o
+	ar cvr lib$name.a *.o
+	install -D -m 644 lib$name.a $PKG/usr/lib/lib$name.a
+
+	chown -R root:root $PKG
+}

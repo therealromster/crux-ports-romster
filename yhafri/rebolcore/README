@@ -1,0 +1,29 @@
+POST-INSTALL:
+
+IMPORTANT:
+1) This is the core of Rebol or REBOL/CORE.
+After installing, Rebol core is called "rebol". This makes us able to distinguish between rebol (REBOL/CORE) and rebolv (REBOL/VIEW)
+
+2) To enable the "rebol-mode" for emacs, add the following lines to your .emacs (or .emacs.el) file in your home directory:
+
+---START--------------------copy and past this---------------START---
+
+(defun go-rebol ()
+  (interactive)
+  (progn
+	(save-buffer)
+        (switch-to-buffer
+        (process-buffer
+        	(setq proc
+                (start-process "subrebol" "subrebol" "/usr/bin/rebol" "-qwsl"
+                	(buffer-file-name (current-buffer))))))
+        (comint-mode)
+  )
+)
+(global-set-key "\M-e" (quote go-rebol))
+
+(setq load-path (cons (expand-file-name "/usr/share/emacs/site-lisp") load-path))
+(load-library "rebol.el") 
+(add-to-list 'auto-mode-alist '("\\.r" . rebol-mode))
+
+---END--------------------copy and past this------------------END-----

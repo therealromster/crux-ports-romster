@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Embedded video player for Firefox
+# URL: http://mplayerplug-in.sourceforge.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: qt3, mplayer, firefox
+
+name=mplayerplug-in
+version=3.40
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/mplayerplug-in/mplayerplug-in-$version.tar.gz \
+	http://ftp.mozilla.org/pub/mozilla.org/mozilla/releases/mozilla1.8b1/gecko-sdk-i686-pc-linux-gnu-1.8b1.tar.gz)
+
+build () {
+    	mkdir -p $PKG/usr/lib/firefox/plugins
+    	mkdir -p $PKG/usr/lib/firefox/components
+
+    	cd $name
+	./configure --with-gecko-sdk=$SRC/gecko-sdk \
+		    --enable-x \
+		    --enable-qt \
+		    --enable-wmp \
+		    --enable-rm \
+		    --enable-gtk2 \
+		    --disable-nls
+
+    	make
+
+    	mv $SRC/$name/mplayerplug-in*.so $PKG/usr/lib/firefox/plugins
+	mv $SRC/$name/mplayerplug-in*.xpt $PKG/usr/lib/firefox/components
+
+	chown -R root:root $PKG
+}

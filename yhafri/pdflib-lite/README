@@ -1,0 +1,5 @@
+POST-INSTALL:
+
+		* For Java users, include pdflib.jar in your CLASSPATH:
+		export CLASSPATH=/usr/lib/java/pdflib.jar:$CLASSPATH
+

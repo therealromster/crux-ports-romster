@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A C library for linear algebra, numerical integration ...
+# URL: http://freshmeat.net/projects/ccmath/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ccmath
+version=2.2.1
+release=1
+source=(http://freshmeat.net/redir/$name/1083/url_tgz/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/{include,lib}
+
+	cd $name-$version
+	echo "y" | ./makelibs.sh
+
+        install -D -m 644 $name.h $PKG/usr/include/$name.h
+        install -D tmp/libccm.a   $PKG/usr/lib/libccm.a
+        install -D tmp/libccm.so  $PKG/usr/lib/libccm.so
+        
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: jQuery code highlighter plugin
+# URL: http://noteslog.com/chili/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=chili
+version=1.8
+release=1
+source=(http://noteslog.com/personal/projects/$name/$version/$name-$version-all.zip)
+
+build () {
+	mkdir -p $PKG/etc/share
+
+	mv $name $PKG/etc/share
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Simple utilities for measuring bulk read and write throughput to files or devices
+# URL: http://samba.org/junkcode/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=readfiles
+version=1
+release=1
+source=($name.c writefiles.c)
+
+build () {
+	gcc -o $name      $name.c
+	gcc -o writefiles writefiles.c
+
+	strip $name writefiles
+
+	install -D -m 755 $name      $PKG/usr/bin/$name
+	install -D -m 755 writefiles $PKG/usr/bin/writefiles
+
+	chown -R root:root $PKG
+}

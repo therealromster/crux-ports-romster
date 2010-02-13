@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/posregex-1.0/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/posregex-1.0/ebin/
+-rw-r--r--	root/root	usr/lib/erlang/lib/posregex-1.0/ebin/posregex.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/posregex-1.0/priv/
+-rwxr-xr-x	root/root	usr/lib/erlang/lib/posregex-1.0/priv/RE_drv.so
+drwxr-xr-x	root/root	usr/lib/erlang/lib/posregex-1.0/src/
+-rw-r--r--	root/root	usr/lib/erlang/lib/posregex-1.0/src/posregex.app.src
+-rw-r--r--	root/root	usr/lib/erlang/lib/posregex-1.0/src/posregex.erl

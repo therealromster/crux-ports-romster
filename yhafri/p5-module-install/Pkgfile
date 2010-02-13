@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Automatic install of dependencies via CPAN
+# URL: http://search.cpan.org/~autrijus/Module-Install-0.53/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-module-scandeps, p5-module-corelist, p5-cpanplus, p5-par-dist, p5-archive-tar, p5-yaml, p5-extutils-parsexs, p5-module-build
+# OLD DEPS: p5-module-scandeps, p5-module-corelist, p5-cpanplus, p5-par-dist, p5-archive-tar, p5-yaml, p5-extutils-parsexs, p5-extutils-makemaker, p5-module-build
+
+name=p5-module-install
+version=0.64
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AU/AUDREYT/Module-Install-$version.tar.gz)
+
+build () {
+	cd Module-Install-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

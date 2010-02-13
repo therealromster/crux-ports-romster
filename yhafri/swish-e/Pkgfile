@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Simple Web Indexing System for Humans - Enhanced
+# URL: http://swish-e.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libxml2, zlib, p5-bundle-lwp, p5-uri, p5-html-parser, p5-html-tagset, p5-mime-tools
+
+name=swish-e
+version=2.4.3
+release=1
+source=(http://swish-e.org/Download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+
+}

@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/kde3/
+-rwxr-xr-x	root/root	usr/lib/kde3/kcm_kdmtheme.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kcm_kdmtheme.so
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+drwxr-xr-x	root/root	usr/share/applications/kde/
+-rw-r--r--	root/root	usr/share/applications/kde/kdmtheme.desktop
+drwxr-xr-x	root/root	usr/share/doc/
+drwxr-xr-x	root/root	usr/share/doc/HTML/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/kdmtheme/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/kdmtheme/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdmtheme/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdmtheme/index.docbook
+-rw-r--r--	root/root	usr/share/doc/HTML/en/kdmtheme/kdmtheme.png

@@ -1,0 +1,10 @@
+--- gcc-3.4.4/gcc/Makefile.in	2005-02-24 10:26:57.000000000 +0100
++++ gcc-3.4.4-new/gcc/Makefile.in	2005-07-21 21:28:54.000000000 +0200
+@@ -2553,7 +2553,6 @@
+ 	(TARGET_MACHINE='$(target)'; srcdir=`cd $(srcdir); ${PWD_COMMAND}`; \
+ 	SHELL='$(SHELL)' ;\
+ 	export TARGET_MACHINE srcdir SHELL ; \
+-	$(SHELL) ./fixinc.sh `${PWD_COMMAND}`/include $(SYSTEM_HEADER_DIR) $(OTHER_FIXINCLUDES_DIRS); \
+ 	rm -f include/syslimits.h; \
+ 	if [ -f include/limits.h ]; then \
+ 	  mv include/limits.h include/syslimits.h; \

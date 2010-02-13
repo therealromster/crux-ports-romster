@@ -1,0 +1,22 @@
+# $Id: $
+# Description: New Erlang regular expression module
+# URL: http://forum.trapexit.org/viewtopic.php?t=8675
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=re@
+tname=re
+version=1
+release=1
+source=($tname.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$tname-$version/{src,ebin}
+	erl -make
+
+	mv $tname.beam $PKG/usr/lib/erlang/lib/$tname-$version/ebin
+	mv $tname.erl  $PKG/usr/lib/erlang/lib/$tname-$version/src
+	
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A factory object for dispensing Visitor objects
+# URL: http://search.cpan.org/~stevan/Tree-Simple-VisitorFactory-0.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-tree-simple, p5-scalar-list-utils
+
+name=p5-tree-simple-visitorfactory
+version=0.10
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/ST/STEVAN/Tree-Simple-VisitorFactory-$version.tar.gz)
+
+build () {
+	cd Tree-Simple-VisitorFactory-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

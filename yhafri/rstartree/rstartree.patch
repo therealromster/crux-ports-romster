@@ -1,0 +1,11 @@
+--- RStarTree.h	1993-08-04 18:28:55.000000000 +0200
++++ RStarTree.h-new	2006-09-27 14:24:10.000000000 +0200
+@@ -38,7 +38,7 @@
+ #  include <fcntl.h>
+ #  include <sys/fcntl.h>
+ #else
+-#  include <sys/fcntlcom.h>
++#  include <fcntl.h>
+ #  include <sys/fcntl.h>
+ #endif
+ 

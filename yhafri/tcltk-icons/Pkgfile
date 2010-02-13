@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A cross platform icons library for Tcl/Tk
+# URL: http://www.satisoft.com/tcltk/icons/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=tcltk-icons
+version=1.0
+release=1
+source=(http://www.satisoft.com/tcltk/icons/icons-crystal.tgz \
+    http://www.satisoft.com/tcltk/icons/icons-ikons.tgz \
+    http://www.satisoft.com/tcltk/icons/icons-kde.tgz \
+    http://www.satisoft.com/tcltk/icons/icons-klassic.tgz \
+    http://www.satisoft.com/tcltk/icons/icons-slick.tgz \
+    http://www.satisoft.com/tcltk/icons/icons-sat.tar \
+    http://www.satisoft.com/tcltk/icons/icons-eda.tar)
+
+build () {
+    mkdir -p $PKG/usr/share/icons/$name
+    tar -xvf icons-sat.tar
+    tar -xvf icons-eda.tar
+    rm -rf *.tar
+    for i in *; do
+        echo ">>uncompress $i and add it to tkIcons"
+        echo ">>cat $i >> tkIcons"
+        echo ""
+        cat $i >> $PKG/usr/share/icons/$name/tkIcons
+    done
+    chown -R root:root $PKG
+}

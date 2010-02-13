@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Calculation of relative entropy and R-measure
+# URL: http://www.math.toronto.edu/dkhmelev/PROGS/tacu/cross-entropy-eng.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cross-entropy
+version=1.3.2
+release=1
+source=(http://www.math.toronto.edu/dkhmelev/PROGS/tacu/src/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	strip  bin/$nam
+	install -D -m 755 bin/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

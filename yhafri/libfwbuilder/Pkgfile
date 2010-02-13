@@ -1,0 +1,18 @@
+# Description: Firewall Builder API
+# URL: http://www.fwbuilder.org/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libxslt, openssl
+
+name=libfwbuilder
+version=2.0.10
+release=1
+source=(http://dl.sourceforge.net/sourceforge/fwbuilder/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+   	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG INSTALL_ROOT=$PKG install
+	rm -rf $PKG/usr/share/doc
+}

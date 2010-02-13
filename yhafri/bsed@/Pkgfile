@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A Stream Editor for Binary Files
+# URL: http://www1.bell-labs.com/project/wwexptools/bsed/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bsed@
+version=1.0
+release=1
+source=(http://www1.bell-labs.com/cgi-user/wwexptools/gensnapshot/source/bsedsrc.tar.gz)
+
+build () {
+	cd bsedsrc
+
+	gcc -o $name bsed.c
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

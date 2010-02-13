@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A download manager
+# URL: http://urlget.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, curl, gtk
+
+name=urlgfe
+version=1.0rc2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/urlget/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/{applications,locale}
+
+	chown -R root:root $PKG
+}

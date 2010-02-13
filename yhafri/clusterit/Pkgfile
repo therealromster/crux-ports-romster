@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A collection of clustering tools
+# URL: http://www.garbled.net/clusterit.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=clusterit
+version=2.3.1
+release=1
+source=(http://www.garbled.net/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-x11
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

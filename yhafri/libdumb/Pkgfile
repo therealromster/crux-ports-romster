@@ -1,0 +1,20 @@
+# Description: Dynamic Universal Music Bibliotheque
+# URL: http://dumb.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: allegro
+
+name=libdumb
+version=0.9.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/dumb/dumb-$version-fixed.tar.gz)
+
+build() {
+    cd dumb
+	export PREFIX=$PKG/usr
+    make
+	mkdir -p $PKG/usr/{bin,include,lib}
+    make install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

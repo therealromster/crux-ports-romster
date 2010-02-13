@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Highly Scalable Lock Free Java HashTable
+# URL: http://sourceforge.net/projects/high-scale-lib
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=high-scale-lib
+version=0.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd org/cliffc/high_scale_lib
+	rm -f *.class
+
+	javac *.java
+
+	mv *.class *.java $PKG/usr/lib/$name/
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A console application link checker derived from ht://Dig
+# URL: http://htcheck.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: php
+
+name=htcheck
+version=1.2.4-rc1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

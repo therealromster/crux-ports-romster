@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Perl extension for using the cfitsio library
+# URL: http://search.cpan.org/~pratzlaff/Astro-FITS-CFITSIO-1.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-astro-fits-cfitsio
+version=1.02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/P/PR/PRATZLAFF/Astro-FITS-CFITSIO-$version.tar.gz)
+
+build () {
+	export CFITSIO=/usr/lib
+	cd Astro-FITS-CFITSIO-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

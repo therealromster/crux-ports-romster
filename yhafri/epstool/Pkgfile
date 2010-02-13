@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Utility to create, convert or extract preview images in EPS files
+# URL: http://www.cs.wisc.edu/~ghost/gsview/epstool.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libpng, zlib, gtk
+
+name=epstool
+version=3.08
+release=1
+source=(ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man/man1}
+	cd $name-$version
+
+        make
+
+	install -m 755 ./bin/$name   $PKG/usr/bin/epstool
+	install -m 644 doc/epstool.1 $PKG/usr/man/man1/epstool.1
+
+        chown -R root:root $PKG
+}

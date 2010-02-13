@@ -1,0 +1,23 @@
+# $Id: $
+# Description: AVR In-System Programmer
+# URL: http://savannah.nongnu.org/projects/uisp/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=uisp
+version=20050207
+release=1
+source=(http://savannah.nongnu.org/download/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/
+
+	chown -R root:root $PKG
+}

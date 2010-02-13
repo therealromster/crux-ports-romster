@@ -1,0 +1,21 @@
+# $Id: $
+# Description: What paths do your users take once on your site?
+# URL: http://pathalizer.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: graphviz
+
+name=pathalizer
+version=0.7
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name-$version
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

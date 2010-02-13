@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl modules for parsing MIME entities
+# URL: http://search.cpan.org/~dskoll/MIME-tools-5.413/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-io-stringy, p5-mime-base64, p5-mailtools
+
+name=p5-mime-tools
+version=5.416
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DS/DSKOLL/MIME-tools-$version.tar.gz)
+
+build () {
+	cd MIME-tools-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

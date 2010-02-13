@@ -1,0 +1,11 @@
+--- dbc/src/dbc.rb	2005-05-10 19:28:09.000000000 +0200
++++ dbc/src/dbc.rb-new	2007-01-11 10:40:52.000000000 +0100
+@@ -22,7 +22,7 @@
+ 	end
+ 
+ 	def DBC.get_ocl(str)
+-		str =~ /\A\/\*\*[ \t]*[\r\n]+(\s*\*?\s*(?:inv|pre|post|context).+)[ \t]*\*\/\Z/m
++		str =~ /\A\/\*\*\!dbc[ \t]*[\r\n]+(\s*\*?\s*(?:inv|pre|post|context).+)[ \t]*\*\/\Z/m
+ 		$1
+ 	end
+ 	

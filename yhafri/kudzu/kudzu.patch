@@ -1,0 +1,54 @@
+--- kudzu/pci.c	2006-12-03 00:37:42.000000000 +0100
++++ kudzu/pci.c-new	2006-12-03 00:38:22.000000000 +0100
+@@ -141,10 +141,10 @@
+ 	return PCI_CLASS_BRIDGE_CARDBUS;
+      case CLASS_IDE:
+ 	return PCI_CLASS_STORAGE_IDE;
+-     case CLASS_ATA:
+-	return PCI_CLASS_STORAGE_ATA;
+-     case CLASS_SATA:
+-	return PCI_CLASS_STORAGE_SATA;
++/*      case CLASS_ATA: */
++/* 	return PCI_CLASS_STORAGE_ATA; */
++/*      case CLASS_SATA: */
++/* 	return PCI_CLASS_STORAGE_SATA; */
+      default:
+ 	return 0;
+     }
+@@ -169,10 +169,10 @@
+ 	return CLASS_FLOPPY;
+      case PCI_CLASS_STORAGE_RAID:
+ 	return CLASS_RAID;
+-     case PCI_CLASS_STORAGE_ATA:
+-	return CLASS_ATA;
+-     case PCI_CLASS_STORAGE_SATA:
+-	return CLASS_SATA;
++/*      case PCI_CLASS_STORAGE_ATA: */
++/* 	return CLASS_ATA; */
++/*      case PCI_CLASS_STORAGE_SATA: */
++/* 	return CLASS_SATA; */
+      case PCI_CLASS_MULTIMEDIA_AUDIO:
+      /* HD Audio */
+      case 0x0403:
+@@ -341,9 +341,9 @@
+ 	(probeClass & CLASS_FIREWIRE) ||
+ 	(probeClass & CLASS_SOCKET) ||
+ 	(probeClass & CLASS_CAPTURE) ||
+-	(probeClass & CLASS_RAID) ||
+-	(probeClass & CLASS_ATA) ||
+-	(probeClass & CLASS_SATA)) {
++/* 	(probeClass & CLASS_SATA) || */
++/* 	(probeClass & CLASS_ATA) || */
++	(probeClass & CLASS_RAID)) {
+ 	pacc = pci_alloc();
+ 	if (!pacc) return devlist;
+ 	if (!getAliases(aliases, "pci")) {
+@@ -407,7 +407,7 @@
+ 		    subvend = config[PCI_SUBSYSTEM_VENDOR_ID+1] << 8 | config[PCI_SUBSYSTEM_VENDOR_ID];
+ 		    subdev = config[PCI_SUBSYSTEM_ID+1] << 8 | config[PCI_SUBSYSTEM_ID];
+ 		}
+-		pci_fill_info(p, PCI_FILL_IDENT | PCI_FILL_CLASS | PCI_FILL_IRQ | PCI_FILL_BASES | PCI_FILL_ROM_BASE | PCI_FILL_SIZES);
++		pci_fill_info(p, PCI_FILL_IDENT | PCI_FILL_IRQ | PCI_FILL_BASES | PCI_FILL_ROM_BASE | PCI_FILL_SIZES);
+ 		bustype = PCI_NORMAL;
+ 	        for (bridgenum=0; cardbus_bridges[bridgenum]; bridgenum++) {
+ 			if (p->bus == cardbus_bridges[bridgenum])

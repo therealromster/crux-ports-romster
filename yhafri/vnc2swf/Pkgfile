@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A cross-platform screen recording tool for ShockWave Flash (swf) format
+# URL: http://www.unixuser.org/~euske/vnc2swf/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, vnc
+
+name=vnc2swf
+version=0.5.0
+release=1
+source=(http://www.unixuser.org/~euske/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

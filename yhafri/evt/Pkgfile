@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Erlang Verification Tool
+# URL: http://www.sics.se/fdt/projects/vericode/evt.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=evt
+version=2
+release=1
+source=(ftp://ftp.sics.se/pub/fdt/$name/$name${version}_bin_daVinci_JRE.x86-linux.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cd $name
+	rm -rf INSTALL  LICENSE  README  examples/
+
+	(sh ./install.sh; rm -f ./install.sh)
+	cd -
+	mv $name $PKG/usr/lib
+	
+	ln -sf /usr/lib/$name/bin/c$name $PKG/usr/bin/c$name	
+	ln -sf /usr/lib/$name/bin/j$name $PKG/usr/bin/j$name	
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Asynchronous I/O model for network programming in C++
+# URL: http://asio.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: boost, openssl
+
+name=asio
+version=0.3.7
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	export BOOST_DIR=`echo /usr/include/boost-*`
+	./configure --prefix=/usr \
+		    --with-boost=$BOOST_DIR
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,28 @@
+--- sms/Net/SMS/SFR.pm	2001-11-16 14:13:37.000000000 +0100
++++ sms/Net/SMS/SFR.pm-new	2005-01-14 17:24:25.500392320 +0100
+@@ -87,6 +87,7 @@
+ 		my $new_recipient = shift;
+ 
+ 		for ($new_recipient) {
++            $_ ='0' . $_;
+ 			tr/ \t//d;
+ 			s/^\+33/0/;
+ 			die "Bad phone number format: $_" unless /^06\d{8}$/;
+@@ -180,6 +181,7 @@
+ 		# Fake Netscape agent on Linux
+ 		$UA->agent('Perlzilla/1.0 (GNU/Linux)');
+ 		$UA->timeout(30);
++
+ 		if ($self->proxy()) {
+ 			$UA->proxy('http', $self->proxy())
+ 		} else {
+--- sms/Net/SMS/Bouygtel.pm	2001-11-21 16:19:24.000000000 +0100
++++ sms/Net/SMS/Bouygtel.pm-new	2005-01-14 17:24:17.334633704 +0100
+@@ -80,6 +80,7 @@
+ 		my $new_recipient = shift;
+ 
+ 		for ($new_recipient) {
++            $_ ='0' . $_;
+ 			tr/ \t//d;
+ 			s/^\+33/0/;
+ 			die "Bad phone number format: $_" unless /^06\d{8}$/;

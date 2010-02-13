@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Recursively scan Perl code for dependencies 
+# URL: http://search.cpan.org/~autrijus/Module-ScanDeps-0.50/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-module-scandeps
+version=0.63
+release=1
+source=(http://www.cpan.dk/modules/by-module/Module/Module-ScanDeps-$version.tar.gz)
+
+build () {
+	cd Module-ScanDeps-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

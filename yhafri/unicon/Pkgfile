@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A very high level, goal-directed, object-oriented, general purpose applications language
+# URL: http://unicon.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, calc, gdbm
+
+name=unicon
+version=1
+release=1
+source=(http://unicon.org/dist/uni.zip \
+	$name.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,include,lib}
+	patch -p0<./$name.patch
+	rm -rf ./uni/iyacc/test
+
+	make X-Configure name=intel_linux
+	make Unicon
+
+	mv bin/*.so $PKG/usr/lib/
+	mv bin/*.a  $PKG/usr/lib/
+	mv bin/*.h  $PKG/usr/include/
+	mv bin/*    $PKG/usr/bin/
+
+	chown -R root:root $PKG
+}

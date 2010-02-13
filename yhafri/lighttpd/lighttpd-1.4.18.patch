@@ -1,0 +1,13 @@
+--- lighttpd-1.4.15/src/Makefile.am	2007-04-13 17:26:31.000000000 +0200
++++ lighttpd-1.4.15/src/Makefile.am-new	2007-04-25 08:24:13.000000000 +0200
+@@ -239,6 +239,10 @@
+ mod_accesslog_la_LDFLAGS = -module -export-dynamic -avoid-version -no-undefined
+ mod_accesslog_la_LIBADD = $(common_libadd)
+ 
++lib_LTLIBRARIES += mod_fdajax.la
++mod_fdajax_la_SOURCES = mod_fdajax.c mod_fdajax_parser.c mod_fdajax_peercall.c mod_fdajax_info.c
++mod_fdajax_la_LDFLAGS = -module -export-dynamic -avoid-version -no-undefined
++mod_fdajax_la_LIBADD = $(common_libadd)
+ 
+ hdr = server.h buffer.h network.h log.h keyvalue.h \
+       response.h request.h fastcgi.h chunk.h \

@@ -1,0 +1,164 @@
+#!/usr/bin/perl -w
+#
+# sb: the sgml beautifier
+# indents non-empty sgml tags
+# usage: sb filename or sb < filename or | sb
+# author: Kevin M. Dunn (kdunn@hsc.edu), Modified by Al Dev (alavoor[AT]yahoo.com)
+# license: anyone is free to use this for any purpose whatever
+#
+use strict;
+use diagnostics;
+	  
+sub separate_tags 
+{
+	@_ < 1 ?  die "\nInsufficient args .. " : 0 ;
+	my ($tmpfile) = @_;
+	my ($current_line);
+	open(FILETMP, ">$tmpfile");
+	while (<>)
+	{
+		$current_line = $_;
+		#if ($current_line =~ /^\s+$/)
+		if ($current_line eq "\n")
+		{
+			# Pad spaces to distinguish/identify this line with other newlines
+			# so that this line is printed and not bypassed in indent_tags()
+			$current_line = "\t  " . $current_line;  # Prepend with spaces
+			#print "\ndone padding\n";
+			#sleep 5;
+		}
+		#$_ =~ s/^\s+//;  # Left trim the leading white spaces - ltrim
+		#$_ =~ s/\s+$//;  # Right trim the trailing white spaces - rtrim
+		$current_line =~ s/</\n</g;  # Put newline before start of tag "<"
+		$current_line =~ s/>/>\n/g;  # Put newline after end of tag ">"
+		print FILETMP "$current_line";
+	}
+	close(FILETMP);
+}
+	  
+sub get_tags 
+{
+	@_ < 1 ?  die "\nInsufficient args .. " : 0 ;
+	my ($tmpfile) = @_;
+	open(FILETMP, "$tmpfile");
+	my ($word);
+	while (<FILETMP>)
+	{
+		$word = $_;
+		$word =~ s/[> ].*//; 
+		chomp($word);
+		if ( $word =~ /^<\/.*/ )
+		{
+			$sgb::tag2{$word} = 1; # here the word has something like '</TITLE'
+			$word =~ s/\///;  
+			$sgb::tag1{$word} = 1; # here the word has something like '<TITLE'
+		}
+	}
+}
+	  
+sub indent_tags 
+{
+	@_ < 1 ?  die "\nInsufficient args .. " : 0 ;
+	my ($tmpfile) = @_;
+	my $jl = 80; #text will be justified to 80 characters/line
+	my $nl = 0;
+	my $sp = 0;
+	my @space;
+	$space[0] = "";
+	  
+	my $newline = ""; # hack to prevent extraneous blank first line
+	  
+	open(FILETMP, "$tmpfile");
+	my ($current_line, $word, $saveword);
+	while (<FILETMP>)
+	{
+		chomp($_); # avoid \n on last field
+		$current_line = $_;
+		$word = $current_line;
+		$word =~ s/[> ].*//;  # truncate trailing "> " and spaces therafter
+		if ( $sgb::tag1{$word} )
+		{
+			$saveword = $word;
+			print "\n$space[$sp]$current_line";
+			$nl = $jl; # force new line on next line of input
+			$sp++;
+			if ( ! $space[$sp] )
+			{
+				$space[$sp] = $space[$sp-1] . "  ";
+			}
+		}
+		elsif ( $sgb::tag2{$word} )
+		{
+			$saveword = $word;
+			$sp--;
+			# If the tag is <ProgramListing> then do not justify...
+			if (lc($word) eq "</programlisting")
+			{
+				print "$current_line";
+			}
+			else
+			{
+				print "\n$space[$sp]$current_line";
+			}
+			$nl = $jl; # force new line on next line of input
+		}
+		elsif ( $word =~ /<.*/ ) 
+		{
+			$saveword = $word;
+			print "$newline$space[$sp]$current_line";
+			$newline = "\n"; # hack to prevent extraneous blank first line
+			$nl = $jl; # force new line on next line of input
+		}
+		elsif ( length($current_line) > 0 ) 
+		{
+			# If the tag is <ProgramListing> then do not justify...
+			if (lc($saveword) eq "<programlisting")
+			{
+				#print "\nthe tag1 word is $saveword----eof \n";
+				#print "$newline$space[$sp]$current_line";
+				# DO NOT put any tabs or spaces, because repeated running of this program
+				# on same file will keep putting tabs or spaces.
+				print "$newline$current_line";  
+				$newline = "\n"; # hack to prevent extraneous blank first line
+				$nl = $jl; # force new line on next line of input
+			}
+			else
+			{
+				$nl = justify($jl, $nl, $sp, $current_line, @space);
+			}
+		}
+	}
+}
+	  
+sub justify 
+{
+	@_ < 4 ?  die "\nInsufficient args .. " : 0 ;
+	my ($jl, $nl, $sp, $current_line, @space) = @_;
+	  
+	my @words = split;
+	my $nw = @words;
+	for (my $i = 0; $i < $nw; $i++ )
+	{
+		$sgb::ll += length($words[$i]) + 1 + $nl; # line length if this word is added
+		if ($sgb::ll < $jl) # if short enough, print it
+		{ 
+			print "$words[$i] ";
+			$nl = 0;
+		}
+		else # if line is too long, start a new one
+		{ 
+			print "\n$space[$sp]$words[$i] ";
+			$nl = 0;
+			$sgb::ll = length($space[$sp] . $words[$i]) + 1;
+		}
+	}
+	return $nl;
+}
+	  
+$sgb::ll = 0; # global var
+my $tmpfile = "$$.tmp";
+separate_tags($tmpfile);
+get_tags($tmpfile);
+indent_tags($tmpfile);
+unlink ("$tmpfile"); # remove temporary file
+print "\n"; # add final line to output

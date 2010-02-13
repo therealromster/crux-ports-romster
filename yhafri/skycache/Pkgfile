@@ -1,0 +1,16 @@
+# $Id: $
+# Description: A free, lightweight and fast page cache for PHP 4 and PHP 5
+# URL: ftp://ftp.pureftpd.org/pub/pure-ftpd/misc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=skycache
+version=2.2
+release=1
+source=(ftp://ftp.pureftpd.org/pub/pure-ftpd/misc/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name
+	install -D -m 644 $name.php $PKG/usr/lib/$name/$name.php
+}

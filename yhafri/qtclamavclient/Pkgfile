@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A small QT client for ClamAV that uses the STREAM socket connection to a clamd server machine to locally scan files
+# URL: http://www.xystumnet.com/qtclamavclient.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, clamav, qt3
+
+name=qtclamavclient
+version=0.02
+release=1
+source=(http://www.xystumnet.com/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	moc $name.cpp  > $name.moc
+	g++ -o $name $name.cpp -I/usr/include/qt -L/usr/lib/qt -lqt-mt
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

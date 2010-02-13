@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Gloriana TrueType font
+# URL: http://www.coolarchive.com/fonts.php?p=g
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, chkfontpath, ttmkfdir
+
+name=gloriana-ttf
+version=1
+release=1
+source=(gloriana.zip)
+
+build () {
+	mkdir -p $PKG/usr/X11R6/lib/X11/fonts/TTF
+
+	mv *.ttf $PKG/usr/X11R6/lib/X11/fonts/TTF
+
+	chown -R root:root $PKG
+}

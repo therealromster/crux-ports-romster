@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/happycoders/
+drwxr-xr-x	root/root	usr/include/happycoders/socket/
+-rw-r--r--	root/root	usr/include/happycoders/socket/localsocket.hh
+-rw-r--r--	root/root	usr/include/happycoders/socket/netsocket.hh
+-rw-r--r--	root/root	usr/include/happycoders/socket/socket.hh
+-rw-r--r--	root/root	usr/include/happycoders/socket/socketexception.hh
+-rw-r--r--	root/root	usr/include/happycoders/socket/tcpsocket.hh
+-rw-r--r--	root/root	usr/include/happycoders/socket/udpsocket.hh
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/happycoders/
+-rw-r--r--	root/root	usr/lib/happycoders/libsocket.a
+-rwxr-xr-x	root/root	usr/lib/happycoders/libsocket.la
+lrwxrwxrwx	root/root	usr/lib/happycoders/libsocket.so -> libsocket.so.0.1.7
+lrwxrwxrwx	root/root	usr/lib/happycoders/libsocket.so.0 -> libsocket.so.0.1.7
+-rwxr-xr-x	root/root	usr/lib/happycoders/libsocket.so.0.1.7

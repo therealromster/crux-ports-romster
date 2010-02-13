@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Calligrapher font
+# URL: http://www.highfonts.com/freealpha.asp?bok=H&f=0
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: chkfontpath, ttmkfdir
+
+name=calligrapher-font
+version=1
+release=1
+source=(http://www.highfonts.com/fonts/free/zip/calligrapher.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/fonts/truetype
+	mv CALLIGRA.TTF $PKG/usr/share/fonts/truetype
+	chown -R root:root $PKG
+}

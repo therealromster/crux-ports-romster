@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A data compression library suitable for data de-/compression in real-time
+# URL: http://www.oberhumer.com/opensource/lzo/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=lzo
+version=2.02
+release=1
+source=(http://www.oberhumer.com/opensource/$name/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-shared
+
+	make
+	make prefix=$PKG/usr install
+
+	mv $PKG/usr/include/$name/* $PKG/usr/include
+	rm -rf $PKG/usr/include/$name
+	cd $PKG/usr/lib/
+	ln -sf liblzo2.so.2.0.0 liblzo.so
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description:  Unicode annotation data library
+# URL: http://libuninameslist.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libuninameslist
+version=1
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/$name/${name}_src-040707.tgz)
+
+build () {
+	cd $name
+	./configure --prefix=/usr
+
+    make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+--- SciPlot-1.36/Makefile.noImake	1996-09-05 02:32:58.000000000 +0000
++++ SciPlot-1.36/Makefile.noImake-new	2004-11-23 16:48:07.866890464 +0000
+@@ -1,6 +1,6 @@
+ # Makefile for widget demo programs
+ 
+-MOTIFLIBS = -lXm -lXmu -lXt -lX11 -lm
++MOTIFLIBS = -L/usr/X11R6/lib -lXm -lX11 -lm
+ CFLAGS = $(DEFINES) $(CDEBUGFLAGS)
+ CDEBUGFLAGS =
+ DEFINES =
+@@ -10,12 +10,12 @@
+ PROGRAMS = sciplot realtime
+ TARFILE = sciplot
+ 
+-SRCS = SciPlot.c plotutil.c reader.c strutil.c xyplot.c realtime.c
+-HDRS = SciPlot.h SciPlotP.h plotutil.h reader.h strutil.h
++SRCS = SciPlot.c SciPlotUtil.c xyplot.c realtime.c
++HDRS = SciPlot.h SciPlotP.h SciPlotUtil.h reader.h
+ OBJS = $(SRCS:.c=.o)
+-PLOTSRCS = SciPlot.c plotutil.c reader.c strutil.c xyplot.c
++PLOTSRCS = SciPlot.c SciPlotUtil.c xyplot.c
+ PLOTOBJS= $(PLOTSRCS:.c=.o)
+-RTSRCS = SciPlot.c plotutil.c reader.c strutil.c realtime.c
++RTSRCS = SciPlot.c SciPlotUtil.c realtime.c
+ RTOBJS= $(RTSRCS:.c=.o)
+ 
+ DOCS = SciPlot. SciPlotProg. SciPlotDemo.

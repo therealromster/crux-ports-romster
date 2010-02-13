@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Simple Metaprogramming for Erlang
+# URL: http://code.google.com/p/smerl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, erlang
+
+name=smerl
+version=svn
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{ebin,src}
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+
+	erl -make
+
+	cp -f $name.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	cp -f $name.erl $PKG/usr/lib/erlang/lib/$name-$version/src
+
+        chown -R root:root $PKG/
+}

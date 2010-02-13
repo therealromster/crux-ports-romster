@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Easy to use HTML::TokeParser interface
+# URL: http://search.cpan.org/~ovid/HTML-TokeParser-Simple-3.14/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-html-parser, p5-sub-override
+
+name=p5-html-tokeparser-simple
+version=3.15
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/O/OV/OVID/HTML-TokeParser-Simple-$version.tar.gz)
+
+build () {
+	cd HTML-TokeParser-Simple-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

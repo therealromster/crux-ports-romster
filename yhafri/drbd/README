@@ -1,0 +1,7 @@
+PRE-INSTALL:
+
+		* Enable CONFIG_CONNECTOR in your kernel 
+
+USAGE:
+		* Follow instructions at:
+		http://www.drbd.org/drbd-howto.html

@@ -1,0 +1,22 @@
+# $Id $
+# Description: High quality ascii-art image(pnm) browser and animation(fli/flc) player
+# URL: http://aa-project.sourceforge.net/aview/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Erlend Bergsås Mikkelsen <howl@online.no>
+# Depends on: aalib
+
+name=aview
+version=1.3.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/aa-project/aview-${version}rc1.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	make CFLAGS="$CFLAGS"
+
+	make prefix=$PKG/usr install
+	rm -rf "$PKG/usr/info"
+
+        chown -R root:root $PKG
+}

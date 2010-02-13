@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Simple ECMAScript Engine
+# URL: http://www.adaptive-enterprises.com.au/~d/software/see/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: boehm-gc
+
+name=see
+version=2.1.1277_snapshot
+release=1
+source=(http://www.adaptive-enterprises.com.au/~d/software/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

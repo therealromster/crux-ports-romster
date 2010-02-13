@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Linux scheduler utilities
+# URL: http://rlove.org/schedutils/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=schedutils
+version=1.5.0
+release=1
+source=(http://rlove.org/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,share/man/man1}
+	cd $name-$version
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

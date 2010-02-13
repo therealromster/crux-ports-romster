@@ -1,0 +1,23 @@
+# Description: debugs the kernel's inotify interface, to make sure inotify is working.  This port also include inotify.h from the latest stable kernel.
+# URL: http://www.kernel.org/pub/linux/kernel/people/rml/inotify/utils/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=inotify-utils
+version=0.25
+release=2
+source=(http://www.kernel.org/pub/linux/kernel/people/rml/inotify/utils/$name-$version.tar.bz2 inotify.h)
+
+build() {
+    install -D -m 644 inotify.h $PKG/usr/include/linux/inotify.h
+    cd $name-$version
+    make
+    install -D -m 755 inotify_test $PKG/usr/sbin/inotify_test
+    # Usage:
+    # touch foobar_test
+    # inotify_test /tmp/foobar_test > output 2>&1
+    # (in another VT)
+    # echo "mmm, data" > foobar_test
+    # rm /tmp/foobar_test
+    # less output
+}

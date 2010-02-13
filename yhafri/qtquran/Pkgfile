@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Qt interface to libquran
+# URL: http://www.arabeyes.org/project.php?proj=Quran
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libquran
+
+name=qtquran
+version=0.041
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/$name-$version-i386-1.tgz)
+
+build () {
+	mv usr $PKG/
+        chown -R root:root $PKG
+}

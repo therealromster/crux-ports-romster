@@ -1,0 +1,22 @@
+# Description: adds image processing capabilities to your Python interpreter 
+# URL: http://www.pythonware.com/products/pil/#pil114
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: python, libjpeg, zlib, tk
+
+name=python-imaging
+version=1.1.4
+release=3
+source=(http://www.pythonware.net/storage/Imaging-$version.tar.gz \
+	python-imaging-1.1.4.patch)
+
+build() {
+	patch -p0 < python-imaging-1.1.4.patch
+	cd Imaging-$version/libImaging 
+	./configure
+	make
+	cd ..
+	sed -e '18d' -e '17a #include <ft2build.h>' -e \
+		'17a #include FT_FREETYPE_H' -i _imagingft.c
+	python setup.py build install --root=$PKG
+}

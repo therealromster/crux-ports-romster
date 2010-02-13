@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A tool to simplify management of the symbolic links in /etc/rc.d under Linux
+# URL: http://www.fastcoder.net/~thumper/software/sysadmin/chkconfig/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=chkconfig
+version=1.3.30a
+release=1
+source=(http://www.fastcoder.net/downloads/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-ntsysv \
+		    --disable-alternatives \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

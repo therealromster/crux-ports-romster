@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Scythe Statistical Library
+# URL: http://scythe.wustl.edu/doku.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=scythe
+version=0.3
+release=1
+source=(http://scythe.wustl.edu/media/$name/${name}031.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	mv Scythe$version $PKG/usr/lib/$name
+	chown -R root:root $PKG
+}

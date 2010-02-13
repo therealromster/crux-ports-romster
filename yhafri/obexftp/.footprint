@@ -1,0 +1,33 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/obexftp
+-rwxr-xr-x	root/root	usr/bin/obexftpd
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/bfb/
+-rw-r--r--	root/root	usr/include/bfb/bfb.h
+-rw-r--r--	root/root	usr/include/bfb/bfb_io.h
+drwxr-xr-x	root/root	usr/include/cobexbfb/
+-rw-r--r--	root/root	usr/include/cobexbfb/cobex_bfb.h
+drwxr-xr-x	root/root	usr/include/obexftp/
+-rw-r--r--	root/root	usr/include/obexftp/client.h
+-rw-r--r--	root/root	usr/include/obexftp/obexftp.h
+-rw-r--r--	root/root	usr/include/obexftp/object.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libbfb.a
+-rwxr-xr-x	root/root	usr/lib/libbfb.la
+lrwxrwxrwx	root/root	usr/lib/libbfb.so -> libbfb.so.0.0.4
+lrwxrwxrwx	root/root	usr/lib/libbfb.so.0 -> libbfb.so.0.0.4
+-rwxr-xr-x	root/root	usr/lib/libbfb.so.0.0.4
+-rw-r--r--	root/root	usr/lib/libcobexbfb.a
+-rwxr-xr-x	root/root	usr/lib/libcobexbfb.la
+lrwxrwxrwx	root/root	usr/lib/libcobexbfb.so -> libcobexbfb.so.0.0.8
+lrwxrwxrwx	root/root	usr/lib/libcobexbfb.so.0 -> libcobexbfb.so.0.0.8
+-rwxr-xr-x	root/root	usr/lib/libcobexbfb.so.0.0.8
+-rw-r--r--	root/root	usr/lib/libobexftp.a
+-rwxr-xr-x	root/root	usr/lib/libobexftp.la
+lrwxrwxrwx	root/root	usr/lib/libobexftp.so -> libobexftp.so.0.0.11
+lrwxrwxrwx	root/root	usr/lib/libobexftp.so.0 -> libobexftp.so.0.0.11
+-rwxr-xr-x	root/root	usr/lib/libobexftp.so.0.0.11
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/obexftp.1.gz

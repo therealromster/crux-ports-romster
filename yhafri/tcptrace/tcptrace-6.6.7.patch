@@ -1,0 +1,13 @@
+--- tcptrace-6.6.7/filt_scanner.l	2005-11-20 05:15:27.000000000 +0100
++++ tcptrace-6.6.7/filt_scanner.l-new	2005-11-20 05:14:15.000000000 +0100
+@@ -154,8 +154,8 @@
+ 
+ int yywrap(void)
+ {
+-    if (0)
+-	unput(0);  /* never really called, but shuts up gcc */
++    //if (0)
++	//unput(0);  /* never really called, but shuts up gcc */
+ 
+     return(1);
+ }

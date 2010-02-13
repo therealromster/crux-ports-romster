@@ -1,0 +1,22 @@
+# $Id: $
+# Description: The Zettair Search Engine
+# URL: http://www.seg.rmit.edu.au/zettair/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=zettair
+version=0.9.3
+release=1
+source=(http://www.seg.rmit.edu.au/$name/download/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

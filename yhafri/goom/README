@@ -1,0 +1,3 @@
+PRE-INSTALL:
+                * Run this command to install "goom":
+                # pkgmk -d -i -cf pkgmk.conf

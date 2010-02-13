@@ -1,0 +1,11 @@
+--- vnc_unixsrc/vncserver	2003-07-31 14:19:37.000000000 +0000
++++ vnc_unixsrc/vncserver-new	2004-10-01 17:45:56.181134840 +0000
+@@ -38,7 +38,7 @@
+ $desktopName = "X";
+ $vncClasses = "/usr/local/vnc/classes";
+ $vncUserDir = "$ENV{HOME}/.vnc";
+-$fontPath = "unix/:7100";
++#$fontPath = "unix/:7100";
+ 
+ # Here is another example of setting the font path:
+ # $fontPath = "/usr/lib/X11/fonts/misc/,/usr/lib/X11/fonts/75dpi/";

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Both a domain name server as well as a client resolver library
+# URL: http://twistedmatrix.com/projects/names/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: twisted
+
+name=twisted-names
+version=0.2.0
+release=1
+source=(http://tmrc.mit.edu/mirror/twisted/Names/0.2/TwistedNames-$version.tar.bz2)
+
+build () {
+    	mkdir -p $PKG/usr
+
+	cd TwistedNames-$version
+
+   	python setup.py build
+        python setup.py install --root=$PKG --prefix=/usr
+
+    	chown -R root:root $PKG
+}

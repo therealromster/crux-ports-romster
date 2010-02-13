@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+		* You can personalize the configuration for a particular user by copying the 
+		/etc/happycoders-emacs/.happyemacs to ~/ and editing it.

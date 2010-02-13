@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Zed's Virtual Terminal library
+# URL: http://ftp.sayclub.com/pub/X/GNOME/sources/libzvt/2.0/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gnome
+
+name=libzvt
+version=2.0.1
+release=1
+source=(http://ftp.sayclub.com/pub/X/GNOME/sources/$name/2.0/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

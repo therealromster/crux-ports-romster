@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A full-text search system for communities
+# URL: http://hyperestraier.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: qdbm, libiconv, wvware, xpdf, xlhtml, wwwoffle, zlib
+
+name=hyperestraier
+version=1.4.10
+release=1
+source=(http://$name.sourceforge.net/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/$name/{doc,locale,ChangeLog,THANKS}
+
+	chown -R root:root $PKG
+}

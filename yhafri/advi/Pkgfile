@@ -1,0 +1,20 @@
+# $Id: $
+# Description: DVI previewer and a programmable presenter for slides written in LaTeX.
+# URL: http://pauillac.inria.fr/advi/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, camlimages
+
+name=advi
+version=1.6.0
+release=1
+source=(ftp://ftp.inria.fr/INRIA/Projects/cristal/$name/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+        make
+	make opt
+	make prefix=$PKG/usr install
+        chown -R root:root $PKG
+}

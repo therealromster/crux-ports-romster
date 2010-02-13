@@ -1,0 +1,6 @@
+POST-INSTALL:
+
+		* Set an environment variable for the NLTK-Lite Corpora:
+		export NLTK_LITE_CORPORA=/usr/share/nltk_lite/corpora
+
+

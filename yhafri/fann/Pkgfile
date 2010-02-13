@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Fast Artificial Neural Network Library
+# URL: http://fann.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=fann
+version=1.2.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

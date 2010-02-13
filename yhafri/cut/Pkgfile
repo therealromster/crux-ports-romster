@@ -1,0 +1,21 @@
+# $Id: $
+# Description: C Unit Tester
+# URL: http://www.falvotech.com/content/cut/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cut
+version=2.4
+release=1
+source=(http://www.falvotech.com/content/$name/downloads/$name-$version.tar.gz)
+
+build () {
+	cd repo
+
+	make
+
+	install -D -m 755 bin/${name}gen $PKG/usr/bin/${name}gen
+
+	chown -R root:root $PKG
+}

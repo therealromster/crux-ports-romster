@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Integration between Django and Xapian
+# URL: http://code.google.com/p/djapian/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, django, xapian, xapian-bindings, xapian-omega
+
+name=djapian
+version=svn
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+
+	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

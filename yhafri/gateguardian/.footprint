@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gateguardian-version
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gateguardian/
+-rw-r--r--	root/root	usr/include/gateguardian/fileguardian.h
+-rw-r--r--	root/root	usr/include/gateguardian/gateguardian.h
+-rw-r--r--	root/root	usr/include/gateguardian/inputguardian.h
+-rw-r--r--	root/root	usr/include/gateguardian/version.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libgateguardian.a
+-rwxr-xr-x	root/root	usr/lib/libgateguardian.la
+lrwxrwxrwx	root/root	usr/lib/libgateguardian.so -> libgateguardian.so.0.4.0
+lrwxrwxrwx	root/root	usr/lib/libgateguardian.so.0 -> libgateguardian.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libgateguardian.so.0.4.0

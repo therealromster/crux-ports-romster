@@ -1,0 +1,16 @@
+# Description: a library for retrieving the ink level of a printer 
+# URL: http://home.arcor.de/markusheinz/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libieee1284
+
+name=libinklevel
+version=0.6.4
+release=1
+source=(http://download.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name
+	make
+	make DESTDIR=$PKG/usr install
+}

@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/agrep
+-rwxr-xr-x	root/root	usr/bin/buildcast
+-rwxr-xr-x	root/root	usr/bin/cast
+-rwxr-xr-x	root/root	usr/bin/glimpse
+-rwxr-xr-x	root/root	usr/bin/glimpseindex
+-rwxr-xr-x	root/root	usr/bin/glimpseserver
+-rwxr-xr-x	root/root	usr/bin/tbuild
+-rwxr-xr-x	root/root	usr/bin/uncast
+-rwxr-xr-x	root/root	usr/bin/wgconvert
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-r--r--r--	root/root	usr/man/man1/agrep.1.gz
+-r--r--r--	root/root	usr/man/man1/glimpse.1.gz
+-r--r--r--	root/root	usr/man/man1/glimpseindex.1.gz
+-r--r--r--	root/root	usr/man/man1/glimpseserver.1.gz

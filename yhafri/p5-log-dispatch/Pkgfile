@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Dispatches messages to one or more outputs
+# URL: http://84.45.18.237/~drolsky/Log-Dispatch-2.11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-module-build, p5-mailtools
+
+name=p5-log-dispatch
+version=2.12
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Log-Dispatch-$version.tar.gz)
+
+build () {
+	cd Log-Dispatch-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

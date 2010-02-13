@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/rebol -> /usr/lib/rebolcore/rebol
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/rebolcore/
+-rwxr-xr-x	root/root	usr/lib/rebolcore/rebol
+-rw-r--r--	root/root	usr/lib/rebolcore/rebol.r
+-rw-r--r--	root/root	usr/lib/rebolcore/setup.r
+-rw-r--r--	root/root	usr/lib/rebolcore/words.r
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/emacs/
+drwxr-xr-x	root/root	usr/share/emacs/site-lisp/
+-rw-r--r--	root/root	usr/share/emacs/site-lisp/rebol.el

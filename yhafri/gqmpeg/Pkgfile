@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A front-end to various audio players
+# URL: http://gqmpeg.sourceforge.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, libpng, mpg123
+
+name=gqmpeg
+version=0.91.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+
+	cd $name-$version
+	./configure --prefix=/usr \
+        --disable-nls
+
+    make
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

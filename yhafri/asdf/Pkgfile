@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Another System Definition Facility
+# URL: http://www.cliki.net/asdf
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cmucl
+
+name=asdf
+version=1.008
+release=1
+source=($name.lisp)
+
+build () {
+	lisp -load $name.lisp
+
+	install -D -m 755 $name.lisp $PKG/usr/lib/$name/$name.lisp
+
+	chown -R root:root $PKG
+}

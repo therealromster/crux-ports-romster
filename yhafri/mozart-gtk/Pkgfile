@@ -1,0 +1,22 @@
+# $Id: $
+# Description: GTK interface to Mozart Programming System
+# URL: http://www.mozart-oz.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk-canvas, mozart-std
+
+name=mozart
+version=1.3.2
+release=1
+source=(http://www.mozart-oz.org/download/mozart-ftp/store/$version-2006-06-15-gtk/mozart-gtk-1.1.tar.gz)
+
+build () {
+	cd $name-gtk-1.1	
+	./configure --prefix=/usr \
+        	    --disable-nls \
+
+        make
+        make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

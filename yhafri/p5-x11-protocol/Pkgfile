@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Raw interface to X Window System servers
+# URL: http://search.cpan.org/~smccam/X11-Protocol-0.54/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-x11-protocol
+version=0.54
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SM/SMCCAM/X11-Protocol-$version.tar.gz)
+
+build () {
+	cd X11-Protocol-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Cross platform Python binding to OpenGL
+# URL: http://pyopengl.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: swig, python
+
+name=pyopengl
+version=2.0.2.01
+release=1
+source=(http://umn.dl.sourceforge.net/sourceforge/$name/PyOpenGL-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+	cd PyOpenGL-$version
+	
+	python setup.py install --home=$PKG/usr
+	rm -rf $PKG/usr/lib/python/OpenGL/Demo $PKG/usr/lib/python/OpenGL/doc
+
+	chown -R root:root $PKG
+}

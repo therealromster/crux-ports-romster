@@ -1,0 +1,27 @@
+# $Id: $
+# Description: An IRC client for Emacs
+# URL: http://freshmeat.net/projects/riece/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=riece
+version=2.0.2
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	[ -z $RIECE_XEMACS ] || export RIECE_XEMACS="--with-xemacs"
+
+	./configure --prefix=/usr \
+		    $RIECE_XEMACS
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info/
+
+	chown -R root:root $PKG
+}

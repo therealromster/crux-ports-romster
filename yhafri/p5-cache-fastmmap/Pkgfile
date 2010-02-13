@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Uses an mmap'ed file to act as a shared memory interprocess cache
+# URL: http://84.45.18.237/~robm/Cache-FastMmap-1.09/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-cache-fastmmap
+version=1.09
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/R/RO/ROBM/Cache-FastMmap-$version.tar.gz)
+
+build () {
+	cd Cache-FastMmap-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# Description: a KDE I/O Slave for the locate command
+# URL: http://arminstraub.de/browse.php?page=programs_kiolocate
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, scons
+
+name=kio-locate
+version=0.4.4
+release=3
+source=(http://arminstraub.de/downloads/kio-locate/kio-locate_$version.tar.gz)
+
+build() {
+    export QTDIR=/usr/share/qt
+    cd $name-$version
+    scons configure prefix=/usr
+    scons
+    scons DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

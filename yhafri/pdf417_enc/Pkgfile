@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A program that converts ascii text to the pdf417 barcode standard
+# URL: http://webpages.charter.net/jtlien/pdf.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pdf417_enc
+version=3.9.5
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/pdf417encode/$name.$version.tar.gz)
+
+build () {
+	cd $name.$version
+
+	make
+	make libpdf417enc.so
+
+	install -D libpdf417enc.so $PKG/usr/lib/libpdf417enc.so
+	install -D -m 755 $name    $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

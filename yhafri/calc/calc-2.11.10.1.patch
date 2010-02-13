@@ -1,0 +1,27 @@
+--- calc-2.11.10.1/Makefile	2004-07-29 07:18:56.000000000 +0200
++++ calc-2.11.10.1/Makefile-new	2005-07-13 11:24:59.105078015 +0200
+@@ -599,19 +599,20 @@
+ #
+ #BINDIR= /usr/local/bin
+ #BINDIR= /dev/env/DJDIR/bin
+-BINDIR= /usr/bin
++prefix=
++BINDIR= ${prefix}/usr/bin
+ 
+ #LIBDIR= /usr/local/lib
+ #LIBDIR= /dev/env/DJDIR/lib
+-LIBDIR= /usr/lib
++LIBDIR= ${prefix}/usr/lib
+ 
+ #CALC_SHAREDIR= /usr/local/lib/calc
+ #CALC_SHAREDIR= /dev/env/DJDIR/share/calc
+-CALC_SHAREDIR= /usr/share/calc
++CALC_SHAREDIR= ${prefix}/usr/share/calc
+ 
+ #CALC_INCDIR= /usr/local/include/calc
+ #CALC_INCDIR= /dev/env/DJDIR/include/calc
+-CALC_INCDIR= ${INCDIR}/calc
++CALC_INCDIR= ${prefix}/${INCDIR}/calc
+ 
+ # By default, these values are based CALC_SHAREDIR, INCDIR, BINDIR
+ # ---------------------------------------------------------------

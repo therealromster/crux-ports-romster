@@ -1,0 +1,17 @@
+# $Id: $
+# Description: LaTeX-based program listing generator
+# URL: http://fresh.homeunix.net/~luke/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs, tetex
+
+name=pbook
+version=1.3
+release=1
+source=(http://fresh.homeunix.net/~luke/misc/emacs/$name.el)
+
+build () {
+	install -D -m 644 $name.el $PKG/usr/share/emacs/site-lisp/$name.el
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Ngram Statistics Package
+# URL: http://ngram.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=text-nsp
+version=1.03
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/ngram/Text-NSP-$version.tar.gz)
+
+build () {
+	cd Text-NSP-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	for i in  `find $PKG -type "f"`; do sed -i "s|/usr/local/bin/perl|/usr/bin/perl|" $i; done
+	chown -R root:root $PKG
+}

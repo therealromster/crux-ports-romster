@@ -1,0 +1,11 @@
+--- fpdns.pl	2004-08-08 22:17:07.000000000 +0200
++++ fpdns.pl-new	2005-05-29 11:34:43.881182816 +0200
+@@ -32,7 +32,7 @@
+ use warnings;
+ use strict;
+ use Getopt::Std;
+-use Net::DNS 0.42;
++use Net::DNS;
+ use vars qw/ %opt /;
+ use POSIX ":sys_wait_h";
+ 

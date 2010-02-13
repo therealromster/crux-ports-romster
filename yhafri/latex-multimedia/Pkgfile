@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Beamer LaTeX subclass for multimedia
+# URL: http://www.math.utah.edu/tex-archive/macros/latex/contrib/beamer/multimedia/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-multimedia
+version=0.01
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/multimedia
+
+	wget http://www.tug.org/tex-archive/macros/latex/contrib/beamer/multimedia/multimedia.sty
+
+	wget http://www.tug.org/tex-archive/macros/latex/contrib/beamer/multimedia/multimediasymbols.sty
+
+	mv *.sty $PKG/usr/share/texmf/tex/latex/multimedia
+	chown -R root:root $PKG
+}

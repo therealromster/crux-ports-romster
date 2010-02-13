@@ -1,0 +1,21 @@
+# Description: a KDE monitoring utility for the BOINC distributed client. The successor of KSetiSpy.
+# URL: http://kboincspy.sourceforge.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=kboincspy
+version=0.8.0
+release=2
+source=(http://belnet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    export KDEDIR='/usr'
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

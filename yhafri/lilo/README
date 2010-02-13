@@ -1,0 +1,13 @@
+POST-INSTALL:
+
+		* Update your lilo config /etc/lilo.conf like this:
+
+		install=/boot/boot-bmp.b
+		bitmap=/boot/debian-bootscreen-woody.rle.bmp
+		bmp-colors=1,,0,2,,0
+		bmp-table=120p,173p,1,15,17
+		bmp-timer=254p,432p,1,0,0
+
+		Of course, you can choose any 'bmp' image in the /boot
+		directory instead of 'debian-bootscreen-woody.rle.bmp'
+		from the above example.

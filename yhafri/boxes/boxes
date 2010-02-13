@@ -1,0 +1,3 @@
+#!/bin/sh
+alias boxes="/usr/bin/boxes0 -f /etc/boxes/boxes-config"
+boxes $@

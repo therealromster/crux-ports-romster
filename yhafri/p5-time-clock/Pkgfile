@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Twenty-four hour clock object with nanosecond precision
+# URL: http://search.cpan.org/~jsiracusa/Time-Clock-0.11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-time-clock
+version=0.11
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JS/JSIRACUSA/Time-Clock-$version.tar.gz)
+
+build () {
+	cd Time-Clock-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

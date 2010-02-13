@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dryverl-gen-driver
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/dryverl/
+drwxr-xr-x	root/root	usr/share/dryverl/xsd/
+-rw-r--r--	root/root	usr/share/dryverl/xsd/dryverl.xsd
+drwxr-xr-x	root/root	usr/share/dryverl/xslt/
+-rw-r--r--	root/root	usr/share/dryverl/xslt/dryverl_driver_c_header.xsl
+-rw-r--r--	root/root	usr/share/dryverl/xslt/dryverl_driver_c_impl.xsl
+-rw-r--r--	root/root	usr/share/dryverl/xslt/dryverl_driver_erlang_front_end.xsl
+-rw-r--r--	root/root	usr/share/dryverl/xslt/dryverl_driver_erlang_gen_server.xsl
+-rw-r--r--	root/root	usr/share/dryverl/xslt/dryverl_driver_file_names.xsl
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/dryverl-gen-server.1.gz

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Binary Buddy allocator
+# URL: http://rtportal.upv.es/rtmalloc/allocators/binbuddy/index.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=binbuddy
+version=1.0
+release=1
+source=(http://rtportal.upv.es/rtmalloc/allocators/$name/BINBUDDY-$version.tbz2)
+
+build () {
+	tar xjvf BINBUDDY-$version.tbz2
+	cd BINBUDDY-$version
+	gcc -c $name.c
+
+	ar cr $name.a $name.o
+	install -D $name.a $PKG/usr/lib/$name.a
+	install -D $name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

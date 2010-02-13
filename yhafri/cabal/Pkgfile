@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Common Architecture for Building Applications and Libraries
+# URL: http://www.haskell.org/cabal/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghc
+
+name=cabal
+version=1.1.4
+release=1
+source=(http://www.haskell.org/$name/release/$name-$version/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make PREF=$PKG/usr install
+
+	chown -R root:root $PKG
+}

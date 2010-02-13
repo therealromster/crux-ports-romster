@@ -1,0 +1,35 @@
+# $Id: $
+# Description: A high-level language for numerical computations
+# URL: http://www.octave.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: bison, fftw3, gnuplot, lapack, gcc-f77, gnuplot, atlas, hdf5
+
+name=octave
+version=2.1.73
+release=1
+source=(ftp://ftp.octave.org/pub/octave/$name-$version.tar.bz2)
+
+build () {
+        cd $name-$version
+        ./configure --prefix=/usr \
+		    --libexecdir=/usr/lib \
+		    --with-blas \
+		    --enable-shared \
+		    --with-hdf5 \
+		    --enable-rpath \
+		    --with-lapack \
+		    --disable-nls \
+		    --enable-readline \
+		    --enable-picky-flags \
+		    --with-g77 \
+		    --with-x
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/info
+	rm -rf $PKG/usr/libexec
+
+        chown -R root:root $PKG
+}

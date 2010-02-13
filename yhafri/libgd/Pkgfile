@@ -1,0 +1,23 @@
+# $Id: $
+# Description: ANSI C library for the dynamic creation of images
+# URL: http://www.boutell.com/gd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libjpeg, libpng, freetype2
+
+name=libgd
+version=2.0.33
+release=1
+source=(http://www.boutell.com/gd/http/gd-$version.tar.gz)
+
+
+build ()
+{
+	cd gd-$version
+	./configure --prefix=/usr
+	mkdir -p $PKG/usr/{bin,lib,include}
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+	chown -R root:root $PKG
+}
+

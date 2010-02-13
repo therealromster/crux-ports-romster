@@ -1,0 +1,17 @@
+--- topc-2.5.0/Makefile.in	2004-09-30 07:56:54.000000000 +0200
++++ topc-2.5.0/Makefile.in-new	2006-06-21 21:10:43.000000000 +0200
+@@ -33,14 +33,9 @@
+ 	cp include/*.h @includedir@/
+ 	@test -d @libdir@ || mkdir -p @libdir@
+ 	cp lib/lib*.a @libdir@
+-	@test -d @mandir@ || mkdir -p @mandir@
+-	@test -d @mandir@/man1 || mkdir -p @mandir@/man1
+ 	cp doc/topcc.1 @mandir@/man1/
+ 	cp doc/topc++.1 @mandir@/man1/
+-	@test -d @infodir@ || mkdir -p @infodir@
+ 	cp doc/topc.info* @infodir@/
+-	test @infodir@ = /usr/local/info && \
+-	  install-info --section Development Development @infodir@/topc.info
+ 
+ uninstall:
+ 	rm -f @bindir@/topc-config

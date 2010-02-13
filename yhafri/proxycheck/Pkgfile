@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Open Proxy checker
+# URL: http://www.corpit.ru/mjt/proxycheck.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=proxycheck
+version=0.49a
+release=1
+source=(http://www.corpit.ru/mjt/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure
+
+	make
+	install -D -m 755 $name   $PKG/usr/bin/$name
+	install -D -m 644 $name.1 $PKG/usr/man/man3/$name.1
+
+	chown -R root:root $PKG
+}

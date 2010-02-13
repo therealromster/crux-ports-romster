@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Integrate ImageMagick with any X Application
+# URL: http://siag.nu/xmagick/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: imagemagick
+
+name=xmagick
+version=0.2.1
+release=1
+source=(ftp://siag.nu/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+        rm -rf $PKG/usr/doc
+
+	chown -R root:root $PKG
+}

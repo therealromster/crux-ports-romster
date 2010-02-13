@@ -1,0 +1,17 @@
+# Description: balances irq's across multiple CPUs.  Only useful on SMP systems
+# URL: http://people.redhat.com/arjanv/irqbalance/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=irqbalance
+version=0.12
+release=1
+source=(http://people.redhat.com/arjanv/$name/$name-$version.tar.gz irqbalanced)
+
+build() {
+	cd $name
+        make
+        install -D ../irqbalanced $PKG/etc/rc.d/irqbalanced
+	install -D irqbalance $PKG/usr/sbin/irqbalance
+}

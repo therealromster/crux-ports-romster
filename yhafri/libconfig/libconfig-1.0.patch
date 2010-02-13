@@ -1,0 +1,11 @@
+--- libconfig-1.0/Makefile.in	2006-10-12 10:14:28.000000000 +0200
++++ libconfig-1.0/Makefile.in-new	2006-11-13 10:55:11.000000000 +0100
+@@ -272,7 +272,7 @@
+ EXTRA_DIST = $(BUILT_SOURCES) *.vcproj *.sln test.cfg TODO
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = libconfig.pc $(am__append_3)
+-SUBDIRS = . samples doc
++SUBDIRS = . 
+ all: $(BUILT_SOURCES) ac_config.h
+ 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
+ 

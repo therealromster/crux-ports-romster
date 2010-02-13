@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A sophisticated ftp/http client
+# URL: http://lftp.yar.ru/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=lftp
+version=3.0.8
+release=1
+source=(ftp://ftp.cs.tu-berlin.de/pub/net/ftp/lftp/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

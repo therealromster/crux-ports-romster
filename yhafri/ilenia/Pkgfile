@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Powerful package installer
+# URL: http://acrux.homelinux.org/crux/abandoned/ilenia/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: cvsup, httpup, rsync
+
+name=ilenia
+version=3.1
+release=1
+
+source=(http://download.berlios.de/ilenia/$name-$version.tar.gz)
+
+build () {
+    	cd $name-$version
+
+    	./configure --prefix=/usr
+    
+	make
+    	make DESTDIR=$PKG install
+
+    	mkdir $PKG/usr/ports ; mkdir -p $PKG/var/cache
+    	touch $PKG/var/cache/ilenia ; chmod 666 $PKG/var/cache/ilenia
+}

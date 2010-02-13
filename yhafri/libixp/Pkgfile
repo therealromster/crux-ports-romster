@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Standalone client/server 9P library (plan9)
+# URL: http://libs.suckless.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libixp
+version=0.2
+release=1
+source=(http://libs.suckless.org/download/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/
+	cd $name-$version
+
+	sed -i "s|.*ixpc.1.*||" Makefile
+
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/usr/local/* $PKG/usr
+	rm -rf $PKG/usr/local $PKG/usr/share
+
+	chown -R root:root $PKG
+}

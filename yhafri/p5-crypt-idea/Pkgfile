@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to IDEA crypt algorithm
+# URL: http://perl.enstimac.fr/CPAN/modules/by-category/14_Security_and_Encryption/Crypt/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-crypt-idea
+version=1.08
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DP/DPARIS/Crypt-IDEA-$version.tar.gz)
+
+build () {
+	cd Crypt-IDEA-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,18 @@
+POST-INSTALL:
+		* To enable the GLE emacs mode, put the file gle.el,
+		 and lmenu.el to your emacs lisp directory:
+
+		$ cp gle.el lmenu.el  /usr/share/emacs/site-lisp
+
+		and add the following to your ~/.emacs file:
+		
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		;
+		;   Graphics Layout Engine MODE
+		;
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		(add-to-list 'load-path "~/.elisp/gle")
+		(autoload 'gle-mode "gle"
+		  "GLE editing mode" t)
+		(setq auto-mode-alist (append auto-mode-alist
+                              (list '("\\.gle$" . gle-mode))))

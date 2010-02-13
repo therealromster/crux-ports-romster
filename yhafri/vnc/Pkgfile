@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Virtual Network Computing
+# URL: http://www.realvnc.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=vnc
+version=4_1_7
+release=1
+source=(http://www.realvnc.com/dist/$name-${version}-x86_linux.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man/man1}
+	mkdir -p $PKG/usr/X11R6/lib/modules/extensions
+
+	cd $name-$version-x86_linux
+	cp vncconfig Xvnc vncpasswd vncserver $PKG/usr/bin
+	cp vncviewer x0vncserver vncconfig $PKG/usr/bin
+	cp *.man $PKG/usr/man/man1
+	cp vnc.so $PKG/usr/X11R6/lib/modules/extensions
+
+        chown -R root:root $PKG
+}

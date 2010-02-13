@@ -1,0 +1,18 @@
+# Description: a collection of programs to put heavy load on CPU 
+# URL: http://pages.sbcglobal.net/redelm/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=cpuburn
+version=1.4
+release=1
+source=(http://pages.sbcglobal.net/redelm/cpuburn_1_4_tar.gz)
+
+build() {
+	tar -xzf cpuburn_1_4_tar.gz
+	cd $name-$version
+        make
+	mkdir -p $PKG/usr/bin
+	cp burnBX burnK6 burnK7 burnMMX burnP5 burnP6 $PKG/usr/bin
+}

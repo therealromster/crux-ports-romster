@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A functional programming system based on Haskell 98
+# URL: http://www.haskell.org/hugs/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: alex, happy
+
+name=hugs98
+version=Mar2005
+release=2
+source=(http://cvs.haskell.org/Hugs/downloads/Mar2005/$name-$version-patched.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version-patched/
+
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --with-pthreads \
+		    --enable-ffi \
+ 	     	    --enable-internal-prims
+	make
+	make DESTDIR=$PKG install
+
+	find $PKG/usr -iname "demos"     -type "d" | xargs rm -rf
+	find $PKG/usr -iname "docs"      -type "d" | xargs rm -rf
+	find $PKG/usr -name  "*\.htm*"   -type "f" | xargs rm -rf
+
+        chown -R root:root $PKG
+}

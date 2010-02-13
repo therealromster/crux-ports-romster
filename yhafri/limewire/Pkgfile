@@ -1,0 +1,45 @@
+# $Id:
+# Description: Limewire Java Gnutella client
+# URL: http://www.limewire.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, jdk, rpm2targz
+
+name=limewire
+version=4.13
+release=1
+source=(http://www.$name.com/LimeWireSoftLinux \
+	$name)
+
+build() {
+    	rpm2targz LimeWireSoftLinux
+	tar xf LimeWireSoftLinux.tar.gz
+	mv usr $PKG
+	chown -R root:root $PKG
+}
+
+buildcvs() {
+	mkdir -p $PKG/usr/lib/$name
+	
+	cd $PKG/usr/lib/$name
+	cvs -d:pserver:guest:guest@cvs.$name.org:/cvs co core gui lib tests
+	
+	cd core; ant; cd ../gui; ant; cd ..
+	rm -rf tests
+
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+	cd $PKG
+	(find . -name ".cvsignore"     -exec rm -rf '{}' \;)
+	(find . -name "windows"       -type "d" -exec rm -rf '{}' \;)
+	(find . -name "CVS"           -type "d" -exec rm -rf '{}' \;)
+	(find . -name "build.xml"     -type "f" -exec rm -rf '{}' \;)
+	(find . -name "Copyright.txt" -type "f" -exec rm -rf '{}' \;)
+	(find . -name "*.java"        -type "f" -exec rm -rf '{}' \;)
+	(find . -name "README.txt"    -type "f" -exec rm -rf '{}' \;)
+	(find . -name "gpl.txt"       -type "f" -exec rm -rf '{}' \;)
+	(find . -name "log.txt"       -type "f" -exec rm -rf '{}' \;)
+	(find . -name "run.bat" -o -name "run_cygwin" -o -name "runosx" -type "f" -exec rm -rf '{}' \;)
+	
+	chown -R root:root $PKG
+}

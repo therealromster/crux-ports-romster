@@ -1,0 +1,23 @@
+# $Id: $
+# Description: GNU Data Access to data sources stored in databases or XML for GNOME-DB
+# URL: ftp://ftp.gnome-db.org/pub/gnome-db/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libgda
+version=1.1.4
+release=1
+source=(ftp://ftp.gnome-db.org/pub/gnome-db/sources/v1.1.4/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1 < ../$name-$version.patch
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

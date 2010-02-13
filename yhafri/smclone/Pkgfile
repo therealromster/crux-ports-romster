@@ -1,0 +1,27 @@
+# Description: Secret Maryo Chronicles is a 2D Jump&Run Game built upon SDL
+# URL: http://smclone.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=smclone
+version=0.97
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/SMC_${version}_source.zip \
+		http://dl.sourceforge.net/sourceforge/$name/SMC_${version}_game.zip \
+		http://dl.sourceforge.net/sourceforge/$name/music_2.0_RC_1.zip \
+		smc)
+
+build() {
+    cd $version
+	aclocal
+	autoheader
+	automake --add-missing
+	autoconf
+    sh ./configure --prefix=/usr
+	make
+	install -D -m 755 src/smc $PKG/usr/share/smc/bin/smc
+    make prefix=$PKG/usr install
+	cp -rf data $PKG/usr/share/smc/data
+	install -D -m 755 $SRC/smc $PKG/usr/bin/smc
+}

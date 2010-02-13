@@ -1,0 +1,19 @@
+# $Id: $
+# Description: PHP script that extracts useful information for different file formats
+# URL: http://getid3.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: mod_php
+
+name=getid3
+version=1.7.7
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib
+
+	mv $name/$name $PKG/usr/lib
+
+	chown -R root:root $PKG
+}

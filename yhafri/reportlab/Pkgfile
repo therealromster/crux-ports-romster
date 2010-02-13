@@ -1,0 +1,22 @@
+# $Id: $
+# Description: PDF library to  create or automate complex (even data-driven) documents
+# URL: http://www.reportlab.org/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=reportlab
+version=1.2
+release=1
+source=(http://www.$name.org/ftp/ReportLab_1_20.tgz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd ${name}_1_20/$name
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

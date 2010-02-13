@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Provides highly optimized and portable routines for a vast majority of integer based number theoretic applications
+# URL: http://math.libtomcrypt.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=libtommath
+version=0.39
+release=1
+source=(http://math.libtomcrypt.com/files/ltm-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	export USER=root
+	export GROUP=root
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Free easy personal accounting
+# URL: http://homebank.free.fr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk
+
+name=homebank
+version=3.2
+release=1
+source=(http://$name.free.fr/public/$name-$version.tar.gz)
+
+build () {
+	cd $name
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

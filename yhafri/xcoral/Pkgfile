@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A multiwindow mouse-based text editor for Unix and X Window System
+# URL: http://xcoral.free.fr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xcoral
+version=3.46
+release=1
+source=(http://$name.free.fr/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

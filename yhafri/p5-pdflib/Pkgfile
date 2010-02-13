@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A library for processing PDF on the fly for Perl
+# URL: http://www.pdflib.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-pdflib
+version=6.0.2
+release=1
+source=(http://www.pdflib.com/products/pdflib/download/602lang/PDFlib-$version-Linux-perl.tar.gz)
+
+build () {
+
+	install -D -m 755 PDFlib-$version-Linux-perl/bind/perl/perl58-nt/pdflib_pl.so  $PKG/usr/lib/pdflib/perl/pdflib_pl.so	
+	install -D -m 644 PDFlib-$version-Linux-perl/bind/perl/pdflib_pl.pm            $PKG/usr/lib/pdflib/perl/pdflib_pl.pm	
+
+	chown -R root:root $PKG
+}

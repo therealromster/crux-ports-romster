@@ -1,0 +1,24 @@
+--- eciadsl-usermode-0.10/Makefile.config	2005-04-17 12:09:20.094060928 +0200
++++ eciadsl-usermode-0.10/Makefile.config-new	2005-04-17 12:18:03.262527232 +0200
+@@ -8,16 +8,16 @@
+ INSTALL_EXEC = install -c -p -m 755
+ INSTALL_DATA = install -c -p -m 644
+ INSTALL_DIR = install -c -p -d -m 755
+-
++ROOT = 
+ STRIP = strip
+ PRODUCT_ID = ECIADSL
+ PRODUCT_NAME = ECIADSL USB modem driver
+ PRODUCT_VERSION ?= 0.10
+ PREFIX = /usr/
+-ETC_PREFIX = /
+-CONF_PREFIX = /
+-DOC_PREFIX = /usr/
+-BIN_DIR = $(PREFIX)bin
++ETC_PREFIX = 
++CONF_PREFIX = 
++DOC_PREFIX = usr/
++BIN_DIR = usr/bin
+ ETC_DIR = $(ETC_PREFIX)etc
+ CONF_DIR = $(CONF_PREFIX)etc/eciadsl
+ DOC_DIR = $(DOC_PREFIX)doc/eciadsl

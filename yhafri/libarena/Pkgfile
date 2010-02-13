@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Custom Memory Allocator Interface
+# URL: http://www.25thandclement.com/~william/projects/libarena.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libarena
+version=snapshot
+release=1
+source=(http://25thandclement.com/~william/projects/snapshots/$name-$version.tgz)
+
+build () {
+	cd $name-*
+
+	make
+
+	install -D -m 644 src/$name.a $PKG/usr/lib/$name.a
+	install -D -m 644 src/arena.h $PKG/usr/include/arena.h
+	install -D -m 644 src/pool.h  $PKG/usr/include/pool.h
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Provide a rich string-handling library for C that has safe semantics 
+# URL: http://www.zork.org/safestr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: xxl
+
+name=safestr
+version=1.0.3
+release=1
+source=(http://www.zork.org/software/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Collection of boot loaders for the Linux operating system
+# URL: http://syslinux.zytor.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  mtools
+
+name=syslinux
+version=3.36
+release=1
+source=(http://www.kernel.org/pub/linux/utils/boot/$name/$name-$version.zip)
+
+build() {
+	make
+
+	sed -i "s|/usr/|$PKG/usr/|g" Makefile
+	sed -i "s|/sbin|$PKG/usr/bin|g" Makefile
+
+	make install
+
+	chown -R root:root $PKG
+}

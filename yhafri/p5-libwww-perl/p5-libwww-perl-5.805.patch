@@ -1,0 +1,74 @@
+--- libwww-perl-5.803/Makefile.PL	2004-11-30 12:51:58.000000000 +0100
++++ libwww-perl-5.803/Makefile.PL-new	2005-11-17 14:53:45.000000000 +0100
+@@ -52,51 +52,6 @@
+ die "Can't figure out release date" unless $release_date;
+ #print "Release date: $release_date\n";
+ 
+-my $some_time_ago = sprintf "%04d-%02d-%02d",
+-          sub { ($_[5]+1900, $_[4]+1, $_[3])}->(localtime(time - 45 * 24*60*60));
+-if ($some_time_ago lt $release_date) {
+-    # Check if we have internet connection
+-    require IO::Socket;
+-    my $s = IO::Socket::INET->new(PeerAddr => "www.google.com:80",
+-				  Timeout  => 10,
+-				 );
+-    if ($s) {
+-	# XXX could try to send a GET to it???
+-	close($s);
+-
+-	print <<EOT;
+-
+-You appear to be directly connected to the Internet.  I have some tests
+-that tries to access some sites on the net to verify that the new HTTP/1.1
+-support works as it should.
+-
+-EOT
+-
+-        if (prompt("Do you want to enable these tests?", "y") =~ /^y/i) {
+-	    open(ENABLED, ">t/live/ENABLED") || die "Can't enable: $!";
+-	    close(ENABLED);
+-
+-	    # Figure out if the compress lib works and signal that with
+-	    # a file for the test suite to find.  We don't want the
+-	    # test script to do this 'require' itself because we want
+-	    # to test that the module loads it on demand as it should.
+-	    eval {
+-		require Compress::Zlib;
+-		Compress::Zlib->VERSION(1.10);
+-		open(ZLIB_OK, ">t/live/ZLIB_OK") || die "Can't create ZLIB_OK: $!";
+-		print ZLIB_OK "$Compress::Zlib::VERSION\n";
+-		close(ZLIB_OK);
+-	    };
+-	    if ($@) {
+-		#warn $@;
+-		unlink("t/live/ZLIB_OK");
+-	    }
+-	}
+-	else {
+-	    unlink("t/live/ENABLED");
+-	}
+-    }
+-}
+ 
+ if (@programs_to_install) {
+     print <<EOT;
+@@ -110,9 +65,7 @@
+ EOT
+     my @tmp;
+     for (@programs_to_install) {
+-	if (prompt("Do you want to install $_?", "y") =~ /^y/) {
+ 	    push(@tmp, $_);
+-	}
+     }
+     @programs_to_install = @tmp;
+ }
+@@ -129,9 +82,6 @@
+     my @tmp;
+     for my $alias (@request_aliases) {
+ 	my $default = "n";
+-	if (prompt("Do you want to install the $alias alias?", $default) =~ /^y/) {
+-	    push(@tmp, $alias);
+-	}
+     }
+     @request_aliases = @tmp;
+ }

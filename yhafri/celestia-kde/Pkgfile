@@ -1,0 +1,21 @@
+# Description: a real-time visual space simulation (KDE enhanced)
+# URL: http://www.shatters.net/celestia/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: mesa3d, kdelibs
+# Alternatively: use nvidia instead of mesa3d
+
+name=celestia-kde
+version=1.4.1
+release=2
+source=(http://dl.sourceforge.net/sourceforge/celestia/celestia-$version.tar.gz)
+
+build() {
+    cd celestia-$version
+    ./configure	--prefix=/usr \
+        --with-kde
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

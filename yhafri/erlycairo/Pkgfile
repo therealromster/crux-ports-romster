@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Erlang bindings for Cairo 2D graphics library
+# URL: http://code.google.com/p/erlycairo/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, subversion, cairo
+
+name=erlycairo
+version=svn
+release=1
+source=($name-svn.patch)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,include}
+	
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+
+	patch -p1<$SRC/$name-svn.patch
+        ei=/usr/lib/erlang/lib/erl_interface-*
+        sed -i "s|EI|`echo $ei`|" c_src/Makefile
+
+	make
+
+	mv ebin/*.beam     $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv src/*.erl       $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv include/*.hrl   $PKG/usr/lib/erlang/lib/$name-$version/include
+	mv priv/           $PKG/usr/lib/erlang/lib/$name-$version/
+
+	(find $PKG -name ".svn" -type "d" -exec rm -rf '{}' \;)
+	chown -R root:root $PKG
+}

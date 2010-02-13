@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/gtk-canvas.h
+drwxr-xr-x	root/root	usr/include/gtk-canvas/
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-defs.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-image.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-init.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-line.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-load.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-polygon.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-rect-ellipse.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-text.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-types.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-util.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas-widget.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvas.h
+-rw-r--r--	root/root	usr/include/gtk-canvas/gtk-canvastypebuiltins.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libgtk-canvas.a
+-rwxr-xr-x	root/root	usr/lib/libgtk-canvas.la
+lrwxrwxrwx	root/root	usr/lib/libgtk-canvas.so -> libgtk-canvas.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libgtk-canvas.so.1 -> libgtk-canvas.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libgtk-canvas.so.1.0.1

@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/domino
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/domino/
+-rw-r--r--	root/root	usr/lib/domino/Sample.java
+-rw-r--r--	root/root	usr/lib/domino/domino.jar
+-rwxr-xr-x	root/root	usr/lib/domino/libdomino.so
+-rw-r--r--	root/root	usr/lib/domino/xalan.jar
+-rw-r--r--	root/root	usr/lib/domino/xercesImpl.jar

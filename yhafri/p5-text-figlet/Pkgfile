@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A perl module to provide FIGlet abilities
+# URL: http://search.cpan.org/~jpierce/Text-FIGlet-1.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: figlet
+
+name=p5-text-figlet
+version=1.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JP/JPIERCE/Text-FIGlet-$version.tar.gz)
+
+build () {
+	cd Text-FIGlet-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

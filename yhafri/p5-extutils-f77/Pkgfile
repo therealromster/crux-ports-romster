@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to link C programs with Fortran subroutines
+# URL: http://search.cpan.org/~kgb/ExtUtils-F77-1.14/F77.pm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=p5-extutils-f77
+version=1.14
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KG/KGB/ExtUtils-F77-$version.tar.gz)
+
+build () {
+	cd ExtUtils-F77-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

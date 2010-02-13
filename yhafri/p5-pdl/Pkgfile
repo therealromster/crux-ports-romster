@@ -1,0 +1,47 @@
+# $Id: $
+# Description: Perl Data Language
+# URL: http://pdl.perl.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: karma, fftw, gsl, p5-tk, p5-extutils-f77, p5-inline, p5-term-readkey, p5-filter, p5-pgplot, saoimage, mesa3d, plplot, netpbm
+
+name=p5-pdl
+version=2.4.3
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CS/CSOE/PDL-$version.tar.gz)
+#source=($name-$version.patch)
+#source=(http://kent.dl.sourceforge.net/sourceforge/pdl/PDL-$version.tar.gz \
+#	$name-$version.patch)
+
+build () {
+	export KARMABASE=/usr/local/karma
+	export PGPLOT_DIR=/usr/lib/pgplot
+
+	cd PDL-$version
+	#patch -p1 < ../$name-$version.patch
+	perl Makefile.PL
+	mkdir PDL; cp -rf Basic/Gen/PP* Basic/Core/* PDL/
+        make OPTIMIZE="${CFLAGS}"
+	#make PERLPREFIX=$PKG/usr SITEPREFIX=$PKG/usr install
+        make DESTDIR=${PKG} install
+        find ${PKG} -name perllocal.pod -exec rm {} \;
+	find $PKG -name perllocal.pod -exec rm {} \;
+
+	chown -R root:root $PKG
+}
+
+build_cvs () {
+	export KARMABASE=/usr/local/karma
+	export PGPLOT_DIR=/usr/lib/pgplot
+
+	cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/pdl co -P PDL
+	#cd PDL-$version
+	cd PDL
+	#patch -p1 < ../$name-$version.patch
+	perl Makefile.PL
+	mkdir PDL; cp -rf Basic/Gen/PP* Basic/Core/* PDL/
+	make OPTIMIZE="$CFLAGS"
+	make PERLPREFIX=$PKG/usr SITEPREFIX=$PKG/usr install
+	find $PKG -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

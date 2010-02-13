@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Test TCP connection
+# URL: http://sd.wareonearth.com/~phil/net/ttcp/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=nttcp
+version=1
+release=1
+source=($name.c)
+
+build () {
+	gcc -o $name $name.c
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

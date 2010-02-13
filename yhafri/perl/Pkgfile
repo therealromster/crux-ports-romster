@@ -1,0 +1,36 @@
+# $Id: $
+# Description: Perl programming language
+# URL: http://search.cpan.org/~nwclark/perl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Per Lidén <per@fukt.bth.se>
+# Depends on:
+
+name=perl
+version=5.8.8
+release=4
+source=(http://search.cpan.org/CPAN/authors/id/N/NW/NWCLARK/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./Configure -des \
+		-Dprefix=/usr \
+		-Darchname=linux \
+		-Dman1ext=1pm \
+		-Dman3ext=3pm \
+		-Dman1dir=/usr/man/man1 \
+		-Dman3dir=/usr/man/man3 \
+		-Di_gdbm \
+		-Di_db \
+		-Doptimize="$CFLAGS" \
+		-Dusethreads \
+		-Dsharedperl
+    make
+    make DESTDIR=$PKG install
+    ln -sf perl$version $PKG/usr/bin/perl
+    ln -sf c2ph $PKG/usr/bin/pstruct
+    ln -sf s2p $PKG/usr/bin/psed
+    ln -sf c2ph.1pm $PKG/usr/man/man1/pstruct.1pm
+    ln -sf s2p.1pm $PKG/usr/man/man1/psed.1pm
+    find $PKG/usr -name .packlist -exec rm {} \;
+    chmod -R +w $PKG
+}

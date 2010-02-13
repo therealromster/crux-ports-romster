@@ -1,0 +1,9 @@
+INFO:
+		Tangram can be used with Mysql, Postgres, SQLite and
+		Oracle.
+
+		Install the following ports to test it:
+
+		p5-dbd-mysql
+		p5-dbd-sqlite
+		p5-dbd-pg

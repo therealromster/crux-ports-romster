@@ -1,0 +1,15 @@
+# Description: a daemon for cpufreq which uses the sysfs interface. It sits in the background and changes CPU speed in configurable "steps" according to usage
+# URL: http://www.deater.net/john/powernowd.html
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=powernowd
+version=0.97
+release=1
+source=(http://www.deater.net/john/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    make
+    install -D -m 755 powernowd $PKG/usr/sbin/powernowd
+}

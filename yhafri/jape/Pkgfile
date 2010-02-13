@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A lightweight, uncommitted, transparent proof calculator.
+# URL: http://jape.comlab.ox.ac.uk:8080/jape/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rsync, jdk, ocaml
+
+name=jape
+version=v7_d4_9
+release=1
+source=(http://jape.comlab.ox.ac.uk:8080/$name/SOURCE/$name.source.$version.tgz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	cd $name.source/LinuxJape/build
+
+	make
+
+	install -D -m 755 Jape.jar                       $PKG/usr/lib/$name/Jape.jar
+	install -D -m 755 tmp/${name}_engine             $PKG/usr/lib/$name/${name}_engine
+	install -D -m 755 ../../utf8_encoder/encoder.jar $PKG/usr/lib/$name/encoder.jar
+
+	install -D -m 755 $SRC/$name                     $PKG/usr/bin/$name
+	#ln -sf /usr/lib/$name/${name}_engine            $PKG/usr/bin/${name}_engine
+
+	chown -R root:root $PKG
+}

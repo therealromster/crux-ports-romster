@@ -1,0 +1,132 @@
+--- jpeg2pdf.py	2000-07-03 15:48:55.000000000 +0000
++++ jpeg2pdf.py-new	2004-11-23 15:01:30.748400296 +0000
+@@ -1,65 +1,67 @@
+-#!/usr/bin/env python
+-
+-"""jpeg2pdf.py - Convert a JPEG image into a PDF file.
+-
+-jpeg2pdf.py image.jpeg -> image.pdf
+-
+-Resolution is not changed, one pixel is 1/72 inch.
+-Only JPEG images can be converted!
+-Original extension will be replaced with '.pdf'.
+-Original file will not be deleted.
+-File tagging on Macs was not yet tested.
+-
+-Dinu Gherman, July 2000
+-"""
+-
+-
+-__version__ = 0,5
+-
+-
+-import sys, os, Image
++#!/usr/bin/env python
++
++"""jpeg2pdf.py - Convert a JPEG image into a PDF file.
++
++jpeg2pdf.py image.jpeg -> image.pdf
++
++Resolution is not changed, one pixel is 1/72 inch.
++Only JPEG images can be converted!
++Original extension will be replaced with '.pdf'.
++Original file will not be deleted.
++File tagging on Macs was not yet tested.
++
++Dinu Gherman, July 2000
++"""
++
++
++__version__ = 0,5
++
++
++import sys, os
++
+ from reportlab.pdfgen import canvas
+-
+-
+-def convertJpegImage(imgPath):
+-    "Convert a JPG image file into a PDF file."
+-    
+-    # Find out the size of the input image.
+-    img = Image.open(imgPath)
+-    size = img.size
+-
+-    # Make sure it *is* a JPEG file.
++from PIL import Image
++
++
++def convertJpegImage(imgPath):
++    "Convert a JPG image file into a PDF file."
++
++    # Find out the size of the input image.
++    img = Image.open(imgPath)
++    size = img.size
++
++    # Make sure it *is* a JPEG file.
+     msg = '%s is not a JPEG image!' % imgPath
+-    assert img.format == 'JPEG', msg
+-    
+-    # Make output filename.
+-    rest, ext = os.path.splitext(imgPath)
+-    pdfPath = rest + '.pdf'
+-
+-    # Create PDF file with image compressed
+-    # with DCT and ASCII85.
++    assert img.format == 'JPEG', msg
++
++    # Make output filename.
++    rest, ext = os.path.splitext(imgPath)
++    pdfPath = rest + '.pdf'
++
++    # Create PDF file with image compressed
++    # with DCT and ASCII85.
+     c = canvas.Canvas(pdfPath, size)
+-    c.drawInlineImage(imgPath, 0, 0)
++    c.drawInlineImage(imgPath, 0, 0)
+     c.showPage()
+-    c.save()
+-
+-    # Tag the file as PDF if we are on a Mac.
+-    if os.name == 'mac':
+-        import macfs
+-        try: 
+-            macfs.FSSpec(pdfPath).SetCreatorType('CARO', 'PDF ')
+-        except:
+-            pass
+-
+-
+-# Handle command line arguments, if called as standalone script.
+-if __name__ == '__main__':
+-    files = sys.argv[1:]
+-    
+-    if not files:
+-        name = os.path.basename(sys.argv[0])
+-        print "Usage: %s <file1> [<file2> ...]" % name
+-    else:
+-        for p in files:
+-            convertJpegImage(p)
+-    
+\ No newline at end of file
++    c.save()
++
++    # Tag the file as PDF if we are on a Mac.
++    if os.name == 'mac':
++	import macfs
++	try:
++	    macfs.FSSpec(pdfPath).SetCreatorType('CARO', 'PDF ')
++	except:
++	    pass
++
++
++# Handle command line arguments, if called as standalone script.
++if __name__ == '__main__':
++    files = sys.argv[1:]
++
++    if not files:
++	name = os.path.basename(sys.argv[0])
++	print "Usage: %s <file1> [<file2> ...]" % name
++    else:
++	for p in files:
++	    convertJpegImage(p)
++

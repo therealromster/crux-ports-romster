@@ -1,0 +1,50 @@
+# $Id: $
+# Description: The Linux Asynchronous Event Mechanism
+# URL: http://aem.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=aem
+version=0.9.1
+release=15r10
+source=(linux-2.6.6-$name-$release.patch \
+	http://internap.dl.sourceforge.net/sourceforge/aem/mod_$name-2.6.6-v$version.tar.gz \
+	$name-$version.patch \
+	$name)
+
+build () {
+	export LINUXSRC=/usr/src/linux-2.6.6
+
+	mkdir -p $PKG/usr/lib/$name
+	cd mod_$name-2.6.6-v$version
+
+	(
+	cd pkg_kernel
+	for i in aem-core aem-fd aem-ip aem-pexit  aem-timer;
+	do
+ 	     (
+	      cd $i
+	      (make clean
+	      make all 
+	      sync && rmmod $i.ko &> /dev/null
+	      make install)
+
+	      install $i.ko $PKG/usr/lib/$name/$i.ko;
+             )
+	done
+	)
+
+	(
+	cd pkg_user
+	patch -p0<$SRC/$name-$version.patch
+	cd lib
+	make all
+	cd ..
+	./cfgaem.sh install $PKG/usr
+	)
+
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+
+	chown -R root:root $PKG
+}

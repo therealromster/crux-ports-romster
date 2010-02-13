@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A Scheme interpreter and compiler + Termite (an Erlang-like) distributed programming
+# URL: http://www.iro.umontreal.ca/~gambit/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, emacs
+
+name=gambit
+version=4.0b22
+release=1
+source=(http://www.iro.umontreal.ca/~$name/download/$name/4.0/source/gambc-$version.tar.gz \
+	http://toute.ca/termite.tar.gz)
+
+build () {
+	cd gambc-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make bootstrap
+	cd lib
+	mv $SRC/termite .
+	echo '(##include "termite/termite.scm")' >> _thread.scm
+	cd ..
+
+	make
+	make PACKAGE_SUBDIR=lib/$name prefix=$PKG/usr/ install
+
+	rm -rf $PKG/usr/current $PKG/usr/lib/$name/{doc,info}
+
+	chown -R root:root $PKG
+}

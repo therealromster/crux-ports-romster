@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Database independent interface for Perl
+# URL: http://search.cpan.org/~timb/DBI-1.46/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-plrpc, p5-net-daemon, p5-storable
+
+name=p5-dbi
+version=1.55
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TI/TIMB/DBI-$version.tar.gz)
+
+build () {
+	cd DBI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

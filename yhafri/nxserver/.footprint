@@ -1,0 +1,73 @@
+drwxr-xr-x	root/root	bin/
+-rwxr-xr-x	root/root	bin/nxserver
+drwxr-xr-x	root/root	usr/
+lrwxrwxrwx	root/root	usr/NX -> /usr/lib/NX
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/NX/
+drwxr-xr-x	root/root	usr/lib/NX/etc/
+-rw-r--r--	root/root	usr/lib/NX/etc/administrators.db.sample (EMPTY)
+-rw-r--r--	root/root	usr/lib/NX/etc/guests.db.sample (EMPTY)
+drwxr-xr-x	root/root	usr/lib/NX/etc/keys/
+-rw-r--r--	root/root	usr/lib/NX/etc/passwords.db.sample (EMPTY)
+-rw-r--r--	root/root	usr/lib/NX/etc/profiles.db.sample (EMPTY)
+-rw-r--r--	root/root	usr/lib/NX/etc/server-debian.cfg.sample
+-rw-r--r--	root/root	usr/lib/NX/etc/server-fedora.cfg.sample
+-rw-r--r--	root/root	usr/lib/NX/etc/server-mandrake.cfg.sample
+-rw-r--r--	root/root	usr/lib/NX/etc/server-redhat.cfg.sample
+-rw-r--r--	root/root	usr/lib/NX/etc/server-suse.cfg.sample
+-r--------	root/root	usr/lib/NX/etc/server.lic.sample
+-rw-r--r--	root/root	usr/lib/NX/etc/users.db.sample (EMPTY)
+drwxr-xr-x	root/root	usr/lib/NX/home/
+drwx------	root/root	usr/lib/NX/home/nx/
+-rw-r--r--	root/root	usr/lib/NX/home/nx/.bash_logout
+-rw-r--r--	root/root	usr/lib/NX/home/nx/.bash_profile
+-rw-r--r--	root/root	usr/lib/NX/home/nx/.bashrc
+-rw-r--r--	root/root	usr/lib/NX/home/nx/.hushlogin (EMPTY)
+drwx------	root/root	usr/lib/NX/home/nx/.ssh/
+-rw-r--r--	root/root	usr/lib/NX/home/nx/.ssh/default.id_dsa.pub
+drwxr-xr-x	root/root	usr/lib/NX/lib/
+drwxr-xr-x	root/root	usr/lib/NX/lib/perl/
+-r-xr-xr-x	root/root	usr/lib/NX/lib/perl/DBI.so
+-rwxr-xr-x	root/root	usr/lib/NX/lib/perl/Dumper.so
+-rwxr-xr-x	root/root	usr/lib/NX/lib/perl/Fcntl.so
+-r-xr-xr-x	root/root	usr/lib/NX/lib/perl/GD.so
+-r-xr-xr-x	root/root	usr/lib/NX/lib/perl/HiRes.so
+lrwxrwxrwx	root/root	usr/lib/NX/lib/perl/IO.so -> /usr/lib/perl5/5.8.6/linux/auto/IO/IO.so
+lrwxrwxrwx	root/root	usr/lib/NX/lib/perl/MD5.so -> /usr/lib/perl5/5.8.6/linux/auto/Digest/MD5/MD5.so
+lrwxrwxrwx	root/root	usr/lib/NX/lib/perl/POSIX.so -> /usr/lib/perl5/5.8.6/linux/auto/POSIX/POSIX.so
+lrwxrwxrwx	root/root	usr/lib/NX/lib/perl/Resource.so -> /usr/lib/perl5/site_perl/5.8.6/linux/auto/BSD/Resource/Resource.so
+-rwxr-xr-x	root/root	usr/lib/NX/lib/perl/SDBM_File.so
+-r-xr-xr-x	root/root	usr/lib/NX/lib/perl/SQLite.so
+lrwxrwxrwx	root/root	usr/lib/NX/lib/perl/Socket.so -> /usr/lib/perl5/5.8.6/linux/auto/Socket/Socket.so
+-rwxr-xr-x	root/root	usr/lib/NX/lib/perl/SysV.so
+lrwxrwxrwx	root/root	usr/lib/NX/lib/perl/Syslog.so -> /usr/lib/perl5/5.8.6/linux/auto/Sys/Syslog/Syslog.so
+-rwxr-xr-x	root/root	usr/lib/NX/lib/perl/libgd.so.2
+drwxr-xr-x	root/root	usr/lib/NX/scripts/
+drwxr-xr-x	root/root	usr/lib/NX/scripts/init/
+-rwxr-xr-x	root/root	usr/lib/NX/scripts/init/nxserver
+drwxr-xr-x	root/root	usr/lib/NX/scripts/restricted/
+-rwxr-xr-x	root/root	usr/lib/NX/scripts/restricted/nxconfigure.sh
+-rwxr-xr-x	root/root	usr/lib/NX/scripts/restricted/nxgroupadd.sh
+-rwxr-xr-x	root/root	usr/lib/NX/scripts/restricted/nxpasswd.sh
+-rwxr-xr-x	root/root	usr/lib/NX/scripts/restricted/nxwtmpadd.sh
+-rwxr-xr-x	root/root	usr/lib/NX/scripts/restricted/nxwtmpdel.sh
+drwxr-xr-x	root/root	usr/lib/NX/scripts/setup/
+-rwxr-xr-x	root/root	usr/lib/NX/scripts/setup/nxserver
+drwxr-xr-x	root/root	usr/lib/NX/share/
+drwxr-xr-x	root/root	usr/lib/NX/share/branding/
+drwxr-xr-x	root/root	usr/lib/NX/share/branding/server/
+drwxr-xr-x	root/root	usr/lib/NX/share/images/
+-rw-r--r--	root/root	usr/lib/NX/share/images/dnabig.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/dnasmall.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/dnyabig.png
+-rw-r--r--	root/root	usr/lib/NX/share/images/dnyasmall.png
+drwxr-xr-x	root/root	usr/lib/NX/var/
+drwxr-xr-x	root/root	usr/lib/NX/var/db/
+drwx------	root/root	usr/lib/NX/var/db/closed/
+-rw-------	root/root	usr/lib/NX/var/db/closed/.InfoManager.lock (EMPTY)
+drwx------	root/root	usr/lib/NX/var/db/failed/
+-rw-------	root/root	usr/lib/NX/var/db/failed/.InfoManager.lock (EMPTY)
+drwxrwx---	root/root	usr/lib/NX/var/db/nxstat/
+drwx------	root/root	usr/lib/NX/var/db/running/
+-rw-------	root/root	usr/lib/NX/var/db/running/.InfoManager.lock (EMPTY)
+drwxr-xr-x	root/root	usr/lib/NX/var/run/

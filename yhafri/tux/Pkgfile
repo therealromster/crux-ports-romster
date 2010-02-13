@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A kernel http-daemon (webserver) for Linux
+# URL: http://www.redhat.com/docs/manuals/tux/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz
+
+name=tux
+version=2.2.9
+release=1
+source=(http://mirror.cict.fr/fedoralegacy/redhat/9/os/SRPMS/$name-$version-1.src.rpm \
+	$name-$version.patch)
+
+build () {
+	rpm2targz $name-$version-1.src.rpm
+	tar xf $name-$version-1.src.tar.gz
+	tar xf $name-$version.tar.gz
+
+	cd $name-$version
+	patch -p1<$SRC/$name-$version.patch
+
+	make
+	make TOPDIR=$PKG install
+
+	chown -R root:root $PKG
+}

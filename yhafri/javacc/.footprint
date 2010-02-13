@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/javacc -> /usr/lib/javacc/javacc
+lrwxrwxrwx	root/root	usr/bin/jjdoc -> /usr/lib/javacc/jjdoc
+lrwxrwxrwx	root/root	usr/bin/jjtree -> /usr/lib/javacc/jjtree
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/javacc/
+-rwxrwxr-x	root/root	usr/lib/javacc/javacc
+-rwxrwxr-x	root/root	usr/lib/javacc/jjdoc
+-rwxrwxr-x	root/root	usr/lib/javacc/jjtree
+drwxrwxr-x	root/root	usr/lib/javacc/lib/
+-rw-rw-r--	root/root	usr/lib/javacc/lib/javacc.jar

@@ -1,0 +1,9 @@
+Usage:
+
+touch foobar_test
+inotify_test /tmp/foobar_test > output 2>&1
+
+# (in another VT)
+echo "mmm, data" > foobar_test
+rm /tmp/foobar_test
+less output

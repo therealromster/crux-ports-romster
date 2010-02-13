@@ -1,0 +1,43 @@
+--- oregexp-1.2/Makefile.in	2007-01-13 17:05:50.000000000 +0100
++++ oregexp-1.2/Makefile.in-new	2007-05-10 19:46:14.000000000 +0200
+@@ -4,7 +4,7 @@
+ VERSION		= @PACKAGE_VERSION@
+ 
+ ONIG_HOME	= onig-5.5.1
+-ONIG_LIBS	= $(ONIG_HOME)/.libs
++ONIG_LIBS	= -lonig
+ 
+ CXXFLAGS	= -Wall -O2 -I.
+ LDFLAGS		= -lstdc++
+@@ -21,7 +21,7 @@
+ 				-I@ERLANG_LIB_DIR_erl_interface@/include	\
+ 				-I@ERLANG_ERTS_DIR@/include
+ 
+-LDFLAGS 	+=	@LDFLAGS@ $(ONIG_LIBS)/*.o
++LDFLAGS 	+=	@LDFLAGS@ $(ONIG_LIBS)
+ 
+ APPDIR		= $(NAME)-$(VERSION)
+ EBINDIR		= $(APPDIR)/ebin
+@@ -47,17 +47,17 @@
+ 	@rm -rf test/*.beam
+ 
+ install: app
+-	install -d $(ERL_LIB)/$(EBINDIR)
+-	install -d $(ERL_LIB)/$(LIBDIR)
+-	install $(EBINDIR)/* $(ERL_LIB)/$(EBINDIR)
+-	install $(LIBDIR)/* $(ERL_LIB)/$(LIBDIR)
++	install -d $(PREFIX)$(ERL_LIB)/$(EBINDIR)
++	install -d $(PREFIX)$(ERL_LIB)/$(LIBDIR)
++	install $(EBINDIR)/* $(PREFIX)$(ERL_LIB)/$(EBINDIR)
++	install $(LIBDIR)/* $(PREFIX)$(ERL_LIB)/$(LIBDIR)
+ 
+ test: app $(TEST_SRC:.erl=.beam)
+ 	$(ERL) -pa $(EBINDIR) test -s run_tests run
+ 
+ $(DRIVER): c_obj/liboregexp.a
+ 
+-c_obj/liboregexp.a: $(ONIG_LIBS)/libonig.la c_obj/oregexp_drv.o
++c_obj/liboregexp.a: $(ONIG_LIBS)/libonig.la
+ 	@cd c_obj && $(AR) x @ERLANG_LIB_DIR_erl_interface@/lib/libei.a
+ 	@$(AR) cru $@ c_obj/*.o
+ 

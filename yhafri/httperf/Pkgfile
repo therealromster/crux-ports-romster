@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A benchmark tool for measuring web server performance
+# URL: http://www.hpl.hp.com/personal/David_Mosberger/httperf.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=httperf
+version=0.8
+release=1
+source=(http://freshmeat.net/redir/$name/4215/url_tgz/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+    	make
+	make prefix=$PKG/usr exec_prefix=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

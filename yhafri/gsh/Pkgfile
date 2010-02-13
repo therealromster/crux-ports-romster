@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A simple macro language and grouping system for large numbers of machines
+# URL: http://outflux.net/unix/software/gsh/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=gsh
+version=0.9.0
+release=1
+source=(http://outflux.net/unix/software/gsh/download/$name-$version.tar.gz \
+	$name-$version.patch \
+	ghosts)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	install -D -m 755 $name           $PKG/usr/bin/$name
+	install -D -m 755 ghosts          $PKG/usr/bin/ghosts
+	install -D -m 755 lib/sysadmin.pl $PKG/usr/bin/sysadmin.pl
+
+	install -D -m 644 $SRC/ghosts     $PKG/etc/ghosts
+
+	chown -R root:root $PKG
+}

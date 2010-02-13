@@ -1,0 +1,12 @@
+PREINSTALL:
+Get a version of httpup greater then 0.4.0.
+Filetype masking sucks without it, and you'll end up filling up your webspace
+without trying.
+
+
+POSTINSTALL:
+You need to modify /usr/bin/htup to point to your repository.
+Then, you need to configure weex.  dot_weexrc.example is provided as a template
+Copy it to $HOME/.weexrc, then edit.  Copy dot_httpup-repgen-ignore, to either
+$REPO/.httpup-repgen-ignore, or else ~/dot_httpup-repgen-ignore
+Double check your configuration of /usr/bin/htup, and you will be ready to sync

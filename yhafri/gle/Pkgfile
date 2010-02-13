@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Graphics Layout Engine. A Professional Graphics Language 
+# URL: http://glx.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, boost, libtiff, libjpeg, libpng
+
+name=gle
+version=4.0.12
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/glx/GLE-$version-src.zip \
+	$name.el lmenu.el)
+
+build () {
+	mkdir -p $PKG/usr/{bin,share/$name}
+
+	cd ${name}4
+
+	./configure --prefix=/usr \
+		    --without-scripts \
+	  	    --with-manip \
+		    --with-x \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+POST-INSTALL:
+
+
+            * Then add the following lines to your ~/.emacs file. 
+            Change the string "fontset-default" to whatever if necessary.
+
+   (set-fontset-font
+   "fontset-default"
+   (cons (decode-char 'ucs #x05b0) (decode-char 'ucs #x06ff))
+   "-m17n-*--20-*-iso10646-1")
+  (set-fontset-font
+   "fontset-default"
+   (cons (decode-char 'ucs #xfb2a) (decode-char 'ucs #xfbff))
+   "-m17n-*--20-*-iso10646-1")
+  (set-fontset-font
+   "fontset-default"
+   (cons (decode-char 'ucs #xfe70) (decode-char 'ucs #xfefc))
+   "-m17n-*--20-*-iso10646-1")
+  (set-fontset-font
+   "fontset-default"
+   (cons (decode-char 'ucs #x200c) (decode-char 'ucs #x200f))
+   "-m17n-*--20-*-iso10646-1")

@@ -1,0 +1,9 @@
+POST-INSTALL:
+
+		* Add the line below to your X11 configuration file:
+		FontPath     "/usr/share/fonts/truetype"
+				
+
+		* Type the following commands:
+		# # (cd /usr/share/fonts/truetype; ttmkfdir > fonts.dir)
+		# chkfontpath --add /usr/share/fonts/truetype

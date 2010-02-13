@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Linear Algebra PACKage - F77 routines for Linear Algebra
+# URL: http://www.netlib.org/lapack/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on:
+
+name=lapack
+version=3.0
+release=it3
+source=(http://www.netlib.org/$name/$name.tgz make.inc)
+
+build() {
+	cd LAPACK
+    	cp ../make.inc $SRC/LAPACK/
+    
+	make lapacklib
+    	mkdir -p $PKG/usr/lib
+    
+	cp lapack_linux.a $PKG/usr/lib/
+    	cd $PKG/usr/lib ; ln -s lapack_linux.a liblapack.a    
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/itl/
+-rw-r--r--	root/root	usr/include/itl/hijri.h
+-rw-r--r--	root/root	usr/include/itl/prayer.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/itl/
+lrwxrwxrwx	root/root	usr/lib/itl/libitl.so -> libitl.so.0.0.6
+lrwxrwxrwx	root/root	usr/lib/itl/libitl.so.0 -> libitl.so.0.0.6
+-rwxr-xr-x	root/root	usr/lib/itl/libitl.so.0.0.6

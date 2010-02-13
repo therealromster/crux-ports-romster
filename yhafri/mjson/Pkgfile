@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Small lightweight JSON parser in C
+# URL: http://mjson.sourceforge.net/cgi-bin/test.pl
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mjson
+version=0.4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/json-$version.tar.bz2)
+
+build () {
+	cd json/src
+
+	gcc -c json.c
+	gcc -c rstring/rstring.c
+	ar cr $name.a json.o rstring.o
+
+	install -D -m 644 json.h  $PKG/usr/include/json.h
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,30 @@
+# $Id: $
+# Description: library for creating CDs
+# URL: http://www.gnu.org/software/libcdio/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libcddb
+
+name=libcdio
+version=0.77
+release=1
+source=(ftp://ftp.ibiblio.org/pub/gnu/ftp/gnu/libcdio/libcdio-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr \
+ 	            --with-cd-drive \
+		    --with-cd-info \
+		    --with-cd-paranoia \
+		    --with-cdda-player \
+		    --with-cd-paranoia-name \
+		    --with-cd-read \
+		    --with-iso-info \
+		    --with-iso-read 
+
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/{bin/yes,info,man}
+
+	chown -R root:root $PKG
+}

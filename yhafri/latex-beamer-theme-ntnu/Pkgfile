@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Beamer theme for NTNU
+# URL: http://story.idi.ntnu.no/~cassens/blog/archives/39-A-Beamer-theme-for-NTNU.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-beamer-theme-ntnu
+version=1
+release=1
+source=(beamerTrondheim.tar.gz)
+
+build () {
+	install -D -m 644 beamer/themes/outer/beamerouterthementnu.sty $PKG/usr/share/texmf/tex/latex/beamer/beamerouterthementnu.sty
+	chown -R root:root $PKG
+}

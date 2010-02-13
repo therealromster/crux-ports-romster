@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Utility which converts PDF files into HTML and XML formats
+# URL: http://sourceforge.net/projects/pdftohtml/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=pdftohtml
+version=0.39
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+        strip $name     
+        install -D -m 755 src/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

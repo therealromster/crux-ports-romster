@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Utility for managing and monitoring, processes, files, directories and devices on a UNIX system
+# URL: http://www.tildeslash.com/monit/index.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=monit
+version=4.9
+release=1
+source=(http://www.tildeslash.com/$name/dist/$name-$version.tar.gz \
+	$name)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --mandir=/usr/man \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	install -D -m 0700 ${name}rc  $PKG/etc/${name}rc
+	install -D -m 755  $SRC/$name $PKG/etc/rc.d/$name
+
+	chown -R root:root $PKG
+}

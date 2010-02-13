@@ -1,0 +1,20 @@
+# $Id: $
+# Description: The configuration and Utility perl module for AutoDia
+# URL: http://droogs.org/autodia/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-inline, p5-inline-java, p5-template-toolkit, p5-graphviz, p5-springgraph, p5-vcg, p5-xml-simple
+
+name=p5-autodia
+version=2.02
+release=1
+source=(http://droogs.org/autodia/download/Autodia-$version.tar.gz)
+
+build () {
+	cd Autodia-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

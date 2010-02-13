@@ -1,0 +1,32 @@
+# $Id: $
+# Description: wxErlang is an Erlang binding to the C++ GUI library wxWidgets
+# URL: http://sourceforge.net/projects/wxerlang/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: wx, erlang, doxygen
+
+name=wxerlang
+version=0.96.0628
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/wx-$version.src.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/wx-$version/priv
+	
+	cd wx-$version
+
+	#WX_VERSION=`wx-config --version | sed -e "s|\(...\).*|\1|"`
+	sed -i "s|INSTALLDIR =.*|INSTALLDIR = \${PKG}\$(ERL_DIR)/lib/\$(REL)|" Makefile
+	sed -i "s|WX_FLAGS *=.*|WX_FLAGS = \$(shell wx-config --cflags)|" c_src/Makefile
+	sed -i "s|WX_LIBS *=.*|WX_LIBS = \$(shell wx-config --libs std,gl)|" c_src/Makefile
+	touch priv/empty
+
+	make clean
+	make
+	make install
+
+	rm -rf $PKG/usr/lib/erlang/lib/wx-$version/{doc,priv}
+	rm -rf $PKG/usr/lib/erlang/lib/wx-$version/{license.terms,README,TODO}
+	
+	chown -R root:root $PKG
+}

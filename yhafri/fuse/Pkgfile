@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Interface for userspace filesystems
+# URL: http://sourceforge.net/projects/fuse/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=fuse
+version=2.3.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    sed -i "s/^CFLAGS=\"-Wall -W -g -O2\"$/CFLAGS=\"-Wall -W -g $CFLAGS\"/" configure
+
+    ./configure --prefix=/usr \
+		--with-kernel="/usr/src/linux-`uname -r`"
+
+    make
+    make DESTDIR=$PKG install
+
+   chown -R root:root $PKG
+}

@@ -1,0 +1,59 @@
+--- wmwfu-1.2/wmwfu/wmwfu.h	2001-12-13 17:58:43.000000000 +0100
++++ wmwfu-1.2/wmwfu/wmwfu.h-new	2005-10-06 01:39:23.123310400 +0200
+@@ -47,14 +47,14 @@
+ int pos_outros[] = {0,3,6,10,12,15,19};
+ //cabecalho http
+ const char http_request[]= 
+-"GET / HTTP/1.0\r\n
+-Connection: Keep-Alive\r\n
+-User-Agent: TOME/1.00 (quase Intel)\r\n
+-Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png\r\n
+-Accept-Encoding: gzip\r\n
+-Accept-Language: en\r\n
+-Accept-Charset: iso-8859-1,*,utf-8\r\n
+-\r\n";
++"GET / HTTP/1.0\r\n"
++"Connection: Keep-Alive\r\n"
++"User-Agent: TOME/1.00 (quase Intel)\r\n"
++"Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png\r\n"
++"Accept-Encoding: gzip\r\n"
++"Accept-Language: en\r\n"
++"Accept-Charset: iso-8859-1,*,utf-8\r\n"
++"\r\n";
+ 
+ ////Tabela ASCII (0-9 = 48-57) e (A-Z = 65-90) e (a-z = 97-122) 
+ //{Table ascii, source X, source Y,source Width, source Heigth}
+--- wmwfu-1.2/wmwfu/Makefile	2001-12-13 19:56:18.000000000 +0100
++++ wmwfu-1.2/wmwfu/Makefile-new	2005-10-06 01:46:44.820162272 +0200
+@@ -4,6 +4,9 @@
+ OBJS	=  wmwfu.o ../wmgeneral/wmgeneral.o conn.o ssl_conn.o
+ DEFINES = \
+ 		-D_DEBUG
++
++DESTDIR = /usr/local
++
+ .c.o:
+ 	gcc $(DEFINES) -c -g -Wall -D$(shell echo `uname -s`) $< -o $*.o $(INCDIR)
+ 
+@@ -19,13 +22,13 @@
+ 	rm -f wmwfu
+ 
+ install:
+-	install -d /etc/wmwfu
+-	install -d /etc/wmwfu/envsounds
+-	install -m 0777 wmwfu /usr/bin
+-	install -m 0777 die.wav /etc/wmwfu/envsounds
+-	install -m 0777 kbackgammon-lost.wav /etc/wmwfu/envsounds
+-	install -m 0777 alert.wav /etc/wmwfu/envsounds
+-	
++	install -d $(DESTDIR)/etc/wmwfu
++	install -d $(DESTDIR)/etc/wmwfu/envsounds
++	install -m 0777 wmwfu $(DESTDIR)/usr/bin
++	install -m 0777 die.wav $(DESTDIR)/etc/wmwfu/envsounds
++	install -m 0777 kbackgammon-lost.wav $(DESTDIR)/etc/wmwfu/envsounds
++	install -m 0777 alert.wav $(DESTDIR)/etc/wmwfu/envsounds
++
+ uninstall:
+-	rm -rf /etc/wmwfu /usr/bin/wmwfu
++	rm -rf $(DESTDIR)/etc/wmwfu $(DESTDIR)/usr/bin/wmwfu
+ 

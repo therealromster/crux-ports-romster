@@ -1,0 +1,43 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/pdfimage
+-rwxr-xr-x	root/root	usr/bin/pdfimpose
+-rwxr-xr-x	root/root	usr/bin/pdflib-config
+-rwxr-xr-x	root/root	usr/bin/text2pdf
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/pdflib.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/java/
+-rw-r--r--	root/root	usr/lib/java/pdflib.jar
+-rw-r--r--	root/root	usr/lib/libpdf.a
+-rw-r--r--	root/root	usr/lib/libpdf.la
+lrwxrwxrwx	root/root	usr/lib/libpdf.so -> libpdf.so.5.0.3
+lrwxrwxrwx	root/root	usr/lib/libpdf.so.5 -> libpdf.so.5.0.3
+-rw-r--r--	root/root	usr/lib/libpdf.so.5.0.3
+-rw-r--r--	root/root	usr/lib/libpdf_java.a
+-rw-r--r--	root/root	usr/lib/libpdf_java.la
+lrwxrwxrwx	root/root	usr/lib/libpdf_java.so -> libpdf_java.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libpdf_java.so.0 -> libpdf_java.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libpdf_java.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/perl5/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/pdflib_pl.la
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/pdflib_pl.pm
+drwxr-xr-x	root/root	usr/lib/python2.4/
+drwxr-xr-x	root/root	usr/lib/python2.4/lib-dynload/
+-rw-r--r--	root/root	usr/lib/python2.4/lib-dynload/pdflib_py.a
+lrwxrwxrwx	root/root	usr/lib/python2.4/lib-dynload/pdflib_py.la -> ../pdflib_py.la
+-rw-r--r--	root/root	usr/lib/python2.4/lib-dynload/pdflib_py.lai
+lrwxrwxrwx	root/root	usr/lib/python2.4/lib-dynload/pdflib_py.so -> pdflib_py.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/python2.4/lib-dynload/pdflib_py.so.0 -> pdflib_py.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/python2.4/lib-dynload/pdflib_py.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/tcl8.4/
+drwxr-xr-x	root/root	usr/lib/tcl8.4/pdflib/
+-rw-r--r--	root/root	usr/lib/tcl8.4/pdflib/pdflib_tcl.a
+lrwxrwxrwx	root/root	usr/lib/tcl8.4/pdflib/pdflib_tcl.la -> ../pdflib_tcl.la
+-rw-r--r--	root/root	usr/lib/tcl8.4/pdflib/pdflib_tcl.lai
+lrwxrwxrwx	root/root	usr/lib/tcl8.4/pdflib/pdflib_tcl.so -> pdflib_tcl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/tcl8.4/pdflib/pdflib_tcl.so.0 -> pdflib_tcl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/tcl8.4/pdflib/pdflib_tcl.so.0.0.0
+-rw-r--r--	root/root	usr/lib/tcl8.4/pdflib/pkgIndex.tcl

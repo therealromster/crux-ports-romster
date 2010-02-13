@@ -1,0 +1,24 @@
+# $Id: $
+# Description: DietC is a libc that is optimized for small size.
+# URL: http://www.fefe.de/dietlibc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=dietlibc
+version=0.31
+release=1
+
+source=(http://www.kernel.org/pub/linux/libs/$name/$name-$version.tar.bz2)
+
+build() {
+   cd $name-$version
+   mkdir -p $PKG/{usr/{bin,local},etc} 
+   make prefix=/usr/local/$name
+   make prefix=/usr/local/$name dyn
+   make prefix=/usr/local/$name  DESTDIR=$PKG install
+   ln -sf /usr/local/$name/bin/diet $PKG/usr/bin/diet 
+   mv $PKG/usr/local/$name/man $PKG/usr/
+   gzip -9 $PKG/usr/man/man?/*
+   (cd $PKG/usr/local/$name; ln -s lib-i386 lib; cd lib; ln -s libc.a dietlibc.a)
+}

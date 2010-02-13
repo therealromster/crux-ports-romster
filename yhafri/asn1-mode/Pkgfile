@@ -1,0 +1,20 @@
+# $Id: $
+# Description: (X)Emacs mode for ASN.1
+# URL: http://asn1.elibel.tm.fr/en/tools/emacs/index.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=asn1-mode
+version=2.7
+release=1
+source=(http://asn1.elibel.tm.fr/en/tools/emacs/$name.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/emacs/site-lisp
+	cd $name-$version
+
+	mv *.el $PKG/usr/share/emacs/site-lisp
+
+	chown -R root:root $PKG
+}

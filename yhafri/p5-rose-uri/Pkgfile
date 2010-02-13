@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A standalone URI class allowing easy and efficient manipulation of query parameters and other URI components
+# URL: http://search.cpan.org/~jsiracusa/Rose-URI-0.021/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-uri
+
+name=p5-rose-uri
+version=0.021
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JS/JSIRACUSA/Rose-URI-$version.tar.gz)
+
+build () {
+	cd Rose-URI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Emulate file interface for in-core strings 
+# URL: http://search.cpan.org/~gaas/IO-String-1.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-io-string
+version=1.07
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/IO-String-$version.tar.gz)
+
+build () {
+	cd IO-String-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

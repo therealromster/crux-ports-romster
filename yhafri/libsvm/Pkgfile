@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A Library for Support Vector Machines
+# URL: http://www.csie.ntu.edu.tw/~cjlin/libsvm/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libsvm
+version=2.84
+release=1
+source=(http://www.csie.ntu.edu.tw/~cjlin/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	ar cvr $name.a svm.o
+
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	install -D -m 644 svm.h   $PKG/usr/include/svm.h
+
+	chown -R root:root $PKG
+}

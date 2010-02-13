@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Detect the content format of a disk or disk image
+# URL: http://disktype.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=disktype
+version=8
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+    make
+    install -D -m 755 -o root -g root $name $PKG/usr/bin/$name
+}

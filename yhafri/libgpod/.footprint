@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gpod-1.0/
+drwxr-xr-x	root/root	usr/include/gpod-1.0/gpod/
+-rw-r--r--	root/root	usr/include/gpod-1.0/gpod/itdb.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libgpod.a
+-rwxr-xr-x	root/root	usr/lib/libgpod.la
+lrwxrwxrwx	root/root	usr/lib/libgpod.so -> libgpod.so.0.400.0
+lrwxrwxrwx	root/root	usr/lib/libgpod.so.0 -> libgpod.so.0.400.0
+-rwxr-xr-x	root/root	usr/lib/libgpod.so.0.400.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libgpod-1.0.pc
+drwxr-xr-x	root/root	usr/lib/python2.4/
+drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/
+drwxr-xr-x	root/root	usr/share/

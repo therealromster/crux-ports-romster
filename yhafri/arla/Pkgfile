@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A free AFS implementation
+# URL: http://www.stacken.kth.se/project/arla/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: db
+
+name=arla
+version=0.43
+release=1
+source=(ftp://ftp.stacken.kth.se/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

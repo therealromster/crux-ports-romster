@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for manipulating IPv4 addresses
+# URL: http://search.cpan.org/~frajulac/Net-IPv4Addr-0.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-net-ipv4addr
+version=0.10
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/F/FR/FRAJULAC/Net-IPv4Addr-$version.tar.gz)
+
+build () {
+	cd Net-IPv4Addr-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

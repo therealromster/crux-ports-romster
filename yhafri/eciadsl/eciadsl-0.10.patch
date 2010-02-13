@@ -1,0 +1,14 @@
+--- eciadsl-usermode-0.10/eciadsl-doctor	2004-11-03 09:10:24.000000000 +0100
++++ eciadsl-usermode-0.10/eciadsl-doctor-new	2004-11-13 12:06:09.597478160 +0100
+@@ -22,9 +22,9 @@
+ # <CONFIG>
+ ETC_DIR="/etc"
+ CONF_DIR="/etc/eciadsl"
+-BIN_DIR="/usr/local/bin"
++BIN_DIR="/usr/bin"
+ PPPD_DIR="/etc/ppp"
+-VERSION=""
++VERSION="0.10"
+ # </CONFIG>
+ 
+ # define the usb devices path for Suse 9.1

@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Add DRM to MP3 files
+# URL: http://icwww.epfl.ch/~cluthi/drmpackager.pl.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=drmpackager
+version=2.2.12
+release=1
+source=($name.pl)
+
+build () {
+	install -D -m 755 $name.pl $PKG/usr/bin/$name
+ 
+	chown -R root:root $PKG
+}

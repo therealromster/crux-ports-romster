@@ -1,0 +1,74 @@
+TODO:
+
+Nifty accidental feature:  ctrl+c skips current source check, in surveil.  I need to change the current output to "[ ]Source".  I should also grab a 3rd counter, for skipped sources.  I need to add a shorter timeout to wget, so that (future) quiet mode won't fail/hang.  If ctrl+c is held down, all sources will be loop/skipped--and final statistics will be hastened.  Would it be more elegant to ask "Press <CTRL>+[c] to exit, any other key to continue"?  This would be very noisy for someone who holds down <CTRL>+[c]...but that's their fault, eh?
+
+Hmm, how about this idea: (how part of rchk)
+Build all packages and dependencies in a repository.  Dependencies wouldn't touch the real system.  The could be installed to /tmp/build_repo.  I'm pretty sure that there's a ./configure --setting that lets one modify the location of shared libs.  I would append /tmp/build_repo/lib to the normal list.  THIS WILL BE PART OF RCHK.  Build all ports, and then update footprints--very handy!  This idea will also make it easier for people to distribute binaries of their entire repos. (sorry, I don't have the bandwidth!)  Would this need Han's fake_root, or something like that?  Major CRUX updates make repository maintenance a pain.  This might ease it?
+
+Write a quiet mode for "htup --check". (good for a cronjob) Output will be:
+$ htup
+$name failed with bad .footprint
+$name failed with bad source
+
+$x ports checked successfully
+$y ports failed
+
+Merge surveil() into Martin Opel's prtcheck
+After htup has been streamlined, stabilized, and simplified; request inclusion into prt-utils.  Unix apps should do one thing, and do it well...  Htup does too much.  surveil() needs to be cleaned up.  Globbing and sed'ing every .footprint is unpardonably sloppy.
+
+Perhaps I should cut & fork into a new script: repocheck.  This would be like an uber-prtcheck.  It is faster to type "rchk".  In the interests of Classical UNIX philosophy, I would call it rchk.  I *will* do this, almost for sure.  It's only a matter of time.  It will have three levels:
+	* rchk		(level 1 checks.  Check for Pkgfile.)
+	* rchk 2	(level 1+2 checks.  Checks for md5sum & .footprint)
+	* rchk 3	(level 1,2,3.  Tests sources & .footprint perms.  Checks for docs & locale )
+	* rchk 4	(level 1,2,3,4.  Tries to build everything)
+	* rchk -f	(omit any warnings, and try to mutate bad ports into good ones)
+
+Allow checking & publishing of a single port, to a server designated on the command-line
+
+Write a manpage before htup reaches 1.0--TO GET RID OF SOME OF THESE DOCS! :-)
+Write a beginers guide to CRUX development. eg: suggest weekly cronjob to check consistency of repository
+Praise the distributed development model as valid for 80% of all ports.
+
+Let htup take $HTPORTS, $HOST, $TITLE, and $HEADER as arguments, thus removing the manual configuration dependency.
+
+Johannes sugggested abstraction of portsdir and target host.  This means that one "can have multiple collections, going to multiple hosts".  They should be able to be passed to htup as pairs of arguments. "htup /usr/ports/john@someISP /usr/ports/jack@someISP"  Loop:  for i in $#; do; blah.  Alternatively, one could store these pairs in a ~/.htuprc.
+
+Johannes also suggested support for alternative transports.  I'm waiting for Weex to support ssh/rsync.  Please see http://weex.sourceforge.net/ in the meantime.  It will be summer of 2006 by the time I find the time to teach myself C; so it is unlikely that I will be the one to bring these transports to weex.  It'd be awesome if someone would pester the Weex developers with patches!
+
+This should probably be a separate script:  Once my backup.sh is robust enough, it could backup one's repo, in addition to routine ~/work backup.
+Repository backup/snapshot functionality?  After prep(), bak() would tar -cjf $HOME/work/repo_history/`date +%G-%m-%d`.tar.bz2 $HTPORTS
+(this will run in the background)
+while "weex $HOST" is running.  Control with the --backup, -b, or --snapshot, -s switch.
+
+
+MISC IDEAS:
+
+
+CLUDGE OF AN IDEA.  WOULD BE BETTER TO PATCH WEEX!!!
+Well, if the ~/.weexrc was generated automatically, it could contain dynamic profiles for each dir in /usr/ports/somebody.  Then, weex would limit its syncronization to those dir's only.  An example .weexrc:
+
+[weex]
+HostName = someISP.net
+LoginName = jdoe
+Password = foobar
+SrcDir = /home/joe/ports/weex
+DestDir = /ports/auxiliary/weex
+FollowSymlinks = false
+
+[htup]
+HostName = someISP.net
+LoginName = jdoe
+Password = foobar
+SrcDir = /home/joe/ports/htup
+DestDir = /ports/auxiliary/htup
+FollowSymlinks = false
+
+Pseudo code:
+for ports in `cd /home/joe/ports/htup; ls`; do
+cat footer > ~/.weexrc
+replace variable in some template, and;
+cat profile_template | sed -that flag to insert at line 0 '/port/$ports/' ~/.weexrc
+add a newline after the mutated template is pre-pended to ~/.weexrc.
+done
+
+I'm not sure at which point one should generate this file.

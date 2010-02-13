@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Unicode library
+# URL: http://tldp.org/HOWTO/Unicode-HOWTO-6.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libunicode
+version=0.4
+release=1
+source=(http://people.redhat.com/otaylor/pango-mirror/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

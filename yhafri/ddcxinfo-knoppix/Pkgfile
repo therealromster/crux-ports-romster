@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Program to automatically probe a monitor for information
+# URL: http://packages.gentoo.org/packages/?category=sys-apps;name=ddcxinfo-knoppix
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ddcxinfo-knoppix
+version=0.6
+release=1
+source=(http://debian-knoppix.alioth.debian.org/sources/${name}_${version}-7.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/sbin
+	cd $name-$version
+
+	make
+	cp ddcprobe ddcxinfo ddcxinfo-knoppix modetest svgamodes $PKG/usr/sbin
+
+	chown -R root:root $PKG
+}

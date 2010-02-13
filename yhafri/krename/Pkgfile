@@ -1,0 +1,21 @@
+# Description: a batch file renamer for KDE3 
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# URL: http://www.krename.net
+# Depends on: kdelibs
+
+name=krename
+version=3.0.11
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure	--prefix=/usr \
+        --disable-nls \
+        --enable-final
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

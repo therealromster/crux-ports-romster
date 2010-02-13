@@ -1,0 +1,22 @@
+# $Id: $
+# Description: System Abstraction Layer
+# URL: http://www.garret.ru/~knizhnik/sal.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sal
+version=1.08
+release=1
+source=(http://www.garret.ru/~knizhnik/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/include
+	cd SAL
+	make
+
+	install -D lib$name.a $PKG/usr/lib/lib$name.a
+	cp *.h $PKG/usr/include
+
+	chown -R root:root $PKG
+}

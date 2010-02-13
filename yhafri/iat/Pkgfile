@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Detect the structure of many types of CD-ROM image and convert them into ISO-9660
+# URL: http://iat.berlios.de/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=iat
+version=0.1.3
+release=1
+source=(http://download.berlios.de/$name/$name-$version-src.tar.bz2)
+
+build () {
+	cd $name
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A library which can be used to develop monitoring tools which use the Performance Monitoring Unit (PMU) of several modern processors 
+# URL: http://perfmon2.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libpfm
+version=3.2-061205
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/perfmon2/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

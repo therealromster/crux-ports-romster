@@ -1,0 +1,7 @@
+Dependencies:
+
+pwlib	(required)
+speex	(recommended)
+* speex is a very efficient voice-optimized audio codec
+ffmpeg  (optional)
+* needed for H.263 video codec support as used by software such NetMeeting

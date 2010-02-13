@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A simple, fast, and flexible HTTP download tool built on the HTTP Fetcher library
+# URL: http://cs.nmu.edu/~lhanson/lfetch/index.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=lfetch
+version=1.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/lfetch/fetch-1.0.tar.gz)
+
+build () {
+	cd fetch-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

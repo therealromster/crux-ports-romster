@@ -1,0 +1,47 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/csoap-config
+-rwxr-xr-x	root/root	usr/bin/http_client
+-rwxr-xr-x	root/root	usr/bin/http_server
+-rwxr-xr-x	root/root	usr/bin/soapclient
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libcsoap-1.1/
+drwxr-xr-x	root/root	usr/include/libcsoap-1.1/libcsoap/
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-admin.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-client.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-ctx.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-env.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-fault.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-router.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-server.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-service.h
+-rw-r--r--	root/root	usr/include/libcsoap-1.1/libcsoap/soap-xml.h
+drwxr-xr-x	root/root	usr/include/nanohttp-1.1/
+drwxr-xr-x	root/root	usr/include/nanohttp-1.1/nanohttp/
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-base64.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-client.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-common.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-logging.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-mime.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-request.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-response.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-server.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-socket.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-ssl.h
+-rw-r--r--	root/root	usr/include/nanohttp-1.1/nanohttp/nanohttp-stream.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libcsoap-1.1.so.1 -> libcsoap-1.1.so.1.1.0
+-rwxr-xr-x	root/root	usr/lib/libcsoap-1.1.so.1.1.0
+-rw-r--r--	root/root	usr/lib/libcsoap.a
+-rwxr-xr-x	root/root	usr/lib/libcsoap.la
+lrwxrwxrwx	root/root	usr/lib/libcsoap.so -> libcsoap-1.1.so.1.1.0
+lrwxrwxrwx	root/root	usr/lib/libnanohttp-1.1.so.1 -> libnanohttp-1.1.so.1.1.0
+-rwxr-xr-x	root/root	usr/lib/libnanohttp-1.1.so.1.1.0
+-rw-r--r--	root/root	usr/lib/libnanohttp.a
+-rwxr-xr-x	root/root	usr/lib/libnanohttp.la
+lrwxrwxrwx	root/root	usr/lib/libnanohttp.so -> libnanohttp-1.1.so.1.1.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libcsoap.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/libcsoap.m4

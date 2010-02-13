@@ -1,0 +1,34 @@
+# $Id: $
+# Description: An integrated, graphical programming environment for the Scheme, MzScheme, and MrEd
+# URL: http://www.drscheme.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libglut, perl
+
+name=plt
+version=207
+release=1
+source=(ftp://infogroep.be/pub/plt/bundles/207/$name/$name-$version-src-unix.tgz)
+
+build () {
+	mkdir -p $PKG/usr
+	cd $name/src
+	./configure --prefix=$PKG/usr \
+		    --enable-shared \
+		    --enable-perl \
+		    --with-x
+		    
+
+        make
+	make install
+	mv $PKG/usr/install $PKG/usr/finish-install
+	for i in $PKG/usr/bin/*;
+	do 
+	  if [ "$i" != "mred" ] ; then
+	      if [ "$i" != "mzscheme" ] ; then
+		  perl -i  -p -e 's!\s+PLTHOME=.*$!  PLTHOME="/usr"!g;' $i;
+	      fi
+	  fi
+	done
+        chown -R root:root $PKG
+}

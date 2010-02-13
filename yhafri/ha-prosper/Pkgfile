@@ -1,0 +1,26 @@
+# $Id: $
+# Description: LaTeX package to make nice looking slides
+# URL: http://stuwww.uvt.nl/~hendri/index.html?/~hendri/Downloads/haprosper.html&mainframeha
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=ha-prosper
+version=1
+release=1
+source=(http://stuwww.uvt.nl/~hendri/Downloads/HAPFiles/HA-prosper.zip \
+	http://stuwww.uvt.nl/~hendri/Downloads/HAPFiles/CentER.zip \
+	http://stuwww.uvt.nl/~hendri/Downloads/HAPFiles/Unit4_1.zip \
+	http://stuwww.uvt.nl/~hendri/Downloads/HAPFiles/Unit6_3.zip \
+	http://dali.mty.itesm.mx/%7ehugo/thesis/talk-intro.tar.gz)
+
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/$name
+
+	find Run/ -name "*.sty" -exec cp '{}' $PKG/usr/share/texmf/tex/latex/$name/ \;
+
+	cp HAPCentER.sty HAPTycjamod.sty talk-intro/HAPbasehugo.sty $PKG/usr/share/texmf/tex/latex/$name/ 
+
+	chown -R root:root $PKG
+}

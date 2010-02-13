@@ -1,0 +1,3 @@
+#!/bin/sh
+
+(cd /usr/lib/luke; java -jar lukeall.jar $@)

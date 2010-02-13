@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A picture viewer for X
+# URL: http://rus.members.beeb.net/xzgv.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk1, imlib, libjpeg, libpng, libtiff
+
+name=xzgv
+version=0.8
+release=1
+source=(ftp://ftp.ibiblio.org/pub/Linux/apps/graphics/viewers/X/$name-$version.tar.gz \
+        $name-$version-integer-overflow-fix.diff)
+
+build () {
+	cd $name-$version
+        patch -p1< ../$name-$version-integer-overflow-fix.diff
+
+	make
+	install -D -m 755 src/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Editline Library
+# URL: http://www.thrysoee.dk/editline/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=libedit
+version=20070831-2.10
+release=1
+source=(http://www.thrysoee.dk/editline/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,16 @@
+# Description: The Reinhardt SVG Icon Set (formely Slicker)
+# URL: http://www.kde-look.org/content/show.php?content=6153
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=reinhardt-icons
+version=0.9.2
+release=2
+source=(http://slicker.sourceforge.net/leinir/reinhardticons-$version-svg.tar.bz2)
+
+build() {
+    mkdir -p $PKG/usr/share/icons
+    cp -r reinhardticons-$version-svg $PKG/usr/share/icons/reinhardticons
+    rm -rf $PKG/usr/share/icons/reinhardticons/{README,icon*,make*.sh}
+}

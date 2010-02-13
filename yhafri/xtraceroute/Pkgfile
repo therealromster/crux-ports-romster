@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A graphical version of the traceroute program
+# URL: http://www.dtek.chalmers.se/~d3august/xt/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtkglarea, gdk-pixbuf, bind
+
+name=xtraceroute
+version=0.9.1
+release=1
+source=(http://www.dtek.chalmers.se/~d3august/xt/dl/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

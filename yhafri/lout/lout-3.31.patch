@@ -1,0 +1,18 @@
+--- lout-3.31/makefile	2005-08-24 01:45:25.000000000 +0200
++++ lout-3.31/makefile-new	2005-12-27 10:16:02.000000000 +0100
+@@ -259,10 +259,11 @@
+ # DEBUGGING = 1
+ # TRACING = -g
+ 
+-BINDIR	= /home/jeff/bin
+-LIBDIR	= /home/jeff/lout.lib
+-DOCDIR	= /home/jeff/lout.doc
+-MANDIR	= /home/jeff/lout.man
++PREFIX  = /usr
++BINDIR	= ${PREFIX}/bin
++LIBDIR	= ${PREFIX}/lib/lout.lib
++DOCDIR	= ${PREFIX}/share/lout.doc
++MANDIR	= ${PREFIX}/man/man1/lout.man
+ 
+ LIBFONT = font
+ LIBMAPS = maps

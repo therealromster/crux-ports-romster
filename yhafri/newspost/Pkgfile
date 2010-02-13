@@ -1,0 +1,16 @@
+# Description: a usenet binary autoposter for unix
+# URL: http://newspost.unixcab.org
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: parchive,cksfv
+
+name=newspost
+version=2.1.1
+release=1
+source=(http://newspost.unixcab.org/download/newspost-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	make
+	make install PREFIX=$PKG/usr install
+}

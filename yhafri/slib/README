@@ -1,0 +1,6 @@
+POST-INSTALL:
+
+
+		* Set the SCHEME_LIBRARY_PATH environment path variable to locate
+		/usr/lib/slib. For example, in your ~/.bashrc:
+		export SCHEME_LIBRARY_PATH=/usr/lib/slib 

@@ -1,0 +1,35 @@
+#!/bin/sh
+
+################################
+# disabling corba
+################################
+touch lib/cosEvent/SKIP
+touch lib/cosEventDomain/SKIP
+touch lib/cosFileTransfer/SKIP
+touch lib/cosNotification/SKIP
+touch lib/cosProperty/SKIP
+touch lib/cosTime/SKIP
+touch lib/cosTransactions/SKIP
+touch lib/observer/SKIP
+touch lib/orber/SKIP
+
+################################
+# disabling megaco
+################################
+touch lib/megaco/SKIP
+
+################################
+# disabling asn1
+################################
+#touch lib/asn1/SKIP
+
+
+################################
+# disabling the java interface
+################################
+touch lib/jinterface/SKIP
+touch lib/ic/java_src/SKIP
+touch lib/orber/java_src/SKIP
+touch lib/mnesia_session/examples/person/java_session/SKIP
+
+

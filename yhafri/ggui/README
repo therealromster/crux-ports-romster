@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+                * Make an alias to GGUI in your ~/.bashrc or anywhere else:
+                alias ggui="java -jar /usr/lib/ggui/ggui.jar"

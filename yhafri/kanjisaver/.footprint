@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/kanjisaver.kss
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man6/
+-rw-r--r--	root/root	usr/man/man6/kanjisaver.kss.6.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applnk/
+drwxr-xr-x	root/root	usr/share/applnk/System/
+drwxr-xr-x	root/root	usr/share/applnk/System/ScreenSavers/
+-rw-r--r--	root/root	usr/share/applnk/System/ScreenSavers/kanjisaver.desktop
+drwxr-xr-x	root/root	usr/share/doc/
+drwxr-xr-x	root/root	usr/share/doc/kde/
+drwxr-xr-x	root/root	usr/share/doc/kde/HTML/
+drwxr-xr-x	root/root	usr/share/doc/kde/HTML/en/
+drwxr-xr-x	root/root	usr/share/doc/kde/HTML/en/kanjisaver/
+lrwxrwxrwx	root/root	usr/share/doc/kde/HTML/en/kanjisaver/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/kde/HTML/en/kanjisaver/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/kde/HTML/en/kanjisaver/index.docbook

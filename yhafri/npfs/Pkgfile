@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Library for writing 9P2000 file servers
+# URL: http://sourceforge.net/projects/npfs
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=npfs
+version=0.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/spfs-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cd spfs-$version
+	make
+
+	mv include $PKG/usr
+
+	install -D -m 644 ./libspfs/libspfs.a $PKG/usr/lib/libspfs.a
+	install -D -m 644 ./libspclient/libspclient.a $PKG/usr/lib/libspclient.a 
+	install -D -m 755 fs/ufs $PKG/usr/bin/ufs
+
+	chown -R root:root $PKG
+}

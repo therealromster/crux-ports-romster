@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Reserved SQL words by ANSI/ISO
+# URL: http://search.cpan.org/~chansen/SQL-ReservedWords-0.7/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-sub-exporter
+
+name=p5-sql-reservedwords
+version=0.7
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CH/CHANSEN/SQL-ReservedWords-$version.tar.gz)
+
+build () {
+	cd SQL-ReservedWords-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

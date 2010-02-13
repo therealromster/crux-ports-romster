@@ -1,0 +1,38 @@
+# $Id: $
+# Description: Perl virtual machine designed to execute bytecode for interpreted languages efficiently
+# URL: http://www.parrotcode.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, subversion, python, tcl, ruby
+
+name=parrot
+version=0.4.8b
+release=2
+source=(http://search.cpan.org/CPAN/authors/id/P/PA/PARTICLE/$name-$version.tar.gz \
+	clean)
+
+build () {
+	mkdir -p $PKG/usr/bin
+
+	cd $name-0.4.8
+	
+	perl Configure.pl --optimize
+
+	CFLAGS="D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -O2 -march=i586 -pipe -DDISABLE_GC_DEBUG=1 -DNDEBUG -g  -Dan_Sugalski -Larry -Wall -Wstrict-prototypes -Wmissing-prototypes -Winline -Wshadow -Wpointer-arith -Wcast-qual -Wcast-align -Wwrite-strings -Waggregate-return -Winline -W -Wno-unused -Wsign-compare -Wformat-nonliteral -Wformat-security -Wpacked -Wdisabled-optimization  -Wno-shadow -falign-functions=16   -I./include -I/usr/include  -DHAVE_COMPUTED_GOTO"
+
+        make
+	make DESTDIR=$PKG reallyinstall
+
+	ln -sf /usr/local/bin/$name         $PKG/usr/bin/$name
+	ln -sf /usr/local/bin/disassemble   $PKG/usr/bin/disassemble
+	ln -sf /usr/local/bin/$name-config  $PKG/usr/bin/$name-config
+	ln -sf /usr/local/bin/pbc_info      $PKG/usr/bin/pbc_info
+	ln -sf /usr/local/bin/pbc_merge     $PKG/usr/bin/pbc_merge
+	ln -sf /usr/local/bin/pdb           $PKG/usr/bin/pdb
+	ln -sf /usr/local/bin/pdump         $PKG/usr/bin/pdump
+
+	sh $SRC/clean $PKG/usr/lib/$name
+	rm -rf $PKG/usr/local/share/doc/
+
+        chown -R root:root $PKG
+}

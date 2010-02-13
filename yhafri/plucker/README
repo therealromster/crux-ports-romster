@@ -1,0 +1,45 @@
+System Requirements
+-------------------
+Models: Palm OS devices running OS 2.0.3 or later
+This port downloads a Plucker viewer intended for use on low (160x160) resolution Palms.  Please visit http://www.plkr.org/index.plkr?a=dl if you need a high resolution viewer.
+
+The packages: python-imaging, netpbm, jpeg-tools, and imagemagick are only needed if you would like Plucker to include support for graphics.
+
+
+Installation
+------------
+You can try quick-setup.sh.  I make no guarantee's that it will work for you.  It might even eat your cat after trashing your Palm's data.  The Plucker viewer is stored in /usr/share/plucker/palm.  You need to sync/install SysZLib.prc, and the appropriate viewer for your language.  It is also recommended that you install PluckerUserGuide.pdb.
+
+
+Parser/Distiller Configuration
+------------------------------
+The home page is the first page you see when you start Plucker on your PDA, and is also the page you see when you tap on the home icon (the little house) in the viewer on the Palm OS hand-held device. The home page is located at $HOME/.plucker/home.html.  You should edit it now. 
+
+A simple, typical home document will look like this: 
+<H1>Plucker Home</H1>
+
+<H2>Plucker Information</H2>
+<P><A HREF="http://www.plkr.org">
+ Plucker home page</A><P>
+
+<H2>Tech links</H2>
+ <A HREF="http://slashdot.org/index.pl?light=1&noboxes=1" 
+   NOIMAGES MAXDEPTH=1>Slashdot.org</A><P>
+
+<H2>News</H2>
+ <A HREF="http://channel.nytimes.com/partners/palm-pilot/summ.html"
+   MAXDEPTH=2>New York Times</A><P>
+<A HREF="http://www.news.com/Newsfeed/Avantgo/index.html" 
+   MAXDEPTH=2>C-Net NEWS.COM</A><P>
+
+
+Automatic Plucking & Syncing
+----------------------------
+After the viewer is installed, and your homepage is configured, you are ready to Pluck the internet.  This can be done with two commands:
+
+$ spider -f asyncNET 
+$ pilot-xfer -i ~/.plucker/asyncNET.pdb
+
+With a crontab like <below>, and a button on one's desktop to pilot-xfer, Plucking the internet should become much less tedious.
+
+00 24/6 * * * spider -f AsyncNET > /dev/null 2> /dev/null

@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/rebolv -> /usr/lib/rebolview/rebol
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/rebolview/
+-rw-r--r--	root/root	usr/lib/rebolview/feedback.r
+-rw-r--r--	root/root	usr/lib/rebolview/license.html
+-rwxr-xr-x	root/root	usr/lib/rebolview/rebol
+-rw-r--r--	root/root	usr/lib/rebolview/rebol.el
+-rw-r--r--	root/root	usr/lib/rebolview/setup.html
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/emacs/
+drwxr-xr-x	root/root	usr/share/emacs/site-lisp/
+-rw-r--r--	root/root	usr/share/emacs/site-lisp/rebol.el

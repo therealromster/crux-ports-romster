@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A tool designed to simplify the creation and maintenance of programs that contain large amounts of repetitious text
+# URL: http://www.gnu.org/software/autogen/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: guile, libxml2
+
+name=autogen
+version=5.5.7
+release=1
+source=(http://ftp-stud.fht-esslingen.de/pub/Mirrors/ftp.gnu.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

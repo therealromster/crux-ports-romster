@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for base 85 numbers, as referenced by RFC 1924 
+# URL: http://search.cpan.org/~tmonroe/Math-Base85-0.2/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-math-base85
+version=0.2
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TM/TMONROE/Math-Base85-$version.tar.gz)
+
+build () {
+	cd Math-Base85-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

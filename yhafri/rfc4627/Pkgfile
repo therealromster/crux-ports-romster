@@ -1,0 +1,23 @@
+# $Id: $
+# Description: JSON and JSON-RPC for Erlang
+# URL: http://www.lshift.net/blog/2007/02/17/json-and-json-rpc-for-erlang
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=rfc4627
+version=1.0.2
+release=1
+source=(http://www.lshift.net/~tonyg/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+
+	cd $name-$version
+
+	make clean all
+
+	mv ebin/ include/ src/ $PKG/usr/lib/erlang/lib/$name-$version/
+
+	chown -R root:root $PKG
+}

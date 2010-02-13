@@ -1,0 +1,36 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cleanupsem
+-rwxr-xr-x	root/root	usr/bin/subsql
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/fastdb/
+-rw-r--r--	root/root	usr/include/fastdb/array.h
+-rw-r--r--	root/root	usr/include/fastdb/class.h
+-rw-r--r--	root/root	usr/include/fastdb/cli.h
+-rw-r--r--	root/root	usr/include/fastdb/config.h
+-rw-r--r--	root/root	usr/include/fastdb/container.h
+-rw-r--r--	root/root	usr/include/fastdb/cursor.h
+-rw-r--r--	root/root	usr/include/fastdb/database.h
+-rw-r--r--	root/root	usr/include/fastdb/datetime.h
+-rw-r--r--	root/root	usr/include/fastdb/exception.h
+-rw-r--r--	root/root	usr/include/fastdb/fastdb.h
+-rw-r--r--	root/root	usr/include/fastdb/file.h
+-rw-r--r--	root/root	usr/include/fastdb/harray.h
+-rw-r--r--	root/root	usr/include/fastdb/hashtab.h
+-rw-r--r--	root/root	usr/include/fastdb/query.h
+-rw-r--r--	root/root	usr/include/fastdb/rectangle.h
+-rw-r--r--	root/root	usr/include/fastdb/reference.h
+-rw-r--r--	root/root	usr/include/fastdb/rtree.h
+-rw-r--r--	root/root	usr/include/fastdb/stdtp.h
+-rw-r--r--	root/root	usr/include/fastdb/sync.h
+-rw-r--r--	root/root	usr/include/fastdb/sync_unix.h
+-rw-r--r--	root/root	usr/include/fastdb/timeseries.h
+-rw-r--r--	root/root	usr/include/fastdb/ttree.h
+-rw-r--r--	root/root	usr/include/fastdb/wwwapi.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libcli_r.a
+lrwxrwxrwx	root/root	usr/lib/libcli_r.so -> libcli_r.so.2
+-rwxr-xr-x	root/root	usr/lib/libcli_r.so.2
+-rw-r--r--	root/root	usr/lib/libfastdb_r.a
+lrwxrwxrwx	root/root	usr/lib/libfastdb_r.so -> libfastdb_r.so.2
+-rwxr-xr-x	root/root	usr/lib/libfastdb_r.so.2

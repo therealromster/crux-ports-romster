@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Drop-in replacement for libevent
+# URL: http://cvs.schmorp.de/libev
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libev
+version=3.0
+release=1
+source=(http://dist.schmorp.de/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

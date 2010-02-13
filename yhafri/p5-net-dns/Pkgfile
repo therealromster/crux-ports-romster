@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the DNS resolver
+# URL: http://www.net-dns.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-io-socket-inet6, p5-digest-hmac, p5-net-ip
+
+name=p5-net-dns
+version=0.59
+release=5
+source=(http://www.net-dns.org/download/Net-DNS-$version.tar.gz)
+
+build () {
+	cd Net-DNS-$version
+	echo "n" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

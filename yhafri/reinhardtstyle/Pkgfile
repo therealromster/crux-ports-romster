@@ -1,0 +1,18 @@
+# Description: KDE style inspired by the minimalism of a painter by the same name
+# URL: http://www.kde-look.org/content/show.php?content=5962
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=reinhardtstyle
+version=0.8.2
+release=2
+source=(http://www.kde-look.org/content/files/5962-$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+}

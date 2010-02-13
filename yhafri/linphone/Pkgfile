@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Let you phone to your friends anywhere in the whole world
+# URL: http://www.linphone.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libosip, speex, p5-xml-parser, ffmpeg, libsdl
+
+name=linphone
+version=1.7.1
+release=2
+source=(http://download.savannah.gnu.org/releases/$name/stable/sources/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-gnome_ui=no \
+		    --with-ffmpeg=/usr \
+		    --with-sdl=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

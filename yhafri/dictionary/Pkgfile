@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Emacs package for talking to a dictionary server
+# URL: http://me.in-berlin.de/~myrkr/dictionary/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=dictionary
+version=1.8.6
+release=1
+source=(http://me.in-berlin.de/~myrkr/$name/$name-$version.tar.gz \
+	dictionary-init)
+
+build () {
+	mkdir -p $PKG/usr/share/emacs/site-lisp
+	cd $name-$version
+        make
+	cp *.elc $PKG/usr/share/emacs/site-lisp
+        chown -R root:root $PKG
+}

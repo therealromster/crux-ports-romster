@@ -1,0 +1,21 @@
+# Description: a command-line program written in C which converts documents in Rich Text (.rtf) format to HTML, LaTeX, PostScript, and other formats
+# URL: http://www.gnu.org/software/unrtf/unrtf.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=unrtf
+version=0.20.2
+release=1
+source=(http://www.gnu.org/software/$name/${name}_$version.tar.gz)
+
+build() {
+    	cd ${name}_$version
+
+   	./configure --prefix=/usr
+
+    	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

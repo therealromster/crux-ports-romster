@@ -1,0 +1,35 @@
+# $Id: $
+# Description: A simple database library interface 
+# URL: http://siag.nu/libsdb/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: sqlite, sqlite3, gdbm, postgresql, mysql, unixodbc
+
+name=sdb
+version=0.6.2
+release=1
+source=(ftp://siag.nu/pub/lib$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,man,include} 
+
+	cd $name-$version
+	./configure --prefix=/usr   \
+                    --with-gdbm     \
+                    --with-mysql    \
+                    --with-sqlite   \
+                    --with-sqlite3  \
+                    --with-postgres
+
+#                    --with-mimer    \
+#                    --with-msql     \
+#                    --with-lago     \
+#                    --with-oracle   \
+#                    --with-odbc=unixodbc
+
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Pipe viewer
+# URL: http://www.ivarch.com/programs/pv.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pv
+version=0.9.2
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/pipeviewer/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/{info,share}
+    	
+	chown -R root:root $PKG
+}

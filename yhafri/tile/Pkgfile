@@ -1,0 +1,49 @@
+# $Id: $
+# Description: An improved themeing engine for Tk
+# URL: http://tktable.sourceforge.net/tile/screenshots/unix.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk
+
+name=tile
+version=0.7.8
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/tktable/$name-$version.tar.gz \
+	http://kent.dl.sourceforge.net/sourceforge/tcl/tcl8.4.14-src.tar.gz \
+	http://kent.dl.sourceforge.net/sourceforge/tcl/tk8.4.14-src.tar.gz
+	)
+
+build () {
+	sed -e "s|\(TCL_SRC_DIR=\).*|\1$SRC/tcl8.4.14|" \
+   	    -e "s|TCL_VERSION=.*|TCL_VERSION=8.4|"  \
+   	    -e "s|TCL_MAJOR_VERSION=.*|TCL_MAJOR_VERSION=8|" \
+            -e "s|TCL_MINOR_VERSION=.*|TCL_MINOR_VERSION=4|" \
+    	    -e "s|TCL_PATCH_LEVEL=.*|TCL_PATCH_LEVEL=14|" \
+  	    /usr/lib/tclConfig.sh > tclConfig.sh
+
+	sed -e "s|\(TK_SRC_DIR=\).*|\1$SRC/tk8.4.14|" \
+            -e "s|TK_VERSION=.*|TK_VERSION=8.4|" \
+            -e "s|TK_MAJOR_VERSION=.*|TK_MAJOR_VERSION=8|" \
+            -e "s|TK_MINOR_VERSION=.*|TK_MINOR_VERSION=4|" \
+            -e "s|TK_PATCH_LEVEL=.*|TK_PATCH_LEVEL=14|" \
+	    /usr/lib/tkConfig.sh  > tkConfig.sh 
+	
+	cd $name-$version
+	./configure --prefix=/usr      \
+		    --with-tcl=$SRC    \
+		    --with-tk=$SRC     \
+		    --enable-threads=yes \
+		    --enable-shared    \
+		    --enable-load      \
+		    --disable-symbols  \
+		    --with-x
+
+	make
+	#make prefix=$PKG/usr exec_prefix=$PKG/usr install
+	make DESTDIR=$PKG install
+
+#	rm -rf $PKG/usr/bin
+#	rm -rf $PKG/usr/man
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A simple tool for C source code analysis
+# URL: http://spinroot.com/uno/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=uno
+version=211
+release=1
+source=(http://www.spinroot.com/$name/${name}_v$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name/src
+
+	make
+	make BINDIR=$PKG/usr/bin install
+
+	chown -R root:root $PKG
+}

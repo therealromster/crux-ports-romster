@@ -1,0 +1,24 @@
+# $Id: $
+# Description: MonetDB Server
+# URL: http://monetdb.cwi.nl/Home/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: monetdb-common
+
+name=monetdb-server
+version=4.16.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/monetdb/MonetDB4-server-$version.tar.gz)
+
+build () {
+	cd MonetDB4-$version
+	./configure --prefix=/usr \
+		    --enable-optimize \
+		    --enable-largefile \
+		    --without-java
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

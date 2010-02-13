@@ -1,0 +1,8 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libpri.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libpri.a
+lrwxrwxrwx	root/root	usr/lib/libpri.so -> libpri.so.1.0
+lrwxrwxrwx	root/root	usr/lib/libpri.so.1 -> libpri.so.1.0
+-rwxr-xr-x	root/root	usr/lib/libpri.so.1.0

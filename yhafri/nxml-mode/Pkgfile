@@ -1,0 +1,21 @@
+# $Id: $
+# Description: XML mode for GNU Emacs
+# URL: http://www.xmlhack.com/read.php?item=2061
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=nxml-mode
+version=20041004
+release=1
+source=(http://www.thaiopensource.com/download/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/emacs/site-lisp/
+
+	cd $name-$version; make; cd ..
+
+	mv $name-$version $PKG/usr/share/emacs/site-lisp/nxml
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,42 @@
+--- strmat/strmat.c	2000-02-14 14:03:43.000000000 +0100
++++ strmat/strmat.c-new	2006-09-06 12:11:12.000000000 +0200
+@@ -51,8 +51,8 @@
+ static int stree_build_threshold = 10;
+ static int stree_print_flag = ON;
+ static int stats_flag = ON;
+-
+-FILE     *fpout = stdout;
++/* FILE     *fpout = stdout; */
++FILE     * fpout;
+ 
+ 
+ /*
+@@ -81,6 +81,8 @@
+  **********************************************************************/
+ int main(void)
+ {
++  fpout = stdout;
++
+   /*
+    * Initialize the array of sequences.
+    */
+--- strmat/strmat_util.c	2000-02-14 14:20:54.000000000 +0100
++++ strmat/strmat_util.c-new	2006-09-06 12:11:05.000000000 +0200
+@@ -649,7 +649,7 @@
+       printf("done.");
+       break;
+ 
+-    case NULL:
++    case 0:
+       delete_element(elem_num);
+       break;
+ 
+@@ -744,7 +744,7 @@
+                 new_string->title);
+         break;
+ 
+-      case NULL:
++      case 0:
+       case MISMATCH:
+         break;
+       }

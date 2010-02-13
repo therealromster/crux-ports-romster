@@ -1,0 +1,31 @@
+PRE-INSTALL:
+
+		* This version need your help to be correctly installed.
+		I haven't enough time to make it totaly automagick now, but
+		in the near futur maybe ;-)
+
+		When GUI appears, you'll be prompted to answer the following questions:
+
+		QUESTION                              ANSWER
+		1) Welcome Wizard                     click on NEXT
+		2) License Agreement                  select and I Accept the Agreement --> click on NEXT
+		3) Select Destination Directory       Put "/usr/ports/yhafri/dbvis5/work/pkg/usr/lib/dbvis5"
+		4) Select Directory of Symlinks       Put "/usr/ports/yhafri/dbvis5/work/pkg/usr/bin"
+		5) Finish                             just click on Finish button
+
+		After that, the module will install itself like we like it to do.
+	
+
+INFO:
+                To get Postgres, MySQL, SQLite and Firebird drivers
+                usable (they are in /usr/lib/*-jdbc and /usr/lib/javasqlite), 
+                you have to select each one and put its correct path in the 
+                driver manager control panel
+
+		* You can install as many DB driver as you like.
+		Check this URL to see the install steps:
+		http://www.dbvis.com/products/dbvis/drivers.html
+
+USAGE:
+		# Just type:
+		$ dbvis

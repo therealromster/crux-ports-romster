@@ -1,0 +1,21 @@
+# $Id: $
+# Description: The Digital Audio Access Protocol
+# URL: http://daap.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libdaap
+version=0.0.4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/daap/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

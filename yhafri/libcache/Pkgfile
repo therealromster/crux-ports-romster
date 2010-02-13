@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A cache library
+# URL: http://resnet.uoregon.edu/~gurney_j/jmpc/libcache.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: skiplist, btree
+
+name=libcache
+version=1.0
+release=1
+source=(http://resnet.uoregon.edu/~gurney_j/jmpc/dist/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+
+	install -D -m 644 cache.h     $PKG/usr/include/cache.h
+	install -D -m 644 $name.a     $PKG/usr/lib/$name.a
+	install -D -m 644 ${name}_p.a $PKG/usr/lib/${name}_p.a
+	install -D -m 755 $name.so.1  $PKG/usr/lib/$name.so.1
+	ln -sf   /usr/lib/$name.so.1  $PKG/usr/lib/$name.so
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: An integrated development environment
+# URL: http://www.eclipse.org 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Simone Rota, sip at varlock dot com
+# Depends on: gtk, jdk
+
+name=eclipse-sdk
+version=3.3
+release=1
+source=(http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/eclipse/downloads/drops/R-$version-200706251500/eclipse-SDK-$version-linux-gtk.tar.gz \
+	eclipse.sh)
+     
+
+build() {
+    	mkdir -p $PKG/usr/lib
+    	mv eclipse $PKG/usr/lib/
+    
+    	mkdir -p $PKG/usr/bin
+    	cp eclipse.sh $PKG/usr/bin/eclipse
+
+    	chmod a+x $PKG/usr/bin/eclipse
+    	chown -R root.root $PKG/usr
+
+    	find $PKG -type f -perm -0664 -exec chmod 0644 {} \;
+    	find $PKG -type d -perm -0775 -exec chmod 0755 {} \;
+}

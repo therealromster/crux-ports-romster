@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A file compressor which is very similar to gzip with much higher compression and decompression speed
+# URL: http://www.lzop.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: lzo
+
+name=lzop
+version=1.02rc1
+release=1
+source=(http://www.lzop.org/download/$name-$version.tar.gz \
+	http://www.oberhumer.com/opensource/lzo/download/lzo-2.02.tar.gz)
+
+build () {
+	cd $name-$version
+
+	(cd $SRC/lzo-2.02; ./configure; make)
+	export CPPFLAGS=-I$SRC/lzo-1.08/include
+    	export LDFLAGS=-L$SRC/lzo-1.08/src/.lib
+
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

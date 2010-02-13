@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A module for reading .ini style configuration files
+# URL: http://packages.debian.org/stable/perl/libconfig-inifiles-perl
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libconfig-inifiles-perl
+version=2.38
+release=1
+source=(http://ftp.debian.org/debian/pool/main/libc/$name/${name}_$version.orig.tar.gz)
+
+build () {
+	cd Config-IniFiles-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,29 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/xrpctest
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/firerpc.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libfirerpc.a
+lrwxrwxrwx	root/root	usr/lib/libfirerpc.so -> libfirerpc.so.0.9.13
+lrwxrwxrwx	root/root	usr/lib/libfirerpc.so.0.9 -> libfirerpc.so.0.9.13
+-rwxr-xr-x	root/root	usr/lib/libfirerpc.so.0.9.13
+drwx------	root/root	usr/lib/stgdZOhY/
+-rw-r--r--	root/root	usr/lib/stgdZOhY/firerpc.o
+-rw-r--r--	root/root	usr/lib/stijAuEC
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/xrpctest.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/firerpc_create_connection.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_find_member.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_free_connection.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_free_response.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_init.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_request.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_response.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_set_cafile.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_set_cipher_list.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_set_verify_hostname.3.gz
+-rw-r--r--	root/root	usr/man/man3/firerpc_vrequest.3.gz
+-rw-r--r--	root/root	usr/man/man3/libfirerpc.3.gz

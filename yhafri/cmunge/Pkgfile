@@ -1,0 +1,25 @@
+# $Id: $
+# Description:  A tool for encrypting and compacting C source code
+# URL: http://www.vcpc.univie.ac.at/~jhm/cmunge/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcsh
+
+name=cmunge
+version=1.0
+release=1
+source=(ftp://ftp.vcpc.univie.ac.at/vcpc/jhm/code/$name.tar.gz \
+	$name.patch)
+
+build () {
+	cd ${name}r
+	patch -p1<../$name.patch
+
+	make
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	install -D -m 755 bin/proc-incl $PKG/usr/bin/proc-incl
+	install -D -m 755 bin/ctran $PKG/usr/bin/ctran
+
+	chown -R root:root $PKG
+}

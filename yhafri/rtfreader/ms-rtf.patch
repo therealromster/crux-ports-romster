@@ -1,0 +1,14 @@
+--- ms-rtf/rtfreadr.c	1997-03-05 23:06:26.000000000 +0100
++++ ms-rtf/rtfreadr.c-new	2007-10-07 17:07:45.000000000 +0200
+@@ -37,9 +37,9 @@
+       fp = fpIn = stdin;
+     }
+     if ((ec = ecRtfParse(fp)) != ecOK)
+-        printf("error %d parsing rtf\n", ec);
++        fprintf(stderr, "error %d parsing rtf\n", ec);
+     else
+-        printf("Parsed RTF file OK\n");
++        fprintf(stderr, "Parsed RTF file OK\n");
+     fclose(fp);
+     return 0;
+ }

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: HTML/XML/XHTML cleanup tool
+# URL: http://tidy.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=tidy
+version=1
+release=3
+source=(http://tidy.sourceforge.net/src/tidy_src.tgz)
+
+build () {
+	cd $name
+	/bin/sh build/gnuauto/setup.sh
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

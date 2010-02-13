@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	lib/
+drwxr-xr-x	root/root	lib/modules/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/net/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/
+drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76_usbdfu.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c503-i3861.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c503-i3863.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c503-rfmd-acc.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c503-rfmd.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c503.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c505-rfmd.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c505-rfmd2958.ko
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/wireless/at76c503/at76c505a-rfmd2958.ko

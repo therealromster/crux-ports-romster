@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Self Contained RDBMS in a DBI Driver
+# URL: http://search.cpan.org/~msergeant/DBD-SQLite-1.09/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: sqlite3, p5-dbi
+
+name=p5-dbd-sqlite
+version=1.10
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSERGEANT/DBD-SQLite-$version.tar.gz)
+
+build () {
+	cd DBD-SQLite-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

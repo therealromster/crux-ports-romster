@@ -1,0 +1,22 @@
+INFO:
+		* First method: In all the web2c TEX implementations, shell escape is turned off 
+		by default. You can either turn it on by changing the line in your 
+		texmf.cnf ( /usr/share/texmf/web2c/texmf.cnf ) to:
+
+		shell_escape = t
+
+		You have to recreate all the formats like pdflatex.fmt or whatever
+		you might need.
+
+		* Second method: The more elegant way will be to invoke shell escape with a switch,
+		 each time you run the compiler like:
+
+		$ pdflatex -shell-escape <file name>
+
+POST-INSTALL:
+
+		* To take into account the pdftricks class, you must execute 
+		the command "texhash" as root:
+		# texhash
+
+

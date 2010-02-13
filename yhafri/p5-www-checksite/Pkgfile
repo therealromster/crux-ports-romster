@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Check the contents of a website
+# URL: http://search.cpan.org/~abeltje/WWW-CheckSite/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-www-mechanize, p5-html-template
+
+name=p5-www-checksite
+version=0.015
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABELTJE/WWW-CheckSite-$version.tar.gz)
+
+build () {
+	cd WWW-CheckSite-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

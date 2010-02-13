@@ -1,0 +1,20 @@
+# Description: plugins for the libvisual framework
+# URL: http://libvisual.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libvisual, alsa-lib
+
+name=libvisual-plugins
+version=0.2.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/libvisual/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

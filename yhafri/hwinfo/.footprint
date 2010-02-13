@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libhd.so.13 -> libhd.so.13.18
+-rwxr-xr-x	root/root	usr/lib/libhd.so.13.18
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/getsysinfo
+-rwxr-xr-x	root/root	usr/sbin/hwinfo
+-rwxr-xr-x	root/root	usr/sbin/mk_isdnhwdb
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/hwinfo/
+-rw-r--r--	root/root	usr/share/hwinfo/ISDN.CDB.hwdb
+-rw-r--r--	root/root	usr/share/hwinfo/ISDN.CDB.txt
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man8/
+-rw-r--r--	root/root	usr/share/man/man8/hwinfo.8.gz
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/lib/
+drwxr-xr-x	root/root	var/lib/hardware/
+drwxr-xr-x	root/root	var/lib/hardware/udi/

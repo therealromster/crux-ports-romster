@@ -1,0 +1,85 @@
+--- Makefile	1998-04-06 06:04:40.000000000 +0200
++++ Makefile-new	2008-01-15 17:32:10.000000000 +0100
+@@ -44,11 +44,19 @@
+ 		verbose.c \
+ 		warshall.c
+ 
++linux:
++	@mkdir -p obj/$@ bin/$@
++	@make ooyacc.linux EWS=linux
+ solaris:
+ 	@make ooyacc.solaris EWS=solaris
+ hpux:
+ 	@make ooyacc.solaris EWS=hpux
+ 
++ooyacc.linux:$(OBJS)
++	echo -n "Loading $(PROGRAM) ... "
++	$(LINKER) $(LDFLAGS) -o bin/$(EWS)/$(PROGRAM) $(OBJS) $(LIBS)
++	echo "done"
++
+ ooyacc.solaris:$(OBJS)
+ 	echo -n "Loading $(PROGRAM) ... "
+ 	$(LINKER) $(LDFLAGS) -o bin/$(EWS)/$(PROGRAM) $(OBJS) $(LIBS)
+--- main.c	1998-09-28 13:12:59.000000000 +0200
++++ main.c-new	2008-01-15 17:25:13.000000000 +0100
+@@ -1,4 +1,5 @@
+ #include <signal.h>
++#include <stdlib.h>
+ #include "defs.h"
+ 
+ char dflag;
+@@ -57,7 +58,7 @@
+ short **derives;
+ char *nullable;
+ 
+-extern char *mktemp();
++extern int mkstemp();
+ extern char *getenv();
+ 
+ 
+@@ -264,9 +265,9 @@
+     text_file_name[len + 5] = 't';
+     union_file_name[len + 5] = 'u';
+ 
+-    mktemp(action_file_name);
+-    mktemp(text_file_name);
+-    mktemp(union_file_name);
++    mkstemp(action_file_name);
++    mkstemp(text_file_name);
++    mkstemp(union_file_name);
+ 
+     len = strlen(file_prefix);
+ 
+--- defs.h	1998-04-06 06:04:40.000000000 +0200
++++ defs.h-new	2008-01-15 17:26:25.000000000 +0100
+@@ -98,12 +98,14 @@
+ 
+ /*  storage allocation macros  */
+ 
+-#define CALLOC(k,n)	(calloc((unsigned)(k),(unsigned)(n)))
++/* #define CALLOC(k,n)	(calloc((unsigned)(k),(unsigned)(n))) */
++#define CALLOC(k,n)	(calloc((size_t)(k),(size_t)(n)))
+ #define	FREE(x)		(free((char*)(x)))
+-#define MALLOC(n)	(malloc((unsigned)(n)))
+ #define	NEW(t)		((t*)allocate(sizeof(t)))
++/* #define MALLOC(n)	(malloc((unsigned)(n))) */
++#define MALLOC(n)	(malloc((size_t)(n)))
+ #define	NEW2(n,t)	((t*)allocate((unsigned)((n)*sizeof(t))))
+-#define REALLOC(p,n)	(realloc((char*)(p),(unsigned)(n)))
++#define REALLOC(p,n)	(realloc((void *)(p),(size_t)(n)))
+ 
+ 
+ /*  the structure of a symbol table entry  */
+@@ -284,7 +286,9 @@
+ /* system functions */
+ 
+ extern void free();
+-extern char *calloc();
+-extern char *malloc();
+-extern char *realloc();
++/* extern char *calloc(); */
++/* extern char *malloc(); */
++void *calloc();
++void *malloc();
++extern void *realloc();
+ extern char *strcpy();

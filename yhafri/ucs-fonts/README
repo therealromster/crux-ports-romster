@@ -1,0 +1,22 @@
+POST-INSTALL:
+
+		* Add the misc directory to your fontpath
+                in the /etc/X11/XF86Config file:
+
+	        ---snip---
+		..
+	        Section "Files"
+	        ..
+                	FontPath "/usr/X11R6/lib/X11/fonts/misc/"
+	        EndSection
+	        ..
+
+	        ---snip---
+
+		* To finish the installation, type this commands as root:    
+		# cd /usr/X11R6/lib/X11/fonts/misc
+		# mkfontdir
+		# fc-cache -f
+		# xset fp rehash
+
+

@@ -1,0 +1,7 @@
+POST-INSTALL:
+
+		* Type:
+		# sh post-install APACHE_USER APACHE_GROUP
+
+		Change APACHE_USER and APACHE_GROUP to whatever you
+		set in your apache configuration

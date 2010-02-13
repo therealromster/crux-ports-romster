@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A module to send SMS using the sms1.in servers    	
+# URL: http://search.cpan.org/~goyali/SMS_API_3.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-xml-simple
+
+name=p5-sms-api
+version=3.01.1
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GO/GOYALI/SMS_API_$version.tar.gz)
+
+build () {
+	cd SMS/API
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

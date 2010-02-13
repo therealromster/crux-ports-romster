@@ -1,0 +1,208 @@
+--- libevnet-20070522/src/tls.h	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/tls.h-new	2007-05-22 16:17:19.000000000 +0200
+@@ -125,7 +125,7 @@
+ void tls_cancel(struct tls *, int);
+ 
+ SSL *tls_peek(struct tls *);
+-
++#include <unistd.h>
+ typedef void (*tls_read_cb)(struct tls *, void *, size_t, enum tls_errno, void *);
+ 
+ #ifndef WIN32
+--- libevnet-20070522/src/bufio/membuf.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/bufio/membuf.c-new	2007-05-22 16:38:46.000000000 +0200
+@@ -30,11 +30,7 @@
+ 
+ #include <sys/param.h>		/* MIN */
+ 
+-#include <windows.h>		/* GetLastError SetLastError */
+-
+-#include <winsock2.h>		/* INVALID_SOCKET */
+-
+-#include <arena/proto.h>	/* struct arena_prototype */
++#include "arena/proto.h"	/* struct arena_prototype */
+ 
+ #include "bufio.h"
+ #include "pagebuf.h"
+--- libevnet-20070522/src/bufio.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/bufio.c-new	2007-05-22 16:55:59.000000000 +0200
+@@ -30,14 +30,12 @@
+ 
+ #include <string.h>		/* memset(3) */
+ 
+-#include <windows.h>		/* GetLastError SetLastError */
+ 
+ #include <sys/time.h>		/* struct timeval timerclear gettimeofday(3) */
+ #include <sys/param.h>		/* MIN */
+ 
+-#include <sys/queue.h>		/* SLIST */
+-
+-#include <arena/proto.h>
++#include "arena/proto.h"
++#include "arena/queue.h"
+ 
+ #include "bufio.h"
+ #include "bufio/pagebuf.h"
+@@ -214,10 +212,10 @@
+ const struct bufio_options bufio_defaults = {
+ #ifndef WIN32
+ 	.max_bufsiz	= 4096,
+-	.max_recurse	= 7,
++	.max_recurse	= 7
+ #else
+ 	4096,
+-	7,
++	7
+ #endif
+ }; /* bufio_defaults */
+ 
+--- libevnet-20070522/src/bufio/pagebuf.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/bufio/pagebuf.c-new	2007-05-22 16:58:42.000000000 +0200
+@@ -32,15 +32,11 @@
+ 
+ #include <sys/param.h>	/* MIN */
+ 
+-#include <sys/queue.h>	/* SLIST TAILQ */
+ 
+ #include <sys/time.h>	/* struct timeval */
+ 
+-#include <windows.h>	/* GetLastError SetLastError */
+-
+-#include <winsock2.h>	/* INVALID_SOCKET */
+-
+-#include <arena/proto.h>
++#include "arena/proto.h"
++#include "arena/queue.h"
+ 
+ #include "bufio.h"
+ #include "pagebuf.h"
+--- libevnet-20070522/src/bufio/socket.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/bufio/socket.c-new	2007-05-22 17:05:16.000000000 +0200
+@@ -34,7 +34,6 @@
+ 
+ #include <sys/param.h>	/* MIN */
+ 
+-#include <sys/queue.h>	/* SLIST */
+ 
+ #include <sys/types.h>
+ #include <sys/time.h>	/* struct timeval timercmp(3) */
+@@ -45,14 +44,12 @@
+ #include <sys/socket.h>	/* recv(2) send(2) */
+ #endif
+ 
+-#include <windows.h>	/* GetLastError SetLastError */
+-
+-#include <winsock2.h>	/* INVALID_SOCKET */
+-
+ #include <event.h>	/* EV_READ EV_WRITE EV_TIMEOUT event_set(3)
+ 			 * event_base_set(3) event_add(3) */
+ 
+-#include <arena/proto.h>
++#include "arena/proto.h"
++#include "arena/queue.h"
++#define INVALID_SOCKET -1
+ 
+ #include "tls.h"
+ #include "bufio.h"
+--- libevnet-20070522/src/lookup.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/lookup.c-new	2007-05-22 17:16:49.000000000 +0200
+@@ -72,8 +72,6 @@
+ 
+ #include <sys/param.h>		/* MIN MAX */
+ 
+-#include <sys/queue.h>		/* SLIST LIST CIRCLEQ */
+-
+ #include <unistd.h>		/* fstat(2) */
+ 
+ #include <arpa/inet.h>		/* inet_pton(3) */
+@@ -111,8 +109,9 @@
+ #include <ares_dns.h>		/* DNS_HEADER_* DNS_RR_* */
+ #endif
+ 
+-#include <arena/proto.h>
+-#include <arena/util.h>
++#include "arena/proto.h"
++#include "arena/util.h"
++#include "arena/queue.h"
+ 
+ #include "lookup.h"
+ 
+@@ -3198,7 +3197,7 @@
+ 
+ #else
+ 
+-#include <sys/param/MIN.h>
++#include <sys/param.h>
+ 
+ #if _WIN32
+ #include <winsock2.h>
+@@ -3209,7 +3208,9 @@
+ 
+ #include <event.h>
+ 
+-#include <arena/proto.h>
++#include "arena/proto.h"
++#include "arena/util.h"
++#include "arena/queue.h"
+ 
+ #include "lookup.h"
+ 
+--- libevnet-20070522/src/socket.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/socket.c-new	2007-05-22 17:09:44.000000000 +0200
+@@ -34,11 +34,8 @@
+ 
+ #include <assert.h>	/* assert(3) */
+ 
+-#include <windows.h>	/* GetLastError SetLastError */
+-
+ #include <fcntl.h>	/* O_NONBLOCK F_SETFL F_GETFL fcntl(2) */
+ 
+-#include <sys/queue.h>	/* SLIST LIST */
+ #include <sys/param.h>	/* MIN */
+ 
+ #include <sys/types.h>	/* socklen_t mode_t htons(3) ntohs(3) */
+@@ -65,14 +62,14 @@
+ #include <ws2tcpip.h>
+ #endif
+ 
+-#include <winsock2.h>	/* INVALID_SOCKET closesocket() */
+-
+ #include <event.h>	/* EV_READ EV_WRITE EV_PERSIST EV_TIMEOUT
+ 			 * struct event_base event_set(3) event_set_base(3)
+ 			 * event_add(3) */
+ 
+-#include <arena/proto.h>
+-#include <arena/util.h>
++#include "arena/proto.h"
++#include "arena/util.h"
++#include "arena/queue.h"
++#define INVALID_SOCKET -1
+ 
+ #include "socket.h"
+ #include "lookup.h"
+--- libevnet-20070522/src/bufio/pipe.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/bufio/pipe.c-new	2007-05-22 17:20:20.000000000 +0200
+@@ -27,10 +27,11 @@
+ 
+ #include <assert.h>
+ 
+-#include <sys/queue.h>		/* SLIST */
+ 
+ #include <sys/time.h>		/* struct timeval */
+ 
++#include "arena/queue.h"
++
+ #include "bufio.h"		/* struct bufio_sink struct bufio_source */
+ #include "pipe.h"
+ 
+--- libevnet-20070522/src/bufio/drain.c	2007-05-22 09:01:04.000000000 +0200
++++ libevnet-20070522/src/bufio/drain.c-new	2007-05-22 17:22:25.000000000 +0200
+@@ -29,7 +29,7 @@
+ 
+ #include <assert.h>
+ 
+-#include <sys/queue.h>		/* SLIST */
++#include "arena/queue.h"		/* SLIST */
+ 
+ #include <sys/time.h>		/* struct timeval */
+ 

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A Process Engineering Software
+# URL: http://apes2.berlios.de/fr/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant
+
+name=apes2
+version=2.5.2
+release=1
+source=(http://download.berlios.de/$name/$name-$version-src.tar.bz2 \
+	$name.sh)
+
+build () {
+	cd $name
+	ant jar
+
+	install -D -m 755 ../$name.sh  $PKG/usr/bin/$name
+	install -D        $name.jar    $PKG/usr/lib/$name/$name.jar
+
+	chown -R root:root $PKG
+}

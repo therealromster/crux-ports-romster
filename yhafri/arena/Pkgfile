@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Arena Scripting Language
+# URL: http://www.minimalinux.org/arena
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=arena
+version=0.9.13
+release=1
+source=(http://www.minimalinux.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Aallows a couple of hosts to share common virtual IP addresses in order to provide automatic failover
+# URL: ftp://ftp.pureftpd.org/pub/pure-ftpd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpcap
+
+name=ucarp
+version=1.2
+release=1
+source=(ftp://ftp.pureftpd.org/pub/pure-ftpd/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

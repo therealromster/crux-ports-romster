@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Parse and format PostgreSQL dates and times
+# URL: http://search.cpan.org/~dmaki/DateTime-Format-Pg-0.13/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-datetime-format-builder
+
+name=p5-datetime-format-pg
+version=0.15
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DM/DMAKI/DateTime-Format-Pg-$version.tar.gz)
+
+build () {
+	cd DateTime-Format-Pg-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

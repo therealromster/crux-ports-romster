@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Numeric 1st and 2nd order differentiation
+# URL: http://search.cpan.org/~jarw/Math-Derivative-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-math-derivative
+version=0.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JA/JARW/Math-Derivative-$version.tar.gz)
+
+build () {
+	cd Math-Derivative-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

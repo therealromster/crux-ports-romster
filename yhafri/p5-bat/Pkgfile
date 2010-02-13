@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to parse ARC, DAT and CDX files
+# URL: http://crawler.archive.org/cgi-bin/wiki.pl?BnfArcTools
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-bundel-lwp, p5-guess-language
+
+name=p5-bat
+version=0.07
+release=1
+source=(http://bibnum.bnf.fr/downloads/bat/BAT-$version.tar.gz)
+
+build () {
+	cd BAT-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

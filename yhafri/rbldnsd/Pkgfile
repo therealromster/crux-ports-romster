@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Small Daemon for DNSBLs
+# URL: http://www.corpit.ru/mjt/rbldnsd.html
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=rbldnsd
+version=0.996a
+release=1
+source=(http://www.corpit.ru/mjt/$name/${name}_${version}.tar.gz)
+
+build () {
+    	cd $name-$version
+	
+	./configure
+    	sed -i "/^CFLAGS/s/-O/$CFLAGS/" Makefile
+
+    	make
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

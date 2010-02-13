@@ -1,0 +1,4 @@
+PRE-INSTALL:
+
+		* Create group utmp:
+		# groupadd utmp

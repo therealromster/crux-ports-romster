@@ -1,0 +1,23 @@
+# $Id: $
+# Description: XOSD displays text on your screen
+# URL: http://www.ignavus.net/software.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=c-ip2location
+version=2.1.3
+release=1
+source=(http://www.ip2location.com/download/C-IP2Location-$version.tar.gz)
+
+build () {
+	cd C-IP2Location-$version
+	autoreconf -i -v --force
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

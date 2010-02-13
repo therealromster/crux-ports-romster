@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Run non-interactive commands on remote machines simultaneously
+# URL: http://www.stearns.org/fanout/#fanout
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=fanout
+version=current
+release=1
+source=(http://www.stearns.org/$name/$name-$version.tar.gz \
+	http://www.stearns.org/fanout/fanterm \
+	http://www.stearns.org/fanout/fansetup.v0.6)
+
+build () {
+	cd $name-$version
+
+	install -D -m 755 fanmux     $PKG/usr/bin/fanmux 
+ 	install -D -m 755 fanout     $PKG/usr/bin/fanout
+ 	#install -D -m 755 fanterm    $PKG/usr/bin/fanterm
+	#install -D -m 755 fanmux.sh  $PKG/usr/bin/fanmux.sh
+
+	cd ..
+ 	install -D -m 755 fanterm        $PKG/usr/bin/fanterm
+ 	install -D -m 755 fansetup.v0.6   $PKG/usr/bin/fansetup
+
+	chown -R root:root $PKG
+}

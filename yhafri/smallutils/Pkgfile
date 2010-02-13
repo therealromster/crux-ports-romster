@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Group of very small standard utilities
+# URL: http://www.ibiblio.org/pub/Linux/system/misc/!INDEX.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=smallutils
+version=1.3
+release=1
+source=(http://www.ibiblio.org/pub/Linux/system/misc/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	LDFLAGS=-static ./configure --prefix=/usr
+
+	cd Sys.i386.linux
+	make
+	for i in false link sln sync true unlink;
+	do
+		install -D -m 755 $i $PKG/usr/bin/$i
+	done
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: C AVL Tree generic package 
+# URL: http://geocities.com/wkaras/gen_c/cavl_tree.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cavl
+version=1.5
+release=1
+source=(http://geocities.com/wkaras/gen_c/${name}_if_h.txt \
+	http://geocities.com/wkaras/gen_c/${name}_impl_h.txt)
+
+build () {
+
+	install -D -m 644 ${name}_if_h.txt   $PKG/usr/include/${name}_if.h
+	install -D -m 644 ${name}_impl_h.txt $PKG/usr/include/${name}_impl.h
+
+	chown -R root:root $PKG
+}

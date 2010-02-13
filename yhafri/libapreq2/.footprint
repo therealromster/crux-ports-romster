@@ -1,0 +1,95 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/apreq2-config
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/apache/
+drwxr-xr-x	root/root	usr/include/apache/apreq2/
+-rw-r--r--	root/root	usr/include/apache/apreq2/apreq_module_apache2.h
+drwxr-xr-x	root/root	usr/include/apreq2/
+-rw-r--r--	root/root	usr/include/apreq2/apreq.h
+-rw-r--r--	root/root	usr/include/apreq2/apreq_cookie.h
+-rw-r--r--	root/root	usr/include/apreq2/apreq_error.h
+-rw-r--r--	root/root	usr/include/apreq2/apreq_module.h
+-rw-r--r--	root/root	usr/include/apreq2/apreq_param.h
+-rw-r--r--	root/root	usr/include/apreq2/apreq_parser.h
+-rw-r--r--	root/root	usr/include/apreq2/apreq_util.h
+-rw-r--r--	root/root	usr/include/apreq2/apreq_version.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/apache/
+-rw-r--r--	root/root	usr/lib/apache/mod_apreq2.a
+-rwxr-xr-x	root/root	usr/lib/apache/mod_apreq2.la
+-rwxr-xr-x	root/root	usr/lib/apache/mod_apreq2.so
+-rw-r--r--	root/root	usr/lib/libapreq2.a
+-rwxr-xr-x	root/root	usr/lib/libapreq2.la
+lrwxrwxrwx	root/root	usr/lib/libapreq2.so -> libapreq2.so.3.6.0
+lrwxrwxrwx	root/root	usr/lib/libapreq2.so.3 -> libapreq2.so.3.6.0
+-rwxr-xr-x	root/root	usr/lib/libapreq2.so.3.6.0
+drwxr-xr-x	root/root	usr/lib/perl5/
+drwxr-xr-x	root/root	usr/lib/perl5/5.8.6/
+drwxr-xr-x	root/root	usr/lib/perl5/5.8.6/linux/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request.pod
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Apache2.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Apache2.pod
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/CGI.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/CGI.pod
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Cookie.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Cookie.pod
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Error.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Error.pod
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Hook.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Hook.pod
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Param.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Param.pod
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Parser.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/APR/Request/Parser.pod
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/Apache2/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/Apache2/Cookie.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/Apache2/Request.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/Apache2/Upload.pm
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Apache2/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Apache2/Apache2.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Apache2/Apache2.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/CGI/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/CGI/CGI.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/CGI/CGI.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Cookie/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Cookie/Cookie.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Cookie/Cookie.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Error/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Error/Error.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Error/Error.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Hook/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Hook/Hook.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Hook/Hook.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Param/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Param/Param.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Param/Param.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Parser/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Parser/Parser.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Parser/Parser.so
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Request.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/APR/Request/Request.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/libapreq2/
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.6/linux/auto/libapreq2/.packlist
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-r--r--r--	root/root	usr/man/man3/APR::Request.3pm.gz
+-r--r--r--	root/root	usr/man/man3/APR::Request::Apache2.3pm.gz
+-r--r--r--	root/root	usr/man/man3/APR::Request::CGI.3pm.gz
+-r--r--r--	root/root	usr/man/man3/APR::Request::Cookie.3pm.gz
+-r--r--r--	root/root	usr/man/man3/APR::Request::Error.3pm.gz
+-r--r--r--	root/root	usr/man/man3/APR::Request::Hook.3pm.gz
+-r--r--r--	root/root	usr/man/man3/APR::Request::Param.3pm.gz
+-r--r--r--	root/root	usr/man/man3/APR::Request::Parser.3pm.gz
+-r--r--r--	root/root	usr/man/man3/Apache2::Cookie.3pm.gz
+-r--r--r--	root/root	usr/man/man3/Apache2::Request.3pm.gz
+-r--r--r--	root/root	usr/man/man3/Apache2::Upload.3pm.gz

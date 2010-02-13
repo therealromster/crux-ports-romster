@@ -1,0 +1,24 @@
+# $Id: $
+# Description: An open source host, service and network monitoring program
+# URL: http://www.nagios.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=nagios
+version=2.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --enable-event-broker \
+                --enable-embedded-perl \
+                --with-perlcache
+                
+    make all
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

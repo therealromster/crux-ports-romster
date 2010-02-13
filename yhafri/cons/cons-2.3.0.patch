@@ -1,0 +1,13 @@
+--- cons-2.3.0/cons	2000-11-22 00:17:37.000000000 +0000
++++ cons-2.3.0/cons-new	2004-09-09 18:11:23.781498136 +0000
+@@ -717,7 +717,9 @@
+ 		my($_foo, $script, $line, $sub) = @$cref;
+ 		$where = " ($sub in $script, line $line)";
+ 	    }
+-	    warn qq(Ignoring missing script "$path"$where);
++	    else { 
++		print qq(Ignoring missing script "$path"$where\n); 
++	    }
+ 	}
+     }
+     die("$0: script errors encountered: construction aborted\n")

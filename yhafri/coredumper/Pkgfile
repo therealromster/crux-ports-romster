@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Allow applications to create core dumps without terminating 
+# URL: http://code.google.com/p/google-coredumper/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=coredumper
+version=1.1
+release=1
+source=(http://google-$name.googlecode.com/files/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

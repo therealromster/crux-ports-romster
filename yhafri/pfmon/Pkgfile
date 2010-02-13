@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A tool to monitor performance on Linux
+# URL: http://perfmon2.sourceforge.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpfm, elfutils
+
+name=pfmon
+version=3.2-061205
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/perfmon2/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

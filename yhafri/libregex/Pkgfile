@@ -1,0 +1,22 @@
+# $Id: $
+# Description: GNU regex 
+# URL: http://estraier.sourceforge.net/misc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libregex
+version=0.12m
+release=1
+source=(http://estraier.sourceforge.net/misc/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

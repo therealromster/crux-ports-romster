@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A table/matrix widget extension to tk/tcl
+# URL: http://tktable.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk
+
+name=tktable
+version=2.9
+release=1
+source=(http://dfn.dl.sourceforge.net/sourceforge/$name/Tktable$version.tar.gz)
+
+build () {
+	cd Tktable$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

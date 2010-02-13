@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Convert XML to TXT
+# URL: http://sf.gds.tuwien.ac.at/x/xm/xml2txt/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pyxml
+
+name=xml2txt
+version=0.5
+release=1
+source=(http://sf.gds.tuwien.ac.at/x/xm/$name/$name-$version.tar.gz)
+
+build () {
+    	mkdir -p $PKG/usr
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

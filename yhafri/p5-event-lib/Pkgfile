@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extentions for event-based programming libevent
+# URL: http://search.cpan.org/~vparseval/Event-Lib-0.04/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libevent
+
+name=p5-event-lib
+version=1.00
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/V/VP/VPARSEVAL/Event-Lib-$version.tar.gz)
+
+build () {
+	cd Event-Lib-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

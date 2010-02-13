@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Distributed Computing Made Easy
+# URL: http://www-users.cs.york.ac.uk/%7Eaw/pylinda/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=pylinda
+version=0.6
+release=1
+source=(http://www-users.cs.york.ac.uk/%7Eaw/$name/dist/linda-0.6.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd linda-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

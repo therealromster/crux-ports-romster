@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A fast file copy tool for LANs
+# URL: http://www.fefe.de/ncp/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ncp
+version=1.2.4
+release=1
+source=(http://dl.fefe.de/$name-$version-x86.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man/man1}
+
+	mv *.1 $PKG/usr/man/man1
+	mv $name npoll npush $PKG/usr/bin
+
+	chown -R root:root $PKG
+}

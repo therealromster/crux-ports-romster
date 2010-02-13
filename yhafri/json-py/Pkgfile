@@ -1,0 +1,20 @@
+# $Id: $
+# Description: An implementation of a JSON reader and writer in Python
+# URL: https://sourceforge.net/projects/json-py/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=json-py
+version=3_4
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib/python/$name
+
+	install -D -m 644 json.py    $PKG/usr/lib/python/$name/json.py
+	install -D -m 644 minjson.py $PKG/usr/lib/python/$name/minjson.py
+	
+    	chown -R root:root $PKG
+}

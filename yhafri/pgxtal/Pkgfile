@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A Fortran library for the graphical display of crystal structures
+# URL: http://www.isis.rl.ac.uk/dataanalysis/dsplot/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gcc_f77, pgplot
+
+name=pgxtal
+version=1
+release=1
+source=(http://www.isis.rl.ac.uk/dataanalysis/projects/$name/${name}_src_unix.tar.gz \
+	grpckg1.inc)
+
+build () {
+
+	f77 -c plot2db3.f pgcell.f dsqinf.f pgxtal.f
+	ar  rcv libpg3da.a  *.o
+	ranlib libpg3da.a
+
+	install -D -m 644 libpg3da.a $PKG/usr/lib/libpg3da.a
+	
+	chown -R root:root $PKG
+}

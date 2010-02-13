@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/aio.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libposix-aio.a
+-rwxr-xr-x	root/root	usr/lib/libposix-aio.la
+lrwxrwxrwx	root/root	usr/lib/libposix-aio.so -> libposix-aio.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libposix-aio.so.0 -> libposix-aio.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libposix-aio.so.0.0.0

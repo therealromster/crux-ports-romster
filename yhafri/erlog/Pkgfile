@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A prolog interpreter written in, and for, Erlang
+# URL: http://www.erlang.org/ml-archive/erlang-questions/200605/msg00163.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=erlog
+version=5
+release=1
+
+# download it from TRAP-EXIT: http://forum.trapexit.org/viewtopic.php?t=6126&sid=f22c4ccf56c331afaf7bfadc054e8ed8)
+source=(${name}_v${version}.zip)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	mkdir -p ebin
+
+	erl -make
+
+	cp -f *.erl *.pl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	cp -f *.beam      $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	
+	chown -R root:root $PKG
+}

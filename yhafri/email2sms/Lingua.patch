@@ -1,0 +1,22 @@
+--- Squeeze.pm~	Thu Jul 29 20:36:40 1999
++++ Squeeze.pm	Thu Jul 29 01:45:35 1999
+@@ -298,7 +298,7 @@
+ # use autouse 'Carp'          => qw( croak carp cluck confess );
+ 
+ use Carp;
+-use SelfLoader;
++#use SelfLoader;
+ use English;
+ 
+ BEGIN
+@@ -1069,8 +1069,8 @@
+ 
+ # END: Devel::SelfStubber
+ 
+-1;
+-__DATA__
++#1;
++#__DATA__
+ 
+ #  -- A U T O L O A D  -- A U T O L O A D  -- A U T O L O A D  --
+ 

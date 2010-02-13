@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# /etc/rc.d/dnscache: start/stop network
+#
+
+case $1 in
+start)
+	supervise /var/dnscache >/dev/null 2>&1 &
+	;;
+stop)
+	svc -d /var/dnscache
+	rm -rf /var/dnscache/supervise/lock
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

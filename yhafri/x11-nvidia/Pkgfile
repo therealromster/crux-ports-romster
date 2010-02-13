@@ -1,0 +1,59 @@
+# $Id: $
+# Description: nVIDIA Linux Display Driver (for X11)
+# URL: http://www.nvidia.com/object/unix.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on: x11
+
+name=x11-nvidia
+#version=1.0-9755
+version=100.14.03
+release=1
+source=(http://us.download.nvidia.com/XFree86/Linux-x86/$version/NVIDIA-Linux-x86-$version-pkg0.run \
+	nvidia-$version.patch)
+
+build() {
+	sh NVIDIA-Linux-x86-$version-pkg0.run --extract-only
+    	cd NVIDIA-Linux-x86-$version-pkg0
+
+    	install -d $PKG/usr/{bin,man/man1,X11R6/lib/modules/extensions}
+
+    	# install libraries
+    	cp -a usr/X11R6/lib/* $PKG/usr/X11R6/lib
+    	cp -a usr/lib         $PKG/usr
+    	sed -i 's|__LIBGL_PATH__|/usr/lib|' $PKG/usr/lib/libGL.la
+
+    	# copy includes
+    	install -d $PKG/usr/include/nvidia
+    	cp -r usr/include/GL $PKG/usr/include/nvidia/
+
+    	# install xconfig/settings programs and manpages
+    	install -m 0755 usr/bin/nvidia-{xconfig,settings} $PKG/usr/bin/
+    	install -m 0644 usr/share/man/man1/nvidia-{xconfig,settings}.1.gz \
+        	$PKG/usr/man/man1/
+
+    	sed -e 's|__LIBGL_PATH__|/usr/lib|' usr/lib/libGL.la > \
+        	$PKG/usr/lib/libGL.la
+
+    	# build the module
+    	cd usr/src/nv
+    
+	# patch Makefiles for normal users and no load during build
+    	patch -p0 -b -z .orig -i $SRC/nvidia-$version.patch
+    	ln -s Makefile{.kbuild,}
+    	make module
+
+    	# install it
+    	install -m 0644 -D nvidia.ko \
+        	$PKG/lib/modules/$(uname -r)/kernel/drivers/video/nvidia.ko
+
+    	# Trick to get the wildcard to expand right.
+    	cd $PKG/usr/X11R6/lib/modules/extensions/
+    	ln -s libglx.so.1.0.* libglx.so
+    	cd $PKG/usr/lib/
+    	ln -s libGL.so.1.*    libGL.so.1
+    	ln -s libGL.so.1      libGL.so
+
+    	# Silly bug, a duplicate line in a header file:
+    	sed -i '6952d' $PKG/usr/include/nvidia/GL/glext.h
+}

@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/ffi.h
+-rw-r--r--	root/root	usr/include/ffi_mips.h
+-rw-r--r--	root/root	usr/include/fficonfig.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libffi.a
+-rw-r--r--	root/root	usr/lib/libffi.la
+lrwxrwxrwx	root/root	usr/lib/libffi.so -> libffi.so.1.1.3
+lrwxrwxrwx	root/root	usr/lib/libffi.so.1 -> libffi.so.1.1.3
+-rw-r--r--	root/root	usr/lib/libffi.so.1.1.3

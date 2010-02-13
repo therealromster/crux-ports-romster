@@ -1,0 +1,26 @@
+# $Id: $
+# Description: GS-style interface for erlgtk 
+# URL: http://erlgtk.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=xgs
+version=20030323
+release=1
+source=(http://home.uninet.ee/~taavi/files/erlang/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	make
+
+	mv ebin   $PKG/usr/lib/erlang/lib/$name-$version
+	mv src    $PKG/usr/lib/erlang/lib/$name-$version
+	mv c_src  $PKG/usr/lib/erlang/lib/$name-$version
+	
+	chown -R root:root $PKG
+}

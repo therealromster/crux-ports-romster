@@ -1,0 +1,40 @@
+--- Term-Gnuplot-0.5704/Makefile.PL	2002-06-18 13:23:24.000000000 +0000
++++ Term-Gnuplot-0.5704/Makefile.PL-new	2004-10-08 17:09:30.880412800 +0000
+@@ -2,7 +2,7 @@
+ # See lib/ExtUtils/MakeMaker.pm for details of how to influence
+ # the contents of the Makefile that is written.
+ 
+-$try_libs = ' -L/usr/openwin/lib -lX11 -lm  -lsocket -lvga -llinuxvga -lgd -lpng -lz -ljmgraph -lvesa';
++$try_libs = '-L/usr/X11R6/lib -L/usr/lib -lX11 -lm -lvga -lgd -lpng -lz';
+ 
+ @ARGV = grep !(/^TRY_LIBS=(.*)$/ and $try_libs = $1), @ARGV;
+ 
+@@ -12,7 +12,7 @@
+ 
+ WriteMakefile(
+     'NAME'	=> 'Term::Gnuplot',
+-    'VERSION_FROM'	=> 'Gnuplot.pm',
++    'VERSION_FROM' => 'Gnuplot.pm',
+     'MYEXTLIB'	=> $gnuplotdir . '/libgnuterm$(LIB_EXT)',
+     'LIBS'	=> [ $try_libs ],
+     #'LIBS'	=> [' -L/usr/openwin/lib -lX11 -lm  -lsocket -L. -lgnuterm'],
+@@ -28,7 +28,7 @@
+ sub MY::postamble {
+   # First, take a possibility to check for the presence of gnuplot_x11
+   my $self = shift;
+-  if ($self->maybe_command_in_dirs(['gnuplot_x11'],[$self->path])) {
++  if (1) {
+     # Touch a file as a way of inter-process communication...
+     open TMP, '>test_x11' or warn;
+     close TMP or warn;
+--- Term-Gnuplot-0.5704/Gnuplot.pm	2002-06-18 12:52:14.000000000 +0000
++++ Term-Gnuplot-0.5704/Gnuplot.pm-new	2004-10-08 17:09:26.791034480 +0000
+@@ -80,7 +80,7 @@
+ =head1 DESCRIPTION
+ 
+ Below I include the contents of the file F<term/README> from gnuplot
+-distribution (see L<gnuplot F<term/README>>). It explains
++distribution (see L<"gnuplot F<term/README>">). It explains
+ the meaning of the methods of L<"SYNOPSIS">.
+ 
+ All methods are supported under Perl, the C<options> method is available as

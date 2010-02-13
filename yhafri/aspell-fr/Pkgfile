@@ -1,0 +1,22 @@
+# $Id: Pkgfile,v 1.2 2004/08/27 16:23:56 jue Exp $
+# Description: French dictionary for aspell
+# URL: http://aspell.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Dependfrens on:  aspell
+
+name=aspell-fr
+version=0.50-3
+release=1
+source=(ftp://ftp.gnu.org/gnu/aspell/dict/fr/$name-$version.tar.bz2)
+
+build () {
+    cd $name-$version
+
+    ./configure
+
+    make
+    make DESTDIR=$PKG install
+
+    chown -R root:root $PKG	
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Rudimentary profiling for Template Toolkit 
+# URL: http://search.cpan.org/~petdance/Template-Timer-0.04/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-template
+
+name=p5-template-timer
+version=0.04
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/P/PE/PETDANCE/Template-Timer-$version.tar.gz)
+
+build () {
+	cd Template-Timer-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

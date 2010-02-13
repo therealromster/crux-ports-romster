@@ -1,0 +1,12 @@
+--- Makefile	1998-09-10 18:54:26.000000000 +0200
++++ Makefile-new	2005-11-15 18:36:30.000000000 +0100
+@@ -1,6 +1,6 @@
+-FREETYPE_BASE=../freetype-1.1
+-FREETYPE_INCL=$(FREETYPE_BASE)/lib
+-FREETYPE_LIB=-L$(FREETYPE_BASE)/lib/.libs -lttf
++FREETYPE_BASE=/usr
++FREETYPE_INCL=$(FREETYPE_BASE)/include/freetype
++FREETYPE_LIB=-L$(FREETYPE_BASE)/lib/.libs -lttf -L/usr/lib
+ 
+ CC=gcc
+ CFLAGS=-Wall -pedantic -I$(FREETYPE_INCL)

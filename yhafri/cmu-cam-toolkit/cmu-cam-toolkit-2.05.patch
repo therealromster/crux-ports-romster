@@ -1,0 +1,44 @@
+--- CMU-Cam_Toolkit_v2/src/Makefile	1997-07-29 23:23:28.000000000 +0200
++++ CMU-Cam_Toolkit_v2/src/Makefile-new	2005-07-17 11:45:50.177138096 +0200
+@@ -28,13 +28,13 @@
+ #               Solaris, IRIX and HPUX.
+ # FIX_PROT_FLAG Needed for the gcc compiler on some SunOS machines in CUED. 
+ 
+-OPT_FLAG	= -O
++OPT_FLAG	= -O3
+ #GDB_FLAG	= -ggdb
+ #BNDS_CHK_FLAG	= -fbounds-checking
+-#WARNINGS_FLAG	= -Wall
++WARNINGS_FLAG	= -Wall
+ #ANSI_FLAG	= -Aa
+ #POSIX_FLAG	= -D_INCLUDE_POSIX_SOURCE
+-#BYTESWAP_FLAG	= -DSLM_SWAP_BYTES
++BYTESWAP_FLAG	= -DSLM_SWAP_BYTES
+ #FIX_PROT_FLAG 	= -D__USE_FIXED_PROTOTYPES__ 
+ 
+ CFLAGS		= $(OPT_FLAG) $(GDB_FLAG) $(BNDS_CHK_FLAG) $(WARNINGS_FLAG) $(ANSI_FLAG) $(POSIX_FLAG) $(BYTESWAP_FLAG) $(FIX_PROT_FLAG)
+@@ -43,8 +43,10 @@
+ # Needed for successful linking on IRIX machines in CUED
+ # LINKFLAGS     = -Wl -old_ld
+ 
+-BINDIR          = ../bin
+-LIBDIR          = ../lib
++#BINDIR          = ../bin
++#LIBDIR          = ../lib
++BINDIR          = /usr/bin
++LIBDIR          = /usr/lib
+ 
+ LIB             = SLM2.a
+ 
+@@ -93,9 +95,9 @@
+ 
+ install: $(EXECS)
+ 	for i in $(EXECS); do \
+-		./install-sh $$i $(BINDIR); \
++		./install-sh $$i ${prefix}/$(BINDIR); \
+ 	done
+-	./install-sh $(LIB) $(LIBDIR)
++	./install-sh $(LIB) ${prefix}/$(LIBDIR)
+ 
+ clean:
+ 	rm -f $(OBJS)

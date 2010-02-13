@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A high-level Python Web framework that encourages rapid development and clean, pragmatic design
+# URL: http://www.djangoproject.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, psycopg, mysql-python, pysqlite, subversion
+
+name=django
+#version=0.95
+version=svn
+release=1
+#source=(http://media.djangoproject.com/releases/$version/Django-$version.1.tar.gz \
+#	http://cheeseshop.python.org/packages/2.4/s/setuptools/setuptools-0.6c1-py2.4.egg)
+
+build () {
+	mkdir -p $PKG/usr/lib/python2.4/site-packages/
+
+	#cd Django-$version.1
+	#mv ../setuptools-0.6c1-py2.4.egg .
+
+	svn co http://code.djangoproject.com/svn/django/trunk/ $name
+	cd django
+
+	python setup.py build
+	#python setup.py install
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

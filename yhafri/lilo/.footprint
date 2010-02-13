@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	boot/
+-rw-r--r--	root/root	boot/debian-bootscreen-potato.rle.bmp
+-rw-r--r--	root/root	boot/debian-bootscreen-sarge.rle.bmp
+-rw-r--r--	root/root	boot/debian-bootscreen-sid.rle.bmp
+-rw-r--r--	root/root	boot/debian-bootscreen-woody.rle.bmp
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/lilo.conf
+drwxr-xr-x	root/root	sbin/
+-rwxr-xr-x	root/root	sbin/lilo
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/lilo.conf.5.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/lilo.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/keytab-lilo.pl

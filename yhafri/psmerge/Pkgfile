@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Shell hack to merge multiple ps file in one 
+# URL: http://ktmatu.com/info/merge-pdf-files/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=psmerge
+version=1
+release=1
+source=($name.sh)
+
+build () {
+	install -D -m 755 $name.sh $PKG/usr/bin/$name.sh
+	chown -R root:root $PKG
+}

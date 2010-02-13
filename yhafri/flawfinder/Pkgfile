@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Examines C source code and reports possible security weaknesses
+# URL: http://www.dwheeler.com/flawfinder
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=flawfinder
+version=1.27
+release=1
+source=(http://www.dwheeler.com/$name/$name-$version.tar.gz)
+
+build () {
+	install -d $PKG/usr{bin,/man/man1}
+	cd $name-$version
+
+	make INSTALL_DIR=$PKG/usr install
+	chown -R root:root $PKG
+}

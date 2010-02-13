@@ -1,0 +1,19 @@
+# $Id: $
+# Description: ASN Parser that produces java based codec and Data Transfer Object
+# URL: http://developer.k-int.com/projects.php?page=a2j
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant
+
+name=a2j
+version=2_0_2
+release=2
+source=(http://developer.k-int.com/$name/download/${name}_v2-$version-src.tgz)
+
+build () {
+    	install -d $PKG/usr/lib/$name
+	cd ${name}_v2
+	ant
+	mv dist/a2j.jar dist/a2jruntime.jar $PKG/usr/lib/$name
+    	chown -R root:root $PKG
+}

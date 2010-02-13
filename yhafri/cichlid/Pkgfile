@@ -1,0 +1,36 @@
+# $Id: $
+# Description: Data visualization software
+# URL: http://moat.nlanr.net/Software/Cichlid/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libpng
+
+name=cichlid
+version=2.0
+release=1
+source=(http://moat.nlanr.net/Software/Cichlid/releases/$name-$version.tgz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name/{bin,lib,include}}
+
+	cd Cichlid-$version
+
+	make linux
+	make
+
+	install    -m 644 client/nlanr.ppm $PKG/usr/lib/$name/bin/
+	install -D -m 755 client/$name     $PKG/usr/lib/$name/bin/$name
+	install -D -m 755 $SRC/$name       $PKG/usr/bin/$name
+	
+	for i in `find . -name "*.a"`; do
+		cp $i $PKG/usr/lib/$name/lib
+	done
+
+        for i in `find . -name "*.h"`; do
+                cp $i $PKG/usr/lib/$name/include
+        done
+
+
+	chown -R root:root $PKG
+}

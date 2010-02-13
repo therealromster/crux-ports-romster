@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# /etc/rc.d/sound:
+#
+
+
+case $1 in
+start)
+	# uncomment the next line if you're not using udev
+	#(/usr/sbin/snddevices 2>/dev/null)
+
+        amixer set PCM 15 unmute
+        amixer set Master 60 unmute
+        #chmod 777 /dev/sound/mixer
+        #chmod 777 /dev/sound/dsp
+	;;
+stop)
+        amixer set PCM 0 mute
+        amixer set Master 0 mute
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

@@ -1,0 +1,17 @@
+--- sysstat-7.0.1/Makefile	2006-08-09 12:17:43.000000000 +0200
++++ sysstat-7.0.1/Makefile-new	2006-10-06 16:11:22.000000000 +0200
+@@ -18,13 +18,11 @@
+ CHKCONFIG = /sbin/chkconfig
+ 
+ # Directories
+-ifndef PREFIX
+ PREFIX = /usr
+-endif
+ ifndef SA_LIB_DIR
+ SA_LIB_DIR = /usr/lib/sa
+ endif
+-DESTDIR = $(RPM_BUILD_ROOT)
++DESTDIR = $(PKG)
+ BIN_DIR = $(PREFIX)/bin
+ ifndef MAN_DIR
+ # Don't use $(PREFIX)/share/man by default: not necessarily in man path!

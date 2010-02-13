@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Perl module that act as a bridge to OpenOffice UNO
+# URL: http://perluno.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openoffice-sdk, cvs
+
+name=perluno
+version=0.04
+release=1
+source=()
+
+build () {
+	echo "" | cvs -d:pserver:anonymous@$name.cvs.sourceforge.net:/cvsroot/$name login 
+	cvs -z3 -d:pserver:anonymous@$name.cvs.sourceforge.net:/cvsroot/$name checkout -P $name
+
+	cd $name/source/XS
+	export OO_SDK_HOME=/usr/lib/openoffice-sdk
+	. /usr/bin/setsdkenv_unix.sh
+
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

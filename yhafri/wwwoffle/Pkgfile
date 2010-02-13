@@ -1,0 +1,24 @@
+# $Id: $
+# Description: World Wide Web Offline Explorer
+# URL: http://www.gedanken.demon.co.uk/wwwoffle/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib, flex, bison
+ 
+name=wwwoffle
+version=2.9a
+release=1
+source=(http://www.gedanken.freeserve.co.uk/download-$name/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/doc/$name
+
+	chown -R root:root $PKG
+}

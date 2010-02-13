@@ -1,0 +1,20 @@
+# Description: a classic shoot 'em up scroller game, where you must fight against tons of bad dudes
+# URL: http://kraptor.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libdumb
+
+name=kraptor
+version=03_2004
+release=2
+source=(http://dl.sourceforge.net/sourceforge/${name}/${name}_final_apr_$version.tar.bz2 kraptor)
+
+build() {
+    cd ${name}_final_apr_$version
+	./fix.sh linux
+    ./fix.sh test
+    make
+	mkdir -p $PKG/usr/{lib,bin}
+	cp -r bin $PKG/usr/lib/kraptor
+	install -m 755 ../kraptor $PKG/usr/bin/kraptor
+}

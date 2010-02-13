@@ -1,0 +1,24 @@
+# $Id: $
+# Description: GNU Arch is a powerful revision control system
+# URL: http://www.gnu.org/software/gnu-arch/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: neon
+
+name=tla
+version=1.3.4
+release=1
+source=(http://ftp.gnu.org/gnu/gnu-arch/$name-$version.tar.gz)
+
+build () {
+        mkdir $name-$version/src/build
+        cd $name-$version/src/build
+        ../configure \
+            --prefix=/usr \
+            --destdir=$PKG
+        make
+        make install
+
+        chown -R root:root $PKG
+}
+

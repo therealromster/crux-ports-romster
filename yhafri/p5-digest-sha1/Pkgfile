@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the SHA-1 algorithm 
+# URL: http://search.cpan.org/~gaas/Digest-SHA1-2.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-digest-sha1
+version=2.11
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/G/GA/GAAS/Digest-SHA1-$version.tar.gz)
+
+build () {
+	cd Digest-SHA1-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

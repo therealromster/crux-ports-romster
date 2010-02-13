@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Convert an arbitrary postScript image to an encapsulated postScript image 
+# URL: http://bourbon.usc.edu:8001/tgif/tools.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: netpbm
+
+name=pstoepsi
+version=1
+release=1
+source=(ftp://bourbon.usc.edu/pub/tgif/tools/$name/ftp.x.org/R5contrib/$name.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	patch -p0 < $name-$version.patch
+        make CFLAGS="$CFLAGS"
+
+	install -m 755 ./$name      $PKG/usr/bin/$name
+	install -m 755 ./pbmtoepsi  $PKG/usr/bin/pbmtoepsi
+	install -m 755 ./pstorast   $PKG/usr/bin/pstorast
+        chown -R root:root $PKG
+}

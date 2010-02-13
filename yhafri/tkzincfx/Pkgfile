@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to apply simple animated effects to tkzinc items
+# URL: http://www.tls.cena.fr/~etienne/tkzincfx/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tkanim, pulp
+
+name=tkzincfx
+version=1.4
+release=1
+source=(http://perso.tls.cena.fr/etienne/wootz/downloads/${name}_${version}.tar.gz)
+
+build () {
+	cd tkzincFX-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

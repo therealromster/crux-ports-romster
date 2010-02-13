@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cp -rf /usr/local/lib/squeak/Squeak3.8-6665full.* .
+ln -sf /usr/local/lib/squeak/SqueakV3.sources .
+

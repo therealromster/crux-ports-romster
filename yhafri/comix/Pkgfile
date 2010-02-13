@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A user-friendly, customizable image viewer designed to handle comic books
+# URL: http://comix.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, pygtk, pil, unrar, jpegtran
+
+name=comix
+version=3.6.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr
+
+        cd $name-$version
+
+        python install.py install --installdir=$PKG/usr
+	rm -rf $PKG/usr/share/locale \
+		$PKG/usr/share/mime/XMLnamespaces \
+		$PKG/usr/share/mime/aliases \
+		$PKG/usr/share/mime/globs \
+		$PKG/usr/share/mime/magic \
+		$PKG/usr/share/mime/subclasses
+ 
+        chown -R root:root $PKG
+}

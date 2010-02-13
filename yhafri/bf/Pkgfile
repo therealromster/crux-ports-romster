@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Brainfuck language
+# URL: http://www.muppetlabs.com/~breadbox/bf/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bf
+version=1
+release=1
+source=(http://www.muppetlabs.com/~breadbox/software/tiny/$name.asm.txt)
+
+build () {
+    mkdir -p $PKG/usr/bin
+    nasm -f bin -o $name $name.asm.txt && chmod +x $name
+    mv $name  $PKG/usr/bin
+    chown -R root:root $PKG
+}

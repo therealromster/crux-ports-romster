@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Compiling binary data into a C program.
+# URL: http://www.noserose.net/e/code/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=bin2c
+version=1
+release=1
+source=(http://www.noserose.net/e/code/$name-20010214.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/bin
+	cd $name
+    make CFLAGS="$CFLAGS"
+	install $name $PKG/usr/bin
+
+    chown -R root:root $PKG
+}

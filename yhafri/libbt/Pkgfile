@@ -1,0 +1,25 @@
+# $Id: $
+# Description: C-language Impementation of the BitTorrent core protocols
+# URL: http://libbt.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: curl, openssl
+
+name=libbt
+version=1.05
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/{bin,lib,man/man1}
+	cd $name-$version
+
+	./configure --prefix=/usr
+        make
+
+        cp src/{btcheck,btlist,btget} $PKG/usr/bin
+        cp src/libbt.a $PKG/usr/lib
+        cp man/*.1 $PKG/usr/man/man1
+
+	chown -R root:root $PKG
+}

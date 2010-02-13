@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Database connection caching and organization
+# URL: http://search.cpan.org/~tmtm/Ima-DBI-0.34/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-dbi, p5-class-data-inheritable, p5-dbix-contextualfetch
+
+name=p5-ima-dbi
+version=0.34
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TM/TMTM/Ima-DBI-$version.tar.gz)
+
+build () {
+	cd Ima-DBI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

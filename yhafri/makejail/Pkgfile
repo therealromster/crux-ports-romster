@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Help administrators creating and updating a chroot jail 
+# URL: http://www.floc.net/makejail/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=makejail
+version=0.0.5
+release=1
+source=(http://www.floc.net/makejail/$name.tar.gz)
+
+build () {
+	cd $name-$version
+	make prefix=$PKG/usr install
+	rm -rf $PKG/usr/share/doc
+        chown -R root:root $PKG
+}

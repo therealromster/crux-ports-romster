@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rws--x--x	root/root	usr/bin/acon
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/acon/
+drwxr-xr-x	root/root	usr/lib/acon/fonts/
+-rw-r--r--	root/root	usr/lib/acon/fonts/sample.f16
+drwxr-xr-x	root/root	usr/lib/acon/keymaps/
+-rw-r--r--	root/root	usr/lib/acon/keymaps/cp-1256.map
+-rw-r--r--	root/root	usr/lib/acon/keymaps/iso8859-6.map
+drwxr-xr-x	root/root	usr/lib/acon/translations/
+-rw-r--r--	root/root	usr/lib/acon/translations/cp-1256
+-rw-r--r--	root/root	usr/lib/acon/translations/iso-8859-6

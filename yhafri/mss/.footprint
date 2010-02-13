@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/msslogread.pl -> /usr/lib/mss/msslogread.pl
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/mss.h
+-rw-r--r--	root/root	usr/include/no_mss.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libmss.a
+drwxr-xr-x	root/root	usr/lib/mss/
+-rw-r--r--	root/root	usr/lib/mss/mss.cfg
+-rwxr-xr-x	root/root	usr/lib/mss/msslogread.pl

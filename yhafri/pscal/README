@@ -1,0 +1,23 @@
+OPTIONS:
+        The shell variables BANNER, LFOOT, CFOOT, and RFOOT become a
+        top centered banner, and left, centered, or right justified
+        footers respectively.  As in:
+
+                BANNER="Schedule 1"; CFOOT=Preliminary; pscal 4 1990
+
+FILES:
+        The file $HOME/.holiday is read and used to print short messages
+        on specified days.  The .holiday file should consist of lines of
+        the form
+                month:day:message string
+        Messages should be 20 characters or less, with no more than 6
+        messages per day.  No spaces should appear from the beginning
+        of a line until after the second colon.
+        Month and day should be numbers in the obvious ranges.
+        12/89 - The holiday checking has been loosened up in that the
+        following takes place:
+                1. The Shell Variable EFILE is used preferentially
+                2. Then the file Events in the current directory is used
+                3. Finally the $HOME/.holiday file is used.
+        The whole process can be turned off by setting EFILE=/dev/null.
+

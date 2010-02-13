@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Network Daemon Services for libevent
+# URL: http://25thandclement.com/~william/projects/libevnet.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libevent
+
+name=libevnet
+version=snapshot
+release=1
+source=(http://25thandclement.com/~william/projects/snapshots/$name-$version.tgz \
+	http://25thandclement.com/~william/projects/snapshots/libarena-$version.tgz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/include
+
+	cd $name-*
+	(cd src; ln -sf ../../libarena-*/src arena; cd bufio; ln -sf ../../../libarena-*/src arena)
+	patch -p1<../$name-$version.patch
+
+	make
+	install -D -m 644 src/$name.a   $PKG/usr/lib/$name.a
+	cp -rf include/evnet $PKG/usr/include		
+
+	chown -R root:root $PKG
+}

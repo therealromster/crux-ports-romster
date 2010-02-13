@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Arabic library
+# URL: http://www.arabeyes.org/project.php?proj=ITL
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libitl
+version=0.6.4
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./autogen.sh
+
+	./configure --prefix=/usr
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

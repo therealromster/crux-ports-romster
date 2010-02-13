@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/mhash.h
+drwxr-xr-x	root/root	usr/include/mutils/
+-rw-r--r--	root/root	usr/include/mutils/mglobal.h
+-rw-r--r--	root/root	usr/include/mutils/mhash.h
+-rw-r--r--	root/root	usr/include/mutils/mhash_config.h
+-rw-r--r--	root/root	usr/include/mutils/mincludes.h
+-rw-r--r--	root/root	usr/include/mutils/mtypes.h
+-rw-r--r--	root/root	usr/include/mutils/mutils.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libmhash.a
+-rwxr-xr-x	root/root	usr/lib/libmhash.la
+lrwxrwxrwx	root/root	usr/lib/libmhash.so -> libmhash.so.2.0.1
+lrwxrwxrwx	root/root	usr/lib/libmhash.so.2 -> libmhash.so.2.0.1
+-rwxr-xr-x	root/root	usr/lib/libmhash.so.2.0.1
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/mhash.3.gz

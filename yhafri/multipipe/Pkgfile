@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Simple command to split output into several parallel commands
+# URL: http://multipipe.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=multipipe
+version=1.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: API to the C++ port of the Lucene search engine
+# URL: http://search.cpan.org/~tbusch/Lucene-0.13/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: clucene
+
+name=p5-lucene
+version=0.18
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TB/TBUSCH/Lucene-$version.tar.gz)
+
+build () {
+	cd Lucene-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

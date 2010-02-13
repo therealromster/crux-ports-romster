@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Libregexp9 is a port of Plan 9's Unicode-capable regular expression library
+# URL: http://swtch.com/plan9port/unix/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libutf, libfmt
+
+name=libregexp9
+version=1
+release=1
+source=(http://swtch.com/plan9port/unix/$name.tgz)
+
+build () {
+	cd libregexp
+
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

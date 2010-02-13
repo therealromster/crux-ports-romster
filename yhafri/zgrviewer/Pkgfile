@@ -1,0 +1,28 @@
+# $Id: $
+# Description: 2.5D graph visualizer
+# URL: http://zvtm.sourceforge.net/zgrviewer.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: graphviz, jdk
+
+name=zgrviewer
+version=0.5.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/zvtm/$name-0_5_0.zip \
+	http://ovh.dl.sourceforge.net/sourceforge/zvtm/$name-biman-0_1_0.zip \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib
+
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	install -D -m 755 run.sh $PKG/usr/bin/$name
+	rm -rf antlr.license.txt plugins/ src/ *.txt doc/ COPYING run.*
+
+	cd ..
+	mv $name $PKG/usr/lib
+
+	chown -R root:root $PKG
+}

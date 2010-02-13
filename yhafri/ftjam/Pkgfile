@@ -1,0 +1,21 @@
+# $Id: $
+# Description: The JAM building tool
+# URL: http://freetype.sourceforge.net/jam/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ftjam
+version=2.5.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/freetype/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	make
+	
+	install -D -m 755 ./bin.unix/jam         $PKG/usr/bin/$name
+	install -D -m 755 ./bin.unix/mkjambase $PKG/usr/bin/${name}base
+
+	chown -R root:root $PKG
+}

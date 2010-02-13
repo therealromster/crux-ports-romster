@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Open source VRML and X3D browser with Firefox plugin
+# URL: http://freewrl.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, sox, jdk, libglut, mesa3d, mesalib, libsball, freetype2, libpng, libjpeg, imagemagick, expat
+
+name=freewrl
+version=1.17.4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name/plugins
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

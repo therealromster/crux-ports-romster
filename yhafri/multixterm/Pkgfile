@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Drive multiple xterms separately or together
+# URL: http://expect.nist.gov/example/multixterm.man.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: expect
+
+name=multixterm
+version=1
+release=1
+source=(http://expect.nist.gov/example/$name)
+
+build () {
+	sed -i "s|#!/depot/path/expectk|#!/usr/bin/expectk|" $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

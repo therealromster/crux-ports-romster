@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A a tool to write command line option parsing code for C programs
+# URL: http://www.gnu.org/software/gengetopt/gengetopt.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=gengetopt
+version=2.18
+release=1
+source=(ftp://mirrors.kernel.org/gnu/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/doc/$name/
+
+	chown -R root:root $PKG
+}

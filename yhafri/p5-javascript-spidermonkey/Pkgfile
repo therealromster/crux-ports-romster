@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the JavaScript Engine
+# URL: http://84.45.18.237/~tbusch/JavaScript-SpiderMonkey-0.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: spidermonkey
+
+name=p5-javascript-spidermonkey
+version=0.16
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TB/TBUSCH/JavaScript-SpiderMonkey-$version.tar.gz)
+
+build () {
+	cd JavaScript-SpiderMonkey-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

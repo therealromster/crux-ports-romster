@@ -1,0 +1,20 @@
+# Description: an abstraction library that comes between applications and audio visualisation plugins
+# URL: http://libvisual.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: x11
+
+name=libvisual
+version=0.2.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

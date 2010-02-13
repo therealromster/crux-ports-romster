@@ -1,0 +1,19 @@
+# Description: ITU H.323 teleconferencing protocol
+# URL: http://www.openh323.org/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: pwlib, speex, ffmpeg
+
+name=openh323
+version=1.17.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-v1_17_1-src-tar.gz)
+
+build() {
+    tar -xzf openh323-v1_17_1-src-tar.gz
+	cd openh323_v1_17_1
+	./configure --prefix=/usr \
+				--enable-rfc2190avcodec=/usr/include/ffmpeg/
+	make
+	make PREFIX=$PKG/usr install
+}

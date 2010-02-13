@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A free software tool for measurement of source C/C++/Java/Ada-83/Ada-95 code related metrics
+# URL: http://cccc.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cccc
+version=3.1.4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	sed -i "s|all : pccts cccc test install|all : pccts cccc test|" makefile
+	make
+
+	install -D -m 755 $name/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

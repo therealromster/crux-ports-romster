@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Objective Caml interface to GTK1
+# URL:         http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/lablgtk.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  gtk1, ocaml
+
+name=lablgtk1
+version=1.2.7
+release=1
+source=(http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/dist/lablgtk-$version.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/{bin,lib/ocaml/lablgtk/stublibs}
+
+    cd lablgtk-$version 
+    make configure USE_DOTOPT=1 LIBDIR=$PKG/usr/lib/ocaml/lablgtk \
+	 BINDIR=$PKG/usr/bin/ DLLDIR=$PKG/usr/lib/ocaml/lablgtk/stublibs
+    make
+    make opt
+    make install
+
+    chown -R root:root $PKG
+}

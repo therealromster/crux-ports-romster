@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Object Oriented Programming in C
+# URL: http://ldeniau.web.cern.ch/ldeniau/html/oopc.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ooc
+version=2.0
+release=1
+source=(http://ldeniau.web.cern.ch/ldeniau/html/$name-$version.tgz)
+
+build () {
+	cd $name-std
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

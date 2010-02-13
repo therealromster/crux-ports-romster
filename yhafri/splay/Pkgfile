@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A console audio player
+# URL: http://splay.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=splay
+version=0.9.5.2
+release=1
+source=(http://splay.sourceforge.net/tgz/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Add a moniker (and plural_moniker) method to UNIVERSAL
+# URL: http://search.cpan.org/~kasei/UNIVERSAL-moniker-0.08/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-universal-moniker
+version=0.08
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KA/KASEI/UNIVERSAL-moniker-$version.tar.gz)
+
+build () {
+	cd UNIVERSAL-moniker-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

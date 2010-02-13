@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Typical installation tasks for system administrators
+# URL: http://search.cpan.org/~mschilli/Sysadm-Install-0.13/lib/Sysadm/Install.pm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-expect, p5-archive-tar, p5-log-log4perl
+
+name=p5-sysadm-install
+version=0.13
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSCHILLI/Sysadm-Install-$version.tar.gz)
+
+build () {
+	cd Sysadm-Install-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

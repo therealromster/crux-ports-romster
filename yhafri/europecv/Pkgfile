@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Unofficial class for European curricula vitae
+# URL: http://tug.ctan.org/tex-archive/macros/latex/contrib/europecv/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: latex
+
+name=europecv
+version=1
+release=1
+source=(ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/$name.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/
+
+	mv $name $PKG/usr/share/texmf/tex/latex/
+	rm -rf $PKG/usr/share/texmf/tex/latex/$name/examples
+
+	chown -R root:root $PKG
+}

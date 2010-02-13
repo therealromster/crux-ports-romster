@@ -1,0 +1,55 @@
+--- erts/etc/unix/run_erl.c Wed Oct 12 16:56:31 2005
++++ erts/etc/unix/run_erl.c Thu Oct 13 08:02:22 2005
+@@ -45,6 +45,8 @@
+ #if !defined(NO_SYSLOG)
+ #include <syslog.h>
+ #endif
++#include <pty.h>
++#include <utmp.h>
+
+ #if defined(O_NONBLOCK)
+ # define DONT_BLOCK_PLEASE O_NONBLOCK
+@@ -386,6 +388,7 @@
+     sig_act.sa_flags = 0;
+     sig_act.sa_handler = catch_sigpipe;
+     sigaction(SIGPIPE, &sig_act, (struct sigaction *)NULL);
++    sigaction(SIGCHLD, &sig_act, (struct sigaction *)NULL);
+
+     /*
+      * read and write: enter the workloop
+@@ -625,6 +628,9 @@
+ static void catch_sigpipe(int sig)
+ {
+   switch(sig) {
++  case SIGCHLD:
++    status("Child terminated - exiting\n");
++    exit(2);
+   case SIGPIPE:
+     fifowrite = 0;
+   default:
+@@ -803,6 +809,7 @@
+ static int open_pty_master(char **ptyslave)
+ {
+   int mfd;
++  int sfd;
+   char *major, *minor;
+
+   static char majorchars[] = "pqrstuvwxyzabcdePQRSTUVWXYZABCDE";
+@@ -818,6 +825,15 @@
+   /* http://www.xcf.berkeley.edu/~ali/K0D/UNIX/PTY/code/upty.h.html */
+
+   {
++     static char ttyname[] = "                                   ";
++     if (0 == openpty(&mfd, &sfd, ttyname, NULL, NULL)) {
++       close(sfd);
++       *ptyslave = ttyname;
++       return mfd;
++     }
++  }
++
++  {
+     /* New style devpts or devfs /dev/pty/{m,s}{0,1....} */
+
+     static char ptyname[] = "/dev/pty/mX";
+
+

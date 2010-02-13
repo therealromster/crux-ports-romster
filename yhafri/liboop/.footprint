@@ -1,0 +1,33 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/oop-adns.h
+-rw-r--r--	root/root	usr/include/oop-glib.h
+-rw-r--r--	root/root	usr/include/oop-read.h
+-rw-r--r--	root/root	usr/include/oop-rl.h
+-rw-r--r--	root/root	usr/include/oop-tcl.h
+-rw-r--r--	root/root	usr/include/oop-www.h
+-rw-r--r--	root/root	usr/include/oop.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/liboop-glib.a
+-rwxr-xr-x	root/root	usr/lib/liboop-glib.la
+lrwxrwxrwx	root/root	usr/lib/liboop-glib.so -> liboop-glib.so.0.1.0
+lrwxrwxrwx	root/root	usr/lib/liboop-glib.so.0 -> liboop-glib.so.0.1.0
+-rwxr-xr-x	root/root	usr/lib/liboop-glib.so.0.1.0
+-rw-r--r--	root/root	usr/lib/liboop-glib2.a
+-rwxr-xr-x	root/root	usr/lib/liboop-glib2.la
+lrwxrwxrwx	root/root	usr/lib/liboop-glib2.so -> liboop-glib2.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liboop-glib2.so.0 -> liboop-glib2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liboop-glib2.so.0.0.0
+-rw-r--r--	root/root	usr/lib/liboop-tcl.a
+-rwxr-xr-x	root/root	usr/lib/liboop-tcl.la
+lrwxrwxrwx	root/root	usr/lib/liboop-tcl.so -> liboop-tcl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liboop-tcl.so.0 -> liboop-tcl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liboop-tcl.so.0.0.0
+-rw-r--r--	root/root	usr/lib/liboop.a
+-rwxr-xr-x	root/root	usr/lib/liboop.la
+lrwxrwxrwx	root/root	usr/lib/liboop.so -> liboop.so.4.0.1
+lrwxrwxrwx	root/root	usr/lib/liboop.so.4 -> liboop.so.4.0.1
+-rwxr-xr-x	root/root	usr/lib/liboop.so.4.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/liboop-glib2.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/liboop.pc

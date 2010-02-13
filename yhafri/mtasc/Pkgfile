@@ -1,0 +1,20 @@
+# $Id: $
+# Description: ActionScript 2 Open Source free compiler
+# URL: http://tech.motion-twin.com/mtasc.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mtasc
+version=1.11
+release=1
+source=(http://tech.motion-twin.com/zip/$name-$version-linux.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	mv std/  std8/ $PKG/usr/lib/$name/
+
+	chown -R root:root $PKG
+}

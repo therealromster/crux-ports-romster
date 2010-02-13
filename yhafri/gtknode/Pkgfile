@@ -1,0 +1,43 @@
+# $Id: $
+# Description: Yet Another GUI framework for Erlang (GTK)
+# URL: http://sourceforge.net/projects/jungerl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk, libglade
+
+name=gtknode
+version=cvs
+release=1
+source=($name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+	cvs -z3 \
+	-d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jungerl co -P \
+	jungerl/lib/gtkNode
+
+	export OTP_ROOT=/usr
+	cd jungerl/lib/gtkNode
+
+	mkdir -p {ebin,priv/obj}
+
+	patch -p0<$SRC/$name-$version.patch
+
+	make
+
+	mv ebin/ include/ priv/ src/ $PKG/usr/lib/erlang/lib/$name-$version
+
+	find $PKG -name "Makefile*" -type "f" -exec rm -rf '{}' \;
+
+	rm -rf $PKG/usr/lib/erlang/lib/gtknode-cvs/include/CVS \
+	       $PKG/usr/lib/erlang/lib/gtknode-cvs/src/CVS \
+	       $PKG/usr/lib/erlang/lib/gtknode-cvs/priv/CVS \
+	       $PKG/usr/lib/erlang/lib/gtknode-cvs/priv/bin/CVS \
+	       $PKG/usr/lib/erlang/lib/gtknode-cvs/priv/gen/CVS \
+	       $PKG/usr/lib/erlang/lib/gtknode-cvs/priv/generator/CVS \
+	       $PKG/usr/lib/erlang/lib/gtknode-cvs/priv/generator/gen/CVS \
+	       $PKG/usr/lib/erlang/lib/gtknode-cvs/priv/generator/src/CVS
+
+
+	chown -R root:root $PKG
+}

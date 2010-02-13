@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A package for creating and reading constant databases
+# URL: http://packages.debian.org/stable/utils/freecdb.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=freecdb
+version=0.62
+release=1
+source=(http://ftp.debian.org/debian/pool/main/f/$name/${name}_${version}.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,include,share/man/man1,share/man/man3}
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# Description: a real-time visual space simulation
+# URL: http://www.shatters.net/celestia/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: mesa3d
+# OR: nvidia
+
+name=celestia
+version=1.4.1
+release=1
+source=(http://dl.sourceforge.net//celestia/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure	--prefix=/usr \
+        --enable-kernel-threads \
+        --disable-debug \
+        --with-glut
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/doc
+    rm -rf $PKG/usr/share/locale
+}

@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Interact with a t/test_manifest file 
+# URL: http://search.cpan.org/~bdfoy/Test-Manifest-1.14/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-test-manifest
+version=1.14
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Test-Manifest-$version.tar.gz)
+
+build () {
+	cd Test-Manifest-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+
+	PERL_VERSION=`perl -e 'printf "%vd", $^V'`
+	mkdir -p $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux/auto/Test
+	cp $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/Test/Manifest.pm \
+	   $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux/auto/Test
+
+       	cp -rf $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux/auto/Test \
+	   $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/
+
+	chown -R root:root $PKG
+}

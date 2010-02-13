@@ -1,0 +1,21 @@
+# $Id: $
+# Description: An Implementation of Double-Array Trie
+# URL: http://linux.thai.net/~thep/datrie/datrie.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=datrie
+version=0.1.0
+release=1
+source=(ftp://linux.thai.net/pub/ThaiLinux/software/libthai/lib$name-$version.tar.gz)
+
+build () {
+	cd lib$name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

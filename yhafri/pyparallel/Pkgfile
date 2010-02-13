@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python parallel port API
+# URL: http://pyserial.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=pyparallel
+version=0.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/pyserial/$name-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

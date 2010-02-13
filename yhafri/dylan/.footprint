@@ -1,0 +1,253 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-r-xr-xr-x	root/root	usr/bin/d2c
+-r-xr-xr-x	root/root	usr/bin/dybug
+-r-xr-xr-x	root/root	usr/bin/gen-makefile
+-r-xr-xr-x	root/root	usr/bin/line-count
+-r-xr-xr-x	root/root	usr/bin/make-dylan-app
+-r-xr-xr-x	root/root	usr/bin/make-dylan-lib
+-r-xr-xr-x	root/root	usr/bin/melange
+-rwxr-xr-x	root/root	usr/bin/mindy
+-rwxr-xr-x	root/root	usr/bin/mindycomp
+-rwxr-xr-x	root/root	usr/bin/mindyexec
+-r-xr-xr-x	root/root	usr/bin/mk-build-tree
+-r-xr-xr-x	root/root	usr/bin/parsergen
+drwxr-xr-x	root/root	usr/include/
+-rwxr-xr-x	root/root	usr/include/runtime.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/dylan/
+drwxr-xr-x	root/root	usr/lib/dylan/2.4.0/
+drwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/ansi-c.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/base-file-system-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/base-file-system.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/c-parser.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/collection-extensions-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/collection-extensions.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/collections.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/common-dylan.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/date.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/dylan-lib.dbc
+drwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/dylan-user/
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/dylan.lib.du
+drwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/elisp/
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/elisp/dylan-mode.el
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/elisp/dylan-params.el
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/elisp/fill-comment.el
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/elisp/goto-def.el
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/elisp/mindy-comp.el
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/elisp/page-cmds.el
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/file-system.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/format-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/format-out-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/format-out.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/format.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/garbage-collection.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/inspector-base-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/io-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/io.lib.du
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libansi-c-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libansi-c-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libansi-c-dylan.so -> libansi-c-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libansi-c-dylan.so.0 -> libansi-c-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libansi-c-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libbase-file-system-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libbase-file-system-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libbase-file-system-dylan.so -> libbase-file-system-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libbase-file-system-dylan.so.0 -> libbase-file-system-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libbase-file-system-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libc-parser-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libc-parser-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libc-parser-dylan.so -> libc-parser-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libc-parser-dylan.so.0 -> libc-parser-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libc-parser-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollection-extensions-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollection-extensions-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollection-extensions-dylan.so -> libcollection-extensions-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollection-extensions-dylan.so.0 -> libcollection-extensions-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollection-extensions-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollections-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollections-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollections-dylan.so -> libcollections-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollections-dylan.so.0 -> libcollections-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcollections-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcommon-dylan-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcommon-dylan-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcommon-dylan-dylan.so -> libcommon-dylan-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcommon-dylan-dylan.so.0 -> libcommon-dylan-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libcommon-dylan-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdate-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdate-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdate-dylan.so -> libdate-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdate-dylan.so.0 -> libdate-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdate-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdylan-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdylan-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdylan-dylan.so -> libdylan-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdylan-dylan.so.0 -> libdylan-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libdylan-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libfile-system-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libfile-system-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libfile-system-dylan.so -> libfile-system-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libfile-system-dylan.so.0 -> libfile-system-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libfile-system-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-dylan.so -> libformat-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-dylan.so.0 -> libformat-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-out-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-out-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-out-dylan.so -> libformat-out-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-out-dylan.so.0 -> libformat-out-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libformat-out-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libgarbage-collection-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libgarbage-collection-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libgarbage-collection-dylan.so -> libgarbage-collection-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libgarbage-collection-dylan.so.0 -> libgarbage-collection-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libgarbage-collection-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libio-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libio-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libio-dylan.so -> libio-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libio-dylan.so.0 -> libio-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libio-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/liblocators-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/liblocators-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/liblocators-dylan.so -> liblocators-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/liblocators-dylan.so.0 -> liblocators-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/liblocators-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmatrix-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmatrix-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmatrix-dylan.so -> libmatrix-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmatrix-dylan.so.0 -> libmatrix-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmatrix-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmelange-support-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmelange-support-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmelange-support-dylan.so -> libmelange-support-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmelange-support-dylan.so.0 -> libmelange-support-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libmelange-support-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparse-arguments-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparse-arguments-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparse-arguments-dylan.so -> libparse-arguments-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparse-arguments-dylan.so.0 -> libparse-arguments-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparse-arguments-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparser-utilities-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparser-utilities-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparser-utilities-dylan.so -> libparser-utilities-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparser-utilities-dylan.so.0 -> libparser-utilities-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libparser-utilities-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libprint-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libprint-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libprint-dylan.so -> libprint-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libprint-dylan.so.0 -> libprint-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libprint-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/librandom-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/librandom-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/librandom-dylan.so -> librandom-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/librandom-dylan.so.0 -> librandom-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/librandom-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libregular-expressions-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libregular-expressions-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libregular-expressions-dylan.so -> libregular-expressions-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libregular-expressions-dylan.so.0 -> libregular-expressions-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libregular-expressions-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libruntime.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libruntime.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libruntime.so -> libruntime.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libruntime.so.0 -> libruntime.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libruntime.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstandard-io-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstandard-io-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstandard-io-dylan.so -> libstandard-io-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstandard-io-dylan.so.0 -> libstandard-io-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstandard-io-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstream-extensions-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstream-extensions-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstream-extensions-dylan.so -> libstream-extensions-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstream-extensions-dylan.so.0 -> libstream-extensions-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstream-extensions-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstreams-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstreams-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstreams-dylan.so -> libstreams-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstreams-dylan.so.0 -> libstreams-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstreams-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstring-extensions-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstring-extensions-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstring-extensions-dylan.so -> libstring-extensions-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstring-extensions-dylan.so.0 -> libstring-extensions-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libstring-extensions-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libsystem-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libsystem-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libsystem-dylan.so -> libsystem-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libsystem-dylan.so.0 -> libsystem-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libsystem-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtable-extensions-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtable-extensions-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtable-extensions-dylan.so -> libtable-extensions-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtable-extensions-dylan.so.0 -> libtable-extensions-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtable-extensions-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libthreads-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libthreads-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libthreads-dylan.so -> libthreads-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libthreads-dylan.so.0 -> libthreads-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libthreads-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtime-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtime-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtime-dylan.so -> libtime-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtime-dylan.so.0 -> libtime-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtime-dylan.so.0.0.0
+-rw-r--r--	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtranscendental-dylan.a
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtranscendental-dylan.la
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtranscendental-dylan.so -> libtranscendental-dylan.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtranscendental-dylan.so.0 -> libtranscendental-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/libtranscendental-dylan.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/locators.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/matrix-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/matrix.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/melange-support.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/parse-arguments-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/parse-arguments.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/parser-utilities.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/print-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/print.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/random-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/random.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/regular-expressions-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/regular-expressions.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/standard-io-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/standard-io.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/stream-extensions-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/stream-extensions.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/streams-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/streams.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/string-extensions-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/string-extensions.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/system.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/table-extensions-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/table-extensions.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/text-inspector-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/threads.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/time.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/tk-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/transcendental-lib.dbc
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/transcendental.lib.du
+-rwxr-xr-x	root/root	usr/lib/dylan/2.4.0/x86-linux-gcc/x-inspector-lib.dbc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/d2c.1.gz
+-rw-r--r--	root/root	usr/man/man1/dybug.1.gz
+-rw-r--r--	root/root	usr/man/man1/gobject-tool.1.gz
+-rw-r--r--	root/root	usr/man/man1/make-dylan-app.1.gz
+-rw-r--r--	root/root	usr/man/man1/melange.1.gz
+-rw-r--r--	root/root	usr/man/man1/mindy.1.gz
+-rw-r--r--	root/root	usr/man/man1/mindycomp.1.gz
+-rw-r--r--	root/root	usr/man/man1/mindyexec.1.gz
+-rw-r--r--	root/root	usr/man/man1/parsergen.1.gz
+drwxr-xr-x	root/root	usr/man/man4/
+-rw-r--r--	root/root	usr/man/man4/platforms.descr.4.gz
+drwxr-xr-x	root/root	usr/man/man7/
+-rw-r--r--	root/root	usr/man/man7/dylan.7.gz
+-rw-r--r--	root/root	usr/man/man7/gwydion.7.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/dylan/
+-rwxr-xr-x	root/root	usr/share/dylan/platforms.descr

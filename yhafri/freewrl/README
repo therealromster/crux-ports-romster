@@ -1,0 +1,4 @@
+POS-INSTALL:
+
+		* To use freewrl with Firefox (or Mozilla), make link:
+		# ln -sf /usr/lib/freewrl/plugins/npfreewrl.so /usr/lib/firefox/plugins/npfreewrl.so

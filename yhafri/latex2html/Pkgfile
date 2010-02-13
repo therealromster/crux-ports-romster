@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Convert LATEX documents to HTML
+# URL: http://www.latex2html.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, tetex, ghostscript, alien
+
+name=latex2html
+version=2002-2-1
+release=1
+source=(http://webb.ens-cachan.fr/debian/pool/non-free/l/$name/${name}_${version}-20050114-5_all.deb)
+
+build () {
+	alien -t ${name}_${version}-20050114-5_all.deb
+
+	tar xf ${name}-${version}-20050114.tgz -C $PKG
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,13 @@
+PRE-INSTALL:
+
+
+		* Use my "db" (Berkeley DB) package which contains the required patches
+		for EDTK
+
+
+AUTO-INSTALLER:
+
+		* There's a basic auto-installer here:
+		http://matt.stancliff.name/erlang/
+
+		But Crux's ports manager rocks !!!

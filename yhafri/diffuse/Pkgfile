@@ -1,0 +1,45 @@
+# $Id: $
+# Description: DIFFUSE  package (DISCUS, PDFFIT, KUPLOT)
+# URL: http://www.pa.msu.edu/cmp/billinge-group/programs/discus/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: nexus, termcap, pgplot
+
+name=diffuse
+version=4.2b
+release=1
+source=(ftp://ftp.pa.msu.edu/pub/billinge/discus/Diffuse-$version-unix-040701.tar.gz \
+	CompileUnix \
+	makedate)
+#ftp://ftp.pa.msu.edu/pub/billinge/discus/Diffuse-source-051003.tar.gz
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+
+	chmod +x makedate
+
+	#cp -rf Diffuse/diffev/ Diffuse-$version
+	cp CompileUnix         Diffuse-$version
+	cp -rf makedate        Diffuse-$version/lib_f77/
+
+	cd Diffuse-$version
+
+	sed -i "s|-lmfhdf||" kuplot/prog/Makefile.unix
+	sed -i "s|-ldf||" kuplot/prog/Makefile.unix
+
+	cp kuplot/prog/nonexus.f kuplot/prog/nexus.f
+
+	sh CompileUnix
+
+	#for i in discus pdffit kuplot diffev; 
+	for i in discus pdffit kuplot; 
+	do
+		cd $i/prog
+		make -f Makefile.unix BINDIR=$PKG/usr/bin install
+		cd -
+	done 
+
+	mv $PKG/usr/bin/mac/ $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A free database library, for operating on simple disk-based databases
+# URL: http://www.mirar.org/mird/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=mird
+version=1.0.7
+release=1
+source=(http://www.mirar.org/$name/Mird-$version.tar.gz)
+
+build () {
+	cd Mird-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

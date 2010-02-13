@@ -1,0 +1,8 @@
+[Desktop Entry]
+ServiceTypes=all/allfiles
+Actions=Shred
+
+[Desktop Action Shred]
+Name=Shred File
+Icon=editshred
+Exec=kgpg -X %U

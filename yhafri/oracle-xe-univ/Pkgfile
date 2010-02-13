@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Oracle Database 10g Express Edition (Universal)
+# URL: http://www.oracle.com/technology/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz
+
+name=oracle-xe-univ
+version=10.2.0.1-1.0.i386
+release=1
+#source=($name-$version.rpm)
+source=($name-$version.tar.gz oracle oracle-xe)
+
+build () {
+	#rpm2targz $name-$version.rpm
+	#tar xzf $SRC/$name-$version.tar.gz -C $PKG
+	
+	mv usr/ etc/ $PKG
+	mv $PKG/etc/init.d $PKG/etc/rc.d
+
+	cp -f $SRC/oracle-xe $PKG/etc/rc.d/oracle-xe
+	sed -i "s|/bin/su|/usr/bin/su|" $PKG/etc/rc.d/oracle-xe
+	sed -i "s|\-s */bin/bash *\$ORACLE_OWNER|\$ORACLE_OWNER \-s /bin/bash|" $PKG/etc/rc.d/oracle-xe
+	chmod +x $PKG/etc/rc.d/oracle-xe
+
+	install -D -m 755 oracle $PKG/etc/rc.d/oracle
+
+	rm -rf $PKG/usr/share/{doc,gnome,desktop-menu-files}
+
+	chown -R root:root $PKG
+}

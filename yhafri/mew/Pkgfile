@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A mail reader for Emacs
+# URL: http://www.mew.org/index.html.en
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=mew
+version=5.1
+release=1
+source=(http://www.$name.org/Release/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

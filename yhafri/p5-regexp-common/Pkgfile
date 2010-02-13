@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Provide commonly requested regular expressions
+# URL: http://search.cpan.org/~abigail/Regexp-Common-2.120/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-regexp-common
+version=2.120
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AB/ABIGAIL/Regexp-Common-$version.tar.gz)
+
+build () {
+	cd Regexp-Common-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

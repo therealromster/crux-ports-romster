@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Crux tuning
+# URL: http://yhafri.club.fr/crux/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=crux_tuning
+version=1
+release=1
+source=($name)
+
+build () {
+	install -D -m 644 $name $PKG/etc/$name
+	chown -R root:root $PKG
+}

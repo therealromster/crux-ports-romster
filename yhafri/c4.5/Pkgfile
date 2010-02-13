@@ -1,0 +1,26 @@
+# $Id: $
+# Description: C4.5 Programs for Machine Learning
+# URL: http://books.elsevier.com/us/mk/us/subindex.asp?isbn=1558602380
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=c4.5
+version=r8
+release=1
+source=(http://www.rulequest.com/Personal/${name}${version}.tar.gz)
+
+build () {
+	cd R8/Src
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+	cd ../Doc
+	for i in *.1;
+	do
+		gzip -9 $i;
+		install -D -m 644 $i.gz $PKG/usr/man/man1/$i.gz
+	done
+
+	chown -R root:root $PKG
+}

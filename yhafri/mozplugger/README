@@ -1,0 +1,14 @@
+POST-INSTALL:
+		* Delete your personal "pluginreg.dat" (it will be generated automagically):
+
+		# rm -rf ~/.mozilla/firefox/pluginreg.dat   (as root)
+		$ rm -rf ~/.mozilla/firefox/pluginreg.dat   (or as normal user)
+
+		* Symlink the library :
+		# ln -s /usr/lib/mozplugger/mozplugger.so /MY_FIREFOX_INSTALL_DIR/plugins/
+
+		* Restart Firefox
+
+TEST:
+		* Test the plugins by typing this address in Firefox:
+		about:plugins

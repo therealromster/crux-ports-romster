@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Java interface to Spread Toolkit
+# URL: http://www.spread.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant, spread
+
+name=java-spread
+version=3.17.3
+release=1
+source=(spread-src-$version.tar.gz \
+    $name-$version.patch)
+
+build () {
+    mkdir -p $PKG/usr/lib/$name
+	cd spread-src-$version/java
+    patch -p2<../../$name-$version.patch
+    ant jar    
+    mv dest/spread-$version.jar $PKG/usr/lib/$name
+	chown -R root:root $PKG
+}

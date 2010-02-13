@@ -1,0 +1,31 @@
+# $Id: $
+# Description: An EFL Based Terminal
+# URL: http://www.enlightenment.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on: etk
+
+name=enterminus
+version=cvs
+release=1
+source=()
+
+build()
+{
+    	cd $PKGMK_SOURCE_DIR
+    	if cd e17/apps/$name ; then
+		cvs -q up -dAP
+	else
+		cvs -qz3 -d :pserver:anonymous@anoncvs.enlightenment.org:/var/cvs/e co e17/proto/$name
+    	fi
+
+    	cp -r $PKGMK_SOURCE_DIR/e17/proto/$name $SRC
+    	cd $SRC/$name
+
+    	./autogen.sh --prefix=/usr
+   	 make
+    	make install DESTDIR=$PKG
+
+        chown -R root:root $PKG
+}
+

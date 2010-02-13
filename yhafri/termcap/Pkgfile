@@ -1,0 +1,23 @@
+# $Id: $
+# Description: GNU termcap library
+# URL: http://gnuwin32.sourceforge.net/packages/termcap.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=termcap
+version=1.3.1
+release=1
+source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --enable-shared
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

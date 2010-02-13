@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Modula-2 / Oberon-2 development toolset
+# URL: http://www.excelsior-usa.com/xdsx86.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=modula2
+version=2.51
+release=1
+source=(http://www.excelsior-usa.com/download/xds25x/xds-x86-251-enduser-linux.tgz \
+	http://www.excelsior-usa.com/download/xds25x/tscp-x86-251-enduser-linux.tgz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cd xds
+	rm -rf licenses/  pdf/ readme/  samples/ doc/
+
+	cd -
+	mv xds $PKG/usr/lib/
+
+	ln -sf /usr/lib/xds/bin/xc      $PKG/usr/bin/xc
+	ln -sf /usr/lib/xds/bin/xcwork  $PKG/usr/bin/xcwork
+	ln -sf /usr/lib/xds/bin/hd2k    $PKG/usr/bin/h2d
+	ln -sf /usr/lib/xds/bin/xdssamp $PKG/usr/bin/xdssamp
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+		* If your firefox install dir is in a different location, type:
+		# ln -sf /usr/lib/adobesvg/libNPSVG3.so   /MY_FIREFOX_DIR/plugins/ 

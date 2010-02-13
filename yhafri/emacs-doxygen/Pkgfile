@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Tom Emerson's lisp script to simplify writing doxygen comments
+# URL: http://www.stack.nl/~dimitri/doxygen/helpers.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=emacs-doxygen
+version=1.1
+release=1
+source=(http://simon.nitro.dk/dotfiles/emacs/doxygen.el)
+
+build () {
+	install -D -m 644 doxygen.el $PKG/usr/share/emacs/site-lisp/doxygen.el
+	chown -R root:root $PKG
+}

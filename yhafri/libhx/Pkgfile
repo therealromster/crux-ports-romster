@@ -1,0 +1,22 @@
+# $Id: $
+# Description: C library that provides deques, arbtrees, option parsing, some string and container manipulation functions, and some cross-OS wrappers to unify access
+# URL: http://jengelh.hopto.org/f/libHX/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libhx
+version=1.10.1
+release=1
+source=(http://jengelh.hopto.org/f/libHX/libHX-$version.tar.bz2)
+
+build () {
+	cd libHX-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

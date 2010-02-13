@@ -1,0 +1,22 @@
+# $Id: $
+# Description: DVB input plugin for the VLC media player
+# URL: http://fr.rpmfind.net/linux/RPM/mandrake/9.1/contrib/i586/vlc-plugin-dvb-0.5.0-4mdk.i586.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz
+
+name=vlc-plugin-dvb
+version=0.5.0
+release=1
+source=(ftp://fr.rpmfind.net/linux/Mandrake/9.1/contrib/i586/$name-$version-4mdk.i586.rpm)
+
+build () {
+	rpm2targz $name-$version-4mdk.i586.rpm
+
+	tar xzvf  $name-$version-4mdk.i586.tar.gz 
+
+	mv usr $PKG/
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

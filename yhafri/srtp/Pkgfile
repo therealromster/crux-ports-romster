@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Open source implementation of the Secure Real-time Transport Protocol (SRTP
+# URL: http://srtp.sourceforge.net/news.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=srtp
+version=1.4.2
+release=1
+source=(http://$name.sourceforge.net/$name-$version.tgz)
+
+build () {
+	cd $name
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

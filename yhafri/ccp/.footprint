@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ccp
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/countcode.h
+-rw-r--r--	root/root	usr/include/mask.h
+-rw-r--r--	root/root	usr/include/parse.h
+-rw-r--r--	root/root	usr/include/re.h
+-rw-r--r--	root/root	usr/include/splitting.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/ccp.a

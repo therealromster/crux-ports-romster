@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Calculate distribution of symbols in a file
+# URL: http://www.math.toronto.edu/dkhmelev/PROGS/misc/histogram-eng.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=histogram
+version=0.0.3
+release=1
+source=(http://www.math.toronto.edu/dkhmelev/PROGS/misc/src/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,25 @@
+--- PDL-2.4.1/IO/Pnm/Pnm.pm	2004-07-21 23:45:49.840562656 +0200
++++ PDL-2.4.1/IO/Pnm/Pnm-new.pm	2004-07-21 23:47:39.970820312 +0200
+@@ -155,6 +155,15 @@
+     # catch STDERR
+     open(SAVEERR, ">&STDERR");
+     open(STDERR, ">$efile") || barf "Can't redirect stderr";
++    $file =~ m!^d(jpeg) ([^\|]+) |!o;
++    my $convertor="$1" . "topnm";
++    my $file2="$2";
++    my $file3 = $file2;
++    $file3 =~ s!\....$!\.pnm!o;
++    $file3 =~ s!(.*)\/([^\/]+)$!\/tmp\/$2!o;
++    system("$convertor $file2 > $file3");
++    $file=$file3;
++    
+     my $succeed = open(PNM, $file);
+     # redirection now in effect for child
+     # close(STDERR);
+@@ -465,4 +474,4 @@
+ 
+ 1;
+ 
+-		   
+\ No newline at end of file
++		   

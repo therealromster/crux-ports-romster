@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Configurable talking ASCII cow
+# URL: http://www.nog.net/~tony/warez/cowsay.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Vincenzo Colosimo <vico@bicisport.de>
+# Depends on:  
+
+name=cowsay
+version=3.03
+release=2
+source=(ftp://ftp.nog.net/pub/tony/${name}/${name}-${version}.tar.gz \
+        cowsay-3.03.patch)
+
+build() {
+    cd $name-$version
+    patch -p1 < ../$name-3.03.patch
+    mkdir -p $PKG/usr/{bin,man/man1,share/$name/cows}
+    cp $name $PKG/usr/bin
+    chmod a+x $PKG/usr/bin/$name
+    ln -s $name $PKG/usr/bin/cowthink
+    cp cows/*.cow $PKG/usr/share/$name/cows
+    gzip $name.1 
+    cp $name.1.gz $PKG/usr/man/man1
+    chown -R root:root $PKG
+}

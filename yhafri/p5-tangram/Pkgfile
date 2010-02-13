@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Perl OO abstraction to access DB
+# URL: http://search.cpan.org/~samv/Tangram-2.08/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-class-date, p5-data-lazy, p5-set-object, p5-time-piece, p5-dbi, p5-class-date
+
+
+name=p5-tangram
+version=2.09_02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SA/SAMV/Tangram-$version.tar.gz)
+
+build () {
+	cd Tangram-$version
+	echo "n" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

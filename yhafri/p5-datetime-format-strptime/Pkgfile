@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Parse and format strp and strf time patterns 
+# URL: http://search.cpan.org/~rickm/DateTime-Format-Strptime-1.0601/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-datetime-format-strptime
+version=1.0700
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RI/RICKM/DateTime-Format-Strptime-$version.tar.gz)
+
+build () {
+	cd DateTime-Format-Strptime-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

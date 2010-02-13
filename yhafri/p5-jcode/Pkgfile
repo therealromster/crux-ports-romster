@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Japanese Charset Handler for Perl
+# URL: http://search.cpan.org/~dankogai/Jcode-0.88/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-jcode
+version=0.88
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DA/DANKOGAI/Jcode-$version.tar.gz)
+
+build () {
+	cd Jcode-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

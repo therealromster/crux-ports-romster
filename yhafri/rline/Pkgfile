@@ -1,0 +1,28 @@
+# $Id: $
+# Description:  Run any command line driven program under readline control
+# URL: http://samba.org/junkcode/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: readline, ncurses
+
+name=rline
+version=1
+release=1
+source=($name.c \
+	http://samba.org/ftp/unpacked/junkcode/rline/examples/ftp \
+	http://samba.org/ftp/unpacked/junkcode/rline/examples/ntpq \
+	http://samba.org/ftp/unpacked/junkcode/rline/examples/tftp \
+	http://samba.org/ftp/unpacked/junkcode/rline/examples/xboard)
+
+# $ find /usr/lib/lib*.a -exec nm {} \; -print |grep -A 100 "T openpty"
+
+build () {
+	gcc -o $name $name.c -lreadline -lncurses -lutil
+ 
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	for i in ftp ntpq tftp xboard; do install -D -m 644 $i $PKG/usr/share/$name/$i; done
+
+	chown -R root:root $PKG
+}

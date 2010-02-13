@@ -1,0 +1,18 @@
+# Description: Microsoft Word document to PS/PDF/HTML/LaTeX/DVI/ABW converters
+# URL: http://wvware.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libwmf, libgsf, imagemagick
+
+name=wv
+version=1.2.1
+release=1
+source=(http://download.sourceforge.net/sourceforge/wvware/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --with-libwmf
+    make
+    make DESTDIR=$PKG install
+}

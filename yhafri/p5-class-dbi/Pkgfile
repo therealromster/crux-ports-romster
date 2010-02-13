@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Simple Database Abstraction
+# URL: http://search.cpan.org/~tmtm/Class-DBI-v3.0.13/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-class-accessor, p5-class-data-inheritable, p5-class-trigger, p5-ima-dbi, p5-scalar-list-utils, p5-clone, p5-universal-moniker, p5-version
+
+name=p5-class-dbi
+version=3.0.14
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TM/TMTM/Class-DBI-v$version.tar.gz)
+
+build () {
+	cd Class-DBI-v$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

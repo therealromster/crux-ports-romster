@@ -1,0 +1,17 @@
+# Description: a library to provide abstract access to various archives
+# URL: http://icculus.org/physfs/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=physfs
+version=1.0.0
+release=1
+source=(http://icculus.org/physfs/downloads/physfs-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

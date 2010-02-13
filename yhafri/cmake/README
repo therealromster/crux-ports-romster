@@ -1,0 +1,23 @@
+EMACS-MODE:
+
+
+			* To get cmake syntax highlighting under Emacs:
+			
+			1) copy the file "cmake-mode.el" to:
+			# cp cmake-mode.el /usr/share/emacs/site-lisp
+			
+
+			2) add the following lines to your ".emacs.el" file:
+			
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;    CMAKE PACKAGE
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq load-path (cons (expand-file-name "/usr/share/emacs/site-lisp") load-path))
+(require 'cmake-mode)
+(setq auto-mode-alist
+      (append '(("CMakeLists\\.txt\\'" . cmake-mode)
+                ("\\.cmake\\'" . cmake-mode))
+              auto-mode-alist))

@@ -1,0 +1,23 @@
+# $Id: $
+# Description:  A simple dockapp that displays a calendar clock with antialiased text.
+# URL: http://nis-www.lanl.gov/~mgh/WindowMaker/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=wmcalclock
+version=1.25
+release=1
+source=(http://ftp.debian.org/debian/pool/main/w/wmcalclock/${name}\_${version}.orig.tar.gz 
+\
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man}
+	patch -p0 < $name-$version.patch
+	cd wmCalClock-$version/Src
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG/usr install
+	rm -rf $PKG/usr/man/man1
+	ln -sf /usr/bin/wmCalClock   $PKG/usr/bin/wmcalclock 
+}

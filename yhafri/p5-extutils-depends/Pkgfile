@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to easily build XS extensions that depend on XS extensions 
+# URL: http://search.cpan.org/~tsch/ExtUtils-Depends-0.204/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-extutils-depends
+version=0.205
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/Gtk2-Perl/ExtUtils-Depends-$version.tar.gz)
+
+build () {
+	cd ExtUtils-Depends-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

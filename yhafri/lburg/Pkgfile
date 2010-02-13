@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A Tree Parser Generator
+# URL: ftp://ftp.cs.princeton.edu/pub/packages/lcc/contrib/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion
+
+name=lburg
+version=svn
+#version=34b
+release=1
+#source=(ftp://ftp.cs.princeton.edu/pub/packages/lcc/contrib/$name$version.zip)
+
+build () {
+	svn co http://drh.svnrepository.com/svn/lcc/trunk/ $name
+	cd $name
+
+	gcc -Os -c -o lburg.o lburg.c
+	gcc -Os -c -o gram.o gram.c
+	gcc -Os -o lburg lburg.o gram.o
+
+	install -D -m 755 $name      $PKG/usr/bin/$name
+	gzip -9 $name.1
+	install -D -m 644 lburg.1.gz $PKG/usr/man/man1/$name.1.gz
+	
+	chown -R root:root $PKG
+}

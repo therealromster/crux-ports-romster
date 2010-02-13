@@ -1,0 +1,23 @@
+# Description: a platform "run, jump, and shoot" game
+# URL: http://www.parallelrealities.co.uk/blobWars.php
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: sdl_image, sdl_mixer, sdl_ttf
+# go to http://www.parallelrealities.co.uk/blobWars.php#Downloads
+# to download the source file.
+
+name=blobwars
+version=1.04
+release=1
+source=($name-$version-$release.tar.gz $name-$version.patch)
+
+build() {
+	cd $name-$version
+	patch -p0 -i ../$name-$version.patch
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/doc
+    sed -i 's/Game/Game;ArcadeGame/' $PKG/usr/share/applnk/Games/Arcade/blobwars.desktop
+#    echo "Categories=Qt;KDE;Game;ArcadeGame;;" \
+#        >> $PKG/usr/share/applnk/Games/Arcade/blobwars.desktop
+}

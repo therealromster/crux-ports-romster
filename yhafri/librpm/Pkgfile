@@ -1,0 +1,20 @@
+# $Id: $
+# Description: RPM package management system library
+# URL: http://www.rpm.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz
+
+name=librpm
+version=4.0.5
+release=1
+source=(ftp://fr.rpmfind.net/linux/rpm.org/rpm/dist/librpm404/librpm404-4.0.5-1.8x.i386.rpm)
+
+build () {
+	rpm2targz librpm404-4.0.5-1.8x.i386.rpm
+
+	tar xzvf librpm404-4.0.5-1.8x.i386.tar.gz -C $PKG
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

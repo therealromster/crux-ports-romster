@@ -1,0 +1,19 @@
+# Description: a screensaver which, essentially, functions as a deck of digital flash cards
+# URL: http://rschultz.ath.cx/code.php
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase, x11-fonts-japanese
+
+name=kanjisaver
+version=0.9.9
+release=2
+source=(http://www.kde-apps.org/content/files/31660-kanjisaver-0.9.9.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

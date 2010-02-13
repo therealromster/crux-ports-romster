@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A distributed shell
+# URL: http://www.netfort.gr.jp/~dancer/software/dsh.html.en
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libdshconfig
+
+name=dsh
+version=0.25.6
+release=1
+source=(http://www.netfort.gr.jp/~dancer/software/downloads/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+	  	    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/man/ja/
+
+	chown -R root:root $PKG
+}

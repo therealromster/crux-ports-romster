@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Gforth is the GNU implementation of Forth
+# URL: http://www.jwdt.com/~paysan/gforth.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=gforth
+version=0.6.2
+release=1
+source=(http://www.complang.tuwien.ac.at/forth/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-force-reg \
+		    
+
+        make gforths
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+	find $PKG/usr -iname "info"         -type "d" | xargs rm -rf
+        chown -R root:root $PKG
+}

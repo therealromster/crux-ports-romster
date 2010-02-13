@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+if [ $# -lt 1 ]; then
+
+    echo "Usage: $0 file1.pdf file2.pdf ..."
+    echo
+    echo "Ex.  : $ $0 somewhere/*.pdf"
+    echo "       Enter the file output name: /tmp/my_all.pdf"
+    echo "       PDF files are concatenated in one file: /tmp/my_all.pdf"
+    exit 1
+fi
+
+echo -n "Enter the file output name: "
+read on
+
+gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$on $@ 2>/dev/null
+
+echo "PDF files are concatenated in one file: $on"

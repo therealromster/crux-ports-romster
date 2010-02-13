@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/vlc/
+drwxr-xr-x	root/root	usr/lib/vlc/access/
+-rw-r--r--	root/root	usr/lib/vlc/access/libsatellite_plugin.so
+drwxr-xr-x	root/root	usr/lib/vlc/demux/
+-rw-r--r--	root/root	usr/lib/vlc/demux/libts_dvbpsi_plugin.so
+drwxr-xr-x	root/root	usr/lib/vlc/mux/
+-rw-r--r--	root/root	usr/lib/vlc/mux/libmux_ts_dvbpsi_plugin.so

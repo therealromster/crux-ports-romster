@@ -1,0 +1,34 @@
+# Description: Qt Widgets for Technical Applications
+# URL: http://qwt.sourceforge.net/index.html
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qt3
+
+name=qwt
+version=4.2.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/qwt/qwt-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	export QTDIR=/usr/share/qt
+	qmake qwt.pro
+   	make
+	mkdir -p $PKG/usr/{include/qwt,lib,man/man3}
+
+	for i in include/*.h; do
+		install -m 644 $i $PKG/usr/include/qwt
+	done
+	chmod 644 lib/libqwt.so*
+	for i in lib/libqwt.so*; do
+		cp -d $i $PKG/usr/lib
+	done
+	for i in doc/man/man3/*.3; do
+		install -m 644 $i $PKG/usr/man/man3
+	done
+
+	cd designer
+	qmake qwtplugin.pro
+	make
+	make INSTALL_ROOT=$PKG install
+}

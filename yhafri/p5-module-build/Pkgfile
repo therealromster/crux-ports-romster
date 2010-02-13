@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Build and install Perl modules
+# URL: http://search.cpan.org/~kwilliams/Module-Build-0.2611/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-extutils-cbuilder, p5-extutils-parsexs, p5-yaml, p5-pod-readme, p5-module-signature, p5-archive-tar 
+
+name=p5-module-build
+version=0.2805
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/Module-Build-$version.tar.gz)
+
+build () {
+	cd Module-Build-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

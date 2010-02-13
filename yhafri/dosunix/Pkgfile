@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A selection of features allowing manipulation of text files in a mixed DOS/Windows and Unix environment
+# URL: http://dosunix.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dosunix
+version=1.0.14
+release=1
+source=(http://$name.sourceforge.net/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	ln -sf /usr/bin/dosunix $PKG/usr/bin/dos2unix
+	ln -sf /usr/bin/unixdos $PKG/usr/bin/unix2dos
+
+	chown -R root:root $PKG
+}

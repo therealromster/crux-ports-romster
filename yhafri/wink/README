@@ -1,0 +1,9 @@
+POST-INSTALL:
+
+
+			* Set the environment variable WINK_INSTALL_DIR:
+			export WINK_INSTALL_DIR=/usr/lib/wink
+
+USAGE:
+			* If the NumLock key is switched on, hotkeys in Wink do not work under Linux.
+			  So make sure to turn off the NumLock key while capturing.

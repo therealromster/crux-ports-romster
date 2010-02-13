@@ -1,0 +1,8 @@
+PRE-INSTALL:
+
+	*) Add the following locations into your PATH environment variable:
+	/usr/lib/ocaml/godi/bin
+	/usr/lib/ocaml/godi/sbin
+
+	*) Add the following location into your MAN environment variable:
+	/usr/lib/ocaml/godi/man

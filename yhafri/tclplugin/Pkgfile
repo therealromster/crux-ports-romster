@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Tcl/Tk browser plugin
+# URL: http://tclplugin.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk
+
+name=tclplugin
+version=3.1
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	cvs -z3 -d:pserver:anonymous@$name.cvs.sourceforge.net:/cvsroot/$name co -P $name
+	cd $name
+	./configure --prefix=/usr \
+		    --with-mozilla=$PKG/usr/lib/$name \
+		    --with-tcl=/usr/lib \
+		    --with-tk=/usr/lib
+			
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

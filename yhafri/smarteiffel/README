@@ -1,0 +1,6 @@
+POST-INSTALL
+		* You must set SmartEiffel environment variable and adjust your PATH acording to this:
+
+		export SmartEiffel="/usr/lib/SmartEiffel/sys/system.se"
+		export PATH=/usr/lib/SmartEiffel/bin:$PATH
+

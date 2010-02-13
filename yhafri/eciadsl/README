@@ -1,0 +1,33 @@
+PRE-INSTALL:
+		* If your kernel is 2.6.0 or 2.6.6 it must be
+		pached before installing this port. 
+		For more details, read the document at:
+		http://eciadsl.flashtux.org/download/beta/Readme.txt
+		Recompile your kernel with the options described at: 
+		http://eciadsl.flashtux.org/faq.php?lang=en#5.3
+		For other kernels, jump this step.
+
+
+POST-INSTALL:
+		* Configure your connection in text mode with
+		"/usr/bin/eciadsl-config-text" or by a Tk GUI using 
+		"/usr/bin/eciadsl-config-tk".
+
+		* After that, don't forget to protect the below files
+		from reading. As root type:
+		# chmod 600 /etc/ppp/chap-secrets
+		# chmod 600 /etc/ppp/pap-secrets
+
+		* See my example files to connect to the "club-internet"
+		provider:
+		/etc/ppp/{chap-secrets,pap-secrets}
+		/etc/eciadsl/eciadsl.conf
+
+		* If you want to use the "startmodem.exp" script which 
+		automate the pppd connection even if it fails, you 
+		must also install the "expect" port.
+	
+INFO:
+		* This ports is available with httpup. See:
+		http://perso.club-internet.fr/yhafri/crux/index.html
+

@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Unit Testing for Erlang
+# URL: http://bestfriendchris.com/blog/2007/04/23/erunit-unit-testing-for-erlang/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, erlang
+
+name=erunit
+version=0.1.0
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	svn co http://codeby.bestfriendchris.com/svn/ErUnit/tags/$name-$version $name
+
+	cd $name/src
+	erl -make
+
+	cp -f *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	cp -f *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	install -D -m 755 ../bin/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

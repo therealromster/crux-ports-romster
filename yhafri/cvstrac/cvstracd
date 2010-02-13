@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# /etc/rc.d/cvstrac: start/stop cvstrac http daemon
+#
+
+
+# For use with Subversion
+# SCM=svntrac
+# For use with CVS
+# SCM=cvstrac
+SCM=svntrac
+
+USER=nobody
+PORT=8008
+DB=/var/lib/cvstrac
+PROJ=MyProject
+
+case $1 in
+start)
+	/usr/bin/$SCM chroot / $USER server $PORT $DB $PROJ &
+	;;
+stop)
+	killall -q /usr/bin/$SCM
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

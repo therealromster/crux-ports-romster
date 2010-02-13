@@ -1,0 +1,47 @@
+--- PDFlib-Lite-6.0.3/bind/pdflib/perl/Makefile	2006-02-28 14:43:56.000000000 +0100
++++ PDFlib-Lite-6.0.3/bind/pdflib/perl/Makefile-new	2006-06-07 17:18:53.000000000 +0200
+@@ -30,9 +30,6 @@
+ 	-$(PERLBIN) quickreference.pl
+ 
+ install:: $(LIBNAME)
+-	$(LIBTOOL) --mode=install \
+-		$(INSTALL_DATA) $(LIBNAME) $(LANG_LIBDIR)
+-	$(INSTALL_DATA) pdflib_pl.pm $(LANG_LIBDIR)
+ 
+ uninstall::
+ 	$(LIBTOOL) --mode=uninstall \
+--- PDFlib-Lite-6.0.3/bind/pdflib/tcl/Makefile	2006-02-28 14:43:56.000000000 +0100
++++ PDFlib-Lite-6.0.3/bind/pdflib/tcl/Makefile-new	2006-06-07 17:28:54.000000000 +0200
+@@ -29,17 +29,6 @@
+ 	-$(LIBTOOL_EXE) $(TCLBIN) quickreference.tcl
+ 
+ install:: $(LIBNAME)
+-	if test ! -d $(LANG_LIBDIR) ; then 	\
+-	    mkdir -p $(LANG_LIBDIR);		\
+-	    chmod 755 $(LANG_LIBDIR);		\
+-	fi
+-	$(INSTALL_DATA) pkgIndex.tcl $(LANG_LIBDIR)
+-	@-if test -f .libs/libpdflib_tcl.dylib; then			\
+-	    $(INSTALL_DATA) .libs/pdflib_tcl.dylib $(LANG_LIBDIR);	\
+-	else								\
+-	    $(LIBTOOL) --mode=install $(INSTALL_DATA)			\
+-		$(LIBNAME) $(LANG_LIBDIR);				\
+-	fi
+ 
+ uninstall::
+ 	@-if test -f .libs/libpdflib_tcl.dylib; then			\
+--- PDFlib-Lite-6.0.3/bind/pdflib/python/Makefile	2006-02-28 14:43:56.000000000 +0100
++++ PDFlib-Lite-6.0.3/bind/pdflib/python/Makefile-new	2006-06-07 17:29:56.000000000 +0200
+@@ -30,12 +30,6 @@
+ 	-$(LIBTOOL_EXE) python quickreference.py
+ 
+ install:: $(LIBNAME)
+-	@-if test -f .libs/libpdflib_py.dylib; then		\
+-	    $(INSTALL_DATA) .libs/pdflib_py.so $(LANG_LIBDIR);	\
+-	else							\
+-	    $(LIBTOOL) --mode=install $(INSTALL_DATA) 		\
+-		$(LIBNAME) $(LANG_LIBDIR);			\
+-	fi
+ 
+ uninstall::
+ 	@-if test -f .libs/libpdflib_py.dylib; then			 \

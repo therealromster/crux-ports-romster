@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Natural Language Toolkit
+# URL: http://nltk.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: wordnet, numarray, nltk-corpora, numpy
+
+name=nltk
+version=0.7a1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/${name}_lite-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd ${name}_lite-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

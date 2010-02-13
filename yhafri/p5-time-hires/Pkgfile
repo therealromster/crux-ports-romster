@@ -1,0 +1,20 @@
+# $Id: $
+# Description: High resolution alarm, sleep, gettimeofday, interval timers 
+# URL: http://search.cpan.org/~jhi/Time-HiRes-1.72/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-time-hires
+version=1.86
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JH/JHI/Time-HiRes-$version.tar.gz)
+
+build () {
+	cd Time-HiRes-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

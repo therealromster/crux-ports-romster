@@ -1,0 +1,19 @@
+# Description: a GUI for the eDonkey2000 and Overnet file-sharing programs
+# URL: http://ed2k-gtk-gui.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: gtk, edonkey
+
+name=ed2k-gtk-gui
+version=0.6.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

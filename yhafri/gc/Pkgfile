@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A garbage collector for C and C++
+# URL: http://www.hpl.hp.com/personal/Hans_Boehm/gc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=gc
+version=6.7
+release=1
+source=(http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/$name$version.tar.gz)
+
+build () {
+	cd $name$version
+	./configure --prefix=/usr \
+                    --enable-parallel-mark \
+                    --enable-cplusplus   
+
+    make CFLAGS="$CFLAGS"
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share
+    chown -R root:root $PKG
+}

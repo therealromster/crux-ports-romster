@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A reimplementation of the standard Unix sleep utility
+# URL: http://www.eskimo.com/~scs/src/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=sleep
+version=1
+release=1
+source=(ftp://ftp.eskimo.com/u/s/scs/src/$name.c)
+
+build () {
+	gcc $name.c -o $name
+
+	strip $name
+	install -D -m 777 $name $PKG/usr/bin/$name@
+
+	chown -R root:root $PKG
+}

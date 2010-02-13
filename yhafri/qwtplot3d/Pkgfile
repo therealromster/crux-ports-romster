@@ -1,0 +1,24 @@
+# Description: Qt/OpenGL-based C++ programming library containing 3d-widgets
+# URL: http://qwtplot3d.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qwt
+
+name=qwtplot3d
+version=0.2.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+
+build() {
+	cd $name
+	export QTDIR=/usr/share/qt
+	qmake qwtplot3d.pro
+	make
+	mkdir -p $PKG/usr/{lib,include/qwtplot3d}
+	for i in include/* ; do
+		cp -d $i $PKG/usr/include/qwtplot3d
+	done
+	for i in lib/libqwtplot3d.so* ; do
+		cp -d $i $PKG/usr/lib
+	done
+}

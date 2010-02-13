@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Asynchronous-capable DNS client library and utilities.
+# URL: http://www.chiark.greenend.org.uk/~ian/adns/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=adns
+version=1.1
+release=1
+source=(http://www.chiark.greenend.org.uk/~ian/$name/$name.tar.gz \
+	$name-$version.patch)
+
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,include}
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make 
+	make install prefix=$PKG/usr
+
+        chown -R root:root $PKG
+}

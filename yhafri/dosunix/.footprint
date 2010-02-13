@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/chktxt
+lrwxrwxrwx	root/root	usr/bin/dos2unix -> /usr/bin/dosunix
+-rwxr-xr-x	root/root	usr/bin/dosunix
+lrwxrwxrwx	root/root	usr/bin/unix2dos -> /usr/bin/unixdos
+-rwxr-xr-x	root/root	usr/bin/unixdos

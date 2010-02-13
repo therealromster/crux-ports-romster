@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Low-level event loop management library 
+# URL: http://liboop.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=liboop
+version=1.0
+release=1
+source=(http://download.ofb.net/$name/$name.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: An utility for managing WiFi profiles
+# URL: http://www.bitbuilder.com/wifi_radar/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pygtk, wireless-tools
+
+name=wifi-radar
+version=1.9.6
+release=1
+source=(http://wifi-radar.systemimager.org/pub/$name-$version.tar.bz2)
+
+build () {
+    	mkdir -p $PKG/usr/share/pixmaps
+
+	cd $name-$version
+
+    	cp pixmaps/* $PKG/usr/share/pixmaps
+    	install -D -m 755 $name      $PKG/usr/bin/$name
+    	install -D -m 600 $name.conf $PKG/etc/$name/$name.conf
+
+    	chown -R root:root $PKG
+}

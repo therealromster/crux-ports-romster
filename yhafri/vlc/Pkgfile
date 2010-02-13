@@ -1,0 +1,61 @@
+# $Id: $
+# Description: VideoLAN streaming media player
+# URL: http://www.videolan.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, liba52, faac, faad2, ffmpeg, flac, freetype, fribidi, goom, lame, libcddb, libcdio, libdvbpsi, libdvdcss, libdvdread, libdvdnav, libebml, libiconv, libid3tag, libmad, libmatroska, libmodplug, libogg, libpng, speex, libtheora, libvorbis, libxml2, live, mpeg2dec, openslp, portaudio, toolame, vcdimager, wxgtk, x264, zlib, aalib, xosd, libcaca, vlc-plugin-dvb, libmpeg2, libdaap, sdl_image, vcdimager
+name=vlc
+version=0.8.5
+release=2
+source=(http://download.videolan.org/pub/videolan/$name/$version/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+
+	patch -p1<../$name-$version.patch
+
+	#MOZILLA_CONFIG=/usr/bin/firefox-config \
+#                --disable-nls \
+
+	./configure --prefix=/usr \
+		--with-included-gettext \
+                --enable-utf8 \
+		--enable-wxwidgets \
+                --enable-livedotcom \
+                --enable-dvdread \
+                --enable-dvdnav \
+                --disable-satellite \
+                --enable-dvb \
+                --enable-faad \
+                --enable-toolame \
+                --enable-flac \
+                --enable-tremor \
+                --enable-theora \
+                --disable-svgalib \
+                --enable-aa \
+                --disable-caca \
+                --disable-portaudio \
+                --enable-arts \
+                --enable-ncurses \
+                --enable-xosd \
+                --enable-goom \
+                --enable-slp \
+                --enable-lirc \
+                --enable-ffmpeg
+
+	sed  -i -e "s|^cflags_tuning.*|cflags_tuning=\"$CFLAGS\"|" \
+            	-e "s|^cflags_optim.*|cflags_optim=\"$CFLAGS\"|" \
+            	-e "s|^cflags_optim_nodebug.*|cflags_optim_nodebug=\"$CFLAGS\"|" \
+                vlc-config
+    	sed -i "s|/mozilla|/firefox|g" {,mozilla/}Makefile
+	sed -i "s|%{idldir}|/usr/share/idl/firefox|" mozilla/Makefile
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/lib/vlc/video_output/{libopengl_plugin.so,libglx_plugin.so}
+	rm -rf $PKG/usr/lib/vlc/audio_filter/libugly_resampler_plugin.so
+
+    	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Perl Tk-add-ons
+# URL: http://search.cpan.org/~mikra/Tk-MK-0.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tk-mk
+version=0.09
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MI/MIKRA/Tk-MK-$version.tar.gz)
+
+build () {
+	PERL_VERSION=`perl -e 'printf "%vd", $^V'`
+
+	mkdir -p $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux/
+
+	cd Tk-MK-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+
+	mv $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/Tk $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux/
+	
+	chown -R root:root $PKG
+}

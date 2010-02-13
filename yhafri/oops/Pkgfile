@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Fast proxy server
+# URL: http://zipper.paco.net/~igor/oops.eng/about.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: db, libpcre, flex
+
+name=oops
+version=1.5.23
+release=1
+source=(http://zipper.paco.net/~igor/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr           \
+		    --enable-static-modules \
+		    --enable-db-locks       \
+		    --enable-oops-user      \
+		    --enable-large-files    \
+		    --with-regexp=pcre
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

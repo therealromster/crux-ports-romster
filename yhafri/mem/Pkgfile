@@ -1,0 +1,35 @@
+# $Id: $
+# Description: Enlightenment memory monitoring module 
+# URL: http://www.enlightenment.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: e17
+
+name=mem
+version=cvs
+release=1
+source=()
+
+build()
+{
+    	cd $PKGMK_SOURCE_DIR
+    	if cd e_modules/$name ; then
+		cvs -q up -dAP
+	else
+		cvs -qz3 -d :pserver:anonymous@anoncvs.enlightenment.org:/var/cvs/e co e_modules/$name
+	fi
+
+    	cp -r $PKGMK_SOURCE_DIR/e_modules/$name $SRC
+
+    	cd $SRC/$name
+
+    	./autogen.sh --prefix=/usr
+
+   	make
+    	make install DESTDIR=$PKG
+
+	rm -rf $PKG/usr/share/locale
+
+        chown -R root:root $PKG
+}
+

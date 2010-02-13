@@ -1,0 +1,16 @@
+POST-INSTALL:
+
+		* Copy the file "Xyeahconsole" to your home dir (with "."):
+		$ cp /usr/share/yeahconsole/Xyeahconsole ~/.Xyeahconsole
+
+		* Merge it with the system file:
+		$ cd
+		$ xrdb -merge .Xyeahconsole
+		
+		You can persist the change by adding the line to your ".xinitrc" file:
+                xrdb -merge .Xyeahconsole
+		
+USAGE:
+
+		* http://www.linux.com/feature/119067
+		* Read the included "Readme" from the source 

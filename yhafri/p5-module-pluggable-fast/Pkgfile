@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Fast plugins with instantiation
+# URL: http://search.cpan.org/~sri/Module-Pluggable-Fast-0.18/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-universal-require
+
+name=p5-module-pluggable-fast
+version=0.18
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SR/SRI/Module-Pluggable-Fast-$version.tar.gz)
+
+build () {
+	cd Module-Pluggable-Fast-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

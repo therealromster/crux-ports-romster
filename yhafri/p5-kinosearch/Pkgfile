@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A Perl search engine library
+# URL: http://www.rectangular.com/kinosearch/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-lingua-stem-snowball, p5-lingua-stopwords, p5-clone
+
+name=p5-kinosearch
+version=0.15
+release=1
+source=(http://www.rectangular.com/downloads/KinoSearch-$version.tar.gz)
+
+build () {
+	cd KinoSearch-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

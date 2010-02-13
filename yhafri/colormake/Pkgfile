@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A simple wrapper for making the output from make easier to read
+# URL: http://bre.klaki.net/programs/colormake/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=colormake
+version=0.2
+release=1
+source=(http://bre.klaki.net/programs/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name
+
+        cp colormake.pl cmake clmake $PKG/usr/bin	
+
+	chown -R root:root $PKG
+}

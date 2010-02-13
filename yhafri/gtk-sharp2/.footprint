@@ -1,0 +1,201 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gapi2-codegen
+-rwxr-xr-x	root/root	usr/bin/gapi2-fixup
+-rwxr-xr-x	root/root	usr/bin/gapi2-parser
+-rwxr-xr-x	root/root	usr/bin/gconfsharp2-schemagen
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gtk-sharp-2.0/
+-rw-r--r--	root/root	usr/lib/gtk-sharp-2.0/gapi-fixup.exe
+-rw-r--r--	root/root	usr/lib/gtk-sharp-2.0/gapi-parser.exe
+-rwxr-xr-x	root/root	usr/lib/gtk-sharp-2.0/gapi2xml.pl
+-rw-r--r--	root/root	usr/lib/gtk-sharp-2.0/gapi_codegen.exe
+-rwxr-xr-x	root/root	usr/lib/gtk-sharp-2.0/gapi_pp.pl
+-rw-r--r--	root/root	usr/lib/gtk-sharp-2.0/gconfsharp-schemagen.exe
+-rw-r--r--	root/root	usr/lib/libgdksharpglue-2.a
+-rwxr-xr-x	root/root	usr/lib/libgdksharpglue-2.la
+-rwxr-xr-x	root/root	usr/lib/libgdksharpglue-2.so
+-rw-r--r--	root/root	usr/lib/libgladesharpglue-2.a
+-rwxr-xr-x	root/root	usr/lib/libgladesharpglue-2.la
+-rwxr-xr-x	root/root	usr/lib/libgladesharpglue-2.so
+-rw-r--r--	root/root	usr/lib/libglibsharpglue-2.a
+-rwxr-xr-x	root/root	usr/lib/libglibsharpglue-2.la
+-rwxr-xr-x	root/root	usr/lib/libglibsharpglue-2.so
+-rw-r--r--	root/root	usr/lib/libgtksharpglue-2.a
+-rwxr-xr-x	root/root	usr/lib/libgtksharpglue-2.la
+-rwxr-xr-x	root/root	usr/lib/libgtksharpglue-2.so
+-rw-r--r--	root/root	usr/lib/libpangosharpglue-2.a
+-rwxr-xr-x	root/root	usr/lib/libpangosharpglue-2.la
+-rwxr-xr-x	root/root	usr/lib/libpangosharpglue-2.so
+drwxr-xr-x	root/root	usr/lib/mono/
+drwxr-xr-x	root/root	usr/lib/mono/gac/
+drwxr-xr-x	root/root	usr/lib/mono/gac/art-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/art-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/art-sharp/2.8.0.0__35e10195dab3c99f/art-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/art-sharp/2.8.0.0__35e10195dab3c99f/art-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/atk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/atk-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/atk-sharp/2.8.0.0__35e10195dab3c99f/atk-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/atk-sharp/2.8.0.0__35e10195dab3c99f/atk-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/gdk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/gdk-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/gdk-sharp/2.8.0.0__35e10195dab3c99f/gdk-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/gdk-sharp/2.8.0.0__35e10195dab3c99f/gdk-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/glade-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/glade-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/glade-sharp/2.8.0.0__35e10195dab3c99f/glade-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/glade-sharp/2.8.0.0__35e10195dab3c99f/glade-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/glib-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/glib-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/glib-sharp/2.8.0.0__35e10195dab3c99f/glib-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/glib-sharp/2.8.0.0__35e10195dab3c99f/glib-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/gnome-vfs-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/gnome-vfs-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/gnome-vfs-sharp/2.8.0.0__35e10195dab3c99f/gnome-vfs-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/gnome-vfs-sharp/2.8.0.0__35e10195dab3c99f/gnome-vfs-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/gtk-dotnet/
+drwxr-xr-x	root/root	usr/lib/mono/gac/gtk-dotnet/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/gtk-dotnet/2.8.0.0__35e10195dab3c99f/gtk-dotnet.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/gtk-dotnet/2.8.0.0__35e10195dab3c99f/gtk-dotnet.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/gtk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/gtk-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/gtk-sharp/2.8.0.0__35e10195dab3c99f/gtk-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/gtk-sharp/2.8.0.0__35e10195dab3c99f/gtk-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/pango-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/pango-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/pango-sharp/2.8.0.0__35e10195dab3c99f/pango-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/pango-sharp/2.8.0.0__35e10195dab3c99f/pango-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.art-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.art-sharp/0.0.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.art-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.art-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.art-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.atk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.atk-sharp/0.0.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.atk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.atk-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.atk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gdk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gdk-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.gdk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gdk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.gdk-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.glade-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.glade-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.glade-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.glade-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.glade-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.glib-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.glib-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.glib-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.glib-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.glib-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gnome-vfs-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.gnome-vfs-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gtk-dotnet/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gtk-dotnet/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.gtk-dotnet/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gtk-dotnet/0.0.0.0__35e10195dab3c99f/policy.2.4.gtk-dotnet.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gtk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gtk-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.gtk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.gtk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.gtk-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.pango-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.pango-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.pango-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.pango-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.pango-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.rsvg-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.rsvg-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.4.rsvg-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.4.rsvg-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.rsvg-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.art-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.art-sharp/0.0.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.art-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.art-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.art-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.atk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.atk-sharp/0.0.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.atk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.atk-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.atk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gdk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gdk-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.gdk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gdk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.gdk-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.glade-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.glade-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.glade-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.glade-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.glade-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.glib-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.glib-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.glib-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.glib-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.glib-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gnome-vfs-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.gnome-vfs-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gtk-dotnet/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gtk-dotnet/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.gtk-dotnet/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gtk-dotnet/0.0.0.0__35e10195dab3c99f/policy.2.6.gtk-dotnet.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gtk-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gtk-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.gtk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.gtk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.gtk-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.pango-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.pango-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.pango-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.pango-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.pango-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.rsvg-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.rsvg-sharp/0.0.0.0__35e10195dab3c99f/
+-rw-r--r--	root/root	usr/lib/mono/gac/policy.2.6.rsvg-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.config
+-rwxr-xr-x	root/root	usr/lib/mono/gac/policy.2.6.rsvg-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.rsvg-sharp.dll
+drwxr-xr-x	root/root	usr/lib/mono/gac/rsvg-sharp/
+drwxr-xr-x	root/root	usr/lib/mono/gac/rsvg-sharp/2.8.0.0__35e10195dab3c99f/
+-rwxr-xr-x	root/root	usr/lib/mono/gac/rsvg-sharp/2.8.0.0__35e10195dab3c99f/rsvg-sharp.dll
+-rw-r--r--	root/root	usr/lib/mono/gac/rsvg-sharp/2.8.0.0__35e10195dab3c99f/rsvg-sharp.dll.config
+drwxr-xr-x	root/root	usr/lib/mono/gtk-sharp-2.0/
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/art-sharp.dll -> ../gac/art-sharp/2.8.0.0__35e10195dab3c99f/art-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/atk-sharp.dll -> ../gac/atk-sharp/2.8.0.0__35e10195dab3c99f/atk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/gdk-sharp.dll -> ../gac/gdk-sharp/2.8.0.0__35e10195dab3c99f/gdk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/glade-sharp.dll -> ../gac/glade-sharp/2.8.0.0__35e10195dab3c99f/glade-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/glib-sharp.dll -> ../gac/glib-sharp/2.8.0.0__35e10195dab3c99f/glib-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/gnome-vfs-sharp.dll -> ../gac/gnome-vfs-sharp/2.8.0.0__35e10195dab3c99f/gnome-vfs-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/gtk-dotnet.dll -> ../gac/gtk-dotnet/2.8.0.0__35e10195dab3c99f/gtk-dotnet.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/gtk-sharp.dll -> ../gac/gtk-sharp/2.8.0.0__35e10195dab3c99f/gtk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/pango-sharp.dll -> ../gac/pango-sharp/2.8.0.0__35e10195dab3c99f/pango-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.art-sharp.dll -> ../gac/policy.2.4.art-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.art-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.atk-sharp.dll -> ../gac/policy.2.4.atk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.atk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.gdk-sharp.dll -> ../gac/policy.2.4.gdk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.gdk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.glade-sharp.dll -> ../gac/policy.2.4.glade-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.glade-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.glib-sharp.dll -> ../gac/policy.2.4.glib-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.glib-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.gnome-vfs-sharp.dll -> ../gac/policy.2.4.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.gnome-vfs-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.gtk-dotnet.dll -> ../gac/policy.2.4.gtk-dotnet/0.0.0.0__35e10195dab3c99f/policy.2.4.gtk-dotnet.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.gtk-sharp.dll -> ../gac/policy.2.4.gtk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.gtk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.pango-sharp.dll -> ../gac/policy.2.4.pango-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.pango-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.4.rsvg-sharp.dll -> ../gac/policy.2.4.rsvg-sharp/0.0.0.0__35e10195dab3c99f/policy.2.4.rsvg-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.art-sharp.dll -> ../gac/policy.2.6.art-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.art-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.atk-sharp.dll -> ../gac/policy.2.6.atk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.atk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.gdk-sharp.dll -> ../gac/policy.2.6.gdk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.gdk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.glade-sharp.dll -> ../gac/policy.2.6.glade-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.glade-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.glib-sharp.dll -> ../gac/policy.2.6.glib-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.glib-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.gnome-vfs-sharp.dll -> ../gac/policy.2.6.gnome-vfs-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.gnome-vfs-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.gtk-dotnet.dll -> ../gac/policy.2.6.gtk-dotnet/0.0.0.0__35e10195dab3c99f/policy.2.6.gtk-dotnet.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.gtk-sharp.dll -> ../gac/policy.2.6.gtk-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.gtk-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.pango-sharp.dll -> ../gac/policy.2.6.pango-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.pango-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/policy.2.6.rsvg-sharp.dll -> ../gac/policy.2.6.rsvg-sharp/0.0.0.0__35e10195dab3c99f/policy.2.6.rsvg-sharp.dll
+lrwxrwxrwx	root/root	usr/lib/mono/gtk-sharp-2.0/rsvg-sharp.dll -> ../gac/rsvg-sharp/2.8.0.0__35e10195dab3c99f/rsvg-sharp.dll
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/art-sharp-2.0.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/gapi-2.0.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/glade-sharp-2.0.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/glib-sharp-2.0.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/gnome-vfs-sharp-2.0.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/gtk-dotnet-2.0.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/gtk-sharp-2.0.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/rsvg-sharp-2.0.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/gapi-2.0/
+-rw-r--r--	root/root	usr/share/gapi-2.0/art-api.xml
+-rw-r--r--	root/root	usr/share/gapi-2.0/atk-api.xml
+-rw-r--r--	root/root	usr/share/gapi-2.0/gdk-api.xml
+-rw-r--r--	root/root	usr/share/gapi-2.0/glade-api.xml
+-rw-r--r--	root/root	usr/share/gapi-2.0/gnome-vfs-api.xml
+-rw-r--r--	root/root	usr/share/gapi-2.0/gtk-api.xml
+-rw-r--r--	root/root	usr/share/gapi-2.0/pango-api.xml
+-rw-r--r--	root/root	usr/share/gapi-2.0/rsvg-api.xml

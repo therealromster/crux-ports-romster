@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Advanced build system for GNU make
+# URL: http://www.annexia.org/freeware/makeplus
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=makeplus
+version=0.2.3
+release=1
+source=(http://www.annexia.org/_file/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+    MAKEPLUS_HOME=`pwd`; export MAKEPLUS_HOME
+    PATH=$MAKEPLUS_HOME:$PATH
+	./configure --prefix=/usr
+
+    make+
+	make+ DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Metakit is an efficient embedded database library
+# URL: http://www.equi4.com/metakit.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, python
+
+name=metakit
+version=2.4.9.7
+release=1
+source=(http://www.equi4.com/pub/mk/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version/builds
+
+	../unix/configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

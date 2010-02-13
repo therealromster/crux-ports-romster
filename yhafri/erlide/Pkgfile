@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Eclipse Erlang Development Tooling 
+# URL: http://erlide.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, eclipse-sdk
+
+name=erlide
+version=0.3.28
+release=1
+
+#source=(http://erlide.sourceforge.net/drops/${name}_updatesite_${version}.200612032031.zip \
+#	http://erlide.sourceforge.net/drops/${name}_${version}.200612032031.zip)
+
+source=(http://erlide.sourceforge.net/drops/${name}_updatesite_${version}.zip \
+	http://erlide.sourceforge.net/drops/${name}_${version}.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib/eclipse
+	
+	cp -rfp features/ plugins/ $PKG/usr/lib/eclipse
+
+	chown -R root:root $PKG
+}

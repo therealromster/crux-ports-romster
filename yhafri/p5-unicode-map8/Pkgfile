@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Mapping table between 8-bit chars and Unicode
+# URL: http://search.cpan.org/~gaas/Unicode-Map8-0.12/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-unicode-map8
+version=0.12
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Unicode-Map8-$version.tar.gz)
+
+build () {
+	cd Unicode-Map8-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

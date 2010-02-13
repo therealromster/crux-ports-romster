@@ -1,0 +1,4 @@
+#!/bin/bash
+
+(cd /usr/lib/argouml; java -jar argouml.jar > /dev/null 2>&1)
+

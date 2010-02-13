@@ -1,0 +1,26 @@
+# $Id: $
+# Description: An Open Source implementation of the GDI+ API
+# URL: http://ftp.debian.org/debian/pool/main/libg/libgdiplus/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libtiff, libjpeg, libpng
+
+name=libgdiplus
+version=1.1.13.6
+release=1
+source=(http://go-mono.com/sources/libgdiplus-1.1/libgdiplus-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-shared \
+		    --without-jdk \
+		    --with-icu=yes \
+		    --with-jit=yes \
+		    --with-preview=yes
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

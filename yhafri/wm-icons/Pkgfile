@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Window Manager Icons
+# URL: http://wm-icons.sourceforge.net/data/wm-icons-current/icons/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=wm-icons
+version=0.3.0
+release=1
+source=(http://wm-icons.sourceforge.net/data/$name-$version.tar.bz2)
+
+build () {
+
+    cd $name-$version
+    ./configure --prefix=/usr \
+                --enable-all-sets
+
+    make
+	make prefix=$PKG/usr install
+    chown -R root:root $PKG
+}

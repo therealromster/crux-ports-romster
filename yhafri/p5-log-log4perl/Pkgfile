@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Log4j implementation for Perl 
+# URL: http://search.cpan.org/~mschilli/Log-Log4perl-1.02/ 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-log-dispatch
+
+name=p5-log-log4perl
+version=1.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSCHILLI/Log-Log4perl-$version.tar.gz)
+
+build () {
+	cd Log-Log4perl-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

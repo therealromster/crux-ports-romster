@@ -1,0 +1,13 @@
+--- otp_src_R11B-1-orig/lib/kernel/src/erl_ddll.erl	2006-05-03 09:59:12.000000000 +0200
++++ otp_src_R11B-1/lib/kernel/src/erl_ddll.erl	2006-10-10 15:08:58.000000000 +0200
+@@ -164,8 +164,8 @@
+ 
+ increment_process_count([{From, Count}|Rest], From, Result) ->
+     Result ++ [{From, Count+1}|Rest];
+-increment_process_count([Process|Rest], From, _Result) ->
+-    increment_process_count(Rest, From, [Process|Rest]);
++increment_process_count([Process|Rest], From, Result) ->
++    increment_process_count(Rest, From, [Process|Result]);
+ increment_process_count([], From, Result) ->
+     [{From, 1}|Result].
+ 

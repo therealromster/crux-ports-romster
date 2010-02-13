@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Recursive map, apply a block to a data structure
+# URL: http://search.cpan.org/~bowmanbs/Data-Rmap-0.61/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-data-rmap
+version=0.61
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BO/BOWMANBS/Data-Rmap-$version.tar.gz)
+
+build () {
+	cd Data-Rmap-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

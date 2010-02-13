@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/high-scale-lib/
+-rw-r--r--	root/root	usr/lib/high-scale-lib/ConcurrentAutoTable$CAT.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/ConcurrentAutoTable.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/ConcurrentAutoTable.java
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$CHM.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$EntryIterator.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$EntrySet.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$HashIterator.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$KeyIterator.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$Prime.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$SimpleEntry.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap$ValueIterator.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap.class
+-rw-r--r--	root/root	usr/lib/high-scale-lib/NonBlockingHashMap.java

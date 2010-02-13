@@ -1,0 +1,22 @@
+# $Id:$
+# Description: A fork of cdrtools with the primary goal of supporting writable DVD drives
+# URL: http://www.arklinux.org/projects/dvdrtools
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Olle Gustafsson <ogg at linux dot se>
+# Depends on:
+
+name=dvdrtools
+version=0.3.1
+release=1
+source=(http://www.arklinux.org/download/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

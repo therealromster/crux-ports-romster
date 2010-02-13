@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Convert singular to plural. Select "a" or "an".
+# URL: http://cpansearch.perl.org/~dconway/Lingua-EN-Inflect-1.89/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-lingua-en-inflect
+version=1.89
+release=1
+source=(http://cpansearch.perl.org/CPAN/authors/id/D/DC/DCONWAY/Lingua-EN-Inflect-$version.tar.gz)
+
+build () {
+	cd Lingua-EN-Inflect-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

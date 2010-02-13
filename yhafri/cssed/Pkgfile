@@ -1,0 +1,22 @@
+# $Id: $
+# Description: GTK2 application to help create and maintain CSS style sheets for web developing
+# URL: http://cssed.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, freetype2
+
+name=cssed
+version=0.4.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --disable-nls
+
+    make
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

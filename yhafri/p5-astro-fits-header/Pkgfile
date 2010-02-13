@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to FITS HDUs 
+# URL: http://search.cpan.org/~aallan/Astro-FITS-Header-2.8.1/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-astro-fits-cfitsio, p5-astro-fits-gsd
+
+name=p5-astro-fits-header
+version=2.8.1
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AA/AALLAN/Astro-FITS-Header-$version.tar.gz)
+
+build () {
+	cd Astro-FITS-Header-$version
+	echo "y" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

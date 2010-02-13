@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A GUI toolkit for X
+# URL: http://savannah.nongnu.org/projects/xforms/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xforms
+version=1.0
+release=1
+source=(http://download.savannah.nongnu.org/releases/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	xmkmf -a
+
+	make
+	make DESTDIR=$PKG install
+	make DESTDIR=$PKG install.man
+
+	cd $PKG/usr/; mv X11R6/* .; rm -rf X11R6
+	mv include/X11/* include/;  rm -rf include/X11/
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# Description: a small utility which bothers you at certain intervals to let you know when it is time to have a break from your computer. This can help prevent Repetive Strain Injury
+# URL: http://www.rsibreak.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase
+
+name=rsibreak
+version=0.7.1
+release=1
+source=(http://www.rsibreak.org/images/e/e2/Rsibreak-0.7.1.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

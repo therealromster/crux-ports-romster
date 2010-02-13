@@ -1,0 +1,7 @@
+diff -r -u ucspi-tcp-0.88/error.h ucspi-tcp-0.88.patched/error.h
+--- ucspi-tcp-0.88/error.h	2000-03-18 16:18:42.000000000 +0100
++++ ucspi-tcp-0.88.patched/error.h	2003-04-02 10:13:35.000000000 +0200
+@@ -1,3 +1,4 @@
++#include <errno.h>
+ #ifndef ERROR_H
+ #define ERROR_H

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A generic module for sending SMS messages using web2sms
+# URL: http://mirror.internet.tp/cpan/authors/id/A/AW/AWRIGLEY/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-cgi-enurl, p5-cgi-lite
+
+name=p5-net-sms-web
+version=0.015
+release=1
+source=(http://mirror.internet.tp/cpan/authors/id/A/AW/AWRIGLEY/Net-SMS-Web-$version.tar.gz)
+
+build () {
+	cd Net-SMS-Web-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

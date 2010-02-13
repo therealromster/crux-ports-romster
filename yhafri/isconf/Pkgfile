@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Deterministic, reproducible management of UNIX machines you can count on for disaster recovery and auditability
+# URL: http://www.isconf.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=isconf
+version=4.2.6.168
+release=1
+source=(http://trac.t7a.org/$name/pub/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+	mkdir -p $PKG/etc/is
+	mkdir -p $PKG/var/is/conf
+
+        cd $name-$version
+
+    	python setup.py build
+        python setup.py install --home=$PKG/usr
+
+	install -D -m 755 etc/rc.$name /etc/rc.d/$name
+
+	touch $PKG/etc/is/main.cf
+	touch $PKG/var/is/conf/domain
+
+    	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: The Hackerlab C Library
+# URL: http://regexps.srparish.net/www/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hackerlab
+version=1.0pre2
+release=1
+source=(http://regexps.srparish.net/src/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	mkdir build
+	cd build
+	../src/configure --prefix=/usr
+
+	make
+
+	#make destdir=$PKG install
+	install -D $name/lib$name/lib$name.a $PKG/usr/lib/lib$name.a
+
+
+	chown -R root:root $PKG
+}

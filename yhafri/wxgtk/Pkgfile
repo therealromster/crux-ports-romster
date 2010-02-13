@@ -1,0 +1,219 @@
+# $Id: $
+# Description: wxWidgets for GTK+
+# URL: http://www.wxwindows.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libsdl, gtk, expat, libpng, libjpeg, libtiff, zlib
+
+name=wxgtk
+version=2.6.3
+release=3
+source=(http://kent.dl.sourceforge.net/sourceforge/wxwindows/wxGTK-$version.tar.bz2)
+
+build() {
+	export LDFLAGS="$LDFLAGS -L/usr/X11R6/lib"
+	cd wxGTK-$version
+	./configure --prefix=/usr \
+	    	    --with-gtk \
+	    	    --enable-gtk2 \
+		    --enable-shared \
+		    --with-opengl \
+	            --enable-optimise \
+                    --enable-unicode \
+                    --enable-protocols \
+		    --enable-ftp \
+                    --enable-http \
+                    --enable-fileproto \
+	            --enable-sockets \
+		    --enable-url \
+                    --enable-ipc \
+                    --enable-arcstream \
+		    --enable-catch_segvs \
+                    --enable-cmdline \
+                    --enable-datetime \
+                    --enable-dialupman \
+                    --enable-dynamicloader \
+                    --enable-exceptions \
+                    --enable-ffile \
+                    --enable-file \
+                    --enable-filesystem \
+                    --enable-fontmap \
+                    --enable-fs_ine \
+                    --enable-fs_zip \
+                    --enable-geometry \
+                    --enable-geometry \
+                    --enable-log \
+                    --enable-longlong \
+                    --disable-mimetype \
+                    --enable-snglinst \
+                    --enable-std_iostreams \
+                    --enable-std_string \
+                    --enable-stdpaths \
+                    --enable-stopwatch \
+                    --enable-streams \
+                    --enable-sysoptions \
+                    --enable-textbuf \
+                    --enable-textfile \
+		    --enable-timer \
+		    --enable-sound \
+		    --enable-mediactrl \
+		    --enable-wxprintfv \
+		    --enable-zipstream \
+   		    --enable-url \
+		    --enable-threads \
+		    --enable-docview \
+		    --enable-help \
+		    --enable-html \
+		    --enable-htmlhelp \
+		    --enable-xrc \
+		    --enable-constraints \
+		    --enable-printarch \
+                    --enable-mdi \
+		    --enable-mdidoc \
+		    --enable-loggui \
+		    --enable-logwin \
+		    --enable-logdialog \
+		    --enable-postscript \
+		    --enable-clipboard \
+		    --enable-dnd \
+		    --enable-metafile \
+		    --enable-controls \
+		    --enable-accel \
+		    --enable-button \
+		    --enable-bmpbutton \
+		    --enable-calendar \
+		    --enable-caret \
+		    --enable-checkbox \
+		    --enable-checklst \
+		    --enable-choice \
+		    --enable-choicebook \
+		    --enable-combobox \
+		    --enable-datepick \
+		    --enable-display \
+		    --enable-gauge \
+		    --enable-grid \
+		    --enable-imaglist \
+		    --enable-listbook \
+		    --enable-listbox \
+		    --enable-listctrl \
+		    --enable-notebook \
+		    --enable-radiobox \
+                    --enable-radiobtn \
+		    --enable-sash \
+		    --enable-scrollbar \
+	            --enable-slider \
+		    --enable-spinbtn \
+		    --enable-spinctrl \
+		    --enable-splitter \
+		    --enable-statbmp \
+		    --enable-statbox \
+		    --enable-statline \
+		    --enable-stattext \
+		    --enable-statusbar \
+		    --enable-tabdialog \
+		    --enable-textctrl \
+		    --enable-togglebtn \
+	            --enable-toolbar \
+		    --enable-tbarnative \
+		    --enable-tbarsmpl \
+		    --enable-treectrl \
+		    --enable-tipwindow \
+                    --enable-popupwin \
+	            --enable-commondlg \
+                    --enable-choicedlg \
+                    --enable-coldlg \
+		    --enable-filedlg \
+		    --enable-finddlg \
+		    --enable-fontdlg \
+	            --enable-dirdlg \
+		    --enable-msgdlg \
+		    --enable-numberdlg \
+		    --enable-splash \
+		    --enable-textdlg \
+		    --enable-tipdlg \
+		    --enable-progressdlg \
+		    --enable-wizarddlg \
+		    --enable-menus \
+		    --enable-miniframe \
+		    --enable-tooltips \
+		    --enable-splines \
+		    --enable-mousewheel \
+		    --enable-validators \
+		    --enable-busyinfo \
+		    --enable-joystick \
+		    --enable-metafiles \
+		    --enable-dragimage \
+		    --enable-palette \
+		    --enable-image \
+		    --enable-gif \
+		    --enable-pcx \
+		    --enable-iff \
+		    --enable-pnm \
+		    --enable-xpm \
+		    --enable-icocur \
+                    --enable-intl \
+	            --with-expat \
+	            --with-regex \
+                    --with-sdl \
+                    --with-libpng \
+                    --with-libjpeg \
+                    --with-libtiff \
+                    --with-libxpm \
+                    --with-zlib
+		    
+	make
+	make prefix=$PKG/usr install
+        ln -sf /usr/lib/wx/config/gtk2-unicode-release-2.6 $PKG/usr/bin/wx-config 
+
+	cd contrib/src/stc
+	make
+	make prefix=$PKG/usr install
+
+	#cd ../xrc
+	#make
+	#make prefix=$PKG/usr install
+
+        cd ../net
+        make
+        make prefix=$PKG/usr install
+
+        #cd ../applet
+        #make
+        #make prefix=$PKG/usr install
+
+        cd ../fl
+        make
+        make prefix=$PKG/usr install
+
+        cd ../gizmos
+        make
+        make prefix=$PKG/usr install
+
+        cd ../plot
+        make
+        make prefix=$PKG/usr install
+
+        cd ../svg
+        make
+        make prefix=$PKG/usr install
+
+        cd ../foldbar
+        make
+	make prefix=$PKG/usr install
+
+        cd ../animate
+        make
+        make prefix=$PKG/usr install
+
+	cd ../mmedia
+        make
+        make prefix=$PKG/usr install
+
+	cd ../ogl
+        make
+        make prefix=$PKG/usr install
+
+        rm -rf $PKG/usr/share/locale
+
+        chown -R root:root $PKG
+}

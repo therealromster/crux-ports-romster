@@ -1,0 +1,43 @@
+--- otp_src_R10B-6/lib/odbc/c_src/Makefile.in	2005-03-22 15:11:37.000000000 +0100
++++ otp_src_R10B-6/lib/odbc/c_src/Makefile.in-new	2005-03-23 16:05:18.918358336 +0100
+@@ -18,13 +18,13 @@
+ include $(ERL_TOP)/make/target.mk
+ include $(ERL_TOP)/make/$(TARGET)/otp.mk
+ 
+-ifeq ($(TYPE),debug)
+-TYPEMARKER = .debug
+-TYPEFLAGS = -g
+-else
++#ifeq ($(TYPE),debug)
++#TYPEMARKER = .debug
++#TYPEFLAGS = -g
++#else
+ TYPEMARKER =
+-TYPEFLAGS =
+-endif
++#TYPEFLAGS =
++#endif
+ 
+ WIN_BIN_DIR = ../priv/bin
+ BIN_DIR = ../priv/bin/$(TARGET)
+--- otp_src_R10B-6/lib/odbc/configure	2005-03-23 21:12:17.404322864 +0100
++++ otp_src_R10B-6/lib/odbc/configure-new	2005-03-23 21:13:45.437939720 +0100
+@@ -45,6 +45,7 @@
+ oldincludedir='/usr/include'
+ infodir='${prefix}/info'
+ mandir='${prefix}/man'
++with_odbc=/usr
+ 
+ # Initialize some other variables.
+ subdirs=
+--- otp_src_R11B-2/erts/emulator/Makefile.in	2006-11-06 14:51:17.000000000 +0100
++++ otp_src_R11B-2/erts/emulator/Makefile.in-new	2006-11-08 15:40:40.000000000 +0100
+@@ -306,7 +306,7 @@
+ all:
+ 	@echo '*** Omitted build of emulator with smp support'
+ else
+-all: generate erts_lib zlib $(BINDIR)/$(EMULATOR_EXECUTABLE) $(UNIX_ONLY_BUILDS)
++all: generate erts_lib zlib $(BINDIR)/$(EMULATOR_EXECUTABLE) $(BINDIR)/$(EMULATOR_EXECUTABLE_SAE) $(UNIX_ONLY_BUILDS)
+ ifeq ($(OMIT_OMIT_FP),yes)
+ 	@echo '* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'
+ 	@echo '* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *'

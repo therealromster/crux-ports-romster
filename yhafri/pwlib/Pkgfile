@@ -1,0 +1,21 @@
+# Description: a cross platform C++ library, used by OpenH323
+# URL: http://www.openh323.org/docs/PWLib/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: openssl, libsdl, libdv, libavc1394, libraw1394, openldap
+
+name=pwlib
+version=1.9.1
+release=1
+source=(http://dl.sourceforge.net/sourceforge/openh323/$name-v1_9_0-src-tar.gz)
+
+build() {
+	tar -xzf $name-v1_9_0-src-tar.gz
+    cd pwlib_v1_9_0
+    ./configure --prefix=/usr \
+				--enable-plugins
+    make
+    make PREFIX=$PKG/usr install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

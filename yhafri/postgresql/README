@@ -1,0 +1,86 @@
+PRE-INSTALL:
+
+		* You need to have a shared Perl library installed (see my Perl port)
+
+
+POST-INSTALL:
+
+To complete the installation and create a test database you need to do
+some additional steps:
+
+# useradd postgres -d /tmp/postgres -m
+# passwd -l postgres
+
+# mkdir -p /var/pgsql/data
+# touch /var/log/postgresql
+# chown postgres /var/pgsql/data /var/log/postgresql
+
+# su - postgres
+# initdb -D /var/pgsql/data
+# exit
+
+# /etc/rc.d/postgresql start
+# su - postgres
+# createdb test
+# psql test
+
+
+* Enabling global Autovacuum (this feature can be configured on each table, read postgresql doc):
+
+# su - postgres
+$ vi /var/pgsql/data/postgresql.conf  (and set on the following options)
+autovacuum = on            #(change other autovacuum_* options to fit your needs)
+stats_start_collector = on
+stats_row_level = on 
+
+
+* Enabling remote connection to PostgreSQL server:
+$ vi /var/pgsql/data/postgresql.conf  (and set on the following options)
+port = 5432
+max_connections = 100
+listen_addresses = '*'
+ 
+
+* Edit /etc/cron/weekly/syslog as root and add a line "/usr/sbin/rotatelog postgresql"
+
+The complete installation instructions are located here:
+
+http://www.postgresql.org/docs/current/interactive/installation.html
+http://www.trustonme.net/didactels/183.html
+
+
+
+
+
+TUNING:
+	* First, see:
+	http://modperlbook.org/html/part2.html
+	http://www.lyris.com/lm_help/6.0/tuning_postgresql.html
+
+	* Adjust this params in your "/etc/sysctl.conf" to obtain the 
+	best performances:
+
+	kernel.shmmax=70000000
+	kernel.shmall=13500000
+
+        net.core.rmem_max=8388608
+        net.core.rmem_default=65536
+        net.core.wmem_max=8388608
+        net.core.wmem_default=65536
+
+        * Adapt and copy the "postgresql.conf" to your
+        "/var/pgsql/data" directory.
+
+	Don't forget:
+	# chown postgres /var/pgsql/data
+
+	and reboot
+
+STUFF:
+	Need to create a postgres user (called john) with DB 
+	privileges, type:
+	# useradd -d /home/john john
+	# passwd -l john
+	# su - postgres
+	# createuser john -P
+	

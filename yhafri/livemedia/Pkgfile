@@ -1,0 +1,42 @@
+# $Id: $
+# Description: LIVE.COM Streaming Media
+# URL: http://www.live555.com/liveMedia/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=livemedia
+version=latest
+release=1
+source=(http://www.live555.com/liveMedia/public/live555-$version.tar.gz)
+
+build() {
+	cd live
+
+	./genMakefiles linux
+
+	make
+
+	rm -rf genWindowsMakefiles win32config win32config.Borland \
+		WindowsAudioInputDevice
+
+	for i in openRTSP playSIP testOnDemandRTSPServer testMP3Streamer testMP3Receiver testMPEG1or2VideoStreamer \
+		testMPEG1or2VideoReceiver  testMPEG4VideoStreamer testMPEG1or2AudioVideoStreamer testMPEG1or2Splitter \
+		testMPEG2TransportStreamer testMPEG1or2ProgramToTransportStream testWAVAudioStreamer \
+		testAMRAudioStreamer vobStreamer testMPEG1or2AudioVideoToDarwin testMPEG4VideoToDarwin \
+		testRelay sapWatch; 
+	do
+		install -D -m 755 testProgs/$i $PKG/usr/bin/$i
+	done
+	
+	rm -rf testProgs
+
+	mkdir -p $PKG/usr/lib
+
+	cp -r ../live $PKG/usr/lib
+	rm -rf $PKG/usr/lib/live/{README,COPYING}
+
+	
+
+	chown -R root:root $PKG
+}

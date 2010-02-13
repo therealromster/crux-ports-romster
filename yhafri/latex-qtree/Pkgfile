@@ -1,0 +1,18 @@
+# $Id: $
+# Description: LaTeX package for drawing syntax trees
+# URL: http://www.ling.upenn.edu/advice/latex/qtree/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-qtree
+version=1
+release=1
+source=(http://www.ling.upenn.edu/advice/latex/qtree/qtree.sty)
+
+build () {
+	install -d $PKG/usr/share/texmf/tex/latex/qtree
+
+	mv qtree.sty $PKG/usr/share/texmf/tex/latex/qtree
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A Safe Dialect of C
+# URL: http://www.research.att.com/projects/cyclone/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cyclone
+version=1.0
+release=1
+source=(http://cyclone.thelanguage.org/files/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

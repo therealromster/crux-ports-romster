@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/e3
+lrwxrwxrwx	root/root	usr/bin/e3em -> /usr/bin/e3
+lrwxrwxrwx	root/root	usr/bin/e3ne -> /usr/bin/e3
+lrwxrwxrwx	root/root	usr/bin/e3pi -> /usr/bin/e3
+lrwxrwxrwx	root/root	usr/bin/e3vi -> /usr/bin/e3
+lrwxrwxrwx	root/root	usr/bin/e3ws -> /usr/bin/e3
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/e3.1.gz

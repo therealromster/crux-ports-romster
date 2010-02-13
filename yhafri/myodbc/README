@@ -1,0 +1,29 @@
+DOC:
+        * See the link below for an example of how to use myodbc with 
+	unixODBC:
+	http://www.unixodbc.org/doc/OOoMySQL.pdf
+
+EXAMPLE:
+        Configuration example of database called ALIX:
+
+        * /etc/odbcinst.ini
+	[MySQL]
+	Description     = ODBC for mySQL
+	Driver          = /usr/lib/libmyodbc3.so
+	FileUsage       = 1
+
+        * /etc/odbc.ini
+	[MYSQL-example]
+	Description     = Base de donnees example
+	Driver          = MySQL
+	Server          = localhost
+	Database        = ALIX
+	Port            = 3306
+
+        * /home/ycrux/.odbc.ini
+	[MYSQL-example]
+        Description     = Base de donnees example
+        Driver          = MySQL
+        Server          = localhost
+        Database        = ALIX
+        Port            = 3306

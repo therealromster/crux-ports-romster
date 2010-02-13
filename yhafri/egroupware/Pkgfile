@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A free enterprise ready groupware software for entreprise network
+# URL: http://www.egroupware.org/Home
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, apache, php, postgresql, mysql, openldap
+
+name=egroupware
+version=1.2
+release=105
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/eGroupWare-$version-$release.tar.bz2)
+
+
+build () {
+	mkdir -p $PKG/var/www/htdocs
+
+	mv $name $PKG/var/www/htdocs
+	(find $PKG -name "*.svn*" -type "d" -exec rm -rf '{}' \;)
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Advanced editing and manipulation of MPEG streams
+# URL: http://heroinewarrior.com/libmpeg3.php3
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libmpeg3
+version=1.6
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/heroines/$name-$version-src.tar.bz2)
+
+build () {
+    	mkdir -p $PKG/usr/{bin,lib}
+	
+	cd $name-$version
+
+    	make
+	make PREFIX=$PKG/usr install
+    	
+	mv i686/${name}.a $PKG/usr/lib
+
+    	chown -R root:root $PKG
+}

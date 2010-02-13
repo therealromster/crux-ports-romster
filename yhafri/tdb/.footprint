@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/tdbdump
+-rwxr-xr-x	root/root	usr/bin/tdbtool
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/tdb.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libtdb.a
+-rwxr-xr-x	root/root	usr/lib/libtdb.la
+lrwxrwxrwx	root/root	usr/lib/libtdb.so -> libtdb.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libtdb.so.1 -> libtdb.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libtdb.so.1.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/tdb.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_chainlock.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_close.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_delete.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_error.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_exists.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_fetch.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_firstkey.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_open.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_store.3.gz
+-rw-r--r--	root/root	usr/man/man3/tdb_traverse.3.gz

@@ -1,0 +1,37 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/bprint -> /usr/local/bin/bprint
+lrwxrwxrwx	root/root	usr/bin/lburg -> /usr/local/bin/lburg
+lrwxrwxrwx	root/root	usr/bin/lcc -> /usr/local/bin/lcc
+drwxr-xr-x	root/root	usr/doc/
+drwxr-xr-x	root/root	usr/doc/lcc-4.1/
+-r--r--r--	root/root	usr/doc/lcc-4.1/4.html
+-r--r--r--	root/root	usr/doc/lcc-4.1/CPYRIGHT
+-r--r--r--	root/root	usr/doc/lcc-4.1/LOG
+-r--r--r--	root/root	usr/doc/lcc-4.1/README
+drwxr-xr-x	root/root	usr/local/
+drwxr-xr-x	root/root	usr/local/bin/
+-rwxr-xr-x	root/root	usr/local/bin/bprint
+-rwxr-xr-x	root/root	usr/local/bin/lburg
+-rwxr-xr-x	root/root	usr/local/bin/lcc
+drwxr-xr-x	root/root	usr/local/lib/
+drwxr-xr-x	root/root	usr/local/lib/lcc-4.1/
+drwxr-xr-x	root/root	usr/local/lib/lcc-4.1/gcc/
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/gcc/crtbegin.o
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/gcc/crtbeginS.o
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/gcc/crtend.o
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/gcc/crtendS.o
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/gcc/libgcc.a
+drwxr-xr-x	root/root	usr/local/lib/lcc-4.1/include/
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/include/assert.h
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/include/float.h
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/include/stdarg.h
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/include/stddef.h
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/include/stdio.h
+-rw-r--r--	root/root	usr/local/lib/lcc-4.1/liblcc.a
+-rwxr-xr-x	root/root	usr/local/lib/lcc-4.1/rcc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/bprint.1.gz
+-rw-r--r--	root/root	usr/man/man1/lburg.1.gz
+-rw-r--r--	root/root	usr/man/man1/lcc.1.gz

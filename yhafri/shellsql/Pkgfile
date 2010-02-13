@@ -1,0 +1,23 @@
+# $Id: $
+# Description: SQL for Shell Scripts
+# URL: http://www.edlsystems.com/shellsql/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: unixodbc, freetds, sqlite3, postgresql, mysql
+
+name=shellsql
+version=0.7.6
+release=1
+source=(ftp://ftp.edlsystems.com/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p  $PKG/usr/bin
+
+	cd $name-$version
+
+	sed -i "s|BINDIR=/usr/bin|BINDIR=$PKG/usr/bin|" install.sh
+
+	./install.sh postgres mysql sqlite3 odbc tools
+
+	chown -R root:root $PKG
+}

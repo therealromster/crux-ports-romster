@@ -1,0 +1,17 @@
+# Description: a platform for ECMA/ISO standard applications, .NET, and java
+# URL: http://www.mono-project.com/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: glib, sqlite, sqlite3, libgdiplus
+
+name=mono
+version=1.1.13.8
+release=1
+source=(http://go-mono.com/sources/mono-1.1/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}

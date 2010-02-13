@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A smallish BASH script that uses Xdialog to provide a wizard style interface to the functions of clamscan
+# URL: http://fetcav.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: clamav, xdialog
+
+name=fetcav
+version=0.5
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	install -D -m 755 $name.sh $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

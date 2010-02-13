@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A Fast New Cryptographic Hash Function
+# URL: http://www.cs.technion.ac.il/~biham/Reports/Tiger/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tiger
+version=1
+release=1
+source=(http://www.cs.technion.ac.il/~biham/Reports/Tiger/$name-src32.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	make
+
+	ar rc $name.a *.o
+	cp -rf *.c *.a $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}
+
+
+
+
+
+

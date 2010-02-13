@@ -1,0 +1,23 @@
+# Description: RealPlayer 10 for Linux
+# URL: http://www.real.com/linux/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: gtk
+
+name=realplayer
+version=10.0.6.776
+release=3
+source=(http://software-dl.real.com/11f9351418b0e3a6a105/unix/RealPlayer10GOLD.bin)
+
+build() {
+	mkdir -p $PKG/usr/{bin,lib/realplayer,lib/firefox/plugins,share}
+	chmod +x RealPlayer10GOLD.bin
+	echo "n" | ./RealPlayer10GOLD.bin -d $PKG/usr/lib/$name -p -s 2> /dev/null
+	rm -rf $PKG/usr/lib/$name/{Bin,doc,share/locale,install.log,README,realplay.bak}
+	sed -i -e '4d' -e '5i HELIX_LIBS=/usr/lib/realplayer ; export HELIX_LIBS' \
+		$PKG/usr/lib/$name/realplay
+    mv $PKG/usr/lib/$name/share/{icons,mimelnk}/ $PKG/usr/share
+	ln -sf /usr/lib/$name/realplay $PKG/usr/bin/realplay
+	ln -sf /usr/lib/$name/mozilla/nphelix.so $PKG/usr/lib/firefox/plugins/nphelix.so
+    ln -sf /usr/lib/$name/mozilla/nphelix.xpt $PKG/usr/lib/firefox/plugins/nphelix.xpt
+}

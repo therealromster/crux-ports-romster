@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Runs commands on multiple remote hosts simultaneously
+# URL: http://www.occam.com/tools/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=rshall
+version=10.4
+release=1
+source=(http://www.occam.com/tools/$name-$version.tgz)
+
+build () {
+
+	install -D -m 755 $name-$version/$name.pl $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

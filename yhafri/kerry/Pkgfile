@@ -1,0 +1,20 @@
+# Description: a KDE frontend for the Beagle desktop search daemon
+# URL: http://en.opensuse.org/Kerry
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: beagle
+
+name=kerry
+version=0.1.90
+release=1
+source=(http://developer.kde.org/~binner/kerry/kerry-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find /usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

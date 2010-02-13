@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Simple python client to Solr search engine
+# URL: https://issues.apache.org/jira/browse/SOLR-98
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=solrpy
+version=1
+release=1
+source=(solr.py)
+
+build () {
+	install -D -m 755 solr.py $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

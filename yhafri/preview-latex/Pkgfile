@@ -1,0 +1,28 @@
+# $Id: $
+# Description: An Emacs minor mode for incremental viewing of LaTeX documents
+# URL: http://pauillac.inria.fr/whizzytex/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex, auctex, ghostscript
+
+name=preview-latex
+version=0.8.1
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+
+	cd $name-$version
+	patch -p1 <../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-8bit-test
+
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/texmf/doc/
+
+	chown -R root:root $PKG
+}

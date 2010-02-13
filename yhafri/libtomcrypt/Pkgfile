@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Open source cryptographic toolkit written in portable C
+# URL: http://libtomcrypt.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=libtomcrypt
+version=1.15
+release=1
+source=(http://libtomcrypt.com/files/crypt-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	export USER=root
+	export GROUP=root
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

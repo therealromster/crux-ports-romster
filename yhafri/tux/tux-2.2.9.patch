@@ -1,0 +1,11 @@
+--- tux-2.2.9/Makefile	2002-03-18 18:36:01.000000000 +0100
++++ tux-2.2.9/Makefile-new	2007-06-01 11:45:22.000000000 +0200
+@@ -21,7 +21,7 @@
+ 
+ export CC := gcc -g -fomit-frame-pointer -O2 -Wall
+ 
+-all: tux tux2w3c tuxstat demo.tux.so demo2.tux.so demo3.tux.so demo4.tux.so demo5.tux.so demo6.tux.so docs-all
++all: tux tux2w3c tuxstat
+ 
+ docs-all:
+ 	make -C docs all

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Open Source WAP and SMS gateway
+# URL: http://www.kannel.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libxml2, bison, flex, docbook-xml-gnome
+
+name=kannel
+version=1.4.1
+release=1
+source=(http://www.$name.org/download/$version/gateway-$version.tar.gz)
+
+build () {
+	cd gateway-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

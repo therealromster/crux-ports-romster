@@ -1,0 +1,24 @@
+# $Id: $ 
+# Description: Lightweight ZIP library 
+# URL: http://zziplib.sourceforge.net/ 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr> 
+# Packager: Aaron Marks <nymacro AT gmail DOT com>
+# Depends on: 
+
+name=zziplib
+version=0.10.82
+release=1
+
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

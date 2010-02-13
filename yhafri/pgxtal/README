@@ -1,0 +1,4 @@
+PRE-INSTALL:
+
+		* Copy the corresponding 'grpckg1.inc' from the 'pgplot' source if you're using
+		a different version of 'pgplot' 

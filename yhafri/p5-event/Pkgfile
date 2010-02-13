@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class for events loop processing 
+# URL: http://search.cpan.org/~jprit/Event-1.00/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-event
+version=1.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JP/JPRIT/Event-$version.tar.gz)
+
+build () {
+	cd Event-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

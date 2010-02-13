@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A tool to create valid and complete fonts.dir files from TrueType fonts
+# URL: http://freshmeat.net/projects/ttmkfdir/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: freetype1
+
+name=ttmkfdir
+version=1
+release=1
+#http://freshmeat.net/redir/ttmkfdir/10789/url_tgz/$name.tar.gz
+source=($name.tar.gz \
+	$name-$version.patch)
+
+build () {
+	patch -p0<./$name-$version.patch
+
+	make
+
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

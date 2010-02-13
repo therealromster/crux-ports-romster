@@ -1,0 +1,52 @@
+# $Id: $
+# Description: The ECLiPSe Constraint Programming System
+# URL: http://eclipse.crosscoreop.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, x11
+
+name=eclipse
+version=5.10_69
+release=1
+source=(http://$name.crosscoreop.com/Distribution/$version/i386_linux/eclipse_basic.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/eclipse_doc.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/eclipse_misc.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/eclipse_rt.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/eclipse_src.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/if_osiclpcbc.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/if_osisymclp.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/if_xpress1525.tgz \
+	http://$name.crosscoreop.com/Distribution/$version/i386_linux/tcltk.tgz \
+	$name.el \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	mkdir -p $PKG/usr/share/emacs/site-lisp
+
+	patch -p0<./$name-$version.patch
+
+	mv $SRC/$name.el $PKG/usr/share/emacs/site-lisp
+
+	mv * $PKG/usr/lib/$name
+	cd $PKG/usr/lib/$name
+
+	./RUNME
+
+	rm -rf ARCH README* RUNME legal doc/ ./$name-$version.patch Eclipse_${version}/documents
+	rm -rf $PKG/usr/lib/$name/tcltk/src/tcl8.4.12/{mac,macosx,tests,win}
+	rm -rf $PKG/usr/lib/$name/tcltk/src/tk8.4.12/{doc,mac,macosx,tests,win}
+	rm -rf $PKG/usr/lib/$name/tcltk/man
+
+	for i in `find . -type "f"`; do sed -i "s|/usr/pkgmk/work/eclipse/pkg||" $i;  done
+	for i in `find bin/i386_linux -type "f"`; do sed -i "s|/usr/pkgmk/work/eclipse/pkg||" $i;  done
+	sed -i "s|JRE_HOME=.*|JRE_HOME=/usr/lib/java|" bin/i386_linux/jeclipse
+
+	ln -sf /usr/lib/$name/bin/i386_linux/$name    $PKG/usr/bin/$name
+	ln -sf /usr/lib/$name/bin/i386_linux/j$name   $PKG/usr/bin/j$name
+	ln -sf /usr/lib/$name/bin/i386_linux/tk$name  $PKG/usr/bin/tk$name
+	ln -sf /usr/lib/$name/bin/i386_linux/tktools  $PKG/usr/bin/tktools
+
+
+	chown -R root:root $PKG
+}

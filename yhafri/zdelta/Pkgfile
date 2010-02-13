@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A general purpose lossless delta compression library to generate deltas of HTML pages
+# URL: http://cis.poly.edu/zdelta/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=zdelta
+version=2.1
+release=1
+source=(http://cis.poly.edu/zdelta/downloads/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,include}
+
+	cd $name-$version
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

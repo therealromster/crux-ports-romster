@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Extracts plain text from PostScript and PDF files
+# URL: http://www.cs.wisc.edu/~ghost/doc/pstotext.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=pstotext
+version=1.9
+release=1
+source=(ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/contrib/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+        strip $name
+     
+        install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

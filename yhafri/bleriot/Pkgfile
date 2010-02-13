@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Bleriot font
+# URL: http://www.tls.cena.fr/products/fonts/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncompress, chkfontpath, ttmkfdir
+
+name=bleriot
+version=0.9.2
+release=1
+source=(http://www.tls.cena.fr/products/fonts/download/$name-fonts_${version}.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/X11R6/lib/X11/fonts/misc
+
+	cd Bleriot-$version
+
+	for file in *.bdf; do \
+	  i=`echo $file | sed -e "s|.bdf||"`; \
+	  bdftopcf $file > $i.pcf; \
+	  compress $i.pcf; \
+	  mv $i.pcf.Z $PKG/usr/X11R6/lib/X11/fonts/misc
+	done
+
+	chown -R root:root $PKG
+}

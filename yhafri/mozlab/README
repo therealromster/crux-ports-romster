@@ -1,0 +1,10 @@
+POST-INSTALL:
+
+		
+		* Add the following lines to your ".emacs" config file:
+
+(add-to-list 'auto-mode-alist '("\\.js$" . java-mode))
+(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
+(add-hook 'java-mode-hook 'java-custom-setup)
+(defun java-custom-setup ()
+  (moz-minor-mode 1))

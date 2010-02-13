@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl implementation of skip lists 
+# URL: http://search.cpan.org/~rrwo/Algorithm-SkipList-1.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: enum, p5-test-warn
+
+name=p5-algorithm-skiplist
+version=1.02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RR/RRWO/Algorithm-SkipList-$version.tar.gz)
+
+build () {
+	cd Algorithm-SkipList-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

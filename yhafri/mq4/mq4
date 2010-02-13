@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# /etc/rc.d/mq4: start/stop mq4
+#
+
+export IMQ_JAVAHOME=/usr/lib/java
+export IMQ=/opt/sun/mq/bin/imqbrokerd
+
+case $1 in
+start)
+	$IMQ -bgnd &
+	sleep 3
+	;;
+stop)
+	pid=`ps auxwww | grep imqbroker.jar | grep -v grep | awk '{print $2}'`
+	kill -TERM $pid
+	;;
+restart)
+	$0 stop
+	sleep 3
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

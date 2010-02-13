@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Lucene Index Toolbox
+# URL: http://www.getopt.org/luke/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=luke
+version=0.8.1
+release=1
+source=(http://www.getopt.org/$name/$name-$version/${name}all-$version.jar \
+	$name)
+
+build () {
+
+	install -D -m 755 ${name}          $PKG/usr/bin/$name
+	install -D ${name}all-$version.jar $PKG/usr/lib/$name/${name}all.jar
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,16 @@
+# Description: easy to use traffic shaping script
+# URL: http://lartc.org/wondershaper/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=wondershaper
+version=1.1a
+release=1
+source=(http://lartc.org/wondershaper/wondershaper-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	install -D -m 755 wshaper $PKG/usr/lib/wondershaper/wshaper
+        cp wshaper.htb $PKG/usr/lib/wondershaper
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A tool for creating, editing, and getting information about GIF images and animations
+# URL: http://www.lcdf.org/gifsicle/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=gifsicle
+version=1.41
+release=1
+source=(http://www.lcdf.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-all \
+		    --enable-ungif
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

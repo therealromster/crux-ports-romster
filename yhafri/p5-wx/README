@@ -1,0 +1,8 @@
+PRE-INSTALL:
+		* Unfortunately, you need to install Alien-wxWidgets manually before.
+		# perl -MCPAN -eshell
+		cpan>force install Alien::wxWidgets
+
+		This is because it uses the very sillu, nasty Perl module ever seen, I say: Module::Build.
+		This module don't give necessary interface to be installed automagically.
+		

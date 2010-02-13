@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A compact, library which provides access to flexible dictionary data structures
+# URL: http://www.mirrorservice.org/sites/ftp.freebsd.org/pub/FreeBSD/distfiles/libdict.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libdict
+version=0.2.1
+release=1
+source=(http://www.mirrorservice.org/sites/ftp.freebsd.org/pub/FreeBSD/distfiles/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cd $name-$version
+
+	make
+
+	cp *.So *.a *.so $PKG/usr/lib
+	install -D -m 644 dict.h $PKG/usr/include/dict.h
+
+	chown -R root:root $PKG
+}

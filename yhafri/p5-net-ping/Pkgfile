@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to check a remote host for reachability 
+# URL: http://search.cpan.org/~bbb/Net-Ping-2.31/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-net-ping
+version=2.31
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BB/BBB/Net-Ping-$version.tar.gz)
+
+build () {
+	cd Net-Ping-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

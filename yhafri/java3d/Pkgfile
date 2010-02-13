@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Java 3D for Linux
+# URL: http://www.blackdown.org/java-linux/java2-status/java-3d-status.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, jdk
+
+name=java3d
+version=1.3.1
+release=1
+source=(ftp://ftp.oleane.net/pub/java-linux/$name/$version/i386/fcs/$name-sdk-$version-linux-i386.bin)
+
+build () {
+	mkdir -p $PKG/usr/lib/java
+
+	cd $PKG/usr/lib/java
+
+	sh $SRC/$name-sdk-$version-linux-i386.bin
+	rm -rf $PKG/usr/lib/java/demo/ LICENSE-Java3D README-Java3D
+ 
+	chown -R root:root $PKG
+}

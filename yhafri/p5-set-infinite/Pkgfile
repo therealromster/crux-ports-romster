@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Sets of intervals 
+# URL: http://84.45.18.237/~fglock/Set-Infinite-0.61/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-set-infinite
+version=0.61
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/F/FG/FGLOCK/Set-Infinite-$version.tar.gz)
+
+build () {
+	cd Set-Infinite-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

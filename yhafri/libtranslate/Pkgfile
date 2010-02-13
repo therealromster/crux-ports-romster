@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A natural language translation library
+# URL: http://www.nongnu.org/libtranslate/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: talkfilters, libsoup, libxml2
+
+name=libtranslate
+version=0.99
+release=1
+source=(http://savannah.nongnu.org/download/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

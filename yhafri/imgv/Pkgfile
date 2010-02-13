@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A unique and feature rich Image Viewer
+# URL: http://imgv.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, pygame, pil
+
+name=imgv
+version=3.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version-src.tar.gz \
+	$name)
+
+build () {
+    	mkdir -p $PKG/usr/lib/
+	rm -rf $name-$version-src/*.txt
+
+	mv $name-$version-src $PKG/usr/lib/$name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

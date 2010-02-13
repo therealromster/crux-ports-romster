@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Ease testing test modules built with Test::Builder 
+# URL: http://search.cpan.org/~fdaly/Test-Tester-0.103/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-test-simple
+
+name=p5-test-tester
+version=0.103
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/F/FD/FDALY/Test-Tester-$version.tar.gz)
+
+build () {
+	cd Test-Tester-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

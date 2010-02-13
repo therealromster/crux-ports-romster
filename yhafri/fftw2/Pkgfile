@@ -1,0 +1,23 @@
+# Description: a C library for computing the Discrete Fourier Transform
+# URL: http://www.fftw.org/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=fftw2
+version=2.1.5
+release=1
+source=(ftp://ftp.fftw.org/pub/fftw/fftw-2.1.5.tar.gz)
+
+build () {
+        cd fftw-$version
+        ./configure --prefix=/usr \
+		    --enable-shared \
+		    --disable-fortran \
+		    --without-slow-timer 
+
+        make
+        make prefix=$PKG/usr install
+	rm -rf $PKG/usr/info
+        chown -R root:root $PKG
+}

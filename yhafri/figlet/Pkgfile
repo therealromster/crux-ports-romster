@@ -1,0 +1,40 @@
+# $Id: $
+# Description: FIGlet is a program for making large letters out of ordinary text
+# URL: http://ianchai.50megs.com/figlet.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=figlet
+version=222
+release=1
+source=(http://fresh.t-systems-sfr.com/unix/src/misc/$name$version.tar.gz \
+	http://cvsup.de.openbsd.org/mirrors/gentoo/distfiles/ms-dos-$name-221.tar.gz \
+	http://cvsup.de.openbsd.org/mirrors/gentoo/distfiles/contributed-$name-221.tar.gz \
+	ftp://ftp.plig.org/pub/figlet/fonts/international.tar.gz \
+	ftp://ftp.plig.org/pub/figlet/fonts/ours.tar.gz \
+	http://www.jave.de/figlet/figletfonts37.zip)
+
+build () {
+	mkdir -p $PKG/usr/{bin,share/figlet,man/man6}
+
+        cp -rf contributed/*.flf    $name$version/fonts
+        cp -rf fonts/*.flf          $name$version/fonts
+	cp -rf international/*.flf  $name$version/fonts
+	cp -rf ours/*.flf           $name$version/fonts
+
+	cd $name$version
+	make CFLAGS="$CFLAGS" DESTDIR=$PKG/usr/bin \
+	     DEFAULTFONTDIR=/usr/share/figlet \
+	     DEFAULTFONTFILE=/usr/share/figlet/standard.flf \
+	     MANDIR=/usr/man/man6
+
+	make DESTDIR=$PKG/usr/bin \
+	     DEFAULTFONTDIR=$PKG/usr/share/figlet \
+	     DEFAULTFONTFILE=$PKG/usr/share/figlet/standard.flf \
+	     MANDIR=$PKG/usr/man/man6 install
+
+
+	chmod +x $PKG/usr/bin/*
+        chown -R root:root $PKG
+}

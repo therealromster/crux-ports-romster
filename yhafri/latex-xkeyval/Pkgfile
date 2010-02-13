@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Extension of the keyval package
+# URL: http://www.ctan.org/tex-archive/macros/latex/contrib/xkeyval/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-xkeyval
+version=1
+release=1
+source=(ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/xkeyval.zip)
+
+build () {
+	install -d $PKG/usr/share/texmf/tex/latex/xkeyval
+
+	find xkeyval -name "*.sty" -exec mv '{}' $PKG/usr/share/texmf/tex/latex/xkeyval \; 
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: An Open Source base environment for the X Window System running on non-desktop embedded platforms
+# URL: http://projects.o-hand.com/matchbox
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, pango, libpng, libjpeg
+
+name=libmatchbox
+version=1.9
+release=1
+source=(http://projects.o-hand.com/matchbox/sources/$name/$version/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-pango \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

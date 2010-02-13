@@ -1,0 +1,11 @@
+--- wxe/config.mk	2005-10-21 10:34:37.000000000 +0200
++++ wxe/config.mk-new	2005-10-30 20:36:16.000000000 +0100
+@@ -5,7 +5,7 @@
+ CC = g++
+ CREATE_TAR = tar czf # gtar cfz, zip .. 
+ DOXYGEN = doxygen # /Applications/Doxygen.app/Contents/Resources/doxygen # doxygen
+-WXCONFIG=/opt/local/bin/wx-config
++WXCONFIG=/usr/bin/wx-config
+ WXINC = `$(WXCONFIG) --cflags`
+ WXINCLUDES := $(shell echo `$(WXCONFIG) --prefix`/include/wx-2.6/wx/)
+ WXLIBS = `$(WXCONFIG) --libs`

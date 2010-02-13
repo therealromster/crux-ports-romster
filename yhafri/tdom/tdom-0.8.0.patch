@@ -1,0 +1,23 @@
+--- tDOM-0.8.0/Makefile.in	2004-07-29 23:47:39.000000000 +0200
++++ tDOM-0.8.0/Makefile.in-new	2005-08-21 20:44:33.636276896 +0200
+@@ -115,17 +115,17 @@
+ 
+ srcdir		= @srcdir@
+ prefix		= @prefix@
+-exec_prefix	= @exec_prefix@
++exec_prefix	= @prefix@
+ 
+ bindir		= @bindir@
+-libdir		= @libdir@
++libdir		= ${prefix}/lib
+ datadir		= @datadir@
+ mandir		= @mandir@
+ includedir	= @includedir@
+ 
+ DESTDIR		=
+ 
+-PKG_DIR		= $(PACKAGE)$(VERSION)
++PKG_DIR		= 
+ pkgdatadir	= $(datadir)/$(PKG_DIR)
+ pkglibdir	= $(libdir)/$(PKG_DIR)
+ pkgincludedir	= $(includedir)/$(PKG_DIR)

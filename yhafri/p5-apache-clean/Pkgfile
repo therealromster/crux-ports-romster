@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Interface to HTML::Clean for mod_perl 2.0
+# URL: http://search.cpan.org/~geoff/Apache-Clean-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: mod_perl2, p5-html-clean, p5-apache-test
+
+name=p5-apache-clean
+version=2.00_7
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GE/GEOFF/Apache-Clean-2.00_7.tar.gz)
+
+build () {
+	cd Apache-Clean-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/swfmill
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libswfmillxslt.a
+-rwxr-xr-x	root/root	usr/lib/libswfmillxslt.la
+lrwxrwxrwx	root/root	usr/lib/libswfmillxslt.so -> libswfmillxslt.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libswfmillxslt.so.0 -> libswfmillxslt.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libswfmillxslt.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libswft.a
+-rwxr-xr-x	root/root	usr/lib/libswft.la
+lrwxrwxrwx	root/root	usr/lib/libswft.so -> libswft.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libswft.so.0 -> libswft.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libswft.so.0.0.0

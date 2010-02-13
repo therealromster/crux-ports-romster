@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A small HTTP server
+# URL: http://www.acme.com/software/mini_httpd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=mini_httpd
+version=1.19
+release=1
+source=(http://www.acme.com/software/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

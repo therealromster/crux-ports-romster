@@ -1,0 +1,11 @@
+PRE-INSTALL:
+		
+		* If you are using XEmacs and want to install as a package, install XEmcas an export the 
+		following:
+		# export RIECE_XEMACS=1
+
+POST-INSTALL:
+
+		Add the following line to your Emacs startup file such as ~/.emacs.
+
+		(autoload 'riece "riece" "Start Riece" t)

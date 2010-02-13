@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A toolkit for platform-independent graphical user interface programming in the C
+# URL: http://enchantia.com/software/graphapp/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=graphapp
+version=3.59
+release=1
+source=(http://enchantia.com/software/graphapp/download/GraphApp_$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	patch -p0<$SRC/$name-$version.patch
+
+	cd GraphApp_$version/src
+	./configure
+
+	make
+	cp $SRC/GraphApp_3.59/examples/icons.h $PKG/usr/lib/$name
+
+	cd ..
+
+	mv src fonts $PKG/usr/lib/$name
+	cd $PKG/usr/lib/$name/src/
+	rm -rf demo/ gui/ imgfmt/ libgif/ libjpeg/ libpng/ libz/ rules/ tools/ utility/ win32/ builds/ configure
+
+	chown -R root:root $PKG
+}

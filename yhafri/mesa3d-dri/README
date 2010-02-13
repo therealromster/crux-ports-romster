@@ -1,0 +1,19 @@
+Post-Install tips:
+
+To make the agp modules load automatically [and in the right order]
+add these lines to your modules.conf:
+
+pre-install <drm module> /sbin/modprobe "-k" "agpgart"
+pre-install agpgart /sbin/modprobe "-k" "<agp chipset driver>"
+
+Replace <drm module> with the name of the drm module for your video
+card (e.g., radeon, mga, savage, etc.). Replace <agp chipset driver>
+with the name of the agp driver for your motherboard (e.g., via_agp,
+intel_agp, etc.).
+
+For all kernels, make sure the DRM module is loaded before you start
+X.
+
+Remember to restart X so the server will use the new modules.
+
+from: http://dri.freedesktop.org/wiki/Building

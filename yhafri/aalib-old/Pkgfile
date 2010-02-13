@@ -1,0 +1,23 @@
+# $Id $
+# Description: Library for converting images/movies to ascii art
+# URL: http://aa-project.sf.net/ 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Erlend Bergsås Mikkelsen <howl@online.no>
+# Depends on: slang
+
+name=aalib-old
+version=1.2
+release=1
+source=(http://umn.dl.sourceforge.net/sourceforge/aa-project/aalib-$version.tar.gz)
+build () {
+	cd aalib-$version
+
+	./configure --prefix=/usr
+
+	make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+	rm -rf "$PKG/usr/info"
+
+        chown -R root:root $PKG
+}

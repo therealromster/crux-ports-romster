@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Locate, download, build and install software
+# URL: http://www.a-a-p.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=aap
+version=1.089
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/a-a-p/$name-$version.zip)
+
+build () {
+	echo "y" | ./aap install PREFIX=$PKG/usr
+
+	ln -sf /usr/lib/$name/Exec-$version/$name $PKG/usr/bin/$name 
+
+	rm -rf $PKG/usr/lib/$name/Exec-$version/doc
+
+	chown -R root:root $PKG
+}

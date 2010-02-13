@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A parser generator system for Haskell
+# URL: http://www.haskell.org/happy/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghc
+
+name=happy
+version=1.15
+release=1
+source=(http://www.haskell.org/happy/dist/$version/$name-$version-src.tar.gz)
+
+build () {
+
+        cd $name-$version
+
+	GHC=/usr/bin/ghc ./configure
+
+	make
+        make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

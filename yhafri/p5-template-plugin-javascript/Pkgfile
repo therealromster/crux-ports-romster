@@ -1,0 +1,20 @@
+# $Id: $
+# Description:  Encodes text to be safe in JavaScript
+# URL: http://search.cpan.org/~miyagawa/Template-Plugin-JavaScript-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-template-toolkit
+
+name=p5-template-plugin-javascript
+version=0.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MI/MIYAGAWA/Template-Plugin-JavaScript-$version.tar.gz)
+
+build () {
+	cd Template-Plugin-JavaScript-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

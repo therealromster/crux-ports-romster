@@ -1,0 +1,20 @@
+# Description: a simple calculator for KDE analogous to: "bc, with a nice GUI"
+# URL: http://grammarian.homelinux.net/abakus/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=abakus
+version=0.90
+release=2
+source=(http://grammarian.homelinux.net/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    export QTDIR=/usr/share/qt
+    ./configure
+    make
+    make DESTDIR=$PKG/usr install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

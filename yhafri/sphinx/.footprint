@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/indexer
+-rwxr-xr-x	root/root	usr/bin/search
+-rwxr-xr-x	root/root	usr/bin/searchd
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/example.sql
+-rw-r--r--	root/root	usr/etc/sphinx.conf
+-rw-r--r--	root/root	usr/etc/sphinx.conf.dist
+drwxr-xr-x	root/root	usr/var/
+drwxr-xr-x	root/root	usr/var/data/
+drwxr-xr-x	root/root	usr/var/log/

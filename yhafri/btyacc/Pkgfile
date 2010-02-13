@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Backtracking yacc
+# URL: http://www.siber.com/btyacc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=btyacc
+version=3.0-2
+release=1
+source=(http://www.vendian.org/mncharity/dir3/$name/UnstableURLs/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	make
+
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+	
+	chown -R root:root $PKG
+}

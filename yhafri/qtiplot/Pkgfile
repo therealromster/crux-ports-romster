@@ -1,0 +1,18 @@
+# Description: an application useful for data analysis and scientific plotting -- a free clone of Origin.
+# URL: http://proindependent.com/soft/qtiplot.html
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qwtplot3d
+
+name=qtiplot
+version=0.8.5
+release=1
+source=(http://soft.proindependent.com.nyud.net:8090/src/$name-$version.zip)
+
+build() {
+    cd $name-$version
+    export QTDIR=/usr/share/qt
+    qmake $name.pro
+    make
+    install -D $name/$name $PKG/usr/bin/$name
+}

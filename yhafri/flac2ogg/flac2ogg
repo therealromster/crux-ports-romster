@@ -1,0 +1,135 @@
+#! /usr/bin/env python
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# flac/shorten to ogg vorbis converter
+# stuff needed to run: shntool, vorbis-tools, flac
+# USE: "python flac2ogg.py"
+#**********************************************
+# copyright (c) 2004 stateq2
+# flac2ogg is released under the GPL.
+# http://www.gnu.org/copyleft/gpl.html
+#***********************************************
+# to do:
+# have vorbis files outputted in same dir style as originals
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+import string, sys, os, fnmatch
+
+def title():
+	print '''
+	|------------|
+	|flac2ogg 0.6|
+	|------------|
+	'''
+#----------------------------------------
+# .shn vars and commands
+#---------------------------------------
+def shnExt(shn):
+	'takes .shn names, and creates the wav and ogg names'
+	shn_root = string.strip(shn[:-3]);
+	#shn_path = string.strip(shn);
+	wav, ogg = 'wav', 'ogg';
+	shn_wav = shn_root + wav;
+	shn_ogg = shn_root + ogg;
+	return shn_wav, shn_ogg;
+	
+	
+def shnToWav(shn):
+	'converts from .shn to .wav'
+	print '-' * 20;
+	print 'step 1/3';
+	print '[SHN 2 WAV]';
+	print '-' * 20;
+	os.system('find \"' + src_dir + '\" -name \"' + shn + '\" | shntool \
+	conv -o wav -d \"' + out_dir + '\"');
+	
+	
+def wavToOgg(shn_wav):
+	print '-' * 20;
+	print 'step 2/3';
+	print '[WAV 2 OGG]';
+	print '-' * 20;
+	os.system('oggenc -q' + `ogg_qual` + ' \"' + out_dir + '/' + shn_wav + '\"');
+
+
+def rmWav(shn_wav):
+	print '-' * 20;
+	print 'step 3/3';
+	print '[REMOVING WAV]';
+	print '-' * 20;
+	os.system('rm -rf \"' + out_dir + '/' + shn_wav + '\"');
+			
+
+#-------------------------------------------
+# .flac vars and commands
+#-------------------------------------------
+def flacExt(flac):
+	flac_root = string.strip(flac[:-4]);
+	ogg = 'ogg';
+	flac_ogg = flac_root + ogg;
+	return flac_ogg;
+	
+	
+def flacToOgg(flac_path, flac, flac_ogg):
+	print '-' * 20;
+	print 'step 1/1';
+	print '[FLAC 2 OGG]';
+	print '-' *20;
+	os.system('oggenc -q' + `ogg_qual` + ' \"' + flac_path + '/' + flac \
+	+ '\" -o \"' + out_dir + '/' + flac_ogg + '\"');
+
+
+#---------------------------------------------------------------
+# recursively search "src_dir" for files...
+# if ".flac" file present, call flac functions...
+# if ".shn" file present, call shn functions.
+#---------------------------------------------------------------
+def findFile(src_dir, file_types):
+	for root, dirs, files in os.walk(src_dir):
+		for f in files:
+			ext = string.lower(os.path.splitext(f)[1][1:]);
+			
+			for e in file_types[0:1]:
+				if e == ext:
+					flac_file = f;
+					#print 'file--> ' + flac_file;
+					#print root;
+					songExt = flacExt(flac_file);
+					flacToOgg(root, flac_file, songExt[0:]);
+					break;
+			
+			for e in file_types[1:]:
+				if e == ext:
+					shn_file = f;
+					#print 'file--> ' + shn_file;
+					#print root;
+					songExt = shnExt(shn_file);
+					shnToWav(shn_file);
+					wavToOgg(songExt[0]);
+					rmWav(songExt[0]);
+					break;
+
+
+#----------------------------------------------
+# script...in action
+#---------------------------------------------
+
+file_types = [ 'flac', 'shn' ];
+
+title();
+
+src_dir = raw_input("enter the dir that contains .flac/.shn files: ");
+out_dir = raw_input("\nenter the output dir(.ogg destination dir): ");
+ogg_qual = int(raw_input("""\n
+--Ogg Vorbis quality level--
+
+0  ~= 64kbps
+5  ~= 160kbps
+10 ~= 400kbps
+(6 is a good setting for great audio quality and moderate filesize)
+choose(0-10): """));
+print "\n";
+
+findFile(src_dir, file_types);
+
+print '\n\nflac2ogg is done.\n';

@@ -1,0 +1,5 @@
+POST-INSTALL:
+
+		* Put the instruction below somewhere in your ~/.xinitrc
+ 		/usr/bin/numlockx
+

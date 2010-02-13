@@ -1,0 +1,20 @@
+# Description: API/library for bible software
+# URL: http://www.crosswire.org/sword/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: curl
+
+name=sword
+version=1.5.8
+release=1
+source=(http://www.crosswire.org/ftpmirror/pub/sword/source/v1.5/sword-$version.tar.gz)
+
+build() {
+	cd $name-1.5.8
+	./configure --prefix=/usr \
+		--sysconfdir=/etc
+	make
+	make DESTDIR=$PKG install
+	make DESTDIR=$PKG install_config
+	rm -rf $PKG/usr/share/sword/locales.d
+}

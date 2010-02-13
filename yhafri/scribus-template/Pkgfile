@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Additional scribus templates
+# URL: http://packages.debian.org/testing/graphics/scribus-template
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: scribus
+
+name=scribus-template
+version=1.2.4.1
+release=1
+source=(http://ftp.debian.org/debian/pool/main/s/$name/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: An interface compiler that connects programs written in C and C++ with scripting languages
+# URL: http://www.swig.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=swig
+version=1.3.29
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/${name}/${name}-${version}.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-shared \
+		    --with-x
+		    
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

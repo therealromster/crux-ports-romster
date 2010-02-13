@@ -1,0 +1,22 @@
+# $Id: $
+# Description: An xml2swf and swf2xml processor with import functionalities
+# URL: http://swfmill.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libxslt
+
+name=swfmill
+version=0.2.11
+release=1
+source=(http://swfmill.org/releases/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

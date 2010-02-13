@@ -1,0 +1,22 @@
+# $Id: $
+# Description: O'Caml bindings to libCurl.
+# URL:         http://sourceforge.net/projects/ocurl
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  ocaml, libcurl
+
+name=ocurl
+version=0.2.0
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+
+build() {
+    mkdir -p $PKG/usr/lib/ocaml/curl	
+    cd $name-$version
+    ./configure -prefix /usr
+
+    make CFLAGS="$CFLAGS"
+    make INSTALLDIR=$PKG/usr/lib/ocaml/curl install
+
+    chown -R root:root $PKG
+}

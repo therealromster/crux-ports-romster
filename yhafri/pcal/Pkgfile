@@ -1,0 +1,24 @@
+# $Id: $
+# Description: PostScript Calendar Programs
+# URL: http://pcal.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghostscript
+
+name=pcal
+version=4.9.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	gzip -9 doc/$name.man
+
+	install -D -m 755 exec/$name       $PKG/usr/bin/$name
+	install -D -m 755 exec/${name}init $PKG/usr/bin/${name}init
+	install -D -m 644 doc/$name.man.gz $PKG/usr/man/man1/$name.1.gz
+	
+	chown -R root:root $PKG
+}

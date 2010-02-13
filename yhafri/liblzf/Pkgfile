@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A a very small and fast data compression library
+# URL: http://www.goof.com/pcg/marc/liblzf.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=liblzf
+version=1.7
+release=1
+source=(http://www.goof.com/pcg/marc/data/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

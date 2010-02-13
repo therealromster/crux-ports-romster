@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Automatic XS glue code generation
+# URL: http://84.45.18.237/~grichter/ExtUtils-XSBuilder-0.27/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-parse-recdescent, p5-tie-ixhash
+
+name=p5-extutils-xsbuilder
+version=0.28
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GR/GRICHTER/ExtUtils-XSBuilder-$version.tar.gz)
+
+build () {
+	cd ExtUtils-XSBuilder-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

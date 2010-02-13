@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Honeyd is a small daemon that creates virtual hosts on a network
+# URL: http://www.honeyd.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpcap, libevent, libdnet
+
+name=honeyd
+version=0.8b
+release=1
+source=(http://www.citi.umich.edu/u/provos/honeyd/honeyd-0.8b.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/man/man1/doc
+	cd $name-$version
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr
+
+        make
+	make prefix=$PKG/usr install
+	find $PKG/usr -iname "README"  -type "f" | xargs rm -rf
+        chown -R root:root $PKG
+}

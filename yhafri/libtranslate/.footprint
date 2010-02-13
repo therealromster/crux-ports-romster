@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/translate
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libtranslate/
+-rw-r--r--	root/root	usr/include/libtranslate/translate-common.h
+-rw-r--r--	root/root	usr/include/libtranslate/translate-pair.h
+-rw-r--r--	root/root	usr/include/libtranslate/translate-service.h
+-rw-r--r--	root/root	usr/include/libtranslate/translate-session.h
+-rw-r--r--	root/root	usr/include/libtranslate/translate-util.h
+-rw-r--r--	root/root	usr/include/libtranslate/translate.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libtranslate.a
+-rwxr-xr-x	root/root	usr/lib/libtranslate.la
+lrwxrwxrwx	root/root	usr/lib/libtranslate.so -> libtranslate.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libtranslate.so.0 -> libtranslate.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libtranslate.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/libtranslate/
+drwxr-xr-x	root/root	usr/lib/libtranslate/modules/
+-rw-r--r--	root/root	usr/lib/libtranslate/modules/talkfilters.a
+-rwxr-xr-x	root/root	usr/lib/libtranslate/modules/talkfilters.la
+-rwxr-xr-x	root/root	usr/lib/libtranslate/modules/talkfilters.so
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libtranslate.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/translate.1.gz
+drwxr-xr-x	root/root	usr/man/man5/

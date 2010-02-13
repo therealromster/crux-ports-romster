@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Pseudo transparency for X11
+# URL: http://freedesktop.org/Software/Xrender
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xrender
+version=0.8.3
+release=1
+source=(http://xlibs.freedesktop.org/release/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

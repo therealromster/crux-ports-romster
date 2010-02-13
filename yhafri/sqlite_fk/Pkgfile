@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Generate triggers to enforce foreign key constraints with SQLite
+# URL: http://www.sqlite.org/contrib
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sqlite_fk
+version=1
+release=1
+source=(http://www.sqlite.org/contrib/download/$name.tgz)
+
+build () {
+	cd fk
+	make
+
+	install -D -m 755 fk $PKG/usr/bin/fk
+
+	chown -R root:root $PKG
+}

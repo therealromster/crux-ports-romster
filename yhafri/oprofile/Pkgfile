@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A system-wide profiler for Linux systems
+# URL: http://oprofile.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=oprofile
+version=0.9.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-kernel-support
+
+	make
+	make DESTDIR=$PKG install
+
+	cd $PKG/usr/share/$name
+	rm -rf alpha/  arm/  ia64/  mips/ ppc/  ppc64/ x86-64/
+
+	chown -R root:root $PKG
+}

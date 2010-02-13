@@ -1,0 +1,65 @@
+--- makepp-1.40/install.pl	2004-12-15 06:43:08.000000000 +0100
++++ makepp-1.40/install.pl-new	2006-02-04 09:50:50.000000000 +0100
+@@ -39,29 +39,16 @@
+ #
+ # Now figure out where everything goes:
+ #
+-$prefix = "/usr/local";
++my $pkg = shift(@ARGV);
++$prefix = "$pkg/usr";
+ 
+-$bindir = shift(@ARGV) ||
+-  read_with_prompt("
+-Makepp needs to know where you want to install it and its data files.
+-makepp is written in perl, but there is no particular reason to install
+-any part of it in the perl hierarchy; you can treat it as you would a
+-compiled binary which is completely independent of perl.
+-
+-Where should the makepp executable be installed [$prefix/bin]? ") ||
+-  "$prefix/bin";
++$bindir = "$prefix/bin";
+ 
+ $bindir =~ m@^(.*)/bin@ and $prefix = $1;
+ 				# See if a prefix was specified.
+ 
+-$datadir = shift @ARGV || read_with_prompt("
+-Makepp has a number of library files that it needs to install somewhere.  Some
+-of these are perl modules, but they can't be used by other perl programs, so
+-there's no point in installing them in the perl modules hierarchy; they are
+-simply architecture-independent data that needs to be stored somewhere.
++$datadir = "$prefix/share/makepp";
+ 
+-Where should the library files be installed [$prefix/share/makepp]? ") ||
+-  "$prefix/share/makepp";
+ use vars qw/$usedatadir/;
+ if ($datadir !~ /^\//) {	# Make a relative path absolute.
+   use Cwd;
+@@ -73,23 +60,13 @@
+   $usedatadir = "use lib (\$datadir = '$datadir');\n";
+ }
+ 
+-$mandir = shift @ARGV || read_with_prompt("
+-Where should the manual pages be installed?
+-Enter \"none\" if you do not want the manual pages.
+-Man directory [$prefix/man]: ") ||
+-  "$prefix/man";
+-
+-$htmldir = shift @ARGV || read_with_prompt("
+-Where should the HTML documentation be installed?
+-Enter \"none\" if you do not want any documentation installed.
+-HTML documentation directory [$prefix/share/makepp/html]: ") ||
+-  "$prefix/share/makepp/html";
++$mandir = "$prefix/man";
++
++$htmldir = "$prefix/share/makepp/html";
+ 
+ use vars qw/$findbin/;
+-$findbin = shift @ARGV;
+-defined($findbin) or $findbin = read_with_prompt("
+-Where should the library files be sought relative to the executable?
+-Enter \"none\" to seek in $datadir [none]: ") || "none";
++$findbin = 'none';
++
+ $findbin=0 if $findbin eq "none";
+ if($findbin) {
+   $usedatadir = "use FindBin;\n" .

@@ -1,0 +1,8 @@
+PRE-INSTALL:
+
+
+		* Create user/grou nginx:
+		#  groupadd nginx
+		#  useradd -c "Nginx daemon" -d /etc/nginx -g nginx -s /bin/false nginx
+		#  passwd -l nginx &>/dev/null
+

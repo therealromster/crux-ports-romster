@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python Remote Objects - Distributed Object Technology
+# URL: http://pyro.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=pyro
+version=3.5
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/Pyro-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd Pyro-$version
+
+    	python setup.py build
+	echo "n" | python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Tools for handling with cloop compressed volumes
+# URL: http://packages.debian.org/unstable/misc/cloop-utils
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cloop-utils
+version=2.05
+release=1
+source=(http://ftp.debian.org/debian/pool/main/c/cloop/cloop_${version}~20060829-1.tar.gz)
+
+build () {
+	cd cloop-$version~20060829
+	make DESTDIR=$PKG/usr install-utils
+	
+	#make
+	#make DESTDIR=$PKG install
+	#install -D cloop.ko $PKG/lib/modules/`uname -r`/kernel/drivers/block/cloop.ko
+
+	chown -R root:root $PKG
+}

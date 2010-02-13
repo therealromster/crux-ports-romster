@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Functional, extendable Erlang arrays 
+# URL: http://user.it.uu.se/~richardc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, eunit
+
+name=array
+version=1
+release=1
+source=($name.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	erl -make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

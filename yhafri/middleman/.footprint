@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwx--x--x	root/root	usr/bin/mman
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/mman/
+-rw-r--r--	root/root	usr/etc/mman/config.xml
+-rw-r--r--	root/root	usr/etc/mman/section.xml
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/mman.8.gz
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/cache/
+drwxr-xr-x	root/root	var/cache/mman/

@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# /etc/rc.d/monit: start/stop/run monit daemon
+#
+
+case $1 in
+start)
+	/usr/bin/monit -d 10 -c /etc/monitrc
+	;;
+stop)
+        if [ -f "/var/run/monit.pid" ]; then
+                kill -9 `cat /var/run/monit.pid` && rm -f /var/run/monit.pid
+        else
+                echo "Monit is not running ..."
+        fi
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+reload)
+	/usr/bin/monit reload
+	;;
+run)
+        /usr/bin/monit -c /etc/monitrc
+        ;;
+*)
+	echo "usage: $0 start|stop|restart|reload|run"
+	;;
+esac
+
+# End of file

@@ -1,0 +1,30 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/cfl/
+-rw-r--r--	root/root	usr/include/cfl/cerrno.h
+-rw-r--r--	root/root	usr/include/cfl/cfl.h
+-rw-r--r--	root/root	usr/include/cfl/data.h
+-rw-r--r--	root/root	usr/include/cfl/defs.h
+-rw-r--r--	root/root	usr/include/cfl/fortune.h
+-rw-r--r--	root/root	usr/include/cfl/http.h
+-rw-r--r--	root/root	usr/include/cfl/ipc.h
+-rw-r--r--	root/root	usr/include/cfl/net.h
+-rw-r--r--	root/root	usr/include/cfl/sched.h
+-rw-r--r--	root/root	usr/include/cfl/system.h
+-rw-r--r--	root/root	usr/include/cfl/util.h
+-rw-r--r--	root/root	usr/include/cfl/version.h
+-rw-r--r--	root/root	usr/include/cfl/xml.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libcfl.a
+-rwxr-xr-x	root/root	usr/lib/libcfl.la
+lrwxrwxrwx	root/root	usr/lib/libcfl.so -> libcfl.so.0.4.2
+lrwxrwxrwx	root/root	usr/lib/libcfl.so.0 -> libcfl.so.0.4.2
+-rwxr-xr-x	root/root	usr/lib/libcfl.so.0.4.2
+-rw-r--r--	root/root	usr/lib/libcfl_mt.a
+-rwxr-xr-x	root/root	usr/lib/libcfl_mt.la
+lrwxrwxrwx	root/root	usr/lib/libcfl_mt.so -> libcfl_mt.so.0.4.2
+lrwxrwxrwx	root/root	usr/lib/libcfl_mt.so.0 -> libcfl_mt.so.0.4.2
+-rwxr-xr-x	root/root	usr/lib/libcfl_mt.so.0.4.2
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libcfl.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libcfl_mt.pc

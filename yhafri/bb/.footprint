@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bb
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/bb/
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/bb.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/bb/
+-rw-r--r--	root/root	usr/share/bb/bb.s3m
+-rw-r--r--	root/root	usr/share/bb/bb2.s3m
+-rw-r--r--	root/root	usr/share/bb/bb3.s3m

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Erlang configuration files parser
+# URL: http://www.erlang.org/user.html#property_file-0.1
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, mlex
+
+name=property-file
+version=0.1
+release=1
+source=(http://www.erlang.org/contrib/property_file-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+	cd property_file-$version
+	sed -i -e "s/MLEX\_EBIN\=.*$/MLEX\_EBIN\=\/usr\/lib\/erlang\/lib\/mlex\-1\.0\/ebin/" Makefile
+	make 
+	cp -rf ebin/ src/ $PKG/usr/lib/erlang/lib/$name-$version/
+	find $PKG -name "Makefile" -exec rm -rf {} \;
+        chown -R root:root $PKG/
+}

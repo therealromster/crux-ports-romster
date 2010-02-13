@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlzlib-1/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlzlib-1/ebin/
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlzlib-1/ebin/zlib.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlzlib-1/priv/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlzlib-1/priv/lib/
+-rwxr-xr-x	root/root	usr/lib/erlang/lib/erlzlib-1/priv/lib/erlzlib.so
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlzlib-1/src/
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlzlib-1/src/zlib.erl

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: The slang library
+# URL: http://www.jedsoft.org/slang/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Håvard Moen <vanilje@netcom.no>
+# Depends on:
+
+name=libslang
+version=1.4.9
+release=1
+source=(ftp://ftp.fu-berlin.de/pub/unix/misc/slang/v1.4/slang-$version.tar.bz2)
+
+build () {
+    	cd slang-$version
+    	
+	./configure --prefix=/usr --disable-nls
+    	
+	make
+    	make ELF_CFLAGS="$CFLAGS" elf
+    	make DESTDIR=$PKG install
+    	make DESTDIR=$PKG install-elf
+   	make DESTDIR=$PKG install-links
+    	
+	rm -rf $PKG/usr/doc
+	chown -R root:root $PKG	
+}
+

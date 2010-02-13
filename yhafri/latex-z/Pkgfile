@@ -1,0 +1,42 @@
+# $Id: $
+# Description: LaTeX class for the Z formal specification notation
+# URL: http://spivey.oriel.ox.ac.uk/~mike/zrm/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-z
+version=1
+release=1
+
+source=(http://spivey.oriel.ox.ac.uk/~mike/zrm/zrm.sty.gz \
+	http://www-staff.it.uts.edu.au/~cbj/se/latex/ltcadiz.sty \
+	http://www-staff.it.uts.edu.au/~cbj/se/latex/oz.sty \
+	http://spivey.oriel.ox.ac.uk/mike/fuzz/fuzz2000.tar.gz \
+	zed.sty)
+
+build () {
+	gunzip zrm.sty.gz
+	mkdir -p $PKG/usr/share/texmf/tex/latex/zrm
+	mv zrm.sty $PKG/usr/share/texmf/tex/latex/zrm
+	
+	mkdir -p $PKG/usr/share/texmf/tex/latex/ltcadiz
+	mv ltcadiz.sty oz.sty $PKG/usr/share/texmf/tex/latex/ltcadiz
+
+	mkdir -p $PKG/usr/share/texmf/tex/latex/zed
+	mv zed.sty $PKG/usr/share/texmf/tex/latex/zed
+
+	mkdir -p $PKG/usr/share/texmf/tex/latex/fuzz
+	mkdir -p $PKG/usr/share/texmf/fonts/source/public/local
+	cd fuzz2000/tex
+	mv fuzz.sty $PKG/usr/share/texmf/tex/latex/fuzz
+	mv *.mf $PKG/usr/share/texmf/fonts/source/public/local
+
+	chown -R root:root $PKG
+}
+
+#	http://www-users.cs.york.ac.uk/~ian/zstan/Zstan.sty \
+#	mkdir -p $PKG/usr/share/texmf/tex/latex/Zstan
+#	mv Zstan.sty $PKG/usr/share/texmf/tex/latex/Zstan
+
+

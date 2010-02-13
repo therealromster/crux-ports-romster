@@ -1,0 +1,18 @@
+# Description: un système de conjugaison des verb françaises
+# URL: http://www3.sympatico.ca/sarrazip/dev/verbiste.html
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=verbiste
+version=0.1.14
+release=2
+source=(http://www3.sympatico.ca/sarrazip/dev/verbiste-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/{doc,locale} $PKG/usr/man/fr/
+}

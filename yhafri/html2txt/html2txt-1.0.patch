@@ -1,0 +1,176 @@
+--- html2txt.pl.txt	2004-07-11 09:12:00.000000000 +0200
++++ html2txt	2005-01-27 23:10:29.303265728 +0100
+@@ -20,66 +20,135 @@
+ # Function returns a formatted text string.
+ #
+ sub html2text {
++    # http://www.utexas.edu/learn/html/spchar.html
++
+ 	my $str = shift(@_);
+ 
+-	$str =~ s/HTTP.*?\n//sg;# Remove all HTTP headers.
+-	$str =~ s/\n//sg;	# Remove all obsolete newlines.
++	$str =~ s/HTTP.*?\n//sgo;# Remove all HTTP headers.
++	$str =~ s/\n//sgo;	# Remove all obsolete newlines.
+ 
+ 	# Link:
+-	$str =~ s/<a[ ]+.*?>(.+)<\/a>/$1/ig;
++	$str =~ s/<a[ ]+.*?>(.+)<\/a>/$1/igo;
+ 
+ 	# Script:
+-	$str =~ s/<script>(.+)<\/script>/$1/ig;
++	$str =~ s/<script>(.+)<\/script>/$1/igo;
+ 
+ 	# Comment:
+-	$str =~ s/<!--.*?-->//ig;
++	$str =~ s/<!--.*?-->//igo;
+ 
+ 	# Title:
+-	$str =~ s/<\/title>/\n\n/ig;
++	$str =~ s/<\/title>/\n\n/igo;
+ 
+ 	# Line break:
+-	$str =~ s/<br>/\n/ig;
++	$str =~ s/<br>/\n/igo;
+ 
+ 	# Horizontal line:
+-	$str =~ s/<hr>/\n---*-*-*---\n/ig;
++	$str =~ s/<hr>/\n---*-*-*---\n/igo;
+ 
+ 	# Paragraph:
+-	$str =~ s/<\/?p[ ]*.*?>/\n\n/ig;
++	$str =~ s/<\/?p[ ]*.*?>/\n\n/igo;
+ 
+ 	# Headings:
+-	$str =~ s/<\/?h[1-6][ ]*.*?>/\n\n/ig;
++	$str =~ s/<\/?h[1-6][ ]*.*?>/\n\n/igo;
+ 
+ 	# List items:
+-	$str =~ s/<\/?li[ ]*.*?>/\n/ig;
++	$str =~ s/<\/?li[ ]*.*?>/\n/igo;
+ 
+ 	# Table:
+-	$str =~ s/<\/?table[ ]*.*?>/\n/ig;
+-	$str =~ s/<td[ ]*.*?>/\t/ig;
+-	$str =~ s/<tr[ ]*.*?>/\n/ig;
++	$str =~ s/<\/?table[ ]*.*?>/\n/igo;
++	$str =~ s/<td[ ]*.*?>/\t/igo;
++	$str =~ s/<tr[ ]*.*?>/\n/igo;
+ 
+ 	# Cleaning up:
+-	$str =~ s/<.*?>//sg;		# Remove all tags.
+-	$str =~ s/\n[ ]+\n/\n\n/sg;	# Remove all obsolete spaces.
++	$str =~ s/<.*?>//sgo;		# Remove all tags.
++	$str =~ s/\n[ ]+\n/\n\n/sgo;	# Remove all obsolete spaces.
+ 	$str =~ s/\n[ ]+/\n/sg;
+-	$str =~ s/\n{2,}/\n\n/sg;	# Remove all obsolete newlines.
+-	$str =~ s/^[ ]*//g;		# Remove all leading spaces (again).
+-	$str =~ s/[ ]+/ /g;		# Remove all duplicate spaces (again).
++	$str =~ s/\n{2,}/\n\n/sgo;	# Remove all obsolete newlines.
++	$str =~ s/^[ ]*//go;		# Remove all leading spaces (again).
++	$str =~ s/[ ]+/ /go;		# Remove all duplicate spaces (again).
+ 
+ 	# Decode some commonly used special characters:
+-	$str =~ s/&nbsp;/ /g;		# Non-breaking space
+-	$str =~ s/&shy;/-/g;		# Hyphen
+-	$str =~ s/&lt;/</g;		# <
+-	$str =~ s/&gt;/>/g;		# >
+-	$str =~ s/&amp;/&/g;		# &
+-	$str =~ s/&quot;/\"/g;		# "
+-	$str =~ s/&copy;/(c)/g;		# Copyright
+-	$str =~ s/&reg;/(r)/g;		# Reg.tm.
+-	$str =~ s/&aring;/å/g;		# å
+-	$str =~ s/&auml;/ä/g;		# ä
+-	$str =~ s/&ouml;/ö/g;		# ö
+-	$str =~ s/&Aring;/Å/g;		# Å
+-	$str =~ s/&Auml;/Ä/g;		# Ä
+-	$str =~ s/&Ouml;/Ö/g;		# Ö
++	$str =~ s/&nbsp;/ /go;		# Non-breaking space
++	$str =~ s/&shy;/-/go;		# Hyphen
++	$str =~ s/&lt;/</go;		# <
++	$str =~ s/&gt;/>/go;		# >
++	$str =~ s/&amp;/&/go;		# &
++	$str =~ s/&quot;/\"/go;		# "
++	$str =~ s/&copy;/(c)/go;	# Copyright
++	$str =~ s/&reg;/(r)/go;		# Reg.tm.
++	$str =~ s/&aring;/å/go;		# å
++	$str =~ s/&auml;/ä/go;		# ä
++	$str =~ s/&ouml;/ö/go;		# ö
++	$str =~ s/&Aring;/Å/go;		# Å
++	$str =~ s/&Auml;/Ä/go;		# Ä
++	$str =~ s/&Ouml;/Ö/go;		# Ö
++	$str =~ s/&iexcl;/¡/go;		# ¡
++	$str =~ s/&iquest;/¿/go;	# ¿
++	$str =~ s/&laquo;/«/go;		# «
++	$str =~ s/&raquo;/»/go;		# »
++	$str =~ s/&cent;/¢/go;		# ¢ 
++	$str =~ s/&divide;/÷/go;	# ÷
++	$str =~ s/&#181;/µ/go;	    # µ
++ 	$str =~ s/&middot;/·/go;	# ·
++    $str =~ s/&para;/¶/go;	    # ¶
++    $str =~ s/&plusmn;/±/go;    # ±
++    $str =~ s/&pound;/£/go;     # £
++    $str =~ s/&sect;/§/go;      # §
++    $str =~ s/&yen;/¥/go;       # ¥
++    $str =~ s/&aacute;/á/go;    # á
++    $str =~ s/&Aacute;/Á/go;    # Á
++    $str =~ s/&acric;/à/go;     # à
++    $str =~ s/&Agrave;/À/go;    # À
++    $str =~ s/&acric;/â/go;     # â
++    $str =~ s/&Acirc;/Â/go;     # Â
++    $str =~ s/&atilde;/ã/go;    # ã
++    $str =~ s/&Atilde;/Ã/go;    # Ã
++    $str =~ s/&aelig;/æ/go;     # æ
++    $str =~ s/&AElig;/Æ/go;     # Æ
++    $str =~ s/&ccedil;/ç/go;    # ç
++    $str =~ s/&Ccedil;/Ç/go;    # Ç
++    $str =~ s/&eacute;/é/go;    # é
++    $str =~ s/&Eacute;/É/go;    # É 
++    $str =~ s/&egrave;/è/go;    # è
++    $str =~ s/&Egrave;//go;     # È
++    $str =~ s/&ecirc;/ê/go;     # ê
++    $str =~ s/&Ecirc;/Ê/go;     # Ê 
++    $str =~ s/&euml;/ë/go;      # ë
++    $str =~ s/&Euml;/Ë/go;      # Ë
++    $str =~ s/&iacute;/í/go;    # í
++    $str =~ s/&Iacute;//go;     # Í
++    $str =~ s/&igrave;/ì/go;    # ì
++    $str =~ s/&Igrave;/Ì/go;    # Ì
++    $str =~ s/&icirc;/î/go;     # î
++    $str =~ s/&Icirc;/Î/go;     # Î
++    $str =~ s/&iuml;/ï/go;      # ï
++    $str =~ s/&Iuml;/Ï/go;      # Ï 
++    $str =~ s/&ntilde;/ñ/go;    # ñ
++    $str =~ s/&Ntilde;/Ñ/go;    # Ñ
++    $str =~ s/&oacute;/ó/go;    # ó
++    $str =~ s/&Oacute;/Ó/go;    # Ó
++    $str =~ s/&ograve;/ò/go;    # ò
++    $str =~ s/&Ograve;/Ò/go;    # Ò 
++    $str =~ s/&ocirc;/ô/go;     # ô
++    $str =~ s/&Ocirc;/Ô/go;     # Ô
++    $str =~ s/&oslash;/ø/go;    # ø
++    $str =~ s/&Oslash;/Ø/go;    # Ø
++    $str =~ s/&otilde;/õ/go;    # õ
++    $str =~ s/&Otilde;/Õ/go;    # Õ
++    $str =~ s/&ouml;/ö/go;      # ö
++    $str =~ s/&Ouml;/Ö/go;      # Ö 
++    $str =~ s/&szlig;/ß/go;     # ß
++    $str =~ s/&uacute;/ú/go;    # ú
++    $str =~ s/&Uacute;/Ú/go;    # Ú
++    $str =~ s/&ugrave;/ù/go;    # ù
++    $str =~ s/&Ugrave;/Ù/go;    # Ù
++    $str =~ s/&ucirc;/û/go;     # û
++    $str =~ s/&Ucirc;/Û/go;     # Û
++    $str =~ s/&uuml;/ü/go;      # ü
++    $str =~ s/&Uuml;/Ü/go;      # Ü
++    $str =~ s/&yuml;/ÿ/go;      # ÿ
++    $str =~ s/&#180;/\´/go;     # ´
++    $str =~ s/&#96;/\`/go;      # `
+ 
+ 	return $str;
+ }
+@@ -207,4 +276,3 @@
+ main($#ARGV + 1, @ARGV);
+ 
+ # EOF
+-

@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Real-time framework for Linux 
+# URL: http://snail.fsffrance.org/www.xenomai.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=xenomai
+version=2.0.4
+release=1
+source=(http://download.gna.org/$name/stable/$name-$version.tar.bz2)
+
+build () {
+	export builddir="build"
+	mkdir -p $builddir
+
+	cd $builddir
+	make -f ../$name-$version/makefile
+
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/realtime/share/doc
+	rm -rf $PKG/usr/realtime/source
+	rm -rf $PKG/usr/realtime/symbols
+	rm -rf $PKG/usr/realtime/build
+
+	chown -R root:root $PKG
+}

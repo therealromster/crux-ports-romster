@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/GDLjoiner
+-rwxr-xr-x	root/root	usr/bin/dc2k
+-rwxr-xr-x	root/root	usr/bin/dctc
+-rwxr-xr-x	root/root	usr/bin/dctc_cmd
+-rwxr-xr-x	root/root	usr/bin/dctc_gdl123
+-rwxr-xr-x	root/root	usr/bin/dctc_master
+-rwxr-xr-x	root/root	usr/bin/hublist
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dctc.1.gz
+-rw-r--r--	root/root	usr/man/man1/dctc_cmd.1.gz
+-rw-r--r--	root/root	usr/man/man1/dctc_gdl123.1.gz
+-rw-r--r--	root/root	usr/man/man1/hublist.1.gz

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Object interface for AF_INET|AF_INET6 domain sockets
+# URL: http://search.cpan.org/~mondejar/IO-Socket-INET6-2.51/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-socket6
+
+name=p5-io-socket-inet6
+version=2.51
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MO/MONDEJAR/IO-Socket-INET6-$version.tar.gz)
+
+build () {
+	cd IO-Socket-INET6-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

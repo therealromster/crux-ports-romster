@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Xapian indexers and a CGI search frontend
+# URL: http://www.xapian.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: xapian-core
+
+name=xapian-omega
+version=1.0.3
+release=1
+source=(http://www.oligarchy.co.uk/xapian/$version/$name-$version.tar.gz)
+
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+        chown -R root:root $PKG
+}

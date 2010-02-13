@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A kernel module designed to simulate a CD drive + CD with just simple cue/bin files
+# URL: http://cdemu.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cdemu
+version=0.8
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

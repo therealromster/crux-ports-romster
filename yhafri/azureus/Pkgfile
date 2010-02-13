@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A java bittorrent client
+# URL: http://azureus.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, jdk 
+
+name=azureus
+version=2.5.0.4
+release=2
+source=(http://kent.dl.sourceforge.net/sourceforge/azureus/Azureus_${version}_linux.tar.bz2 \
+       $name-$version.patch)
+
+#http://ovh.dl.sourceforge.net/sourceforge/$name/Azureus\_$version.0.0\_linux.GTK.tar.bz2 
+
+build () {
+    mkdir -p $PKG/usr/{bin,lib/$name}
+
+    cd $name
+    patch -p1<../$name-$version.patch
+
+    rm -rf *.txt *.html README.linux
+
+    mv * $PKG/usr/lib/$name
+    ln -s /usr/lib/$name/$name $PKG/usr/bin/$name
+
+    chown -R root:root $PKG
+}

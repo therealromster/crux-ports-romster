@@ -1,0 +1,17 @@
+# $Id: $
+# Description: A tool for fuzzy cluster analysis
+# URL: http://fuzzy.cs.uni-magdeburg.de/fcluster/fcluster.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=fcluster
+version=1
+release=1
+source=(ftp://fuzzy.cs.uni-magdeburg.de/pub/$name/l$name.tar.gz)
+
+build () {
+
+	install -D -m 755 $name $PKG/usr/bin/$name	
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A Java unit testing framework
+# URL: http://www.junit.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant
+
+name=junit
+version=4.4
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.jar)
+
+build () {
+	mkdir -p $PKG/usr/lib/ant/lib/
+
+	install -D $name-$version.jar $PKG/usr/lib/ant/lib/$name-$version.jar
+
+	chown -R root:root $PKG
+}

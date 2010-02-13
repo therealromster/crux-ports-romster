@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Erlang FastCGI Support
+# URL: http://code.google.com/p/efcgi/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, subversion
+
+name=efcgi
+version=svn
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+
+	cd $name
+	(cd lib/$name && make)
+
+	mv lib releases $PKG/usr/lib/erlang/lib/$name-$version
+	
+	chown -R root:root $PKG
+}

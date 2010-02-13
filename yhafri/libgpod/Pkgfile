@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A shared library used to access the contents of an iPod-based on code used in the gtkpod project
+# URL: http://www.gtkpod.org/libgpod.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=libgpod
+version=0.4.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/gtkpod/$name-$version.tar.gz)
+
+build() {
+    	cd $name-$version
+    	
+	./configure --prefix=/usr \
+        	    --disable-debug
+    
+	make
+    	make DESTDIR=$PKG install
+    
+	rm -rf $PKG/usr/share/locale
+    	rm -rf $PKG/usr/share/gtk-doc
+
+	chown -R root:root $PKG
+}

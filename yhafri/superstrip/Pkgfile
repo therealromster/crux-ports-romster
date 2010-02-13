@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A very aggressive ELF strip utility
+# URL: http://www.skarnet.org/software/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: skalibs
+
+name=superstrip
+version=0.11sp
+release=1
+source=(http://www.skarnet.org/software/$name/$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	cd prog/$name-$version
+
+	package/install
+	mv * $PKG/usr/lib/$name	
+
+	rm -rf compile
+
+	chown -R root:root $PKG
+}

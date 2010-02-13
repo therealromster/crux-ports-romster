@@ -1,0 +1,15 @@
+POST-INSTALL:
+
+	* To take into account the fourier class, you must execute 
+	the commands below as root:
+	$ texhash
+	$ updmap --enable Map kerkis.map
+
+	* For pdf(lat)tex, add this line to the files 
+	/usr/share/texmf/tex/generic/config/pdftex.cfg
+	(on old version /usr/share/texmf/pdftex/config/pdftex.cfg):
+	map +kerkis.map
+
+	* For dvips, add this line to the file
+	/usr/share/texmf/dvips/config/config.ps:
+	p +kerkis.map

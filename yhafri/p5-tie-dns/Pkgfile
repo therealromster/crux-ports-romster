@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Tie interface to Net::DNS 
+# URL: http://search.cpan.org/~diederich/Tie-DNS/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-net-dns
+
+name=p5-tie-dns
+version=0.41
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DI/DIEDERICH/Tie-DNS-$version.tar.gz)
+
+build () {
+	cd Tie-DNS-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

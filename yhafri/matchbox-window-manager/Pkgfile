@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Window Manager for MatchBox library
+# URL: http://projects.o-hand.com/matchbox
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libmatchbox, expat, startup-notification
+
+name=matchbox-window-manager
+version=1.1
+release=1
+source=(http://projects.o-hand.com/matchbox/sources/$name/$version/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-pango \
+		    --enable-expat \
+		    --enable-session \
+		    --enable-startup-notification \
+		    --enable-standalone \
+		    --enable-ping-protocol \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

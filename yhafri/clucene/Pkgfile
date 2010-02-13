@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A high-performance, scalable, cross platform Lucene clone in C++
+# URL: http://clucene.sourceforge.net/index.php/Main_Page
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=clucene
+version=0.9.20
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/clucene/$name-core-$version.tar.bz2 \
+	strigi-port.patch.tgz)
+
+build () {
+	cd $name-core-$version
+	#tar xzvf $SRC/strigi-port.patch.tgz -C ./src/CLucene/util/
+
+	cp -rf ../*.h ./src/CLucene/util/
+
+	./autogen.sh
+	./configure --prefix=/usr \
+		    --disable-debug \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

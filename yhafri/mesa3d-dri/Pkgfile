@@ -1,0 +1,27 @@
+# Description: Mesa 3D Graphics Library
+# URL: http://www.mesa3d.org/
+# Maintainer: sten, nick dot steeves at shaw dot ca
+# Packager: 
+# Depends on: x11, libdrm, freeglut
+
+name=mesa3d-dri
+version=6.4.2
+release=1
+source=(http://dl.sourceforge.net/mesa3d/MesaLib-$version.tar.gz \
+    libGL.la)
+
+build() {
+    cd Mesa-$version
+    cp configs/linux-dri-x86 configs/current
+    make linux-dri-x86
+    mkdir -p $PKG/usr/{lib,include,X11R6/lib/modules/dri}
+    bin/installmesa $PKG/usr
+    cp lib/*_dri.so /usr/X11R6/lib/modules/dri/
+ 
+    # provided by x11 / freeglut
+    for f in gl.h glext.h glu.h glx.h glxext.h osmesa.h GLwDrawA.h GLwDrawAP.h\
+        GLwMDrawA.h GLwMDrawAP.h; do
+        rm $PKG/usr/include/GL/$f
+    done
+    cp $SRC/libGL.la $PKG/usr/lib
+}

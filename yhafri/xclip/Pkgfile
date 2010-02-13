@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Provides interface to X clipboard from the command line
+# URL: http://people.debian.org/~kims/xclip/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xclip
+version=0.08
+release=1
+source=(http://people.debian.org/~kims/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name
+
+	make
+	strip $name
+
+	install -D -m 755 $name     $PKG/usr/bin/$name
+	install -D -m 644 $name.man $PKG/usr/man/man1/$name.1
+	
+	chown -R root:root $PKG
+}

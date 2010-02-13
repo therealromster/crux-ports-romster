@@ -1,0 +1,22 @@
+# $Id: $
+# Description: The D-Bus GLib bindings
+# URL: http://www.freedesktop.org/wiki/Software_2fDBusBindings
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: dbus, glib
+
+name=dbus-glib
+version=0.72
+release=1
+source=(http://dbus.freedesktop.org/releases/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+	            --disable-nls
+
+	make
+    	make DESTDIR=$PKG install
+
+    	chown -R root:root $PKG
+}

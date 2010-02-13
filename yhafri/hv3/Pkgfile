@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Tcl/Tk Web Browser
+# URL: http://tkhtml.tcl.tk/hv3.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, tk
+
+name=hv3
+version=07_1004
+release=1
+source=(http://tkhtml.tcl.tk/$name-linux-nightly-$version.gz)
+
+build () {
+	gunzip $name-linux-nightly-$version.gz
+
+	chmod +x $name-linux-nightly-$version
+
+	install -D -m 755 $name-linux-nightly-$version $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

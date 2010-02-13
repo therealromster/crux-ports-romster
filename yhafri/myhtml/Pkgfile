@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A lightweight HTML parser that actually works
+# URL: http://siag.nu/myhtml/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=myhtml
+version=0.0.2
+release=1
+source=(http://siag.nu/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

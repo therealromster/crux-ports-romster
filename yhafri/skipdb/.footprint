@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/udb/
+-rw-r--r--	root/root	usr/include/udb/JFile.h
+-rw-r--r--	root/root	usr/include/udb/Log.h
+-rw-r--r--	root/root	usr/include/udb/SkipDB.h
+-rw-r--r--	root/root	usr/include/udb/SkipDBCursor.h
+-rw-r--r--	root/root	usr/include/udb/SkipDBM.h
+-rw-r--r--	root/root	usr/include/udb/SkipDBRecord.h
+-rw-r--r--	root/root	usr/include/udb/UDB.h
+-rw-r--r--	root/root	usr/include/udb/UDBIndex.h
+-rw-r--r--	root/root	usr/include/udb/UDBRecord.h
+-rw-r--r--	root/root	usr/include/udb/UDBRecords.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libSkipDB.a

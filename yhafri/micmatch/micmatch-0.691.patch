@@ -1,0 +1,11 @@
+--- micmatch/OCamlMakefile	2004-09-05 06:57:31.000000000 +0200
++++ micmatch/OCamlMakefile-new	2004-09-05 13:57:56.189122024 +0200
+@@ -1074,7 +1074,7 @@
+ .PHONY: libinstall
+ libinstall:	all
+ 	$(QUIET)printf "\nInstalling library with ocamlfind\n"
+-	$(OCAMLFIND) install $(OCAMLFIND_INSTFLAGS) $(RESULT) META $(LIBINSTALL_FILES)
++	$(OCAMLFIND) install -destdir $(DESTDIR) $(OCAMLFIND_INSTFLAGS) $(RESULT) META $(LIBINSTALL_FILES)
+ 	$(QUIET)printf "\nInstallation successful.\n"
+ 
+ .PHONY: libuninstall

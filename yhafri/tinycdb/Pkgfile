@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Tool for creating and reading constant databases
+# URL: http://www.corpit.ru/mjt/tinycdb.html
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tinycdb
+version=0.76
+release=1
+source=(http://www.corpit.ru/mjt/$name/${name}_${version}.tar.gz)
+
+build () {
+    	cd $name-$version
+
+    	sed -i "/^CFLAGS/s/-O/$CFLAGS/" Makefile
+
+    	make
+    	make prefix=$PKG/usr install
+
+	strip $PKG/usr/bin/cdb
+
+	chown -R root:root $PKG
+}

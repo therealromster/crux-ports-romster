@@ -1,0 +1,55 @@
+--- mss121/Makefile	2001-10-21 14:25:42.000000000 +0200
++++ mss121/Makefile-new	2004-09-25 10:21:33.846945344 +0200
+@@ -50,7 +50,7 @@
+ AR=ar
+ 
+ # Compiler flags and stuff.
+-CFLAGS=-O2 -mcpu=i686 -W -Wall -Werror -I. -ansi -pedantic -DMSS
++CFLAGS=-O2 -mcpu=i686 -W -Wall -I. -ansi -pedantic -DMSS -Wno-deprecated
+ ARFLAGS=rcs
+ 
+ #Uncomment the line below if you're debugging MSS. (if you are not a
+@@ -128,7 +128,7 @@
+ 
+ .PHONY:	all lib install clean cleanall uninstall test
+ 
+-all: lib test
++all: lib
+ 
+ lib: $(LIBDIR)/libmss.a
+ 	@echo The MSS library is compiled and placed in $(LIBDIR)/libmss.a
+@@ -151,7 +151,7 @@
+ 
+ $(OBJDIR)/check.o: check.c internal.h mss.h
+ 	$(CC) -c $(DFLAGS) $(CFLAGS) -o $(OBJDIR)/check.o check.c
+-                           
++
+ $(OBJDIR)/config.o: internal.h config.c mss.h
+ 	$(CC) -c $(DFLAGS) $(CFLAGS) -o $(OBJDIR)/config.o config.c
+ 
+@@ -171,9 +171,9 @@
+ 	$(CC) -c $(DFLAGS) $(CFLAGS) -o $(OBJDIR)/cppspec.o cppspec.cc
+ 
+ $(LIBDIR)/libmss.a: $(CPPSPEC_O) $(OBJDIR)/alloc.o $(CPPSPEC_O) $(OBJDIR)/list.o \
+- 		    $(OBJDIR)/inifile.o $(OBJDIR)/check.o $(OBJDIR)/config.o \
+-		    $(OBJDIR)/init.o $(OBJDIR)/internal.o $(OBJDIR)/log.o \
+-		    $(OBJDIR)/user.o
++	$(OBJDIR)/inifile.o $(OBJDIR)/check.o $(OBJDIR)/config.o \
++	$(OBJDIR)/init.o $(OBJDIR)/internal.o $(OBJDIR)/log.o \
++	$(OBJDIR)/user.o
+ 	@echo Creating the library as $(LIBDEST)...
+ 	$(AR) $(ARFLAGS) $(LIBDIR)/libmss.a $(OBJDIR)/alloc.o \
+ 		$(OBJDIR)/check.o \
+--- mss121/samples/Makefile	2001-10-21 15:02:46.000000000 +0200
++++ mss121/samples/Makefile-new	2004-09-25 10:21:44.525321984 +0200
+@@ -25,8 +25,8 @@
+ AR=ar
+ 
+ # Compiler flags and stuff.
+-CFLAGS=-O2 -m486 -I.. -ansi -pedantic -DMSS -W -Wall
+-LFLAGS=-m486 -o
++CFLAGS=-O2 -mcpu=i686 -I.. -ansi -pedantic -DMSS -W -Wall -Wno-deprecated
++LFLAGS=-mcpu=686 -o
+ ARFLAGS=rcs
+ 
+ #Uncomment the line below if you're debugging MSS. (if you are not a

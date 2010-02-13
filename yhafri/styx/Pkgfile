@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A scanner and parser generator
+# URL: http://www.speculate.de/styx/en/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=styx
+version=1.7.5
+release=1
+source=(http://www.speculate.de/styx/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="-liconv"  ./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/{doc,examples}
+
+	chown -R root:root $PKG
+}

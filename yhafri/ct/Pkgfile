@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Cheap Threads
+# URL: http://home.swbell.net/mck9/ct/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ct
+version=2.6
+release=1
+source=(http://home.swbell.net/mck9/$name/${name}2_6.zip)
+
+build () {
+
+	# compile the standard version of the library
+	for i in ctalloc.c ctassert.c cterror.c ctmemory.c ctmsg.c ctsched.c ctsubscr.c; do echo "compile $i"; gcc -c $i; done
+	ar cvr $name.a *.o; rm -f *.o
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+
+        # compile the embeded version of the library - No Dynamic Memory Allocation -
+        for i in ectalloc.c ctassert.c cterror.c ectmsg.c ectsched.c; do echo "compile $i"; gcc -c $i; done
+        ar cvr e_ndmem$name.a *.o; rm -f *.o
+        install -D -m 644 e_ndmem$name.a $PKG/usr/lib/e_ndmem$name.a
+
+        # compile the embeded version of the library - Complete -
+        for i in ectalloc.c ctassert.c ecterror.c ectmsg.c ectsched.c; do echo "compile $i"; gcc -c $i; done
+        ar cvr e$name.a *.o; rm -f *.o
+        install -D -m 644 e$name.a $PKG/usr/lib/e$name.a
+
+	for i in ct.h ctpriv.h ctutil.h; do install -D -m 644 $i $PKG/usr/include/$i; done
+
+	chown -R root:root $PKG
+}

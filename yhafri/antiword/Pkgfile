@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Free MS Word reader for Linux and RISC OS
+# URL: http://www.winfield.demon.nl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: unknown
+# Depends on:
+
+name=antiword
+version=0.37
+release=1
+
+source=(http://www.winfield.demon.nl/linux/$name-$version.tar.gz)
+
+build()
+{
+	cd $name-$version
+	make GLOBAL_INSTALL_DIR=/usr/bin -f Makefile.Linux
+	mkdir -p $PKG/usr/bin $PKG/usr/share/$name $PKG/usr/man/man1
+	make DESTDIR=$PKG GLOBAL_INSTALL_DIR=/usr/bin global_install
+	cp Docs/$name.1 $PKG/usr/man/man1
+	chmod 644 $PKG/usr/man/man1/*
+	# kantiword is a shell wrapper to make d&d possible in KDE
+	#rm $PKG/usr/bin/kantiword
+}
+

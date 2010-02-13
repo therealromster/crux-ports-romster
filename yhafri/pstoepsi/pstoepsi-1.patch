@@ -1,0 +1,20 @@
+--- Makefile	1992-01-04 04:37:30.000000000 +0000
++++ Makefile-new	2004-10-05 16:05:20.089292608 +0000
+@@ -1,13 +1,13 @@
+-PBM_ROOT=/where_the_root_of_pbmplus_is
++PBM_ROOT=/usr
+ 
+ pbmtoepsi: pbmtoepsi.o
+-	cc -o pbmtoepsi -L$(PBM_ROOT)/pbm pbmtoepsi.o -O -lpbm
++	cc -o pbmtoepsi -L$(PBM_ROOT)/lib pbmtoepsi.o -O -lnetpbm -lm
+ 
+ pbmtoepsi.o: pbmtoepsi.c
+-	cc -c -O -I$(PBM_ROOT) -I$(PBM_ROOT)/pbm pbmtoepsi.c
++	cc -c -O -I$(PBM_ROOT) -I$(PBM_ROOT)/include pbmtoepsi.c
+ 
+ install: pbmtoepsi
+-	install -c -s pbmtoepsi /usr/local/bin/X11/pbmtoepsi
++	install -c -s pbmtoepsi ./1/pbmtoepsi
+ 
+ clean:
+ 	rm -f *.o pbmtoepsi

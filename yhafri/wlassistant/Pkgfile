@@ -1,0 +1,19 @@
+# Description: a user friendly KDE app which  allows one to scan for and connect to wireless networks using any adapter which uses Wireless Extensions
+# URL: http://wlassistant.sourceforge.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, wireless-tools
+
+name=wlassistant
+version=0.5.5
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    export QTDIR=/usr/share/qt
+    ./configure prefix=/usr debug=0
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/locale/* ! -wholename "*locale/en*" -delete
+}

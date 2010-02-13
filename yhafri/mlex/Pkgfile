@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Erlang micro lexical scanner 
+# URL: http://www.erlang.org/user.html#mlex-1.0
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=mlex
+version=1.0
+release=1
+source=(http://www.erlang.org/contrib/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+	cd $name-$version
+	make 
+	cp -rf ebin/ src/ priv/ $PKG/usr/lib/erlang/lib/$name-$version/
+        chown -R root:root $PKG/
+}

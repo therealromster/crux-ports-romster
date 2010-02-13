@@ -1,0 +1,37 @@
+# $Id: $
+# Description: A cross platform audio library
+# URL: http://www.fmod.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=fmod
+version=40201linux
+release=1
+source=(http://www.fmod.org/files/${name}api${version}.tar.gz)
+
+build () {
+	VERSION=4.02.01
+	LIBDIR=api/lib
+	HDRDIR=api/inc
+	DESTLIBDIR=usr/lib
+	DESTHDRDIR=usr/include/fmodex
+
+	mkdir -p $PKG/$DESTLIBDIR $PKG/$DESTHDRDIR
+
+	cd ${name}api${version}
+
+        cp -f ${LIBDIR}/libfmodex.so.${VERSION} $PKG/${DESTLIBDIR}
+        cp -f ${LIBDIR}/libfmodexp.so.${VERSION} $PKG/${DESTLIBDIR}
+
+	cd $PKG/${DESTLIBDIR}
+        ln -s libfmodex.so.${VERSION}   libfmodex.so
+        ln -s libfmodexp.so.${VERSION}  libfmodexp.so
+	cd -
+
+        ldconfig -n ${DESTLIBDIR}
+        mkdir -p ${DESTHDRDIR}
+        cp -f ${HDRDIR}/*.h* $PKG/${DESTHDRDIR}
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Perl library for GUI animations
+# URL: http://www.tls.cena.fr/divisions/PII/produits/#anim
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-math-bezier, p5-math-derivative, p5-math-spline
+
+
+name=perl-anim
+version=3.13
+release=1
+source=(http://perso.tls.cena.fr/etienne/wootz/downloads/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd $name-$version.orig
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A set of XPIDL files, headers and tools to develop XPCOM components for Mozilla suite
+# URL: http://developer.mozilla.org/en/docs/Gecko_SDK
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=gecko-sdk
+version=1.8.0.4
+release=1
+source=(http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/$version/sdk/$name-i686-pc-linux-gnu-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr
+
+	mv $name/* $PKG/usr
+
+	chown -R root:root $PKG
+}

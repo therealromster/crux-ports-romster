@@ -1,0 +1,25 @@
+PRE-INSTALL:
+
+		* To watch many of the new Quicktime trailers, you'll need to install:
+		libsndfile
+		lame
+		id3lib
+		faad2
+		faac
+		liba52
+
+		* You should then recompile and upgrade mplayer, so that is built with support
+		for these codecs.
+
+		* To watch videos on sites that only support IE you need to install the
+		following Firefox extension:
+
+		http://prdownloads.sourceforge.net/mplayerplug-in/mplayerplug-in-0.2.1.xpi?download
+
+		It works by converting OBJECT tags to EMBED ones.
+
+POST-INSTALL:
+
+		* Create a symlink to the mplayerplu-in:
+		# ln -sf /usr/lib/firefox/plugins/mplayerplug-in.so /FIREFOX_INSTALL_DIR/plugins/mplayerplug-in.so
+

@@ -1,0 +1,20 @@
+# Description: firmware and utilities for atmel, atmel_cs, and "Berlios" at76c503 wlan NICs
+# URL: http://www.thekelleys.org.uk/atmel/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: wireless-tools
+
+name=atmel-firmware
+version=1.3
+release=1
+source=(http://www.thekelleys.org.uk/atmel/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    gcc -o atmel_fwl atmel_fwl.c
+    mkdir -p $PKG/{lib/firmware,usr/sbin}
+    cp images*/*.bin $PKG/lib/firmware/
+    install -D atmel.conf $PKG/etc/pcmcia/atmel.conf
+    cp atmel_fwl atmel_fwl.pl $PKG/usr/sbin/
+    install -D atmel_fwl.8 $PKG/usr/man/man8/atmel_fwl.8
+}

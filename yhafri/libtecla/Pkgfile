@@ -1,0 +1,22 @@
+# $Id: $
+# Description: UNIX and LINUX library which provides an interactive command line editing facilities
+# URL: http://www.astro.caltech.edu/~mcs/tecla/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libtecla
+version=1.6.1
+release=1
+source=(http://www.astro.caltech.edu/~mcs/tecla/$name-$version.tar.gz)
+
+build () {
+	cd $name
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A small SSL library
+# URL: http://xyssl.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=xyssl
+version=0.1
+release=1
+source=(http://$name.org/code/download/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

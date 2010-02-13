@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl tools to parse mails
+# URL: http://search.cpan.org/~markov/MailTools-1.64/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-mailtools
+version=1.72
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MA/MARKOV/MailTools-$version.tar.gz)
+
+build () {
+	cd MailTools-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

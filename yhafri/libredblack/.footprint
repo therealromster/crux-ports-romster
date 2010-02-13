@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/rbgen
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/redblack.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libredblack.a
+-rwxr-xr-x	root/root	usr/lib/libredblack.la
+lrwxrwxrwx	root/root	usr/lib/libredblack.so -> libredblack.so.0.2.3
+lrwxrwxrwx	root/root	usr/lib/libredblack.so.0 -> libredblack.so.0.2.3
+-rwxr-xr-x	root/root	usr/lib/libredblack.so.0.2.3
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/rbgen.1.gz
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/rbcloselist.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbdelete.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbdestroy.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbfind.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbinit.3.gz
+-rw-r--r--	root/root	usr/man/man3/rblookup.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbopenlist.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbreadlist.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbsearch.3.gz
+-rw-r--r--	root/root	usr/man/man3/rbwalk.3.gz

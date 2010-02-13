@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Set timeout for a command
+# URL: http://www.shelldorado.com/scripts/categories.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=timeout
+version=1
+release=1
+source=($name)
+
+build () {
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

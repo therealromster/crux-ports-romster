@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A system to store and display time-series data
+# URL: http://people.ee.ethz.ch/~oetiker/webtools/rrdtool/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpng, libgd, zlib, tcl, libart_lgpl, libcgi, python
+
+name=rrdtool
+version=1.2.15
+release=1
+source=(http://oss.oetiker.ch/rrdtool/pub/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --enable-shared \
+		    --enable-local-libpng \
+		    --enable-local-zlib \
+		    --with-tcllib=/usr/lib
+
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/{doc,examples,html}
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A relational database management layer on top of mnesia
+# URL: http://ulf.wiger.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=rdbms
+version=1.992
+release=1
+source=(http://ulf.wiger.net/$name/download/$name-$version.tgz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,include}
+
+	cd $name-$version
+
+	make
+
+	mv src/*     $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv ebin/*    $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv include   $PKG/usr/lib/erlang/lib/$name-$version/include
+	mv mnesia_patches $PKG/usr/lib/erlang/lib/$name-$version/
+
+	cd $PKG/usr/lib/erlang/lib/$name-$version/src/
+	rm -f BUILD_OPTIONS Makefile TODO
+
+
+	chown -R root:root $PKG
+}

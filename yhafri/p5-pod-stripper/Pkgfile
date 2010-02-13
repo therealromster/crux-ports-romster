@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Strip all pod, and output what's left
+# URL: http://84.45.18.237/~podmaster/Pod-Stripper-0.22/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-pod-stripper
+version=0.22
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/P/PO/PODMASTER/Pod-Stripper-$version.tar.gz)
+
+build () {
+	cd Pod-Stripper-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

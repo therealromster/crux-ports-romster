@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Volume controls for guys who like volume controls
+# URL: http://heroinewarrior.com/mix2000.php3
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mix2000
+version=1.0.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/heroines/$name-$version-src.tar.bz2 \
+    $name-$version.patch)
+
+build () {
+    mkdir -p $PKG/usr/bin
+    cd $name-$version
+    patch -p1<../$name-$version.patch
+    make
+	make DESTDIR=$PKG install
+    chown -R root:root $PKG
+}

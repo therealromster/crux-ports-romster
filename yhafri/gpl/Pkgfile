@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Perl script to add the GPL license to the top of a source file
+# URL: http://www.noserose.net/e/code/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=gpl
+version=1
+release=1
+source=(http://www.noserose.net/e/code/$name.perl)
+
+build () {
+    mkdir -p $PKG/usr/bin
+    install $name.perl $PKG/usr/bin/$name.pl
+
+    chown -R root:root $PKG
+}

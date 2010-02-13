@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to RSA crypt algorithm
+# URL: http://perl.enstimac.fr/CPAN/modules/by-category/14_Security_and_Encryption/Crypt/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-crypt-rsa
+version=1.55
+release=1
+source=(http://perl.enstimac.fr/CPAN/modules/by-category/14_Security_and_Encryption/Crypt/Crypt-RSA-$version.tar.gz)
+
+build () {
+	cd Crypt-RSA-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

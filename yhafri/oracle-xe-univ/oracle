@@ -1,0 +1,137 @@
+#!/bin/bash 
+
+
+#set -x 
+
+# Set path if path not set (if called from /etc/rc)
+case $PATH in
+    "") PATH=/bin:/usr/bin:/sbin:/etc
+        export PATH ;;
+esac
+
+# Save LD_LIBRARY_PATH
+SAVE_LLP=$LD_LIBRARY_PATH
+
+RETVAL=0
+ORACLE_HOME=/usr/lib/oracle/xe/app/oracle/product/10.2.0/server
+ORACLE_OWNER=oracle
+ORACLE_SID=XE
+LSNR=$ORACLE_HOME/bin/lsnrctl
+SQLPLUS=$ORACLE_HOME/bin/sqlplus
+SU=/usr/bin/su
+export ORACLE_HOME
+export ORACLE_SID
+export PATH=$ORACLE_HOME/bin:$PATH
+LOG="$ORACLE_HOME_LISTNER/listener.log"
+
+export LC_ALL=C
+
+if [ $(id -u) != "0" ]
+then
+    echo "You must be root to run the configure script.  Login as root and then run the 
+configure script."
+    exit 1
+fi
+
+CONFIG_NAME=oracle-xe
+CONFIGURATION="/etc/sysconfig/$CONFIG_NAME"
+
+init_status()
+    {
+        return 0
+    }
+
+success_status()
+    {
+        echo "OK"
+        return 0
+    }
+
+failure_status()
+    {
+        echo "Failed"
+        return 0
+    }
+
+exit_status()
+    {
+        exit $?
+    }
+
+
+# Source configuration
+
+[ -f "$CONFIGURATION" ] && . "$CONFIGURATION"
+
+init_status
+
+
+ORACLE_DBENABLED=false
+
+start() {
+	status=`ps -ef | grep tns | grep oracle`
+	if [ "$status" == "" ]
+	then
+		if [ -f $ORACLE_HOME/bin/tnslsnr ]  
+	        then
+		     	echo "Starting Oracle Net Listener."
+        		($SU $ORACLE_OWNER -s /bin/bash -c "$LSNR  start" > /dev/null 2>&1)
+		fi
+	fi
+	echo "Starting Oracle Database 10g Express Edition Instance."
+	($SU $ORACLE_OWNER -s /bin/bash -c "$SQLPLUS -s /nolog @$ORACLE_HOME/config/scripts/startdb.sql" > /dev/null 2>&1)
+    RETVAL=$?
+    if [ $RETVAL -eq 0 ]
+    then
+        echo
+    else
+        echo Failed to start Oracle Net Listener using $ORACLE_HOME/bin/tnslsnr\
+ 	      and Oracle Express Database using $ORACLE_HOME/bin/sqlplus.
+        RETVAL=1
+    fi
+    return $RETVAL
+}
+
+stop() {
+    # Stop Oracle 10g Express Edition Database and Listener
+    echo Shutting down Oracle Database 10g Express Edition Instance.
+	($SU $ORACLE_OWNER -s /bin/bash -c "$SQLPLUS -s /nolog @$ORACLE_HOME/config/scripts/stopdb.sql" > /dev/null 2>&1)
+	echo Stopping Oracle Net Listener.
+   ( $SU $ORACLE_OWNER -s /bin/bash -c "$LSNR stop" > /dev/null 2>&1)
+    RETVAL=$?
+    echo 
+    if [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/$LSNR
+    then
+        return $RETVAL
+    fi
+}
+
+dostatus() {
+        
+	($SU $ORACLE_OWNER -s /bin/bash -c "$LSNR status")
+    RETVAL=$?
+}
+
+# See how we were called
+case "$1" in
+  start)
+        start
+       ;;
+  stop)
+        stop
+        ;;
+  restart|reload|force-reload)
+        stop
+        start
+        RETVAL=$?
+        ;;
+  status)
+        dostatus
+        ;;
+	*)
+        echo $"Usage: $0 {start|stop|restart|force-reload|status}"
+        exit 1
+esac
+
+
+

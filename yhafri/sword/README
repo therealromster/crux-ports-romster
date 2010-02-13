@@ -1,0 +1,6 @@
+POST INSTALL:
+
+Download some texts from www.crosswire.org.  Extract them to /usr/share/sword.
+Add this line to your /etc/profile, or ~/bash_profile, or...etc:
+
+export SWORD_PATH=/usr/share/sword

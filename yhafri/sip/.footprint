@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/sip
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/python2.4/
+-rw-r--r--	root/root	usr/include/python2.4/sip.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/python2.4/
+drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/
+-rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/sip.so
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/sipconfig.py
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/sipdistutils.py

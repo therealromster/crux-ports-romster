@@ -1,0 +1,22 @@
+#!/bin/sh
+
+chemin=`basename ./erlang/erts-*`
+
+for i in ./erlang/erts-$chemin/bin/*; 
+do
+  if [ -e $i ]; then
+      echo "Readjusting $i paths..."
+      sed -i -e "s/ROOTDIR\=.*$/ROOTDIR\=\/usr\/lib\/erlang/" $i;
+  fi
+done;
+
+
+for i in ./erlang/bin/*; 
+do
+  if [ -e $i ]; then
+      echo "Adjusting $i paths..."
+      sed -i -e "s/ROOTDIR\=.*$/ROOTDIR\=\/usr\/lib\/erlang/" $i;
+      sed -i -e "s/ERLANG\_EARS\=.*$/ERLANG\_EARS\=\/usr\/lib\/erlang\/bin/" $i;
+      sed -i -e "s/exec.*\(beam_evm\)/exec \/usr\/lib\/erlang\/bin\/\1/" $i;
+  fi
+done;

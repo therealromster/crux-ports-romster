@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Access Braille displays and terminals 
+# URL: http://libbraille.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, swig
+
+name=libbraille
+version=0.13.0
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/libbraille/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr \
+		    --enable-shared \
+		    --enable-python \
+		    --disable-java \
+		    --disable-gtktest \
+		    --disable-glibtest
+
+	cp include/braille.h python/
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+	
+        chown -R root:root $PKG
+}

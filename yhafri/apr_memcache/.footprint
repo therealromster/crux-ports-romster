@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/apr_memcache-0/
+-rw-r--r--	root/root	usr/include/apr_memcache-0/apr_memcache.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libapr_memcache.a
+-rwxr-xr-x	root/root	usr/lib/libapr_memcache.la
+lrwxrwxrwx	root/root	usr/lib/libapr_memcache.so -> libapr_memcache.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libapr_memcache.so.0 -> libapr_memcache.so.0.0.1
+-rwxr-xr-x	root/root	usr/lib/libapr_memcache.so.0.0.1

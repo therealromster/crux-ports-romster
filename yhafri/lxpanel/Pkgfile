@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Lightweight X11 Desktop Environment
+# URL: http://lxde.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=lxpanel
+version=0.2.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/lxde/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="-L/usr/X11R6/lib/" ./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

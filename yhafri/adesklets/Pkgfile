@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Interactive imlib2 console for the X Window System
+# URL: http://adesklets.sourceforge.net/
+# Maintainer: acrux, acrux at linuxmail dot org
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: fontconfig, x11, readline, imlib2, perl, python, libiconv
+
+name=adesklets
+version=0.6.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build() {
+    	cd $name-$version
+    	
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	sed -i "s|\-lfontconfig|\-lfontconfig \-liconv|" src/Makefile
+    
+	make
+    	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/info
+
+	chown -R root:root $PKG
+}

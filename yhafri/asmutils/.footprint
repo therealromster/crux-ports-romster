@@ -1,0 +1,165 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/asmutils/
+drwxr-xr-x	root/root	usr/lib/asmutils/bin/
+drwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/arch -> uname
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/basename
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/cal
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/cat
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/ccd -> eject
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/cda2raw
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/chmod
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/chown
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/chroot
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/chvt
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/cmp
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/cp
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/cpuinfo
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/cpuspeed -> cpuinfo
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/cut
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/date
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/dc
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/dd
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/deallocvt -> chvt
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/deflate
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/df
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/dirname
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/dmesg
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/domainname -> hostname
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/du
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/echo
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/eject
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/env
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/extname
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/factor
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/false -> true
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/fdisk
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/finger
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/fingerd -> finger
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/free
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/fromdos
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/ftpd
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/getty
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/gi
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/grep
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/halt -> reboot
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/head
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/hexdump
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/host
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/hostname
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/httpd
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/id
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/idea
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/ifconfig
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/inflate -> deflate
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/init
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/kill
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/killall
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/killall5 -> killall
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/ksyms
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/less
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/ln
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/ls
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/lsmod
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/lsusb
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/lzss
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/m_inetd
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/md5
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/md5sum
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/mesg
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/mkdir
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/mkfifo -> mknod
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/mkfs.minix
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/mknod
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/mkswap -> swapon
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/more -> less
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/mount
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/mv
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/nc
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/netstat
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/nice
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/nm
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/nohup
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/od
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/paste
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/pidof -> killall
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/ping
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/pop3d
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/poweroff -> reboot
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/proxy
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/ps
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/pwd
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/rc6crypt
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/readelf
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/readkey
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/readlink
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/reboot
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/renice
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/rm
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/rmdir -> mkdir
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/rmdsum
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/rmmod -> lsmod
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/rot13
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/route -> ifconfig
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/scan
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/scons
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/sh
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/sha1sum
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/size -> nm
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/sleep
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/sln -> ln
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/softdog
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/strings
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/swapoff -> swapon
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/swapon
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/sync
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/sysctl
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/tail
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/tar
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/tee
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/telnet
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/telnetd
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/test
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/todos -> fromdos
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/touch
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/tr
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/true
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/truss
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/tty
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/umount -> mount
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/uname
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/update
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/uptime
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/users
+lrwxrwxrwx	root/root	usr/lib/asmutils/bin/LINUX-26/usleep -> sleep
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/uuencode
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/watch
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/wc
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/wget
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/which
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/whoami
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/write
+-rwxr-xr-x	root/root	usr/lib/asmutils/bin/LINUX-26/yes
+drwxr-xr-x	root/root	usr/lib/asmutils/lib/
+-rw-r--r--	root/root	usr/lib/asmutils/lib/Makefile
+-rw-r--r--	root/root	usr/lib/asmutils/lib/heap.asm
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libc.a
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libc.asm
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libc.h
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libc.o
+-rwxr-xr-x	root/root	usr/lib/asmutils/lib/libc.so.0
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libc_stub.asm
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libc_stub.o
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libcrypto.a
+-rwxr-xr-x	root/root	usr/lib/asmutils/lib/libcrypto.so.0
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libm.a
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libm.c
+-rw-r--r--	root/root	usr/lib/asmutils/lib/libm.o
+-rwxr-xr-x	root/root	usr/lib/asmutils/lib/libm.so.0
+-rw-r--r--	root/root	usr/lib/asmutils/lib/md5.asm
+-rw-r--r--	root/root	usr/lib/asmutils/lib/md5.o
+-rw-r--r--	root/root	usr/lib/asmutils/lib/rc6.asm
+-rw-r--r--	root/root	usr/lib/asmutils/lib/rc6.o
+-rw-r--r--	root/root	usr/lib/asmutils/lib/rmd.asm
+-rw-r--r--	root/root	usr/lib/asmutils/lib/rmd.o

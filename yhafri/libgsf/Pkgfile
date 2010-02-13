@@ -1,0 +1,25 @@
+# $Id: $
+# Description: The GNOME Structured File Library -- lite version
+# URL: http://freshmeat.net/projects/libgsf/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: glib, libxml2
+
+name=libgsf
+version=1.14.2
+release=1
+source=(http://freshmeat.net/redir/libgsf/32571/url_tgz/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+    	./configure --prefix=/usr \
+		    --without-gnome \
+	   	    --disable-gtk-doc
+
+    	make
+    	make DESTDIR=$PKG install
+    	
+	rm -fr $PKG/usr/share
+
+	chown -R root:root $PKG
+}

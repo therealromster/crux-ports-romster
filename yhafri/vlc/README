@@ -1,0 +1,12 @@
+BUGS:
+	* When launching "vlc", I got this error message:
+	Inconsistency detected by ld.so: ../sysdeps/generic/dl-tls.c: 72: _dl_next_tls_modid: Assertion `result <= 
+	_rtld_local._dl_tls_max_dtv_idx' failed!
+
+	I fix it by applying the solution from:
+	http://www.via.ecp.fr/via/ml/vlc/2005-04/msg00120.html
+	
+	It consist to remove the plugins: libopengl_plugin.so, libglx_plugin.so and libugly_resampler_plugin.so
+	
+	Just enjoy
+

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Erlang PostgreSQL driver 
+# URL: http://www.erlang-consulting.com/aboutus/opensource.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, postgresql
+
+name=psql
+version=0.0.1
+release=1
+source=(http://www.erlang-consulting.com/download/$name.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/{$name,sql}-$version
+
+	cd $name
+
+	(cd psql; make; cp -rf ebin src priv $PKG/usr/lib/erlang/lib/$name-$version)	
+	(cd sql;  make; cp -rf ebin src priv $PKG/usr/lib/erlang/lib/sql-$version)	
+
+	chown -R root:root $PKG
+}

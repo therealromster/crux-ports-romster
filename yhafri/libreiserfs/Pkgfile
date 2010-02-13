@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Reiserfs library
+# URL: http://ftp.roedu.net/pub/mirrors/ftp.namesys.com/pub/libreiserfs
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libreiserfs
+version=0.3.0.5
+release=1
+source=(http://ftp.roedu.net/pub/mirrors/ftp.namesys.com/pub/$name/progsreiserfs-$version.tar.gz)
+
+build () {
+	cd progsreiserfs-$version
+	./configure --prefix=/usr \
+                --disable-nls
+
+    make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG/usr install
+
+    chown -R root:root $PKG
+}

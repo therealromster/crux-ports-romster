@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A cross platform Python IDE and wxPython GUI Builder
+# URL: http://boa-constructor.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Mike Gardiner <driver@iinet.net.au>
+# Depends: python, wxpython, scintilla
+
+name=boa-constructor
+version=0.3.1
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/$name/$name-$version.zip \
+    boa)
+
+build() {
+	mkdir -p $PKG/usr/{bin,local}
+	mv $name-$version $PKG/usr/local/boa
+    find $PKG -name  "*\.txt" -type "f" | xargs rm -rf
+    chmod +x $SRC/boa
+    mv $SRC/boa $PKG/usr/bin
+    chown -R root:root $PKG
+}

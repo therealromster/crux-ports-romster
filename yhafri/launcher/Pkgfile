@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Make all Java classes, whoever wrote them, appear as if they are part of rt.jar
+# URL: http://www.pmilne.net/Launcher/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: j2sdk
+
+name=launcher
+version=0.2
+release=1
+source=(http://www.pmilne.net/Launcher/Launcher.jar \
+	http://www.pmilne.net/Launcher/Launcher.class)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	mv Launcher.jar Launcher.class $PKG/usr/lib/$name
+        chown -R root:root $PKG
+}

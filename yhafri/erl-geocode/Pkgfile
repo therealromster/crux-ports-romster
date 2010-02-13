@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A library that can find the latitude and longitude of an address using the Google Maps API
+# URL: http://code.google.com/p/erl-geocode/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, subversion
+
+name=erl-geocode
+version=svn
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	
+	svn checkout http://erl-geocode.googlecode.com/svn/trunk/ erl-geocode
+
+	cd $name
+	
+	(cd src; erl -make; mv *.beam ../ebin)
+
+	mv src/*  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

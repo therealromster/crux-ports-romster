@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Utility that runs a program on a large number of hosts in parallel
+# URL: http://www.tuxrocks.com/Projects/p-run/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: expect
+
+name=p-run
+version=1
+release=1
+source=(http://www.tuxrocks.com/Projects/$name/$name.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

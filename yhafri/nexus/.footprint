@@ -1,0 +1,37 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/NXbrowse90
+-rwxr-xr-x	root/root	usr/bin/NXdump
+-rwxr-xr-x	root/root	usr/bin/nx2dtd
+-rwxr-xr-x	root/root	usr/bin/nxbrowse
+-rwxr-xr-x	root/root	usr/bin/nxbuild
+-rwxr-xr-x	root/root	usr/bin/nxconvert
+-rwxr-xr-x	root/root	usr/bin/nxdir
+-rwxr-xr-x	root/root	usr/bin/nxtranslate
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/napi.h
+-rw-r--r--	root/root	usr/include/napif.inc
+-rw-r--r--	root/root	usr/include/napiu.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libIPNSRunfile.a
+-rwxr-xr-x	root/root	usr/lib/libIPNSRunfile.la
+lrwxrwxrwx	root/root	usr/lib/libIPNSRunfile.so -> libIPNSRunfile.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libIPNSRunfile.so.0 -> libIPNSRunfile.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libIPNSRunfile.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libNeXus.a
+-rwxr-xr-x	root/root	usr/lib/libNeXus.la
+lrwxrwxrwx	root/root	usr/lib/libNeXus.so -> libNeXus.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libNeXus.so.0 -> libNeXus.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libNeXus.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libNeXus77.a
+-rwxr-xr-x	root/root	usr/lib/libNeXus77.la
+lrwxrwxrwx	root/root	usr/lib/libNeXus77.so -> libNeXus77.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libNeXus77.so.0 -> libNeXus77.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libNeXus77.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libNeXus90.a
+-rwxr-xr-x	root/root	usr/lib/libNeXus90.la
+lrwxrwxrwx	root/root	usr/lib/libNeXus90.so -> libNeXus90.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libNeXus90.so.0 -> libNeXus90.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libNeXus90.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/nexus.pc

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Better than h2xs, for creating all the parts of modules
+# URL: http://search.cpan.org/~rgeoffrey/ExtUtils-ModuleMaker-0.32/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-extutils-modulemaker
+version=0.32
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RG/RGEOFFREY/ExtUtils-ModuleMaker-$version.tar.gz)
+
+build () {
+	cd ExtUtils-ModuleMaker-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

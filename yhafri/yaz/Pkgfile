@@ -1,0 +1,20 @@
+# Description: a programmers' toolkit which supports the development of Z39.50/SRW/SRU clients and servers
+# URL: http://www.indexdata.dk/yaz/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=yaz
+version=2.1.8
+release=1
+source=(http://ftp.indexdata.dk/pub/yaz/yaz-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

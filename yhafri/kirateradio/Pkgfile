@@ -1,0 +1,19 @@
+# Description: iRate Radio plugin for KDE
+# URL: http://irate.sourceforge.net/kirate/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdemultimedia
+
+name=kirateradio
+version=0.1
+release=2
+source=(http://irate.sourceforge.net/kirate/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

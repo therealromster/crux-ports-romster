@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A free MPEG-2 video stream decoder
+# URL: http://libmpeg2.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libmpeg2
+version=20050802
+release=1
+source=(http://downloads.videolan.org/pub/videolan/vlc/0.8.5/contrib/mpeg2dec-$version.tar.gz)
+
+build () {
+	cd mpeg2dec-0.4.1-cvs
+
+	./configure --prefix=/usr \
+		    --enable-shared
+
+    	make
+	make DESTDIR=$PKG install
+    	
+    	chown -R root:root $PKG
+}

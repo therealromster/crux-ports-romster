@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/memcache.h
+drwxr-xr-x	root/root	usr/include/memcache/
+-rw-r--r--	root/root	usr/include/memcache/_buffer.h
+-rw-r--r--	root/root	usr/include/memcache/buffer.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libmemcache.a
+-rwxr-xr-x	root/root	usr/lib/libmemcache.la
+lrwxrwxrwx	root/root	usr/lib/libmemcache.so -> libmemcache.so.0.4.0
+lrwxrwxrwx	root/root	usr/lib/libmemcache.so.0 -> libmemcache.so.0.4.0
+-rwxr-xr-x	root/root	usr/lib/libmemcache.so.0.4.0

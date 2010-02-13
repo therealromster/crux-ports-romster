@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Ebay monitoring java client
+# URL: http://www.jbidwatcher.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, j2sdk
+
+name=jbidwatch
+version=0.9.4pre3
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/JBidWatcher-$version.jar \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	chmod 755 $name
+	mv $name JBidWatcher-$version.jar $PKG/usr/bin/
+        chown -R root:root $PKG
+}

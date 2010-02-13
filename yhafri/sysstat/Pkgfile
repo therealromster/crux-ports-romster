@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Package utilities to monitor system performance and usage activity
+# URL: http://perso.orange.fr/sebastien.godard/download.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sysstat
+version=7.0.1
+release=1
+source=(http://perso.orange.fr/sebastien.godard/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/{doc,share}
+
+	chown -R root:root $PKG
+}

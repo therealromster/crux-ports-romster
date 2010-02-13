@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Synthetic Data Generation Code for Classification
+# URL: http://www.almaden.ibm.com/software/quest/Resources/index.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=classification-gen
+version=1
+release=1
+source=(http://www.almaden.ibm.com/software/quest/Resources/datasets/data/classification.gen.tar.Z)
+
+build () {
+	make
+	strip pred
+	install -D -m 755 pred $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

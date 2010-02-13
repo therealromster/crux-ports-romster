@@ -1,0 +1,23 @@
+# $Id: $
+# Description: The Mozart Programming System
+# URL: http://www.mozart-oz.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, perl, tk, emacs, zlib, regex, gdbm, libgmp, jdk, flex, bison
+name=mozart
+version=1.3.2
+release=1
+source=(http://www.$name-oz.org/download/$name-ftp/store/$version-2006-06-15-tar/$name-$version.20060615-src.tar.gz)
+
+build () {
+	cd $name-$version.20060615/
+
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --disable-contrib-compat
+
+	make bootstrap
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

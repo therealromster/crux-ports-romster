@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Efficient bit vector, set of integers and "big int" math library
+# URL: http://search.cpan.org/~stbey/Bit-Vector-6.4/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-carp-clan
+
+name=p5-bit-vector
+version=6.4
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/ST/STBEY/Bit-Vector-$version.tar.gz)
+
+build () {
+	cd Bit-Vector-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

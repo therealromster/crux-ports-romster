@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Cache interface
+# URL: http://84.45.18.237/~dclinton/Cache-Cache-1.04/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-digest-sha1, p5-ipc-sharelite, p5-error
+
+name=p5-cache-cache
+version=1.04
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/D/DC/DCLINTON/Cache-Cache-$version.tar.gz)
+
+build () {
+	cd Cache-Cache-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,53 @@
+--- /home/aleyns/software/otp_src_R11B-5/lib/kernel/src/code_server.erl	2007-06-11 08:54:54.000000000 -0400
++++ lib/kernel/src/code_server.erl	2007-10-16 11:14:49.688693000 -0400
+@@ -48,7 +48,6 @@
+ 	{Ref,Res} -> Res
+     end.
+ 
+-
+ %% -----------------------------------------------------------
+ %% Init the code_server process.
+ %% -----------------------------------------------------------
+@@ -61,7 +60,8 @@
+ 		    LibDir = filename:append(Root, "lib"),
+ 		    {ok,Dirs} = erl_prim_loader:list_dir(LibDir),
+ 		    {Paths,_Libs} = make_path(LibDir, Dirs),
+-		    ["."|Paths];
++		    UserLibPaths  = get_user_lib_dirs(),
++		    ["."] ++ UserLibPaths ++ Paths;
+ 	       true ->
+ 		    []
+ 	    end,
+@@ -91,6 +91,32 @@
+     Parent ! {Ref,{ok,self()}},
+     loop(State#state{supervisor=Parent}).
+ 
++get_user_lib_dirs() ->
++    case os:type() of
++    {win32, _} -> Sep = $;;
++    _          -> Sep = $:
++    end,
++    
++    case os:getenv("ERL_LIBS") of
++    LibDirs when is_list(LibDirs) ->
++        Fun = fun(Dir, Acc) -> 
++            {ok, Dirs} = erl_prim_loader:list_dir(Dir),
++            {Paths,_Libs} = make_path(Dir, Dirs),
++            %% Only add paths trailing with ./ebin
++            Acc ++ [P || P <- Paths, lists:suffix("/ebin", P)]
++        end,
++        lists:foldl(Fun, [], split_paths(LibDirs, Sep, [], []));
++    _ ->
++        []
++    end.
++
++split_paths([S | T], S, Path, Paths) ->
++    split_paths(T, S, [], [lists:reverse(Path) | Paths]);
++split_paths([C | T], S, Path, Paths) ->
++    split_paths(T, S, [C | Path], Paths);
++split_paths([], _S, Path, Paths) ->
++    lists:reverse([lists:reverse(Path) | Paths]).
++
+ call(Name, Req) ->
+     Name ! {code_call, self(), Req},
+     receive 

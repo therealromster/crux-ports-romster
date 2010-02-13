@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A UNIX command line which allows you to send SMS messages to mobile phones and pagers
+# URL: http://www.smsclient.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=smsclient
+version=2.0.9
+release=1
+source=(http://www.smsclient.org/download/smsclient-$version/smsclient-${version}a.tar.gz)
+
+build () {
+	cd $name-${version}a
+	echo "Y" | ./configure
+
+    make
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

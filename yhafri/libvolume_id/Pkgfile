@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Library to provide file system type information
+# URL: http://www.freshports.org/devel/libvolume_id
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libvolume_id
+version=0.71.0
+release=1
+source=(http://www.marcuscom.com/downloads/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make DESTDIR=$PKG/usr install
+
+	chown -R root:root $PKG
+}

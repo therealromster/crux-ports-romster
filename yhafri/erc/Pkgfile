@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A powerful, modular, and extensible Emacs InternetRelayChat client
+# URL: http://emacswiki.org/cgi-bin/wiki/ERC
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=erc
+version=5.1.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	make PREFIX=$PKG/usr install
+
+	rm -rf $PKG/usr/info/
+
+	chown -R root:root $PKG
+}

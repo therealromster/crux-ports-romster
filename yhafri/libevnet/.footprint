@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/evnet/
+-rw-r--r--	root/root	usr/include/evnet/bufio.h
+drwxr-xr-x	root/root	usr/include/evnet/bufio/
+-rw-r--r--	root/root	usr/include/evnet/bufio/drain.h
+-rw-r--r--	root/root	usr/include/evnet/bufio/membuf.h
+-rw-r--r--	root/root	usr/include/evnet/bufio/pagebuf.h
+-rw-r--r--	root/root	usr/include/evnet/bufio/pipe.h
+-rw-r--r--	root/root	usr/include/evnet/bufio/socket.h
+-rw-r--r--	root/root	usr/include/evnet/lookup.h
+-rw-r--r--	root/root	usr/include/evnet/socket.h
+-rw-r--r--	root/root	usr/include/evnet/thread.h
+-rw-r--r--	root/root	usr/include/evnet/tls.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libevnet.a

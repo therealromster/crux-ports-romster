@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/azureus -> /usr/lib/azureus/azureus
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/azureus/
+-rw-r--r--	root/root	usr/lib/azureus/Azureus.png
+-rw-r--r--	root/root	usr/lib/azureus/Azureus.torrent.png
+-rw-r--r--	root/root	usr/lib/azureus/Azureus2.jar
+-rwxr-xr-x	root/root	usr/lib/azureus/azureus
+drwxr-xr-x	root/root	usr/lib/azureus/plugins/
+drwxr-xr-x	root/root	usr/lib/azureus/plugins/azplugins/
+-rw-r--r--	root/root	usr/lib/azureus/plugins/azplugins/azplugins_2.1.3.jar
+drwxr-xr-x	root/root	usr/lib/azureus/plugins/azrating/
+-rw-r--r--	root/root	usr/lib/azureus/plugins/azrating/azrating_1.3.1.jar
+drwxr-xr-x	root/root	usr/lib/azureus/plugins/azupdater/
+-rw-r--r--	root/root	usr/lib/azureus/plugins/azupdater/Updater.jar
+-rw-r--r--	root/root	usr/lib/azureus/plugins/azupdater/azupdaterpatcher_1.8.3.jar
+-rw-r--r--	root/root	usr/lib/azureus/plugins/azupdater/plugin.properties
+-rw-r--r--	root/root	usr/lib/azureus/swt.jar

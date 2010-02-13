@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Games for the Linux Console
+# URL: http://www.muppetlabs.com/~breadbox/software/cgames.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libsdl
+
+name=cgames
+version=2.2
+release=1
+source=(http://www.muppetlabs.com/~breadbox/pub/software/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-latin1 \
+		    --with-ncurses
+
+	make
+	make bindir=$PKG/usr/bin prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

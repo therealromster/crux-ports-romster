@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A library of internal sorting routines
+# URL: http://www.yendor.com/programming/sort/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sort
+version=1
+release=1
+source=(http://www.yendor.com/programming/$name/$name-all.tgz)
+
+build () {
+	cd $name
+
+	make
+
+	install -D -m 755 sorttest $PKG/usr/bin/sorttest
+	install -D -m 755 bstest   $PKG/usr/bin/bstest
+	install -D -m 644 $name.h  $PKG/usr/include/$name.h
+	install -D -m 644 $name.a  $PKG/usr/lib/$name.a
+
+	chown -R root:root $PKG
+}

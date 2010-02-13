@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A JSON implementation in C
+# URL: http://oss.metaparadigm.com/json-c/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=json-c
+version=0.7
+release=1
+source=(http://oss.metaparadigm.com/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

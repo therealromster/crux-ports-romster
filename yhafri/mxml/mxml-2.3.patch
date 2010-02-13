@@ -1,0 +1,11 @@
+--- mxml-2.2.2/Makefile.in	2005-04-25 01:23:59.000000000 +0200
++++ mxml-2.2.2/Makefile.in-new	2005-11-02 00:02:20.000000000 +0100
+@@ -44,7 +44,7 @@
+ #
+ 
+ prefix		=	@prefix@
+-exec_prefix	=	@exec_prefix@
++exec_prefix	=	@prefix@
+ bindir		=	@bindir@
+ includedir	=	@includedir@
+ libdir		=	@libdir@

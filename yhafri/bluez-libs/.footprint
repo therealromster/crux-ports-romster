@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/bluetooth/
+-rw-r--r--	root/root	usr/include/bluetooth/bluetooth.h
+-rw-r--r--	root/root	usr/include/bluetooth/bnep.h
+-rw-r--r--	root/root	usr/include/bluetooth/cmtp.h
+-rw-r--r--	root/root	usr/include/bluetooth/hci.h
+-rw-r--r--	root/root	usr/include/bluetooth/hci_lib.h
+-rw-r--r--	root/root	usr/include/bluetooth/hidp.h
+-rw-r--r--	root/root	usr/include/bluetooth/l2cap.h
+-rw-r--r--	root/root	usr/include/bluetooth/rfcomm.h
+-rw-r--r--	root/root	usr/include/bluetooth/sco.h
+-rw-r--r--	root/root	usr/include/bluetooth/sdp.h
+-rw-r--r--	root/root	usr/include/bluetooth/sdp_lib.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libbluetooth.a
+-rwxr-xr-x	root/root	usr/lib/libbluetooth.la
+lrwxrwxrwx	root/root	usr/lib/libbluetooth.so -> libbluetooth.so.1.0.25
+lrwxrwxrwx	root/root	usr/lib/libbluetooth.so.1 -> libbluetooth.so.1.0.25
+-rwxr-xr-x	root/root	usr/lib/libbluetooth.so.1.0.25
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/bluez.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/bluez.m4

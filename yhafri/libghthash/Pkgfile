@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Generic Hash Table library
+# URL: http://www.ipd.bth.se/ska/sim_home/libghthash.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libghthash
+version=0.6.2
+release=1
+source=(http://www.ipd.bth.se/ska/sim_home/filer/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module for generating documents in Rich Text Format 
+# URL: http://search.cpan.org/~sburke/RTF-Writer-1.11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-rtf-writer
+version=1.11
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/RTF-Writer-$version.tar.gz)
+
+build () {
+	cd RTF-Writer-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

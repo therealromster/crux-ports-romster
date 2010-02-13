@@ -1,0 +1,40 @@
+# $Id: $
+# Description: A highly portable open source IA-32(x86) PC emulator
+# URL: http://bochs.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libsdl
+
+name=bochs
+version=2.1.1
+release=1
+source=(http://heanet.dl.sourceforge.net/sourceforge/bochs/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-x \
+		    --with-x11 \
+		    --with-sdl \
+		    --enable-mmx \
+		    --enable-readline \
+		    --enable-all-optimizations \
+		    --enable-port-e9-hack \
+		    --enable-global-pages \
+		    --enable-fast-function-calls \
+		    --enable-icache \
+		    --enable-repeat-speedups \
+		    --enable-guest2host-tlb \
+		    --enable-pae \
+		    --enable-4meg-pages \
+		    --enable-usb \
+		    --enable-pci \
+		    --enable-compressed-hd \
+	            --enable-shared
+		    
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

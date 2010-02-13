@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Support for Laptops special functions
+# URL: http://pbbuttons.sourceforge.net/projects/pbbuttonsd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=pbbuttonsd
+version=0.7.4
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		   --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description:  Perl-specific system for writing AJAX- or DHTML-based web applications
+# URL: http://search.cpan.org/~bct/CGI-Ajax-0.652/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-class-accessor
+
+name=p5-cgi-ajax
+version=0.691
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BC/BCT/CGI-Ajax-$version.tar.gz)
+
+build () {
+	cd CGI-Ajax-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

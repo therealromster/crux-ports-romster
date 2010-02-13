@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# /etc/rc.d/heritrix: start/stop/test
+#
+
+# Heritrix directroy
+HERITRIX_HOME=/usr/lib/heritrix-VERSION
+
+# Java Settings
+JAVA_OPTS="-Xmx256M"
+
+case $1 in
+start)
+        # Starting Heritrix
+        $HERITRIX_HOME/bin/heritrix
+
+	;;
+stop)
+	# Stopping Heritrix
+	killall -9 java
+	;;
+test)
+         # Running the integration self test
+         $HERITRIX_HOME/bin/heritrix --selftest
+
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart|test]"
+	;;
+esac
+
+# End of file

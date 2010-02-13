@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A tiny http library and a command line tool to perform http queries
+# URL: http://www.demailly.com/~dl/wwwtools.html#http-tiny
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=http-tiny
+version=1.2
+release=1
+source=(http://www.demailly.com/~dl/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,include,man/{man1,man3}}
+
+	cd $name-$version
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

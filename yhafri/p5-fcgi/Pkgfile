@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Fast CGI module
+# URL: http://search.cpan.org/~skimo/FCGI-0.67/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-fcgi
+version=0.67
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SK/SKIMO/FCGI-$version.tar.gz)
+
+build () {
+	cd FCGI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

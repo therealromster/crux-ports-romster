@@ -1,0 +1,26 @@
+--- aiSee/setup	2000-02-28 17:48:41.000000000 +0100
++++ aiSee/setup-new	2005-05-31 18:26:44.461768753 +0200
+@@ -125,13 +125,6 @@
+ 	exit 1
+ fi
+ 
+-yesnoanswer yes "Do you want to install aiSee on your machine now [Yes/no]: "
+-
+-if [ $answer = no ]; then
+-	echo "Ok, maybe another time, then"
+-	exit 0
+-fi
+-
+ 
+ echo ""
+ echo ""
+@@ -190,8 +183,7 @@
+ 
+ 
+ while true; do
+-	getanswer /usr/local "Where should aiSee be installed ? [/usr/local] " 
+-
++	answer="$1"
+ 
+ 	if [ ! -d "$answer" ]; then
+ 		if [ -f "$answer" ]; then

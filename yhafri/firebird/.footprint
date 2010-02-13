@@ -1,0 +1,69 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rc.d/
+-r-xr-x---	root/root	etc/rc.d/firebird
+drwxr-xr-x	root/root	opt/
+drwxr-xr-x	root/root	opt/firebird/
+drwxr-xr-x	root/root	opt/firebird/UDF/
+-rwxr-xr-x	root/root	opt/firebird/UDF/fbudf.so
+-rw-r--r--	root/root	opt/firebird/UDF/fbudf.sql
+-rwxr-xr-x	root/root	opt/firebird/UDF/ib_udf.so
+-rw-r--r--	root/root	opt/firebird/UDF/ib_udf.sql
+-rw-r--r--	root/root	opt/firebird/aliases.conf
+drwxr-xr-x	root/root	opt/firebird/bin/
+-r-x------	root/root	opt/firebird/bin/SSchangeRunUser.sh
+-r-x------	root/root	opt/firebird/bin/SSrestoreRootRunUser.sh
+-r-x------	root/root	opt/firebird/bin/changeDBAPassword.sh
+-r-x------	root/root	opt/firebird/bin/createAliasDB.sh
+-r-xr-xr-x	root/root	opt/firebird/bin/fb_config
+-r-xr-xr-x	root/root	opt/firebird/bin/fb_lock_print
+-r-xr--r--	firebird/firebird	opt/firebird/bin/fbguard
+-r-xr-xr-x	root/root	opt/firebird/bin/fbmgr
+-r-xr--r--	firebird/firebird	opt/firebird/bin/fbserver
+lrwxrwxrwx	root/root	opt/firebird/bin/fsql -> /opt/firebird/bin/isql
+-r-xr-xr-x	root/root	opt/firebird/bin/gbak
+-r-xr-xr-x	root/root	opt/firebird/bin/gdef
+-r-xr-xr-x	root/root	opt/firebird/bin/gfix
+-r-xr-xr-x	root/root	opt/firebird/bin/gpre
+-r-xr-xr-x	root/root	opt/firebird/bin/gsec
+-r-xr-xr-x	root/root	opt/firebird/bin/gstat
+-r-xr-xr-x	root/root	opt/firebird/bin/isql
+-r-xr-xr-x	root/root	opt/firebird/bin/qli
+-rw-r--r--	root/root	opt/firebird/de_DE.msg
+-rw-r--r--	root/root	opt/firebird/firebird.conf
+-rw-r--r--	firebird/firebird	opt/firebird/firebird.log (EMPTY)
+-rw-r--r--	root/root	opt/firebird/firebird.msg
+-rw-r--r--	root/root	opt/firebird/fr_FR.msg
+drwxr-xr-x	root/root	opt/firebird/help/
+-r--r--r--	root/root	opt/firebird/help/help.fdb
+drwxr-xr-x	root/root	opt/firebird/include/
+-rw-r--r--	root/root	opt/firebird/include/blr.h
+-rw-r--r--	root/root	opt/firebird/include/gds.h
+-rw-r--r--	root/root	opt/firebird/include/ib_util.h
+-rw-r--r--	root/root	opt/firebird/include/ibase.h
+-rw-r--r--	root/root	opt/firebird/include/iberror.h
+-rw-r--r--	root/root	opt/firebird/include/perf.h
+drwxr-xr-x	root/root	opt/firebird/intl/
+-rwxr-xr-x	root/root	opt/firebird/intl/fbintl
+-rw-r--r--	firebird/firebird	opt/firebird/isc_event1.crux (EMPTY)
+-rw-r--r--	firebird/firebird	opt/firebird/isc_guard1.crux (EMPTY)
+-rw-r--r--	firebird/firebird	opt/firebird/isc_init1.crux (EMPTY)
+-rw-r--r--	firebird/firebird	opt/firebird/isc_lock1.crux (EMPTY)
+-rw-r--r--	root/root	opt/firebird/ja_JP.msg
+drwxr-xr-x	root/root	opt/firebird/lib/
+lrwxrwxrwx	root/root	opt/firebird/lib/libfbclient.so -> libfbclient.so.1
+lrwxrwxrwx	root/root	opt/firebird/lib/libfbclient.so.1 -> libfbclient.so.1.5.2
+-rwxr-xr-x	root/root	opt/firebird/lib/libfbclient.so.1.5.2
+-rwxr-xr-x	root/root	opt/firebird/lib/libib_util.so
+-rw-------	firebird/firebird	opt/firebird/security.fdb
+lrwxrwxrwx	root/root	opt/interbase -> /opt/firebird
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+lrwxrwxrwx	root/root	usr/include/gds.h -> ../../opt/firebird/include/gds.h
+lrwxrwxrwx	root/root	usr/include/ib_util.h -> ../../opt/firebird/include/ib_util.h
+lrwxrwxrwx	root/root	usr/include/ibase.h -> ../../opt/firebird/include/ibase.h
+lrwxrwxrwx	root/root	usr/include/iberror.h -> ../../opt/firebird/include/iberror.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libfbclient.so -> ../../opt/firebird/lib/libfbclient.so
+lrwxrwxrwx	root/root	usr/lib/libfbclient.so.1 -> ../../opt/firebird/lib/libfbclient.so.1
+lrwxrwxrwx	root/root	usr/lib/libfbclient.so.1.5.2 -> ../../opt/firebird/lib/libfbclient.so.1.5.2
+lrwxrwxrwx	root/root	usr/lib/libib_util.so -> ../../opt/firebird/lib/libib_util.so

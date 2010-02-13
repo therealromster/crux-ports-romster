@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A free, open source Fortran 95 compiler and runtime libraries
+# URL: http://www.g95.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=g95
+version=4.0.3
+release=1
+source=(http://ftp.$name.org/$name-x86-linux.tgz)
+
+build () {
+	cd $name-install
+
+	install -D -m 755 bin/i686-pc-linux-gnu-$name $PKG/usr/bin/$name
+
+	install -d -c $PKG/usr/lib/gcc-lib/i686-pc-linux-gnu/$version/
+	mv lib/gcc-lib/i686-pc-linux-gnu/$version/* $PKG/usr/lib/gcc-lib/i686-pc-linux-gnu/$version/
+
+	cd $PKG/usr/bin
+	ln -sf $name f90
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,115 @@
+$Id: FAQ,v 1.4 2005/08/10 02:50:53 sten Exp $
+
+1.) How can I start KDE ?
+    
+    a.) - the easy way -
+    
+    vi ~/.xinitrc
+    ---------snip---------
+    exec startkde
+    ---------snap---------
+    
+    b.) - the best way KDM -
+    
+    vi /etc/X11/xdm/Xsession
+    ---------snip---------
+    ... 
+    case $# in
+    1)
+    case $1 in
+        failsafe)
+	    exec xterm -geometry 80x24-0-0
+    	    ;;
+	kde)
+	    exec /usr/bin/startkde
+	    ;;
+    esac
+    ....
+    ---------snap---------
+    ^ add the Xsession "kde"
+    
+    root@host:# /etc/rc.d/kdm start
+
+2.) Other XServers can't connect to my xdm/kdm, help !
+
+    You must enable xdmcp !
+
+    vi /etc/X11/xdm/xdm-config						           
+    --> look for:
+    DisplayManager.requestPort:     0
+    --> replace with: 
+    DisplayManager.requestPort:     177
+
+    - or - simply comment it out ;-)
+    
+    If you don't like kdm choose xdm.
+    For xdm, you should add your authorized hosts in /etc/X11/xdm/Xaccess.
+    Test with 'X :1 -query localhost' or 'Xnest :1 -query localhost'
+    
+3.) Why are there so many libraries ??
+
+    You don't need to install/compile all of them.. but some nice functions
+    won't run without.
+
+4.) My audio skips!
+
+    To enable real-time audio, you can use artswrapper
+    as root, "chmod u+s /usr/bin/artswrapper"
+
+5.) Konqueror doesn't resume a partially-transfered file when using
+    sftp://hostname.
+
+    Periodically, updating either openssl and openssh breaks the sftp://
+    KIO-Slave.  The fix is to recompile and update openssh, and then do the
+    same for kdelibs.
+
+6.) Can I easily omit particular applications during the install ?
+
+    Yes you can, I got a mail from Patrick Yavitz which explains the needed
+    steps:
+
+    -------------------------------snip-----------------------------------
+
+    From: Patrick Yavitz 
+    To: Daniel Mueller
+    Subject: CRUX KDE Ports
+    Date: Sun, 17 Oct 2004 21:56:57 -0400
+
+    [..]
+
+    Here is an example, of how I removed unwanted applications from the
+    kdenetwork package.
+
+    build () {
+        cd $name-$version
+        DO_NOT_COMPILE="kit knewsticker kppp ksirc ktalkd wifi" \
+        ./configure --prefix=/usr \
+                    --with-xinerama \
+                    --disable-debug \
+                    --disable-dependency-tracking \
+                    --enable-final
+        make
+        make DESTDIR=$PKG install
+        rm -rf $PKG/usr/share/doc
+    }
+
+    [..]
+
+    Unfortunately there is a draw back to this, some applications depend on
+    others, so removing one and not the other can cause errors during
+    compile time. For example when I included librss for removal the install
+    hit an error...
+
+    [..]
+
+    ~Patrick
+
+    -------------------------------snip-----------------------------------
+
+7.) Why should I use KDE ? KDE isn't lightweight !
+
+    Hey ! It's your turn. In my opinion KDE is a nice desktop/wm.
+
+Daniel Mueller 
+--
+edited by Nick Steeves

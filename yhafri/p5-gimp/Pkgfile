@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for writing Gimp extensions and handlers 
+# URL: http://search.cpan.org/~sjburges/Gimp-2.0/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gimp, p5-gtk2
+
+name=p5-gimp
+version=2.0
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SJ/SJBURGES/Gimp2/Gimp-$version.tar.gz)
+
+build () {
+	cd Gimp-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

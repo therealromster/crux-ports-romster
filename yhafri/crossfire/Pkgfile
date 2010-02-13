@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A cooperative multiplayer graphical RPG and adventure game
+# URL: http://crossfire.real-time.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk
+
+name=crossfire
+version=1.7.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2 \
+	http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.maps.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-x
+
+	make
+	make prefix=$PKG/usr install
+
+	mv $SRC/maps/* $PKG/usr/var/crossfire/maps/
+	find $PKG -name "README" -exec rm -f '{}' \;
+
+	chown -R root:root $PKG
+}

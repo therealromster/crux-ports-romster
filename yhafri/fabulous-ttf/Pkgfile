@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Fabulous TrueType font
+# URL: http://www.dafont.com/alpha.php?lettre=f&page=33
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, chkfontpath, ttmkfdir
+
+name=fabulous-ttf
+version=1
+release=1
+source=(fabulous.zip)
+
+build () {
+	mkdir -p $PKG/usr/X11R6/lib/X11/fonts/TTF
+
+	mv *.TTF $PKG/usr/X11R6/lib/X11/fonts/TTF/Fabulous.ttf
+
+	chown -R root:root $PKG
+}

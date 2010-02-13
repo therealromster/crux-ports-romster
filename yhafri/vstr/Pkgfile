@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A string library designed to work easily and efficiently in network applications
+# URL: http://www.and.org/vstr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=vstr
+version=1.0.15
+release=1
+source=(http://www.and.org/$name/latest/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/etc/init.rd \
+	       $PKG/usr/lib/$name-$version/ \
+	       $PKG/usr/share
+
+	chown -R root:root $PKG
+}

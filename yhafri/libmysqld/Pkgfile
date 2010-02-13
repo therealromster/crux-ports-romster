@@ -1,0 +1,44 @@
+# $Id: $
+# Description: Embedded MySQL Server Library
+# URL: http://www.mysql.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Maintainer: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: ncurses, zlib
+
+name=mysql
+version=5.1.7-beta
+release=1
+source=(http://mysql.speedbone.de/Downloads/MySQL-5.1/$name-$version.tar.gz \
+        my.cnf mysqld)
+
+build () {
+    	cd $name-$version
+    	./configure --prefix=/usr \
+                --sysconfdir=/etc \
+                --libexecdir=/usr/sbin \
+                --localstatedir=/var/lib \
+                --enable-assembler \
+                --enable-thread-safe-client \
+		--with-embedded-server \
+		--with-embedded-privilege-control \
+	        --without-berkeley-db \
+                --enable-innodb \
+                --without-debug \
+                --without-docs \
+                --without-bench 
+    	make
+    	make DESTDIR=$PKG install
+
+    	rm -r $PKG/usr/mysql-test
+    	find $PKG/usr/share/mysql/* -prune -type f ! -regex '.*\(cnf\|sql\)$' | xargs rm -f {} \;
+    	find $PKG/usr/share/mysql/* -type d ! -name english ! -name charsets | xargs rm -rf {} \;
+
+    	mkdir -p $PKG/{var/lib,var/log}
+    	touch mysqld.log
+    	install -m 600 -o daemon -g daemon mysqld.log $PKG/var/log
+    	install -d -m 700 -o daemon -g daemon $PKG/var/lib/mysql
+    	install -D -m 755 $SRC/mysqld $PKG/etc/rc.d/mysqld
+    	install -m 600 $SRC/my.cnf $PKG/etc
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,38 @@
+# $Id: $
+# Description: A 3D interface to the planet Earth
+# URL: http://earth.google.com/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, openssl, qt3
+
+# Note: inspired from ArchLinux PKGBUILD at:
+# http://aur.archlinux.org/packages.php?do_Details&ID=5597#
+
+
+name=google-earth
+version=4.1.7076.4458
+release=1
+source=(http://dl.google.com/earth/GE4/GoogleEarthLinux.bin \
+	googleearth \
+	googleearth.desktop \
+	googleearth-mimetypes.xml)
+
+build () {
+	mkdir -p $PKG/opt/$name
+	mkdir -p $PKG/usr/bin
+	mkdir -p $PKG/usr/share/{applications,pixmaps,mime/packages,licenses/$ame}
+
+	chmod 755 ./GoogleEarthLinux.bin
+	./GoogleEarthLinux.bin --noexec --target $name
+
+	tar -xpf $name/googleearth-linux-x86.tar -C   $PKG/opt/$name/
+	tar -xpf $name/googleearth-data.tar      -C   $PKG/opt/$name/
+
+	install -m 755 googleearth                    $PKG/usr/bin/
+	install -m 644 googleearth.desktop            $PKG/usr/share/applications/
+	install -m 644 googleearth-mimetypes.xml      $PKG/usr/share/mime/packages/
+	install -m 644 $name/googleearth-icon.png     $PKG/usr/share/pixmaps/
+	install -m 644 $name/EULA-GoogleEarth-en.html $PKG/usr/share/licenses/$pkgname/
+
+	chown -R root:root $PKG
+}

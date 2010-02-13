@@ -1,0 +1,22 @@
+# $Id: $
+# Description: The HarvestMan Web Crawler
+# URL: http://harvestman.freezope.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zope-interface
+
+name=harvestman
+version=1.4.6
+release=1
+source=(http://download.berlios.de/$name/HarvestMan-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd HarvestMan-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

@@ -1,0 +1,178 @@
+--- configure.pl	2007-03-21 23:12:05.000000000 +0100
++++ configure.pl-new	2007-09-22 19:35:40.000000000 +0200
+@@ -8,7 +8,7 @@
+ 
+ $main::sdkpath= $ARGV[0];
+ $main::OO_SDK_NAME=readSDKName($main::sdkpath);
+-$main::OO_SDK_CONFIG_HOME= "$ENV{HOME}/$main::OO_SDK_NAME";
++$main::OO_SDK_CONFIG_HOME= "$main::sdkpath";
+ 
+ $main::operatingSystem = `$main::sdkpath/config.guess | cut -d"-" -f3,4`;
+ chop ($main::operatingSystem);
+@@ -65,31 +65,23 @@
+ $main::return = 0;
+ 
+ # prepare SDK path
+-while ( (! -d "$main::OO_SDK_HOME" ) ||
+-		((-d "$main::OO_SDK_HOME") && (! -d "$main::OO_SDK_HOME/idl")) )
+-{
+     print " Enter the Office Software Development Kit directory [$main::OO_SDK_HOME_SUGGESTION]: ";
+-    $main::OO_SDK_HOME = readStdIn();
+-    chop($main::OO_SDK_HOME);
++    $main::OO_SDK_HOME = q{/usr/lib/openoffice-sdk};
++    chomp($main::OO_SDK_HOME);
++    print "\n";
+     if ( $main::OO_SDK_HOME eq "" ) 
+     {
+ 		$main::OO_SDK_HOME = $main::OO_SDK_HOME_SUGGESTION;
+     }
+-    if ( (! -d "$main::OO_SDK_HOME") || 
+-		 ((-d "$main::OO_SDK_HOME") && (! -d "$main::OO_SDK_HOME/idl")) )
+-    { 
+-		$main::OO_SDK_HOME = "";
+-		print " Error: An SDK is required, please specify the path to a valid installation.\n";
+-    }
+-}
+ 
+ # Office or URE:
+ while ($main::OFFICE_OR_URE ne "office" && $main::OFFICE_OR_URE ne "ure")
+ {
+     print " Use an installed Office or an installed UNO Runtime Environment",
+         " (Office/URE) [$main::OFFICE_OR_URE_SUGGESTION]: ";
+-    $main::OFFICE_OR_URE = <STDIN>;
+-    chop $main::OFFICE_OR_URE;
++    $main::OFFICE_OR_URE = q{office};
++    print "\n";
++    chomp $main::OFFICE_OR_URE;
+     $main::OFFICE_OR_URE = $main::OFFICE_OR_URE_SUGGESTION if
+         $main::OFFICE_OR_URE eq "";
+     $main::OFFICE_OR_URE = lc $main::OFFICE_OR_URE;
+@@ -128,8 +120,8 @@
+     		((-d "$main::OFFICE_HOME") && (! -d "$main::OFFICE_HOME/program")) )
+     {
+         print " Enter the Office installation directory [$main::OFFICE_HOME_SUGGESTION]: ";
+-        $main::OFFICE_HOME = readStdIn();
+-        chop($main::OFFICE_HOME);
++        $main::OFFICE_HOME = q{/usr/lib/openoffice};
++        chomp($main::OFFICE_HOME);
+         if ( $main::OFFICE_HOME eq "" ) 
+         {
+     		$main::OFFICE_HOME = $main::OFFICE_HOME_SUGGESTION;
+@@ -170,7 +162,7 @@
+         print " Enter the URE installation directory",
+             " [$main::OO_SDK_URE_HOME_SUGGESTION]: ";
+         $main::OO_SDK_URE_HOME = readStdIn();
+-        chop $main::OO_SDK_URE_HOME;
++        chomp $main::OO_SDK_URE_HOME;
+         $main::OO_SDK_URE_HOME = $main::OO_SDK_URE_HOME_SUGGESTION if
+             $main::OO_SDK_URE_HOME eq "" &&
+             $main::OO_SDK_URE_HOME_SUGGESTION ne "";
+@@ -185,8 +177,8 @@
+ 		 ((-d "$main::OO_SDK_MAKE_HOME") && (! -e "$main::OO_SDK_MAKE_HOME/$main::makeName"))) )
+ {
+     print " Enter GNU make ($main::makeVersion or higher) tools directory [$main::OO_SDK_MAKE_HOME_SUGGESTION]: ";
+-    $main::OO_SDK_MAKE_HOME = readStdIn();
+-    chop($main::OO_SDK_MAKE_HOME);
++    $main::OO_SDK_MAKE_HOME = q{/usr/bin};
++    chomp($main::OO_SDK_MAKE_HOME);
+     if ( $main::OO_SDK_MAKE_HOME eq "" ) 
+     {
+ 		$main::OO_SDK_MAKE_HOME = $main::OO_SDK_MAKE_HOME_SUGGESTION;
+@@ -227,8 +219,8 @@
+ 		 ((-d "$main::OO_SDK_ZIP_HOME") && (! -e "$main::OO_SDK_ZIP_HOME/zip"))) )
+ {
+     print " Enter zip ($main::zipVersion or higher) tool directory [$main::OO_SDK_ZIP_HOME_SUGGESTION]: ";
+-    $main::OO_SDK_ZIP_HOME = readStdIn();
+-    chop($main::OO_SDK_ZIP_HOME);
++    $main::OO_SDK_ZIP_HOME = q{/usr/bin};
++    chomp($main::OO_SDK_ZIP_HOME);
+     if ( $main::OO_SDK_ZIP_HOME eq "" ) 
+     {
+ 		$main::OO_SDK_ZIP_HOME = $main::OO_SDK_ZIP_HOME_SUGGESTION;
+@@ -275,8 +267,8 @@
+ 	print " Enter the directory of the C++ compiler, the directory\n";
+ 	print " where the compiler is located (optional) [$main::OO_SDK_CPP_HOME_SUGGESTION]: ";
+ 	
+-	$main::OO_SDK_CPP_HOME = readStdIn();
+-	chop($main::OO_SDK_CPP_HOME);
++	$main::OO_SDK_CPP_HOME = q{/usr/bin};
++	chomp($main::OO_SDK_CPP_HOME);
+ 	if ( $main::OO_SDK_CPP_HOME eq "" ) 
+ 	{
+ 		$main::OO_SDK_CPP_HOME = $main::OO_SDK_CPP_HOME_SUGGESTION;
+@@ -376,8 +368,8 @@
+ 		  ((-d "$main::OO_SDK_JAVA_HOME") && (! -e "$main::OO_SDK_JAVA_HOME/bin/javac"))) )
+ {
+     print " Enter Java SDK (1.4.1_01 or higher) installation directory  (optional) [$Main::OO_SDK_JAVA_HOME_SUGGESTION]: ";
+-    $main::OO_SDK_JAVA_HOME = readStdIn();
+-    chop($main::OO_SDK_JAVA_HOME);
++    $main::OO_SDK_JAVA_HOME = q{/usr/lib/java};
++    chomp($main::OO_SDK_JAVA_HOME);
+     if ( $main::OO_SDK_JAVA_HOME eq "" ) 
+     {
+ 		$main::OO_SDK_JAVA_HOME = $main::OO_SDK_JAVA_HOME_SUGGESTION;
+@@ -400,14 +392,6 @@
+ 			$testVersion =~ s#([^\n]+)\n#$1#go;
+ 
+ 			$main::correctVersion = testVersion($main::javaVersion, $testVersion, "$main::OO_SDK_JAVA_HOME/bin/java", 1);
+-			if ( !$main::correctVersion )
+-			{
+-				if ( skipChoice("JAVA SDK") == 1 )
+-				{
+-					$main::correctVersion = 1;
+-				}
+-				$main::OO_SDK_JAVA_HOME = "";
+-			}
+ 		}
+ 	}else
+ 	{
+@@ -423,9 +407,9 @@
+ 	print " Default output directory is in your HOME directory.\n";
+ 	print " Enter an existent directory if you prefer a different output directory (optional) [$main::OO_SDK_OUTPUT_DIR_SUGGESTION]: ";
+ 	
+-	$main::OO_SDK_OUTPUT_DIR = readStdIn();
++	$main::OO_SDK_OUTPUT_DIR = system("pwd");
+ 
+-	chop($main::OO_SDK_OUTPUT_DIR);
++	chomp($main::OO_SDK_OUTPUT_DIR);
+ 	if ( $main::OO_SDK_OUTPUT_DIR eq "" ) 
+ 	{
+ 		$main::OO_SDK_OUTPUT_DIR = $main::OO_SDK_OUTPUT_DIR_SUGGESTION;
+@@ -456,8 +440,8 @@
+     	  (! $main::SDK_AUTO_DEPLOYMENT eq "NO")) )
+     {
+         print " Automatic deployment of UNO components (YES/NO) [$main::SDK_AUTO_DEPLOYMENT_SUGGESTION]: ";
+-        $main::SDK_AUTO_DEPLOYMENT = <STDIN>;
+-        chop($main::SDK_AUTO_DEPLOYMENT);
++        $main::SDK_AUTO_DEPLOYMENT = q{YES};
++        chomp($main::SDK_AUTO_DEPLOYMENT);
+         if ( $main::SDK_AUTO_DEPLOYMENT eq "" )
+         {
+     	$main::SDK_AUTO_DEPLOYMENT = $main::SDK_AUTO_DEPLOYMENT_SUGGESTION;
+@@ -496,7 +480,7 @@
+ 	{
+ 		print " Do you want to skip the choice of the '$msg' (YES/NO): [YES] ";
+ 		$skip = <STDIN>;
+-		chop($skip);
++		chomp($skip);
+ 		if ( $skip eq "" ) { $skip = "YES"; } # default
+ 		if ( $skip eq "YES" )
+ 		{
+--- setsdkenv_unix	2007-09-22 20:36:55.000000000 +0200
++++ setsdkenv_unix-new	2007-09-22 20:44:58.000000000 +0200
+@@ -1,9 +1,11 @@
+ #! /bin/sh
+ 
+-CURRENTDIR=`/bin/pwd`
+-SDKTMPDIR=`dirname $0`
+-SDKDIRECTORY=`(cd $SDKTMPDIR && pwd && cd $CURRENTDIR) | head -n 1`
+-OO_SDK_NAME=`basename $SDKDIRECTORY`
++CURRENTDIR="/usr/lib/openoffice-sdk"
++SDKTMPDIR="/tmp"
++SDKDIRECTORY=$CURRENTDIR
++OO_SDK_NAME=$CURRENTDIR
++
++HOME=""
+ 
+ if [ "$1" = "--force-configure" ]
+ then

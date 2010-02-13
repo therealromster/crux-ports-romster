@@ -1,0 +1,26 @@
+# $Id: $
+# Description: C prototyping tools library, provides: basic data structure implementations, persistence, threading and tcp and http communication
+# URL: http://cprops.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libcprops
+version=0.1.6
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/cprops/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	cd $PKG/usr/bin
+	rm -f Makefile.cpsp
+	install -D -m 644 mime.types $PKG/etc/$name/mime.types
+	rm -f mime.types
+ 
+	chown -R root:root $PKG
+}

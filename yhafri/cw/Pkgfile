@@ -1,0 +1,34 @@
+# $Id: $
+# Description: Color wrapper for Unix commands
+# URL: http://cwrapper.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cw
+version=1.0.14
+release=1
+source=(http://cwrapper.sourceforge.net/$name-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make PREFIX=$PKG/usr install
+
+	cd $PKG/usr/bin
+	rm -f ${name}e
+	ln -sf /usr/bin/$name ${name}e
+
+	mv color cw_color
+
+	cd $PKG
+	for i in `find . -type "f"`; do
+		sed -i "s|/usr/ports/yhafri/cw/work/pkg||" $i
+	done
+
+	chown -R root:root $PKG
+}

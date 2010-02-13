@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/firefox/
+drwxr-xr-x	root/root	usr/lib/firefox/components/
+-rw-r--r--	root/root	usr/lib/firefox/components/mplayerplug-in-dvx.xpt
+-rw-r--r--	root/root	usr/lib/firefox/components/mplayerplug-in-qt.xpt
+-rw-r--r--	root/root	usr/lib/firefox/components/mplayerplug-in-rm.xpt
+-rw-r--r--	root/root	usr/lib/firefox/components/mplayerplug-in-wmp.xpt
+-rw-r--r--	root/root	usr/lib/firefox/components/mplayerplug-in.xpt
+drwxr-xr-x	root/root	usr/lib/firefox/plugins/
+-rwxr-xr-x	root/root	usr/lib/firefox/plugins/mplayerplug-in-dvx.so
+-rwxr-xr-x	root/root	usr/lib/firefox/plugins/mplayerplug-in-qt.so
+-rwxr-xr-x	root/root	usr/lib/firefox/plugins/mplayerplug-in-rm.so
+-rwxr-xr-x	root/root	usr/lib/firefox/plugins/mplayerplug-in-wmp.so
+-rwxr-xr-x	root/root	usr/lib/firefox/plugins/mplayerplug-in.so

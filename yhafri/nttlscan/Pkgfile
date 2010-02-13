@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A quick network topology scanner and traceroute.
+# URL: http://www.honeyd.org/tools.php#nttlscan
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libevent, libpcap
+
+name=nttlscan
+version=0.1
+release=1
+source=(http://www.honeyd.org/data/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+       chown -R root:root $PKG
+}

@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Manipulate XML with Tcl
+# URL: http://www.tdom.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl
+
+name=tdom
+version=0.8.0
+release=1
+source=(http://www.$name.org/files/tDOM-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd tDOM-$version
+	patch -p1<$SRC/$name-$version.patch
+
+	cd unix
+	../configure --prefix=/usr \
+		     --disable-threads \
+		     --enable-shared \
+		     --enable-ns \
+		     --enable-unknown
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

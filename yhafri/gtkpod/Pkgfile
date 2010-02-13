@@ -1,0 +1,25 @@
+# $Id: $
+# Description: a GTK2 gui for accessing Apple iPods
+# URL: http://gtkpod.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, libid3tag, mp3gain, libgpod
+
+name=gtkpod
+version=0.99.8
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/gtkpod/gtkpod-$version.tar.gz)
+
+build() {
+	cd $name-$version
+    	
+	./configure --prefix=/usr \
+        	    --disable-debug
+    	
+	make
+    	make DESTDIR=$PKG install
+    
+	rm -rf $PKG/usr/share/locale
+    	rm -rf $PKG/usr/share/doc
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A very small Unix-based HTTP server
+# URL: http://www.acme.com/software/micro_httpd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=micro_httpd
+version=1
+release=1
+source=(http://www.acme.com/software/$name/${name}_14dec2001.tar.gz \
+	$name-$version.patch)
+
+build () {
+	install -d $PKG/usr/{sbin,man/man8}
+	cd ${name}
+	patch -p1<../$name-$version.patch
+	make
+	make PREFIX=$PKG install
+
+	chown -R root:root $PKG
+}

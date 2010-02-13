@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Date and Time types for Python
+# URL: http://www.egenix.com/files/python/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=egenix-mx-base
+version=2.0.6
+release=1
+source=(http://www.egenix.com/files/python/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/include
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+	cp $PKG/usr/lib/python/mx/DateTime/mxDateTime/*.h $PKG/usr/include/
+
+    	chown -R root:root $PKG
+}

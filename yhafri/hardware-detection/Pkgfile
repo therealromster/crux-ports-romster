@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Hardware detection shell scripts
+# URL: http://www.linux-magazine.com/Magazine/Downloads/60/detection
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hardware-detection
+version=1
+release=1
+source=(http://pciids.sourceforge.net/pci.db \
+	http://www.linux-usb.org/usb.ids \
+	pcidetect usbdetect)
+
+build () {
+	install -D -m 644 pci.db $PKG/etc/$name/pci.db
+	install -D -m 644 usb.ids $PKG/etc/$name/usb.ids
+
+	install -D -m 755 pcidetect $PKG/usr/bin/pcidetect
+	install -D -m 755 usbdetect $PKG/usr/bin/usbdetect
+
+	chown -R root:root $PKG
+}

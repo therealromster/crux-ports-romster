@@ -1,0 +1,25 @@
+# $Id: $
+# Description: FLTK is a cross-platform C++ GUI toolkit for Unix, Windows and MacOSX
+# URL: http://www.fltk.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=fltk
+version=1.1.7
+release=1
+source=(ftp://ftp.funet.fi/pub/mirrors/ftp.easysw.com/pub/${name}/${version}/${name}-${version}-source.tar.bz2)
+
+build() {
+    	cd $name-$version
+    	./configure --prefix=/usr \
+		    --enable-shared \
+		    --enable-xft \
+		    --disable-nls
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

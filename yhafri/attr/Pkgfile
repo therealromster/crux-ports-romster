@@ -1,0 +1,19 @@
+# Description: userspace tools for managing posix extended attrs
+# URL: http://oss.sgi.com/projects/xfs/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=attr
+version=2.4.28
+release=5
+source=(ftp://oss.sgi.com/projects/xfs/cmd_tars/$name-$version.src.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make prefix=$PKG/usr install install-dev install-lib
+    install -D -m 644 $PKG/usr/libexec/libattr.la $PKG/usr/lib/libattr.la
+    install -D -m 644 libattr/.libs/libattr.a $PKG/usr/lib/libattr.a
+    rm -rf $PKG/usr/{libexec,man,share}/
+}

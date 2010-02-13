@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Less command with Arabic support
+# URL: http://www.greenwoodsoftware.com/less/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depens on: 
+
+name=less
+version=394
+release=1
+source=(http://www.greenwoodsoftware.com/less/$name-$version.tar.gz \
+	lessecho.1 filter $name-$version.patch)
+
+build() {
+	cd $name-$version
+
+	#patch -p0<$SRC/$name-$version.patch
+
+    	./configure --prefix=/usr
+
+    	make
+    	make prefix=$PKG/usr install
+
+    	install -m 644 ../lessecho.1 $PKG/usr/man/man1
+    	install -m 755 -D ../filter $PKG/usr/lib/less/filter
+
+	chown -R root:root $PKG
+}

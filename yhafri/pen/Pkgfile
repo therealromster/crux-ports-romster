@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Load balancer tcp based protocols (http, smtp)
+# URL: http://siag.nu/pen/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pen
+version=0.17.0
+release=1
+source=(ftp://siag.nu/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/doc
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A library for reading and writing quicktime files
+# URL: http://libquicktime.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libdv, libvorbis, lame, libjpeg, libpng, ffmpeg, gtk, alsa-lib
+
+name=libquicktime
+version=0.9.8
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

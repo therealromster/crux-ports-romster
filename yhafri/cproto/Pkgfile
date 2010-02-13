@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Generate C function prototypes and convert function definitions
+# URL: http://packages.debian.org/testing/devel/cproto
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cproto
+version=4.7e
+release=1
+source=(http://ftp.debian.org/debian/pool/main/c/$name/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd $name-4_7e
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

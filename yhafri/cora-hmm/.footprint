@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bmm
+-rwxr-xr-x	root/root	usr/bin/evaluate
+-rwxr-xr-x	root/root	usr/bin/train_hmm
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/general.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/cora-hmm.a

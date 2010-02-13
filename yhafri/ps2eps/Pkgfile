@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Tool for generating Encapsulated Postscript Format (EPS,EPSF) files from one-page Postscript documents
+# URL: http://www.tm.uka.de/~bless/ps2eps
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=ps2eps
+version=1.58
+release=1
+source=(http://www.tm.uka.de/~bless/ps2eps-1.58.tar.gz)
+
+build () {
+	cd $name
+
+	gcc -o bbox src/C/bbox.c
+	install -D -m 755 bbox $PKG/usr/bin/bbox	
+
+	install -D -m 755 bin/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

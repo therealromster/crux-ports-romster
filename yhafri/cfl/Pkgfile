@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A C Foundation Library
+# URL: package is a collection of small but useful utilities.
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cfl
+version=1.2.7
+release=1
+source=(http://www.hyperrealm.com/$name/lib$name-$version.tar.gz)
+
+build () {
+	cd lib$name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	sed -i "s|URL:.*||" $PKG/usr/lib/pkgconfig/lib$name.pc
+
+	rm -rf $PKG/usr/info/
+
+	chown -R root:root $PKG
+}

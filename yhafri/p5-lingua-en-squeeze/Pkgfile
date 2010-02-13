@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Squeeze English text to most compact format possible so that it is barely readable
+# URL: http://cpan.mirror.fr/modules/by-module//Lingua//JARIAALTO/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-lingua-en-squeeze
+version=2003.1003
+release=1
+source=(http://cpan.mirror.fr/modules/by-module/Lingua/JARIAALTO/Lingua-EN-Squeeze-$version.tar.gz)
+
+build () {
+	cd Lingua-EN-Squeeze-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

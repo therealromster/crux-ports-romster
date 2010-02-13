@@ -1,0 +1,19 @@
+# Description: Direct Connect Text Client
+# URL: http://ac2i.homelinux.com/dctc/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: db, libxml2, glib, openssl, libgcrypt
+
+name=dctc
+version=0.85.9
+release=1
+source=(http://ac2i.homelinux.com/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure     --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

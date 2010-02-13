@@ -1,0 +1,35 @@
+# $Id: $
+# Description: A polygon mesh modeler in Erlang
+# URL: http://www.wings3d.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, erlang, esdl, libjpeg
+
+name=wings
+version=0.98.36
+release=4
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2 \
+	$name-$version.patch \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/erlang/lib/$name-$version}
+
+	export OTP_KERNEL_VERSION=/usr/lib/erlang/lib/kernel-*
+	export ESDL_VERSION=`basename /usr/lib/erlang/lib/esdl-* | sed "s|esdl-\(.*\)|\1|" `
+	export ESDL_PATH=/usr/lib/erlang/lib/esdl-$ESDL_VERSION
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	ln -s /usr/lib/erlang/lib/esdl-$ESDL_VERSION src/esdl
+	ln -s /usr/lib/erlang/lib/kernel-$OTP_KERNEL_VERSION src/kernel
+
+ 	make
+	mv ebin/ icons/ plugins/ tools/ fonts/ $PKG/usr/lib/erlang/lib/$name-$version
+
+	sed -i "s|\$WINGS\_VERSION|$version|" $SRC/$name
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+    	chown -R root:root $PKG
+}

@@ -1,0 +1,6 @@
+PRE-INSTALL
+
+kdebase is a requirement.  If kdeaddons finds any other kde modules, it will
+build and install addons relevant to those modules.
+
+Kdeaddons MUST be installed last.

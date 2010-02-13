@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A text editor for the X Window System
+# URL: http://freshmeat.net/projects/cooledit/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, python
+
+name=cooledit
+version=3.17.17
+release=1
+source=(ftp://ftp.ibiblio.org/pub/Linux/apps/editors/X/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

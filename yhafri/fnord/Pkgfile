@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Yet another small httpd
+# URL: http://www.fefe.de/fnord/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: dietlibc
+
+name=fnord
+version=1.10
+release=1
+source=(http://www.fefe.de/$name/$name-$version.tar.bz2 \
+	$name-$version.patch \
+	preinstall)
+
+build() {
+   	mkdir -p ${PKG}/usr/bin
+
+   	cd $name-$version
+   	patch < ../$name-$version.patch
+
+   	make DIET=/usr/local/dietlibc/bin/diet CFLAGS="${CFLAGS}"
+
+   	mv fnord fnord-idx fnord-cgi fnord-conf http ${PKG}/usr/bin
+
+	chown -R root:root $PKG
+}

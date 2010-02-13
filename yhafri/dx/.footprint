@@ -1,0 +1,22 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/convdb
+-rwxr-xr-x	root/root	usr/bin/convgdbm
+-rwxr-xr-x	root/root	usr/bin/countdb
+-rwxr-xr-x	root/root	usr/bin/countdx
+-rwxr-xr-x	root/root	usr/bin/countgdbm
+-rwxr-xr-x	root/root	usr/bin/deldb
+-rwxr-xr-x	root/root	usr/bin/deldx
+-rwxr-xr-x	root/root	usr/bin/dxcp
+-rwxr-xr-x	root/root	usr/bin/dxfetch
+-rwxr-xr-x	root/root	usr/bin/dxlist
+-rwxr-xr-x	root/root	usr/bin/dxstore
+-rwxr-xr-x	root/root	usr/bin/mkdb
+-rwxr-xr-x	root/root	usr/bin/mkdx
+-rwxr-xr-x	root/root	usr/bin/mkgdbm
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/dx.h
+-rwxr-xr-x	root/root	usr/include/dxtest
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libdxstore.a -> /usr/lib/libdxstore32.a
+-rw-r--r--	root/root	usr/lib/libdxstore32.a

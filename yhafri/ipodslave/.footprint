@@ -1,0 +1,41 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/kpod/
+-rw-r--r--	root/root	usr/include/kpod/artist.h
+-rw-r--r--	root/root	usr/include/kpod/ipod.h
+-rw-r--r--	root/root	usr/include/kpod/ipoddevicedetails.h
+-rw-r--r--	root/root	usr/include/kpod/ipodmountpoint.h
+-rw-r--r--	root/root	usr/include/kpod/ipodsysinfo.h
+-rw-r--r--	root/root	usr/include/kpod/itunesdb.h
+drwxr-xr-x	root/root	usr/include/kpod/itunesdb/
+-rw-r--r--	root/root	usr/include/kpod/itunesdb/ItunesDBListener.h
+-rw-r--r--	root/root	usr/include/kpod/itunesdb/itunesdbdatasource.h
+-rw-r--r--	root/root	usr/include/kpod/itunesdb/listitem.h
+-rw-r--r--	root/root	usr/include/kpod/itunesdb/playlist.h
+-rw-r--r--	root/root	usr/include/kpod/itunesdb/playlistitem.h
+-rw-r--r--	root/root	usr/include/kpod/itunesdb/track.h
+-rw-r--r--	root/root	usr/include/kpod/tracklist.h
+-rw-r--r--	root/root	usr/include/kpod/trackmetadata.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/kde3/
+-rwxr-xr-x	root/root	usr/lib/kde3/kio_ipodslave.la
+-rwxr-xr-x	root/root	usr/lib/kde3/kio_ipodslave.so
+-rwxr-xr-x	root/root	usr/lib/libitunesdb.la
+lrwxrwxrwx	root/root	usr/lib/libitunesdb.so -> libitunesdb.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libitunesdb.so.0 -> libitunesdb.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libitunesdb.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libkpod.la
+lrwxrwxrwx	root/root	usr/lib/libkpod.so -> libkpod.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libkpod.so.0 -> libkpod.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libkpod.so.0.0.0
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/doc/
+drwxr-xr-x	root/root	usr/share/doc/HTML/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/
+drwxr-xr-x	root/root	usr/share/doc/HTML/en/ipodslave/
+lrwxrwxrwx	root/root	usr/share/doc/HTML/en/ipodslave/common -> /usr/share/doc/HTML/en/common
+-rw-r--r--	root/root	usr/share/doc/HTML/en/ipodslave/core-design.xmi
+-rw-r--r--	root/root	usr/share/doc/HTML/en/ipodslave/index.cache.bz2
+-rw-r--r--	root/root	usr/share/doc/HTML/en/ipodslave/index.docbook
+drwxr-xr-x	root/root	usr/share/services/
+-rw-r--r--	root/root	usr/share/services/ipodslave.protocol

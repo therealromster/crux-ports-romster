@@ -1,0 +1,24 @@
+# $Id: $
+# Description: An Erlang-to-C binding assembly language
+# URL: http://dryverl.objectweb.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=dryverl
+version=0.1.2
+release=1
+source=(http://download.fr2.forge.objectweb.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/doc/
+
+	chown -R root:root $PKG
+}

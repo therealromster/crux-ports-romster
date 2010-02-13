@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Parse RSS and Atom feeds in Python.
+# URL: http://www.feedparser.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=feedparser
+version=3.3
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/feedparser-$version.zip)
+
+build () {
+    mkdir -p $PKG/usr
+	cd $name
+    python setup.py build
+	python setup.py install --home=$PKG/usr
+    chown -R root:root $PKG
+}

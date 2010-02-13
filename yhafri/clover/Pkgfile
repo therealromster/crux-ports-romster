@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Unit tests drive code quality for Java
+# URL: http://www.cenqua.com/clover/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant
+
+name=clover
+version=1.3.13
+release=1
+source=(http://www.cenqua.com/download/BIRTJ0FW808STVYJ/$name-ant-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cp $name-ant-$version/lib/$name.jar $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}

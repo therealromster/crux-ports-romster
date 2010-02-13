@@ -1,0 +1,9 @@
+LICENSE:
+		This is an evaluation version which display a
+		display message. You could purchase the full
+		version online.
+
+POST-INSTALL:
+		Please add the following to your PATH:
+		/usr/lib/perl2exe
+		/usr/lib/perl2exe/perl5/bin

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Digest MD5 interface for Perl
+# URL: http://search.cpan.org/~gaas/URI-1.33/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-digest-md5
+version=2.36
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/G/GA/GAAS/Digest-MD5-$version.tar.gz)
+
+build () {
+	cd Digest-MD5-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

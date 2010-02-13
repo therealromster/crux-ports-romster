@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Official linux bluetooth protocol stack libraries
+# URL: http://www.bluez.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bluez-libs
+version=2.25
+release=1
+source=(http://bluez.sourceforge.net/download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+                    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

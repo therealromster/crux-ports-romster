@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl XML modules
+# URL: http://search.cpan.org/~enno/libxml-enno-1.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-xml-parser, p5-date-manip, p5-parse-yapp, p5-libxml-perl
+
+name=p5-libxml-enno
+version=1.02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/E/EN/ENNO/libxml-enno-$version.tar.gz)
+
+build () {
+	cd libxml-enno-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

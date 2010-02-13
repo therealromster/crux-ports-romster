@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Stop words for several languages
+# URL: http://search.cpan.org/~creamyg/Lingua-StopWords-0.08/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-lingua-stopwords
+version=0.08
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CR/CREAMYG/Lingua-StopWords-$version.tar.gz)
+
+build () {
+	cd Lingua-StopWords-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

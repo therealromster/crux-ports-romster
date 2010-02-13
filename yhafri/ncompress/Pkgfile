@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Original Lempel-Ziv compress/uncompress programs
+# URL: http://packages.debian.org/unstable/utils/ncompress
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz
+
+name=ncompress
+version=4.2.4
+release=1
+source=(ftp://rpmfind.net/linux/fedora/core/4/i386/os/Fedora/RPMS/$name-$version-42.i386.rpm)
+
+build () {
+	rpm2targz $name-$version-42.i386.rpm
+	tar xf $name-$version-42.i386.tar.gz -C $PKG
+
+	chown -R root:root $PKG
+}

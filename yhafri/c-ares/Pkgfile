@@ -1,0 +1,21 @@
+# $Id: $
+# Description: C library that performs DNS requests and name resolves asynchronously
+# URL: http://daniel.haxx.se/projects/c-ares/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=c-ares
+version=1.3.1
+release=1
+source=(http://daniel.haxx.se/projects/c-ares/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

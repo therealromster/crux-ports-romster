@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Library for playing module music
+# URL: http://modplug-xmms.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jukka Heino <vector@pp.nic.fi>
+# Depends on:
+
+name=libmodplug
+version=0.7
+release=1
+source=(http://download.videolan.org/pub/videolan/vlc/0.8.1/contrib/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install 
+    chown -R root:root $PKG   
+}

@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Python modules for setting up a FastCGI server (ex. lighttpd)
+# URL: http://trac.saddi.com/flup
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=flup
+#version=r2109
+version=svn
+release=1
+#source=(http://www.saddi.com/software/$name/dist/$name-$version.tar.gz)
+source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/python
+
+	svn co http://svn.saddi.com/$name/trunk $name
+
+	export PYTHONPATH=$PKG/usr/lib/python
+	#cd $name-$version
+	cd $name
+
+    	python setup.py build
+	#python setup.py install --home=$PKG/usr
+	python setup.py install --root=$PKG
+
+	#cd $PKG/usr/lib/python 
+	#mv $name-0.5-py2.4.egg/$name . && rm -rf $name-0.5-py2.4.egg
+	#rm -rf $PKG/usr/lib/python/site.py*
+
+    	chown -R root:root $PKG
+}

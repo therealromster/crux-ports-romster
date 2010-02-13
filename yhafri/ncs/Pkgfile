@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Diagnose and troubleshoot networks hop-by-hop
+# URL: http://www-didc.lbl.gov/NCS/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=ncs
+version=1
+release=1
+source=(http://www-didc.lbl.gov/NCS/download/ncs-Linux.tgz)
+
+build () {
+	install -d $PKG/usr/bin
+
+	cp linux.i686/bin/* $PKG/usr/bin
+
+	chown -R root:root $PKG
+}

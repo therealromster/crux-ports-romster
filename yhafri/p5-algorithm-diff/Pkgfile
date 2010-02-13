@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Compute `intelligent' differences between two files / lists
+# URL: http://search.cpan.org/~tyemq/Algorithm-Diff-1.1901/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-algorithm-diff
+version=1.1901
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TY/TYEMQ/Algorithm-Diff-$version.zip)
+
+build () {
+	cd Algorithm-Diff-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A simple Erlang Template Engine
+# URL: http://blog.sgconsulting.it/entry.html?identry=52
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=sgte
+version=1
+release=1
+source=(http://www.sgconsulting.it/download/$name.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	erl -make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

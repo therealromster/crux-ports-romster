@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Modules for handling abstract Erlang syntax trees
+# URL: http://user.it.uu.se/~richardc/edoc/doc/syntax_tools/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=syntax-tools
+version=1.4a
+release=1
+source=(http://user.it.uu.se/~richardc/edoc/syntax_tools.tar.gz \
+    $name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/syntax_tool-$version
+	cd syntax_tools
+    patch -p1<$SRC/$name-$version.patch
+	make
+    (cd src; make clean; make)
+	cp -rf ebin/ src/ $PKG/usr/lib/erlang/lib/syntax_tool-$version
+	find $PKG -name "Makefile"   -exec rm -rf '{}' \;
+	find $PKG -name ".cvsignore" -exec rm -rf '{}' \;
+    chown -R root:root $PKG/
+}

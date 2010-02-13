@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Recursively copy Perl datatypes 
+# URL: http://search.cpan.org/~evo/Clone-PP-1.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-clone-pp
+version=1.02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/E/EV/EVO/Clone-PP-$version.tar.gz)
+
+build () {
+	cd Clone-PP-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

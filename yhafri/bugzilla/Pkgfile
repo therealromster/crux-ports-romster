@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Bug-Tracking System
+# URL: http://www.bugzilla.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: apache, mysql, patchutils, p5-gd-graph, p5-dbi, p5-gd-text-util, p5-patch-reader, p5-chart, p5-template-toolkit, p5-app-config, p5-time-date, p5-xml-parser, p5-dbd-mysql, p5-gd, p5-mime-tools
+
+name=bugzilla
+version=2.18rc3
+release=1
+source=(http://ftp.mozilla.org/pub/mozilla.org/webtools/$name-$version.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/local
+    rm -rf $name-$version/{docs,t,QUICKSTART,README,UPGRADING*}
+    find $PKG/usr -iname "CVS" -type "d" | xargs rm -rf
+    find $PKG/usr -iname "README*" -type "f" | xargs rm -rf
+    mv $name-$version $PKG/usr/local/$name
+	chown -R root:root $PKG
+}

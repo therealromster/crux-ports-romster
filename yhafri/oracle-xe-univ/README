@@ -1,0 +1,21 @@
+PRE-INSTALL:
+
+			* Download Oracle Database 10g Express Edition (Universal) from in the current directory:
+			http://www.oracle.com/technology/software/products/database/xe/htdocs/102xelinsoft.html
+
+
+POST-INSTALL:
+			* You must run 'post-install.sh' as root user to configure the database:
+			(when prompted, choose 'no' for automatic starting of the db)
+			# ./post-install.sh 
+
+			* Add the folowing variabl to your bash profile:
+			echo "source /usr/lib/oracle/xe/app/oracle/product/10.2.0/server/bin/oracle_env.sh" >> $HOME/.bashrc
+
+USAGE:
+
+			* To start and stop the db use:
+			# /etc/rc.d/oracle
+
+			* To access the web interface, go to:
+			http://127.0.0.1:$HTTP_PORT/apex

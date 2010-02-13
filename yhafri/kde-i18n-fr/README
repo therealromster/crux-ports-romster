@@ -1,0 +1,4 @@
+PREINSTALL:
+
+The line: "rm $PKG/usr/share/doc" needs to be commented out in kdelibs/Pkgfile
+One must Then rebuild and update kdelibs.

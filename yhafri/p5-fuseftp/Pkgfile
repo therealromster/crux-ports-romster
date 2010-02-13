@@ -1,0 +1,26 @@
+# Description: fuseftp
+# URL: http://wiki.thiesen.org/page/Fuseftp
+# Maintainer: Han Boetes, han at mijncomputer dot nl
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: p5-cache, p5-fuse
+
+name=p5-fuseftp
+version=0.8
+release=1
+source=(http://perl.thiesen.org/fuseftp/fuseftp-$version.tar.gz)
+
+build()
+{
+    cd fuseftp-$version
+    perl Makefile.PL
+    make OPTIMIZE="$CFLAGS"
+    make install DESTDIR=$PKG
+    # Remove perlcrap
+    find $PKG \
+        -name .packlist -or \
+        -name '*.bs' -or \
+        -name autosplit.ix -or \
+        -name perllocal.pod | xargs rm
+    # Remove empty directories
+    find $PKG -depth -empty -exec rm -rf {} \;
+}

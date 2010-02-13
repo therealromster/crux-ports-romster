@@ -1,0 +1,25 @@
+# $Id: $
+# Description:  Simple DVI filter to text
+# URL: http://www.mesa.nl/pub/dvi2tty/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dvi2tty
+version=5.3.1
+release=1
+source=(http://www.mesa.nl/pub/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+	install -D -m 644 $name.1 $PKG/usr/man/man1/$name.1
+
+	chown -R root:root $PKG
+}

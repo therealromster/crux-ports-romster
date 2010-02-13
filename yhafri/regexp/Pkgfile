@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Imporved Erlang regular expressions
+# URL: http://www.erlang.org/ml-archive/erlang-questions/200609/maillist.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=regexp
+version=1
+release=1
+
+# Go on Trap Exi -> forum -> User Contributions
+# http://forum.trapexit.org/viewforum.php?f=20
+
+source=($name.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	erl -make
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

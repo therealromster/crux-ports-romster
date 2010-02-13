@@ -1,0 +1,58 @@
+# $Id: $
+# Description: A relational database offering many ANSI SQL-92 features an excellent concurrency, high performance, and powerful language support for stored procedures and triggers
+# URL: http://firebird.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses, rpm2targz
+
+name=firebird
+release=4
+version=1.5.2
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/FirebirdSS-${version}.4731-0.i686.rpm \
+	firebird \
+	preinstall \
+	postinstall)
+
+build () {
+    	rpm2targz FirebirdSS-${version}.4731-0.i686.rpm
+    	tar -xzf FirebirdSS-${version}.4731-0.i686.tar.gz -C $PKG
+
+    	rm -rf $PKG/opt/$name/{README,WhatsNew,examples,doc}
+	rm -rf $PKG/opt/firebird/misc/
+
+	mv $PKG/opt/firebird/bin/fbmgr.bin $PKG/opt/firebird/bin/fbmgr
+    	chown -R root:root $PKG
+
+
+	RunUser=$name
+	for i in isc_init1 isc_lock1 isc_event1 isc_guard1
+      	do
+        	FileName="$PKG/opt/$name/$i".`hostname`
+        	touch $FileName
+		chown $RunUser.$RunUser $FileName
+    		chmod 0644 $FileName
+      	done
+
+	FileName="$PKG/opt/$name/firebird.log"
+	touch $FileName
+        chown $RunUser.$RunUser $FileName
+        chmod 0644 $FileName 
+
+	FileName="$PKG/opt/$name/security.fdb"
+	chown $RunUser.$RunUser $FileName
+    	chmod 0600 $FileName
+
+	(cd $PKG/opt/$name/bin;
+	chmod 0555 *;
+	chmod 0500 *.sh;
+	fbservices="fbguard fbserver";
+    	chown $RunUser.$RunUser $fbservices;
+    	chmod 0544 $fbservices;
+	)
+
+	ln -sf /opt/$name $PKG/opt/interbase
+	ln -sf /opt/$name/bin/isql $PKG/opt/$name/bin/fsql
+	install -D $SRC/$name $PKG/etc/rc.d/$name
+	chown root:root $PKG/etc/rc.d/$name
+	chmod ug=rx,o= $PKG/etc/rc.d/$name
+}

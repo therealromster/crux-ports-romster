@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Low calorie MIME generator
+# URL: http://www.cpan.org/modules/01modules.index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-mime-lite
+version=2.117
+release=1
+source=(http://www.cpan.org/authors/id/E/ER/ERYQ/MIME-Lite-$version.tar.gz)
+
+build () {
+	cd MIME-Lite-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

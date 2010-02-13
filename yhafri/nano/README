@@ -1,0 +1,5 @@
+POST-INSTALL:
+
+		* Modify the file nanorc-$VERSION as you want and move into your home directory:
+		$ mv nanorc-$VERSION ~/.nanorc
+

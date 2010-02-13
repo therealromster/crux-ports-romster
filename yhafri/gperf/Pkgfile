@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A perfect hash function generator
+# URL: http://www.gnu.org/software/gperf/gperf.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=gperf
+version=3.0.2
+release=1
+source=(ftp://mirrors.kernel.org/gnu/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cd $name-$version
+
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --libdir=/usr/lib
+
+	make
+
+	make prefix=$PKG/usr install
+	cp ./lib/libgp.a $PKG/usr/lib
+
+	rm -rf $PKG/usr/{info,share/doc/}
+
+	chown -R root:root $PKG
+}

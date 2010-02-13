@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Free open-source SQL full-text search engine
+# URL: http://www.sphinxsearch.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: postgresql, mysql
+
+name=sphinx
+version=0.9.7
+release=1
+source=(http://www.${name}search.com/downloads/$name-$version.tar.gz \
+	http://snowball.tartarus.org/dist/libstemmer_c.tgz)
+
+build () {
+	cp -rf libstemmer_c $name-$version
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	cp $PKG/usr/etc/sphinx.conf.dist $PKG/usr/etc/sphinx.conf
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,40 @@
+# $Id: $
+# Description: Apple zero configuration networking, enables automatic discovery of computers, devices, and services on IP networks
+# URL: http://developer.apple.com/networking/bonjour/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mdnsresponder
+version=107.6
+release=1
+source=(http://www.opensource.apple.com/darwinsource/tarballs/other/mDNSResponder-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,include,lib,sbin,share/man/{man5,man8},etc/rc.d}
+	mkdir -p $PKG/etc/rc.d
+
+	cd mDNSResponder-$version/mDNSPosix
+
+	make os=linux LOCALBASE=/usr
+	make os=linux INSTBASE=$PKG/usr MANPATH=$PKG/usr/share/man install
+
+	install -D -m 755 build/prod/dnsextd                 $PKG/usr/sbin/dnsextd
+	install -D -m 755 build/prod/mDNSIdentify            $PKG/usr/bin/mDNSIdentify
+	install -D -m 755 build/prod/mDNSNetMonitor          $PKG/usr/bin/mDNSNetMonitor
+	install -D -m 755 build/prod/mDNSClientPosix         $PKG/usr/bin/mDNSClientPosix
+	install -D -m 755 build/prod/mDNSResponderPosix      $PKG/usr/bin/mDNSResponderPosix
+	install -D -m 755 build/prod/mDNSProxyResponderPosix $PKG/usr/bin/mDNSProxyResponderPosix
+
+	install -D -m 755 build/prod/libnss_mdns-0.2.so      $PKG/usr/lib/libnss_mdns-0.2.so.1
+	ln -sf /usr/lib/libnss_mdns-0.2.so.1 $PKG/usr/lib/libnss_mdns-0.2.so
+	ln -sf /usr/lib/libdns_sd.so.1       $PKG/usr/lib/libdns_sd.so
+
+	cp $PKG/usr/etc/rc.d/mdns $PKG/etc/rc.d
+	sed -i "s|init.d|rc.d|" $PKG/etc/rc.d/mdns
+	sed -i "s|mDNS|mdns|"   $PKG/etc/rc.d/mdns
+
+	rm -rf $PKG/usr/etc/rc.d
+	
+	chown -R root:root $PKG
+}

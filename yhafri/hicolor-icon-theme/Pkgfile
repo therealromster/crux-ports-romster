@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A high-color icon theme shell from the FreeDesktop project
+# URL: http://www.freedesktop.org/Software/icon-theme/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+# Group: gnome
+
+name=hicolor-icon-theme
+version=0.5
+release=1
+source=(ftp://ftp.freebsd.org/pub/FreeBSD/ports/local-distfiles/kwm/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make DESTDIR=$PKG install
+    chown -R root:root $PKG
+}

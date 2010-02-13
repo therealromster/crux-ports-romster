@@ -1,0 +1,26 @@
+# $Id: $
+# Description: An open source package which implements the Point-to-Point Protocol
+# URL: http://www.samba.org/ppp/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Maintainer: Per Lidén <per@fukt.bth.se>
+# Depends on:
+
+name=ppp
+version=2.4.3
+release=4
+source=(ftp://ftp.samba.org/pub/ppp/$name-$version.tar.gz \
+        $name-$version-nofilter.patch \
+        $name-$version-makefile.patch)
+
+build () {
+    	cd $name-$version
+    	patch -p1 < ../$name-$version-nofilter.patch
+	patch -p1 < ../$name-$version-makefile.patch
+   	./configure --prefix=/usr
+
+   	make COPTS="$CFLAGS" 
+   	make DESTDIR=$PKG install
+
+   	chmod +w -R $PKG
+   	chown root.root -R $PKG
+}

@@ -1,0 +1,50 @@
+IMPORTANT:
+
+		The POST-INSTALL only needs to be run *ONCE* after installing
+		the nvidia port. It is *NOT REQUIRED* when upgrading the port
+		if it has been run once when the port was originally installed.
+
+
+
+NVIDIA with UDEV:
+
+		If using udev, add your user to the "video" group to be able to
+		use the nvidia devices required for 3d to function properly.
+
+
+POST-INSTALL:
+
+		Rename /usr/X11R6/lib/libGL.so.1.2 to something else, such
+		as libGL_so_1_2 and run /sbin/ldconfig. GL applications
+		should then use the nvidia-installed /usr/lib/libGL.so
+		instead. Rename /usr/X11R6/lib/modules/extensions/libGLcore.a
+		and libglx.a to something else, such as libGLcore.a.orig and
+		libglx.a.orig.
+
+		nvhelper.sh will do this for you (./nvhelper.sh --install)
+
+		After updating or reinstalling X you have to run:
+		# nvhelper.sh --install
+
+POST-REMOVE:
+
+		Rename /usr/X11R6/lib/libGL_so_1_2 (or whatever you called
+		it) to libGL.so.1.2 and run /sbin/ldconfig. Also restore
+		libglx.a and libGLcore.a in /usr/X11R6/lib/modules/extensions.
+
+		nvhelper.sh will do this for you (./nvhelper.sh --restore)
+
+		To back up the original X11 3D libraries. Run:
+		# nvhelper.sh --restore
+
+
+CAVEATS:
+
+		In the section extensions make sure the RENDER option is disabled
+		or else you'll see the driver hang spontaniously while using
+		antialiased fonts. ( Hurray for closed source drivers )
+
+		Section "Extensions"
+			#    Option "RENDER" "true"
+		EndSection
+

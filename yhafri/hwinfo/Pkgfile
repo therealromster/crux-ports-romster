@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Hardware identification system library
+# URL: http://packages.debian.org/unstable/source/hwinfo
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz, libhal1
+
+name=hwinfo
+version=13.18
+release=1
+source=(ftp://fr2.rpmfind.net/linux/opensuse/distribution/SL-OSS-factory/inst-source/suse/i586/$name-$version-3.i586.rpm)
+
+build () {
+	rpm2targz $name-$version-3.i586.rpm
+	
+	tar xf $name-$version-3.i586.tar.gz -C $PKG
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

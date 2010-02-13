@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Addictive pop-up console utility
+# URL: http://phrat.de/downloads.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=yeahconsole
+version=0.3.4
+release=1
+source=(http://phrat.de/$name-$version.tar.gz \
+	X$name)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 755 $name  $PKG/usr/bin/$name
+	install -D -m 644 ../X$name $PKG/usr/share/$name/X$name
+
+	chown -R root:root $PKG
+}

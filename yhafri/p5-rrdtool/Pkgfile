@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Object-oriented interface to RRDTool 
+# URL: http://search.cpan.org/~mschilli/RRDTool-OO-0.12/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rrdtool
+
+name=p5-rrdtool
+version=0.12
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSCHILLI/RRDTool-OO-$version.tar.gz)
+build () {
+	cd RRDTool-OO-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

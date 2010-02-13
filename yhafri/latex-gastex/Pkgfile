@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Graphs and Automata Simplified in La(TeX)
+# URL: http://www.liafa.jussieu.fr/~gastin/gastex/gastex.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-gastex
+version=2.7
+release=1
+source=(http://www.liafa.jussieu.fr/~gastin/gastex/gastex.sty \
+    http://www.liafa.jussieu.fr/~gastin/gastex/gastex.pro)
+
+build () {
+
+	install -D -o root -g root -m 0644 gastex.pro \
+        $PKG/usr/share/texmf/dvips/gastex/gastex.pro
+
+	install -D -o root -g root -m 0644 gastex.sty \
+        $PKG/usr/share/texmf/tex/latex/gastex/gastex.sty    
+}

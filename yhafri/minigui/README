@@ -1,0 +1,9 @@
+PRE-INSTALL:
+		
+			* Recompile your kernel with frame buffer enabled
+			* Make sure that /dev/fb0 is created:
+	
+			# mknod /dev/fb0 c 29 0
+			# ln -sf /dev/fb0 /dev/fb
+
+			* Allow write access to users on /dev/fb0

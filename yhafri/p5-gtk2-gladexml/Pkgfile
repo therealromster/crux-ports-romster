@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Perl class to create user interfaces directly from Glade XML files. 
+# URL: http://search.cpan.org/~rmcfarla/Gtk2-GladeXML-1.001/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: glib, libglade, gtk
+
+name=p5-gtk2-gladexml
+version=1.005
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/Gtk2-GladeXML-$version.tar.gz)
+build () {
+	cd Gtk2-GladeXML-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

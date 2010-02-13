@@ -1,0 +1,9 @@
+POST-INSTALL:
+		* Set the environment variable:
+		export IMGV_HOME="/usr/lib/imgv" 
+	
+		* Starting the image viewer:
+		$ imgv
+              	or
+		$ imgv <directory|image|remote image>
+

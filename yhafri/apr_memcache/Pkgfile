@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A client for memcached written in C using APR and APR-Util
+# URL: http://www.outoforder.cc/projects/libs/apr_memcache/ 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: apr, libevent
+
+name=apr_memcache
+version=0.7.0
+release=1
+source=(http://www.outoforder.cc/downloads/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

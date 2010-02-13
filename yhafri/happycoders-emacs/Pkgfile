@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Emacs configuration
+# URL: http://www.happycoders.org/software/emacs.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=happycoders-emacs
+version=1
+release=1
+source=(http://www.speedblue.org/conf/emacs.tgz)
+
+build () {
+	mkdir -p $PKG/etc
+
+	mv emacs-config $PKG/etc/$name
+
+	chown -R root:root $PKG
+}

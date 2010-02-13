@@ -1,0 +1,20 @@
+# Description: Personal finance manager for KDE 
+# URL: http://kmymoney2.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, libofx, aqbanking
+
+name=kmymoney
+version=0.8.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/${name}2/${name}2-$version.tar.bz2)
+
+build() {
+    cd ${name}2-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

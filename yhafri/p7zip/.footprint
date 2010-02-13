@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/7za -> /usr/lib/p7zip/7za
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/p7zip/
+-r-xr-xr-x	root/root	usr/lib/p7zip/7zCon.sfx
+-r-xr-xr-x	root/root	usr/lib/p7zip/7za
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-r--r--r--	root/root	usr/man/man1/7z.1.gz
+-r--r--r--	root/root	usr/man/man1/7za.1.gz
+-r--r--r--	root/root	usr/man/man1/7zr.1.gz

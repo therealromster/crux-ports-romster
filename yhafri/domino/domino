@@ -1,0 +1,6 @@
+#!/bin/sh
+
+(
+cd /usr/lib/domino
+java -cp xercesImpl.jar:xalan.jar:domino.jar:. -Djava.library.path=. "$@"
+)

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Per-line Perl profiler 
+# URL: http://search.cpan.org/~salva/Devel-SmallProf/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-devel-smallprof
+version=2.00_03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SA/SALVA/Devel-SmallProf-$version.tar.gz)
+
+build () {
+	cd Devel-SmallProf-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

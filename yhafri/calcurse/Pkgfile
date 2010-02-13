@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A text-based personal organizer
+# URL: http://culot.org/calcurse/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses
+
+name=calcurse
+version=1.6
+release=1
+source=(http://culot.org/cgi-bin/get.cgi?$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: MPEG4 video encoder AVC/H.264
+# URL: http://www.videolan.org/vlc/download-sources.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=x264
+version=20060420-2245
+release=1
+source=(http://downloads.videolan.org/pub/videolan/vlc/0.8.5/contrib/$name-snapshot-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	
+	cd $name-snapshot-$version
+
+    	make
+    	
+	cp lib$name.a $PKG/usr/lib
+    
+	chown -R root:root $PKG
+}

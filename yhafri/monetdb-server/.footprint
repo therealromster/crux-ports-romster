@@ -1,0 +1,565 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/DBD/
+-rwxr-xr-x	root/root	usr/DBD/monetdb.pm
+drwxr-xr-x	root/root	usr/DBD/monetdb/
+-rwxr-xr-x	root/root	usr/DBD/monetdb/GetInfo.pm
+-rwxr-xr-x	root/root	usr/DBD/monetdb/TypeInfo.pm
+-rwxr-xr-x	root/root	usr/MapiLib.la
+-rw-r--r--	root/root	usr/MapiLib.pm
+lrwxrwxrwx	root/root	usr/MapiLib.so -> MapiLib.so.0.0.0
+lrwxrwxrwx	root/root	usr/MapiLib.so.0 -> MapiLib.so.0.0.0
+-rwxr-xr-x	root/root	usr/MapiLib.so.0.0.0
+drwxr-xr-x	root/root	usr/MonetDB/
+-rwxr-xr-x	root/root	usr/MonetDB/CLI.pm
+drwxr-xr-x	root/root	usr/MonetDB/CLI/
+-rwxr-xr-x	root/root	usr/MonetDB/CLI/MapiLib.pm
+-rwxr-xr-x	root/root	usr/MonetDB/CLI/MapiPP.pm
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/MapiClient
+-rwxr-xr-x	root/root	usr/bin/MapiClient.py
+-rwxr-xr-x	root/root	usr/bin/MapiClient.py.bat
+lrwxrwxrwx	root/root	usr/bin/Mapprove.py -> Mtest.py
+lrwxrwxrwx	root/root	usr/bin/Mapprove.py.bat -> Mtest.py.bat
+-rwxr-xr-x	root/root	usr/bin/Mbeddedmil
+-rwxr-xr-x	root/root	usr/bin/Mdiff
+-rwxr-xr-x	root/root	usr/bin/Mfilter.py
+-rwxr-xr-x	root/root	usr/bin/MkillUsers
+-rwxr-xr-x	root/root	usr/bin/Mlog
+-rwxr-xr-x	root/root	usr/bin/Mlog.bat
+lrwxrwxrwx	root/root	usr/bin/Mprofile.py -> Mtest.py
+lrwxrwxrwx	root/root	usr/bin/Mprofile.py.bat -> Mtest.py.bat
+-rwxr-xr-x	root/root	usr/bin/Mserver
+-rwxr-xr-x	root/root	usr/bin/Mtest.py
+-rwxr-xr-x	root/root	usr/bin/Mtest.py.bat
+-rwxr-xr-x	root/root	usr/bin/Mtimeout
+-rwxr-xr-x	root/root	usr/bin/calibrator
+-rwxr-xr-x	root/root	usr/bin/monetdb-config
+-rwxr-xr-x	root/root	usr/bin/monetdb-config.bat
+-rwxr-xr-x	root/root	usr/bin/prof.py
+drwxr-xr-x	root/root	usr/etc/
+-rwxr-xr-x	root/root	usr/etc/MonetDB.conf
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/MonetDB/
+drwxr-xr-x	root/root	usr/include/MonetDB/C/
+-rw-r--r--	root/root	usr/include/MonetDB/C/Mapi.h
+drwxr-xr-x	root/root	usr/include/MonetDB/calibrator/
+-rw-r--r--	root/root	usr/include/MonetDB/calibrator/calib.m
+drwxr-xr-x	root/root	usr/include/MonetDB/common/
+-rw-r--r--	root/root	usr/include/MonetDB/common/dummy_gdk_utils.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/monet_getopt.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/monet_options.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/monet_utils.h
+-rw-r--r--	root/root	usr/include/MonetDB/common/stream.h
+drwxr-xr-x	root/root	usr/include/MonetDB/contrib/
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/array.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/array.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/array.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bat_cast.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bat_cast.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bat_mmath.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bat_mmath.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bitset.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bitset.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bitset.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bitvector.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/bitvector.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/color.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/color.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/color.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/ddbench.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/ddbench.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/image.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/image.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/iterator.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/iterator.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/iterator.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/malalgebra.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/malalgebra.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/malalgebra.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/mel.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/mel.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/mprof.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/mprof.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/mprof.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/oo7.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/oo7.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/qt.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/qt.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/salgebra.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/salgebra.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/salgebra.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/txtsim.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/txtsim.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/uchr.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/uchr.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/uchr.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/vector.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/vector.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/vector.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/wisc.h
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/wisc.m
+-rw-r--r--	root/root	usr/include/MonetDB/contrib/wisc.proto.h
+drwxr-xr-x	root/root	usr/include/MonetDB/gdk/
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_atoms.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_bat.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_bbp.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_delta.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_desc.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_posix.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_scanselect.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_search.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_setop.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_storage.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_system.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_tm.h
+-rw-r--r--	root/root	usr/include/MonetDB/gdk/gdk_utils.h
+drwxr-xr-x	root/root	usr/include/MonetDB/mapi/
+-rw-r--r--	root/root	usr/include/MonetDB/mapi/mapi.h
+-rw-r--r--	root/root	usr/include/MonetDB/mapi/mapi.m
+-rw-r--r--	root/root	usr/include/MonetDB/mapi/mapi.proto.h
+drwxr-xr-x	root/root	usr/include/MonetDB/monet/
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_client.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_context.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_deparse.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_interpreter.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_multiplex.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_parse.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_parse.tab.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_process.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_queue.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/monet_tbl.h
+-rw-r--r--	root/root	usr/include/MonetDB/monet/yytree.h
+-rw-r--r--	root/root	usr/include/MonetDB/monetdb_config.h
+drwxr-xr-x	root/root	usr/include/MonetDB/plain/
+-rw-r--r--	root/root	usr/include/MonetDB/plain/aggr.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/aggr.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/aggrX3.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/aggrX3.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/alarm.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/alarm.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/alarm.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/algebra.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/algebra.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/algebra.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/arith.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/arith.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/arith.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/ascii_io.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/ascii_io.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/ascii_io.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/bat.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/bat.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/bat.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/bat_arith.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/bat_arith.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/blob.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/blob.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/blob.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/builtin.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/builtin.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/constant.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/constant.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/counters.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/counters.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/counters.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/decimal.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/decimal.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/decimal.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/enum.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/enum.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/enum.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/lock.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/lock.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/lock.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/logger.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/logger.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/logger.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/mkey.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/mkey.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/mmath.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/mmath.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/mmath.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/monettime.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/monettime.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/monettime.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/pcl.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/pcl.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/pcre.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/pcre.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/pqueue.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/pqueue.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/profiler.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/profiler.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/profiler.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/radix.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/radix.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/stats.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/stats.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/str.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/str.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/str.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/streams.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/streams.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/streams.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/sys.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/sys.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/sys.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/tcpip.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/tcpip.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/tcpip.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/trans.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/trans.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/unix.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/unix.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/upgrade.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/upgrade.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/url.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/url.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/url.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/plain/xtables.m
+-rw-r--r--	root/root	usr/include/MonetDB/plain/xtables.proto.h
+-rw-r--r--	root/root	usr/include/MonetDB/sysdefs.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/MonetDB/
+drwxr-xr-x	root/root	usr/lib/MonetDB/Tests/
+-rwxr-xr-x	root/root	usr/lib/MonetDB/Tests/sample0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/Tests/sample1
+-rwxr-xr-x	root/root	usr/lib/MonetDB/Tests/sample2
+-rwxr-xr-x	root/root	usr/lib/MonetDB/Tests/sample3
+-rwxr-xr-x	root/root	usr/lib/MonetDB/Tests/sample4
+-rwxr-xr-x	root/root	usr/lib/MonetDB/Tests/smack00
+-rwxr-xr-x	root/root	usr/lib/MonetDB/Tests/smack01
+-rwxr-xr-x	root/root	usr/lib/MonetDB/aggr.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/aggrX3.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/alarm.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/algebra.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/arith.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/array.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/ascii_io.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/bat.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/bat_arith.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/bat_cast.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/bat_mmath.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/bitset.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/bitvector.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/blob.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/builtin.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/calib.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/color.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/constant.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/counters.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/ddbench.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/decimal.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/enum.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/image.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/iterator.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_aggr.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_aggr.so -> lib_aggr.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_aggr.so.0 -> lib_aggr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_aggr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_aggrX3.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_aggrX3.so -> lib_aggrX3.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_aggrX3.so.0 -> lib_aggrX3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_aggrX3.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_alarm.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_alarm.so -> lib_alarm.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_alarm.so.0 -> lib_alarm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_alarm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_algebra.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_algebra.so -> lib_algebra.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_algebra.so.0 -> lib_algebra.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_algebra.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_arith.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_arith.so -> lib_arith.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_arith.so.0 -> lib_arith.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_arith.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_array.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_array.so -> lib_array.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_array.so.0 -> lib_array.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_array.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_ascii_io.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_ascii_io.so -> lib_ascii_io.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_ascii_io.so.0 -> lib_ascii_io.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_ascii_io.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat.so -> lib_bat.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat.so.0 -> lib_bat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat_arith.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat_arith.so -> lib_bat_arith.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat_arith.so.0 -> lib_bat_arith.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat_arith.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat_cast.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat_cast.so -> lib_bat_cast.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat_cast.so.0 -> lib_bat_cast.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat_cast.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat_mmath.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat_mmath.so -> lib_bat_mmath.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bat_mmath.so.0 -> lib_bat_mmath.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bat_mmath.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bitset.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bitset.so -> lib_bitset.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bitset.so.0 -> lib_bitset.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bitset.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bitvector.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bitvector.so -> lib_bitvector.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_bitvector.so.0 -> lib_bitvector.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_bitvector.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_blob.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_blob.so -> lib_blob.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_blob.so.0 -> lib_blob.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_blob.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_builtin.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_builtin.so -> lib_builtin.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_builtin.so.0 -> lib_builtin.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_builtin.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_calib.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_calib.so -> lib_calib.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_calib.so.0 -> lib_calib.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_calib.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_color.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_color.so -> lib_color.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_color.so.0 -> lib_color.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_color.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_constant.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_constant.so -> lib_constant.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_constant.so.0 -> lib_constant.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_constant.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_counters.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_counters.so -> lib_counters.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_counters.so.0 -> lib_counters.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_counters.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_ddbench.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_ddbench.so -> lib_ddbench.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_ddbench.so.0 -> lib_ddbench.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_ddbench.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_decimal.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_decimal.so -> lib_decimal.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_decimal.so.0 -> lib_decimal.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_decimal.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_enum.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_enum.so -> lib_enum.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_enum.so.0 -> lib_enum.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_enum.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_image.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_image.so -> lib_image.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_image.so.0 -> lib_image.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_image.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_iterator.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_iterator.so -> lib_iterator.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_iterator.so.0 -> lib_iterator.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_iterator.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_lock.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_lock.so -> lib_lock.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_lock.so.0 -> lib_lock.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_lock.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_logger.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_logger.so -> lib_logger.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_logger.so.0 -> lib_logger.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_logger.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_malalgebra.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_malalgebra.so -> lib_malalgebra.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_malalgebra.so.0 -> lib_malalgebra.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_malalgebra.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mapi.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mapi.so -> lib_mapi.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mapi.so.0 -> lib_mapi.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mapi.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mel.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mel.so -> lib_mel.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mel.so.0 -> lib_mel.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mel.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mkey.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mkey.so -> lib_mkey.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mkey.so.0 -> lib_mkey.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mkey.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mmath.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mmath.so -> lib_mmath.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mmath.so.0 -> lib_mmath.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mmath.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_monettime.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_monettime.so -> lib_monettime.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_monettime.so.0 -> lib_monettime.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_monettime.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mprof.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mprof.so -> lib_mprof.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_mprof.so.0 -> lib_mprof.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_mprof.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_oo7.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_oo7.so -> lib_oo7.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_oo7.so.0 -> lib_oo7.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_oo7.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_pcl.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_pcl.so -> lib_pcl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_pcl.so.0 -> lib_pcl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_pcl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_pcre.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_pcre.so -> lib_pcre.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_pcre.so.0 -> lib_pcre.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_pcre.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_pqueue.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_pqueue.so -> lib_pqueue.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_pqueue.so.0 -> lib_pqueue.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_pqueue.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_profiler.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_profiler.so -> lib_profiler.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_profiler.so.0 -> lib_profiler.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_profiler.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_qt.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_qt.so -> lib_qt.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_qt.so.0 -> lib_qt.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_qt.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_radix.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_radix.so -> lib_radix.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_radix.so.0 -> lib_radix.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_radix.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_salgebra.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_salgebra.so -> lib_salgebra.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_salgebra.so.0 -> lib_salgebra.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_salgebra.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_stats.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_stats.so -> lib_stats.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_stats.so.0 -> lib_stats.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_stats.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_str.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_str.so -> lib_str.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_str.so.0 -> lib_str.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_str.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_streams.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_streams.so -> lib_streams.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_streams.so.0 -> lib_streams.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_streams.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_sys.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_sys.so -> lib_sys.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_sys.so.0 -> lib_sys.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_sys.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_tcpip.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_tcpip.so -> lib_tcpip.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_tcpip.so.0 -> lib_tcpip.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_tcpip.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_trans.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_trans.so -> lib_trans.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_trans.so.0 -> lib_trans.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_trans.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_txtsim.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_txtsim.so -> lib_txtsim.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_txtsim.so.0 -> lib_txtsim.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_txtsim.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_uchr.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_uchr.so -> lib_uchr.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_uchr.so.0 -> lib_uchr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_uchr.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_unix.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_unix.so -> lib_unix.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_unix.so.0 -> lib_unix.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_unix.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_upgrade.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_upgrade.so -> lib_upgrade.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_upgrade.so.0 -> lib_upgrade.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_upgrade.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_url.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_url.so -> lib_url.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_url.so.0 -> lib_url.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_url.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_vector.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_vector.so -> lib_vector.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_vector.so.0 -> lib_vector.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_vector.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_wisc.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_wisc.so -> lib_wisc.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_wisc.so.0 -> lib_wisc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_wisc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_xtables.la
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_xtables.so -> lib_xtables.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/MonetDB/lib_xtables.so.0 -> lib_xtables.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lib_xtables.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/MonetDB/lock.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/logger.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/malalgebra.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/mapi.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/mel.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/mkey.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/mmath.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/monettime.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/mprof.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/oo7.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/pcl.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/pcre.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/pqueue.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/profiler.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/qt.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/radix.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/salgebra.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/stats.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/str.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/streams.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/sys.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/tcpip.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/trans.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/txtsim.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/uchr.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/unix.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/upgrade.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/url.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/vector.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/wisc.mil
+-rwxr-xr-x	root/root	usr/lib/MonetDB/xtables.mil
+-rwxr-xr-x	root/root	usr/lib/libMapi.la
+lrwxrwxrwx	root/root	usr/lib/libMapi.so -> libMapi.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libMapi.so.0 -> libMapi.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libMapi.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbat.la
+lrwxrwxrwx	root/root	usr/lib/libbat.so -> libbat.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbat.so.0 -> libbat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbat.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libembeddedmil.la
+lrwxrwxrwx	root/root	usr/lib/libembeddedmil.so -> libembeddedmil.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libembeddedmil.so.0 -> libembeddedmil.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libembeddedmil.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libmonet.la
+lrwxrwxrwx	root/root	usr/lib/libmonet.so -> libmonet.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libmonet.so.0 -> libmonet.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libmonet.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libmutils.la
+lrwxrwxrwx	root/root	usr/lib/libmutils.so -> libmutils.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libmutils.so.0 -> libmutils.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libmutils.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libstream.la
+lrwxrwxrwx	root/root	usr/lib/libstream.so -> libstream.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libstream.so.0 -> libstream.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libstream.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/MonetDB.pc
+drwxr-xr-x	root/root	usr/lib/python2.4/
+drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/CMapi.py
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/MapiLib.py
+drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/MonetSQLdb/
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/MonetSQLdb/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/MonetSQLdb/converters.py
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/MonetSQLdb/cursors.py
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/MonetSQLdb/monetexceptions.py
+-rw-r--r--	root/root	usr/lib/python2.4/site-packages/MonetSQLdb/times.py
+-rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/_MapiLib.la
+lrwxrwxrwx	root/root	usr/lib/python2.4/site-packages/_MapiLib.so -> _MapiLib.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/python2.4/site-packages/_MapiLib.so.0 -> _MapiLib.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/_MapiLib.so.0.0.0
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/MonetDB/
+-rwxr-xr-x	root/root	usr/share/MonetDB/Mprofile-commands.lst
+drwxr-xr-x	root/root	usr/share/MonetDB/conf/
+-rwxr-xr-x	root/root	usr/share/MonetDB/conf/monet.m4
+-rwxr-xr-x	root/root	usr/share/MonetDB/general.mil
+-rwxr-xr-x	root/root	usr/share/MonetDB/lady.gif
+drwxr-xr-x	root/root	usr/share/MonetDB/perl/
+-rwxr-xr-x	root/root	usr/share/MonetDB/perl/Mapi.pm
+drwxr-xr-x	root/root	usr/share/MonetDB/python/
+-rwxr-xr-x	root/root	usr/share/MonetDB/python/Mapi.py
+-rwxr-xr-x	root/root	usr/share/MonetDB/python/monet_options.py
+-rwxr-xr-x	root/root	usr/share/MonetDB/python/trace.py
+-rwxr-xr-x	root/root	usr/share/MonetDB/quit.mil
+drwxr-xr-x	root/root	usr/share/MonetDB/tools/
+-rwxr-xr-x	root/root	usr/share/MonetDB/tools/backup.mil
+-rwxr-xr-x	root/root	usr/share/MonetDB/tools/restore.mil

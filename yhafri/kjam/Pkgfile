@@ -1,0 +1,17 @@
+# $Id: $
+# Description: A program construction tool based on Jam
+# URL: http://www.oroboro.com/kjam
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=kjam
+version=0.37
+release=1
+source=(http://www.oroboro.com/$name/downloads/${name}_preview_0_37_linux.zip)
+
+build () {
+	install -D -m 755 $name  $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Graphics Subroutine Library
+# URL: http://www.astro.caltech.edu/~tjp/pgplot/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk
+
+name=pgplot
+version=5.2
+release=1
+source=(ftp://ftp.astro.caltech.edu/pub/pgplot/$name$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,include}
+	mkdir -p $PKG/usr/lib/pgplot
+        cd $name
+	patch -p1 < ../$name-$version.patch
+	./makemake $SRC/$name linux g77_gcc
+	sed -i "s/TK\_LIBS\=.*$/TK\_LIBS\=\-L\/usr\/lib\ \-L\/usr\/X11R6\/lib\ \-ltcl8\.4\ \-ltk8\.4\ \-lX11\ \-ldl/" makefile
+        make CFLAGS="$CFLAGS"
+        make CFLAGS="$CFLAGS" cpg 
+
+	cp pgdisp pgxwin_server  $PKG/usr/bin
+        cp grfont.dat rgb.txt    $PKG/usr/lib/pgplot
+	cp cpgplot.h tkpgplot.h   $PKG/usr/include
+	cp libpgplot.a libpgplot.so libcpgplot.a libtkpgplot.a $PKG/usr/lib
+	chown -R root:root $PKG
+}

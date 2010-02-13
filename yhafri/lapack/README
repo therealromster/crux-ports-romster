@@ -1,0 +1,5 @@
+PRE-INSTALL:
+
+		* Recompile gcc with option 
+		--enable-languages=c,c++,objc,f77,ada
+		or use the gcc port in this repository

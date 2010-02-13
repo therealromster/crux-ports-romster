@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/hashtest.exe
+-rwxr-xr-x	root/root	usr/bin/markov.exe
+-rwxr-xr-x	root/root	usr/bin/wdfreq.exe
+-rw-r--r--	root/root	usr/bin/xref.exe
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/cokusmt.h
+-rw-r--r--	root/root	usr/include/hashlib.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/hashlib.a

@@ -1,0 +1,23 @@
+# $Id: $
+# Description:  GQradio interfaces with radio cards through the video4linux, or the FreeBSD bktr APIs
+# URL: http://gqmpeg.sourceforge.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, libpng
+
+name=gqradio
+version=1.9.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/gqmpeg/$name-$version.tar.gz)
+
+build () {
+
+	cd $name-$version
+	./configure --prefix=/usr \
+                --disable-nls
+
+    make
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

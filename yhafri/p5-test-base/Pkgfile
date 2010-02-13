@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A Data Driven Testing Framework
+# URL: http://search.cpan.org/~ingy/Test-Base-0.45/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-algorithm-diff, p5-spiffy, p5-text-diff
+
+name=p5-test-base
+version=0.50
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/I/IN/INGY/Test-Base-$version.tar.gz)
+
+build () {
+	cd Test-Base-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

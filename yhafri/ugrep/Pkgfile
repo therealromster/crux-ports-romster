@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Barebones version of grep/egrep
+# URL: http://robur.slu.se/jensl/ugrep/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: dietlibc
+
+name=ugrep
+version=1
+release=1
+source=(http://robur.slu.se/jensl/$name/$name.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: TeX/LaTeX package to generate the arabic writing
+# URL: http://packages.debian.org/unstable/tex/arabtex
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=arabtex
+version=3.11.orig
+release=1
+source=(http://ftp.debian.org/debian/pool/main/a/arabtex/$name\_$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/{tex/latex,fonts}
+	tar -xvf $name.tar
+	cp -rf tex/latex/arabtex   $PKG/usr/share/texmf/tex/latex/
+	cp -rf fonts/*             $PKG/usr/share/texmf/fonts/
+	find $PKG/ -print -exec touch '{}' \;
+	chown -R root:root $PKG
+}

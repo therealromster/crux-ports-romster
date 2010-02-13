@@ -1,0 +1,139 @@
+diff -ru ppp-2.4.3/chat/Makefile.linux ppp-2.4.3-new/chat/Makefile.linux
+--- ppp-2.4.3/chat/Makefile.linux	2004-11-03 12:51:47.000000000 +0100
++++ ppp-2.4.3-new/chat/Makefile.linux	2005-01-06 15:49:47.828712944 +0100
+@@ -1,8 +1,8 @@
+ #	$Id: Makefile.linux,v 1.13 2004/11/03 11:51:47 paulus Exp $
+ 
+ DESTDIR = @DESTDIR@
+-BINDIR = $(DESTDIR)/sbin
+-MANDIR = $(DESTDIR)/share/man/man8
++BINDIR = $(DESTDIR)/usr/sbin
++MANDIR = $(DESTDIR)/usr/man/man8
+ 
+ CDEF1=	-DTERMIOS			# Use the termios structure
+ CDEF2=	-DSIGTYPE=void			# Standard definition
+diff -ru ppp-2.4.3/linux/Makefile.top ppp-2.4.3-new/linux/Makefile.top
+--- ppp-2.4.3/linux/Makefile.top	2004-10-31 23:25:16.000000000 +0100
++++ ppp-2.4.3-new/linux/Makefile.top	2005-01-06 15:53:32.479560824 +0100
+@@ -1,10 +1,10 @@
+ # PPP top-level Makefile for Linux.
+ 
+ DESTDIR = @DESTDIR@
+-BINDIR = $(DESTDIR)/sbin
+-INCDIR = $(DESTDIR)/include
+-MANDIR = $(DESTDIR)/share/man
+-ETCDIR = @SYSCONF@/ppp
++BINDIR = $(DESTDIR)/usr/sbin
++INCDIR = $(DESTDIR)/usr/include
++MANDIR = $(DESTDIR)/usr/man
++ETCDIR = $(DESTDIR)/etc/ppp
+ 
+ # uid 0 = root
+ INSTALL= install
+@@ -16,7 +16,7 @@
+ 	cd pppstats; $(MAKE) $(MFLAGS) all
+ 	cd pppdump; $(MAKE) $(MFLAGS) all
+ 
+-install: $(BINDIR) $(MANDIR)/man8 install-progs install-devel
++install: $(BINDIR) $(MANDIR)/man8 install-progs install-devel install-etcppp
+ 
+ install-progs:
+ 	cd chat; $(MAKE) $(MFLAGS) install
+diff -ru ppp-2.4.3/pppd/Makefile.linux ppp-2.4.3-new/pppd/Makefile.linux
+--- ppp-2.4.3/pppd/Makefile.linux	2004-11-13 13:02:22.000000000 +0100
++++ ppp-2.4.3-new/pppd/Makefile.linux	2005-01-06 15:48:06.497117688 +0100
+@@ -5,9 +5,9 @@
+ 
+ # Default installation locations
+ DESTDIR = @DESTDIR@
+-BINDIR = $(DESTDIR)/sbin
+-MANDIR = $(DESTDIR)/share/man/man8
+-INCDIR = $(DESTDIR)/include
++BINDIR = $(DESTDIR)/usr/sbin
++MANDIR = $(DESTDIR)/usr/man/man8
++INCDIR = $(DESTDIR)/usr/include
+ 
+ TARGETS = pppd
+ 
+diff -ru ppp-2.4.3/pppd/plugins/Makefile.linux ppp-2.4.3-new/pppd/plugins/Makefile.linux
+--- ppp-2.4.3/pppd/plugins/Makefile.linux	2004-11-14 08:57:35.000000000 +0100
++++ ppp-2.4.3-new/pppd/plugins/Makefile.linux	2005-01-06 15:48:42.183692504 +0100
+@@ -5,9 +5,9 @@
+ INSTALL	= install
+ 
+ DESTDIR = @DESTDIR@
+-BINDIR = $(DESTDIR)/sbin
+-MANDIR = $(DESTDIR)/share/man/man8
+-LIBDIR = $(DESTDIR)/lib/pppd/$(VERSION)
++BINDIR = $(DESTDIR)/usr/sbin
++MANDIR = $(DESTDIR)/usr/man/man8
++LIBDIR = $(DESTDIR)/usr/lib/pppd/$(VERSION)
+ 
+ SUBDIRS := rp-pppoe pppoatm radius
+ # Uncomment the next line to include the radius authentication plugin
+diff -ru ppp-2.4.3/pppd/plugins/pppoatm/Makefile.linux ppp-2.4.3-new/pppd/plugins/pppoatm/Makefile.linux
+--- ppp-2.4.3/pppd/plugins/pppoatm/Makefile.linux	2004-11-14 02:12:10.000000000 +0100
++++ ppp-2.4.3-new/pppd/plugins/pppoatm/Makefile.linux	2005-01-06 15:48:24.970309336 +0100
+@@ -7,7 +7,7 @@
+ #***********************************************************************
+ 
+ DESTDIR = @DESTDIR@
+-LIBDIR = $(DESTDIR)/lib/pppd/$(VERSION)
++LIBDIR = $(DESTDIR)/usr/lib/pppd/$(VERSION)
+ 
+ VERSION = $(shell awk -F '"' '/VERSION/ { print $$2; }' ../../patchlevel.h)
+ 
+diff -ru ppp-2.4.3/pppd/plugins/radius/Makefile.linux ppp-2.4.3-new/pppd/plugins/radius/Makefile.linux
+--- ppp-2.4.3/pppd/plugins/radius/Makefile.linux	2004-11-14 08:02:31.000000000 +0100
++++ ppp-2.4.3-new/pppd/plugins/radius/Makefile.linux	2005-01-06 15:49:03.502451560 +0100
+@@ -4,8 +4,8 @@
+ #
+ 
+ DESTDIR = @DESTDIR@
+-MANDIR = $(DESTDIR)/share/man/man8
+-LIBDIR = $(DESTDIR)/lib/pppd/$(VERSION)
++MANDIR = $(DESTDIR)/usr/man/man8
++LIBDIR = $(DESTDIR)/usr/lib/pppd/$(VERSION)
+ 
+ VERSION = $(shell awk -F '"' '/VERSION/ { print $$2; }' ../../patchlevel.h)
+ 
+diff -ru ppp-2.4.3/pppd/plugins/rp-pppoe/Makefile.linux ppp-2.4.3-new/pppd/plugins/rp-pppoe/Makefile.linux
+--- ppp-2.4.3/pppd/plugins/rp-pppoe/Makefile.linux	2004-11-14 08:58:37.000000000 +0100
++++ ppp-2.4.3-new/pppd/plugins/rp-pppoe/Makefile.linux	2005-01-06 15:48:52.662099544 +0100
+@@ -14,8 +14,8 @@
+ #***********************************************************************
+ 
+ DESTDIR = @DESTDIR@
+-BINDIR = $(DESTDIR)/sbin
+-LIBDIR = $(DESTDIR)/lib/pppd/$(PPPDVERSION)
++BINDIR = $(DESTDIR)/usr/sbin
++LIBDIR = $(DESTDIR)/usr/lib/pppd/$(PPPDVERSION)
+ 
+ PPPDVERSION = $(shell awk -F '"' '/VERSION/ { print $$2; }' ../../patchlevel.h)
+ 
+diff -ru ppp-2.4.3/pppdump/Makefile.linux ppp-2.4.3-new/pppdump/Makefile.linux
+--- ppp-2.4.3/pppdump/Makefile.linux	2004-10-31 02:36:52.000000000 +0200
++++ ppp-2.4.3-new/pppdump/Makefile.linux	2005-01-06 15:47:56.096698792 +0100
+@@ -1,6 +1,6 @@
+ DESTDIR = @DESTDIR@
+-BINDIR = $(DESTDIR)/sbin
+-MANDIR = $(DESTDIR)/share/man/man8
++BINDIR = $(DESTDIR)/usr/sbin
++MANDIR = $(DESTDIR)/usr/man/man8
+ 
+ CFLAGS= -O -I../include/net
+ OBJS = pppdump.o bsd-comp.o deflate.o zlib.o
+diff -ru ppp-2.4.3/pppstats/Makefile.linux ppp-2.4.3-new/pppstats/Makefile.linux
+--- ppp-2.4.3/pppstats/Makefile.linux	2004-10-31 23:09:03.000000000 +0100
++++ ppp-2.4.3-new/pppstats/Makefile.linux	2005-01-06 15:47:44.935395568 +0100
+@@ -3,8 +3,8 @@
+ # $Id: Makefile.linux,v 1.8 2004/10/31 22:09:03 paulus Exp $
+ #
+ DESTDIR = @DESTDIR@
+-BINDIR = $(DESTDIR)/sbin
+-MANDIR = $(DESTDIR)/share/man/man8
++BINDIR = $(DESTDIR)/usr/sbin
++MANDIR = $(DESTDIR)/usr/man/man8
+ 
+ PPPSTATSRCS = pppstats.c
+ PPPSTATOBJS = pppstats.o

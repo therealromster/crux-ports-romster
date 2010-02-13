@@ -1,0 +1,20 @@
+# Description: a library and associated tools for ACL support
+# URL: http://oss.sgi.com/projects/xfs/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Dependencies: attr
+
+name=acl
+version=2.2.34
+release=5
+source=(ftp://oss.sgi.com/projects/xfs/cmd_tars/$name-$version.src.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make prefix=$PKG/usr install install-dev install-lib
+    install -D -m 644 $PKG/usr/libexec/libacl.la $PKG/usr/lib/libacl.la
+    install -D -m 644 libacl/.libs/libacl.a $PKG/usr/lib/libacl.a
+    rm -rf $PKG/usr/{libexec,share}/
+}

@@ -1,0 +1,5444 @@
+diff -urN mozilla-firefox-1.0.6.orig/browser/locales/en-US/chrome/browser/aboutDialog.dtd mozilla-firefox-1.0.6/browser/locales/en-US/chrome/browser/aboutDialog.dtd
+--- mozilla-firefox-1.0.6.orig/browser/locales/en-US/chrome/browser/aboutDialog.dtd	2005-03-16 12:42:33.000000000 +1300
++++ mozilla-firefox-1.0.6/browser/locales/en-US/chrome/browser/aboutDialog.dtd	2005-09-11 00:35:37.000000000 +1200
+@@ -5,4 +5,7 @@
+ <!ENTITY copyrightText          "&#169;1998-2005 Contributors. All Rights Reserved. Firefox and the 
+                                  Firefox logos are trademarks of the Mozilla Foundation.  All rights 
+                                  reserved. Some trademark rights used under license from The 
+-                                 Charlton Company.">
++                                 Charlton Company.
++                                 ** This is a patched version of Firefox, modified to improve
++                                 complex-layout and right-to-left language support according to the v4.12 patch from
++                                 http://blacksapphire.com/firefox-rtl/ **">
+diff -urN mozilla-firefox-1.0.6.orig/config/autoconf.mk.in mozilla-firefox-1.0.6/config/autoconf.mk.in
+--- mozilla-firefox-1.0.6.orig/config/autoconf.mk.in	2005-08-19 13:15:26.000000000 +1200
++++ mozilla-firefox-1.0.6/config/autoconf.mk.in	2005-08-19 13:25:10.000000000 +1200
+@@ -388,6 +388,10 @@
+ MOZ_XFT_LIBS		= @MOZ_XFT_LIBS@
+ MOZ_ENABLE_COREXFONTS	= @MOZ_ENABLE_COREXFONTS@
+ 
++MOZ_ENABLE_PANGO        = @MOZ_ENABLE_PANGO@
++MOZ_PANGO_CFLAGS        = @MOZ_PANGO_CFLAGS@
++MOZ_PANGO_LIBS          = @MOZ_PANGO_LIBS@
++
+ MOZ_EXTRA_X11CONVERTERS	= @MOZ_EXTRA_X11CONVERTERS@
+ 
+ MOZ_ENABLE_XINERAMA	= @MOZ_ENABLE_XINERAMA@
+--- mozilla-firefox-1.0.6.orig/configure	2005-08-19 13:15:26.000000000 +1200
++++ mozilla-firefox-1.0.6/configure	2005-08-19 13:25:10.000000000 +1200
+@@ -90,6 +90,8 @@
+ ac_help="$ac_help
+   --enable-xft            Enable Xft support "
+ ac_help="$ac_help
++  --enable-pango          Enable Pango font rendering support"
++ac_help="$ac_help
+   --disable-postscript    Disable PostScript printing support "
+ ac_help="$ac_help
+   --disable-xprint        Disable Xprint printing support "
+@@ -11905,6 +11907,175 @@
+ 
+ 
+ 
++# Check whether --enable-pango or --disable-pango was given.
++if test "${enable_pango+set}" = set; then
++  enableval="$enable_pango"
++  if test "$enableval" = "yes"; then
++    MOZ_ENABLE_PANGO=1
++  elif test "$enableval" = "no"; then
++    MOZ_ENABLE_PANGO=
++  else
++    { echo "configure: error: Option, pango, does not take an argument ($enableval)." 1>&2; exit 1; }
++  fi
++fi
++
++
++if test "$MOZ_ENABLE_PANGO"
++then
++    cat >> confdefs.h <<\EOF
++#define MOZ_ENABLE_PANGO 1
++EOF
++
++    
++  succeeded=no
++
++  if test -z "$PKG_CONFIG"; then
++    # Extract the first word of "pkg-config", so it can be a program name with args.
++set dummy pkg-config; ac_word=$2
++echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
++echo "configure:11938: checking for $ac_word" >&5
++if eval "test \"`echo '$''{'ac_cv_path_PKG_CONFIG'+set}'`\" = set"; then
++  echo $ac_n "(cached) $ac_c" 1>&6
++else
++  case "$PKG_CONFIG" in
++  /*)
++  ac_cv_path_PKG_CONFIG="$PKG_CONFIG" # Let the user override the test with a path.
++  ;;
++  ?:/*)			 
++  ac_cv_path_PKG_CONFIG="$PKG_CONFIG" # Let the user override the test with a dos path.
++  ;;
++  *)
++  IFS="${IFS= 	}"; ac_save_ifs="$IFS"; IFS=":"
++  ac_dummy="$PATH"
++  for ac_dir in $ac_dummy; do 
++    test -z "$ac_dir" && ac_dir=.
++    if test -f $ac_dir/$ac_word; then
++      ac_cv_path_PKG_CONFIG="$ac_dir/$ac_word"
++      break
++    fi
++  done
++  IFS="$ac_save_ifs"
++  test -z "$ac_cv_path_PKG_CONFIG" && ac_cv_path_PKG_CONFIG="no"
++  ;;
++esac
++fi
++PKG_CONFIG="$ac_cv_path_PKG_CONFIG"
++if test -n "$PKG_CONFIG"; then
++  echo "$ac_t""$PKG_CONFIG" 1>&6
++else
++  echo "$ac_t""no" 1>&6
++fi
++
++  fi
++
++  if test "$PKG_CONFIG" = "no" ; then
++     echo "*** The pkg-config script could not be found. Make sure it is"
++     echo "*** in your path, or set the PKG_CONFIG environment variable"
++     echo "*** to the full path to pkg-config."
++     echo "*** Or see http://www.freedesktop.org/software/pkgconfig to get pkg-config."
++  else
++     PKG_CONFIG_MIN_VERSION=0.9.0
++     if $PKG_CONFIG --atleast-pkgconfig-version $PKG_CONFIG_MIN_VERSION; then
++        echo $ac_n "checking for pango >= 1.5.0""... $ac_c" 1>&6
++echo "configure:11982: checking for pango >= 1.5.0" >&5
++
++        if $PKG_CONFIG --exists "pango >= 1.5.0" ; then
++            echo "$ac_t""yes" 1>&6
++            succeeded=yes
++
++            echo $ac_n "checking MOZ_PANGO_CFLAGS""... $ac_c" 1>&6
++echo "configure:11989: checking MOZ_PANGO_CFLAGS" >&5
++            MOZ_PANGO_CFLAGS=`$PKG_CONFIG --cflags "pango >= 1.5.0"`
++            echo "$ac_t""$MOZ_PANGO_CFLAGS" 1>&6
++
++            echo $ac_n "checking MOZ_PANGO_LIBS""... $ac_c" 1>&6
++echo "configure:11994: checking MOZ_PANGO_LIBS" >&5
++            MOZ_PANGO_LIBS=`$PKG_CONFIG --libs "pango >= 1.5.0"`
++            echo "$ac_t""$MOZ_PANGO_LIBS" 1>&6
++        else
++            MOZ_PANGO_CFLAGS=""
++            MOZ_PANGO_LIBS=""
++            ## If we have a custom action on failure, don't print errors, but 
++            ## do set a variable so people can do so.
++            MOZ_PANGO_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "pango >= 1.5.0"`
++            echo $MOZ_PANGO_PKG_ERRORS
++        fi
++
++        
++        
++     else
++        echo "*** Your version of pkg-config is too old. You need version $PKG_CONFIG_MIN_VERSION or newer."
++        echo "*** See http://www.freedesktop.org/software/pkgconfig"
++     fi
++  fi
++
++  if test $succeeded = yes; then
++     :
++  else
++     { echo "configure: error: Library requirements (pango >= 1.5.0) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." 1>&2; exit 1; }
++  fi
++
++
++        _SAVE_CFLAGS=$CFLAGS
++    _SAVE_LDFLAGS=$LDFLAGS
++    CFLAGS="$MOZ_PANGO_CFLAGS $CFLAGS"
++    LDFLAGS="$MOZ_PANGO_LIBS $LDFLAGS"
++    echo $ac_n "checking for pango_fc_font_map_add_decoder_find_func in -lpangoft2-1.0""... $ac_c" 1>&6
++echo "configure:12026: checking for pango_fc_font_map_add_decoder_find_func in -lpangoft2-1.0" >&5
++ac_lib_var=`echo pangoft2-1.0'_'pango_fc_font_map_add_decoder_find_func | sed 'y%./+-%__p_%'`
++if eval "test \"`echo '$''{'ac_cv_lib_$ac_lib_var'+set}'`\" = set"; then
++  echo $ac_n "(cached) $ac_c" 1>&6
++else
++  ac_save_LIBS="$LIBS"
++LIBS="-lpangoft2-1.0  $LIBS"
++cat > conftest.$ac_ext <<EOF
++#line 12034 "configure"
++#include "confdefs.h"
++/* Override any gcc2 internal prototype to avoid an error.  */
++/* We use char because int might match the return type of a gcc2
++    builtin and then its argument prototype would still apply.  */
++char pango_fc_font_map_add_decoder_find_func();
++
++int main() {
++pango_fc_font_map_add_decoder_find_func()
++; return 0; }
++EOF
++if { (eval echo configure:12045: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
++  rm -rf conftest*
++  eval "ac_cv_lib_$ac_lib_var=yes"
++else
++  echo "configure: failed program was:" >&5
++  cat conftest.$ac_ext >&5
++  rm -rf conftest*
++  eval "ac_cv_lib_$ac_lib_var=no"
++fi
++rm -f conftest*
++LIBS="$ac_save_LIBS"
++
++fi
++if eval "test \"`echo '$ac_cv_lib_'$ac_lib_var`\" = yes"; then
++  echo "$ac_t""yes" 1>&6
++    ac_tr_lib=HAVE_LIB`echo pangoft2-1.0 | sed -e 's/[^a-zA-Z0-9_]/_/g' \
++    -e 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/'`
++  cat >> confdefs.h <<EOF
++#define $ac_tr_lib 1
++EOF
++
++  LIBS="-lpangoft2-1.0 $LIBS"
++
++else
++  echo "$ac_t""no" 1>&6
++{ echo "configure: error: Your Pango is too old. Sorry." 1>&2; exit 1; }
++fi
++
++    CFLAGS=$_SAVE_CFLAGS
++    LDFLAGS=$_SAVE_LDFLAGS
++
++    
++    
++    
++fi
++
+ MOZ_ENABLE_COREXFONTS=${MOZ_ENABLE_COREXFONTS-1}
+ if test "$MOZ_ENABLE_COREXFONTS"
+ then
+diff -urN mozilla-firefox-1.0.6.orig/gfx/public/nsIRenderingContext.h mozilla-firefox-1.0.6/gfx/public/nsIRenderingContext.h
+--- mozilla-firefox-1.0.6.orig/gfx/public/nsIRenderingContext.h	2004-10-09 05:57:18.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/public/nsIRenderingContext.h	2005-08-19 13:25:10.000000000 +1200
+@@ -96,7 +96,7 @@
+ 
+ // IID for the nsIRenderingContext interface
+ #define NS_IRENDERING_CONTEXT_IID \
+- { 0xa6cf9068, 0x15b3, 0x11d2,{0x93, 0x2e, 0x00, 0x80, 0x5f, 0x8a, 0xdd, 0x32}}
++ { 0x618d85c8, 0x8f29, 0x4c20,{0x96, 0x75, 0x04, 0xf6, 0xe0, 0xe9, 0x78, 0x2c}}
+ 
+ //----------------------------------------------------------------------
+ 
+@@ -597,6 +597,24 @@
+                       nscoord &aWidth, PRInt32 *aFontID = nsnull) = 0;
+ 
+   /**
++   * Returns an array of widths (in app units) of a Unicode character string
++   * If no font has been set, the results are undefined.
++   * The length of output array data is always aLength elements.  Where the
++   * layout is complex and a character is rendered above or below a previous
++   * character, this is represented as a zero width in the output array.
++   *
++   * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++   *
++   * @param aString string to measure
++   * @param aLength number of characters in string
++   * @param aWidth out parameter for total width
++   * @param aWidthArray out parameter for per-character widths
++   * @return error status
++   */
++  NS_IMETHOD GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                           nscoord& aWidth, nscoord* aWidthArray) = 0;
++
++  /**
+    * Returns the dimensions of a string, i.e., the overall extent of a string
+    * whose rendering may involve switching between different fonts that have
+    * different metrics.
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/Makefile.in mozilla-firefox-1.0.6/gfx/src/gtk/Makefile.in
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/Makefile.in	2003-11-11 01:24:51.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/Makefile.in	2005-08-19 13:25:10.000000000 +1200
+@@ -102,6 +102,12 @@
+ 		nsFontMetricsXft.cpp
+ endif
+ 
++ifdef MOZ_ENABLE_PANGO
++CPPSRCS		+= \
++		nsFontMetricsPango.cpp \
++		mozilla-decoder.cpp
++endif
++
+ ifdef MOZ_ENABLE_GTK
+ CPPSRCS 	+= \
+ 		nsRegionGTK.cpp \
+@@ -155,10 +161,10 @@
+ endif
+ 
+ ifdef MOZ_ENABLE_XFT
+-libs:: fontEncoding.properties
++libs:: fontEncoding.properties pangoFontEncoding.properties
+ 	$(INSTALL) $^ $(DIST)/bin/res/fonts
+  
+-install:: fontEncoding.properties
++install:: fontEncoding.properties pangoFontEncoding.properties
+ 	$(SYSINSTALL) $(IFLAGS1) $^ $(DESTDIR)$(mozappdir)/res/fonts
+ endif
+ 
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/gfxgtk.pkg mozilla-firefox-1.0.6/gfx/src/gtk/gfxgtk.pkg
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/gfxgtk.pkg	2004-01-07 14:21:35.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/gfxgtk.pkg	2005-08-19 13:25:10.000000000 +1200
+@@ -7,3 +7,6 @@
+ #if MOZ_ENABLE_XFT
+ dist/bin/res/fonts/fontEncoding.properties
+ #endif
++#if MOZ_ENABLE_PANGO
++dist/bin/res/fonts/pangoFontEncoding.properties
++#endif
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/mozilla-decoder.cpp mozilla-firefox-1.0.6/gfx/src/gtk/mozilla-decoder.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/mozilla-decoder.cpp	1970-01-01 12:00:00.000000000 +1200
++++ mozilla-firefox-1.0.6/gfx/src/gtk/mozilla-decoder.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -0,0 +1,376 @@
++/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
++/* vim:expandtab:shiftwidth=4:tabstop=4:
++ */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is mozilla.org code.
++ *
++ * The Initial Developer of the Original Code is Christopher Blizzard
++ * <blizzard@mozilla.org>.  Portions created by the Initial Developer
++ * are Copyright (C) 2004 the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#define PANGO_ENABLE_BACKEND
++#define PANGO_ENABLE_ENGINE
++
++#include "mozilla-decoder.h"
++#include <pango/pangoxft.h>
++#include <pango/pangofc-fontmap.h>
++#include <pango/pangofc-font.h>
++#include <gdk/gdkx.h>
++
++#include "nsString.h"
++#include "nsIPersistentProperties2.h"
++#include "nsNetUtil.h"
++#include "nsReadableUtils.h"
++#include "nsICharsetConverterManager.h"
++#include "nsICharRepresentable.h"
++#include "nsCompressedCharMap.h"
++
++#undef DEBUG_CUSTOM_ENCODER
++
++G_DEFINE_TYPE (MozillaDecoder, mozilla_decoder, PANGO_TYPE_FC_DECODER)
++
++MozillaDecoder *mozilla_decoder_new      (void);
++
++static FcCharSet  *mozilla_decoder_get_charset (PangoFcDecoder *decoder,
++                                                PangoFcFont    *fcfont);
++static PangoGlyph  mozilla_decoder_get_glyph   (PangoFcDecoder *decoder,
++                                                PangoFcFont    *fcfont,
++                                                guint32         wc);
++
++static PangoFcDecoder *mozilla_find_decoder    (FcPattern *pattern,
++                                                gpointer   user_data);
++
++typedef struct _MozillaDecoderPrivate MozillaDecoderPrivate;
++
++#define MOZILLA_DECODER_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), MOZILLA_TYPE_DECODER, MozillaDecoderPrivate))
++
++struct _MozillaDecoderPrivate {
++    char *family;
++    char *encoder;
++    char *cmap;
++    gboolean is_wide;
++    FcCharSet *charset;
++    nsCOMPtr<nsIUnicodeEncoder> uEncoder;
++};
++
++static nsICharsetConverterManager *gCharsetManager = NULL;
++
++static NS_DEFINE_CID(kCharsetConverterManagerCID,
++                     NS_ICHARSETCONVERTERMANAGER_CID);
++
++// Hash tables that hold the custom encodings and custom cmaps used in
++// various fonts.
++GHashTable *encoder_hash = NULL;
++GHashTable *cmap_hash = NULL;
++GHashTable *wide_hash = NULL;
++
++void
++mozilla_decoder_init (MozillaDecoder *decoder)
++{
++}
++
++void
++mozilla_decoder_class_init (MozillaDecoderClass *klass)
++{
++    GObjectClass *object_class = G_OBJECT_CLASS(klass);
++    PangoFcDecoderClass *parent_class = PANGO_FC_DECODER_CLASS (klass);
++
++    /*   object_class->finalize = test_finalize; */
++
++    parent_class->get_charset = mozilla_decoder_get_charset;
++    parent_class->get_glyph = mozilla_decoder_get_glyph;
++
++    g_type_class_add_private (object_class, sizeof (MozillaDecoderPrivate));
++}
++
++MozillaDecoder *
++mozilla_decoder_new(void)
++{
++    return (MozillaDecoder *)g_object_new(MOZILLA_TYPE_DECODER, NULL);
++}
++
++#ifdef DEBUG_CUSTOM_ENCODER
++void
++dump_hash(char *key, char *val, void *arg)
++{
++    printf("%s -> %s\n", key, val);
++}
++#endif
++
++/**
++ * mozilla_decoders_init:
++ *
++ * #mozilla_decoders_init:
++ *
++ * This initializes all of the application-specific custom decoders
++ * that Mozilla uses.  This should only be called once during the
++ * lifetime of the application.
++ *
++ * Return value: zero on success, not zero on failure.
++ *
++ **/
++
++int
++mozilla_decoders_init(void)
++{
++    static PRBool initialized = PR_FALSE;
++    if (initialized)
++        return 0;
++
++    encoder_hash = g_hash_table_new(g_str_hash, g_str_equal);
++    cmap_hash = g_hash_table_new(g_str_hash, g_str_equal);
++    wide_hash = g_hash_table_new(g_str_hash, g_str_equal);
++
++    PRBool dumb = PR_FALSE;
++    nsCOMPtr<nsIPersistentProperties> props;
++    nsCOMPtr<nsISimpleEnumerator> encodeEnum;
++
++    NS_LoadPersistentPropertiesFromURISpec(getter_AddRefs(props),
++        NS_LITERAL_CSTRING("resource://gre/res/fonts/pangoFontEncoding.properties"));
++
++    if (!props)
++        goto loser;
++
++    // Enumerate the properties in this file and figure out all of the
++    // fonts for which we have custom encodings.
++    props->Enumerate(getter_AddRefs(encodeEnum));
++    if (!encodeEnum)
++        goto loser;
++
++    while (encodeEnum->HasMoreElements(&dumb), dumb) {
++        nsCOMPtr<nsIPropertyElement> prop;
++        encodeEnum->GetNext(getter_AddRefs(prop));
++        if (!prop)
++            goto loser;
++
++        nsCAutoString name;
++        prop->GetKey(name);
++        nsAutoString value;
++        prop->GetValue(value);
++
++        if (!StringBeginsWith(name, NS_LITERAL_CSTRING("encoding."))) {
++            printf("string doesn't begin with encoding?\n");
++            continue;
++        }
++
++        name = Substring(name, 9);
++
++        if (StringEndsWith(name, NS_LITERAL_CSTRING(".ttf"))) {
++            name = Substring(name, 0, name.Length() - 4);
++
++            // Strip off a .wide if it's there.
++            if (StringEndsWith(value, NS_LITERAL_STRING(".wide"))) {
++                g_hash_table_insert(wide_hash, g_strdup(name.get()),
++                                    g_strdup("wide"));
++                value = Substring(value, 0, name.Length() - 5);
++            }
++
++            g_hash_table_insert(encoder_hash,
++                                g_strdup(name.get()),
++                                g_strdup(NS_ConvertUTF16toUTF8(value).get()));
++        }
++        else if (StringEndsWith(name, NS_LITERAL_CSTRING(".ftcmap"))) {
++            name = Substring(name, 0, name.Length() - 7);
++            g_hash_table_insert(cmap_hash,
++                                g_strdup(name.get()),
++                                g_strdup(NS_ConvertUTF16toUTF8(value).get()));
++        }
++        else {
++            printf("unknown suffix used for mapping\n");
++        }
++    }
++
++    pango_fc_font_map_add_decoder_find_func(PANGO_FC_FONT_MAP(pango_xft_get_font_map(GDK_DISPLAY(),gdk_x11_get_default_screen())),
++                                            mozilla_find_decoder,
++                                            NULL,
++                                            NULL);
++
++    initialized = PR_TRUE;
++
++#ifdef DEBUG_CUSTOM_ENCODER
++    printf("*** encoders\n");
++    g_hash_table_foreach(encoder_hash, (GHFunc)dump_hash, NULL);
++
++    printf("*** cmaps\n");
++    g_hash_table_foreach(cmap_hash, (GHFunc)dump_hash, NULL);
++#endif
++
++    return 0;
++
++ loser:
++    return -1;
++}
++
++FcCharSet *
++mozilla_decoder_get_charset (PangoFcDecoder *decoder,
++                             PangoFcFont    *fcfont)
++{
++    MozillaDecoderPrivate *priv = MOZILLA_DECODER_GET_PRIVATE(decoder);
++
++    if (priv->charset)
++        return priv->charset;
++
++    // First time this has been accessed.  Populate the charset.
++    priv->charset = FcCharSetCreate();
++
++    if (!gCharsetManager) {
++        nsServiceManager::GetService(kCharsetConverterManagerCID,
++        NS_GET_IID(nsICharsetConverterManager), (nsISupports**)&gCharsetManager);
++    }
++
++    nsCOMPtr<nsIUnicodeEncoder> encoder;
++    nsCOMPtr<nsICharRepresentable> represent;
++
++    if (!gCharsetManager)
++        goto end;
++
++    gCharsetManager->GetUnicodeEncoderRaw(priv->encoder, getter_AddRefs(encoder));
++    if (!encoder)
++        goto end;
++    
++    encoder->SetOutputErrorBehavior(encoder->kOnError_Replace, nsnull, '?');
++
++    priv->uEncoder = encoder;
++
++    represent = do_QueryInterface(encoder);
++    if (!represent)
++        goto end;
++
++    PRUint32 map[UCS2_MAP_LEN];
++    memset(map, 0, sizeof(map));
++
++    represent->FillInfo(map);
++
++    for (int i = 0; i < NUM_UNICODE_CHARS; i++) {
++        if (IS_REPRESENTABLE(map, i))
++            FcCharSetAddChar(priv->charset, i);
++    }
++
++ end:
++    return priv->charset;
++}
++
++PangoGlyph
++mozilla_decoder_get_glyph   (PangoFcDecoder *decoder,
++                             PangoFcFont    *fcfont,
++                             guint32         wc)
++{
++    MozillaDecoderPrivate *priv = MOZILLA_DECODER_GET_PRIVATE(decoder);
++
++    PangoGlyph retval = 0;
++    PRUnichar inchar = wc;
++    PRInt32 inlen = 1;
++    char outchar[2] = {0,0};
++    PRInt32 outlen = 2;
++
++    priv->uEncoder->Convert(&inchar, &inlen, outchar, &outlen);
++    if (outlen != 1) {
++        printf("Warning: mozilla_decoder_get_glyph doesn't support more than one character conversions.\n");
++        return 0;
++    }
++
++    FT_Face face = pango_fc_font_lock_face(fcfont);
++
++#ifdef DEBUG_CUSTOM_ENCODER
++    char *filename;
++    FcPatternGetString(fcfont->font_pattern, FC_FILE, 0, (FcChar8 **)&filename);
++    printf("filename is %s\n", filename);
++#endif
++
++    // Make sure to set the right charmap before trying to get the
++    // glyph
++    if (priv->cmap) {
++        if (!strcmp(priv->cmap, "mac_roman")) {
++            FT_Select_Charmap(face, ft_encoding_apple_roman);
++        }
++        else if (!strcmp(priv->cmap, "unicode")) {
++            FT_Select_Charmap(face, ft_encoding_unicode);
++        }
++        else {
++            printf("Warning: Invalid charmap entry for family %s\n",
++                   priv->family);
++        }
++    }
++
++    // Standard 8 bit to glyph translation
++    if (!priv->is_wide) {
++        FcChar32 blah = PRUint8(outchar[0]);
++        retval = FT_Get_Char_Index(face, blah);
++#ifdef DEBUG_CUSTOM_ENCODER
++        printf("wc 0x%x outchar[0] 0x%x index 0x%x retval 0x%x face %p\n",
++               wc, outchar[0], blah, retval, (void *)face);
++#endif
++    }
++    else {
++        printf("Warning: We don't support .wide fonts!\n");
++        retval = 0;
++    }
++
++    pango_fc_font_unlock_face(fcfont);
++
++    return retval;
++}
++
++PangoFcDecoder *
++mozilla_find_decoder (FcPattern *pattern, gpointer user_data)
++{
++    // Compare the family name of the font that's been opened to see
++    // if we have a custom decoder.
++    const char *orig = NULL;
++    FcPatternGetString(pattern, FC_FAMILY, 0, (FcChar8 **)&orig);
++
++    nsCAutoString family;
++    family.Assign(orig);
++
++    family.StripWhitespace();
++    ToLowerCase(family);
++
++    char *encoder = (char *)g_hash_table_lookup(encoder_hash, family.get());
++    if (!encoder)
++        return NULL;
++
++    MozillaDecoder *decoder = mozilla_decoder_new();
++
++    MozillaDecoderPrivate *priv = MOZILLA_DECODER_GET_PRIVATE(decoder);
++
++    priv->family = g_strdup(family.get());
++    priv->encoder = g_strdup(encoder);
++
++    char *cmap = (char *)g_hash_table_lookup(cmap_hash, family.get());
++    if (cmap)
++        priv->cmap = g_strdup(cmap);
++
++    char *wide = (char *)g_hash_table_lookup(wide_hash, family.get());
++    if (wide)
++        priv->is_wide = TRUE;
++
++    return PANGO_FC_DECODER(decoder);
++}
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/mozilla-decoder.h mozilla-firefox-1.0.6/gfx/src/gtk/mozilla-decoder.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/mozilla-decoder.h	1970-01-01 12:00:00.000000000 +1200
++++ mozilla-firefox-1.0.6/gfx/src/gtk/mozilla-decoder.h	2005-08-19 13:25:10.000000000 +1200
+@@ -0,0 +1,72 @@
++/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
++/* vim:expandtab:shiftwidth=4:tabstop=4:
++ */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is mozilla.org code.
++ *
++ * The Initial Developer of the Original Code is Christopher Blizzard
++ * <blizzard@mozilla.org>.  Portions created by the Initial Developer
++ * are Copyright (C) 2004 the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#ifndef _MOZILLA_DECODER_H
++#define _MOZILLA_DECODER_H
++
++#include <pango/pangofc-decoder.h>
++
++G_BEGIN_DECLS
++
++#define MOZILLA_TYPE_DECODER (mozilla_decoder_get_type())
++#define MOZILLA_DECODER(object) (G_TYPE_CHECK_INSTANCE_CAST ((object), MOZILLA_TYPE_DECODER, MozillaDecoder))
++#define MOZILLA_IS_DECODER(object) (G_TYPE_CHECK_INSTANCE_TYPE ((object), MOZILLA_TYPE_DECODER))
++
++typedef struct _MozillaDecoder      MozillaDecoder;
++typedef struct _MozillaDecoderClass MozillaDecoderClass;
++
++#define MOZILLA_DECODER_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST ((klass), MOZILLA_TYPE_DECODER, MozillaDecoderClass))
++#define MOZILLA_IS_DECODER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), MOZILLA_TYPE_DECODER))
++#define MOZILLA_DECODER_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), MOZILLA_TYPE_DECODER, MozillaDecoderClass))
++
++struct _MozillaDecoder
++{
++  PangoFcDecoder parent_instance;
++};
++
++struct _MozillaDecoderClass
++{
++  PangoFcDecoderClass parent_class;
++};
++
++GType           mozilla_decoder_get_type (void);
++int             mozilla_decoders_init    (void);
++
++G_END_DECLS
++
++#endif /*_MOZILLA_DECODER_H */
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsGTK.cpp mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsGTK.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsGTK.cpp	2004-03-10 03:14:54.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsGTK.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -4600,6 +4600,12 @@
+   return mCurrentFont->GetGDKFont();
+ }
+ 
++nsresult
++nsFontMetricsGTK::SetRightToLeftText(PRBool aIsRTL)
++{
++    return NS_OK;
++}
++
+ PR_BEGIN_EXTERN_C
+ static int
+ CompareSizes(const void* aArg1, const void* aArg2, void *data)
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsGTK.h mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsGTK.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsGTK.h	2004-02-05 14:57:03.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsGTK.h	2005-08-19 13:25:10.000000000 +1200
+@@ -344,6 +344,8 @@
+ 
+   virtual GdkFont* GetCurrentGDKFont(void);
+ 
++  virtual nsresult SetRightToLeftText(PRBool aIsRTL);
++
+   static nsresult FamilyExists(nsIDeviceContext *aDevice, const nsString& aName);
+   static PRUint32 GetHints(void);
+ 
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsPango.cpp mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsPango.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsPango.cpp	1970-01-01 12:00:00.000000000 +1200
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsPango.cpp	2005-09-11 00:58:20.000000000 +1200
+@@ -0,0 +1,1825 @@
++/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
++/* vim:expandtab:shiftwidth=4:tabstop=4:
++ */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is mozilla.org code.
++ *
++ * The Initial Developer of the Original Code is Christopher Blizzard
++ * <blizzard@mozilla.org>.  Portions created by the Initial Developer
++ * are Copyright (C) 2004 the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#include "nsFont.h"
++#include "nsIDeviceContext.h"
++#include "nsICharsetConverterManager.h"
++#include "nsIPref.h"
++#include "nsIServiceManagerUtils.h"
++
++#define PANGO_ENABLE_BACKEND
++#define PANGO_ENABLE_ENGINE
++
++#include "nsFontMetricsPango.h"
++#include "nsRenderingContextGTK.h"
++#include "nsDeviceContextGTK.h"
++
++#include "nsUnicharUtils.h"
++#include "nsQuickSort.h"
++
++#include <pango/pangoxft.h>
++#include <fontconfig/fontconfig.h>
++#include <gdk/gdk.h>
++#include <gdk/gdkx.h>
++#include <freetype/tttables.h>
++
++#include "mozilla-decoder.h"
++
++#define FORCE_PR_LOG
++#include "prlog.h"
++
++// Globals
++
++static PRLogModuleInfo            *gPangoFontLog;
++static int                         gNumInstances;
++
++// Defines
++
++// This is the scaling factor that we keep fonts limited to against
++// the display size.  If a pixel size is requested that is more than
++// this factor larger than the height of the display, it's clamped to
++// that value instead of the requested size.
++#define FONT_MAX_FONT_SCALE 2
++
++static NS_DEFINE_CID(kCharsetConverterManagerCID,
++                     NS_ICHARSETCONVERTERMANAGER_CID);
++
++struct MozPangoLangGroup {
++    const char *mozLangGroup;
++    const char *PangoLang;
++};
++
++static const MozPangoLangGroup MozPangoLangGroups[] = {
++    { "x-western",      "en" },
++    { "x-central-euro", "pl" },
++    { "x-cyrillic",     "ru" },
++    { "x-baltic",       "lv" },
++    { "x-devanagari",   "hi" },
++    { "x-tamil",        "ta" },
++    { "x-unicode",      0    },
++    { "x-user-def",     0    },
++};
++
++#define NUM_PANGO_LANG_GROUPS (sizeof (MozPangoLangGroups) / \
++                               sizeof (MozPangoLangGroups[0]))
++
++#ifdef DEBUG
++#define DUMP_PRUNICHAR(ustr, ulen) for (PRUint32 llen=0;llen<ulen;llen++) \
++                                      printf("0x%x ", ustr[llen]); \
++                                   printf("\n");
++#endif
++
++// rounding and truncation functions for a Freetype floating point number 
++// (FT26Dot6) stored in a 32bit integer with high 26 bits for the integer
++// part and low 6 bits for the fractional part. 
++#define MOZ_FT_ROUND(x) (((x) + 32) & ~63) // 63 = 2^6 - 1
++#define MOZ_FT_TRUNC(x) ((x) >> 6)
++#define CONVERT_DESIGN_UNITS_TO_PIXELS(v, s) \
++        MOZ_FT_TRUNC(MOZ_FT_ROUND(FT_MulFix((v) , (s))))
++
++// Static function decls
++
++static PRBool IsASCIIFontName  (const nsString& aName);
++static int    FFRECountHyphens (nsACString &aFFREName);
++
++static PangoLanguage *GetPangoLanguage(nsIAtom *aLangGroup);
++static const MozPangoLangGroup* FindPangoLangGroup (nsACString &aLangGroup);
++
++static void   FreeGlobals    (void);
++
++static PangoStyle  CalculateStyle  (PRUint8 aStyle);
++static PangoWeight CalculateWeight (PRUint16 aWeight);
++
++static nsresult    EnumFontsPango   (nsIAtom* aLangGroup, const char* aGeneric,
++                                     PRUint32* aCount, PRUnichar*** aResult);
++static int         CompareFontNames (const void* aArg1, const void* aArg2,
++                                     void* aClosure);
++
++extern void     AddLangGroup     (FcPattern *aPattern, nsIAtom *aLangGroup);
++
++nsFontMetricsPango::nsFontMetricsPango()
++{
++    if (!gPangoFontLog)
++        gPangoFontLog = PR_NewLogModule("PangoFont");
++
++    gNumInstances++;
++
++    mPangoFontDesc = nsnull;
++    mPangoContext = nsnull;
++    mLTRPangoContext = nsnull;
++    mRTLPangoContext = nsnull;
++    mPangoAttrList = nsnull;
++    mIsRTL = PR_FALSE;
++    mPangoSpaceWidth = 0;
++
++    static PRBool initialized = PR_FALSE;
++    if (initialized)
++        return;
++
++    // Initialized the custom decoders
++    if (!mozilla_decoders_init())
++        initialized = PR_TRUE;
++}
++
++nsFontMetricsPango::~nsFontMetricsPango()
++{
++    delete mFont;
++
++    if (mDeviceContext)
++        mDeviceContext->FontMetricsDeleted(this);
++
++    if (mPangoFontDesc)
++        pango_font_description_free(mPangoFontDesc);
++
++    if (mLTRPangoContext)
++        g_object_unref(mLTRPangoContext);
++
++    if (mRTLPangoContext)
++        g_object_unref(mRTLPangoContext);
++
++    if (mPangoAttrList)
++        pango_attr_list_unref(mPangoAttrList);
++
++    // XXX clean up all the pango objects
++
++    if (--gNumInstances == 0)
++        FreeGlobals();
++}
++
++
++NS_IMPL_ISUPPORTS1(nsFontMetricsPango, nsIFontMetrics)
++
++// nsIFontMetrics impl
++
++NS_IMETHODIMP
++nsFontMetricsPango::Init(const nsFont& aFont, nsIAtom* aLangGroup,
++                         nsIDeviceContext *aContext)
++{
++    mFont = new nsFont(aFont);
++    mLangGroup = aLangGroup;
++
++    // Hang on to the device context
++    mDeviceContext = aContext;
++    
++    mPointSize = NSTwipsToFloatPoints(mFont->size);
++
++    // Make sure to clamp the pixel size to something reasonable so we
++    // don't make the X server blow up.
++    nscoord screenPixels = gdk_screen_height();
++    mPointSize = PR_MIN(screenPixels * FONT_MAX_FONT_SCALE, mPointSize);
++
++    // enumerate over the font names passed in
++    mFont->EnumerateFamilies(nsFontMetricsPango::EnumFontCallback, this);
++
++    nsCOMPtr<nsIPref> prefService;
++    prefService = do_GetService(NS_PREF_CONTRACTID);
++    if (!prefService)
++        return NS_ERROR_FAILURE;
++        
++    nsXPIDLCString value;
++
++    // Set up the default font name if it's not set
++    if (!mGenericFont) {
++        prefService->CopyCharPref("font.default", getter_Copies(value));
++
++        if (value.get())
++            mDefaultFont = value.get();
++        else
++            mDefaultFont = "serif";
++        
++        mGenericFont = &mDefaultFont;
++    }
++
++    // set up the minimum sizes for fonts
++    if (mLangGroup) {
++        nsCAutoString name("font.min-size.");
++
++        if (mGenericFont->Equals("monospace"))
++            name.Append("fixed");
++        else
++            name.Append("variable");
++
++        name.Append(char('.'));
++
++        const char* langGroup;
++        mLangGroup->GetUTF8String(&langGroup);
++
++        name.Append(langGroup);
++
++        PRInt32 minimumInt = 0;
++        float minimum;
++        nsresult res;
++        res = prefService->GetIntPref(name.get(), &minimumInt);
++        if (NS_FAILED(res))
++            prefService->GetDefaultIntPref(name.get(), &minimumInt);
++
++        if (minimumInt < 0)
++            minimumInt = 0;
++
++        minimum = minimumInt;
++
++        // The minimum size is specified in pixels, not in points.
++        // Convert the size from pixels to points.
++        minimum = NSTwipsToFloatPoints(NSFloatPixelsToTwips(minimum, mDeviceContext->DevUnitsToAppUnits()));
++        if (mPointSize < minimum)
++            mPointSize = minimum;
++    }
++
++    // Make sure that the pixel size is at least greater than zero
++    if (mPointSize < 1) {
++#ifdef DEBUG
++        printf("*** Warning: nsFontMetricsPango created with point size %f\n",
++               mPointSize);
++#endif
++        mPointSize = 1;
++    }
++
++    nsresult rv = RealizeFont();
++    if (NS_FAILED(rv))
++        return rv;
++
++    // Cache font metrics for the 'x' character
++    return CacheFontMetrics();
++}
++
++nsresult
++nsFontMetricsPango::CacheFontMetrics(void)
++{
++    // Get our scale factor
++    float f;
++    float val;
++    f = mDeviceContext->DevUnitsToAppUnits();
++
++    mPangoAttrList = pango_attr_list_new();
++
++    GList *items = pango_itemize(mPangoContext,
++                                 "a", 0, 1, mPangoAttrList, NULL);
++
++    if (!items)
++        return NS_ERROR_FAILURE;
++
++    guint nitems = g_list_length(items);
++    if (nitems != 1)
++        return NS_ERROR_FAILURE;
++
++    PangoItem *item = (PangoItem *)items->data;
++    PangoFcFont  *fcfont = PANGO_FC_FONT(item->analysis.font);
++    if (!fcfont)
++        return NS_ERROR_FAILURE;
++
++    // Get our font face
++    FT_Face face;
++    TT_OS2 *os2;
++    XftFont *xftFont = pango_xft_font_get_font(PANGO_FONT(fcfont));
++    if (!xftFont)
++        return NS_ERROR_NOT_AVAILABLE;
++
++    face = XftLockFace(xftFont);
++    os2 = (TT_OS2 *) FT_Get_Sfnt_Table(face, ft_sfnt_os2);
++
++    // mEmHeight (size in pixels of EM height)
++    int size;
++    if (FcPatternGetInteger(fcfont->font_pattern, FC_PIXEL_SIZE, 0, &size) !=
++        FcResultMatch) {
++        size = 12;
++    }
++    mEmHeight = PR_MAX(1, nscoord(size * f));
++
++    // mMaxAscent
++    mMaxAscent = nscoord(xftFont->ascent * f);
++
++    // mMaxDescent
++    mMaxDescent = nscoord(xftFont->descent * f);
++
++    nscoord lineHeight = mMaxAscent + mMaxDescent;
++
++    // mLeading (needs ascent and descent and EM height) 
++    if (lineHeight > mEmHeight)
++        mLeading = lineHeight - mEmHeight;
++    else
++        mLeading = 0;
++
++    // mMaxHeight (needs ascent and descent)
++    mMaxHeight = lineHeight;
++
++    // mEmAscent (needs maxascent, EM height, ascent and descent)
++    mEmAscent = nscoord(mMaxAscent * mEmHeight / lineHeight);
++
++    // mEmDescent (needs EM height and EM ascent
++    mEmDescent = mEmHeight - mEmAscent;
++
++    // mMaxAdvance
++    mMaxAdvance = nscoord(xftFont->max_advance_width * f);
++
++    // mPangoSpaceWidth
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++    pango_layout_set_text(layout, " ", 1);
++    int pswidth, psheight;
++    pango_layout_get_size(layout, &pswidth, &psheight);
++    mPangoSpaceWidth = pswidth;
++    g_object_unref(layout);
++
++    // mSpaceWidth (width of a space)
++    nscoord tmpWidth;
++    GetWidth(" ", 1, tmpWidth, NULL);
++    mSpaceWidth = tmpWidth;
++
++    // mAveCharWidth (width of an 'average' char)
++    //    XftTextExtents16(GDK_DISPLAY(), xftFont, &xUnichar, 1, &extents);
++    //rawWidth = extents.width;
++    //mAveCharWidth = NSToCoordRound(rawWidth * f);
++    GetWidth("x", 1, tmpWidth, NULL);
++    mAveCharWidth = tmpWidth;
++
++    // mXHeight (height of an 'x' character)
++    PRUnichar xUnichar('x');
++    XGlyphInfo extents;
++    if (FcCharSetHasChar(xftFont->charset, xUnichar)) {
++        XftTextExtents16(GDK_DISPLAY(), xftFont, &xUnichar, 1, &extents);
++        mXHeight = extents.height;
++    }
++    else {
++        // 56% of ascent, best guess for non-true type or asian fonts
++        mXHeight = nscoord(((float)mMaxAscent) * 0.56);
++    }
++    mXHeight = nscoord(mXHeight * f);
++
++    // mUnderlineOffset (offset for underlines)
++    val = CONVERT_DESIGN_UNITS_TO_PIXELS(face->underline_position,
++                                         face->size->metrics.y_scale);
++    if (val) {
++        mUnderlineOffset = NSToIntRound(val * f);
++    }
++    else {
++        mUnderlineOffset =
++            -NSToIntRound(PR_MAX(1, floor(0.1 * xftFont->height + 0.5)) * f);
++    }
++
++    // mUnderlineSize (thickness of an underline)
++    val = CONVERT_DESIGN_UNITS_TO_PIXELS(face->underline_thickness,
++                                         face->size->metrics.y_scale);
++    if (val) {
++        mUnderlineSize = nscoord(PR_MAX(f, NSToIntRound(val * f)));
++    }
++    else {
++        mUnderlineSize =
++            NSToIntRound(PR_MAX(1, floor(0.05 * xftFont->height + 0.5)) * f);
++    }
++
++    // mSuperscriptOffset
++    if (os2 && os2->ySuperscriptYOffset) {
++        val = CONVERT_DESIGN_UNITS_TO_PIXELS(os2->ySuperscriptYOffset,
++                                             face->size->metrics.y_scale);
++        mSuperscriptOffset = nscoord(PR_MAX(f, NSToIntRound(val * f)));
++    }
++    else {
++        mSuperscriptOffset = mXHeight;
++    }
++
++    // mSubscriptOffset
++    if (os2 && os2->ySubscriptYOffset) {
++        val = CONVERT_DESIGN_UNITS_TO_PIXELS(os2->ySubscriptYOffset,
++                                             face->size->metrics.y_scale);
++        // some fonts have the incorrect sign. 
++        val = (val < 0) ? -val : val;
++        mSubscriptOffset = nscoord(PR_MAX(f, NSToIntRound(val * f)));
++    }
++    else {
++        mSubscriptOffset = mXHeight;
++    }
++
++    // mStrikeoutOffset
++    mStrikeoutOffset = NSToCoordRound(mXHeight / 2.0);
++
++    // mStrikeoutSize
++    mStrikeoutSize = mUnderlineSize;
++
++    XftUnlockFace(xftFont);
++
++    /*
++    printf("%i\n", mXHeight);
++    printf("%i\n", mSuperscriptOffset);
++    printf("%i\n", mSubscriptOffset);
++    printf("%i\n", mStrikeoutOffset);
++    printf("%i\n", mStrikeoutSize);
++    printf("%i\n", mUnderlineOffset);
++    printf("%i\n", mUnderlineSize);
++    printf("%i\n", mMaxHeight);
++    printf("%i\n", mLeading);
++    printf("%i\n", mEmHeight);
++    printf("%i\n", mEmAscent);
++    printf("%i\n", mEmDescent);
++    printf("%i\n", mMaxAscent);
++    printf("%i\n", mMaxDescent);
++    printf("%i\n", mMaxAdvance);
++    printf("%i\n", mSpaceWidth);
++    printf("%i\n", mAveCharWidth);
++    */
++
++    return NS_OK;
++}
++
++NS_IMETHODIMP
++nsFontMetricsPango::Destroy()
++{
++    mDeviceContext = nsnull;
++    return NS_OK;
++}
++
++NS_IMETHODIMP
++nsFontMetricsPango::GetFont(const nsFont *&aFont)
++{
++    aFont = mFont;
++    return NS_OK;
++}
++
++NS_IMETHODIMP
++nsFontMetricsPango::GetLangGroup(nsIAtom** aLangGroup)
++{
++    *aLangGroup = mLangGroup;
++    NS_IF_ADDREF(*aLangGroup);
++
++    return NS_OK;
++}
++
++NS_IMETHODIMP
++nsFontMetricsPango::GetFontHandle(nsFontHandle &aHandle)
++{
++    return NS_ERROR_NOT_IMPLEMENTED;
++}
++
++// nsIFontMetricsPango impl
++
++nsresult
++nsFontMetricsPango::GetWidth(const char* aString, PRUint32 aLength,
++                             nscoord& aWidth,
++                             nsRenderingContextGTK *aContext)
++{
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++
++    pango_layout_set_text(layout, aString, aLength);
++
++    if (mPangoSpaceWidth)
++        FixupSpaceWidths(layout, aString);
++
++    int width, height;
++
++    pango_layout_get_size(layout, &width, &height);
++
++    width /= PANGO_SCALE;
++
++    g_object_unref(layout);
++
++    float f;
++    f = mDeviceContext->DevUnitsToAppUnits();
++    aWidth = NSToCoordRound(width * f);
++
++    //    printf("GetWidth (char *) %d\n", aWidth);
++
++    return NS_OK;
++}
++
++nsresult
++nsFontMetricsPango::GetWidth(const PRUnichar* aString, PRUint32 aLength,
++                             nscoord& aWidth, PRInt32 *aFontID,
++                             nsRenderingContextGTK *aContext)
++{
++    nsresult rv = NS_OK;
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++
++    gchar *text = g_utf16_to_utf8(aString, aLength,
++                                  NULL, NULL, NULL);
++
++    if (!text) {
++        aWidth = 0;
++#ifdef DEBUG
++        NS_WARNING("nsFontMetricsPango::GetWidth invalid unicode to follow");
++        DUMP_PRUNICHAR(aString, aLength)
++#endif
++        rv = NS_ERROR_FAILURE;
++        goto loser;
++    }
++
++    gint width, height;
++
++    pango_layout_set_text(layout, text, strlen(text));
++    FixupSpaceWidths(layout, text);
++    pango_layout_get_size(layout, &width, &height);
++
++    width /= PANGO_SCALE;
++
++    float f;
++    f = mDeviceContext->DevUnitsToAppUnits();
++    aWidth = NSToCoordRound(width * f);
++
++    //    printf("GetWidth %d\n", aWidth);
++
++ loser:
++    g_free(text);
++    g_object_unref(layout);
++
++    return rv;
++}
++
++
++nsresult
++nsFontMetricsPango::GetTextDimensions(const PRUnichar* aString,
++                                      PRUint32 aLength,
++                                      nsTextDimensions& aDimensions, 
++                                      PRInt32* aFontID,
++                                      nsRenderingContextGTK *aContext)
++{
++    nsresult rv = NS_OK;
++
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++
++    gchar *text = g_utf16_to_utf8(aString, aLength,
++                                  NULL, NULL, NULL);
++
++    if (!text) {
++#ifdef DEBUG
++        NS_WARNING("nsFontMetricsPango::GetTextDimensions invalid unicode to follow");
++        DUMP_PRUNICHAR(aString, aLength)
++#endif
++        aDimensions.width = 0;
++        aDimensions.ascent = 0;
++        aDimensions.descent = 0;
++
++        rv = NS_ERROR_FAILURE;
++        goto loser;
++    }
++        
++
++    pango_layout_set_text(layout, text, strlen(text));
++    FixupSpaceWidths(layout, text);
++
++    // Get the logical extents
++    PangoLayoutLine *line;
++    if (pango_layout_get_line_count(layout) != 1) {
++        printf("Warning: more than one line!\n");
++    }
++    line = pango_layout_get_line(layout, 0);
++
++    PangoRectangle rect;
++    pango_layout_line_get_extents(line, NULL, &rect);
++
++    float P2T;
++    P2T = mDeviceContext->DevUnitsToAppUnits();
++
++    aDimensions.width = NSToCoordRound(rect.width / PANGO_SCALE * P2T);
++    aDimensions.ascent = NSToCoordRound(PANGO_ASCENT(rect) / PANGO_SCALE * P2T);
++    aDimensions.descent = NSToCoordRound(PANGO_DESCENT(rect) / PANGO_SCALE * P2T);
++
++    //    printf("GetTextDimensions %d %d %d\n", aDimensions.width,
++    //aDimensions.ascent, aDimensions.descent);
++
++ loser:
++    g_free(text);
++    g_object_unref(layout);
++
++    return rv;
++}
++
++nsresult
++nsFontMetricsPango::GetTextDimensions(const char*         aString,
++                                      PRInt32             aLength,
++                                      PRInt32             aAvailWidth,
++                                      PRInt32*            aBreaks,
++                                      PRInt32             aNumBreaks,
++                                      nsTextDimensions&   aDimensions,
++                                      PRInt32&            aNumCharsFit,
++                                      nsTextDimensions&   aLastWordDimensions,
++                                      PRInt32*            aFontID,
++                                      nsRenderingContextGTK *aContext)
++{
++    return GetTextDimensionsInternal(aString, aLength, aAvailWidth, aBreaks,
++                                     aNumBreaks, aDimensions, aNumCharsFit,
++                                     aLastWordDimensions, aContext);
++
++}
++
++nsresult
++nsFontMetricsPango::GetTextDimensions(const PRUnichar*    aString,
++                                      PRInt32             aLength,
++                                      PRInt32             aAvailWidth,
++                                      PRInt32*            aBreaks,
++                                      PRInt32             aNumBreaks,
++                                      nsTextDimensions&   aDimensions,
++                                      PRInt32&            aNumCharsFit,
++                                      nsTextDimensions&   aLastWordDimensions,
++                                      PRInt32*            aFontID,
++                                      nsRenderingContextGTK *aContext)
++{
++    nsresult rv = NS_OK;
++    PRInt32 curBreak = 0;
++    gchar *curChar;
++
++    PRInt32 *utf8Breaks = new PRInt32[aNumBreaks];
++
++    gchar *text = g_utf16_to_utf8(aString, (PRInt32)aLength,
++                                  NULL, NULL, NULL);
++
++    curChar = text;
++
++    if (!text) {
++#ifdef DEBUG
++        NS_WARNING("nsFontMetricsPango::GetWidth invalid unicode to follow");
++        DUMP_PRUNICHAR(aString, (PRUint32)aLength)
++#endif
++        rv = NS_ERROR_FAILURE;
++        goto loser;
++    }
++
++    // Covert the utf16 break offsets to utf8 break offsets
++    for (PRInt32 curOffset=0; curOffset < aLength;
++         curOffset++, curChar = g_utf8_find_next_char(curChar, NULL)) {
++        if (aBreaks[curBreak] == curOffset) {
++            utf8Breaks[curBreak] = curChar - text;
++            curBreak++;
++        }
++
++        if (IS_HIGH_SURROGATE(aString[curOffset]))
++            curOffset++;
++    }
++
++    // Always catch the last break
++    utf8Breaks[curBreak] = curChar - text;
++
++#if 0
++    if (strlen(text) != aLength) {
++        printf("Different lengths for utf16 %d and utf8 %d\n", aLength, strlen(text));
++        DUMP_PRUNICHAR(aString, aLength)
++        DUMP_PRUNICHAR(text, strlen(text))
++        for (PRInt32 i = 0; i < aNumBreaks; ++i) {
++            printf("  break %d utf16 %d utf8 %d\n", i, aBreaks[i], utf8Breaks[i]);
++        }
++    }
++#endif
++
++    // We'll use curBreak to indicate which of the breaks end up being
++    // used for the break point for this line.
++    curBreak = 0;
++    rv = GetTextDimensionsInternal(text, strlen(text), aAvailWidth, utf8Breaks,
++                                   aNumBreaks, aDimensions, aNumCharsFit,
++                                   aLastWordDimensions, aContext);
++
++    // Figure out which of the breaks we ended up using to convert
++    // back to utf16 - start from the end.
++    for (PRInt32 i = aNumBreaks - 1; i >= 0; --i) {
++        if (utf8Breaks[i] == aNumCharsFit) {
++            //      if (aNumCharsFit != aBreaks[i])
++            //                printf("Fixing utf8 -> utf16 %d -> %d\n", aNumCharsFit, aBreaks[i]);
++            aNumCharsFit = aBreaks[i];
++            break;
++        }
++    }
++
++ loser:
++    if (text)
++        g_free(text);
++
++    delete[] utf8Breaks;
++
++    return rv;
++}
++
++nsresult
++nsFontMetricsPango::DrawString(const char *aString, PRUint32 aLength,
++                               nscoord aX, nscoord aY,
++                               const nscoord* aSpacing,
++                               nsRenderingContextGTK *aContext,
++                               nsDrawingSurfaceGTK *aSurface)
++{
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++
++    pango_layout_set_text(layout, aString, aLength);
++    FixupSpaceWidths(layout, aString);
++
++    int x = aX;
++    int y = aY;
++
++    aContext->GetTranMatrix()->TransformCoord(&x, &y);
++
++    PangoLayoutLine *line;
++    if (pango_layout_get_line_count(layout) != 1) {
++        printf("Warning: more than one line!\n");
++    }
++    line = pango_layout_get_line(layout, 0);
++
++    aContext->UpdateGC();
++    GdkGC *gc = aContext->GetGC();
++
++    if (aSpacing) {
++        DrawStringSlowly(aString, NULL, aLength, aSurface->GetDrawable(),
++                         gc, x, y, line, aSpacing);
++    }
++    else {
++        gdk_draw_layout_line(aSurface->GetDrawable(), gc,
++                             x, y,
++                             line);
++    }
++
++    g_object_unref(gc);
++    g_object_unref(layout);
++
++    //    printf("DrawString (char *)\n");
++
++    return NS_OK;
++}
++
++nsresult
++nsFontMetricsPango::DrawString(const PRUnichar* aString, PRUint32 aLength,
++                               nscoord aX, nscoord aY,
++                               PRInt32 aFontID,
++                               const nscoord* aSpacing,
++                               nsRenderingContextGTK *aContext,
++                               nsDrawingSurfaceGTK *aSurface)
++{
++    nsresult rv = NS_OK;
++    int x = aX;
++    int y = aY;
++
++    aContext->UpdateGC();
++    GdkGC *gc = aContext->GetGC();
++
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++
++    gchar *text = g_utf16_to_utf8(aString, aLength,
++                                  NULL, NULL, NULL);
++
++    if (!text) {
++#ifdef DEBUG
++        NS_WARNING("nsFontMetricsPango::DrawString invalid unicode to follow");
++        DUMP_PRUNICHAR(aString, aLength)
++#endif
++        rv = NS_ERROR_FAILURE;
++        goto loser;
++    }
++
++    pango_layout_set_text(layout, text, strlen(text));
++    FixupSpaceWidths(layout, text);
++
++    aContext->GetTranMatrix()->TransformCoord(&x, &y);
++
++    PangoLayoutLine *line;
++    if (pango_layout_get_line_count(layout) != 1) {
++        printf("Warning: more than one line!\n");
++    }
++    line = pango_layout_get_line(layout, 0);
++
++    if (aSpacing) {
++        DrawStringSlowly(text, aString, aLength, aSurface->GetDrawable(),
++                         gc, x, y, line, aSpacing);
++    }
++    else {
++        gdk_draw_layout_line(aSurface->GetDrawable(), gc,
++                             x, y,
++                             line);
++    }
++
++ loser:
++
++    g_free(text);
++    g_object_unref(gc);
++    g_object_unref(layout);
++
++    //    printf("DrawString\n");
++
++    return rv;
++}
++
++/**
++ * Returns an array of widths (in app units) of a Unicode character string
++ * If no font has been set, the results are undefined.
++ * The length of output array data is always aLength elements.  Where the
++ * layout is complex and a character is rendered above or below a previous
++ * character, this is represented as a zero width in the output array.
++ *
++ * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++ *
++ * @param aString string to measure
++ * @param aLength number of characters in string
++ * @param aWidth out parameter for total width
++ * @param aWidthArray out parameter for per-character widths
++ * @return error status
++ */
++nsresult
++nsFontMetricsPango::GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                         nscoord& aWidth, nscoord* aWidthArray)
++{
++    nsresult rv = NS_OK;
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++
++    gchar *text = g_utf16_to_utf8(aString, aLength,
++                                  NULL, NULL, NULL);
++
++    if (!text) {
++#ifdef DEBUG
++        NS_WARNING("nsFontMetricsPango::GetWidthArray invalid unicode to follow");
++        DUMP_PRUNICHAR(aString, aLength)
++#endif
++        rv = NS_ERROR_FAILURE;
++    }
++    else {
++        pango_layout_set_text(layout, text, strlen(text));
++        FixupSpaceWidths(layout, text);
++    
++        PangoLayoutLine *line;
++        if (pango_layout_get_line_count(layout) != 1) {
++            printf("Warning: more than one line!\n");
++        }
++        line = pango_layout_get_line(layout, 0);
++    
++        float app2dev;
++        app2dev = mDeviceContext->AppUnitsToDevUnits();
++    
++        nscoord *utf8spacing = new nscoord[strlen(text)];
++        bzero(utf8spacing, sizeof(nscoord) * strlen(text));
++        bzero(aWidthArray, sizeof(nscoord) * aLength);
++        aWidth = 0;
++
++        gint remainder = 0;
++        for (GSList *tmpList = line->runs; tmpList && tmpList->data;
++             tmpList = tmpList->next) {
++            PangoLayoutRun *layoutRun = (PangoLayoutRun *)tmpList->data;
++            for (gint i=0; i < layoutRun->glyphs->num_glyphs; i++) {
++                gint glyphWidth = layoutRun->glyphs->glyphs[i].geometry.width;
++                if (glyphWidth != 0) {
++                    glyphWidth += remainder;
++                    nscoord glyphCoordWidth = NSToCoordRound((float)glyphWidth / (app2dev * PANGO_SCALE));
++                    utf8spacing[layoutRun->glyphs->log_clusters[i] + layoutRun->item->offset] +=
++                        glyphCoordWidth;
++                    // Scale it pack to pango co-ordinates, and keep the remainder
++                    // for next time so we avoid accumulating errors.
++                    gint scaledBack = glyphCoordWidth * app2dev * PANGO_SCALE;
++                    remainder = glyphWidth - scaledBack;
++                }
++            }
++        }
++
++        // Covert the utf8 spacing array to utf16
++        const gchar *curChar = text, *nextChar;
++        gint i = 0, j = 0;
++        for (PRUint32 curOffset=0; curOffset < aLength;
++             curOffset++, curChar = nextChar) {
++            nextChar = g_utf8_find_next_char(curChar, NULL);
++            j = nextChar - text;
++            while (i < j) {
++                nscoord thisWidth = utf8spacing[i++];
++                aWidthArray[curOffset] += thisWidth;
++                aWidth += thisWidth;
++            }
++    
++            if (IS_HIGH_SURROGATE(aString[curOffset]))
++                curOffset++;
++        }
++        delete[] utf8spacing;
++    }
++
++    g_free(text);
++    g_object_unref(layout);
++    return rv;
++}
++
++#ifdef MOZ_MATHML
++nsresult
++nsFontMetricsPango::GetBoundingMetrics(const char *aString, PRUint32 aLength,
++                                       nsBoundingMetrics &aBoundingMetrics,
++                                       nsRenderingContextGTK *aContext)
++{
++    printf("GetBoundingMetrics (char *)\n");
++    return NS_ERROR_FAILURE;
++}
++
++nsresult
++nsFontMetricsPango::GetBoundingMetrics(const PRUnichar *aString,
++                                       PRUint32 aLength,
++                                       nsBoundingMetrics &aBoundingMetrics,
++                                       PRInt32 *aFontID,
++                                       nsRenderingContextGTK *aContext)
++{
++    nsresult rv = NS_OK;
++    PangoLayout *layout = pango_layout_new(mPangoContext);
++
++    gchar *text = g_utf16_to_utf8(aString, aLength,
++                                  NULL, NULL, NULL);
++
++    if (!text) {
++#ifdef DEBUG
++        NS_WARNING("nsFontMetricsPango::GetBoundingMetrics invalid unicode to follow");
++        DUMP_PRUNICHAR(aString, aLength)
++#endif
++        aBoundingMetrics.leftBearing = 0;
++        aBoundingMetrics.rightBearing = 0;
++        aBoundingMetrics.width = 0;
++        aBoundingMetrics.ascent = 0;
++        aBoundingMetrics.descent = 0;
++
++        rv = NS_ERROR_FAILURE;
++        goto loser;
++    }
++
++    pango_layout_set_text(layout, text, strlen(text));
++    FixupSpaceWidths(layout, text);
++
++    // Get the logical extents
++    PangoLayoutLine *line;
++    if (pango_layout_get_line_count(layout) != 1) {
++        printf("Warning: more than one line!\n");
++    }
++    line = pango_layout_get_line(layout, 0);
++
++    // Get the ink extents
++    PangoRectangle rect;
++    pango_layout_line_get_extents(line, NULL, &rect);
++
++    float P2T;
++    P2T = mDeviceContext->DevUnitsToAppUnits();
++
++    aBoundingMetrics.leftBearing =
++        NSToCoordRound(rect.x / PANGO_SCALE * P2T);
++    aBoundingMetrics.rightBearing =
++        NSToCoordRound(rect.width / PANGO_SCALE * P2T);
++    aBoundingMetrics.width = NSToCoordRound((rect.x + rect.width) / PANGO_SCALE * P2T);
++    aBoundingMetrics.ascent = NSToCoordRound(rect.y / PANGO_SCALE * P2T);
++    aBoundingMetrics.descent = NSToCoordRound(rect.height / PANGO_SCALE * P2T);
++
++ loser:
++    g_free(text);
++    g_object_unref(layout);
++
++    return rv;
++}
++
++#endif /* MOZ_MATHML */
++
++GdkFont*
++nsFontMetricsPango::GetCurrentGDKFont(void)
++{
++    return nsnull;
++}
++
++nsresult
++nsFontMetricsPango::SetRightToLeftText(PRBool aIsRTL)
++{
++    if (aIsRTL) {
++        if (!mRTLPangoContext) {
++            mRTLPangoContext = pango_xft_get_context(GDK_DISPLAY(), 0);
++            pango_context_set_base_dir(mRTLPangoContext, PANGO_DIRECTION_RTL);
++
++            gdk_pango_context_set_colormap(mRTLPangoContext, gdk_rgb_get_cmap());
++            pango_context_set_language(mRTLPangoContext, GetPangoLanguage(mLangGroup));
++            pango_context_set_font_description(mRTLPangoContext, mPangoFontDesc);
++        }
++        mPangoContext = mRTLPangoContext;
++    }
++    else {
++        mPangoContext = mLTRPangoContext;
++    }
++
++    mIsRTL = aIsRTL;
++    return NS_OK;
++}
++
++/* static */
++PRUint32
++nsFontMetricsPango::GetHints(void)
++{
++    return (NS_RENDERING_HINT_BIDI_REORDERING |
++            NS_RENDERING_HINT_ARABIC_SHAPING | 
++            NS_RENDERING_HINT_FAST_MEASURE);
++}
++
++/* static */
++nsresult
++nsFontMetricsPango::FamilyExists(nsIDeviceContext *aDevice,
++                                 const nsString &aName)
++{
++    if (!IsASCIIFontName(aName))
++        return NS_ERROR_FAILURE;
++
++    NS_ConvertUCS2toUTF8 name(aName);
++
++    nsresult rv = NS_ERROR_FAILURE;
++    PangoContext *context = pango_xft_get_context(GDK_DISPLAY(), 0);
++    PangoFontFamily **familyList;
++    int n;
++
++    pango_context_list_families(context, &familyList, &n);
++
++    for (int i=0; i < n; i++) {
++        const char *tmpname = pango_font_family_get_name(familyList[i]);
++        if (!Compare(nsDependentCString(tmpname), name,
++                     nsCaseInsensitiveCStringComparator())) {
++            rv = NS_OK;
++            break;
++        }
++    }
++
++    g_free(familyList);
++    g_object_unref(context);
++
++    return rv;
++}
++
++// Private Methods
++
++nsresult
++nsFontMetricsPango::RealizeFont(void)
++{
++    nsCString familyList;
++    // Create and fill out the font description.
++    mPangoFontDesc = pango_font_description_new();
++
++    // Add CSS names - walk the list of fonts, adding the generic as
++    // the last font
++    for (int i=0; i < mFontList.Count(); ++i) {
++        // if this was a generic name, break out of the loop since we
++        // don't want to add it to the pattern yet
++        if (mFontIsGeneric[i])
++            break;;
++
++        nsCString *familyName = mFontList.CStringAt(i);
++        familyList.Append(familyName->get());
++        familyList.Append(',');
++    }
++
++    // If there's a generic add a pref for the generic if there's one
++    // set.
++    if (mGenericFont && !mFont->systemFont) {
++        nsCString name;
++        name += "font.name.";
++        name += mGenericFont->get();
++        name += ".";
++
++        nsString langGroup;
++        mLangGroup->ToString(langGroup);
++
++        name.AppendWithConversion(langGroup);
++
++        nsCOMPtr<nsIPref> pref;
++        pref = do_GetService(NS_PREF_CONTRACTID);
++        if (pref) {
++            nsresult rv;
++            nsXPIDLCString value;
++            rv = pref->GetCharPref(name.get(), getter_Copies(value));
++
++            // we ignore prefs that have three hypens since they are X
++            // style prefs.
++            if (FFRECountHyphens(value) < 3) {
++                nsCString tmpstr;
++                tmpstr.Append(value);
++
++                familyList.Append(tmpstr);
++                familyList.Append(',');
++            }
++        }
++    }
++
++    // Add the generic if there is one.
++    if (mGenericFont && !mFont->systemFont) {
++        familyList.Append(mGenericFont->get());
++        familyList.Append(',');
++    }
++
++    // Set the family
++    pango_font_description_set_family(mPangoFontDesc,
++                                      familyList.get());
++
++    // Set the point size
++    pango_font_description_set_size(mPangoFontDesc,
++                                    (gint)(mPointSize * PANGO_SCALE));
++
++    // Set the style
++    pango_font_description_set_style(mPangoFontDesc,
++                                     CalculateStyle(mFont->style));
++
++    // Set the weight
++    pango_font_description_set_weight(mPangoFontDesc,
++                                      CalculateWeight(mFont->weight));
++
++    // Now that we have the font description set up, create the
++    // context.
++    mLTRPangoContext = pango_xft_get_context(GDK_DISPLAY(), 0);
++    mPangoContext = mLTRPangoContext;
++
++    // Set the color map so we can draw later.
++    gdk_pango_context_set_colormap(mPangoContext, gdk_rgb_get_cmap());
++
++    // Set the pango language now that we have a context
++    pango_context_set_language(mPangoContext, GetPangoLanguage(mLangGroup));
++
++    // And attach the font description to this context
++    pango_context_set_font_description(mPangoContext, mPangoFontDesc);
++
++    return NS_OK;
++}
++
++/* static */
++PRBool
++nsFontMetricsPango::EnumFontCallback(const nsString &aFamily,
++                                     PRBool aIsGeneric, void *aData)
++{
++    // make sure it's an ascii name, if not then return and continue
++    // enumerating
++    if (!IsASCIIFontName(aFamily))
++        return PR_TRUE;
++
++    nsCAutoString name;
++    name.AssignWithConversion(aFamily.get());
++    ToLowerCase(name);
++    nsFontMetricsPango *metrics = (nsFontMetricsPango *)aData;
++    metrics->mFontList.AppendCString(name);
++    metrics->mFontIsGeneric.AppendElement((void *)aIsGeneric);
++    if (aIsGeneric) {
++        metrics->mGenericFont = 
++            metrics->mFontList.CStringAt(metrics->mFontList.Count() - 1);
++        return PR_FALSE; // stop processing
++    }
++
++    return PR_TRUE; // keep processing
++}
++
++/*
++ * This is only used when there's per-character spacing happening.
++ * Well, really it can be either line or character spacing but it's
++ * just turtles all the way down!
++ */
++
++void
++nsFontMetricsPango::DrawStringSlowly(const gchar *aText,
++                                     const PRUnichar *aOrigString,
++                                     PRUint32 aLength,
++                                     GdkDrawable *aDrawable,
++                                     GdkGC *aGC, gint aX, gint aY,
++                                     PangoLayoutLine *aLine,
++                                     const nscoord *aSpacing)
++{
++    float app2dev;
++    app2dev = mDeviceContext->AppUnitsToDevUnits();
++
++    /*
++     * We walk the list of glyphs returned in each layout run,
++     * matching up the glyphs with the characters in the source text.
++     * We use the aSpacing argument to figure out where to place those
++     * glyphs.  It's important to note that since the string we're
++     * working with is in UTF-8 while the spacing argument assumes
++     * that offset will be part of the UTF-16 string.  Logical
++     * attributes in pango are in byte offsets in the UTF-8 string, so
++     * we need to store the offsets based on the UTF-8 string.
++     */
++    nscoord *utf8spacing = new nscoord[strlen(aText)];
++
++    if (aOrigString) {
++        const gchar *curChar = aText;
++        bzero(utf8spacing, sizeof(nscoord) * strlen(aText));
++
++        // Covert the utf16 spacing offsets to utf8 spacing offsets
++        for (PRUint32 curOffset=0; curOffset < aLength;
++             curOffset++, curChar = g_utf8_find_next_char(curChar, NULL)) {
++            utf8spacing[curChar - aText] = aSpacing[curOffset];
++
++            if (IS_HIGH_SURROGATE(aOrigString[curOffset]))
++                curOffset++;
++        }
++    }
++    else {
++        memcpy(utf8spacing, aSpacing, (sizeof(nscoord *) * aLength));
++    }
++
++    gint curRun = 0;
++
++    for (GSList *tmpList = aLine->runs; tmpList && tmpList->data;
++         tmpList = tmpList->next, curRun++) {
++        PangoLayoutRun *layoutRun = (PangoLayoutRun *)tmpList->data;
++        gint tmpOffset = 0;
++
++        /*        printf("    Rendering run %d: \"%s\"\n", curRun,
++                  &aText[layoutRun->item->offset]); */
++
++        PRInt32 lastOffset = -1;
++        gint* widths[30];
++        PRInt32 widthsIdx = 0;
++        for (gint i=0; true; i++) {
++            /* printf("glyph %d offset %d orig width %d new width %d\n", i,
++             *        layoutRun->glyphs->log_clusters[i] + layoutRun->item->offset,
++             *        layoutRun->glyphs->glyphs[i].geometry.width,
++             *       (gint)(utf8spacing[layoutRun->glyphs->log_clusters[i] + layoutRun->item->offset] * app2dev * PANGO_SCALE));
++             */
++            // If we have moved on to a new input character, or if we are at the
++            // end of the run...
++            if (i == layoutRun->glyphs->num_glyphs || (layoutRun->glyphs->log_clusters[i] + layoutRun->item->offset) != lastOffset) {
++                if (lastOffset != -1 && widthsIdx > 0) { 
++                    // Distribute the desired spacing among the glyphs that result
++                    // from the input character we have just finished scanning.
++                    gint totalSpace = (gint)(utf8spacing[lastOffset] * app2dev * PANGO_SCALE);
++                    // Remove trailing zero-width glyphs.
++                    while (widthsIdx > 0 && *widths[widthsIdx-1] == 0)
++                        widthsIdx--;
++                    gint j = 0;
++                    // If all the glyph spacings are zero, we put all the specified
++                    // space into the first of them.
++                    if (widthsIdx == 0)
++                        widthsIdx = 1;
++                    else {
++                        // Remove leading zero-width glyphs.
++                        while (j < widthsIdx && *widths[j] == 0)
++                            j++;
++                    }
++                    for (; j < widthsIdx; j++) {
++                        if (j == widthsIdx-1)
++                            *widths[j] = totalSpace;
++                        else
++                        if (*widths[j] != 0) {
++                            totalSpace -= *widths[j];
++                            if (totalSpace <= 0) {
++                                *widths[j] += totalSpace;
++                                totalSpace = 0;
++                            }
++                        }
++                    }
++                }
++                if (i == layoutRun->glyphs->num_glyphs)
++                    break;
++                lastOffset = layoutRun->glyphs->log_clusters[i] + layoutRun->item->offset;
++                widthsIdx = 0;
++            }
++            if (widthsIdx < sizeof(widths)/sizeof(gint*))
++                widths[widthsIdx++] = &layoutRun->glyphs->glyphs[i].geometry.width;
++            lastOffset = layoutRun->glyphs->log_clusters[i] + layoutRun->item->offset;
++        }
++    }
++
++    gdk_draw_layout_line(aDrawable, aGC, aX, aY, aLine);
++
++    delete[] utf8spacing;
++}
++
++nsresult
++nsFontMetricsPango::GetTextDimensionsInternal(const gchar*        aString,
++                                              PRInt32             aLength,
++                                              PRInt32             aAvailWidth,
++                                              PRInt32*            aBreaks,
++                                              PRInt32             aNumBreaks,
++                                              nsTextDimensions&   aDimensions,
++                                              PRInt32&            aNumCharsFit,
++                                              nsTextDimensions&   aLastWordDimensions,
++                                              nsRenderingContextGTK *aContext)
++{
++    NS_PRECONDITION(aBreaks[aNumBreaks - 1] == aLength, "invalid break array");
++
++    // If we need to back up this state represents the last place
++    // we could break. We can use this to avoid remeasuring text
++    PRInt32 prevBreakState_BreakIndex = -1; // not known
++                                            // (hasn't been computed)
++    nscoord prevBreakState_Width = 0; // accumulated width to this point
++
++    // Initialize OUT parameters
++    GetMaxAscent(aLastWordDimensions.ascent);
++    GetMaxDescent(aLastWordDimensions.descent);
++    aLastWordDimensions.width = -1;
++    aNumCharsFit = 0;
++
++    // Iterate each character in the string and determine which font to use
++    nscoord width = 0;
++    PRInt32 start = 0;
++    nscoord aveCharWidth;
++    GetAveCharWidth(aveCharWidth);
++
++    while (start < aLength) {
++        // Estimate how many characters will fit. Do that by
++        // diving the available space by the average character
++        // width. Make sure the estimated number of characters is
++        // at least 1
++        PRInt32 estimatedNumChars = 0;
++
++        if (aveCharWidth > 0)
++            estimatedNumChars = (aAvailWidth - width) / aveCharWidth;
++
++        if (estimatedNumChars < 1)
++            estimatedNumChars = 1;
++
++        // Find the nearest break offset
++        PRInt32 estimatedBreakOffset = start + estimatedNumChars;
++        PRInt32 breakIndex;
++        nscoord numChars;
++
++        // Find the nearest place to break that is less than or equal to
++        // the estimated break offset
++        if (aLength <= estimatedBreakOffset) {
++            // All the characters should fit
++            numChars = aLength - start;
++            breakIndex = aNumBreaks - 1;
++        } 
++        else {
++            breakIndex = prevBreakState_BreakIndex;
++            while (((breakIndex + 1) < aNumBreaks) &&
++                   (aBreaks[breakIndex + 1] <= estimatedBreakOffset)) {
++                ++breakIndex;
++            }
++
++            if (breakIndex == prevBreakState_BreakIndex) {
++                ++breakIndex; // make sure we advanced past the
++                // previous break index
++            }
++
++            numChars = aBreaks[breakIndex] - start;
++        }
++
++        // Measure the text
++        nscoord twWidth = 0;
++        if ((1 == numChars) && (aString[start] == ' '))
++            GetSpaceWidth(twWidth);
++        else if (numChars > 0)
++            GetWidth(&aString[start], numChars, twWidth, aContext);
++
++        // See if the text fits
++        PRBool  textFits = (twWidth + width) <= aAvailWidth;
++
++        // If the text fits then update the width and the number of
++        // characters that fit
++        if (textFits) {
++            aNumCharsFit += numChars;
++            width += twWidth;
++            start += numChars;
++
++            // This is a good spot to back up to if we need to so remember
++            // this state
++            prevBreakState_BreakIndex = breakIndex;
++            prevBreakState_Width = width;
++        }
++        else {
++            // See if we can just back up to the previous saved
++            // state and not have to measure any text
++            if (prevBreakState_BreakIndex > 0) {
++                // If the previous break index is just before the
++                // current break index then we can use it
++                if (prevBreakState_BreakIndex == (breakIndex - 1)) {
++                    aNumCharsFit = aBreaks[prevBreakState_BreakIndex];
++                    width = prevBreakState_Width;
++                    break;
++                }
++            }
++
++            // We can't just revert to the previous break state
++            if (0 == breakIndex) {
++                // There's no place to back up to, so even though
++                // the text doesn't fit return it anyway
++                aNumCharsFit += numChars;
++                width += twWidth;
++                break;
++            }
++
++            // Repeatedly back up until we get to where the text
++            // fits or we're all the way back to the first word
++            width += twWidth;
++            while ((breakIndex >= 1) && (width > aAvailWidth)) {
++                twWidth = 0;
++                start = aBreaks[breakIndex - 1];
++                numChars = aBreaks[breakIndex] - start;
++
++                if ((1 == numChars) && (aString[start] == ' '))
++                    GetSpaceWidth(twWidth);
++                else if (numChars > 0)
++                    GetWidth(&aString[start], numChars, twWidth,
++                             aContext);
++                width -= twWidth;
++                aNumCharsFit = start;
++                breakIndex--;
++            }
++            break;
++        }
++    }
++
++    aDimensions.width = width;
++    GetMaxAscent(aDimensions.ascent);
++    GetMaxDescent(aDimensions.descent);
++
++    /*    printf("aDimensions %d %d %d aLastWordDimensions %d %d %d aNumCharsFit %d\n",
++           aDimensions.width, aDimensions.ascent, aDimensions.descent,
++           aLastWordDimensions.width, aLastWordDimensions.ascent, aLastWordDimensions.descent,
++           aNumCharsFit); */
++
++    return NS_OK;
++}
++
++void
++nsFontMetricsPango::FixupSpaceWidths (PangoLayout *aLayout,
++                                      const char *aString)
++{
++    PangoLayoutLine *line = pango_layout_get_line(aLayout, 0);
++
++    gint curRun = 0;
++
++    for (GSList *tmpList = line->runs; tmpList && tmpList->data;
++         tmpList = tmpList->next, curRun++) {
++        PangoLayoutRun *layoutRun = (PangoLayoutRun *)tmpList->data;
++
++        for (gint i=0; i < layoutRun->glyphs->num_glyphs; i++) {
++            gint thisOffset = (gint)layoutRun->glyphs->log_clusters[i] + layoutRun->item->offset;
++            if (aString[thisOffset] == ' ')
++                layoutRun->glyphs->glyphs[i].geometry.width = mPangoSpaceWidth;
++        }
++    }
++}
++
++/* static */
++PRBool
++IsASCIIFontName(const nsString& aName)
++{
++    PRUint32 len = aName.Length();
++    const PRUnichar* str = aName.get();
++    for (PRUint32 i = 0; i < len; i++) {
++        /*
++         * X font names are printable ASCII, ignore others (for now)
++         */
++        if ((str[i] < 0x20) || (str[i] > 0x7E)) {
++            return PR_FALSE;
++        }
++    }
++  
++    return PR_TRUE;
++}
++
++/* static */
++int
++FFRECountHyphens (nsACString &aFFREName)
++{
++    int h = 0;
++    PRInt32 hyphen = 0;
++    while ((hyphen = aFFREName.FindChar('-', hyphen)) >= 0) {
++        ++h;
++        ++hyphen;
++    }
++    return h;
++}
++
++/* static */
++PangoLanguage *
++GetPangoLanguage(nsIAtom *aLangGroup)
++{
++    // Find the FC lang group for this lang group
++    nsCAutoString cname;
++    aLangGroup->ToUTF8String(cname);
++
++    // see if the lang group needs to be translated from mozilla's
++    // internal mapping into fontconfig's
++    const struct MozPangoLangGroup *langGroup;
++    langGroup = FindPangoLangGroup(cname);
++
++    // if there's no lang group, just use the lang group as it was
++    // passed to us
++    //
++    // we're casting away the const here for the strings - should be
++    // safe.
++    if (!langGroup)
++        return pango_language_from_string(cname.get());
++    else if (langGroup->PangoLang) 
++        return pango_language_from_string(langGroup->PangoLang);
++
++    return pango_language_from_string("en");
++}
++
++/* static */
++const MozPangoLangGroup*
++FindPangoLangGroup (nsACString &aLangGroup)
++{
++    for (unsigned int i=0; i < NUM_PANGO_LANG_GROUPS; ++i) {
++        if (aLangGroup.Equals(MozPangoLangGroups[i].mozLangGroup,
++                              nsCaseInsensitiveCStringComparator())) {
++            return &MozPangoLangGroups[i];
++        }
++    }
++
++    return nsnull;
++}
++
++/* static */
++void
++FreeGlobals(void)
++{
++}
++
++/* static */
++PangoStyle
++CalculateStyle(PRUint8 aStyle)
++{
++    switch(aStyle) {
++    case NS_FONT_STYLE_ITALIC:
++        return PANGO_STYLE_OBLIQUE;
++        break;
++    case NS_FONT_STYLE_OBLIQUE:
++        return PANGO_STYLE_OBLIQUE;
++        break;
++    }
++
++    return PANGO_STYLE_NORMAL;
++}
++
++/* static */
++PangoWeight
++CalculateWeight (PRUint16 aWeight)
++{
++    /*
++     * weights come in two parts crammed into one
++     * integer -- the "base" weight is weight / 100,
++     * the rest of the value is the "offset" from that
++     * weight -- the number of steps to move to adjust
++     * the weight in the list of supported font weights,
++     * this value can be negative or positive.
++     */
++    PRInt32 baseWeight = (aWeight + 50) / 100;
++    PRInt32 offset = aWeight - baseWeight * 100;
++
++    /* clip weights to range 0 to 9 */
++    if (baseWeight < 0)
++        baseWeight = 0;
++    if (baseWeight > 9)
++        baseWeight = 9;
++
++    /* Map from weight value to fcWeights index */
++    static int fcWeightLookup[10] = {
++        0, 0, 0, 0, 1, 1, 2, 3, 3, 4,
++    };
++
++    PRInt32 fcWeight = fcWeightLookup[baseWeight];
++
++    /*
++     * adjust by the offset value, make sure we stay inside the 
++     * fcWeights table
++     */
++    fcWeight += offset;
++
++    if (fcWeight < 0)
++        fcWeight = 0;
++    if (fcWeight > 4)
++        fcWeight = 4;
++
++    /* Map to final PANGO_WEIGHT value */
++    static int fcWeights[5] = {
++        349,
++        499,
++        649,
++        749,
++        999
++    };
++
++    return (PangoWeight)fcWeights[fcWeight];
++}
++
++/* static */
++nsresult
++EnumFontsPango(nsIAtom* aLangGroup, const char* aGeneric,
++               PRUint32* aCount, PRUnichar*** aResult)
++{
++    FcPattern   *pat = NULL;
++    FcObjectSet *os  = NULL;
++    FcFontSet   *fs  = NULL;
++    nsresult     rv  = NS_ERROR_FAILURE;
++
++    PRUnichar **array = NULL;
++    PRUint32    narray = 0;
++    PRInt32     serif = 0, sansSerif = 0, monospace = 0, nGenerics;
++
++    *aCount = 0;
++    *aResult = nsnull;
++
++    pat = FcPatternCreate();
++    if (!pat)
++        goto end;
++
++    os = FcObjectSetBuild(FC_FAMILY, FC_FOUNDRY, 0);
++    if (!os)
++        goto end;
++
++    // take the pattern and add the lang group to it
++    if (aLangGroup)
++        AddLangGroup(pat, aLangGroup);
++
++    // get the font list
++    fs = FcFontList(0, pat, os);
++
++    if (!fs)
++        goto end;
++
++    if (!fs->nfont) {
++        rv = NS_OK;
++        goto end;
++    }
++
++    // Fontconfig supports 3 generic fonts, "serif", "sans-serif", and
++    // "monospace", slightly different from CSS's 5.
++    if (!aGeneric)
++        serif = sansSerif = monospace = 1;
++    else if (!strcmp(aGeneric, "serif"))
++        serif = 1;
++    else if (!strcmp(aGeneric, "sans-serif"))
++        sansSerif = 1;
++    else if (!strcmp(aGeneric, "monospace"))
++        monospace = 1;
++    else if (!strcmp(aGeneric, "cursive") || !strcmp(aGeneric, "fantasy"))
++        serif = sansSerif =  1;
++    else
++        NS_NOTREACHED("unexpected generic family");
++    nGenerics = serif + sansSerif + monospace;
++
++    array = NS_STATIC_CAST(PRUnichar **,
++               nsMemory::Alloc((fs->nfont + nGenerics) * sizeof(PRUnichar *)));
++    if (!array)
++        goto end;
++
++    if (serif) {
++        PRUnichar *name = ToNewUnicode(NS_LITERAL_STRING("serif"));
++        if (!name)
++            goto end;
++        array[narray++] = name;
++    }
++
++    if (sansSerif) {
++        PRUnichar *name = ToNewUnicode(NS_LITERAL_STRING("sans-serif"));
++        if (!name)
++            goto end;
++        array[narray++] = name;
++    }
++
++    if (monospace) {
++        PRUnichar *name = ToNewUnicode(NS_LITERAL_STRING("monospace"));
++        if (!name)
++            goto end;
++        array[narray++] = name;
++    }
++
++    for (int i=0; i < fs->nfont; ++i) {
++        char *family;
++        PRUnichar *name;
++
++        // if there's no family, just move to the next iteration
++        if (FcPatternGetString (fs->fonts[i], FC_FAMILY, 0,
++                                (FcChar8 **) &family) != FcResultMatch) {
++            continue;
++        }
++
++        name = NS_STATIC_CAST(PRUnichar *,
++                              nsMemory::Alloc ((strlen (family) + 1)
++                                               * sizeof (PRUnichar)));
++
++        if (!name)
++            goto end;
++
++        PRUnichar *r = name;
++        for (char *f = family; *f; ++f)
++            *r++ = *f;
++        *r = '\0';
++
++        array[narray++] = name;
++    }
++
++    NS_QuickSort(array + nGenerics, narray - nGenerics, sizeof (PRUnichar*),
++                 CompareFontNames, nsnull);
++
++    *aCount = narray;
++    if (narray)
++        *aResult = array;
++    else
++        nsMemory::Free(array);
++
++    rv = NS_OK;
++
++ end:
++    if (NS_FAILED(rv) && array) {
++        while (narray)
++            nsMemory::Free (array[--narray]);
++        nsMemory::Free (array);
++    }
++    if (pat)
++        FcPatternDestroy(pat);
++    if (os)
++        FcObjectSetDestroy(os);
++    if (fs)
++        FcFontSetDestroy(fs);
++
++    return rv;
++}
++
++/* static */
++int
++CompareFontNames (const void* aArg1, const void* aArg2, void* aClosure)
++{
++    const PRUnichar* str1 = *((const PRUnichar**) aArg1);
++    const PRUnichar* str2 = *((const PRUnichar**) aArg2);
++
++    return nsCRT::strcmp(str1, str2);
++}
++
++
++// nsFontEnumeratorPango class
++
++nsFontEnumeratorPango::nsFontEnumeratorPango()
++{
++}
++
++NS_IMPL_ISUPPORTS1(nsFontEnumeratorPango, nsIFontEnumerator)
++
++NS_IMETHODIMP
++nsFontEnumeratorPango::EnumerateAllFonts(PRUint32 *aCount,
++                                         PRUnichar ***aResult)
++{
++    NS_ENSURE_ARG_POINTER(aResult);
++    *aResult = nsnull;
++    NS_ENSURE_ARG_POINTER(aCount);
++    *aCount = 0;
++
++    return EnumFontsPango(nsnull, nsnull, aCount, aResult);
++}
++
++NS_IMETHODIMP
++nsFontEnumeratorPango::EnumerateFonts(const char *aLangGroup,
++                                      const char *aGeneric,
++                                      PRUint32 *aCount,
++                                      PRUnichar ***aResult)
++{
++    NS_ENSURE_ARG_POINTER(aResult);
++    *aResult = nsnull;
++    NS_ENSURE_ARG_POINTER(aCount);
++    *aCount = 0;
++
++    // aLangGroup=null or ""  means any (i.e., don't care)
++    // aGeneric=null or ""  means any (i.e, don't care)
++    nsCOMPtr<nsIAtom> langGroup;
++    if (aLangGroup && *aLangGroup)
++        langGroup = do_GetAtom(aLangGroup);
++    const char* generic = nsnull;
++    if (aGeneric && *aGeneric)
++        generic = aGeneric;
++
++    return EnumFontsPango(langGroup, generic, aCount, aResult);
++}
++
++NS_IMETHODIMP
++nsFontEnumeratorPango::HaveFontFor(const char *aLangGroup,
++                                   PRBool *aResult)
++{
++    NS_ENSURE_ARG_POINTER(aResult);
++    *aResult = PR_FALSE;
++    NS_ENSURE_ARG_POINTER(aLangGroup);
++
++    *aResult = PR_TRUE; // always return true for now.
++    // Finish me - ftang
++    return NS_OK;
++}
++
++NS_IMETHODIMP
++nsFontEnumeratorPango::GetDefaultFont(const char *aLangGroup,
++                                      const char *aGeneric,
++                                      PRUnichar **aResult)
++{
++    NS_ENSURE_ARG_POINTER(aResult);
++    *aResult = nsnull;
++
++    // Have a look at nsFontEnumeratorXft::GetDefaultFont for some
++    // possible code for this function.
++
++    return NS_OK;
++}
++
++NS_IMETHODIMP
++nsFontEnumeratorPango::UpdateFontList(PRBool *_retval)
++{
++    *_retval = PR_FALSE; // always return false for now
++    return NS_OK;
++}
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsPango.h mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsPango.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsPango.h	1970-01-01 12:00:00.000000000 +1200
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsPango.h	2005-09-11 09:24:08.000000000 +1200
+@@ -0,0 +1,298 @@
++/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
++/* vim:expandtab:shiftwidth=4:tabstop=4:
++ */
++/* ***** BEGIN LICENSE BLOCK *****
++ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
++ *
++ * The contents of this file are subject to the Mozilla Public License Version
++ * 1.1 (the "License"); you may not use this file except in compliance with
++ * the License. You may obtain a copy of the License at
++ * http://www.mozilla.org/MPL/
++ *
++ * Software distributed under the License is distributed on an "AS IS" basis,
++ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++ * for the specific language governing rights and limitations under the
++ * License.
++ *
++ * The Original Code is mozilla.org code.
++ *
++ * The Initial Developer of the Original Code Christopher Blizzard
++ * <blizzard@mozilla.org>.  Portions created by the Initial Developer
++ * are Copyright (C) 2002 the Initial Developer. All Rights Reserved.
++ *
++ * Contributor(s):
++ *
++ * Alternatively, the contents of this file may be used under the terms of
++ * either the GNU General Public License Version 2 or later (the "GPL"), or
++ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++ * in which case the provisions of the GPL or the LGPL are applicable instead
++ * of those above. If you wish to allow use of your version of this file only
++ * under the terms of either the GPL or the LGPL, and not to allow others to
++ * use your version of this file under the terms of the MPL, indicate your
++ * decision by deleting the provisions above and replace them with the notice
++ * and other provisions required by the GPL or the LGPL. If you do not delete
++ * the provisions above, a recipient may use your version of this file under
++ * the terms of any one of the MPL, the GPL or the LGPL.
++ *
++ * ***** END LICENSE BLOCK ***** */
++
++#include "nsIFontMetrics.h"
++#include "nsIFontEnumerator.h"
++#include "nsCRT.h"
++#include "nsIAtom.h"
++#include "nsString.h"
++#include "nsVoidArray.h"
++#include "nsIFontMetricsGTK.h"
++
++#include <pango/pango.h>
++
++class nsFontMetricsPango : public nsIFontMetricsGTK
++{
++public:
++    nsFontMetricsPango();
++    virtual ~nsFontMetricsPango();
++
++    NS_DECL_AND_IMPL_ZEROING_OPERATOR_NEW
++
++    // nsISupports
++    NS_DECL_ISUPPORTS
++
++    // nsIFontMetrics
++    NS_IMETHOD  Init                 (const nsFont& aFont, nsIAtom* aLangGroup,
++                                      nsIDeviceContext *aContext);
++    NS_IMETHOD  Destroy();
++    NS_IMETHOD  GetFont              (const nsFont *&aFont);
++    NS_IMETHOD  GetLangGroup         (nsIAtom** aLangGroup);
++    NS_IMETHOD  GetFontHandle        (nsFontHandle &aHandle);
++
++    NS_IMETHOD  GetXHeight           (nscoord& aResult)
++                                     { aResult = mXHeight; return NS_OK; };
++
++    NS_IMETHOD GetSuperscriptOffset  (nscoord& aResult)
++                                     { aResult = mSuperscriptOffset;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetSubscriptOffset    (nscoord& aResult)
++                                     { aResult = mSubscriptOffset;
++                                       return NS_OK; };
++                              
++    NS_IMETHOD GetStrikeout          (nscoord& aOffset, nscoord& aSize)
++                                     { aOffset = mStrikeoutOffset;
++                                       aSize = mStrikeoutSize; 
++                                       return NS_OK; };
++
++    NS_IMETHOD GetUnderline          (nscoord& aOffset, nscoord& aSize)
++                                     { aOffset = mUnderlineOffset;
++                                       aSize = mUnderlineSize; 
++                                       return NS_OK; };
++
++    NS_IMETHOD GetHeight             (nscoord &aHeight)
++                                     { aHeight = mMaxHeight; 
++                                       return NS_OK; };
++
++    NS_IMETHOD GetNormalLineHeight   (nscoord &aHeight)
++                                     { aHeight = mEmHeight + mLeading;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetLeading            (nscoord &aLeading)
++                                     { aLeading = mLeading; 
++                                       return NS_OK; };
++
++    NS_IMETHOD GetEmHeight           (nscoord &aHeight)
++                                     { aHeight = mEmHeight; 
++                                       return NS_OK; };
++
++    NS_IMETHOD GetEmAscent           (nscoord &aAscent)
++                                     { aAscent = mEmAscent;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetEmDescent          (nscoord &aDescent)
++                                     { aDescent = mEmDescent;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetMaxHeight          (nscoord &aHeight)
++                                     { aHeight = mMaxHeight;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetMaxAscent          (nscoord &aAscent)
++                                     { aAscent = mMaxAscent;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetMaxDescent         (nscoord &aDescent)
++                                     { aDescent = mMaxDescent;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetMaxAdvance         (nscoord &aAdvance)
++                                     { aAdvance = mMaxAdvance;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetSpaceWidth         (nscoord &aSpaceCharWidth)
++                                     { aSpaceCharWidth = mSpaceWidth;
++                                       return NS_OK; };
++
++    NS_IMETHOD GetAveCharWidth       (nscoord &aAveCharWidth)
++                                     { aAveCharWidth = mAveCharWidth;
++                                       return NS_OK; };
++
++    // nsIFontMetricsGTK (calls from the font rendering layer)
++    virtual nsresult GetWidth(const char* aString, PRUint32 aLength,
++                              nscoord& aWidth,
++                              nsRenderingContextGTK *aContext);
++    virtual nsresult GetWidth(const PRUnichar* aString, PRUint32 aLength,
++                              nscoord& aWidth, PRInt32 *aFontID,
++                              nsRenderingContextGTK *aContext);
++
++    /**
++     * Returns an array of widths (in app units) of a Unicode character string
++     * If no font has been set, the results are undefined.
++     * The length of output array data is always aLength elements.  Where the
++     * layout is complex and a character is rendered above or below a previous
++     * character, this is represented as a zero width in the output array.
++     *
++     * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++     *
++     * @param aString string to measure
++     * @param aLength number of characters in string
++     * @param aWidth out parameter for total width
++     * @param aWidthArray out parameter for per-character widths
++     * @return error status
++     */
++    virtual nsresult GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                             nscoord& aWidth, nscoord* aWidthArray);
++
++    virtual nsresult GetTextDimensions(const PRUnichar* aString,
++                                       PRUint32 aLength,
++                                       nsTextDimensions& aDimensions, 
++                                       PRInt32* aFontID,
++                                       nsRenderingContextGTK *aContext);
++    virtual nsresult GetTextDimensions(const char*         aString,
++                                       PRInt32             aLength,
++                                       PRInt32             aAvailWidth,
++                                       PRInt32*            aBreaks,
++                                       PRInt32             aNumBreaks,
++                                       nsTextDimensions&   aDimensions,
++                                       PRInt32&            aNumCharsFit,
++                                       nsTextDimensions&   aLastWordDimensions,
++                                       PRInt32*            aFontID,
++                                       nsRenderingContextGTK *aContext);
++    virtual nsresult GetTextDimensions(const PRUnichar*    aString,
++                                       PRInt32             aLength,
++                                       PRInt32             aAvailWidth,
++                                       PRInt32*            aBreaks,
++                                       PRInt32             aNumBreaks,
++                                       nsTextDimensions&   aDimensions,
++                                       PRInt32&            aNumCharsFit,
++                                       nsTextDimensions&   aLastWordDimensions,
++                                       PRInt32*            aFontID,
++                                       nsRenderingContextGTK *aContext);
++
++    virtual nsresult DrawString(const char *aString, PRUint32 aLength,
++                                nscoord aX, nscoord aY,
++                                const nscoord* aSpacing,
++                                nsRenderingContextGTK *aContext,
++                                nsDrawingSurfaceGTK *aSurface);
++    virtual nsresult DrawString(const PRUnichar* aString, PRUint32 aLength,
++                                nscoord aX, nscoord aY,
++                                PRInt32 aFontID,
++                                const nscoord* aSpacing,
++                                nsRenderingContextGTK *aContext,
++                                nsDrawingSurfaceGTK *aSurface);
++
++#ifdef MOZ_MATHML
++    virtual nsresult GetBoundingMetrics(const char *aString, PRUint32 aLength,
++                                        nsBoundingMetrics &aBoundingMetrics,
++                                        nsRenderingContextGTK *aContext);
++    virtual nsresult GetBoundingMetrics(const PRUnichar *aString,
++                                        PRUint32 aLength,
++                                        nsBoundingMetrics &aBoundingMetrics,
++                                        PRInt32 *aFontID,
++                                        nsRenderingContextGTK *aContext);
++#endif /* MOZ_MATHML */
++
++    virtual GdkFont* GetCurrentGDKFont(void);
++
++    virtual nsresult SetRightToLeftText(PRBool aIsRTL);
++
++    // get hints for the font
++    static PRUint32    GetHints     (void);
++
++    // drawing surface methods
++    static nsresult FamilyExists    (nsIDeviceContext *aDevice,
++                                     const nsString &aName);
++
++private:
++
++    // generic font metrics class bits
++    nsCStringArray       mFontList;
++    nsAutoVoidArray      mFontIsGeneric;
++
++    nsIDeviceContext    *mDeviceContext;
++    nsCOMPtr<nsIAtom>    mLangGroup;
++    nsCString           *mGenericFont;
++    nsFont              *mFont;
++    float                mPointSize;
++
++    nsCAutoString        mDefaultFont;
++
++    // Pango-related items
++    PangoFontDescription *mPangoFontDesc;
++    PangoContext         *mPangoContext;
++    PangoContext         *mLTRPangoContext;
++    PangoContext         *mRTLPangoContext;
++    PangoAttrList        *mPangoAttrList;
++    PRBool                mIsRTL;
++
++    // Cached font metrics
++    nscoord                  mXHeight;
++    nscoord                  mSuperscriptOffset;
++    nscoord                  mSubscriptOffset;
++    nscoord                  mStrikeoutOffset;
++    nscoord                  mStrikeoutSize;
++    nscoord                  mUnderlineOffset;
++    nscoord                  mUnderlineSize;
++    nscoord                  mMaxHeight;
++    nscoord                  mLeading;
++    nscoord                  mEmHeight;
++    nscoord                  mEmAscent;
++    nscoord                  mEmDescent;
++    nscoord                  mMaxAscent;
++    nscoord                  mMaxDescent;
++    nscoord                  mMaxAdvance;
++    nscoord                  mSpaceWidth;
++    nscoord                  mPangoSpaceWidth;
++    nscoord                  mAveCharWidth;
++
++    // Private methods
++    nsresult RealizeFont(void);
++    nsresult CacheFontMetrics(void);
++
++    static PRBool EnumFontCallback(const nsString &aFamily,
++                                   PRBool aIsGeneric, void *aData);
++
++    void     DrawStringSlowly(const gchar *aText,
++                              const PRUnichar *aOrigString,
++                              PRUint32 aLength,
++                              GdkDrawable *aDrawable,
++                              GdkGC *aGC, gint aX, gint aY,
++                              PangoLayoutLine *aLine,
++                              const nscoord *aSpacing);
++
++    nsresult GetTextDimensionsInternal(const gchar*        aString,
++                                       PRInt32             aLength,
++                                       PRInt32             aAvailWidth,
++                                       PRInt32*            aBreaks,
++                                       PRInt32             aNumBreaks,
++                                       nsTextDimensions&   aDimensions,
++                                       PRInt32&            aNumCharsFit,
++                                       nsTextDimensions&   aLastWordDimensions,
++                                       nsRenderingContextGTK *aContext);
++    void FixupSpaceWidths(PangoLayout *aLayout, const char *aString);
++};
++
++class nsFontEnumeratorPango : public nsIFontEnumerator
++{
++public:
++    nsFontEnumeratorPango();
++    NS_DECL_ISUPPORTS
++    NS_DECL_NSIFONTENUMERATOR
++};
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsUtils.cpp mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsUtils.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsUtils.cpp	2002-10-12 15:03:32.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsUtils.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -50,11 +50,20 @@
+ #include "nsFontMetricsGTK.h"
+ #endif
+ 
++#ifdef MOZ_ENABLE_PANGO
++#include "nsFontMetricsPango.h"
++#endif
++
+ #include "nsFontMetricsUtils.h"
+ 
+ PRUint32
+ NS_FontMetricsGetHints(void)
+ {
++#ifdef MOZ_ENABLE_PANGO
++    if (NS_IsPangoEnabled()) {
++        return nsFontMetricsPango::GetHints();
++    }
++#endif
+ #ifdef MOZ_ENABLE_XFT
+     if (NS_IsXftEnabled()) {
+         return nsFontMetricsXft::GetHints();
+@@ -69,6 +78,11 @@
+ nsresult
+ NS_FontMetricsFamilyExists(nsIDeviceContext *aDevice, const nsString &aName)
+ {
++#ifdef MOZ_ENABLE_PANGO
++    if (NS_IsPangoEnabled()) {
++        return nsFontMetricsPango::FamilyExists(aDevice, aName);
++    }
++#endif
+ #ifdef MOZ_ENABLE_XFT
+     // try to fall through to the core fonts if xft fails
+     if (NS_IsXftEnabled()) {
+@@ -121,3 +135,20 @@
+ }
+ 
+ #endif /* MOZ_ENABLE_XFT */
++
++#ifdef MOZ_ENABLE_PANGO
++
++PRBool
++NS_IsPangoEnabled(void)
++{
++      // MOZ_ENABLE_PANGO=1 means pango is enabled
++      // MOZ_ENABLE_PANGO=0 means pango is disabled
++      // Default: enabled
++    char *val = PR_GetEnv("MOZ_ENABLE_PANGO");
++    if (val)
++        return atoi(val) ? TRUE : FALSE;
++
++    return TRUE;
++}
++
++#endif
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsUtils.h mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsUtils.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsUtils.h	2002-10-12 15:03:32.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsUtils.h	2005-08-19 13:25:10.000000000 +1200
+@@ -42,9 +42,12 @@
+ extern PRUint32 NS_FontMetricsGetHints    (void);
+ extern nsresult NS_FontMetricsFamilyExists(nsIDeviceContext *aDevice,
+                                            const nsString &aName);
+-
+ #ifdef MOZ_ENABLE_XFT
+ extern PRBool   NS_IsXftEnabled(void);
+ #endif
+ 
++#ifdef MOZ_ENABLE_PANGO
++extern PRBool   NS_IsPangoEnabled(void);
++#endif
++
+ #endif /* __nsFontMetricsUtils_h */
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsXft.cpp mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsXft.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsXft.cpp	2005-02-17 06:09:21.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsXft.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -241,7 +241,7 @@
+ 
+ static int      CalculateSlant   (PRUint8  aStyle);
+ static int      CalculateWeight  (PRUint16 aWeight);
+-static void     AddLangGroup     (FcPattern *aPattern, nsIAtom *aLangGroup);
++/* static */ void     AddLangGroup     (FcPattern *aPattern, nsIAtom *aLangGroup);
+ static void     AddFFRE          (FcPattern *aPattern, nsCString *aFamily,
+                                   PRBool aWeak);
+ static void     FFREToFamily     (nsACString &aFFREName, nsACString &oFamily);
+@@ -452,7 +452,7 @@
+     // Make sure that the pixel size is at least greater than zero
+     if (mPixelSize < 1) {
+ #ifdef DEBUG
+-        printf("*** Warning: nsFontMetricsXft was passed a pixel size of %d\n",
++        printf("*** Warning: nsFontMetricsXft was passed a pixel size of %f\n",
+                mPixelSize);
+ #endif
+         mPixelSize = 1;
+@@ -477,6 +477,26 @@
+     if (NS_FAILED(RealizeFont()))
+         return NS_ERROR_FAILURE;
+ 
++#ifdef DEBUG_foo
++    printf("%i\n", mXHeight);
++    printf("%i\n", mSuperscriptOffset);
++    printf("%i\n", mSubscriptOffset);
++    printf("%i\n", mStrikeoutOffset);
++    printf("%i\n", mStrikeoutSize);
++    printf("%i\n", mUnderlineOffset);
++    printf("%i\n", mUnderlineSize);
++    printf("%i\n", mMaxHeight);
++    printf("%i\n", mLeading);
++    printf("%i\n", mEmHeight);
++    printf("%i\n", mEmAscent);
++    printf("%i\n", mEmDescent);
++    printf("%i\n", mMaxAscent);
++    printf("%i\n", mMaxDescent);
++    printf("%i\n", mMaxAdvance);
++    printf("%i\n", mSpaceWidth);
++    printf("%i\n", mAveCharWidth);
++#endif /* DEBUG_foo */
++
+     return NS_OK;
+ }
+ 
+@@ -532,6 +552,10 @@
+     f = mDeviceContext->DevUnitsToAppUnits();
+     aWidth = NSToCoordRound(glyphInfo.xOff * f);
+ 
++#ifdef DEBUG_foo
++    printf("GetWidth (char *) %d\n", aWidth);
++#endif
++
+     return NS_OK;
+ }
+ 
+@@ -555,6 +579,10 @@
+     if (aFontID)
+         *aFontID = 0;
+ 
++#ifdef DEBUG_foo
++    printf("GetWidth %d\n", aWidth);
++#endif
++
+     return NS_OK;
+ }
+ 
+@@ -588,6 +616,11 @@
+     if (nsnull != aFontID)
+         *aFontID = 0;
+ 
++#ifdef DEBUG_foo
++    printf("GetTextDimensions %d %d %d\n", aDimensions.width,
++           aDimensions.ascent, aDimensions.descent);
++#endif
++
+     return NS_OK;
+ }
+ 
+@@ -647,6 +680,10 @@
+     nsAutoDrawSpecBuffer drawBuffer(data.draw, &data.color);
+     data.drawBuffer = &drawBuffer;
+ 
++#ifdef DEBUG_foo
++    printf("DrawString (char *)\n");
++#endif
++
+     return EnumerateGlyphs(aString, aLength,
+                            &nsFontMetricsXft::DrawStringCallback, &data);
+ }
+@@ -677,6 +714,10 @@
+     nsAutoDrawSpecBuffer drawBuffer(data.draw, &data.color);
+     data.drawBuffer = &drawBuffer;
+ 
++#ifdef DEBUG_foo
++    printf("DrawString\n");
++#endif
++
+     return EnumerateGlyphs(aString, aLength,
+                            &nsFontMetricsXft::DrawStringCallback, &data);
+ }
+@@ -716,6 +757,15 @@
+     aBoundingMetrics.ascent = NSToCoordRound(aBoundingMetrics.ascent * P2T);
+     aBoundingMetrics.descent = NSToCoordRound(aBoundingMetrics.descent * P2T);
+ 
++#ifdef DEBUG_foo
++    printf("GetBoundingMetrics (char *)%d %d %d %d %d\n",
++           aBoundingMetrics.leftBearing,
++           aBoundingMetrics.rightBearing,
++           aBoundingMetrics.width,
++           aBoundingMetrics.ascent,
++           aBoundingMetrics.descent);
++#endif
++
+     return NS_OK;
+ }
+ 
+@@ -757,6 +807,15 @@
+     if (nsnull != aFontID)
+         *aFontID = 0;
+ 
++#ifdef DEBUG_foo
++    printf("GetBoundingMetrics %d %d %d %d %d\n",
++           aBoundingMetrics.leftBearing,
++           aBoundingMetrics.rightBearing,
++           aBoundingMetrics.width,
++           aBoundingMetrics.ascent,
++           aBoundingMetrics.descent);
++#endif
++
+     return NS_OK;
+ }
+ 
+@@ -768,6 +827,12 @@
+     return nsnull;
+ }
+ 
++nsresult
++nsFontMetricsXft::SetRightToLeftText(PRBool aIsRTL)
++{
++    return NS_OK;
++}
++
+ PRUint32
+ nsFontMetricsXft::GetHints(void)
+ {
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsXft.h mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsXft.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsFontMetricsXft.h	2005-02-13 09:08:15.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsFontMetricsXft.h	2005-08-19 13:25:10.000000000 +1200
+@@ -202,6 +202,8 @@
+ 
+     virtual GdkFont* GetCurrentGDKFont(void);
+ 
++    virtual nsresult SetRightToLeftText(PRBool aIsRTL);
++
+     // get hints for the font
+     static PRUint32    GetHints  (void);
+ 
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsGCCache.cpp mozilla-firefox-1.0.6/gfx/src/gtk/nsGCCache.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsGCCache.cpp	2002-02-03 16:47:15.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsGCCache.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -232,98 +232,42 @@
+   // We have old GC, reuse it and check what
+   // we have to change
+ 
+-  XGCValues xvalues;
+-  unsigned long xvalues_mask=0;
++  GdkGCValues xvalues;
++  int xvalues_mask = 0;
+ 
+   if (entry->clipRegion) {
+     // set it to none here and then set the clip region with
+     // gdk_gc_set_clip_region in GetGC()
+     xvalues.clip_mask = None;
+-    xvalues_mask |= GCClipMask;
++    xvalues_mask |= GDK_GC_CLIP_MASK;
+     gdk_region_destroy(entry->clipRegion);
+     entry->clipRegion = NULL;
+   }
+ 
+   if (entry->gcv.foreground.pixel != gcv->foreground.pixel) {
+-    xvalues.foreground = gcv->foreground.pixel;
+-    xvalues_mask |= GCForeground;
++    xvalues.foreground.pixel = gcv->foreground.pixel;
++    xvalues_mask |= GDK_GC_FOREGROUND;
+   }
+ 
+   if (entry->gcv.function != gcv->function) {
+-    switch (gcv->function) {
+-    case GDK_COPY:
+-      xvalues.function = GXcopy;
+-      break;
+-    case GDK_INVERT:
+-      xvalues.function = GXinvert;
+-      break;
+-    case GDK_XOR:
+-      xvalues.function = GXxor;
+-      break;
+-    case GDK_CLEAR:
+-      xvalues.function = GXclear;
+-      break;
+-    case GDK_AND:
+-      xvalues.function = GXand;
+-      break;
+-    case GDK_AND_REVERSE:
+-      xvalues.function = GXandReverse;
+-      break;
+-    case GDK_AND_INVERT:
+-      xvalues.function = GXandInverted;
+-      break;
+-    case GDK_NOOP:
+-      xvalues.function = GXnoop;
+-      break;
+-    case GDK_OR:
+-      xvalues.function = GXor;
+-      break;
+-    case GDK_EQUIV:
+-      xvalues.function = GXequiv;
+-      break;
+-    case GDK_OR_REVERSE:
+-      xvalues.function = GXorReverse;
+-      break;
+-    case GDK_COPY_INVERT:
+-      xvalues.function = GXcopyInverted;
+-      break;
+-    case GDK_OR_INVERT:
+-      xvalues.function = GXorInverted;
+-      break;
+-    case GDK_NAND:
+-      xvalues.function = GXnand;
+-      break;
+-    case GDK_SET:
+-      xvalues.function = GXset;
+-      break;
+-    }
+-    xvalues_mask |= GCFunction;
++    xvalues.function = gcv->function;
++    xvalues_mask |= GDK_GC_FUNCTION;
+   }
+ 
+   if(entry->gcv.font != gcv->font && flags & GDK_GC_FONT) {
+-    xvalues.font =  ((XFontStruct *)GDK_FONT_XFONT(gcv->font))->fid;
+-    xvalues_mask |= GCFont;
++    xvalues.font = gcv->font;
++    xvalues_mask |= GDK_GC_FONT;
+   }
+ 
+   if (entry->gcv.line_style != gcv->line_style) {
+-    switch (gcv->line_style) {
+-    case GDK_LINE_SOLID:
+-      xvalues.line_style = LineSolid;
+-      break;
+-    case GDK_LINE_ON_OFF_DASH:
+-      xvalues.line_style = LineOnOffDash;
+-      break;
+-    case GDK_LINE_DOUBLE_DASH:
+-      xvalues.line_style = LineDoubleDash;
+-      break;
+-    }
+-    xvalues_mask |= GCLineStyle;
++    xvalues.line_style = gcv->line_style;
++    xvalues_mask |= GDK_GC_LINE_STYLE;
+   }
+ 
+   if (xvalues_mask != 0) {
+-    XChangeGC(GDK_GC_XDISPLAY(entry->gc), GDK_GC_XGC(entry->gc),
+-              xvalues_mask, &xvalues);
++    gdk_gc_set_values(entry->gc, &xvalues, (GdkGCValuesMask)xvalues_mask);
+   }
++
+   entry->flags = flags;
+   entry->gcv = *gcv;
+ }
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsGfxFactoryGTK.cpp mozilla-firefox-1.0.6/gfx/src/gtk/nsGfxFactoryGTK.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsGfxFactoryGTK.cpp	2003-09-08 10:20:38.000000000 +1200
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsGfxFactoryGTK.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -62,6 +62,9 @@
+ #ifdef NATIVE_THEME_SUPPORT
+ #include "nsNativeThemeGTK.h"
+ #endif
++#ifdef MOZ_ENABLE_PANGO
++#include "nsFontMetricsPango.h"
++#endif
+ #ifdef MOZ_ENABLE_XFT
+ #include "nsFontMetricsXft.h"
+ #endif
+@@ -112,6 +115,13 @@
+   if (aOuter)
+     return NS_ERROR_NO_AGGREGATION;
+ 
++#ifdef MOZ_ENABLE_PANGO
++  if (NS_IsPangoEnabled()) {
++    result = new nsFontMetricsPango();
++    if (!result)
++      return NS_ERROR_OUT_OF_MEMORY;
++  } else {
++#endif
+ #ifdef MOZ_ENABLE_XFT
+   if (NS_IsXftEnabled()) {
+     result = new nsFontMetricsXft();
+@@ -127,6 +137,9 @@
+ #ifdef MOZ_ENABLE_XFT
+   }
+ #endif
++#ifdef MOZ_ENABLE_PANGO
++  }
++#endif
+ 
+   NS_ADDREF(result);
+   nsresult rv = result->QueryInterface(aIID, aResult);
+@@ -148,6 +161,13 @@
+   if (aOuter)
+     return NS_ERROR_NO_AGGREGATION;
+ 
++#ifdef MOZ_ENABLE_PANGO
++  if (NS_IsPangoEnabled()) {
++    result = new nsFontEnumeratorPango();
++    if (!result)
++      return NS_ERROR_OUT_OF_MEMORY;
++  } else {
++#endif
+ #ifdef MOZ_ENABLE_XFT
+   if (NS_IsXftEnabled()) {
+     result = new nsFontEnumeratorXft();
+@@ -163,6 +183,9 @@
+ #ifdef MOZ_ENABLE_XFT
+   }
+ #endif
++#ifdef MOZ_ENABLE_PANGO
++  }
++#endif
+ 
+   NS_ADDREF(result);
+   nsresult rv = result->QueryInterface(aIID, aResult);
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsIFontMetricsGTK.h mozilla-firefox-1.0.6/gfx/src/gtk/nsIFontMetricsGTK.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsIFontMetricsGTK.h	2002-10-12 16:00:17.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsIFontMetricsGTK.h	2005-08-19 13:25:10.000000000 +1200
+@@ -59,6 +59,27 @@
+                               nscoord& aWidth, PRInt32 *aFontID,
+                               nsRenderingContextGTK *aContext) = 0;
+ 
++    /**
++     * Returns an array of widths (in app units) of a Unicode character string
++     * If no font has been set, the results are undefined.
++     * The length of output array data is always aLength elements.  Where the
++     * layout is complex and a character is rendered above or below a previous
++     * character, this is represented as a zero width in the output array.
++     *
++     * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++     *
++     * @param aString string to measure
++     * @param aLength number of characters in string
++     * @param aWidth out parameter for total width
++     * @param aWidthArray out parameter for per-character widths
++     * @return error status
++     */
++    virtual nsresult GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                             nscoord& aWidth, nscoord* aWidthArray)
++    {
++        return NS_ERROR_NOT_IMPLEMENTED;
++    }
++
+     // Get the text dimensions for this string
+     virtual nsresult GetTextDimensions(const PRUnichar* aString,
+                                        PRUint32 aLength,
+@@ -121,6 +142,9 @@
+     // particular handle.
+     virtual GdkFont* GetCurrentGDKFont(void) = 0;
+ 
++    // Set the direction of the text rendering
++    virtual nsresult SetRightToLeftText(PRBool aIsRTL) = 0;
++
+ };
+ 
+ #endif /* __nsIFontMetricsGTK_h */
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsRenderingContextGTK.cpp mozilla-firefox-1.0.6/gfx/src/gtk/nsRenderingContextGTK.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsRenderingContextGTK.cpp	2004-02-13 05:52:22.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsRenderingContextGTK.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -524,6 +524,9 @@
+ 
+   values.foreground.pixel =
+     gdk_rgb_xpixel_from_rgb(NS_TO_GDK_RGB(mCurrentColor));
++  values.foreground.red = (NS_GET_R(mCurrentColor) << 8) | NS_GET_R(mCurrentColor);
++  values.foreground.green = (NS_GET_G(mCurrentColor) << 8) | NS_GET_G(mCurrentColor);
++  values.foreground.blue = (NS_GET_B(mCurrentColor) << 8) | NS_GET_B(mCurrentColor);
+   valuesMask = GDK_GC_FOREGROUND;
+ 
+ #ifdef MOZ_ENABLE_COREXFONTS
+@@ -1200,6 +1203,28 @@
+   return GetWidth(&aC, 1, aWidth);
+ }
+ 
++/**
++ * Returns an array of widths (in app units) of a Unicode character string
++ * If no font has been set, the results are undefined.
++ * The length of output array data is always aLength elements.  Where the
++ * layout is complex and a character is rendered above or below a previous
++ * character, this is represented as a zero width in the output array.
++ *
++ * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++ *
++ * @param aString string to measure
++ * @param aLength number of characters in string
++ * @param aWidth out parameter for total width
++ * @param aWidthArray out parameter for per-character widths
++ * @return error status
++ */
++NS_IMETHODIMP
++nsRenderingContextGTK::GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                         nscoord& aWidth, nscoord* aWidthArray)
++{
++    return mFontMetrics->GetWidthArray(aString, aLength, aWidth, aWidthArray);
++}
++
+ NS_IMETHODIMP
+ nsRenderingContextGTK::GetWidth(PRUnichar aC, nscoord& aWidth,
+                                 PRInt32* aFontID)
+@@ -1438,6 +1463,11 @@
+ 
+ #endif /* MOZ_MATHML */
+ 
++NS_IMETHODIMP nsRenderingContextGTK::SetRightToLeftText(PRBool aIsRTL)
++{
++  return mFontMetrics->SetRightToLeftText(aIsRTL);
++}
++
+ NS_IMETHODIMP nsRenderingContextGTK::DrawImage(imgIContainer *aImage, const nsRect * aSrcRect, const nsPoint * aDestPoint)
+ {
+   UpdateGC();
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsRenderingContextGTK.h mozilla-firefox-1.0.6/gfx/src/gtk/nsRenderingContextGTK.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/nsRenderingContextGTK.h	2003-02-25 15:38:34.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/gtk/nsRenderingContextGTK.h	2005-08-19 13:25:10.000000000 +1200
+@@ -155,6 +155,23 @@
+   NS_IMETHOD GetWidth(const char *aString, PRUint32 aLength, nscoord &aWidth);
+   NS_IMETHOD GetWidth(const PRUnichar *aString, PRUint32 aLength, nscoord &aWidth,
+                       PRInt32 *aFontID);
++  /**
++   * Returns an array of widths (in app units) of a Unicode character string
++   * If no font has been set, the results are undefined.
++   * The length of output array data is always aLength elements.  Where the
++   * layout is complex and a character is rendered above or below a previous
++   * character, this is represented as a zero width in the output array.
++   *
++   * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++   *
++   * @param aString string to measure
++   * @param aLength number of characters in string
++   * @param aWidth out parameter for total width
++   * @param aWidthArray out parameter for per-character widths
++   * @return error status
++   */
++  NS_IMETHOD GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                           nscoord& aWidth, nscoord* aWidthArray);
+ 
+   NS_IMETHOD DrawString(const char *aString, PRUint32 aLength,
+                         nscoord aX, nscoord aY,
+@@ -194,6 +211,8 @@
+                                const nsRect &aDestBounds, PRUint32 aCopyFlags);
+   NS_IMETHOD RetrieveCurrentNativeGraphicData(PRUint32 * ngd);
+ 
++  NS_IMETHOD SetRightToLeftText(PRBool aIsRTL);
++
+   NS_IMETHOD DrawImage(imgIContainer *aImage, const nsRect * aSrcRect, const nsPoint * aDestPoint);
+   NS_IMETHOD DrawScaledImage(imgIContainer *aImage, const nsRect * aSrcRect, const nsRect * aDestRect);
+ 
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/gtk/pangoFontEncoding.properties mozilla-firefox-1.0.6/gfx/src/gtk/pangoFontEncoding.properties
+--- mozilla-firefox-1.0.6.orig/gfx/src/gtk/pangoFontEncoding.properties	1970-01-01 12:00:00.000000000 +1200
++++ mozilla-firefox-1.0.6/gfx/src/gtk/pangoFontEncoding.properties	2005-08-19 13:25:10.000000000 +1200
+@@ -0,0 +1,120 @@
++# ***** BEGIN LICENSE BLOCK *****
++# Version: MPL 1.1/GPL 2.0/LGPL 2.1
++#
++# The contents of this file are subject to the Mozilla Public License Version
++# 1.1 (the "License"); you may not use this file except in compliance with
++# the License. You may obtain a copy of the License at
++# http://www.mozilla.org/MPL/
++#
++# Software distributed under the License is distributed on an "AS IS" basis,
++# WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
++# for the specific language governing rights and limitations under the
++# License.
++#
++# The Original Code is Mozilla MathML Project.
++#
++# The Initial Developer of the Original Code is
++# The University of Queensland.
++# Portions created by the Initial Developer are Copyright (C) 2001
++# the Initial Developer. All Rights Reserved.
++#
++# Contributor(s):
++#   Roger B. Sidje <rbs@maths.uq.edu.au>
++#   Jungshik Shin <jshin@mailaps.org>
++#   Christopher Blizzard <blizzard@mozilla.org>
++#
++# Alternatively, the contents of this file may be used under the terms of
++# either the GNU General Public License Version 2 or later (the "GPL"), or
++# the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
++# in which case the provisions of the GPL or the LGPL are applicable instead
++# of those above. If you wish to allow use of your version of this file only
++# under the terms of either the GPL or the LGPL, and not to allow others to
++# use your version of this file under the terms of the MPL, indicate your
++# decision by deleting the provisions above and replace them with the notice
++# and other provisions required by the GPL or the LGPL. If you do not delete
++# the provisions above, a recipient may use your version of this file under
++# the terms of any one of the MPL, the GPL or the LGPL.
++#
++# ***** END LICENSE BLOCK *****
++
++#  LOCALIZATION NOTE: FILE
++#  Do not translate anything in this file
++
++# This file contains supported custom encodings for pango font
++# rendering.  For information about the specific encodings, look at
++# fontEncoding.properties.  It contains a lot more verbiage than you
++# will find here.  There are a lot of encodings supported in the old
++# encoding file that pango supports directly, so there should be
++# little reason to use those custom encodings.  The pango custom code
++# doesn't support .wide fonts, so consider yourself warned!
++#
++
++# To be honest, we basically support mathml and that's about it.
++
++encoding.cmr10.ttf  = x-ttf-cmr
++encoding.cmmi10.ttf = x-ttf-cmmi
++encoding.cmsy10.ttf = x-ttf-cmsy
++encoding.cmex10.ttf = x-ttf-cmex
++
++encoding.cmr10.ftcmap  = unicode
++encoding.cmmi10.ftcmap = unicode
++encoding.cmsy10.ftcmap = unicode
++encoding.cmex10.ftcmap = unicode
++
++encoding.math1.ttf          = x-mathematica1
++encoding.math1-bold.ttf     = x-mathematica1
++encoding.math1mono.ttf      = x-mathematica1
++encoding.math1mono-bold.ttf = x-mathematica1
++
++encoding.math2.ttf          = x-mathematica2
++encoding.math2-bold.ttf     = x-mathematica2
++encoding.math2mono.ttf      = x-mathematica2
++encoding.math2mono-bold.ttf = x-mathematica2
++
++encoding.math3.ttf          = x-mathematica3
++encoding.math3-bold.ttf     = x-mathematica3
++encoding.math3mono.ttf      = x-mathematica3
++encoding.math3mono-bold.ttf = x-mathematica3
++
++encoding.math4.ttf          = x-mathematica4
++encoding.math4-bold.ttf     = x-mathematica4
++encoding.math4mono.ttf      = x-mathematica4
++encoding.math4mono-bold.ttf = x-mathematica4
++
++encoding.math5.ttf          = x-mathematica5
++encoding.math5-bold.ttf     = x-mathematica5
++encoding.math5bold.ttf      = x-mathematica5
++encoding.math5mono.ttf      = x-mathematica5
++encoding.math5mono-bold.ttf = x-mathematica5
++encoding.math5monobold.ttf  = x-mathematica5
++
++encoding.math1.ftcmap          = mac_roman
++encoding.math1-bold.ftcmap     = mac_roman
++encoding.math1mono.ftcmap      = mac_roman
++encoding.math1mono-bold.ftcmap = mac_roman
++
++encoding.math2.ftcmap          = mac_roman
++encoding.math2-bold.ftcmap     = mac_roman
++encoding.math2mono.ftcmap      = mac_roman
++encoding.math2mono-bold.ftcmap = mac_roman
++
++encoding.math3.ftcmap          = mac_roman
++encoding.math3-bold.ftcmap     = mac_roman
++encoding.math3mono.ftcmap      = mac_roman
++encoding.math3mono-bold.ftcmap = mac_roman
++
++encoding.math4.ftcmap          = mac_roman
++encoding.math4-bold.ftcmap     = mac_roman
++encoding.math4mono.ftcmap      = mac_roman
++encoding.math4mono-bold.ftcmap = mac_roman
++
++encoding.math5.ftcmap          = mac_roman
++encoding.math5-bold.ftcmap     = mac_roman
++encoding.math5bold.ftcmap      = mac_roman
++encoding.math5mono.ftcmap      = mac_roman
++encoding.math5mono-bold.ftcmap = mac_roman
++encoding.math5monobold.ftcmap  = mac_roman
++
++encoding.mtextra.ttf = x-mtextra
++encoding.mtextra.ftcmap = mac_roman
++
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/nsRenderingContextImpl.h mozilla-firefox-1.0.6/gfx/src/nsRenderingContextImpl.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/nsRenderingContextImpl.h	2004-10-09 05:57:18.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/nsRenderingContextImpl.h	2005-08-19 13:25:10.000000000 +1200
+@@ -196,6 +196,24 @@
+    */
+   nsresult AllocateBackbuffer(const nsRect &aRequestedSize, const nsRect &aMaxSize, nsDrawingSurface &aBackbuffer, PRBool aCacheBackbuffer);
+ 
++  /**
++   * Returns an array of widths (in app units) of a Unicode character string
++   * If no font has been set, the results are undefined.
++   * The length of output array data is always aLength elements.  Where the
++   * layout is complex and a character is rendered above or below a previous
++   * character, this is represented as a zero width in the output array.
++   *
++   * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++   *
++   * @param aString string to measure
++   * @param aLength number of characters in string
++   * @param aWidth out parameter for total width
++   * @param aWidthArray out parameter for per-character widths
++   * @return error status
++   */
++  NS_IMETHOD GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                           nscoord& aWidth, nscoord* aWidthArray);
++
+ public:
+ 
+ protected:
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/shared/nsRenderingContextImpl.cpp mozilla-firefox-1.0.6/gfx/src/shared/nsRenderingContextImpl.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/shared/nsRenderingContextImpl.cpp	2004-10-09 05:57:19.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/shared/nsRenderingContextImpl.cpp	2005-08-19 13:25:10.000000000 +1200
+@@ -938,3 +938,25 @@
+ {
+     return NS_OK;
+ }
++
++/**
++ * Returns an array of widths (in app units) of a Unicode character string
++ * If no font has been set, the results are undefined.
++ * The length of output array data is always aLength elements.  Where the
++ * layout is complex and a character is rendered above or below a previous
++ * character, this is represented as a zero width in the output array.
++ *
++ * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++ *
++ * @param aString string to measure
++ * @param aLength number of characters in string
++ * @param aWidth out parameter for total width
++ * @param aWidthArray out parameter for per-character widths
++ * @return error status
++ */
++NS_IMETHODIMP
++nsRenderingContextImpl::GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                         nscoord& aWidth, nscoord* aWidthArray)
++{
++    return NS_ERROR_NOT_IMPLEMENTED;
++}
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/windows/nsFontMetricsWin.cpp mozilla-firefox-1.0.6/gfx/src/windows/nsFontMetricsWin.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/windows/nsFontMetricsWin.cpp	2004-10-16 17:14:22.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/windows/nsFontMetricsWin.cpp	2005-08-19 13:27:33.000000000 +1200
+@@ -2186,10 +2186,12 @@
+   nsFontWinUnicode(LOGFONT* aLogFont, HFONT aFont, PRUint16* aCCMap);
+   virtual ~nsFontWinUnicode();
+ 
+-  virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString, PRUint32 aLength);
+-  virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
++  virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString,
++                           PRUint32 aLength, LPINT aWidthArray);
+ 
+-    const PRUnichar* aString, PRUint32 aLength);
++  virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
++                          const PRUnichar* aString, PRUint32 aLength,
++                          PRInt32 *aSpacing);
+ #ifdef MOZ_MATHML
+   virtual nsresult
+   GetBoundingMetrics(HDC                aDC,
+@@ -2223,9 +2225,12 @@
+   nsFontWinNonUnicode(LOGFONT* aLogFont, HFONT aFont, PRUint16* aCCMap, nsIUnicodeEncoder* aConverter, PRBool aIsWide = PR_FALSE);
+   virtual ~nsFontWinNonUnicode();
+ 
+-  virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString, PRUint32 aLength);
++  virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString,
++                           PRUint32 aLength, LPINT aWidthArray);
++
+   virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-                          const PRUnichar* aString, PRUint32 aLength);
++                          const PRUnichar* aString, PRUint32 aLength,
++                          PRInt32 *aSpacing);
+ #ifdef MOZ_MATHML
+   virtual nsresult
+   GetBoundingMetrics(HDC                aDC,
+@@ -3904,11 +3909,11 @@
+ }
+ 
+ nsresult
+-nsFontMetricsWin::ResolveForwards(HDC                  aDC,
+-                                  const PRUnichar*     aString,
+-                                  PRUint32             aLength,
+-                                  nsFontSwitchCallback aFunc, 
+-                                  void*                aData)
++nsFontMetricsWin::Resolve(HDC                  aDC,
++                          const PRUnichar*     aString,
++                          PRUint32             aLength,
++                          nsFontSwitchCallback aFunc, 
++                          void*                aData)
+ {
+   NS_ASSERTION(aString || !aLength, "invalid call");
+   const PRUnichar* firstChar = aString;
+@@ -3991,52 +3996,6 @@
+   return NS_OK;
+ }
+ 
+-nsresult
+-nsFontMetricsWin::ResolveBackwards(HDC                  aDC,
+-                                   const PRUnichar*     aString,
+-                                   PRUint32             aLength,
+-                                   nsFontSwitchCallback aFunc, 
+-                                   void*                aData)
+-{
+-  NS_ASSERTION(aString || !aLength, "invalid call");
+-  const PRUnichar* firstChar = aString + aLength - 1;
+-  const PRUnichar* lastChar  = aString - 1;
+-  const PRUnichar* currChar  = firstChar;
+-  nsFontWin* currFont;
+-  nsFontWin* nextFont;
+-  PRInt32 count;
+-  nsFontSwitch fontSwitch;
+-
+-  if (firstChar == lastChar)
+-    return NS_OK;
+-
+-  count = mLoadedFonts.Count();
+-
+-  // see if one of our loaded fonts can represent the current character
+-  currFont = LocateFont(aDC, *currChar, count);
+-
+-  // see if we can keep the same font for adjacent characters
+-  while (--currChar > lastChar) {
+-    nextFont = LocateFont(aDC, *currChar, count);
+-    if (nextFont != currFont) {
+-      // We have a substring that can be represented with the same font, and
+-      // we are about to switch fonts, it is time to notify our caller.
+-      fontSwitch.mFontWin = currFont;
+-      if (!(*aFunc)(&fontSwitch, currChar+1, firstChar - currChar, aData))
+-        return NS_OK;
+-      // continue with the next substring, re-using the available loaded fonts
+-      firstChar = currChar;
+-      currFont = nextFont; // use the font found earlier for the char
+-    }
+-  }
+-
+-  //do it for last part of the string
+-  fontSwitch.mFontWin = currFont;
+-  (*aFunc)(&fontSwitch, currChar+1, firstChar - currChar, aData);
+-
+-  return NS_OK;
+-}
+-
+ //
+ 
+ nsFontWin::nsFontWin(LOGFONT* aLogFont, HFONT aFont, PRUint16* aCCMap)
+@@ -4145,19 +4104,24 @@
+ }
+ 
+ PRInt32
+-nsFontWinUnicode::GetWidth(HDC aDC, const PRUnichar* aString, PRUint32 aLength)
++nsFontWinUnicode::GetWidth(HDC aDC, const PRUnichar* aString,
++                           PRUint32 aLength, LPINT aWidthArray)
+ {
+-  CheckLength(&aLength);
+-
+   SIZE size;
+-  ::GetTextExtentPoint32W(aDC, aString, aLength, &size);
++  if (aWidthArray) {
++    if (!::GetTextExtentExPointW(aDC, aString, aLength, 0, NULL, 
++                            aWidthArray, &size))
++      return -1;
++  }
++  else
++    ::GetTextExtentPoint32W(aDC, aString, aLength, &size);
+   size.cx -= mOverhangCorrection;
+   return size.cx;
+ }
+ 
+ void
+ nsFontWinUnicode::DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-  const PRUnichar* aString, PRUint32 aLength)
++  const PRUnichar* aString, PRUint32 aLength, PRInt32 *aSpacing)
+ {
+   CheckLength(&aLength);
+ 
+@@ -4185,13 +4149,13 @@
+                                       // Not necessary to clip vertically, only horizontally
+       clipRect.left = aX;
+       clipRect.right = aX + size.cx;
+-      NS_ExtTextOutW(aDC, this, aX, aY, ETO_CLIPPED, &clipRect, aString, aLength, NULL); 
++      NS_ExtTextOutW(aDC, this, aX, aY, ETO_CLIPPED, &clipRect, aString, aLength, aSpacing); 
+       return;
+     }
+   } 
+ 
+   // Do normal non-WIN95 text output without clipping
+-  NS_ExtTextOutW(aDC, this, aX, aY, 0, NULL, aString, aLength, NULL);  
++  NS_ExtTextOutW(aDC, this, aX, aY, 0, NULL, aString, aLength, aSpacing);  
+ }
+ 
+ #ifdef MOZ_MATHML
+@@ -4244,10 +4208,8 @@
+ 
+ PRInt32
+ nsFontWinNonUnicode::GetWidth(HDC aDC, const PRUnichar* aString,
+-  PRUint32 aLength)
++  PRUint32 aLength, LPINT aWidthArray)
+ {
+-  CheckLength(&aLength);
+-
+   nsAutoCharBuffer buffer;
+ 
+   PRInt32 destLength = aLength;
+@@ -4258,9 +4220,23 @@
+ 
+   SIZE size;
+   if (!mIsWide)
+-    ::GetTextExtentPoint32A(aDC, buffer.get(), destLength, &size);
++    if (aWidthArray) {
++      if (!::GetTextExtentExPointA(aDC, buffer.get(), destLength, 0, NULL, 
++                              aWidthArray, &size))
++        return -1;
++    }
++    else
++      ::GetTextExtentPoint32A(aDC, buffer.get(), destLength, &size);
+   else
+-    ::GetTextExtentPoint32W(aDC, (const PRUnichar*) buffer.get(), destLength / 2, &size);
++    if (aWidthArray) {
++      if (!::GetTextExtentExPointW(aDC, (const PRUnichar*) buffer.get(),
++                              destLength / 2, 0, NULL, 
++                              aWidthArray, &size))
++        return -1;
++    }
++    else
++      ::GetTextExtentPoint32W(aDC, (const PRUnichar*) buffer.get(),
++                              destLength / 2, &size);
+   size.cx -= mOverhangCorrection;
+ 
+   return size.cx;
+@@ -4268,10 +4244,8 @@
+ 
+ void
+ nsFontWinNonUnicode::DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-  const PRUnichar* aString, PRUint32 aLength)
++  const PRUnichar* aString, PRUint32 aLength, PRInt32 *aSpacing)
+ {
+-  CheckLength(&aLength);
+-
+   nsAutoCharBuffer buffer;
+   PRInt32 destLength = aLength;
+ 
+@@ -4281,9 +4255,9 @@
+   }
+ 
+   if (!mIsWide)
+-    NS_ExtTextOutA(aDC, this, aX, aY, 0, NULL, buffer.get(), aLength, NULL);
++    NS_ExtTextOutA(aDC, this, aX, aY, 0, NULL, buffer.get(), aLength, aSpacing);
+   else 
+-    NS_ExtTextOutW(aDC, this, aX, aY, 0, NULL, (const PRUnichar*) buffer.get(), destLength / 2, NULL);
++    NS_ExtTextOutW(aDC, this, aX, aY, 0, NULL, (const PRUnichar*) buffer.get(), destLength / 2, aSpacing);
+ }
+ 
+ #ifdef MOZ_MATHML
+@@ -4424,10 +4398,8 @@
+ 
+ PRInt32
+ nsFontWinSubstitute::GetWidth(HDC aDC, const PRUnichar* aString,
+-  PRUint32 aLength)
++  PRUint32 aLength, LPINT aWidthArray)
+ {
+-  CheckLength(&aLength);
+-
+   if (mIsForIgnorable)
+     return 0;
+   nsAutoChar16Buffer buffer;
+@@ -4435,7 +4407,13 @@
+   if (NS_FAILED(rv) || !aLength) return 0;
+ 
+   SIZE size;
+-  ::GetTextExtentPoint32W(aDC, buffer.get(), aLength, &size);
++  if (aWidthArray) {
++    if (!::GetTextExtentExPointW(aDC, buffer.get(), aLength, 0, NULL, 
++                            aWidthArray, &size))
++      return -1;
++  }
++  else
++    ::GetTextExtentPoint32W(aDC, buffer.get(), aLength, &size);
+   size.cx -= mOverhangCorrection;
+ 
+   return size.cx;
+@@ -4443,17 +4421,15 @@
+ 
+ void
+ nsFontWinSubstitute::DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-  const PRUnichar* aString, PRUint32 aLength)
++  const PRUnichar* aString, PRUint32 aLength, PRInt32 *aSpacing)
+ {
+-  CheckLength(&aLength);
+-
+   if (mIsForIgnorable)
+     return;
+   nsAutoChar16Buffer buffer;
+   nsresult rv = SubstituteChars(PR_FALSE, aString, aLength, buffer, &aLength);
+   if (NS_FAILED(rv) || !aLength) return;
+ 
+-  NS_ExtTextOutW(aDC, this, aX, aY, 0, NULL, buffer.get(), aLength, NULL);
++  NS_ExtTextOutW(aDC, this, aX, aY, 0, NULL, buffer.get(), aLength, aSpacing);
+ }
+ 
+ #ifdef MOZ_MATHML
+@@ -4601,9 +4577,10 @@
+   virtual ~nsFontSubset();
+ 
+   virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString,
+-                           PRUint32 aLength);
++                           PRUint32 aLength, LPINT aWidthArray);
+   virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-                          const PRUnichar* aString, PRUint32 aLength);
++                          const PRUnichar* aString, PRUint32 aLength,
++                          PRInt32 *aSpacing);
+ #ifdef MOZ_MATHML
+   virtual nsresult
+   GetBoundingMetrics(HDC                aDC, 
+@@ -4651,31 +4628,34 @@
+ }
+ 
+ PRInt32
+-nsFontSubset::GetWidth(HDC aDC, const PRUnichar* aString, PRUint32 aLength)
++nsFontSubset::GetWidth(HDC aDC, const PRUnichar* aString,
++                       PRUint32 aLength, LPINT aWidthArray)
+ {
+-  CheckLength(&aLength);
+-
+   nsAutoCharBuffer buffer;
+   Convert(aString, aLength, buffer, &aLength);
+   if (aLength) {
+     SIZE size;
+-    ::GetTextExtentPoint32A(aDC, buffer.get(), aLength, &size);
++    if (aWidthArray) {
++      if (!::GetTextExtentExPointA(aDC, buffer.get(), aLength, 0, NULL, 
++                              aWidthArray, &size))
++        return -1;
++    }
++    else
++      ::GetTextExtentPoint32A(aDC, buffer.get(), aLength, &size);
+     size.cx -= mOverhangCorrection;
+     return size.cx;
+   }
+   return 0;
+ }
+-
++  
+ void
+ nsFontSubset::DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-  const PRUnichar* aString, PRUint32 aLength)
++  const PRUnichar* aString, PRUint32 aLength, PRInt32 *aSpacing)
+ {
+-  CheckLength(&aLength);
+-
+   nsAutoCharBuffer buffer;
+   Convert(aString, aLength, buffer, &aLength);
+   if (aLength) {
+-    NS_ExtTextOutA(aDC, this, aX, aY, 0, NULL, buffer.get(), aLength, NULL);
++    NS_ExtTextOutA(aDC, this, aX, aY, 0, NULL, buffer.get(), aLength, aSpacing);
+   }
+ }
+ 
+@@ -4842,7 +4822,8 @@
+ }
+ 
+ PRInt32
+-nsFontWinA::GetWidth(HDC aDC, const PRUnichar* aString, PRUint32 aLength)
++nsFontWinA::GetWidth(HDC aDC, const PRUnichar* aString,
++                     PRUint32 aLength, LPINT aWidthArray)
+ {
+   NS_ERROR("must call nsFontSubset's GetWidth");
+   return 0;
+@@ -4850,7 +4831,7 @@
+ 
+ void
+ nsFontWinA::DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-  const PRUnichar* aString, PRUint32 aLength)
++  const PRUnichar* aString, PRUint32 aLength, PRInt32 *aSpacing)
+ {
+   NS_ERROR("must call nsFontSubset's DrawString");
+ }
+@@ -5293,11 +5274,11 @@
+ }
+ 
+ nsresult
+-nsFontMetricsWinA::ResolveForwards(HDC                  aDC,
+-                                   const PRUnichar*     aString,
+-                                   PRUint32             aLength,
+-                                   nsFontSwitchCallback aFunc, 
+-                                   void*                aData)
++nsFontMetricsWinA::Resolve(HDC                  aDC,
++                           const PRUnichar*     aString,
++                           PRUint32             aLength,
++                           nsFontSwitchCallback aFunc, 
++                           void*                aData)
+ {
+   NS_ASSERTION(aString || !aLength, "invalid call");
+   const PRUnichar* firstChar = aString;
+@@ -5359,51 +5340,6 @@
+   return NS_OK;
+ }
+ 
+-nsresult
+-nsFontMetricsWinA::ResolveBackwards(HDC                  aDC,
+-                                    const PRUnichar*     aString,
+-                                    PRUint32             aLength,
+-                                    nsFontSwitchCallback aFunc, 
+-                                    void*                aData)
+-{
+-  NS_ASSERTION(aString || !aLength, "invalid call");
+-  const PRUnichar* firstChar = aString + aLength - 1;
+-  const PRUnichar* lastChar  = aString - 1;
+-  const PRUnichar* currChar  = firstChar;
+-  nsFontSubset* currSubset;
+-  nsFontSubset* nextSubset;
+-  nsFontWinA* currFont;
+-  PRInt32 count;
+-  nsFontSwitch fontSwitch;
+-
+-  if (firstChar == lastChar)
+-    return NS_OK;
+-
+-  // see if one of our loaded fonts can represent the current character
+-  count = mLoadedFonts.Count();
+-  currSubset = LocateFontSubset(aDC, *currChar, count, currFont);
+-
+-  while (--currChar < lastChar) {
+-    nextSubset = LocateFontSubset(aDC, *currChar, count, currFont);
+-    if (nextSubset != currSubset) {
+-      // We have a substring that can be represented with the same font, and
+-      // we are about to switch fonts, it is time to notify our caller.
+-      fontSwitch.mFontWin = currSubset;
+-      if (!(*aFunc)(&fontSwitch, firstChar, firstChar - currChar, aData))
+-        return NS_OK;
+-      // continue with the next substring, re-using the available loaded fonts
+-      firstChar = currChar;
+-      currSubset = nextSubset; // use the font found earlier for the char
+-    }
+-  }
+-
+-  //do it for last part of the string
+-  fontSwitch.mFontWin = currSubset;
+-  (*aFunc)(&fontSwitch, firstChar, firstChar - currChar, aData);
+-
+-  return NS_OK;
+-}
+-
+ // The Font Enumerator
+ 
+ nsFontEnumeratorWin::nsFontEnumeratorWin()
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/windows/nsFontMetricsWin.h mozilla-firefox-1.0.6/gfx/src/windows/nsFontMetricsWin.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/windows/nsFontMetricsWin.h	2003-10-31 02:44:49.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/windows/nsFontMetricsWin.h	2005-08-19 13:25:10.000000000 +1200
+@@ -82,13 +82,13 @@
+                            PRUint32 aLength);
+ 
+   virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString,
+-                           PRUint32 aLength) = 0;
++                           PRUint32 aLength, LPINT aWidthArray) = 0;
+ 
+   virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+                           const char* aString, PRUint32 aLength, INT* aDx0);
+ 
+   virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-                          const PRUnichar* aString, PRUint32 aLength) = 0;
++                          const PRUnichar* aString, PRUint32 aLength, PRInt32 *aSpacing) {}
+ 
+   virtual PRBool HasGlyph(PRUint32 ch) {return CCMAP_HAS_CHAR_EXT(mCCMap, ch);};
+ #ifdef MOZ_MATHML
+@@ -141,9 +141,12 @@
+ 	  return mIsForIgnorable ? CCMAP_HAS_CHAR_EXT(mCCMap, ch) :
+ 		  IS_IN_BMP(ch) && IS_REPRESENTABLE(mRepresentableCharMap, ch);};
+   virtual void SetRepresentable(PRUint32 ch) { if (IS_IN_BMP(ch)) SET_REPRESENTABLE(mRepresentableCharMap, ch); };
+-  virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString, PRUint32 aLength);
++  virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString,
++                           PRUint32 aLength, LPINT aWidthArray);
++
+   virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-                          const PRUnichar* aString, PRUint32 aLength);
++                          const PRUnichar* aString, PRUint32 aLength,
++                          PRInt32 *aSpacing);
+ #ifdef MOZ_MATHML
+   virtual nsresult
+   GetBoundingMetrics(HDC                aDC,
+@@ -165,12 +168,12 @@
+ /**
+  * nsFontSwitchCallback
+  *
+- * Font-switching callback function. Used by ResolveForwards() and
+- * ResolveBackwards(). aFontSwitch points to a structure that gives
+- * details about the current font needed to represent the current
+- * substring. In particular, this struct contains a handler to the font
+- * and some metrics of the font. These metrics may be different from
+- * the metrics obtained via nsIFontMetrics.
++ * Font-switching callback function. Used by Resolve(). aFontSwitch
++ * points to a structure that gives details about the current font
++ * needed to represent the current substring. In particular, this
++ * struct contains a handler to the font and some metrics of the
++ * font. These metrics may be different from the metrics obtained
++ * via nsIFontMetrics.
+  * Return PR_FALSE to stop the resolution of the remaining substrings.
+  */
+ 
+@@ -226,18 +229,11 @@
+   NS_IMETHOD  GetSpaceWidth(nscoord &aSpaceWidth);
+ 
+   virtual nsresult
+-  ResolveForwards(HDC                  aDC,
+-                  const PRUnichar*     aString,
+-                  PRUint32             aLength,
+-                  nsFontSwitchCallback aFunc, 
+-                  void*                aData);
+-
+-  virtual nsresult
+-  ResolveBackwards(HDC                  aDC,
+-                   const PRUnichar*     aString,
+-                   PRUint32             aLength,
+-                   nsFontSwitchCallback aFunc, 
+-                   void*                aData);
++  Resolve(HDC                  aDC,
++          const PRUnichar*     aString,
++          PRUint32             aLength,
++          nsFontSwitchCallback aFunc, 
++          void*                aData);
+ 
+   nsFontWin*         FindFont(HDC aDC, PRUint32 aChar);
+   virtual nsFontWin* FindUserDefinedFont(HDC aDC, PRUint32 aChar);
+@@ -369,9 +365,11 @@
+   virtual ~nsFontWinA();
+ 
+   virtual PRInt32 GetWidth(HDC aDC, const PRUnichar* aString,
+-                           PRUint32 aLength);
++                           PRUint32 aLength, LPINT aWidthArray);
++
+   virtual void DrawString(HDC aDC, PRInt32 aX, PRInt32 aY,
+-                          const PRUnichar* aString, PRUint32 aLength);
++                          const PRUnichar* aString, PRUint32 aLength,
++                          PRInt32 *aSpacing);
+   virtual nsFontSubset* FindSubset(HDC aDC, PRUnichar aChar, nsFontMetricsWinA* aFontMetrics);
+ #ifdef MOZ_MATHML
+   virtual nsresult
+@@ -421,18 +419,11 @@
+   virtual nsFontWin* GetFontFor(HFONT aHFONT);
+ 
+   virtual nsresult
+-  ResolveForwards(HDC                  aDC,
+-                  const PRUnichar*     aString,
+-                  PRUint32             aLength,
+-                  nsFontSwitchCallback aFunc, 
+-                  void*                aData);
+-
+-  virtual nsresult
+-  ResolveBackwards(HDC                  aDC,
+-                   const PRUnichar*     aString,
+-                   PRUint32             aLength,
+-                   nsFontSwitchCallback aFunc, 
+-                   void*                aData);
++  Resolve(HDC                  aDC,
++          const PRUnichar*     aString,
++          PRUint32             aLength,
++          nsFontSwitchCallback aFunc, 
++          void*                aData);
+ 
+ protected:
+   nsFontSubset* LocateFontSubset(HDC aDC, PRUnichar aChar, PRInt32 & aCount, nsFontWinA*& aFont);
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/windows/nsRenderingContextWin.cpp mozilla-firefox-1.0.6/gfx/src/windows/nsRenderingContextWin.cpp
+--- mozilla-firefox-1.0.6.orig/gfx/src/windows/nsRenderingContextWin.cpp	2004-02-05 14:57:06.000000000 +1300
++++ mozilla-firefox-1.0.6/gfx/src/windows/nsRenderingContextWin.cpp	2005-08-19 13:31:50.000000000 +1200
+@@ -1551,10 +1551,92 @@
+     data->mFont = fontWin->mFont;
+     ::SelectObject(data->mDC, data->mFont);
+   }
+-  data->mWidth += fontWin->GetWidth(data->mDC, aSubstring, aSubstringLength);
++  data->mWidth += fontWin->GetWidth(data->mDC, aSubstring,
++                                    aSubstringLength, NULL);
+   return PR_TRUE; // don't stop till the end
+ }
+ 
++struct GetWidthArrayData {
++  HDC      mDC;
++  HFONT    mFont;
++  LONG     mWidth;
++  INT*     mWidthArray;
++  PRInt32  mGlyphsSoFar;
++  PRBool   mFailed;
++};
++
++static PRBool PR_CALLBACK
++do_GetWidthArray(const nsFontSwitch* aFontSwitch,
++                 const PRUnichar*    aSubstring,
++                 PRUint32            aSubstringLength,
++                 void*               aData)
++{
++  nsFontWin* fontWin = aFontSwitch->mFontWin;
++
++  GetWidthArrayData* data = (GetWidthArrayData*)aData;
++  if (data->mFont != fontWin->mFont) {
++    // the desired font is not the current font in the DC
++    data->mFont = fontWin->mFont;
++    ::SelectObject(data->mDC, data->mFont);
++  }
++  PRInt32 thisWidth = fontWin->GetWidth(data->mDC, aSubstring,
++                                    aSubstringLength, 
++                                    &data->mWidthArray[data->mGlyphsSoFar]);
++  // Getting the width array fails on Windows 98.  In this situation, our
++  // GetWidthArray() function return NS_ERROR_NOT_IMPLEMENTED, and the
++  // higher layers re-try using the slower method of multiple GetWidth() calls.
++  if (thisWidth < 0) {
++    data->mFailed = PR_TRUE;
++    return PR_FALSE;
++  }
++  data->mWidth += thisWidth;
++  INT previousWidth = data->mWidthArray[data->mGlyphsSoFar];
++  INT savedWidth;	
++  for (PRUint32 i = 1; i < aSubstringLength; ++i) {
++    savedWidth = data->mWidthArray[data->mGlyphsSoFar + i];
++    data->mWidthArray[data->mGlyphsSoFar + i] -= previousWidth;
++    previousWidth = savedWidth;
++  }
++  data->mGlyphsSoFar += aSubstringLength;
++  return PR_TRUE; // don't stop till the end
++}
++
++NS_IMETHODIMP nsRenderingContextWin :: GetWidthArray(const PRUnichar *aString,
++                                                     PRUint32 aLength,
++                                                     nscoord& aWidth,
++                                                     nscoord* aWidthArray)
++{
++  if (!mFontMetrics) return NS_ERROR_FAILURE;
++
++  // This functionality does work on Windows 98, so we let nsTextFrame.cpp
++  // fall back to multiple calls to GetWidth().
++  if (gIsWIN95)
++    return NS_ERROR_NOT_IMPLEMENTED;
++
++  SetupFontAndColor();
++
++  nsFontMetricsWin* metrics = (nsFontMetricsWin*)mFontMetrics;
++  int* widthArray = new int[aLength];
++  aWidth = 0;
++  GetWidthArrayData data = {mDC, mCurrFont, 0, widthArray, 0, PR_FALSE};
++
++  metrics->Resolve(mDC, aString, aLength, do_GetWidthArray, &data);
++  if (data.mFailed)
++    return NS_ERROR_NOT_IMPLEMENTED;
++
++  for (PRUint32 i = 0; i < aLength; ++i) {
++    aWidthArray[i] = NSToCoordRound(float(data.mWidthArray[i]) * mP2T);
++  }
++  aWidth = NSToCoordRound(float(data.mWidth) * mP2T);
++
++  if (mCurrFont != data.mFont) {
++    // If the font was changed along the way, restore our font
++    ::SelectObject(mDC, mCurrFont);
++  }
++  delete [] widthArray;
++  return NS_OK;
++}
++
+ NS_IMETHODIMP nsRenderingContextWin :: GetWidth(const PRUnichar *aString,
+                                                 PRUint32 aLength,
+                                                 nscoord &aWidth,
+@@ -1567,7 +1649,7 @@
+   nsFontMetricsWin* metrics = (nsFontMetricsWin*)mFontMetrics;
+   GetWidthData data = {mDC, mCurrFont, 0};
+ 
+-  metrics->ResolveForwards(mDC, aString, aLength, do_GetWidth, &data);
++  metrics->Resolve(mDC, aString, aLength, do_GetWidth, &data);
+   aWidth = NSToCoordRound(float(data.mWidth) * mP2T);
+ 
+   if (mCurrFont != data.mFont) {
+@@ -1852,7 +1934,7 @@
+       twWidth = data->mSpaceWidth;
+     }
+     else {
+-      pxWidth = fontWin->GetWidth(data->mDC, &pstr[start], numChars);
++      pxWidth = fontWin->GetWidth(data->mDC, &pstr[start], numChars, NULL);
+       twWidth = NSToCoordRound(float(pxWidth) * data->mP2T);
+     }
+ 
+@@ -1947,7 +2029,7 @@
+           twWidth = data->mSpaceWidth;
+         }
+         else if (numChars > 0) {
+-          pxWidth = fontWin->GetWidth(data->mDC, &pstr[start], numChars);
++          pxWidth = fontWin->GetWidth(data->mDC, &pstr[start], numChars, NULL);
+           twWidth = NSToCoordRound(float(pxWidth) * data->mP2T);
+         }
+ 
+@@ -2019,7 +2101,7 @@
+     0, 0, 0, -1, 0, &fonts, &offsets 
+   };
+ 
+-  metrics->ResolveForwards(mDC, aString, aLength, do_BreakGetTextDimensions, &data);
++  metrics->Resolve(mDC, aString, aLength, do_BreakGetTextDimensions, &data);
+ 
+   if (mCurrFont != data.mFont) {
+     // If the font was changed along the way, restore our font
+@@ -2179,7 +2261,8 @@
+     data->mFont = fontWin->mFont;
+     ::SelectObject(data->mDC, data->mFont);
+   }
+-  data->mWidth += fontWin->GetWidth(data->mDC, aSubstring, aSubstringLength);
++  data->mWidth += fontWin->GetWidth(data->mDC, aSubstring,
++                                    aSubstringLength, NULL);
+   if (data->mAscent < fontWin->mMaxAscent) {
+     data->mAscent = fontWin->mMaxAscent;
+   }
+@@ -2204,7 +2287,7 @@
+   nsFontMetricsWin* metrics = (nsFontMetricsWin*)mFontMetrics;
+   GetTextDimensionsData data = {mDC, mCurrFont, 0, 0, 0};
+ 
+-  metrics->ResolveForwards(mDC, aString, aLength, do_GetTextDimensions, &data);
++  metrics->Resolve(mDC, aString, aLength, do_GetTextDimensions, &data);
+   aDimensions.width = NSToCoordRound(float(data.mWidth) * mP2T);
+   aDimensions.ascent = data.mAscent;
+   aDimensions.descent = data.mDescent;
+@@ -2254,11 +2337,13 @@
+   HDC            mDC;         // IN
+   HFONT          mFont;       // IN/OUT (running)
+   nsTransform2D* mTranMatrix; // IN
++  float          mP2T;        // IN
+   nscoord        mX;          // IN/OUT (running)
+   nscoord        mY;          // IN
+   const nscoord* mSpacing;    // IN
+   nscoord        mMaxLength;  // IN (length of the full string)
+   nscoord        mLength;     // IN/OUT (running, current length already rendered)
++  PRBool         mRightToLeftText;
+ };
+ 
+ static PRBool PR_CALLBACK
+@@ -2271,6 +2356,7 @@
+ 
+   PRInt32 x, y;
+   DrawStringData* data = (DrawStringData*)aData;
++  PRBool aRightToLeftText = data->mRightToLeftText;
+   if (data->mFont != fontWin->mFont) {
+     data->mFont = fontWin->mFont;
+     ::SelectObject(data->mDC, data->mFont);
+@@ -2278,40 +2364,107 @@
+ 
+   data->mLength += aSubstringLength;
+   if (data->mSpacing) {
+-    // XXX Fix path to use a twips transform in the DC and use the
+-    // spacing values directly and let windows deal with the sub-pixel
+-    // positioning.
+-
+-    // Slow, but accurate rendering
+-    const PRUnichar* str = aSubstring;
+-    const PRUnichar* end = aSubstring + aSubstringLength;
+-    while (str < end) {
+-      // XXX can shave some cycles by inlining a version of transform
+-      // coord where y is constant and transformed once
+-      x = data->mX;
++
++    // Windows 95, 98, ME
++    if (gIsWIN95) {
++      const PRUnichar* str = aSubstring;
++      const PRUnichar* end = aSubstring + aSubstringLength;
++      while (str < end) {
++        nscoord spacing = 0;
++        int chars = 0;
++        // Collect a group together of one character followed a sequence
++        // of any length of characters with a spacing of zero (in most
++        // cases we will handle a single character only).  Thus for
++        // certain languages we pass a character together with its
++        // diacritical marks and let the operating system lay them out
++        // correctly.
++        while (str+chars < end) {
++          if (IS_HIGH_SURROGATE(str[chars]) && 
++              ((str+chars+1)<end) && 
++              IS_LOW_SURROGATE(str[chars+1])) 
++          {
++            if (chars != 0 && (data->mSpacing[0] != 0 || data->mSpacing[1] != 0))
++              break;
++            spacing += *data->mSpacing++;
++            spacing += *data->mSpacing++;
++            chars += 2;
++          }
++          else {
++            if (chars != 0 && data->mSpacing[0] != 0)
++              break;
++            spacing += *data->mSpacing++;
++            chars++;
++          }
++        }
++        // For right-to-left languages, we subtract the width of the character
++        // BEFORE rendering.
++        if (aRightToLeftText)
++          data->mX -= spacing;
++        // XXX can shave some cycles by inlining a version of transform
++        // coord where y is constant and transformed once
++        x = data->mX;
++        y = data->mY;
++        data->mTranMatrix->TransformCoord(&x, &y);
++        fontWin->DrawString(data->mDC, x, y, str, chars, NULL);
++        if (!aRightToLeftText)
++          data->mX += spacing;
++        str += chars;
++      }
++    }
++
++    // Newer versions of Windows
++    else {
++      PRInt32 width = 0;
++      for (PRUint32 i = 0; i < aSubstringLength; i++)
++          width += data->mSpacing[i]; 
++  
++      // For right-to-left languages, we subtract the width of the substring
++      // BEFORE rendering.
++      if (aRightToLeftText)
++        data->mX -= width;
++  
++      const PRUnichar* str = aSubstring;
++      const PRUnichar* end = aSubstring + aSubstringLength;
++  
++      PRInt32 *spacing = new PRInt32[aSubstringLength];
++      PRInt32 *ptr = spacing;
++      PRInt32 origX, prevX, convertX;
++  
++      convertX = data->mX;
++      x = convertX;
+       y = data->mY;
+       data->mTranMatrix->TransformCoord(&x, &y);
+-      if (IS_HIGH_SURROGATE(*str) && 
+-          ((str+1)<end) && 
+-          IS_LOW_SURROGATE(*(str+1))) 
+-      {
+-        // special case for surrogate pair
+-        fontWin->DrawString(data->mDC, x, y, str, 2);
+-        // we need to advance data->mX and str twice
+-        data->mX += *data->mSpacing++;
++      origX = prevX = x;
++  
++      while (str < end) {
++        convertX += *data->mSpacing++;
++        x = convertX;
++        y = data->mY;
++        data->mTranMatrix->TransformCoord(&x, &y);
++  
++        *ptr++ = x - prevX;
++        prevX = x;
++  
+         ++str;
+-      } else {
+-        fontWin->DrawString(data->mDC, x, y, str, 1);
+       }
+-      data->mX += *data->mSpacing++;
+-      ++str;
++
++      fontWin->DrawString(data->mDC, origX, y, aSubstring, aSubstringLength, spacing);
++
++      if (!aRightToLeftText && data->mLength < data->mMaxLength)
++        data->mX += width;
++
++      delete [] spacing;
+     }
+   }
+   else {
+-    fontWin->DrawString(data->mDC, data->mX, data->mY, aSubstring, aSubstringLength);
++    // For right-to-left languages, we subtract the width of the substring
++    // BEFORE rendering.
++    if (aRightToLeftText)
++      data->mX -= fontWin->GetWidth(data->mDC, aSubstring, aSubstringLength, NULL);
++    fontWin->DrawString(data->mDC, data->mX, data->mY, aSubstring, aSubstringLength, NULL);
+     // be ready if there is more to come
+-    if (data->mLength < data->mMaxLength) {
+-      data->mX += fontWin->GetWidth(data->mDC, aSubstring, aSubstringLength);
++    if (!aRightToLeftText && data->mLength < data->mMaxLength) {
++      data->mX += fontWin->GetWidth(data->mDC, aSubstring, aSubstringLength, NULL);
+     }
+   }
+   return PR_TRUE; // don't stop till the end
+@@ -2324,23 +2477,29 @@
+ {
+   if (!mFontMetrics) return NS_ERROR_FAILURE;
+ 
+-  SetupFontAndColor();
+-
+   nsFontMetricsWin* metrics = (nsFontMetricsWin*)mFontMetrics;
+-  DrawStringData data = {mDC, mCurrFont, mTranMatrix, 
+-    aX, aY, aSpacing, aLength, 0
++  DrawStringData data = {mDC, mCurrFont, mTranMatrix, mP2T,
++    aX, aY, aSpacing, aLength, 0, mRightToLeftText
+   };
++  
++  if (mRightToLeftText) {
++    // For RTL languages, we start at the right and work leftwards.
++    if (aSpacing) {
++      for (int i = 0; i < (int)aLength; i++)
++        data.mX += aSpacing[i];
++    }
++    else {
++      nscoord aWidth;
++      GetWidth(aString, aLength, aWidth, NULL);
++      data.mX += aWidth;
++    }
++  }
+   if (!aSpacing) { // @see do_DrawString for the spacing case
+     mTranMatrix->TransformCoord(&data.mX, &data.mY);
+   }
+ 
+-  if (mRightToLeftText) {
+-    metrics->ResolveBackwards(mDC, aString, aLength, do_DrawString, &data);
+-  }
+-  else
+-  {
+-    metrics->ResolveForwards(mDC, aString, aLength, do_DrawString, &data);
+-  }
++  SetupFontAndColor();
++  metrics->Resolve(mDC, aString, aLength, do_DrawString, &data);
+ 
+   if (mCurrFont != data.mFont) {
+     // If the font was changed along the way, restore our font
+@@ -2435,7 +2594,7 @@
+   nsFontMetricsWin* metrics = (nsFontMetricsWin*)mFontMetrics;
+   GetBoundingMetricsData data = {mDC, mCurrFont, &aBoundingMetrics, PR_TRUE, NS_OK};
+ 
+-  nsresult rv = metrics->ResolveForwards(mDC, aString, aLength, do_GetBoundingMetrics, &data);
++  nsresult rv = metrics->Resolve(mDC, aString, aLength, do_GetBoundingMetrics, &data);
+   if (NS_SUCCEEDED(rv)) {
+     rv = data.mStatus;
+   }
+diff -urN mozilla-firefox-1.0.6.orig/gfx/src/windows/nsRenderingContextWin.h mozilla-firefox-1.0.6/gfx/src/windows/nsRenderingContextWin.h
+--- mozilla-firefox-1.0.6.orig/gfx/src/windows/nsRenderingContextWin.h	2003-08-15 11:49:51.000000000 +1200
++++ mozilla-firefox-1.0.6/gfx/src/windows/nsRenderingContextWin.h	2005-08-19 13:25:10.000000000 +1200
+@@ -143,6 +143,23 @@
+   NS_IMETHOD GetWidth(const char* aString, PRUint32 aLength, nscoord& aWidth);
+   NS_IMETHOD GetWidth(const PRUnichar* aString, PRUint32 aLength,
+                       nscoord& aWidth, PRInt32 *aFontID);
++  /**
++   * Returns an array of widths (in app units) of a Unicode character string
++   * If no font has been set, the results are undefined.
++   * The length of output array data is always aLength elements.  Where the
++   * layout is complex and a character is rendered above or below a previous
++   * character, this is represented as a zero width in the output array.
++   *
++   * Returns NS_ERROR_NOT_IMPLEMENTED if this functionality is not supported. 
++   *
++   * @param aString string to measure
++   * @param aLength number of characters in string
++   * @param aWidth out parameter for total width
++   * @param aWidthArray out parameter for per-character widths
++   * @return error status
++   */
++  NS_IMETHOD GetWidthArray(const PRUnichar *aString, PRUint32 aLength,
++                           nscoord& aWidth, nscoord* aWidthArray);
+ 
+   NS_IMETHOD GetTextDimensions(const char* aString, PRUint32 aLength,
+                                nsTextDimensions& aDimensions);
+diff -urN mozilla-firefox-1.0.6.orig/layout/html/base/src/nsTextFrame.cpp mozilla-firefox-1.0.6/layout/html/base/src/nsTextFrame.cpp
+--- mozilla-firefox-1.0.6.orig/layout/html/base/src/nsTextFrame.cpp	2004-11-25 07:39:34.000000000 +1300
++++ mozilla-firefox-1.0.6/layout/html/base/src/nsTextFrame.cpp	2005-09-11 00:40:41.000000000 +1200
+@@ -26,6 +26,8 @@
+  *   Tomi Leppikangas <tomi.leppikangas@oulu.fi>
+  *   Roland Mainz <roland.mainz@informatik.med.uni-giessen.de>
+  *   Daniel Glazman <glazman@netscape.com>
++ *   Simon Montagu <smontagu@smontagu.org>
++ *   Stephen Blackheath <stephen@blacksapphire.com>
+  *
+  * Alternatively, the contents of this file may be used under the terms of
+  * either the GNU General Public License Version 2 or later (the "GPL"), or 
+@@ -377,6 +379,20 @@
+   return NS_OK;
+ }
+ 
++
++//----------------------------------------------------------------------
++
++class nsTextFrame_Walker
++{
++  public:
++    nsTextFrame_Walker() {}
++    virtual ~nsTextFrame_Walker() {}
++
++    virtual PRBool visit(nsIRenderingContext& aRenderingContext,
++                      PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsFinal) = 0;
++};
++
++
+ //----------------------------------------------------------------------
+ 
+ class nsTextFrame : public nsFrame {
+@@ -674,6 +690,15 @@
+                        nsStyleContext* aStyleContext,
+                        TextStyle& aStyle,
+                        nscoord aX, nscoord aY);
++ 
++  /*!
++   * Walk string for processing the rendering of it.  Visit the specified
++   * NULL-terminated list of nsTextFrame_Walker implementations.
++   */
++  nsIFontMetrics* WalkString(nsIRenderingContext& aRenderingContext,
++                          TextStyle& aTextStyle,
++                          PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsEndOfFrame,
++                          nsTextFrame_Walker* aWalkers[]);
+ 
+   void RenderString(nsIRenderingContext& aRenderingContext,
+                     nsStyleContext* aStyleContext,
+@@ -766,6 +791,8 @@
+   void ToCString(nsString& aBuf, PRInt32* aTotalContentLength) const;
+ #endif
+ 
++  PRBool IsJustifiableCharacter(PRUnichar aChar, PRBool aLangIsCJ);
++
+ protected:
+   virtual ~nsTextFrame();
+ 
+@@ -2253,6 +2280,7 @@
+       }
+       nsBidiPresUtils* bidiUtils;
+       aPresContext->GetBidiUtils(&bidiUtils);
++
+       if (bidiUtils) {
+ #ifdef DEBUG
+         PRInt32 rememberTextLength = textLength;
+@@ -2569,164 +2597,425 @@
+   return NS_OK;
+ }
+ 
+-void
+-nsTextFrame::RenderString(nsIRenderingContext& aRenderingContext,
+-                          nsStyleContext* aStyleContext,
+-                          nsIPresContext* aPresContext,
+-                          TextStyle& aTextStyle,
+-                          PRUnichar* aBuffer, PRInt32 aLength,
+-                          nscoord aX, nscoord aY,
+-                          nscoord aWidth, 
+-                          SelectionDetails *aDetails /*=nsnull*/)
++// Returns TRUE if this character could require a complex layout algorithm, that
++// is, we cannot safely assume that the display width of a string containing
++// this character equals the sum of the widths of the component characters.
++// This test needs to be quick.
++// In future, rather than improving this test, the nsIRenderingContext
++// implementations should implement GetWidthArray().
++#define MAY_BE_COMPLEX_LAYOUT(ch) \
++    (ch >= 0x300)
++
++class nsTextFrame_MeasureWalker : public nsTextFrame_Walker
++{
++  private:
++    nsTextFrame::TextStyle& mTextStyle;
++    nscoord* mSpacing;
++
++  public:
++    nsTextFrame_MeasureWalker(nsTextFrame::TextStyle& aTextStyle, nscoord* aSpacing);
++    virtual ~nsTextFrame_MeasureWalker();
++
++    virtual PRBool visit(nsIRenderingContext& aRenderingContext,
++                      PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsFinal);
++};
++
++nsTextFrame_MeasureWalker::nsTextFrame_MeasureWalker(nsTextFrame::TextStyle& aTextStyle, nscoord* aSpacing)
++  : mTextStyle(aTextStyle),
++    mSpacing(aSpacing)
+ {
+-  PRUnichar buf[TEXT_BUF_SIZE];
+-  PRUnichar* bp0 = buf;
++}
+ 
+-  nscoord spacingMem[TEXT_BUF_SIZE];
+-  nscoord* sp0 = spacingMem; 
++nsTextFrame_MeasureWalker::~nsTextFrame_MeasureWalker()
++{
++}
++
++PRBool nsTextFrame_MeasureWalker::visit(nsIRenderingContext& aRenderingContext,
++                  PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool /*aIsFinal*/)
++{
++  // If the font rendering engine can measure the character spacing for this
++  // string for us, then that's best.
++  nscoord width;
++  if (aRenderingContext.GetWidthArray(aBuffer, aLength, width, mSpacing+aOffset) == NS_OK) {
++    PRInt32 i;
++    for (i = 0; i < aLength; i++) {
++      PRUnichar ch = aBuffer[i];
++      PRInt32 spIdx = aOffset+i;
++      if (ch == ' ')
++        mSpacing[spIdx] = mTextStyle.mSpaceWidth + mTextStyle.mWordSpacing;
++      else
++        if (IS_HIGH_SURROGATE(ch) && (i+1) < aLength && IS_LOW_SURROGATE(aBuffer[i+1]))
++          ++i;
++    }
++    return PR_TRUE;
++  }
++
++  // Otherwise we do it the inefficient way.
++  PRInt32 i;
++  nscoord lastSegmentWidth = 0;
++  PRInt32 segmentStart = 0;
++  PRBool mayBeComplexLayout = false;
++
++  for (i = 0; i < aLength; i++) {
++    PRUnichar ch = aBuffer[i];
++    PRInt32 spIdx = aOffset+i;
++    if (ch == ' ') {
++      mSpacing[spIdx] = mTextStyle.mSpaceWidth + mTextStyle.mWordSpacing;
++      lastSegmentWidth = 0;
++      segmentStart = i+1;
++    }
++    else {
++      if (IS_HIGH_SURROGATE(ch) && (i+1) < aLength && IS_LOW_SURROGATE(aBuffer[i+1])) {
++        mSpacing[spIdx+1] = 0;
++        ++i;
++        mayBeComplexLayout = true;
++      }
++      else {
++        if (MAY_BE_COMPLEX_LAYOUT(ch))
++          mayBeComplexLayout = true;
++      }
++
++      nscoord newSegmentWidth;
++      aRenderingContext.GetWidth(aBuffer+segmentStart, i-segmentStart+1, newSegmentWidth);
++      nscoord charWidth = newSegmentWidth - lastSegmentWidth;
++      if (charWidth > 0)
++        lastSegmentWidth = newSegmentWidth;
++      else
++        charWidth = 0;
++      mSpacing[spIdx] = charWidth;
++
++      // If we have not seen any characters that require a potentially complex
++      // layout algorithm, then we reset the 'segment' so we measure
++      // character-by-character (so it is slightly more efficient).
++      if (!mayBeComplexLayout) {
++        lastSegmentWidth = 0;
++        segmentStart = i+1;
++      }
++    }
++  }
+   
+-  PRBool spacing = (0 != aTextStyle.mLetterSpacing) ||
+-    (0 != aTextStyle.mWordSpacing) || aTextStyle.mJustifying;
++  return PR_TRUE;
++}
++
++class nsTextFrame_InflateWalker : public nsTextFrame_Walker
++{
++  private:
++    nsTextFrame* mTextFrame;
++    nsTextFrame::TextStyle& mTextStyle;
++    PRBool mIsCJ;
++    PRBool mIsEndOfLine;
++    PRBool mJustify;
++    nscoord* mSpacing;
++
++  public:
++    nsTextFrame_InflateWalker(
++        nsTextFrame* aTextFrame,
++        nsTextFrame::TextStyle& aTextStyle,
++        PRBool aIsCJ,
++        PRBool aIsEndOfLine,
++        PRBool aJustify,
++        nscoord* aSpacing);
++    virtual ~nsTextFrame_InflateWalker();
++
++    virtual PRBool visit(nsIRenderingContext& aRenderingContext,
++                      PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsFinal);
++};
++
++nsTextFrame_InflateWalker::nsTextFrame_InflateWalker(
++        nsTextFrame* aTextFrame,
++        nsTextFrame::TextStyle& aTextStyle,
++        PRBool aIsCJ,
++        PRBool aIsEndOfLine,
++        PRBool aJustify,
++        nscoord* aSpacing)
++  : mTextFrame(aTextFrame),
++    mTextStyle(aTextStyle),
++    mIsCJ(aIsCJ),
++    mIsEndOfLine(aIsEndOfLine),
++    mJustify(aJustify),
++    mSpacing(aSpacing)
++{
++}
++
++nsTextFrame_InflateWalker::~nsTextFrame_InflateWalker()
++{
++}
++
++PRBool nsTextFrame_InflateWalker::visit(nsIRenderingContext& aRenderingContext,
++                  PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsFinal)
++{
++  PRInt32 i;
++  PRInt32 lastIncreasableIdx = 0;
++
++  for (i = 0; i < aLength; i++) {
++    PRUnichar ch = aBuffer[i];
++    PRInt32 spIdx = i + aOffset;
++    if (IS_HIGH_SURROGATE(ch) && (i+1) < aLength && IS_LOW_SURROGATE(aBuffer[i+1]))
++      ++i;
++    if (mSpacing[spIdx] != 0)
++      lastIncreasableIdx = spIdx;
++    mSpacing[lastIncreasableIdx] += mTextStyle.mLetterSpacing; 
++    if (mJustify && (!mIsEndOfLine || !aIsFinal || (i+1) < aLength)
++        && ch == ' ') {
++      mSpacing[lastIncreasableIdx] += mTextStyle.mExtraSpacePerSpace;
++      if ((PRUint32)--mTextStyle.mNumSpacesToRender
++            < (PRUint32)mTextStyle.mNumSpacesReceivingExtraJot) {
++        mSpacing[lastIncreasableIdx] ++;
++      }
++    }
++  }
++  
++  return PR_TRUE;
++}
++
++class nsTextFrame_RenderWalker : public nsTextFrame_Walker
++{
++  private:
++    nsTextFrame* mTextFrame;
++    nsStyleContext* mStyleContext;
++    nsIPresContext* mPresContext;
++    nsTextFrame::TextStyle& mTextStyle;
++    nscolor mTextColor;
++    nscoord* mSpacing;
++    PRBool mDoSpacing;
++    nscoord mX;
++    nscoord mY;
++    nscoord mAscent;
++    SelectionDetails *mDetails;
++
++  public:
++    nsTextFrame_RenderWalker(
++        nsTextFrame* aTextFrame,
++        nsStyleContext* aStyleContext,
++        nsIPresContext* aPresContext,
++        nsTextFrame::TextStyle& aTextStyle,
++        nscolor aTextColor,
++        nscoord* aSpacing,
++        PRBool aDoSpacing,
++        nscoord aX,
++        nscoord aY,
++        nscoord aAscent,
++        SelectionDetails *aDetails);
++    virtual ~nsTextFrame_RenderWalker();
++
++    virtual PRBool visit(nsIRenderingContext& aRenderingContext,
++                      PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsFinal);
++};
++
++nsTextFrame_RenderWalker::nsTextFrame_RenderWalker(
++        nsTextFrame* aTextFrame,
++        nsStyleContext* aStyleContext,
++        nsIPresContext* aPresContext,
++        nsTextFrame::TextStyle& aTextStyle,
++        nscolor aTextColor,
++        nscoord* aSpacing,
++        PRBool aDoSpacing,
++        nscoord aX,
++        nscoord aY,
++        nscoord aAscent,
++        SelectionDetails *aDetails)
++  : mTextFrame(aTextFrame),
++    mStyleContext(aStyleContext),
++    mPresContext(aPresContext),
++    mTextStyle(aTextStyle),
++    mTextColor(aTextColor),
++    mSpacing(aSpacing),
++    mDoSpacing(aDoSpacing),
++    mX(aX),
++    mY(aY),
++    mAscent(aAscent),
++    mDetails(aDetails)
++{
++}
+ 
++nsTextFrame_RenderWalker::~nsTextFrame_RenderWalker()
++{
++}
++
++PRBool nsTextFrame_RenderWalker::visit(nsIRenderingContext& aRenderingContext,
++                  PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool /*aIsFinal*/)
++{
++  // Render the text with the color specified first.
++  aRenderingContext.SetColor(mTextColor);
++  // Measure previous run of characters using the previous font
++  aRenderingContext.DrawString(aBuffer, aLength,
++                               mX, mY + mAscent, -1,
++                               mDoSpacing ? mSpacing+aOffset : nsnull);
++
++  PRInt32 width = 0;
++  PRInt32 i;
++  for (i = aOffset; i < aOffset+aLength; i++)
++    width += mSpacing[i];
++
++  mTextFrame->PaintTextDecorations(aRenderingContext, mStyleContext, mPresContext,
++                       mTextStyle, mX, mY, width, aBuffer, mDetails,
++                       aOffset, aLength, mDoSpacing ? mSpacing+aOffset : nsnull);
++
++  mX += width;
++  
++  return PR_TRUE;
++}
++
++/**
++ * Walk string for processing the rendering of it.  Visit the specified
++ * NULL-terminated list of nsTextFrame_Walker implementations.
++ */
++nsIFontMetrics*
++nsTextFrame::WalkString(nsIRenderingContext& aRenderingContext,
++                        TextStyle& aTextStyle,
++                        PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsEndOfFrame,
++                        nsTextFrame_Walker* aWalkers[])
++{
++  PRUnichar buf[TEXT_BUF_SIZE];
++  PRUnichar* bp0 = buf;
+   //German 0x00df might expand to "SS", but no need to count it for speed reason
+   if (aTextStyle.mSmallCaps) {
+-     if (aLength*2 > TEXT_BUF_SIZE) {
++     if (aLength*2 > TEXT_BUF_SIZE)
+        bp0 = new PRUnichar[aLength*2];
+-       if (spacing)
+-         sp0 = new nscoord[aLength*2];
+-     }
+   }
+-  else if (aLength > TEXT_BUF_SIZE) {
++  else if (aLength > TEXT_BUF_SIZE)
+     bp0 = new PRUnichar[aLength];
+-    if (spacing)
+-      sp0 = new nscoord[aLength];
+-  }
+ 
+   PRUnichar* bp = bp0;
+-  nscoord* sp = sp0;
++  PRUnichar* runStart = bp;
+ 
+   nsIFontMetrics* lastFont = aTextStyle.mLastFont;
+-  PRInt32 pendingCount;
+-  PRUnichar* runStart = bp;
+-  nscoord charWidth, width = 0;
++  // We could do "aRenderingContext.SetFont(lastFont);" here, but we don't need
++  // to because we can assume it was left consistent in the last call to
++  // RenderString().
+   PRInt32 countSoFar = 0;
+   for (; --aLength >= 0; aBuffer++) {
+     nsIFontMetrics* nextFont;
+-    nscoord glyphWidth;
+     PRUnichar ch = *aBuffer;
+     if (aTextStyle.mSmallCaps &&
+         (IsLowerCase(ch) || (ch == kSZLIG))) {
+       nextFont = aTextStyle.mSmallFont;
++    }
++    else {
++      nextFont = aTextStyle.mNormalFont;
++    }
++    if (nextFont != lastFont) {
++      PRInt32 pendingCount = bp - runStart;
++      if (0 != pendingCount) {
++        PRInt32 i;
++        for (i = 0; aWalkers[i] != NULL; i++) {
++          if (!aWalkers[i]->visit(aRenderingContext, countSoFar, runStart, pendingCount, PR_FALSE)) {
++            if (bp0 != buf)
++              delete [] bp0;
++          
++            return lastFont;
++          }
++        }
++        countSoFar += pendingCount;
++        runStart = bp = bp0;
++      }
++      aRenderingContext.SetFont(nextFont);
++      lastFont = nextFont;
++    }
++    if (nextFont == aTextStyle.mSmallFont) {
+       PRUnichar upper_ch;
+       // German szlig should be expanded to "SS".
+       if (ch == kSZLIG)
+         upper_ch = (PRUnichar)'S';
+       else
+         upper_ch = ToUpperCase(ch);
+-      if (lastFont != aTextStyle.mSmallFont) {
+-        aRenderingContext.SetFont(aTextStyle.mSmallFont);
+-        aRenderingContext.GetWidth(upper_ch, charWidth);
+-        aRenderingContext.SetFont(aTextStyle.mNormalFont);
+-      }
+-      else {
+-        aRenderingContext.GetWidth(upper_ch, charWidth);
+-      }
+-      glyphWidth = charWidth + aTextStyle.mLetterSpacing;
+       if (ch == kSZLIG)   //add an additional 'S' here.
+       {
+         *bp++ = upper_ch;
+-        if (spacing)
+-          *sp++ = glyphWidth;
+-        width += glyphWidth;
+       }
+       ch = upper_ch;
+     }
+-    else if (ch == ' ') {
+-      nextFont = aTextStyle.mNormalFont;
+-      glyphWidth = aTextStyle.mSpaceWidth + aTextStyle.mWordSpacing + aTextStyle.mLetterSpacing
+-        + aTextStyle.mExtraSpacePerSpace;
+-      if ((PRUint32)--aTextStyle.mNumSpacesToRender <
+-            (PRUint32)aTextStyle.mNumSpacesReceivingExtraJot) {
+-        glyphWidth++;
+-      }
+-    }
+-    else {
+-      if (lastFont != aTextStyle.mNormalFont) {
+-        aRenderingContext.SetFont(aTextStyle.mNormalFont);
+-      }
+-
+-      if (IS_HIGH_SURROGATE(ch) && aLength > 0 &&
+-        IS_LOW_SURROGATE(*(aBuffer+1))) {
+-      
+-        // special handling for surrogate pair
+-        aRenderingContext.GetWidth(aBuffer, 2, charWidth);
+-        glyphWidth = charWidth + aTextStyle.mLetterSpacing;
+-        // copy the surrogate low
+-        *bp++ = ch;
+-        --aLength;
+-        aBuffer++;
+-        ch = *aBuffer;
+-        // put the width into the space buffer
+-        width += glyphWidth;
+-        *sp++ = glyphWidth;
+-        // set the glyphWidth to 0 so the code later will 
+-        // set a 0 for one element in space array for surrogate low to 0
+-        glyphWidth = 0;
+-      } else {
+-        aRenderingContext.GetWidth(ch, charWidth);
+-        glyphWidth = charWidth + aTextStyle.mLetterSpacing;
+-      }
+-
+-      if (lastFont != aTextStyle.mNormalFont) {
+-        aRenderingContext.SetFont(aTextStyle.mSmallFont);
+-      }
+-      nextFont = aTextStyle.mNormalFont;
+-    }
+-    if (nextFont != lastFont) {
+-      pendingCount = bp - runStart;
+-      if (0 != pendingCount) {
+-        // Measure previous run of characters using the previous font
+-        aRenderingContext.SetColor(aTextStyle.mColor->mColor);
+-        aRenderingContext.DrawString(runStart, pendingCount,
+-                                     aX, aY + mAscent, -1,
+-                                     spacing ? sp0 : nsnull);
+-
+-        // Note: use aY not small-y so that decorations are drawn with
+-        // respect to the normal-font not the current font.
+-        PaintTextDecorations(aRenderingContext, aStyleContext, aPresContext,
+-                             aTextStyle, aX, aY, width, runStart, aDetails,
+-                             countSoFar, pendingCount, spacing ? sp0 : nsnull);
+-        countSoFar += pendingCount;
+-        aWidth -= width;
+-        aX += width;
+-        runStart = bp = bp0;
+-        sp = sp0;
+-        width = 0;
+-      }
+-      aRenderingContext.SetFont(nextFont);
+-      lastFont = nextFont;
++    else if (IS_HIGH_SURROGATE(ch) && aLength > 0 &&
++           IS_LOW_SURROGATE(*(aBuffer+1))) {
++      // copy the surrogate low
++      *bp++ = ch;
++      --aLength;
++      aBuffer++;
++      ch = *aBuffer;
+     }
+     *bp++ = ch;
+-    if (spacing)
+-      *sp++ = glyphWidth;
+-    width += glyphWidth;
+   }
+-  pendingCount = bp - runStart;
++  PRInt32 pendingCount = bp - runStart;
+   if (0 != pendingCount) {
+-    // Measure previous run of characters using the previous font
+-    aRenderingContext.DrawString(runStart, pendingCount, aX, aY + mAscent, -1,
+-                                 spacing ? sp0 : nsnull);
+-
+-    // Note: use aY not small-y so that decorations are drawn with
+-    // respect to the normal-font not the current font.
+-    PaintTextDecorations(aRenderingContext, aStyleContext, aPresContext,
+-                         aTextStyle, aX, aY, aWidth, runStart, aDetails,
+-                         countSoFar, pendingCount, spacing ? sp0 : nsnull);
++    PRInt32 i;
++    for (i = 0; aWalkers[i] != NULL; i++) {
++      if (!aWalkers[i]->visit(aRenderingContext, countSoFar, runStart, pendingCount, PR_TRUE))
++        break;
++    }
+   }
+-  aTextStyle.mLastFont = lastFont;
+ 
+-  if (bp0 != buf) {
++  if (bp0 != buf)
+     delete [] bp0;
++
++  return lastFont;
++}
++
++void
++nsTextFrame::RenderString(nsIRenderingContext& aRenderingContext,
++                          nsStyleContext* aStyleContext,
++                          nsIPresContext* aPresContext,
++                          TextStyle& aTextStyle,
++                          PRUnichar* aBuffer, PRInt32 aLength,
++                          nscoord aX, nscoord aY,
++                          nscoord aWidth,
++                          SelectionDetails *aDetails /*=nsnull*/)
++{
++  PRBool aIsEndOfFrame = PR_FALSE;
++  nscoord spacingMem[TEXT_BUF_SIZE];
++  nscoord* sp0 = spacingMem;
++
++  PRBool spacing = (0 != aTextStyle.mLetterSpacing) ||
++    (0 != aTextStyle.mWordSpacing) || aTextStyle.mJustifying;
++
++  PRBool justifying = aTextStyle.mJustifying &&
++    (aTextStyle.mNumSpacesReceivingExtraJot != 0 || aTextStyle.mExtraSpacePerSpace != 0);
++
++  //German 0x00df might expand to "SS", but no need to count it for speed reason
++  if (aTextStyle.mSmallCaps) {
++     if (aLength*2 > TEXT_BUF_SIZE)
++       sp0 = new nscoord[aLength*2];
++  }
++  else if (aLength > TEXT_BUF_SIZE)
++    sp0 = new nscoord[aLength];
++
++  {
++    nsTextFrame_Walker* walkers[4];
++    PRInt32 walkersIdx = 0;
++
++    // Measure character spacing.
++    nsTextFrame_MeasureWalker measureWalker(aTextStyle, sp0);
++    walkers[walkersIdx++] = &measureWalker;
++
++    // If justifying, add the necessary spacing to whitespaces.
++    PRBool isCJ = PR_FALSE;
++    PRBool isEndOfLine = aIsEndOfFrame;
++    nsTextFrame_InflateWalker inflateWalker(this, aTextStyle, isCJ, isEndOfLine, justifying, sp0);
++
++    if (justifying || spacing)
++      walkers[walkersIdx++] = &inflateWalker;
++    // Render the text.
++
++    // Save the color we want to use for the text, since calls to
++    // PaintTextDecorations in renderWalker will call SetColor() on the rendering
++    // context.
++    nscolor textColor;
++    aRenderingContext.GetColor(textColor);
++
++    nsTextFrame_RenderWalker renderWalker(
++      this,
++      aStyleContext,
++      aPresContext,
++      aTextStyle,
++      textColor,
++      sp0,
++      spacing,
++      aX,
++      aY,
++      mAscent,
++      aDetails);
++    walkers[walkersIdx++] = &renderWalker;
++    walkers[walkersIdx] = NULL;  // Terminate the list of walkers
++    aTextStyle.mLastFont = WalkString(aRenderingContext, aTextStyle, aBuffer, aLength, aIsEndOfFrame, walkers);
+   }
+   if (sp0 != spacingMem) {
+     delete [] sp0;
+@@ -2750,72 +3039,135 @@
+ }
+ 
+ 
++class nsTextFrame_GetTextDimensionsWalker : public nsTextFrame_Walker
++{
++  private:
++    nscoord mMaxWidth;
++    nscoord* mSpacing;
++    nsTextDimensions* mDimensionsResult;
++    PRBool mGetTextDimensions;
++
++  public:
++    nsTextFrame_GetTextDimensionsWalker(
++        nscoord aMaxWidth,
++        nscoord* aSpacing,
++        nsTextDimensions* aDimensionsResult,
++        PRBool aGetTextDimensions);
++    virtual ~nsTextFrame_GetTextDimensionsWalker();
++
++    virtual PRBool visit(nsIRenderingContext& aRenderingContext,
++                      PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool aIsFinal);
++    
++    PRInt32 mCharactersScanned;
++};
++
++nsTextFrame_GetTextDimensionsWalker::nsTextFrame_GetTextDimensionsWalker(
++        nscoord aMaxWidth,
++        nscoord* aSpacing,
++        nsTextDimensions* aDimensionsResult,
++        PRBool aGetTextDimensions/* true=get dimensions false = return length up to aDimensionsResult.width size*/)
++  : mMaxWidth(aMaxWidth),
++    mSpacing(aSpacing),
++    mDimensionsResult(aDimensionsResult),
++    mGetTextDimensions(aGetTextDimensions)
++{
++    mDimensionsResult->Clear();
++    mCharactersScanned = 0;
++}
++
++nsTextFrame_GetTextDimensionsWalker::~nsTextFrame_GetTextDimensionsWalker()
++{
++}
++
++PRBool nsTextFrame_GetTextDimensionsWalker::visit(nsIRenderingContext& aRenderingContext,
++                  PRInt32 aOffset, PRUnichar* aBuffer, PRInt32 aLength, PRBool /*aIsFinal*/)
++{
++  PRInt32 thisLength;
++  PRBool keepScanning = PR_TRUE;
++
++  if (mGetTextDimensions) {
++    for (thisLength = 0; thisLength < aLength; thisLength++)
++      mDimensionsResult->width += mSpacing[aOffset + thisLength];
++  }
++  else {
++    for (thisLength = 0; thisLength < aLength; thisLength++) {
++      nscoord glyphWidth = mSpacing[aOffset + thisLength];
++      if (mDimensionsResult->width + glyphWidth > mMaxWidth) {
++        keepScanning = PR_FALSE;
++        break;
++      }
++      mDimensionsResult->width += glyphWidth;
++    }
++  }
++
++  if (thisLength > 0) {
++    nsTextDimensions segmentDimensions;
++    aRenderingContext.GetTextDimensions(aBuffer, thisLength, segmentDimensions);
++    if (segmentDimensions.ascent > mDimensionsResult->ascent)
++      mDimensionsResult->ascent = segmentDimensions.ascent;
++    if (segmentDimensions.descent > mDimensionsResult->descent)
++      mDimensionsResult->descent = segmentDimensions.descent;
++  }
++  mCharactersScanned += thisLength;
++
++  return keepScanning;
++}
++
+ PRInt32
+ nsTextFrame::GetTextDimensionsOrLength(nsIRenderingContext& aRenderingContext,
+-                TextStyle& aStyle,
++                TextStyle& aTextStyle,
+                 PRUnichar* aBuffer, PRInt32 aLength,
+                 nsTextDimensions* aDimensionsResult,
+                 PRBool aGetTextDimensions/* true=get dimensions false = return length up to aDimensionsResult.width size*/)
+ {
+-  PRUnichar *inBuffer = aBuffer;
+-  PRInt32 length = aLength;
+-  nsAutoTextBuffer dimensionsBuffer;
+-  if (NS_FAILED(dimensionsBuffer.GrowTo(length))) {
+-    aDimensionsResult->Clear();
+-    return 0;
+-  }
+-  PRUnichar* bp = dimensionsBuffer.mBuffer;
+-
+-  nsIFontMetrics* lastFont = aStyle.mLastFont;
+-  nsTextDimensions sum, glyphDimensions;
+-  while (--length >= 0) {
+-    PRUnichar ch = *inBuffer++;
+-    if (aStyle.mSmallCaps &&
+-        (IsLowerCase(ch) || (ch == kSZLIG))) {
+-      PRUnichar upper_ch;
+-      // German szlig should be expanded to "SS".
+-      if (ch == kSZLIG)
+-        upper_ch = (PRUnichar)'S';
+-      else
+-        upper_ch = ToUpperCase(ch);
+-      if (lastFont != aStyle.mSmallFont) {
+-        lastFont = aStyle.mSmallFont;
+-        aRenderingContext.SetFont(lastFont);
+-      }
+-      aRenderingContext.GetTextDimensions(&upper_ch, (PRUint32)1, glyphDimensions);
+-      glyphDimensions.width += aStyle.mLetterSpacing;
+-      if (ch == kSZLIG)
+-        glyphDimensions.width += glyphDimensions.width;
+-    }
+-    else if (ch == ' ') {
+-      glyphDimensions.width = aStyle.mSpaceWidth + aStyle.mLetterSpacing
+-        + aStyle.mWordSpacing + aStyle.mExtraSpacePerSpace;
+-      if ((PRUint32)--aStyle.mNumSpacesToMeasure
+-            < (PRUint32)aStyle.mNumSpacesReceivingExtraJot) {
+-        ++glyphDimensions.width;
+-      }
+-    }
+-    else {
+-      if (lastFont != aStyle.mNormalFont) {
+-        lastFont = aStyle.mNormalFont;
+-        aRenderingContext.SetFont(lastFont);
+-      }
+-      aRenderingContext.GetTextDimensions(&ch, (PRUint32)1, glyphDimensions);
+-      glyphDimensions.width += aStyle.mLetterSpacing;
+-    }
+-    sum.Combine(glyphDimensions);
+-    *bp++ = ch;
+-    if (!aGetTextDimensions && sum.width >= aDimensionsResult->width) {
+-      PRInt32 result = aLength - length;
+-      if (2*(sum.width - aDimensionsResult->width) > glyphDimensions.width) //then we have gone too far, back up 1
+-        result--;
+-      aStyle.mLastFont = lastFont;
+-      return result;
+-    }
++  PRBool aIsEndOfFrame = PR_FALSE;
++  nscoord spacingMem[TEXT_BUF_SIZE];
++  nscoord* sp0 = spacingMem;
++
++  PRBool spacing = (0 != aTextStyle.mLetterSpacing) ||
++    (0 != aTextStyle.mWordSpacing) || aTextStyle.mJustifying;
++
++  PRBool justifying = aTextStyle.mJustifying &&
++    (aTextStyle.mNumSpacesReceivingExtraJot != 0 || aTextStyle.mExtraSpacePerSpace != 0);
++
++  //German 0x00df might expand to "SS", but no need to count it for speed reason
++  if (aTextStyle.mSmallCaps) {
++     if (aLength*2 > TEXT_BUF_SIZE)
++       sp0 = new nscoord[aLength*2];
+   }
+-  aStyle.mLastFont = lastFont;
+-  *aDimensionsResult = sum;
+-  return aLength;
++  else if (aLength > TEXT_BUF_SIZE)
++    sp0 = new nscoord[aLength];
++
++  nsTextFrame_Walker* walkers[4];
++  PRInt32 walkersIdx = 0;
++
++  // Measure character spacing.
++  nsTextFrame_MeasureWalker measureWalker(aTextStyle, sp0);
++  walkers[walkersIdx++] = &measureWalker;
++
++  // If justifying, add the necessary spacing to whitespaces.
++  PRBool isCJ = PR_FALSE;
++  PRBool isEndOfLine = aIsEndOfFrame;
++  nsTextFrame_InflateWalker inflateWalker(this, aTextStyle, isCJ, isEndOfLine, justifying, sp0);
++
++  if (justifying || spacing)
++    walkers[walkersIdx++] = &inflateWalker;
++
++  nsTextFrame_GetTextDimensionsWalker gtdWalker(
++      aDimensionsResult->width,  // Maximum width allowed if aGetTextDimensions is false
++      sp0,
++      aDimensionsResult,
++      aGetTextDimensions);
++  walkers[walkersIdx++] = &gtdWalker;
++
++  walkers[walkersIdx] = NULL;  // Terminate the list of walkers
++  WalkString(aRenderingContext, aTextStyle, aBuffer, aLength, aIsEndOfFrame, walkers);
++
++  if (sp0 != spacingMem) {
++    delete [] sp0;
++  }
++
++  return gtdWalker.mCharactersScanned;
+ }
+ 
+ 
+@@ -2922,7 +3274,7 @@
+ 
+   nsTextTransformer tx(lb, nsnull, aPresContext);
+   PRInt32 numSpaces;
+-  
++
+   numSpaces = PrepareUnicodeText(tx, (displaySelection ? &indexBuffer : nsnull),
+                                  &paintBuffer, &textLength, PR_TRUE);
+ 
+@@ -2931,26 +3283,37 @@
+ 
+   if (0 != textLength) {
+ #ifdef IBMBIDI
++    PRBool isRightToLeftOnBidiPlatform = PR_FALSE;
++    PRBool isBidiSystem = PR_FALSE;
+     PRBool bidiEnabled;
+     PRUint8 level = 0;
+     nsCharType charType = eCharType_LeftToRight;
+     aPresContext->GetBidiEnabled(&bidiEnabled);
+ 
+     if (bidiEnabled) {
++      isBidiSystem = aPresContext->IsBidiSystem();
++      GetBidiProperty(aPresContext, nsLayoutAtoms::embeddingLevel, (void**) &level,sizeof(level));
++      GetBidiProperty(aPresContext, nsLayoutAtoms::charType, (void**) &charType,sizeof(charType));
++
++      isRightToLeftOnBidiPlatform = (isBidiSystem &&
++                                     (eCharType_RightToLeft == charType ||
++                                      eCharType_RightToLeftArabic == charType));
++      if (isRightToLeftOnBidiPlatform) {
++        // indicate that the platform should use its native
++        // capabilities to reorder the text with right-to-left
++        // base direction 
++        aRenderingContext.SetRightToLeftText(PR_TRUE);
++      }
+       nsBidiPresUtils* bidiUtils;
+       aPresContext->GetBidiUtils(&bidiUtils);
+ 
+       if (bidiUtils) {
+-        GetBidiProperty(aPresContext, nsLayoutAtoms::embeddingLevel,
+-                        (void**) &level,sizeof(level));
+-        GetBidiProperty(aPresContext, nsLayoutAtoms::charType, 
+-                        (void**) &charType,sizeof(charType));
+ #ifdef DEBUG
+         PRInt32 rememberTextLength = textLength;
+ #endif
+-        // Since we paint char by char, handle the text like on non-bidi platform
++        // Stephen Blackheath: Change FALSE to isBidiSystem 
+         bidiUtils->ReorderUnicodeText(text, textLength, charType,
+-                                      level & 1, PR_FALSE);
++                                      level & 1, isBidiSystem);
+         NS_ASSERTION(rememberTextLength == textLength, "Bidi formatting changed text length");
+       }
+     }
+@@ -2992,7 +3355,8 @@
+         sdptr->mStart = ip[sdptr->mStart] - mContentOffset;
+         sdptr->mEnd = ip[sdptr->mEnd]  - mContentOffset;
+ #ifdef IBMBIDI
+-        AdjustSelectionPointsForBidi(sdptr, textLength, CHARTYPE_IS_RTL(charType), level & 1, PR_FALSE);
++        // Stephen Blackheath: Change FALSE to isBidiSystem 
++        AdjustSelectionPointsForBidi(sdptr, textLength, CHARTYPE_IS_RTL(charType), level & 1, isBidiSystem);
+ #endif
+         sdptr = sdptr->mNext;
+       }
+@@ -3001,6 +3365,8 @@
+       if (!iter.IsDone() && iter.First())
+       {
+ 	      nscoord currentX = dx;
++          if (isRightToLeftOnBidiPlatform)
++              currentX += width;
+ 	      nsTextDimensions newDimensions;//temp
+ 	      while (!iter.IsDone())
+ 	      {
+@@ -3011,6 +3377,10 @@
+ 	      nscolor    currentBKColor;
+ 	      PRBool     isCurrentBKColorTransparent;
+ 	      GetTextDimensions(aRenderingContext,aTextStyle,currenttext, (PRInt32)currentlength,&newDimensions);
++
++          if (isRightToLeftOnBidiPlatform)
++              currentX-=newDimensions.width;
++
+ 	      if (newDimensions.width)
+ 	      {
+             if (iter.CurrentBackGroundColor(currentBKColor, &isCurrentBKColorTransparent))
+@@ -3036,7 +3406,8 @@
+         }
+ 
+           //increment twips X start but remember to get ready for next draw by reducing current x by letter spacing amount
+-	      currentX+=newDimensions.width;// + aTextStyle.mLetterSpacing;
++          if (!isRightToLeftOnBidiPlatform)
++              currentX+=newDimensions.width;// + aTextStyle.mLetterSpacing;
+ 
+ 	      iter.Next();
+ 	      }
+@@ -3057,6 +3428,13 @@
+         delete details;
+       }
+     }
++#ifdef IBMBIDI
++    if (isRightToLeftOnBidiPlatform) {
++      // indicate that future text should not be reordered with
++      // right-to-left base direction 
++      aRenderingContext.SetRightToLeftText(PR_FALSE);
++    }
++#endif
+   }
+ }
+ 

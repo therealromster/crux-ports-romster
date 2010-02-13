@@ -1,0 +1,38 @@
+--- Makefile	2006-05-09 17:27:59.392883500 +0200
++++ Makefile-new	2006-05-09 17:28:21.854287250 +0200
+@@ -4,11 +4,9 @@
+ 
+ all: 
+ 	$(MAKE) -C src
+-	$(MAKE) -C examples
+ 
+ clean: 
+ 	$(MAKE) -C src clean
+-	$(MAKE) -C examples clean
+ 
+ realclean: clean
+ 	$(MAKE) -C priv/generator clean
+--- src/Makefile	2006-05-09 17:28:02.797096250 +0200
++++ src/Makefile-new	2006-05-09 17:23:05.194497250 +0200
+@@ -17,10 +17,11 @@
+ EFLAGS = +debug_info
+ EILIB = $(EI_ROOT)/lib
+ EIINC = $(EI_ROOT)/include
++PTHREADLIB = $(wildcard $(OTP_ROOT)/lib)
+ 
+ GENS = $(GEN)/gtk_generated.h $(GEN)/gdk_generated.h $(GEN)/g_generated.h
+ IFLAGS = -I$(INC) -I$(GEN) -I$(EIINC) $(GTKINCS)
+-LFLAGS = $(GTKLIBS) -L$(EILIB) -lei -lpthread 
++LFLAGS = $(GTKLIBS) -L$(EILIB) -lei -L$(PTHREADLIB) -lpthread #-lsocket 
+ CINCS  = $(wildcard $(INC)/*.h) 
+ CS     = $(wildcard *.c)
+ OBJS   = $(patsubst %.c, $(OBJ)/%.o, $(CS))
+@@ -47,7 +48,7 @@
+ $(OBJ)/gtkNode_gen.o : gtkNode_gen.c $(CINCS) $(GENS)
+ 	$(CC) -o $@ $< $(IFLAGS)
+ $(OBJ)/%.o : %.c $(CINCS)
+-	$(CC) -o $@ $< $(IFLAGS)
++	$(CC) $< -o $@ $(IFLAGS)
+ $(OUT) : $(OBJS)
+ 	$(LD) -o $@ $(OBJS) $(LFLAGS) 
+ $(EBIN)/gtkNode.beam : gtkNode.erl

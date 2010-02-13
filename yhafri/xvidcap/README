@@ -1,0 +1,4 @@
+PRE-INSTALL:
+
+                * Run this command to install "xvidcap":
+                # pkgmk -d -i -cf pkgmk.conf

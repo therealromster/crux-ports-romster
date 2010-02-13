@@ -1,0 +1,6 @@
+PRE-INSTAL:
+
+		* When building this moudle, makes sur never used "-O3" optimisation
+		and stick with the "-O2".
+		Adapt the "pkgmk.conf" to fits yours needs and compile it with:
+		# pkgmk -cf pkgmk.conf -d -i 

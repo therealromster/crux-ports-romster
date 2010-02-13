@@ -1,0 +1,25 @@
+POST-INSTALL:
+
+If you started lazarus in a terminal, you can see some
+  notes about missing settings. This is normal at first start.
+  The IDE automatically tries to find out where the freepascal compiler and its
+  sources are installed by searching in the most common directories.
+  Check the paths:
+    Use the IDE menu to go to
+      Environment -> Environment Options -> Files
+
+    The 'FPC Source directory' should point to your fpc source directory. This
+    directory normally ends with /fpc/ or /fpcsrc/ (e.g. /usr/share/fpcsrc or
+    /home/username/freepascal/fpc) and
+    contains directories like 'compiler', 'docs', 'fcl', 'rtl' and 'packages
+
+BUGS:
+	You may encouter some WARNINGS messages when launching Lazarus:
+	Gtk-WARNING **: Unable to locate loadable module in module_path: "libsmooth.so"
+
+	Don't worry, this is a Gnome bug (see discussion at: http://www.lazarus.freepascal.org/index.php?name=PNphpBB2&file=viewtopic&t=1787). 
+	To disable them, set:
+	$ export GTK_PATH=
+	$ export GTK_RC_FILES=
+	$ lazarus
+

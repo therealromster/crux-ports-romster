@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for encodings of Arabic 
+# URL: http://search.cpan.org/dist/Encode-Arabic/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-encore-mapper
+
+name=p5-encode-arabic
+version=1.11
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SM/SMRZ/Encode-Arabic-$version.tar.gz)
+
+build () {
+	cd Encode-Arabic-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

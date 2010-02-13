@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr-x	root/root	etc/rc.d/cvstrac
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/svntrac
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/lib/
+drwxr-xr-x	root/root	var/lib/svntrac/
+-rw-r--r--	root/root	var/lib/svntrac/MyProject.db
+drwxr-xr-x	root/root	var/www/
+drwxr-xr-x	root/root	var/www/cgi-bin/
+-rwxr-xr-x	root/root	var/www/cgi-bin/cvstrac.cgi

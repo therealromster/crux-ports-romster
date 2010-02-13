@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A Column-Oriented DBMS
+# URL: http://db.csail.mit.edu/projects/cstore/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: db, lzo
+
+name=cstore
+version=0.2
+release=1
+source=(http://db.csail.mit.edu/projects/$name/$name$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	cd src
+	make
+	make data
+
+	# Uncomment these lines if you want to test the data
+	#./${name}qptest 0 createData.cnf global.cnf
+	#./${name}qptest
+
+	cd $SRC
+	mv ../$name $PKG/usr/lib
+
+	chown -R root:root $PKG
+}

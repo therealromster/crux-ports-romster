@@ -1,0 +1,243 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/xpde/
+drwxr-xr-x	root/root	usr/share/xpde/bin/
+drwxr-xr-x	root/root	usr/share/xpde/bin/applets/
+-rwxr-xr-x	root/root	usr/share/xpde/bin/applets/desktop_properties
+-rwxr-xr-x	root/root	usr/share/xpde/bin/bplXPColorSelect.so
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Desktop/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Desktop/browser.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Desktop/command line.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Desktop/gimp.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/AIM.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Accessibility/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Accessibility/Accesibility Wizard.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Accessibility/Magnifier.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Accessibility/Narrator.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Accessibility/On-Screen Keyboard.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Accessibility/Utility Manager.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Address Book.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Calculator.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Command Prompt.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Communications/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Communications/HyperTerminal.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Communications/Network Connections.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Communications/Network Setup Wizard.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Communications/New Connection Wizard.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Communications/Remote Desktop Connection.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Entertainment/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Entertainment/MPlayer.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Entertainment/Sound Recorder.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Entertainment/Volume Control.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/File Explorer.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Notepad.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Paint.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Program Compatibility Wizard.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/Synchronize.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/Backup.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/Character Map.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/Disk Cleanup.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/Disk Defragmenter.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/Files and Settings Transfer Wizard.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/Scheduled Tasks.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/System Information.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/System Tools/System Restore.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/WordPad.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Accessories/XPde Tour.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Administrative Tools/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Email.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Games/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Internet Browser.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/MPlayer.lnk
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Remote Assistance.lnk
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Start Menu/Programs/Startup/
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Arrows.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Button.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/CheckBox.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/ComboBox.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/EditText.bmp
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbar_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbar_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbar_left_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbar_left_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbar_right_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbar_right_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbutton_mask.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbutton_mask.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbutton_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbutton_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/captionbutton_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/close_active_disable.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/close_active_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/close_active_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/close_active_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/frame_mask_left.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/frame_mask_right.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/framebottom_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/framebottom_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/framebottom_left_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/framebottom_left_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/framebottom_right_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/framebottom_right_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/frameleft_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/frameleft_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/frameright_active.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/frameright_inactive.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/maximize_active_disable.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/maximize_active_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/maximize_active_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/maximize_active_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/minimize_active_disable.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/minimize_active_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/minimize_active_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/minimize_active_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/restore_active_disable.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/restore_active_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/restore_active_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Frame/restore_active_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/GroupBox.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Header.bmp
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/accessibility_wizard.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/address_book.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/aim.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/backup.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/browser.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/calculator.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/character_map.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/command_prompt.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/compatibility_wizard.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/disk_cleanup.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/disk_defragmenter.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/email.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/file_explorer.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/files_and_settings_transfer_wizard.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/hyperterminal.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/magnifier.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/menu_subitems.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/mplayer.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/narrator.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/network_connections.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/network_setup_wizard.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/new_connection_wizard.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/notepad.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/on_screen_keyboard.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/paint.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/programs_folder.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/remote_assistance.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/remote_desktop_connection.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/scheduled_tasks.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/sound_recorder.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/synchronize.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/system_information.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/system_restore.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/utility_manager.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/volume_control.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/wordpad.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/16x16/xpde_tour.png
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/browser.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/command_line.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/controlpanel.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/folder.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/gimp.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/help.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/menu_right.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/mycomputer.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/mydocuments.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/myhome.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/mymusic.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/mynetworkplaces.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/mypictures.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/myrecentdocuments.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/noicon.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/printers.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/recyclebin_empty.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/recyclebin_full.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/run.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/search.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/22x22/source.png
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/aim.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/browser.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/calc.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/command_line.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/controlpanel.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/email.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/folder.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/gimp.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/help.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/mycomputer.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/mydocuments.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/myhome.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/mymusic.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/mynetworkplaces.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/mypictures.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/myrecentdocuments.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/noicon.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/notepad.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/printers.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/recyclebin_empty.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/recyclebin_full.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/run.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/search.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Icons/32x32/source.png
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Misc/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Misc/bmp.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Misc/desktoppropertiesmonitor.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Misc/jpg.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Misc/noglyph.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Misc/none.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Misc/png.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/ProgressBar.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/RadioButton.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/ScrollBar.bmp
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_logoff.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_logoff_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_logoff_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_mfu.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_options_background.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_places.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_programs.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_separator.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_sleep_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_sleep_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_turnoff_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_turnoff_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/startmenu_user_panel.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/StartMenu/user_tile.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/TabBody.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Tabs.bmp
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/no_icon.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/st_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/st_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/st_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/start_button_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/start_button_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/start_button_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/taskband_button_normal.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/taskband_button_over.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/taskband_button_press.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/taskbar_background_bottom.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/taskbar_grip_vert.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/taskbar_language_es.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Taskbar/taskbar_separator.png
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/ToolBarButton.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/ToolBarSep.bmp
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/TrackBar.bmp
+drwxr-xr-x	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Wallpapers/
+-rw-r--r--	root/root	usr/share/xpde/bin/defaultdesktop/Themes/Luna/Wallpapers/default.png
+-rwxr-xr-x	root/root	usr/share/xpde/bin/libborqt-6.9-qt2.3.so
+-rwxr-xr-x	root/root	usr/share/xpde/bin/startxpde
+-rwxr-xr-x	root/root	usr/share/xpde/bin/xpde

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A modern statically typed modular programming language
+# URL: http://felix.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ocaml, python
+
+name=felix
+version=1.1.2
+release=1
+source=(http://felix.sourceforge.net/flx_${version}_rc2_src.tgz)
+
+build () {
+	cd $name-${version}_rc2
+	./configure --prefix=/usr
+
+	./mk
+	./mk test 
+
+	#make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

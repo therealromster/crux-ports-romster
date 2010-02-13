@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Fingerprinting DNS servers
+# URL: http://www.rfc.se/fpdns/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-net-dns, p5-net-ip
+
+name=fpdns
+version=0.9.1
+release=1
+source=(http://www.rfc.se/fpdns/distfiles/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/man/man1
+	patch -p0<$name-$version.patch
+	install -D -m 755 $name.pl $PKG/usr/bin/$name
+	gzip $name.1; mv $name.1.gz $PKG/usr/man/man1
+	chown -R root:root $PKG
+}

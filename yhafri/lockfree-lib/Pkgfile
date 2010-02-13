@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Practical lock-free data structures
+# URL: http://www.cl.cam.ac.uk/Research/SRG/netos/lock-free/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=lockfree-lib
+version=1
+release=1
+source=(http://www.cl.cam.ac.uk/Research/SRG/netos/lock-free/src/$name.tar.gz)
+
+build () {
+	cd $name
+	sed -i "s|ARCH.*:=.*|ARCH := INTEL|" Makefile
+
+	make
+
+	ar cvr $name.a stm_fraser.o
+	
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	install -D -m 644 stm.h   $PKG/usr/include/stm.h
+
+	chown -R root:root $PKG
+}

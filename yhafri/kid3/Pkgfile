@@ -1,0 +1,23 @@
+# Description: a QT/KDE MP3 ID3 tag editor (tags entire albums w/ ID3v1 AND ID3v2)
+# URL: http://kid3.sourceforge.net/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: id3lib
+
+name=kid3
+version=0.7
+release=1
+source=(http://dl.sourceforge.net/sourceforge/kid3/kid3-$version.tar.gz)
+
+build() {
+        cd $name-$version
+        # comment this line out to compile for Qt (no KDE)
+        ./configure --prefix=/usr
+
+        # uncomment to compile for Qt (no KDE)
+        # ./make_qtonly.sh
+        make
+        make DESTDIR=$PKG install
+        rm -rf $PKG/usr/share/doc
+        rm -rf $PKG/usr/share/locale
+}

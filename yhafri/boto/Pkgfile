@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python interface to Amazon Web Services
+# URL: http://code.google.com/p/boto/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=boto
+version=0.8d
+release=1
+source=(http://$name.googlecode.com/files/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

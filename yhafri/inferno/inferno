@@ -1,0 +1,4 @@
+#!/bin/sh
+(cd /usr/lib/inferno/Linux/386/bin;
+./emu -r/usr/lib/inferno -g1024x768 -c1)
+

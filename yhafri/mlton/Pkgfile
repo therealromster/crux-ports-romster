@@ -1,0 +1,19 @@
+# $Id: $
+# Description:  A whole-program optimizing Standard ML compiler.
+# URL: http://www.mlton.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libgmp
+
+name=mlton
+#version=20041109-1
+version=20051202-1
+release=1
+source=(http://www.mlton.org/download/$name-$version.i386-linux.tgz)
+
+build () {
+	mkdir -p $PKG/usr/{lib,man,bin}
+	cp -rf $SRC/usr/* $PKG/usr
+	find $PKG/usr -iname "share"        -type "d" | xargs rm -rf	
+	chown -R root:root $PKG
+}

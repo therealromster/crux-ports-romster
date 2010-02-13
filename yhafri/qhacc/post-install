@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# install skeletal accounting framework to current users' $HOME
+mkdir ~/.qhacc
+cp /usr/share/qhacc/easysetup/* ~/.qhacc
+echo "Qhacc Setup Complete"

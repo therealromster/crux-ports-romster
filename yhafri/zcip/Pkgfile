@@ -1,0 +1,21 @@
+# $Id: $
+# Description: An implementation of the ad-hoc link-local IP autoconfiguration algorithm
+# URL: http://zeroconf.sourceforge.net/?selected=zcip
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=zcip
+version=0.5.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/zeroconf/tmdns-$version.tar.gz)
+
+build () {
+	cd tmdns-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

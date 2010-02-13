@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Excellent tool for building and remastering modules and whole Linux distros
+# URL: http://www.dreamlinux.com.br/english/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mkdistro
+version=2.5
+release=1
+source=(http://www.epron.com.br/downloads/$name/${name}US/$name.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cp -rf mk*.* $PKG/usr/lib/$name
+	chmod +x $PKG/usr/lib/$name/*.sh
+
+	chown -R root:root $PKG
+}

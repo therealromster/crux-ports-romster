@@ -1,0 +1,25 @@
+# Description: a thinking tool. a planning tool. Change the map when your thoughts change
+# URL: http://www.insilmaril.de/vym/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qt3
+
+name=vym
+version=1.7.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/vym/vym-$version.tar.gz \
+    vym-1.7.0.patch)
+# That patch is courtesy of FreeBSD
+
+build() {
+    export QTDIR=/usr/share/qt
+    cd $name-$version
+    patch -i $SRC/vym-1.7.0.patch
+    qmake
+    make
+    install -D -m 755 vym $PKG/usr/bin/vym
+    mkdir -p $PKG/usr/share/vym/
+    cp -r scripts styles $PKG/usr/share/vym/
+    install -m 644 doc/vym.pdf $PKG/usr/share/vym/vym.pdf
+    chown -R root:root $PKG
+}

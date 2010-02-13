@@ -1,0 +1,28 @@
+INSTALL:
+		* During the install process, you'll be prompted to enter your login name.
+
+POST-INSTALL:
+
+		* Change the line in "/etc/inittab" file:
+		c1:2:respawn:/sbin/agetty 38400 vc/1 linux
+
+		to:
+
+		c1:2:respawn:/sbin/agetty -n -l /usr/sbin/autologin 38400 vc/1 linux		
+
+		* If your login shell is "/bin/bash", add the following line to your "~/.bashrc" 
+		(or "~/.bash_profile"):
+
+		if [ -z "$DISPLAY" ] && [ $(tty) == /dev/tty1 ]; then
+  		  startx
+		fi
+
+		Otherwise, if your login shell is "/bin/sh", add the above code to your "~/.profile".
+		tcsh users need to convert the above to the equivalent csh script.
+
+		* If there is already a GUI desktop running (via xdm, gdm or kdm, etc) then invoke 
+		startx -- :1   instead
+
+		* Optional:
+		You can go further by making use of the "~/.xinitrc" file to initiate particular desktop 
+		applications.

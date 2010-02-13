@@ -1,0 +1,13 @@
+--- libvolume_id-0.71.0/Makefile	2006-11-04 07:55:34.000000000 +0100
++++ libvolume_id-0.71.0/Makefile-new	2006-12-03 02:28:56.000000000 +0100
+@@ -17,6 +17,10 @@
+ SHLIB_AGE = 0
+ SHLIB = libvolume_id.so.$(SHLIB_CUR)
+ 
++E=echo
++CC=gcc
++RANLIB=ranlib
++
+ OBJS=				\
+ 	ext.o			\
+ 	fat.o			\

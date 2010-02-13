@@ -1,0 +1,48 @@
+# $Id: $
+# Description: Hash table package in C
+# URL: http://www.noserose.net/e/code/hashtbl.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hashtbl
+version=2.0.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/integrit/integrit-4.0.tar.gz)
+#http://www.noserose.net/e/code/$name-20001101.tar.gz
+
+build () {
+	cd integrit-4.0/$name
+	./configure --prefix=/usr
+
+	make
+        make prefix=$PKG/usr install
+
+	gcc -shared -Wl,-soname,lib$name.so.2 -o lib$name.so.$version  *.o
+
+	install -D -m 755 lib$name.so.$version $PKG/usr/lib/lib$name.so.$version
+	
+	ln -sf /usr/lib/lib$name.so.2        $PKG/usr/lib/lib$name.so
+	ln -sf /usr/lib/lib$name.so.$version $PKG/usr/lib/lib$name.so.2
+
+	chown -R root:root $PKG
+}
+
+toto () {
+	ar rc  $name.a $name.o
+	ranlib $name.a 
+
+	make hashtestclean
+	gcc -fPIC -c hashtest.c 
+	gcc -fPIC -c hashtbl.c
+	gcc -fPIC -c xstrdup.c
+	gcc -shared -Wl,-soname,lib$name.so.1 -o lib$name.so.1.0.0  *.o
+
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	install -D -m 755 lib$name.so.1.0.0 $PKG/usr/lib/lib$name.so.1.0.0
+	
+	ln -sf /usr/lib/lib$name.so.1     $PKG/usr/lib/lib$name.so
+	ln -sf /usr/lib/lib$name.so.1.0.0 $PKG/usr/lib/lib$name.so.1
+
+	chown -R root:root $PKG
+}

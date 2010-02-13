@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A graphical user interface for the Valgrind 3.X
+# URL: http://www.open-works.co.uk/projects/valkyrie.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: qt3, valgrind
+
+name=valkyrie
+version=svn
+release=1
+source=()
+
+build () {
+	svn co svn://svn.valgrind.org/$name/trunk $name
+
+	cd $name
+	
+	./autogen.sh
+ 
+	CPPFLAGS="-I/usr/share/qt/mkspecs/linux-g++/" \
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

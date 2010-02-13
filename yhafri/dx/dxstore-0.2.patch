@@ -1,0 +1,72 @@
+--- dx-0.2/conv/Makefile	2006-10-31 15:23:09.000000000 +0100
++++ dx-0.2/conv/Makefile-new	2006-10-31 15:21:03.000000000 +0100
+@@ -6,19 +6,19 @@
+ LIBNAME=$(LIBNAME_PREFIX).a
+ 
+ DB_LIB=-ldb
+-DB_LIB=/k/lib/db/libdb.a
++DB_LIB=/usr/lib/libdb.a
+ GDBM_LIB=-lgdbm
+-GDBM_LIB=/k/lib/libgdbm.a
++GDBM_LIB=/usr/lib/libgdbm.a
+ SDBM_LIB=-lsdbm
+-SDBM_LIB=/k/lib/libsdbm.a
++SDBM_LIB=/usr/lib/libsdbm.a
+ NDBM_LIB=-lndbm
+-NDBM_LIB=/k/lib/libndbm.a
++NDBM_LIB=/usr/lib/libndbm.a
+ 
+-INC=-I. -I.. -I/k/generic/include
++INC=-I. -I.. -I/usr/include
+ 
+ CFLAGS=-pg -O3 $(INC) -DDX_BITS=32
+ CFLAGS=-O3 $(INC) -DDX_BITS=32
+-CFLAGS=-g $(INC) -DDX_BITS=32
++CFLAGS=-g $(INC) -DDX_BITS=32 -lpthread
+ 
+ all:	sdbm dx ndbm gdbm db
+ 
+--- dx-0.2/conv/convgdbm.c	2000-05-02 18:12:35.000000000 +0200
++++ dx-0.2/conv/convgdbm.c-new	2006-10-31 15:21:18.000000000 +0100
+@@ -12,7 +12,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ 
+-#include "/k/generic/include/gdbm/gdbm.h"
++#include "/usr/include/gdbm.h"
+ 
+ #include "dx.h"
+ 
+--- dx-0.2/conv/countgdbm.c	2000-05-02 18:12:48.000000000 +0200
++++ dx-0.2/conv/countgdbm.c-new	2006-10-31 15:21:26.000000000 +0100
+@@ -12,7 +12,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ 
+-#include "/k/generic/include/gdbm/gdbm.h"
++#include "/usr/include/gdbm.h"
+ 
+ char buf[10240];
+ 
+--- dx-0.2/conv/delgdbm.c	2000-05-02 18:13:02.000000000 +0200
++++ dx-0.2/conv/delgdbm.c-new	2006-10-31 15:21:36.000000000 +0100
+@@ -12,7 +12,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ 
+-#include "/k/generic/include/gdbm/gdbm.h"
++#include "/usr/include/gdbm.h"
+ 
+ char buf[102400];
+ 
+--- dx-0.2/conv/mkgdbm.c	2000-05-04 19:39:04.000000000 +0200
++++ dx-0.2/conv/mkgdbm.c-new	2006-10-31 15:21:44.000000000 +0100
+@@ -12,7 +12,7 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ 
+-#include "/k/generic/include/gdbm/gdbm.h"
++#include "/usr/include/gdbm.h"
+ 
+ char buf[102400];
+ 

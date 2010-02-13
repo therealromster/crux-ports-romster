@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Statistical Natural Language Processing
+# URL: http://dingo.sbs.arizona.edu/~hammond/ling696f-sp03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=snlp
+version=1.0
+release=1
+source=()
+
+build () {
+	for i in Unigrams.pm Bigrams.pm uniapprox.txt biapprox.txt \
+		 entropy.txt entropy2.txt hapax.txt novelwords.txt \
+		 addonecross.txt addx.txt forngram.txt;
+	do
+		wget "http://dingo.sbs.arizona.edu/~hammond/ling696f-sp03/$i"
+		sed -i "s|#\!perl -w|#\!/usr/bin/perl -w|" $i
+		if [ ${i##*.} = "txt" ]; then
+			mv $i "${i%.*}.pl"
+			i="${i%.*}.pl" 
+		fi
+		install -D -m 755 $i $PKG/usr/lib/snlp/$i
+	done
+	chown -R root:root $PKG
+}

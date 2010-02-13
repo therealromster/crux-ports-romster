@@ -1,0 +1,76 @@
+# $Id: $
+# Description: Media player
+# URL: http://www.mplayerhq.hu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Matt Housh <jaeger@morpheus.net>
+# Depends on: x11, gtk, libsdl, libsndfile, id3lib, faad2, faac, liba52, libjpeg, libpng, lame, zlib, libogg, libvorbis, cdparanoia, livemedia, fribidi, xmms, libcaca, aalib
+
+name=mplayer
+version=1.0rc1
+release=4
+codecver=20061022
+source=(http://www.mplayerhq.hu/MPlayer/releases/MPlayer-$version.tar.bz2          \
+	http://www.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-1.tar.bz2  \
+	http://www.mplayerhq.hu/MPlayer/releases/codecs/all-$codecver.tar.bz2 \
+	#$name-$version.patch
+	mplayer.conf)
+
+build() {
+	cd MPlayer-$version
+
+	make clean && make distclean
+
+	# mplayer decides optimizations at configure time, don't use CRUX's
+	unset CFLAGS
+
+	#patch -p1<../$name-$version.patch
+
+	sed -i 's|-W -Wall| |' configure
+
+#		    --enable-gtk2 \
+#        	    --enable-divx4linux \
+
+	./configure --prefix=/usr \
+		    --enable-ftp \
+		    --enable-fribidi \
+		    --enable-menu \
+        	    --enable-gui \
+        	    --enable-dynamic-plugins \
+        	    --enable-real \
+        	    --enable-largefiles \
+        	    --enable-linux-devfs \
+        	    --enable-freetype \
+        	    --with-win32libdir=/usr/share/mplayer/codecs \
+        	    --with-reallibdir=/usr/share/mplayer/codecs \
+		    --with-xanimlibdir=/usr/share/mplayer/codecs
+
+	make
+	make DESTDIR=$PKG install
+
+	# replace copy of identical manpage with a symlink
+	(cd $PKG/usr/man/man1; rm mencoder.1; ln -s mplayer.1.gz mencoder.1.gz)
+
+	# fonts
+    	mkdir -p $PKG/usr/share/mplayer/font/
+	cp -a $SRC/font-arial-iso-8859-1/font-arial-??-iso-8859-1 $PKG/usr/share/mplayer/font/
+	(
+	cd $PKG/usr/share/mplayer/font
+    	ln -s font-arial-14-iso-8859-1/* .
+	)
+	
+	chmod 644 $PKG/usr/share/mplayer/font/font-arial-??-iso-8859-1/*
+
+	# codecs
+	mkdir -p $PKG/usr/share/mplayer/codecs
+
+	cp $SRC/all-$codecver/* $PKG/usr/share/mplayer/codecs
+	chmod 644 $PKG/usr/share/mplayer/codecs/*
+
+	rm $PKG/usr/share/mplayer/codecs/README
+
+	# config
+	cp $SRC/mplayer.conf $PKG/usr/etc/mplayer/
+	cp etc/input.conf $PKG/usr/etc/mplayer/
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A cross-operating-system graphics user interface support system for embedded devices
+# URL: http://www.minigui.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=minigui 
+version=1.6.2 
+release=1
+source=(http://www.$name.org/downloads/$name-1.6.x/lib$name-str-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd lib$name-str-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

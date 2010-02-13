@@ -1,0 +1,27 @@
+# $Id $
+# Description: A Killer AALib console demo
+# URL: http://aa-project.sourceforge.net/bb/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Erlend Bergsås Mikkelsen <howl@online.no>
+# Depends on: aalib-old, libmikmod
+
+name=bb
+version=1.3rc1
+release=1
+source=(http://ftp.debian.org/debian/pool/main/b/$name/${name}_${version}.orig.tar.gz \
+	http://ftp.debian.org/debian/pool/main/b/$name/${name}_${version}-8.diff.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	gunzip bb_1.3rc1-8.diff.gz
+	cd $name-$version.orig
+	patch -p1 < ../${name}_${version}-8.diff
+	./configure
+	make
+	#(cd mikunix/; make)
+	#mv $name bb_snd_server *.s3m $PKG/usr/lib/$name
+	#install -D -m 755 ../$name $PKG/usr/bin/$name
+	make prefix=$PKG/usr install
+        chown -R root:root $PKG
+}

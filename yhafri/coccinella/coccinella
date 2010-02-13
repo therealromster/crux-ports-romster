@@ -1,0 +1,4 @@
+#!/bin/sh
+
+(cd /usr/lib/coccinella; wish Coccinella.tcl)
+

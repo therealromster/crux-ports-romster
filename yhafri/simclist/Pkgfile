@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A C library for Lists which exploits several advanced techniques for improving performance
+# URL: http://mij.oltrelinux.com/devel/simclist/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cmake
+
+name=simclist
+version=1.2
+release=1
+source=(http://mij.oltrelinux.com/devel/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	cmake .
+
+	make
+
+	install -D -m 644 $name.h     $PKG/usr/include/$name.h
+	install -D -m 755 lib$name.so $PKG/usr/lib/lib$name.so
+
+
+	chown -R root:root $PKG
+}

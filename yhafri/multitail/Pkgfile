@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Lets you view one or multiple files like the original tail program
+# URL: http://www.vanheusden.com/multitail/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses
+
+name=multitail
+version=4.2.0
+release=1
+source=(http://www.vanheusden.com/$name/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	strip $name
+
+	install -D -m 755 $name      $PKG/usr/bin/$name
+	install -D -m 644 $name.conf $PKG/etc/$name.conf
+	install -D  $name.1          $PKG/usr/man/man1/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,25 @@
+--- eXAT-1.2/exat.sh	2005-09-24 19:36:13.000000000 +0200
++++ eXAT-1.2/exat.sh-new	2006-11-18 09:36:15.000000000 +0100
+@@ -12,13 +12,14 @@
+   echo ""
+   echo ""
+   echo "The erlang eXperimental Agent Tool -- Release 1.2.0-EYE"
+-  echo "Copyright (C) 2003-05 Corrado Santoro (csanto@diit.unict.it)"
+-  echo "Copyright (C) 2005 Francesca Gangemi (francesca@erlang-consulting.com)"
+-  echo "Copyright (C) 2003-05 University of Catania (ITALY)"
++#  echo "Copyright (C) 2003-05 Corrado Santoro (csanto@diit.unict.it)"
++#  echo "Copyright (C) 2005 Francesca Gangemi (francesca@erlang-consulting.com)"
++#  echo "Copyright (C) 2003-05 University of Catania (ITALY)"
+   echo ""
+   exit 1
+ }
+ 
++(cd /usr/lib/erlang/lib/exat-*
+ if [ $# -gt 0 ]
+ then
+     if [ "$1" == "--help" ]
+@@ -35,3 +36,4 @@
+ else
+     help
+ fi
++)

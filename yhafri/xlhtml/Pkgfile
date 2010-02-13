@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Command line utilities to convert Excel and Powerpoint files
+# URL: http://chicago.sourceforge.net/xlhtml/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Alan Mizrahi <alan(at)mizrahi(dot)com(dot)ve>
+# Depends on: 
+
+name=xlhtml
+version=0.5
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/chicago/$name-$version.tgz)
+
+build() {
+        cd $name-$version
+        ./configure --prefix=/usr
+
+	aclocal
+	autoconf
+	automake --add-missing
+
+        make
+        make DESTDIR=$PKG install
+
+	cd ppthtml
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

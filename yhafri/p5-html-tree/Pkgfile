@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl parser that builds a HTML syntax tree
+# URL: http://search.cpan.org/~sburke/HTML-Tree-3.18/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-html-tree
+version=3.18
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/HTML-Tree-$version.tar.gz)
+
+build () {
+	cd HTML-Tree-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

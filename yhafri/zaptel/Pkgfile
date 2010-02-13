@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Open computer telephony hardware driver API
+# URL: http://www.voip-info.org/wiki/view/Zaptel
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses, libusb
+
+name=zaptel
+version=1.4.1
+release=1
+source=(http://ftp.digium.com/pub/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/man/man8
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr INSTALL_PREFIX=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# /etc/rc.d/irqbalanced: start/stop irqbalance daemon
+#
+
+if [ "$1" = "start" ]; then
+    /usr/sbin/irqbalance
+elif [ "$1" = "stop" ]; then
+    killall -q /usr/sbin/irqbalance
+elif [ "$1" = "restart" ]; then
+    killall -q /usr/sbin/irqbalance
+    /usr/sbin/irqbalance
+else
+    echo "usage: $0 start|stop|restart"
+fi
+
+# End of file

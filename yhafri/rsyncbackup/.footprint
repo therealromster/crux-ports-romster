@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/rsyncbackup/
+-rw-r--r--	root/root	etc/rsyncbackup/backupset.conf
+-rw-r--r--	root/root	etc/rsyncbackup/config.conf
+-rw-r--r--	root/root	etc/rsyncbackup/destinations.conf
+-rw-r--r--	root/root	etc/rsyncbackup/sources.conf
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/rsyncbackup

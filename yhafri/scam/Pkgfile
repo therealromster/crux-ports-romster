@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Simple Configure for Automatic Makefiles
+# URL: http://www.monasteriomono.org/programs/scam/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=scam
+version=0.5.2
+release=1
+source=(http://www.monasteriomono.org/programs/$name/$name.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/bin
+
+	cd $name-0.5.2
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	ln -sf /usr/bin/scam.py $PKG/usr/bin/scam
+
+	chown -R root:root $PKG
+}

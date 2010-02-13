@@ -1,0 +1,20 @@
+--- bin/jetty.sh	2007-10-02 11:33:07.000000000 +0200
++++ bin/jetty.sh-new	2007-10-02 11:42:22.000000000 +0200
+@@ -1,4 +1,17 @@
+ #!/bin/sh  
++
++#set -x -e
++
++unset JAVA JAVA_HOME JAVACMD JETTY_HOME
++JAVA_HOME=/usr/lib/java
++JAVACMD=$JAVA_HOME/bin/java
++JETTY_HOME=/usr/lib/jetty
++
++#CP="."
++#for jar in `ls $JETTY_HOME/lib/*.jar`
++#do
++#    CP=${CP}:${jar}
++#done
+ #
+ # Startup script for jetty under *nix systems (it works under NT/cygwin too).
+ #

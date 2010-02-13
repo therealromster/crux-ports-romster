@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Encrypt data with Cipher Block Chaining mode
+# URL: http://search.cpan.org/~lds/Crypt-CBC-2.14/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-crypt-des, p5-crypt-idea, p5-digest-md5
+
+name=p5-crypt-cbc
+version=2.17
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/L/LD/LDS/Crypt-CBC-$version.tar.gz)
+
+build () {
+	cd Crypt-CBC-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

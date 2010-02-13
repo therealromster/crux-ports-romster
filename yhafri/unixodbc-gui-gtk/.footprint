@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gODBCConfig
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libgtkodbcconfig.so -> libgtkodbcconfig.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgtkodbcconfig.so.0 -> libgtkodbcconfig.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgtkodbcconfig.so.0.0.0

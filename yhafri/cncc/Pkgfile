@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Counter of C/C++ source lines and bytes
+# URL: https://sourceforge.net/projects/cncc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cncc
+version=1.3.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-1-3-1--src.tar.bz2)
+
+build () {
+	cd $name-1-3-1--src
+	
+	g++ -o $name $name.cpp
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

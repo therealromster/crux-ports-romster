@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Really Slick Screensavers
+# URL: http://rss-glx.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, freeglut
+
+name=rss-glx
+version=0.8.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/${name}_${version}.tar.bz2)
+
+build () {
+	cd ${name}_${version}
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

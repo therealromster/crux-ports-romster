@@ -1,0 +1,18 @@
+# $Id: $
+# Description: A set of rules for the Jam build tool
+# URL: http://autojam.berlios.de/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=autojam
+version=2005-05-25
+release=1
+source=(http://download.berlios.de/$name/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/etc/$name
+	mv $name/mk/* $PKG/etc/$name/
+
+	chown -R root:root $PKG
+}

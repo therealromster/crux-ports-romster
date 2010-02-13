@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Produce PostScript files from Perl
+# URL: http://search.cpan.org/~mcnewton/PostScript-Simple-0.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-postscript-simple
+version=0.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MC/MCNEWTON/PostScript-Simple-$version.tar.gz)
+
+build () {
+	cd PostScript-Simple-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

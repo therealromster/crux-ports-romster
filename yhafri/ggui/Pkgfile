@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Offer a graphical user interface for any command-line program
+# URL: http://www.panayotis.com/ggui/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=ggui
+version=0.5.1
+release=1
+source=(http://www.panayotis.com/$name/$name-$version.tar.bz2)
+
+build () {
+    mkdir -p $PKG/usr/lib/$name
+
+	cd $name-$version
+
+    make 
+    cp bin/* $PKG/usr/lib/$name
+
+    chown -R root:root $PKG
+}

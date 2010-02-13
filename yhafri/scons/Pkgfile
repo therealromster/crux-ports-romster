@@ -1,0 +1,25 @@
+# $Id: $
+# Description: The next-generation software construction tool based on Python
+# URL: http://www.scons.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=scons
+version=0.96.91
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+    	cd $name-$version
+
+	python setup.py \
+               build \
+               install --prefix=/usr --root=$PKG
+    	
+	install -d         $PKG/usr/man/man1
+    	install scons.1    $PKG/usr/man/man1
+    	install sconsign.1 $PKG/usr/man/man1
+    	
+	chown -R root:root $PKG
+}

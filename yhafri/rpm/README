@@ -1,0 +1,11 @@
+COMPILE:
+
+		# pkgmk -cf ./pkgmk.conf
+
+POST-INSTALL:
+
+
+		* Type:
+		 # mkdir /var/lib/rpm
+		 # rpm --initdb
+

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Treat perl arrays as heaps (priority queues)
+# URL: http://search.cpan.org/~mlehmann/Array-Heap2-1.0/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-array-heap2
+version=1.0
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/Array-Heap2-$version.tar.gz)
+
+build () {
+	cd Array-Heap2-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

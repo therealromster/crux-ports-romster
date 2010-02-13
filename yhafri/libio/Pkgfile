@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A data transport abstraction library
+# URL: http://www.monkey.org/~provos/libio/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libevent
+
+name=libio
+version=0.1
+release=1
+source=(http://www.monkey.org/~provos/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name
+	./configure --prefix=/usr
+
+	patch -p1< ../$name-$version.patch
+	#sed -i "s|.*3.*||" Makefile
+	make
+	make install_prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

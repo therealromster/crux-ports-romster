@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Task Oriented Parallel C/C++
+# URL: http://www.ccs.neu.edu/home/gene/topc.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=topc
+version=2.5.0
+release=1
+source=(ftp://ftp.ccs.neu.edu/pub/people/gene/$name/$name.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{man/man1,info}
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/info
+
+	chown -R root:root $PKG
+}

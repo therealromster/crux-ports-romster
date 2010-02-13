@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Support for creating standard "inside-out" classes 
+# URL: http://search.cpan.org/~dconway/Class-Std-v0.0.8/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-class-std
+version=0.0.8
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/Class-Std-v$version.tar.gz)
+
+build () {
+	cd Class-Std-v$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

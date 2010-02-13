@@ -1,0 +1,37 @@
+# $Id: $
+# Description: An EFL Based Terminal
+# URL: http://www.enlightenment.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: etk, sqlite3, expat, libiconv, x11, libjpeg, freetype, libcryptopp, curl, fontconfig, openssl, zlib, libpng
+
+
+name=ephoto
+version=cvs
+release=1
+source=($name.patch)
+
+build()
+{
+    	cd $PKGMK_SOURCE_DIR
+    	if cd e17/apps/$name ; then
+		cvs -q up -dAP
+	else
+		cvs -qz3 -d :pserver:anonymous@anoncvs.enlightenment.org:/var/cvs/e co e17/proto/$name
+    	fi
+
+    	cp -r $PKGMK_SOURCE_DIR/e17/proto/$name $SRC
+
+    	cd $SRC/$name
+
+    	./autogen.sh --prefix=/usr
+	patch -p1<$SRC/$name.patch
+
+   	make
+    	make install DESTDIR=$PKG
+
+	rm -rf $PKG/usr/share/locale
+
+        chown -R root:root $PKG
+}
+

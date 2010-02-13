@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A Perl6 Implementation in Haskell
+# URL: http://search.cpan.org/~autrijus/Perl6-Pugs-6.2.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghc, p5-digest-sha1, parrot, hs-plugins, readline, cabal
+
+name=p6-pugs
+version=6.2.11
+release=2
+source=(http://pugscode.org/dist/Perl6-Pugs-$version.tar.gz)
+
+build () {
+	export GHC=/usr/bin/ghc
+	#export PUGS_EMBED="perl5 parrot"
+	#export PARROT_PATH=$SRC/parrot-0.03
+
+	cd Perl6-Pugs-$version
+	
+	perl Makefile.PL
+
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

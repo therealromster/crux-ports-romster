@@ -1,0 +1,22 @@
+# $Id: $
+# Description: PostgreSQL API to memcached
+# URL: http://people.freebsd.org/~seanc/pgmemcache/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pmk, libmemcache, postgresql
+
+name=pgmemcache
+version=1.0
+release=1
+source=(http://people.freebsd.org/~seanc/pgmemcache/pgmemcache-1.0.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	pmksetup
+	pmk
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

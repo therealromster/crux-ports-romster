@@ -1,0 +1,4 @@
+PRE-INSTALL:
+		* You need to unistall the default bzip2 port and install mine
+		because transcode requires bzip as shared library
+

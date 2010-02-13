@@ -1,0 +1,23 @@
+# $Id: $
+# Description: TCP/IP authenticated+encrypted streaming protocol that uses the LibTomCrypt cryptographic toolkit
+# URL: http://net.libtomcrypt.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libtomcrypt
+
+name=libtomnet
+version=0.06
+release=1
+source=(http://net.libtomcrypt.com/ltn-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	export USER=root
+	export GROUP=root
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

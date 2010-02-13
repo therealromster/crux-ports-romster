@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Python bindings for the wxWindows toolkit
+# URL: http://www.wxpython.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Mike Gardiner <driver@iinet.net.au>
+# Depends: python, wxgtk
+
+name=wxpython
+version=2.6.1.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/wxPython-src-$version.tar.gz)
+
+build() {
+	mkdir -p $PKG/usr
+	cd wxPython-src-$version/wxPython
+	
+	python setup.py \
+	       WXPORT=gtk2 UNICODE=1 BUILD_GLCANVAS=0 \
+	       build install --prefix=$PKG/usr
+	chown -R root:root $PKG
+}

@@ -1,0 +1,72 @@
+--- pgplot/drivers.list	1999-05-04 07:02:15.000000000 +0200
++++ pgplot/drivers-new.list	2004-07-13 16:30:18.006624544 +0200
+@@ -32,19 +32,19 @@
+ ! LSDRIV 2 /VLIPS2    Canon LaserShot printer (portrait)
+ ! LNDRIV 0 /LN03      Dec LN03-PLUS Laser printer (landscape)           VMS
+ ! LVDRIV 0 /LVN03     Dec LN03-PLUS Laser printer (portrait)            VMS
+-! LXDRIV 0 /LATEX     LaTeX picture environment
++ LXDRIV 0 /LATEX     LaTeX picture environment
+ ! MFDRIV 0 /FILE      PGPLOT graphics metafile
+ ! NEDRIV 0 /NEXT      Computers running NeXTstep operating system
+   NUDRIV 0 /NULL      Null device (no output)				Std F77
+ ! PGDRIV 0 /PGMF      PGPLOT metafile (new format, experimental)        Std F77
+ ! PNDRIV 1 /PNG       Portable Network Graphics file                    C
+ ! PNDRIV 2 /TPNG      Portable Network Graphics file - transparent background C
+-! PPDRIV 1 /PPM       Portable Pixel Map file, landscape
++ PPDRIV 1 /PPM       Portable Pixel Map file, landscape
+ ! PPDRIV 2 /VPPM      Portable PIxel Map file, portrait
+-! PSDRIV 1 /PS        PostScript printers, monochrome, landscape	Std F77
+-! PSDRIV 2 /VPS       Postscript printers, monochrome, portrait		Std F77
+-! PSDRIV 3 /CPS       PostScript printers, color, landscape		Std F77
+-! PSDRIV 4 /VCPS      PostScript printers, color, portrait		Std F77
++ PSDRIV 1 /PS        PostScript printers, monochrome, landscape	Std F77
++ PSDRIV 2 /VPS       Postscript printers, monochrome, portrait		Std F77
++ PSDRIV 3 /CPS       PostScript printers, color, landscape		Std F77
++ PSDRIV 4 /VCPS      PostScript printers, color, portrait		Std F77
+ ! PXDRIV 0 /PRINTRONI Printronix P300 or P600 dot-matrix printer
+ ! QMDRIV 1 /QMS       QUIC devices (QMS and Talaris), landscape		Std F77
+ ! QMDRIV 2 /VQMS      QUIC devices (QMS and Talaris), portrait		Std F77
+@@ -67,9 +67,9 @@
+ ! WDDRIV 1 /WD        X Window dump file, landscape
+ ! WDDRIV 2 /VWD       X Window dump file, portrait
+ ! WSDRIV 0 /WS        VAX workstations running VWS software		VMS
+-! X2DRIV 0 /XDISP     PGDISP or FIGDISP server for X workstations	C
+-! XWDRIV 1 /XWINDOW   Workstations running X Window System		C
+-! XWDRIV 2 /XSERVE    Persistent window on X Window System		C
++ X2DRIV 0 /XDISP     PGDISP or FIGDISP server for X workstations	C
++ XWDRIV 1 /XWINDOW   Workstations running X Window System		C
++ XWDRIV 2 /XSERVE    Persistent window on X Window System		C
+ ! ZEDRIV 0 /ZETA      Zeta 8 Digital Plotter
+ !
+ ! The following drivers can only be used in PGPLOT installations on MS-DOS
+@@ -107,7 +107,7 @@
+ ! before the PGPLOT library. This treatment means that only Tcl/Tk
+ ! applications have to be linked with the Tcl and Tk libraries.
+ !
+-! TKDRIV 0 /XTK       X-window Tcl/Tk programs with pgplot widgets.     C
++ TKDRIV 0 /XTK       X-window Tcl/Tk programs with pgplot widgets.     C
+ !
+ ! The following driver is included solely for use by the aips++ team.
+ !
+--- pgplot/drivers/pgxwin_server.c	1997-09-16 03:29:58.000000000 +0200
++++ pgplot/drivers/pgxwin_server.c-new	2005-10-02 19:54:05.924256880 +0200
+@@ -49,7 +49,7 @@
+                               /* Note that the line_of_pixels opcode */
+                               /* assumes that there are at most 256 colors */
+ #define XW_MIN_COLORS 2       /* Min number of colors per colormap */
+-#define XW_DEF_COLORS 100     /* Default number of colors to allocate */
++#define XW_DEF_COLORS 256     /* Default number of colors to allocate */
+ #define NCOLORS 16            /* Number of pre-defined PGPLOT colors */
+ #define XW_IMAGE_LEN 1280     /* Length of the line-of-pixels buffer */
+ #define COLORMULT 65535       /* Normalized color intensity multiplier */
+--- pgplot/pgdispd/proccom.c	2005-11-01 20:10:41.000000000 +0100
++++ pgplot/pgdispd/proccom.c-new	2005-11-01 20:11:47.000000000 +0100
+@@ -163,7 +163,7 @@
+ 	void drawline();	/* draw a line in the bitmap window */
+ 	Pixmap XCreatePixmap();
+ 
+-	char *malloc();
++	/* char *malloc(); */
+ 
+ 	if (!len & savedshorts)
+ 	{ /* an incomplete command was sent! */

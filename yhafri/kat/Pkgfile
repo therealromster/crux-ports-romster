@@ -1,0 +1,23 @@
+# Description: desktop search engine for KDE (like Spotlight, Beagle, and Google Desktop Search)
+# URL: http://kat.sourceforge.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: attr, kdelibs, sqlite3, antiword, openoffice, koffice, poppler, unrtf, html2text
+
+name=kat
+version=0.6.4
+release=3
+source=(http://dl.sourceforge.net/sourceforge/kat/kat-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{apps/kat/language,doc/HTML,locale}/* \
+        ! -wholename "*english.klp*" \
+        ! -wholename "*french.klp*" \
+        ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

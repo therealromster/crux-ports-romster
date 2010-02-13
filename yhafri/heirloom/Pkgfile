@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Provides traditional implementations of standard Unix utilities
+# URL: http://heirloom.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=heirloom
+version=060122
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make ROOT=$PKG install
+
+	chown -R root:root $PKG
+}

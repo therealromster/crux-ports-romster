@@ -1,0 +1,16 @@
+PRE-INSTALL:
+
+		* Skippy needs NETWM or GNOME WM Specs compliant
+		window-manager to works properly
+
+POST-INSTALL:
+
+		* Copy the skippyrc file to your home directory as:
+		$ cp skippyrc ~/.skippyrc
+
+		* To start skippy, run:
+		$ skippy &
+
+		* To swith between the applications, just press the 
+		Scroll_Lock key of your keaybord.
+

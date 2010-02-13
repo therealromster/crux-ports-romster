@@ -1,0 +1,44 @@
+#!/usr/bin/perl -w
+
+use strict;
+use GD;
+
+sub modify 
+{
+    my $name  =$ARGV[0] || die;
+
+    my $srcImage = new GD::Image($name) || die;
+    my ($w,$h) = $srcImage->getBounds();
+
+    my $up =8;
+    my $myImage = new GD::Image($w,$h-$up);
+    $myImage->copy($srcImage,0,0,0,0,$w,$h-$up);
+
+    my $png_data = $myImage->png;
+
+    store($name, $png_data);
+    #display($png_data);
+}
+
+sub store
+{
+    my $name     =shift || die;
+    my $png_data =shift || die;
+
+    open (OUTPUT,"> $name") || die;
+    binmode OUTPUT;
+    print OUTPUT $png_data;
+    close OUTPUT;
+}
+
+
+sub display
+{
+    my $png_data =shift || die;
+    open (DISPLAY,"| display -") || die;
+    binmode DISPLAY;
+    print DISPLAY $png_data;
+    close DISPLAY;
+}
+
+modify($ARGV[0]);

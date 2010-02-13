@@ -1,0 +1,24 @@
+# $Id: $
+# Description: 
+# URL: A LaTeX package that helps to allow PSTricks code in a pdfTeX document
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex, ps2eps
+
+name=latex-pdftricks
+version=1.16
+release=1
+source=(http://sarovar.org/download.php/98/pdftricks-$version.tar.gz)
+
+build () {
+	install -d $PKG/usr/bin
+	mkdir -p $PKG/usr/share/texmf/tex/latex/pdftricks
+
+	cd pdftricks-$version
+	cp pst2pdf   $PKG/usr/bin
+
+	cp pdftricks.sty $PKG/usr/share/texmf/tex/latex/pdftricks
+
+	chmod +x $PKG/usr/bin/*
+	chown -R root:root $PKG
+}

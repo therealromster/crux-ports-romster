@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A portable scheme library
+# URL: http://swissnet.ai.mit.edu/~jaffer/SLIB
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=slib
+version=3a1
+release=1
+source=(http://swiss.csail.mit.edu/ftpdir/scm/$name$version.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	mv $name $PKG/usr/lib
+	rm -rf  $PKG/usr/lib/$name/{*.tx*,ChangeLog,COPYING}
+	rm -rf  $PKG/usr/lib/$name/{README,ANNOUNCE,FAQ,Makefile}
+        chown -R root:root $PKG
+}

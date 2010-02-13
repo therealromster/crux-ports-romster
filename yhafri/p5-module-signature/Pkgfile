@@ -1,0 +1,20 @@
+# $Id: $
+# Description: CPAN signature management utility 
+# URL: http://search.cpan.org/~autrijus/Module-Signature-0.41/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-digest-sha
+
+name=p5-module-signature
+version=0.50
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AU/AUTRIJUS/Module-Signature-$version.tar.gz)
+
+build () {
+	cd Module-Signature-$version
+	echo "y" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# Description: a KDE iconset comprised of Pastels and Nuvola
+# URL: http://www.den-4.com/kde_pastelsnuvola.html
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, imagemagick
+
+name=pastels-nuvola-icons
+version=1
+release=2
+source=(http://www.thebartels.de/pastels-nuvola/pastels-nuvola-$version.tar.bz2)
+
+build() {
+    cd pastels-nuvola-$version
+    ./buildset
+    mkdir -p $PKG/usr/share/icons
+    (
+    cd $PKG/usr/share/icons
+    tar -xjf ../../../../src/pastels-nuvola-$version/Pastels-Nuvola-1.tar.bz2
+    )
+}

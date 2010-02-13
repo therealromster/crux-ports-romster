@@ -1,0 +1,11 @@
+--- ktuo/Makefile	2007-06-23 08:56:37.000000000 +0200
++++ ktuo/Makefile-new	2007-06-23 09:12:22.000000000 +0200
+@@ -6,7 +6,7 @@
+ ####################################################################### 
+ #Compiles the code into a ebin dir. relative to the source dir. 
+ 
+-EUNIT   := $(HOME)/workplace/eunit
++EUNIT   := /usr/lib/erlang/lib/eunit-svn
+ ERLC 	:= erlc
+ GEN 	:= beam
+ 

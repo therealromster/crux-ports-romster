@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Small utilities and commands for embedded systems
+# URL: http://www.fefe.de/embutils/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: dietlibc
+
+name=embutils
+version=0.17
+release=1
+
+source=(ftp://ftp.fu-berlin.de/unix/linux/dietlibc/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+        mkdir -p $PKG/usr/local/diet/bin
+	patch -p1 < ../$name-$version.patch
+        make prefix=/usr/local/diet
+        make prefix=$PKG/usr/local/diet install
+
+ 	chown -R root:root $PKG
+}

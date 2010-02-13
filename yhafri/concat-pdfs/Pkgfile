@@ -1,0 +1,17 @@
+# $Id: $
+# Description: How do I concat several PS files to one PS file?
+# URL: http://www.math.harvard.edu/computing/faq/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghostcript
+
+name=concat-pdfs
+version=1
+release=1
+source=($name)
+
+build () {
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

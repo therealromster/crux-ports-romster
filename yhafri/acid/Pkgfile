@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Small textmode assembly intro
+# URL: http://asm.sourceforge.net/resources.html#projects
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=acid
+version=0.1
+release=1
+source=(http://asm.sourceforge.net/$name-$version.tar.gz)
+
+build () {
+	cd $name/i386
+
+	./make.sh
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

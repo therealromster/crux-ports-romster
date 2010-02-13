@@ -1,0 +1,16 @@
+# Description: attempts to replicate the functionality of the apm command, including battery and thermal information
+# URL: http://grahame.angrygoats.net/acpi.shtml
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=acpi
+version=0.09
+release=1
+source=(http://grahame.angrygoats.net/source/acpi/acpi-$version.tar.gz)
+
+build() {
+	cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}

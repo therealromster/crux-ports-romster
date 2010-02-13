@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A collection of programs that operate on patch files
+# URL: http://cyberelk.net/tim/patchutils/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=patchutils
+version=0.2.30
+release=1
+source=(http://cyberelk.net/tim/data/patchutils/stable/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

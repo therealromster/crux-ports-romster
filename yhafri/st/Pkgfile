@@ -1,0 +1,22 @@
+# $Id: $
+# Description: State Threads provides a foundation for writing fast and highly scalable Internet Applications.
+# URL: http://state-threads.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=st
+version=1.7
+release=1
+source=(http://optusnet.dl.sourceforge.net/sourceforge/state-threads/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{include,lib}
+	cd $name-$version
+	make OTHER_FLAGS="$CFLAGS" linux-optimized
+	LINVER=`uname -r`
+	mv $SRC/$name-$version/LINUX_${LINVER}_OPT/*.so* $PKG/usr/lib
+	mv $SRC/$name-$version/LINUX_${LINVER}_OPT/*.h   $PKG/usr/include
+
+        chown -R root:root $PKG
+}

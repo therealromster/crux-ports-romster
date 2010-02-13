@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Distributed Emacs Lisp 
+# URL: http://fresh.homeunix.net/~luke/distel/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, emacs
+
+name=distel
+version=3.3
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+	mkdir -p $PKG/usr/bin/dec32
+
+	cd $name-$version
+
+        ./configure --prefix=/usr
+
+        make
+        make prefix=$PKG/usr install
+
+	mv $PKG/usr/bin/dec32/ $SRC/
+	mv $SRC/dec32/dec32 $PKG/usr/bin/
+	mv $PKG/usr/share/$name/ebin $PKG/usr/lib/erlang/lib/$name-$version/
+	mv $PKG/usr/share/$name/src  $PKG/usr/lib/erlang/lib/$name-$version/
+
+	rm -rf $PKG/usr/share/$name
+			
+	chown -R root:root $PKG
+}

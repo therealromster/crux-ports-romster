@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Template View Class
+# URL: http://search.cpan.org/~mramberg/Catalyst-View-TT-0.22/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-catalyst, p5-template-toolkit, p5-template-timer
+
+name=p5-catalyst-view-tt
+version=0.22
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MR/MRAMBERG/Catalyst-View-TT-$version.tar.gz)
+
+build () {
+	cd Catalyst-View-TT-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

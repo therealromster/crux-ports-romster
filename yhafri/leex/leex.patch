@@ -1,0 +1,11 @@
+--- leex.erl	2007-07-12 20:39:10.000000000 +0200
++++ leex.erl-new	2007-07-12 21:59:07.000000000 +0200
+@@ -442,7 +442,7 @@
+ 
+ out_file(OutFile, Mod, DFA, DF, Actions, Code) ->
+     io:fwrite("Writing file ~s, ", [OutFile]),
+-    case file:path_open([".", [code:lib_dir(),"/tools/include"]],
++    case file:path_open([".", [code:lib_dir(),"/leex-1.0/include"]],
+ 			"leex.hrl", read) of
+ 	{ok,Ifile,Iname} ->
+ 	    case file:open(OutFile, write) of

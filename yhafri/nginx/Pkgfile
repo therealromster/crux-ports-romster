@@ -1,0 +1,66 @@
+# $Id: $
+# Description: Ultra fast HTTP and mail proxy server
+# URL: http://nginx.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, libpcre, openssl, zlib, logrotate
+
+name=nginx
+version=0.5.26
+release=1
+source=(http://sysoev.ru/$name/$name-$version.tar.gz \
+	$name-$version.patch \
+	$name)
+
+build () {
+	mkdir -p $PKG/etc/logrotate.d
+	mkdir -p $PKG/usr/sbin
+	mkdir -p $PKG/var/spool/$name
+
+	cd $name-$version
+	(
+	cd auto
+	patch -p0<$SRC/$name-$version.patch
+	)
+	./configure --prefix=/etc/$name \
+		    --sbin-path=/sbin  \
+		    --conf-path=/etc   \
+		    --pid-path=/var/run/$name.pid \
+		    --lock-path=/var/lock/$name.lock \
+		    --http-client-body-temp-path=/var/spool/$name/client_body_temp \
+		    --http-proxy-temp-path=/var/spool/$name/proxy_temp \
+		    --http-fastcgi-temp-path=/var/spool/$name/fastcgi_temp \
+		    --error-log-path=/var/log/$name \
+		    --http-log-path=/var/log/$name/access.log \
+		    --error-log-path=/var/log/$name/error.log \
+		    --user=$name \
+		    --group=$name \
+		    --with-imap \
+		    --with-imap_ssl_module \
+		    --with-http_ssl_module
+
+	make || return 1
+	make DESTDIR=$PKG install
+
+cat <<- EOF > $PKG/etc/logrotate.d/$name
+	$_log_path/*log {
+		create 640 root log
+		compress
+		postrotate
+			/bin/kill -HUP `cat /var/run/$name.pid 2>/dev/null` 2> /dev/null || true
+		endscript
+	}
+EOF
+
+	sed -i -e "s/\<user\s\+\w\+;/user $name;/g" $PKG/etc/$name.conf 
+
+	install -D -m 755 $SRC/$name $PKG/etc/rc.d/$name
+
+
+	cd $PKG
+	(mv koi-utf koi-win win-utf mime.types etc/$name)
+	(mv fastcgi_params var/spool/$name/)
+	(mv sbin usr/sbin/$name)
+
+	chown -R root:root $PKG
+}

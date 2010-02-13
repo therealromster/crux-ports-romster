@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A complete desktop environment for Linux on x86
+# URL: http://www.xpde.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xpde
+version=0.5.1
+release=1
+source=(http://www.xpde.com/releases/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share
+
+	rm -rf $name/{INSTALL,src}
+	mv $name $PKG/usr/share
+
+	chown -R root:root $PKG
+}

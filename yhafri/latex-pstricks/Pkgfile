@@ -1,0 +1,35 @@
+# $Id: $
+# Description: LaTeX package for drawing high quality graphics
+# URL: http://www.tug.org/applications/PSTricks/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-pstricks
+version=1
+release=2
+source=()
+
+build () {
+
+    mkdir -p $PKG/usr/share/texmf/tex/generic/pstricks
+    mkdir -p $PKG/usr/share/texmf/tex/latex/pstricks
+    mkdir -p $PKG/usr/share/texmf/dvips/pstricks
+
+    # GENERIC
+    for i in dvipsone.con pst-3d.tex pst-char.tex pst-coil.tex pst-eps.tex pst-fill.tex  pst-grad.tex pst-key.tex  pst-node.tex pst-plot.tex  pst-text.tex pst-tree.tex  pstricks.con pstricks.tex textures.con vtex.con; do
+        wget "http://www.ctan.org/tex-archive/graphics/pstricks/generic/$i" -O $PKG/usr/share/texmf/tex/generic/pstricks/$i
+    done
+
+    # LATEX
+    for i in pst-3d.sty pst-all.sty pst-char.sty pst-coil.sty pst-eps.sty  pst-fill.sty pst-grad.sty pst-key.sty  pst-node.sty pst-plot.sty  pst-text.sty pst-tree.sty pstricks.sty; do
+        wget "http://www.ctan.org/tex-archive/graphics/pstricks/latex/$i" -O $PKG/usr/share/texmf/tex/latex/pstricks/$i
+    done
+
+    # DVIPS
+    for i in pst-blur.pro pst-coil.pro pst-dots.pro pst-grad.pro pst-node.pro pst-slpe.pro pst-text.pro pstricks.pro; do
+        wget "http://www.ctan.org/tex-archive/graphics/pstricks/dvips/$i" -O $PKG/usr/share/texmf/dvips/pstricks/$i
+    done
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,14 @@
+# Description: utility to check, and publish (upload-sync) an httpup repository
+# URL: http://members.shaw.ca/nick.steeves/ports/htup
+# Maintainer: sten, nick dot steeves at shaw dot ca
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: httpup, weex, prt-utils, wget
+
+name=htup
+version=0.5.2.1
+release=9
+source=(htup)
+
+build() {
+	install -D -m 755 htup $PKG/usr/bin/htup
+}

@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A tool for installing and maintaining Erlang applications
+# URL: http://www.trapexit.org/erlmerge/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=erlmerge
+version=0.6
+release=1
+source=(http://www.trapexit.org/download/$name-${version}_src.tar.gz \
+	$name-$version.patch \
+	post-install)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/erlang/lib/$name-$version}
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make INSTALLPREFIX=$PKG/usr/lib/erlang \
+	     TARGETDIR=$PKG/usr/lib/erlang/lib/$name-$version/ install
+
+	ln -sf /usr/lib/erlang/bin/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

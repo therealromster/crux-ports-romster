@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A library that can be used to gather statistical information from any Linux program
+# URL: http://rtportal.upv.es/rtmalloc/tests/histogram/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=histograms
+version=1.3.1
+release=1
+source=(http://rtportal.upv.es/rtmalloc/tests/histogram/malloc_block_size_st.tbz2)
+
+build () {
+	tar xf malloc_block_size_st.tbz2
+	cd malloc_block_size_st
+
+	make
+	ar cvr malloc_statistics.a *.o
+
+	install -D -m 755 malloc_statistics.so $PKG/usr/lib/malloc_statistics.so
+	install -D -m 644 malloc_statistics.a  $PKG/usr/lib/malloc_statistics.a
+
+	chown -R root:root $PKG
+}

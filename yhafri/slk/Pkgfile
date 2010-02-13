@@ -1,0 +1,20 @@
+# $Id: $
+# Description: The Only True LL(k) Parser Generator
+# URL: http://home.earthlink.net/~slkpg/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=slk
+version=3.89
+release=1
+source=(http://home.earthlink.net/~slkpg/$name.Z)
+
+build () {
+	gunzip $name.Z
+	chmod +x $name
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

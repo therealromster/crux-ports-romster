@@ -1,0 +1,19 @@
+# Description: a KCM module which allows one to change one's KDE >=3.4 KDM Theme without using the console (uses GDM-style themes)
+# URL: http://smileaf.org/projects.php
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=kdmtheme
+version=1.1
+release=2
+source=(http://beta.smileaf.org/files/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/doc/HTML/* ! -wholename "*HTML/en*" -delete
+}

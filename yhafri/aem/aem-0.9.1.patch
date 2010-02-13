@@ -1,0 +1,39 @@
+--- lib/Makefile	2004-06-29 19:53:23.000000000 +0200
++++ lib/Makefile-new	2006-02-21 10:46:20.519750384 +0100
+@@ -10,7 +10,8 @@
+ MAKE = make
+ 
+ CFLAGS   = ${includedir} 
+-CFLAGS  += -Wall -fvolatile-static
++#CFLAGS  += -Wall -fvolatile-static
++CFLAGS  += -Wall
+ 
+ LDFLAGS  = -m elf_i386 -r 
+ 
+@@ -28,6 +29,7 @@
+ 
+ all: libaem.o
+ 	${CC} ${OBJ} -shared -o ${LIB}.so
++	ar rc ${LIB}.a ${OBJ}
+ 
+ clean:
+ 	rm -f ${LIB}.so ${OBJ} libaem.o .depends
+--- cfgaem.sh	2004-06-21 15:39:29.000000000 +0200
++++ cfgaem.sh-new	2006-02-21 10:48:05.695761200 +0100
+@@ -21,6 +21,8 @@
+ 
+ inc_file="aem.h"
+ lib_file="libaem.so"
++lib_file_static="libaem.a"
++
+ 
+ recall_usage()
+ {
+@@ -68,6 +70,7 @@
+ 	echo "$lib_file already installed"
+     else
+ 	cp ./lib/$lib_file ${prefix}/lib
++	cp ./lib/$lib_file_static ${prefix}/lib
+ 	echo "$lib_file installed"
+     fi
+ }

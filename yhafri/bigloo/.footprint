@@ -1,0 +1,122 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bglafile
+-rwxr-xr-x	root/root	usr/bin/bgldepend
+-rwxr-xr-x	root/root	usr/bin/bgljas
+-rwxr-xr-x	root/root	usr/bin/bgljfile
+-rwxr-xr-x	root/root	usr/bin/bglmake
+-rwxr-xr-x	root/root	usr/bin/bglmco
+-rwxr-xr-x	root/root	usr/bin/bglmem
+-rwxr-xr-x	root/root	usr/bin/bglmemrun
+-rwxr-xr-x	root/root	usr/bin/bglpp
+-rwxr-xr-x	root/root	usr/bin/bglprof
+-rwxr-xr-x	root/root	usr/bin/bgltags
+-rwxr-xr-x	root/root	usr/bin/bigloo
+-rwxr-xr-x	root/root	usr/bin/bigloo2.8b
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/bigloo/
+drwxr-xr-x	root/root	usr/lib/bigloo/2.8b/
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/Makefile.config
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/Makefile.misc
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/bigloo.h
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/bigloo.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/bigloo_config.h
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/bigloo_gc.h
+drwxr-xr-x	root/root	usr/lib/bigloo/2.8b/bmem/
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/bmem/bmem.css
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/bmem/bmem.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/calendar.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/calendar.init
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/fthread.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/fthread.init
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloo_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloo_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloo_u-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloo_u-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloocalendar_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloocalendar_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloocalendar_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloocalendar_u-2.8b.a -> libbigloocalendar_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloocalendar_u-2.8b.so -> libbigloocalendar_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloofth_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloofth_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloofth_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloofth_u-2.8b.a -> libbigloofth_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloofth_u-2.8b.so -> libbigloofth_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloogc-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloogc-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloogc_fth-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloogc_fth-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloomail_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloomail_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloomail_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloomail_u-2.8b.a -> libbigloomail_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloomail_u-2.8b.so -> libbigloomail_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloomultimedia_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloomultimedia_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloomultimedia_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloomultimedia_u-2.8b.a -> libbigloomultimedia_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloomultimedia_u-2.8b.so -> libbigloomultimedia_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloopth_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloopth_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloopth_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloopth_u-2.8b.a -> libbigloopth_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloopth_u-2.8b.so -> libbigloopth_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloosqlite_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloosqlite_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloosqlite_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloosqlite_u-2.8b.a -> libbigloosqlite_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloosqlite_u-2.8b.so -> libbigloosqlite_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloossl_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloossl_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbigloossl_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloossl_u-2.8b.a -> libbigloossl_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbigloossl_u-2.8b.so -> libbigloossl_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbiglooweb_e-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbiglooweb_s-2.8b.a
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/libbiglooweb_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbiglooweb_u-2.8b.a -> libbiglooweb_s-2.8b.a
+lrwxrwxrwx	root/root	usr/lib/bigloo/2.8b/libbiglooweb_u-2.8b.so -> libbiglooweb_s-2.8b.so
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/mail.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/mail.init
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/multimedia.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/multimedia.init
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/pthread.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/pthread.init
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/sqlite.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/sqlite.init
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/ssl.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/ssl.init
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/web.heap
+-rwxr-xr-x	root/root	usr/lib/bigloo/2.8b/web.init
+lrwxrwxrwx	root/root	usr/lib/libbigloo_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloo_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloo_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloo_u-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloocalendar_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloocalendar_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloocalendar_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloocalendar_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloocalendar_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloocalendar_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloofth_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloofth_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloofth_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloofth_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloofth_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloofth_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloogc-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloogc-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloogc_fth-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloogc_fth-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloomail_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloomail_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloomail_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloomail_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloomail_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloomail_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloomultimedia_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloomultimedia_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloomultimedia_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloomultimedia_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloomultimedia_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloomultimedia_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloopth_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloopth_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloopth_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloopth_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloopth_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloopth_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloosqlite_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloosqlite_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloosqlite_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloosqlite_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloosqlite_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloosqlite_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloossl_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloossl_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloossl_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloossl_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbigloossl_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbigloossl_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbiglooweb_e-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbiglooweb_e-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbiglooweb_s-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbiglooweb_s-2.8b.so
+lrwxrwxrwx	root/root	usr/lib/libbiglooweb_u-2.8b.so -> /usr/ports/yhafri/bigloo/work/pkg/usr/lib/bigloo/2.8b/libbiglooweb_s-2.8b.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rwxr-xr-x	root/root	usr/man/man1/bigloo.1.gz

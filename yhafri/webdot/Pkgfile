@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A tcldot scripted WWW service for graphs in HTML documents
+# URL: http://www.graphviz.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, apache
+
+name=webdot
+version=2.8
+release=1
+source=(http://www.graphviz.org/pub/graphviz/ARCHIVE/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG/usr install
+
+	chown -R root:root $PKG
+}

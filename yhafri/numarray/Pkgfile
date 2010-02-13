@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Array manipulation and computational capabilities
+# URL:	http://numeric.scipy.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=numarray
+version=1.5.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/numpy/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	python setup.py install --root=$PKG
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,11 @@
+--- scite/gtk/makefile	2004-11-28 14:39:01.756818688 +0100
++++ scite/gtk/makefile-new	2004-11-28 14:39:21.876759992 +0100
+@@ -98,7 +98,7 @@
+ 	$(CC) -MM `$(CONFIGFLAGS)` $(CXXFLAGS) *.cxx ../src/*.cxx >deps.mak
+ 
+ # make should be run in ../../scintilla/gtk to compile all the lexers.
+-COMPLIB=../../scintilla/bin/scintilla.a
++COMPLIB=-liconv ../../scintilla/bin/scintilla.a
+ 
+ $(PROG): SciTEGTK.o SciTEBase.o SciTEBuffers.o SciTEIO.o Exporters.o \
+ MultiplexExtension.o DirectorExtension.o SciTEProps.o Utf8_16.o \

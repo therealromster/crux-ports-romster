@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Nedlib to ARC conversion utility 
+# URL: http://nwatoolset.sourceforge.net/docs/NedlibToARC/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: j2sdk
+
+name=nedlib2arc
+version=1.0
+release=1
+source=(http://nwatoolset.sourceforge.net/docs/NedlibToARC/NedlibToARC-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	cd NedlibToARC-$version	
+	mv bin/ lib/ NedlibToArc.sh $PKG/usr/lib/$name
+	ln -sf /usr/lib/$name/NedlibToArc.sh  $PKG/usr/bin/$name
+        chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: An extension to the Java language that adds open classes and symmetric multiple dispatch
+# URL: http://multijava.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=multijava
+version=1.3.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/mjc-1_3_1.jar)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cp mjc-1_3_1.jar $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}

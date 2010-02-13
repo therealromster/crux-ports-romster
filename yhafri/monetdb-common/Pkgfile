@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Open source high-performance database
+# URL: http://monetdb.cwi.nl/Home/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, swig, python, openssl
+
+name=monetdb-common
+version=1.16.2
+release=1
+source=(http://belnet.dl.sourceforge.net/sourceforge/monetdb/MonetDB-$version.tar.gz)
+
+build () {
+	cd MonetDB-$version
+	./configure --prefix=/usr \
+		    --enable-optimize \
+		    --enable-largefile \
+		    --without-java
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

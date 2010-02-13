@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A graphical database management tool for PostgreSQL
+# URL: http://www.flex.ro/pgaccess/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl, tk, pgtcl
+
+name=pgaccess
+version=0.98.7
+release=1
+source=(http://www.flex.ro/$name/download/$name-$version.tar.gz \
+	start)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cd $name
+	sed -i "s|PGACCESS_HOME=.*|PGACCESS_HOME=\`pwd\`|" $name
+	rm -rf doc win32 README copyright.html
+	cd -
+	mv $name $PKG/usr/lib/
+	install -D -m 755 start $PKG/usr/bin/$name 
+	chown -R root:root $PKG
+}

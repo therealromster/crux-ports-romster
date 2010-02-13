@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A high performance, robust language for general-purpose client-side and server-side application development
+# URL: http://www.factorcode.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=factor
+version=0.81
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/Factor-0.81.zip \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cd Factor
+
+	make linux
+	rm -rf debian doc examples contrib/README.txt TODO.FACTOR.txt README.txt Makefile boot.image.amd64 boot.image.ppc
+	./f boot.image.x86
+
+	cd ..
+	mv Factor $PKG/usr/lib/$name
+	ln -sf /usr/lib/$name/f $PKG/usr/bin/f	
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

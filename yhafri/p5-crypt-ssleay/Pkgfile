@@ -1,0 +1,20 @@
+# $Id: $
+# Description: OpenSSL glue that provides LWP https support for Perl
+# URL: http://search.cpan.org/~chamas/Crypt-SSLeay-0.51/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=p5-crypt-ssleay
+version=0.51
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CH/CHAMAS/Crypt-SSLeay-$version.tar.gz)
+
+build () {
+	cd Crypt-SSLeay-$version
+	echo "/usr" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

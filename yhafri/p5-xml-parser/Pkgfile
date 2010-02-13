@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A perl module for parsing XML documents
+# URL: http://search.cpan.org/~msergeant/XML-Parser-2.34/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-xml-parser
+version=2.34
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSERGEANT/XML-Parser-$version.tar.gz)
+
+build () {
+	cd XML-Parser-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

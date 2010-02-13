@@ -1,0 +1,20 @@
+# Description: a collection manager for KDE 3.x
+# URL: http://www.periapsis.org/tellico/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdemultimedia, yaz
+
+name=tellico
+version=1.1.6
+release=1
+source=(http://www.periapsis.org/tellico/download/tellico-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

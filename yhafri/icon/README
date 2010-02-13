@@ -1,0 +1,5 @@
+POST-INSTALL:
+
+                * Add this path to your PATH environment variable:
+                export ICON=/usr/local/icon
+                export PATH=$ICON/bin:$PATH

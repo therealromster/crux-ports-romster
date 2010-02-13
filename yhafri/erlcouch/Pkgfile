@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Erlang interface to CouchDB
+# URL: http://code.google.com/p/erlcouch/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, subversion
+
+name=erlcouch
+version=svn
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+
+	
+	mkdir -p ebin
+
+	(cd src; erl -make; mv *.beam ../ebin)
+
+	mv ebin/ src/  $PKG/usr/lib/erlang/lib/$name-$version/
+
+	chown -R root:root $PKG
+}

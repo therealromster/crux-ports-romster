@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A Lightweight Web Browser
+# URL: http://siag.nu/kylie/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: mowitz, netpbm, t1lib
+
+name=kylie
+version=0.0.7
+release=1
+source=(ftp://siag.nu/pub/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                    --with-xawm=Xaw3d \
+                    --with-t1lib
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

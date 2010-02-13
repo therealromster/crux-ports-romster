@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Make using Doxygen from within {X}Emacs easier
+# URL: http://doxymacs.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: w3, doxygen, tempo, w3m, libxml2
+
+name=doxymacs
+version=1.7.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	EMACSLOADPATH=/usr/share/emacs/site-lisp make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

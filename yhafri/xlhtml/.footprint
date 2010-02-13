@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/nsopen
+-rwxr-xr-x	root/root	usr/bin/nspptview
+-rwxr-xr-x	root/root	usr/bin/nsxlview
+-rwxr-xr-x	root/root	usr/bin/ppthtml
+-rwxr-xr-x	root/root	usr/bin/xlhtml
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/ppthtml.1.gz
+-rw-r--r--	root/root	usr/man/man1/xlhtml.1.gz

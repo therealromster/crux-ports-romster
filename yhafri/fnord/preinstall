@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# fnord CRUX preinst
+
+if [ `id -u` -ne 0 ]; then
+   echo "[ERR] ${0}: must be root."
+   exit 1
+fi
+
+/usr/bin/grep fnord /etc/group &> /dev/null
+if [ $? -ne 0 ]; then
+   groupadd fnord
+fi
+
+/usr/bin/grep fnord /etc/passwd &> /dev/null
+if [ $? -ne 0 ]; then
+   useradd -g fnord -d /dev/null -s /bin/false fnord
+   useradd -g fnord -d /dev/null -s /bin/false fnordlog
+fi

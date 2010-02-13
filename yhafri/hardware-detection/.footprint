@@ -1,0 +1,8 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/hardware-detection/
+-rw-r--r--	root/root	etc/hardware-detection/pci.db
+-rw-r--r--	root/root	etc/hardware-detection/usb.ids
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/pcidetect
+-rwxr-xr-x	root/root	usr/bin/usbdetect

@@ -1,0 +1,37 @@
+# $Id: $
+# Description: A collection offree screen savers for X11
+# URL: http://www.jwz.org/xscreensaver/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, bc, libglade, netpbm, fortune
+
+name=xscreensaver
+version=5.01
+release=1
+source=(http://www.jwz.org/$name/$name-$version.tar.gz)
+
+build () {
+        cd $name-$version
+        exp="s/USE_NLS=yes/USE_NLS=no/; s/ENABLE_NLS 1/ENABLE_NLS 0/"
+        sed -i "$exp" configure
+
+        ./configure     --prefix=/usr \
+                	--libexecdir=/usr/lib \
+                	--mandir=/usr/man \
+                	--enable-locking \
+                	--without-motif \
+                	--without-gnome \
+                	--without-gle \
+                	--without-setuid-hacks \
+			--with-pam \
+		        --with-kerberos \
+			--with-gl \
+			--with-gle \
+			--enable-locking
+
+        make
+        make install_prefix=$PKG AD_DIR=/etc/X11/app-defaults install
+        
+        rm -rf $PKG/usr/share/$name/config/README
+	chown -R root:root $PKG
+}

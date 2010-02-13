@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A simple, flexible and easy-to-learn programming language
+# URL: http://www.rapideuphoria.com/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gpm
+
+name=euphoria
+version=31
+release=3
+source=(http://www.rapideuphoria.com/$version/euphor$version.tar)
+
+build () {
+    	mkdir -p $PKG/usr/lib
+    	
+	tar -xzvf euphor$version.tar 
+
+    	rm -rf $name/{License.txt,demo,doc,html,register,tutorial,nstall.doc,readme.doc,readme.htm}
+	mv $name $PKG/usr/lib
+    	
+	chown -R root:root $PKG
+}

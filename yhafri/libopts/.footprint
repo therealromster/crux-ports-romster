@@ -1,0 +1,26 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/libopts-config
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/autoopts/
+-rw-r--r--	root/root	usr/include/autoopts/options.h
+-rw-r--r--	root/root	usr/include/autoopts/usage-txt.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libopts.a
+-rwxr-xr-x	root/root	usr/lib/libopts.la
+lrwxrwxrwx	root/root	usr/lib/libopts.so -> libopts.so.24.3.4
+lrwxrwxrwx	root/root	usr/lib/libopts.so.24 -> libopts.so.24.3.4
+-rwxr-xr-x	root/root	usr/lib/libopts.so.24.3.4
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/info/
+-rw-r--r--	root/root	usr/share/info/dir
+-rw-r--r--	root/root	usr/share/info/libopts.info
+-rw-r--r--	root/root	usr/share/info/libopts.txt
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/libopts-config.1.gz
+drwxr-xr-x	root/root	usr/share/man/man3/
+-rw-r--r--	root/root	usr/share/man/man3/configFileLoad.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/optionGetValue.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/optionNextValue.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/optionUnloadNested.3.gz

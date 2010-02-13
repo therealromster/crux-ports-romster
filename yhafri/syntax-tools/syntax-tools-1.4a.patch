@@ -1,0 +1,66 @@
+--- syntax_tools/src/Makefile	2004-07-05 16:02:47.000000000 +0200
++++ syntax_tools/src/Makefile-new	2005-01-17 22:42:17.800555288 +0100
+@@ -2,8 +2,8 @@
+ # Copyright (C) 2004, Ericsson Telecommunications
+ # Authors: Richard Carlsson, Bertil Karlsson
+ #
+-include $(ERL_TOP)/make/target.mk
+-include $(ERL_TOP)/make/$(TARGET)/otp.mk
++#include $(ERL_TOP)/make/target.mk
++#include $(ERL_TOP)/make/$(TARGET)/otp.mk
+ 
+ # ----------------------------------------------------
+ # Application version
+@@ -52,7 +52,7 @@
+ # ----------------------------------------------------
+ # Release Target
+ # ----------------------------------------------------
+-include $(ERL_TOP)/make/otp_release_targets.mk
++#include $(ERL_TOP)/make/otp_release_targets.mk
+ 
+ release_spec: opt
+ 	$(INSTALL_DIR) $(RELSYSDIR)/ebin
+--- syntax_tools/Makefile	2004-11-08 18:47:19.000000000 +0100
++++ syntax_tools/Makefile-new	2005-01-17 23:01:56.798320384 +0100
+@@ -15,8 +15,8 @@
+ # 
+ #     $Id: Makefile,v 1.31 2004/11/08 17:47:19 richardc Exp $
+ #
+-include $(ERL_TOP)/make/target.mk
+-include $(ERL_TOP)/make/$(TARGET)/otp.mk
++#include $(ERL_TOP)/make/target.mk
++#include $(ERL_TOP)/make/$(TARGET)/otp.mk
+ 
+ #
+ # Macros
+@@ -49,7 +49,7 @@
+ # Default Subdir Targets
+ #
+ 
+-include $(ERL_TOP)/make/otp_subdir.mk
++#include $(ERL_TOP)/make/otp_subdir.mk
+ 
+ 
+ .PHONY: info version
+--- syntax_tools/doc/Makefile	2005-01-17 23:04:20.516471904 +0100
++++ syntax_tools/doc/Makefile-new	2005-01-17 23:04:35.589180504 +0100
+@@ -15,8 +15,8 @@
+ # 
+ #     $Id: Makefile,v 1.1.1.1 2004/10/04 13:56:14 richardc Exp $
+ #
+-include $(ERL_TOP)/make/target.mk
+-include $(ERL_TOP)/make/$(TARGET)/otp.mk
++#include $(ERL_TOP)/make/target.mk
++#include $(ERL_TOP)/make/$(TARGET)/otp.mk
+ 
+ # ----------------------------------------------------
+ # Application version
+@@ -71,7 +71,7 @@
+ # ---------------------------------------------------- 
+ 
+ 
+-include $(ERL_TOP)/make/otp_release_targets.mk
++#include $(ERL_TOP)/make/otp_release_targets.mk
+ 
+ release_docs_spec: docs
+ 	$(INSTALL_DIR) $(RELSYSDIR)/doc/html

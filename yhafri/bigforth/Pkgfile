@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A native code Forth
+# URL: http://www.jwdt.com/%7Epaysan/bigforth.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=bigforth
+version=2.1.3
+release=1
+source=(http://www.jwdt.com/~paysan/$name-$version.tar.bz2)
+
+build () {
+	cd $name
+	./configure --prefix=/usr
+
+        make
+	make prefix=$PKG/usr install
+
+	find $PKG/usr -iname "info"         -type "d" | xargs rm -rf
+	rm -rf $PKG/usr/lib/bigforth/src
+
+        chown -R root:root $PKG
+}

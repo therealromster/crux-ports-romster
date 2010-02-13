@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A personal full-text search system
+# URL: http://estraier.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib, xpdf, qdbm, groff, wvware, xlhtml
+
+#xdoc2txt, xdw2text 
+
+name=estraier
+version=1.2.29
+release=1
+source=(http://$name.sourceforge.net/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --enable-regex \
+		    --enable-dlfilter \
+		    --enable-strict \
+		    --disable-stopword \
+		    --with-sysqdbm 
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: MiMMS isn't an MMS Message Sender
+# URL: http://savannah.nongnu.org/projects/mimms/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: wget, libmms, qt4
+
+name=mimms
+version=2.0.1
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

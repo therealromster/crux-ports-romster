@@ -1,0 +1,56 @@
+INFO:
+		* Epoll patch from:
+		http://developer.sipphone.com/ejabberd/erlang_epoll_patch/
+		
+		* Supervisor - Performance improvement for dynamic 
+		workers patch (supervisor-dict.patch):
+		https://support.process-one.net/doc/display/CONTRIBS/Supervisor+-+Performance+improvement+for+dynamic+workers
+
+
+
+PRE-INSTALL:
+		* To enable some Erlang features, comment the lines in the "skip.sh" 
+		scripts. For example, to turn on "asn1" support in your Erlang 
+		installation set:
+		#touch lib/asn1/SKIP
+
+		* In certain cases, you may need to compile like that 
+        (must unset all CFLAGS, CXXFLAGS and CPPFLAGS):
+		# pkgmk -cf pkgmk.conf -d -i
+
+POST-INSTALL:
+		* Set the environment variables ROOTDIR and ERL_EARS in your ~/.bashrc:
+		export ROOTDIR=/usr/lib/erlang
+		export ERLANG_EARS=/usr/lib/erlang/erts-X.Y.Z (change X.Y.Z with the correct values)
+
+		*To enable the "erlang-mode" for emacs, add the following lines to 
+		your .emacs (or .emacs.el) file in your home directory:
+
+
+---START--------------------copy and past this---------------START---
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;                       Erlang MODE
+;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Change X.Y.Z with the correct values
+;;
+(setq load-path (cons   "/usr/lib/erlang/lib/tools-X.Y.Z/emacs"
+                          load-path))
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+(require 'erlang-start)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;                      Erlang MAN PAGES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun erlang-man ()
+        "Open the Erlang manual for the function under the cursor"
+        (interactive)
+        (erlang-man-function (current-word))
+)
+(global-set-key "\C-c\h" 'erlang-man)
+
+---END--------------------copy and past this------------------END-----

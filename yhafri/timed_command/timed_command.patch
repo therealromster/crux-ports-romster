@@ -1,0 +1,53 @@
+--- timed_command.c	2006-11-09 09:13:27.000000000 +0100
++++ timed_command.c-new	2006-11-16 12:05:01.000000000 +0100
+@@ -1,27 +1,41 @@
+-/* run a command with a limited timeout
++/* 
++   run a command with a limited timeout
+    tridge@samba.org, January 2002
++   Updated: Younes Hafri 16 november 2006
+ */
++
+ #include <stdio.h>
+ #include <string.h>
+ #include <stdlib.h>
+ #include <unistd.h>
++#include <errno.h>
+ 
+-static void usage(void)
++static void usage(const char * progname)
+ {
+-	printf("Run a command with a limited timeout\n");
+-	printf("timed_command <time> <command>\n");
++	fprintf(stderr, "Usage: run a command with a limited timeout\n");
++	fprintf(stderr, "\t%s <time> <command>\n", progname);
+ }
+ 
+ int main(int argc, char *argv[])
+ {
+-	int maxtime;
++	long int maxtime;
+ 
+-	if (argc < 3) {
+-		usage();
++	if (3 > argc) {
++		usage( argv[0] );
+ 		exit(1);
+ 	}
+-
++	
++	/* read the timeout */
+ 	maxtime = strtol(argv[1], NULL, 0);
++	if (ERANGE == errno)
++	{
++		fprintf(stderr, "time conversion over/underflow\n");
++		exit(2);
++	}
++
++	/* set up the alarm*/
+ 	alarm(maxtime);
+-	return execvp(argv[2], argv+2);
++
++	/* run the command within the timeout */
++	return execvp(argv[2], argv + 2);
+ }

@@ -1,0 +1,205 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/CleanIDE -> /usr/lib/CleanIDE
+lrwxrwxrwx	root/root	usr/bin/ShowHeapProfile -> /usr/lib/ShowHeapProfile
+lrwxrwxrwx	root/root	usr/bin/ShowTimeProfile -> /usr/lib/CleanIDE
+-rwx--x--x	root/root	usr/bin/clm
+-rwx--x--x	root/root	usr/bin/htoclean
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ArgEnv/
+-rw-r--r--	root/root	usr/lib/ArgEnv/ArgEnv.dcl
+-rw-r--r--	root/root	usr/lib/ArgEnv/ArgEnv.icl
+-rw-r--r--	root/root	usr/lib/ArgEnv/ArgEnvC.c
+-rw-r--r--	root/root	usr/lib/ArgEnv/ArgEnvC.o
+drwxr-xr-x	root/root	usr/lib/ArgEnv/Clean System Files/
+-rw-r--r--	root/root	usr/lib/ArgEnv/Makefile
+-rw-r--r--	root/root	usr/lib/ArgEnv/README
+-rw-r--r--	root/root	usr/lib/ArgEnv/printenv.icl
+-rw-r--r--	root/root	usr/lib/Clean Help
+-rwx--x--x	root/root	usr/lib/CleanIDE
+-rw-r--r--	root/root	usr/lib/CleanIDEConfig
+-rwx--x--x	root/root	usr/lib/ShowHeapProfile
+-rw-r--r--	root/root	usr/lib/ShowHeapProfileHelp
+-rwx--x--x	root/root	usr/lib/ShowTimeProfile
+-rw-r--r--	root/root	usr/lib/ShowTimeProfileHelp
+drwxr-xr-x	root/root	usr/lib/doc/
+-rw-r--r--	root/root	usr/lib/doc/CallingCFromClean.html
+-rw-r--r--	root/root	usr/lib/doc/Clean.h
+-rw-r--r--	root/root	usr/lib/doc/CleanLangRep.2.1.pdf
+drwxr-xr-x	root/root	usr/lib/doc/Examples/
+-rw-r--r--	root/root	usr/lib/doc/Examples/Clean.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_array1.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_array1.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_array1.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_array1_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_array1_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_array1_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_const1.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_const1.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_const1.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_const1_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_const1_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_const1_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_enum1.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_enum1.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_enum1.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_enum1_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_enum1_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_enum1_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int1.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int1.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int1.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int1_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int1_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int1_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int2.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int2.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int2.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int2_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int2_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int2_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int3.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int3.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int3.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int3_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int3_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int4.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int4.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int4.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int4_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int4_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_int4_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_string1.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_string1.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_string1.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_string1_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_string1_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_string1_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_tuple1.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_tuple1.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_tuple1.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_tuple1_c.c
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_tuple1_main.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_tuple1_main.prj
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_type1.dcl
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_type1.h
+-rw-r--r--	root/root	usr/lib/doc/Examples/example_type1.icl
+-rw-r--r--	root/root	usr/lib/doc/Examples/make.bat
+drwxr-xr-x	root/root	usr/lib/exe/
+-rwx--x--x	root/root	usr/lib/exe/cg
+-rwx--x--x	root/root	usr/lib/exe/cocl
+-rwx--x--x	root/root	usr/lib/exe/linker
+drwxr-xr-x	root/root	usr/lib/stdenv/
+drwxr-xr-x	root/root	usr/lib/stdenv/Clean System Files/
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdArray.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdArray.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdBool.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdBool.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdChar.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdChar.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdCharList.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdCharList.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdClass.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdClass.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdDebug.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdDebug.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdEnum.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdEnum.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdEnv.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdEnv.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdFile.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdFile.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdFunc.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdFunc.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdGeneric.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdGeneric.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdInt.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdInt.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdList.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdList.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdMisc.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdMisc.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdOrdList.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdOrdList.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdOverloaded.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdOverloaded.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdOverloadedList.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdOverloadedList.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdReal.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdReal.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdStrictLists.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdStrictLists.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdString.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdString.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdTuple.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/StdTuple.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemArray.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemArray.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemEnum.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemEnum.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemEnumStrict.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemEnumStrict.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemStrictLists.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_SystemStrictLists.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_startup.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_startupProfile.o
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_system.abc
+-rw-r--r--	root/root	usr/lib/stdenv/Clean System Files/_system.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/cdialog.o -> ../../iolib/xv/cdialog.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/cfileselect.o -> ../../iolib/xv/cfileselect.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/ckernel.o -> ../../iolib/xv/ckernel.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/cmenu.o -> ../../iolib/xv/cmenu.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/cpath.o -> ../../iolib/xv/cpath.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/cpicture.o -> ../../iolib/xv/cpicture.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/ctimer.o -> ../../iolib/xv/ctimer.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/cwindow.o -> ../../iolib/xv/cwindow.o
+lrwxrwxrwx	root/root	usr/lib/stdenv/Clean System Files/libCleanxv.a -> ../../iolib/libCleanxv.a
+-rw-r--r--	root/root	usr/lib/stdenv/StdArray.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdArray.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdBool.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdChar.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdCharList.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdCharList.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdClass.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdClass.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdDebug.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdDebug.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdEnum.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdEnum.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdEnv.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdEnv.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdFile.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdFunc.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdFunc.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdGeneric.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdGeneric.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdInt.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdList.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdList.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdMisc.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdOrdList.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdOrdList.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdOverloaded.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdOverloaded.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdOverloadedList.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdOverloadedList.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdReal.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdStrictLists.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdStrictLists.icl
+-rw-r--r--	root/root	usr/lib/stdenv/StdString.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdTuple.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/StdTuple.icl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemArray.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemArray.icl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemEnum.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemEnum.icl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemEnumStrict.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemEnumStrict.icl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemStrictLists.dcl
+-rw-r--r--	root/root	usr/lib/stdenv/_SystemStrictLists.icl
+-rw-r--r--	root/root	usr/lib/stdenv/_startup.dcl (EMPTY)
+-rw-r--r--	root/root	usr/lib/stdenv/_startupProfile.dcl (EMPTY)
+-rw-r--r--	root/root	usr/lib/stdenv/_system.dcl (EMPTY)
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/clm.1.gz

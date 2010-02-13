@@ -1,0 +1,6 @@
+drwxr-xr-x	root/root	sbin/
+-rwx------	root/root	sbin/tuncfg
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/hamachi
+lrwxrwxrwx	root/root	usr/bin/hamachi-init -> /usr/bin/hamachi

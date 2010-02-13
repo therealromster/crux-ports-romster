@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A wrapper written for PDF::API2
+# URL: http://search.cpan.org/~aorr/PDF-Report-1.30/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-pdf-api2
+
+name=p5-pdf-report
+version=1.30
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AO/AORR/PDF-Report-$version.tar.gz)
+
+build () {
+	cd PDF-Report-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

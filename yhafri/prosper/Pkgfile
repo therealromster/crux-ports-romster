@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A LaTeX class for writing transparencies
+# URL: http://prosper.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=prosper
+version=1.00.4
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	http://ovh.dl.sourceforge.net/sourceforge/$name/contrib-$name-1.0.0.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/$name
+
+	find $name/ -name "*.sty" -exec cp '{}' $PKG/usr/share/texmf/tex/latex/$name/ \;
+	find $name/ -name "*.cls" -exec cp '{}' $PKG/usr/share/texmf/tex/latex/$name/ \;	
+
+	find contrib-$name-1.0.0/ -name "*.sty" -exec cp '{}' $PKG/usr/share/texmf/tex/latex/$name/ \;
+	find contrib-$name-1.0.0/ -name "*.cls" -exec cp '{}' $PKG/usr/share/texmf/tex/latex/$name/ \;	
+
+	chown -R root:root $PKG
+}

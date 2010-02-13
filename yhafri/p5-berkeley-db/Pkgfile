@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for Berkeley DB
+# URL: 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: db
+
+name=p5-berkeley-db
+version=0.26
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/BerkeleyDB-$version.tar.gz)
+
+build () {
+	cd BerkeleyDB-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

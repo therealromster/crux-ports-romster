@@ -1,0 +1,23 @@
+# $Id: $
+# Description: An OpenGL widget for GTK+ GUI toolkit
+# URL: http://dir.filewatcher.com/d/Debian/Other/gtkglarea_1.2.3.orig.tar.gz.291348.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk, libglut
+
+name=gtkglarea
+version=1.2.3
+release=1
+source=(ftp://ftp.heanet.ie/mirrors/www.adamantix.org/dists/1.0.5/main/source/devel/${name}_1.2.3.orig.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

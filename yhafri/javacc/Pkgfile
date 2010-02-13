@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Java Compiler Compiler
+# URL: https://javacc.dev.java.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=javacc
+version=4.0
+release=1
+source=(https://javacc.dev.java.net/files/documents/17/26776/$name-$version.tar.gz)
+
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	cd $name-$version
+
+	mv bin/* $PKG/usr/lib/$name
+
+	ln -sf /usr/lib/$name/$name  $PKG/usr/bin/$name
+	ln -sf /usr/lib/$name/jjtree $PKG/usr/bin/jjtree
+	ln -sf /usr/lib/$name/jjdoc  $PKG/usr/bin/jjdoc
+
+	cd $PKG/usr/lib/$name
+	rm -f *.bat
+	for i in $name jjtree jjdoc; do sed -i "s|.*/lib/javacc.jar|JAR=\"/usr/lib/javacc/lib/javacc.jar|" $i; done
+
+    	chown -R root:root $PKG
+}

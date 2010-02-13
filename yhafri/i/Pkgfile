@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A little utility for printing numbers in hex, octal and ascii
+# URL: http://samba.org/junkcode/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=i
+version=1
+release=1
+source=($name.c)
+
+build () {
+	gcc -o $name $name.c
+
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

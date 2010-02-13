@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A Gtk desktop session recorder for linux
+# URL: http://recordmydesktop.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, pygtk, libtheora, libogg, libvorbis
+
+name=gtk-recordmydesktop
+version=0.3.0r1
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/recordmydesktop/gtk-recordMyDesktop-$version.tar.gz)
+
+build () {
+	cd gtk-recordMyDesktop-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

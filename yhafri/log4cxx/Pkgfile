@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Log4cxx is C++ port of Log4j
+# URL: http://logging.apache.org/log4cxx/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=log4cxx
+version=0.9.7
+release=1
+source=(http://apache.multidist.com/logging/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./autogen.sh
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

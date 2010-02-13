@@ -1,0 +1,40 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cilk2c
+-rwxr-xr-x	root/root	usr/bin/cilkc
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/cilk/
+-rw-r--r--	root/root	usr/include/cilk/cilk-cilk2c-pre.h
+-rw-r--r--	root/root	usr/include/cilk/cilk-cilk2c.h
+-rw-r--r--	root/root	usr/include/cilk/cilk-conf.h
+-rw-r--r--	root/root	usr/include/cilk/cilk-lib.cilkh
+-rw-r--r--	root/root	usr/include/cilk/cilk-lib.h
+-rw-r--r--	root/root	usr/include/cilk/cilk-sysdep.h
+-rw-r--r--	root/root	usr/include/cilk/cilk.h
+-rw-r--r--	root/root	usr/include/cilk/gcc-builtin.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/cilk/
+-rw-r--r--	root/root	usr/lib/cilk/libcilkrt0.a
+-rw-r--r--	root/root	usr/lib/cilk/libcilkrt0g.a
+-rw-r--r--	root/root	usr/lib/cilk/libcilkrt0gp.a
+-rw-r--r--	root/root	usr/lib/cilk/libcilkrt0p.a
+-rw-r--r--	root/root	usr/lib/libcilk.a
+-rw-r--r--	root/root	usr/lib/libcilk.g.a
+-rwxr-xr-x	root/root	usr/lib/libcilk.g.la
+-rw-r--r--	root/root	usr/lib/libcilk.g.p.a
+-rwxr-xr-x	root/root	usr/lib/libcilk.g.p.la
+lrwxrwxrwx	root/root	usr/lib/libcilk.g.p.so -> libcilk.g.p.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libcilk.g.p.so.1 -> libcilk.g.p.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libcilk.g.p.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libcilk.g.so -> libcilk.g.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libcilk.g.so.1 -> libcilk.g.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libcilk.g.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libcilk.la
+-rw-r--r--	root/root	usr/lib/libcilk.p.a
+-rwxr-xr-x	root/root	usr/lib/libcilk.p.la
+lrwxrwxrwx	root/root	usr/lib/libcilk.p.so -> libcilk.p.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libcilk.p.so.1 -> libcilk.p.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libcilk.p.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libcilk.so -> libcilk.so.1.0.3
+lrwxrwxrwx	root/root	usr/lib/libcilk.so.1 -> libcilk.so.1.0.3
+-rwxr-xr-x	root/root	usr/lib/libcilk.so.1.0.3

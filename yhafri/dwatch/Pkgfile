@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A Daemon Watcher
+# URL: http://siag.nu/dwatch/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dwatch
+version=0.1.1
+release=1
+source=(ftp://siag.nu/pub/$name/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/{bin,man/man1}
+	cd $name-$version
+
+	make
+        make install PREFIX=$PKG/usr
+
+	chown -R root:root $PKG
+}

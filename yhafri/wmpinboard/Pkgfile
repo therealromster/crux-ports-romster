@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A miniaturized pinboard dockapp
+# URL: http://packages.debian.org/stable/x11/wmpinboard
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmpinboard
+version=1.0
+release=1
+source=(http://ftp.debian.org/debian/pool/main/w/$name/$name\_$version.orig.tar.gz)
+
+build () {
+	cd $name-$version.orig
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

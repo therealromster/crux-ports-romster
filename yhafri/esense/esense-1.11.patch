@@ -1,0 +1,11 @@
+--- esense-1.9/esense.el	2005-10-03 08:30:23.000000000 +0200
++++ esense-1.9/esense.el-new	2005-10-03 09:59:19.417858926 +0200
+@@ -108,7 +108,7 @@
+ (defgroup esense nil
+   "ESense configuration")
+ 
+-(defcustom esense-index-directory "$HOME/.esense"
++(defcustom esense-index-directory "/usr/share/esense"
+   "The generated index files are in this directory.
+ 
+ This variable can also be a list of directories in which case a given

@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/heapavl/
+-rw-r--r--	root/root	usr/lib/heapavl/heapmm.h
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_alloc.c
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_base.c
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_cnfg.h
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_dflt_abort.c
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_grow.c
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_intrnl.h
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_largest.c
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_resize.c
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_shrink.c
+-rw-r--r--	root/root	usr/lib/heapavl/hmm_true.c
+-rw-r--r--	root/root	usr/lib/heapavl/speed_hmm.c
+-rw-r--r--	root/root	usr/lib/heapavl/test_hmm.c
+-rw-r--r--	root/root	usr/lib/heapavl/test_hmm.h

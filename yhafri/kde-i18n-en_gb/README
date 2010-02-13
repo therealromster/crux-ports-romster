@@ -1,0 +1,5 @@
+PREINSTALL:
+
+The line: "rm $PKG/usr/share/doc" needs to be commented out in kdelibs/Pkgfile
+One must then rebuild and update kdelibs.  Kde-i18n can now successfully be
+built.

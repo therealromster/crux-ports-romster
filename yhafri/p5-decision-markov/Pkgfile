@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Markov models for decision analysis 
+# URL: http://search.cpan.org/~alansz/Decision-Markov-0.03a/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-decision-markov
+version=0.03a
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AL/ALANSZ/Decision-Markov-$version.tar.gz)
+
+build () {
+	cd Decision-Markov-0.03
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

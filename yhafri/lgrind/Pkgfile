@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Produce beautiful listings of source code with LaTeX
+# URL: http://www.ctan.org/tex-archive/nonfree/support/lgrind/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=lgrind
+version=src
+release=1
+source=(ftp://tug.ctan.org/pub/tex-archive/nonfree/support/$name.zip)
+
+build () {
+	mkdir -p $PKG/usr/bin/$name
+	mkdir -p $PKG/usr/man/man1
+
+	cd $name
+
+	make
+	make BASEDIR=$PKG/usr install
+
+	# I'm very tired, sorry for the code below ;-)
+
+	mv $PKG/usr/bin/$name        $PKG/usr/bin/foobar/
+	mv $PKG/usr/bin/foobar/$name $PKG/usr/bin/
+	rm -rf $PKG/usr/bin/foobar   $PKG/usr/doc/ $PKG/usr/man/man5
+
+	chown -R root:root $PKG
+}

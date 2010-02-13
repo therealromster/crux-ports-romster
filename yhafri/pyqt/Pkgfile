@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Set of Python bindings for Trolltech's Qt application framework
+# URL: http://www.riverbankcomputing.co.uk/pyqt/index.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: sip, qt3
+
+name=pyqt
+version=3.16
+release=1
+source=(http://www.riverbankcomputing.com/Downloads/PyQt3/GPL/PyQt-x11-gpl-$version.tar.gz)
+
+build () {
+    	mkdir -p $PKG/usr
+	export QTDIR=/usr/share/qt/
+
+	cd PyQt-x11-gpl-$version
+	echo "yes" | python ./configure.py
+            
+        make
+        make DESTDIR=$PKG install
+
+    	chown -R root:root $PKG
+}
+

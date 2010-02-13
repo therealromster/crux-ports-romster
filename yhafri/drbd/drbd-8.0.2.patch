@@ -1,0 +1,13 @@
+--- drbd-0.7/Makefile	2006-10-22 01:06:39.000000000 +0200
++++ drbd-0.7/Makefile-new	2006-10-22 01:07:29.000000000 +0200
+@@ -22,8 +22,8 @@
+ 
+ #PREFIX      = /usr/local
+ 
+-SUBDIRS     = user scripts documentation drbd #testing #benchmark
+-ALLSUBDIRS  = user scripts benchmark documentation drbd testing
++SUBDIRS     = user scripts drbd #testing #benchmark
++ALLSUBDIRS  = user scripts benchmark drbd testing
+ 
+ REL_VERSION := $(shell sed -ne '/REL_VERSION/{s/^[^"]*"\([^ "]*\).*/\1/;p;q;}' drbd/linux/drbd_config.h)
+ ifdef FORCE

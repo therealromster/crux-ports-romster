@@ -1,0 +1,23 @@
+#!/bin/sh
+rmmod nvidia 2> /dev/null || :
+depmod -a
+
+videomode=0660
+videogroup=$(awk -F: '/^video/ {print $3}' /etc/group)
+if [ -z "$videogroup" ]; then
+    videogroup=0
+    videomode=0666
+    cat << EOF
++-----------------------
+| For better security you can add a videogroup:
+|
+|  sudo groupadd video
+|  sudo usermod -G video $USER
++-----------------------
+EOF
+fi
+
+modprobe nvidia \
+    NVreg_DeviceFileUID=0 \
+    NVreg_DeviceFileGID=$videogroup \
+    NVreg_DeviceFileMode=$videomode

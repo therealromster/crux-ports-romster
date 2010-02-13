@@ -1,0 +1,23 @@
+# Description: an OpenGL real-time strategy game, with the feeling of C&C or StarCraft
+# URL: http://boson.eu.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: cmake, kdelibs, openal, libvorbis, python
+
+name=boson
+version=0.12
+release=1
+source=(http://dl.sourceforge.net/sourceforge/boson/boson-all-$version.tar.bz2)
+
+build() {
+    mkdir $name-all-$version/build
+    sed -i 's/^kde/#kde/' $name-all-$version/code/boson/data/CMakeLists.txt
+    cd $name-all-$version/build
+    export QTDIR=/usr/share/qt
+    export KDEDIR=`kde-config --prefix`
+    cmake ../ -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_VERBOSE_MAKEFILE=1 \
+        -DCMAKE_BUILD_TYPE=None 
+    make
+    make DESTDIR=$PKG install
+}

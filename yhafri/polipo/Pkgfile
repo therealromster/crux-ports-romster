@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A small and fast caching web proxy 
+# URL: http://www.pps.jussieu.fr/~jch/software/polipo/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=polipo
+version=0.9.9
+release=1
+source=(http://www.pps.jussieu.fr/~jch/software/files/$name/$name-$version.tar.gz 
+\
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install
+	rm -rf $PKG/usr/info/
+
+	chown -R root:root $PKG
+}

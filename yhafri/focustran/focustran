@@ -1,0 +1,53 @@
+#!/usr/bin/perl -w
+
+# This script is written by Andrei Perhinschi
+# and is licensed under the GNU GPL license
+# http://www.gnu.org/licenses/gpl.html
+
+# Much thanks goes to Daniel Forchheimer (http://www.forchheimer.se/)
+# for creating transset-df and the eutotrans
+# script from which this script gets its inspiration
+
+if ( !defined $ARGV[0] || !defined $ARGV[1] || !defined $ARGV[2] ) {
+die "Usage: focustran <unfocused value> <focused value> <refresh value (secs)>\n";
+}
+
+# default values
+$trans_val = $ARGV[0];
+$opaque_val = $ARGV[1];
+$sleep_val = $ARGV[2];
+
+# grab all window IDs
+@win_ids = `xwininfo -root -all`;
+foreach my $win_id ( @win_ids ) {
+unless ( $win_id =~ /has\ no\ name/ || $win_id !~ /0x/ || $win_id =~ /Desktop/ ) {
+ $win_id =~ /\ \"/;
+ $win_id = "$`";
+ $win_id =~ s/\s//g;
+ push @id_lines, $win_id;
+ }
+}
+
+print "ID_LINES:@id_lines\n";
+
+# make all windows transparent
+foreach my $win_id ( @id_lines ) {
+system ( "transset-df --id $win_id $trans_val" );
+}
+
+$old_id = 0;
+# get currently focused window's ID
+while ( 1 ) {
+my $active_id = `xprop -root  | grep "_NET_ACTIVE_WINDOW(WINDOW): window id # "`;
+$active_id =~ /\#\s/;
+$active_id = "$'";
+chomp $active_id;
+# set active window to opaque_val and old window to trans_val
+if ( $old_id ne $active_id ) {
+ system ( "transset-df --id $active_id $opaque_val" );
+ system ( "transset-df --id $old_id $trans_val" );
+ }
+$old_id = $active_id;
+print "active_ID:$active_id\n";
+select ( undef, undef, undef, $sleep_val );
+}

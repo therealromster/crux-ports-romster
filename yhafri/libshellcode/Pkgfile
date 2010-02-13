@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A library you can include in your exploits
+# URL: http://www.orkspace.net/software/libShellCode/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses
+
+name=libshellcode
+version=0.3.1
+release=1
+source=(http://www.orkspace.net/software/libShellCode/libShellCode-$version.tar.gz)
+
+build () {
+	cd libShellCode-$version
+	make
+
+	install -D lib/libShellCode.a          $PKG/usr/lib/libShellCode.a
+	install -D -m 644 lib/libShellCode.h   $PKG/usr/include/libShellCode.h
+	install -D -m 755 scbuilder/scbuilder  $PKG/usr/bin/scbuilder
+
+	chown -R root:root $PKG
+}

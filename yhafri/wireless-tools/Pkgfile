@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Tools to configure and manipulate wlan devices
+# URL: http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
+# Depends on:
+
+name=wireless-tools
+version=28
+release=1
+source=(http://pcmcia-cs.sourceforge.net/ftp/contrib/${name/-/_}.$version.tar.gz)
+
+build() {
+	cd ${name/-/_}.$version
+
+	make 
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

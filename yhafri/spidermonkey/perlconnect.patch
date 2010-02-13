@@ -1,0 +1,52 @@
+--- Makefile.PL	2001-08-14 15:09:43.000000000 +0200
++++ Makefile.PL-new	2006-11-01 16:49:26.000000000 +0100
+@@ -15,13 +15,13 @@
+ $foo{'m'} = 1 unless $foo{c} || $foo{d}; #mozilla tree is the default
+ 
+ if ($foo{c}) {
+-    $inc = "-I$ENV{CHARLIE_HOME}/include";
+-    $libpath = "-L$ENV{CHARLIE_HOME}/lib";
++    $inc = "-I$ENV{CHARLIE_HOME}/include -I../dist/include";
++    $libpath = "-L$ENV{CHARLIE_HOME}/lib -L../dist/lib";
+ }
+ 
+ if ($jsdir) {
+-    $inc = "-I$jsdir/include";
+-    $libpath = "-L$jsdir/lib -ljs";
++    $inc = "-I$jsdir/include -I../dist/include";
++    $libpath = "-L$jsdir/lib -L../dist/lib -ljs";
+ }
+ 
+ my $tmpmk = <<'eof';
+@@ -34,16 +34,16 @@
+ 
+ if ($foo{'m'}) {
+     if ($^O eq "MSWin32") {
+-	$inc = "-I.. -I../Debug"; #I'm not sure
+-	$libpath = "-L../Debug";
++	$inc = "-I.. -I../Debug -I../dist/include"; #I'm not sure
++	$libpath = "-L../Debug -L../dist/lib";
+     } else { #suppose unix, never Mac, gmake
+ 	open FOO, ">tempmakefile";
+ 	print FOO $tmpmk;
+ 	close FOO;
+ 	my $objdir = `gmake -f tempmakefile`;
+ 	unlink "tempmakefile";
+-	$inc = "-I.. -I../$objdir";
+-	$libpath = "-L../$objdir";
++	$inc = "-I.. -I../$objdir -I../dist/include";
++	$libpath = "-L../$objdir -L../dist/lib";
+     }
+ }
+ 
+@@ -59,8 +59,8 @@
+ 
+ WriteMakefile(NAME => 'JS',
+ 	      DEFINE => $define,
+-	      INC => $inc,
+-	      LIBS => "$libpath -ljs",
++	      INC => "$inc -I../dist/include",
++	      LIBS => "$libpath -ljs -L../dist/lib",
+ 	      VERSION_FROM => 'JS.pm',
+ 	      %extras,);
+ 

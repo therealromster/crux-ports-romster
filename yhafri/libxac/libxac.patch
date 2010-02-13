@@ -1,0 +1,23 @@
+--- libxac_code/btree.c	2006-05-03 01:03:25.000000000 +0200
++++ libxac_code/btree.c-new	2006-09-29 08:28:38.000000000 +0200
+@@ -163,7 +163,8 @@
+ 
+     assert(r->h!=MAP_FAILED);
+     //madvise(r->h, (size_t)buf.st_size, MADV_RANDOM);
+-    printf("Padded key is %u bytes, value is %lu bytes\n", KEY_SIZE, sizeof(BLOCKNUM));
++    printf("Padded key is %u bytes, value is %lu bytes\n", KEY_SIZE, 
++           (unsigned long) sizeof(BLOCKNUM));
+     return r;
+ }
+ 
+--- libxac_code/runtime/local_file_dir.c	2006-05-03 01:04:45.000000000 +0200
++++ libxac_code/runtime/local_file_dir.c-new	2006-09-29 08:33:17.000000000 +0200
+@@ -238,7 +238,7 @@
+     {
+       off_t end_of_file = lseek(temp_info->fd, 0, SEEK_END);
+ 
+-      printf("File has length %zd.  Specified length in info is %zd\n",
++      printf("File has length %ld.  Specified length in info is %zd\n",
+ 	     end_of_file,
+ 	     finfo->length);
+       assert((size_t)end_of_file >= finfo->length);

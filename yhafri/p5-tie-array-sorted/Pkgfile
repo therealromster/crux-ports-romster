@@ -1,0 +1,20 @@
+# $Id: $
+# Description: An array which is kept sorted 
+# URL: http://search.cpan.org/~tmtm/Tie-Array-Sorted-1.3/lib/Tie/Array/Sorted.pm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tie-array-sorted
+version=1.3
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TM/TMTM/Tie-Array-Sorted-$version.tar.gz)
+
+build () {
+	cd Tie-Array-Sorted-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: TCP proxy with load balancing and failover mechanisms
+# URL: http://www.inlab.de/balance.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=balance
+version=3.34
+release=1
+source=(http://www.inlab.de/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	strip $name
+
+	install -D -m 755 $name   $PKG/usr/sbin/$name
+	install -D  $name.1       $PKG/usr/man/man1/$name.1
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python interface to FUSE
+# URL: http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, fuse
+
+name=fuse-python
+version=1
+release=1
+source=(http://richard.jones.name/google-hacks/gmail-filesystem/$name.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

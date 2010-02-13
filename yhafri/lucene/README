@@ -1,0 +1,4 @@
+POST-INSTALL:
+
+		* Update your class path environment variable:
+		export CLASSPATH=/usr/lib/lucene;$CLASSPATH

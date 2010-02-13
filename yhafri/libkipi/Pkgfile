@@ -1,0 +1,20 @@
+# Description: a library which aims to share image plugins among graphic applications
+# URL: http://extragear.kde.org/apps/kipi
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=libkipi
+version=0.1.4
+release=1
+source=(http://dl.sourceforge.net/sourceforge/kipi/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

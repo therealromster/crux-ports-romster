@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A simple command-line shell framework
+# URL: http://search.cpan.org/~neilw/Term-Shell-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-term-shell
+version=0.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/N/NE/NEILW/Term-Shell-$version.tar.gz)
+
+build () {
+	cd Term-Shell-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

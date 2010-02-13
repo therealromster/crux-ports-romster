@@ -1,0 +1,14 @@
+#!/bin/sh
+
+(cd $1;
+ rm -rf editor/ examples/ icu/ docs/ io/ t/ LICENSES/
+ find . -iname "KNOWN_ISSUES" -exec rm -rf '{}' \;
+ find . -iname "NEWS" -exec rm -rf '{}' \;
+ find . -iname "README*" -exec rm -rf '{}' \;
+ find . -iname "RESPONSIBLE_PARTIES" -exec rm -rf '{}' \;
+ find . -iname "TODO*" -exec rm -rf '{}' \;
+ find . -iname "VERSION" -exec rm -rf '{}' \;
+ find . -iname "ChangeLog" -exec rm -rf '{}' \;
+ find . -iname "PBC_COMPAT" -exec rm -rf '{}' \;
+ find . -iname "PLATFORMS" -exec rm -rf '{}' \;
+)

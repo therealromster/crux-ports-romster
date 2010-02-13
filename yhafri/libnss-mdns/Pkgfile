@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A plugin for the GNU Name Service Switch providing host name resolution via Multicast DNS (aka zeroconf)
+# URL: http://0pointer.de/lennart/projects/nss-mdns/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=nss-mdns
+version=0.8
+release=1
+source=(http://0pointer.de/lennart/projects/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

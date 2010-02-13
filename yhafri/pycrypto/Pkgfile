@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Python collection of cryptographic algorithms and protocols
+# URL: http://www.amk.ca/python/code/crypto.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=pycrypto
+version=2.0.1
+release=1
+source=(http://www.amk.ca/files/python/crypto/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

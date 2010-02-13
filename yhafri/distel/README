@@ -1,0 +1,12 @@
+POS-INSTALL:
+		* To have Distel's erlang support libraries available in all your
+		nodes, add this line to your ~/.erlang:
+
+     		code:add_pathz("/usr/lib/erlang/lib/distel-3.2/ebin").
+
+		* To automatically enable the erlang-extended-mode for editing Erlang
+		files, add this to your ~/.emacs.el:
+
+     		(require 'distel)
+     		(add-hook 'erlang-mode-hook 'distel-erlang-mode-hook)
+

@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cprof
+-rwxr-xr-x	root/root	usr/bin/vprof
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libvmon.a
+-rw-r--r--	root/root	usr/lib/vmonauto.o
+-rw-r--r--	root/root	usr/lib/vmonauto_gcc.o
+-rw-r--r--	root/root	usr/lib/vmonauto_pmpi.o

@@ -1,0 +1,31 @@
+# Description: a unique multiplayer wargame 
+# URL: http://www.ufoot.org/liquidwar/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: allegro
+
+name=liquidwar
+version=5.6.3
+release=1
+source=(http://download.savannah.nongnu.org/releases/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-target-opt \
+        --mandir=/usr/man \
+        --disable-doc-txt \
+        --disable-doc-html \
+        --disable-doc-info \
+        --disable-doc-ps \
+        --disable-doc-pdf \
+        --disable-doc-php3 \
+        --disable-debug
+    make CXXFLAGS="$CXXFLAGS" DATADIR=/usr/share/$name
+    make DESTDIR=$PKG DATADIR=/usr/share/$name install
+    mv -f  $PKG/usr/games/* $PKG/usr/bin/
+    mv -f  $PKG/usr/share/man $PKG/usr
+    rm -rf $PKG/usr/games
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

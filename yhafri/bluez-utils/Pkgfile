@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Official linux bluetooth protocol stack - utilities
+# URL: http://www.bluez.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, cups, libusb, bluez-libs
+
+name=bluez-utils
+version=2.25
+release=1
+source=(http://bluez.sourceforge.net/download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --sysconfdir=/etc \
+		    --enable-alsa \
+		    --enable-cups \
+		    --enable-initscripts \
+		    --enable-hid2hci \
+		    --disable-dbus \
+                    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/etc/init.d $PKG/etc/rc.d
+	sed -i 's#/etc/init.d#/etc/rc.d#' $PKG/etc/rc.d/bluetooth
+
+	chown -R root:root $PKG
+}

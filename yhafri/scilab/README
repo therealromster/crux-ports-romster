@@ -1,0 +1,14 @@
+PRE-INSTALL:
+
+		* Recompile gcc with option 
+		--enable-languages=c,c++,objc,f77,ada
+		or use the gcc port in this repository
+
+
+		* This version of scilab is compiled with
+		Tk browser. If you need to use the GTK one,
+		type:
+		# mv Pkgfile Pkgfile-Tk
+		# mv Pkgfile-GTK Pkgfile
+		# pkgmk -d -i
+		

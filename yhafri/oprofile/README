@@ -1,0 +1,4 @@
+PRE-INSTALL:
+		* If you are using other architecture than i386,
+		change Pkgfile to fits your need:
+		(line: cd /usr/share/$name; rf -rf alpha/ arm/ ...)

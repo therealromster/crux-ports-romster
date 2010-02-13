@@ -1,0 +1,18 @@
+# $Id: $
+# Description: LaTeX package to draw basic trees
+# URL: ftp://ftp.inria.fr/pub/TeX/CTAN/macros/latex/contrib/treesvr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-treesvr
+version=1
+release=1
+source=(trees.sty.gz)
+
+build () {
+	install -d $PKG/usr/share/texmf/tex/latex/treesvr
+	gunzip trees.sty.gz
+	mv trees.sty $PKG/usr/share/texmf/tex/latex/treesvr/treesvr.sty
+	chown -R root:root $PKG
+}

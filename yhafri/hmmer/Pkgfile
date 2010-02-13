@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Profile HMMs for protein sequence analysis
+# URL: http://hmmer.wustl.edu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=hmmer
+version=2.3.2
+release=1
+source=(ftp://ftp.genetics.wustl.edu/pub/eddy/$name/$version/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                --enable-threads \
+                --enable-lfs 
+
+    make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    chown -R root:root $PKG
+}

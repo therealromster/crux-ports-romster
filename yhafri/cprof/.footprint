@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cprof
+-rwxr-xr-x	root/root	usr/bin/cprofcompr
+-rwxr-xr-x	root/root	usr/bin/cprofinfo
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libcprof.a
+-rwxr-xr-x	root/root	usr/lib/libcprof.la
+lrwxrwxrwx	root/root	usr/lib/libcprof.so -> libcprof.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcprof.so.0 -> libcprof.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libcprof.so.0.0.0

@@ -1,0 +1,5 @@
+INFO:
+
+		* Compile and link your program like this:
+		#  gcc -I /usr/lib/graphapp/src -c my_program.c
+		#  gcc -I/usr/lib/graphapp/src -Ix11 -Igui -o my_program my_program.o  /usr/lib/graphapp/src/libapp.a -L/usr/X11R6/lib -lX11 -lc -lm

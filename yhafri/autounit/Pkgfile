@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A unit testing framework supporting test-driven development for C
+# URL: http://www.recursism.com/pub/software/testing/gnu-autounit
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=autounit
+version=0.15.2
+release=1
+source=(http://www.recursism.com/software/gnu-$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

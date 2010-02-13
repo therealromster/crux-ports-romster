@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A free, open source, multiplatform GUI installer and builder
+# URL: http://www.installjammer.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, tcl, tk
+
+name=installjammer
+version=1.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch \
+	$name.sh)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	
+	cd $name
+	patch -p1<../$name-$version.patch
+	rm -rf *.txt ChangeLog docs/
+	cd -
+
+	mv installjammer $PKG/usr/lib
+	install -D -m 755 $SRC/$name.sh $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

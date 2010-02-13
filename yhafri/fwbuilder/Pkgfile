@@ -1,0 +1,19 @@
+# Description: Object-oriented GUI and set of compilers for various firewall platforms
+# URL: http://www.fwbuilder.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libfwbuilder, qt3
+
+name=fwbuilder
+version=2.0.10
+release=1
+source=(http://dl.sourceforge.net/sourceforge/fwbuilder/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	export QTDIR=/usr/share/qt
+	./configure --prefix=/usr
+	make DESTDIR=$PKG INSTALL_ROOT=$PKG install
+	rm -rf $PKG/usr/share/doc
+	mv $PKG/usr/share/man $PKG/usr/
+}

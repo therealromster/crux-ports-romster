@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Mozilla JavaScript Engine
+# URL: http://www.ossp.org/pkg/lib/js/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=js
+version=1.6
+release=1
+source=(ftp://ftp.ossp.org/pkg/lib/js/js-1.6.20060820.tar.gz)
+
+build () {
+	cd $name-$version.20060820
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A Free, Multi-Programming Language, Parser
+# URL: http://www.devincook.com/goldparser/index.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=gold
+version=1
+release=1
+source=(http://www.devincook.com/goldparser/engine/ansi-c-holmes/holmes-ansi-c-source.zip \
+	parser.h-new)
+
+build () {
+	cp parser.h-new parser.h
+	
+	gcc -c parser.c
+	g++ -o $name main.cpp parser.o
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

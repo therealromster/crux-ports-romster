@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A program to create video DVDs suitables for home players
+# URL: http://www.rastersoft.com/programas/devede.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pygtk, dvdauthor
+
+name=devede
+version=1.4
+release=1
+source=(http://www.rastersoft.com/descargas/${name}14.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	./install.sh $PKG
+
+	chown -R root:root $PKG
+}

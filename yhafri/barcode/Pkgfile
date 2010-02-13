@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A a tool to convert text strings to printed bars
+# URL: http://www.gnu.org/software/barcode/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=barcode
+version=0.98
+release=1
+source=(ftp://ftp.math.uni-bremen.de/pub/gnu/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

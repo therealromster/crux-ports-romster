@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A C library influenced by both Perl's string handling and C++'s STL
+# URL: http://www.annexia.org/freeware/c2lib
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pcre, makeplus, cdoc
+
+name=c2lib
+version=1.4.2
+release=1
+source=()
+
+build () {
+    wget http://www.annexia.org/_file/$name-$version.tar.gz
+    tar xvf $name-$version.tar.gz
+	cd $name-$version
+	./configure --prefix=/usr
+
+    make+
+	make+ DESTDIR=$PKG install
+    cd ..
+    rm $name-$version.tar.gz
+    chown -R root:root $PKG
+}

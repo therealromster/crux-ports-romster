@@ -1,0 +1,14 @@
+--- XML-Twig-3.23/Makefile.PL	2005-02-10 13:27:15.000000000 +0100
++++ XML-Twig-3.23/Makefile.PL-new	2006-01-25 08:39:48.000000000 +0100
+@@ -13,10 +13,7 @@
+ xml_spellcheck|y|spellcheck XML files skipping tags
+ QUERIES
+     my ($program, $default, $description) = split /\|/, $_;
+-    if (prompt("Do you want to install '$program' ($description)?", 
+-               $default) =~ /^y/) {
+-	push(@programs, $program);
+-    }
++    push(@programs, $program);
+ }
+ 
+ WriteMakefile(

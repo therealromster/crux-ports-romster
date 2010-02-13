@@ -1,0 +1,30 @@
+POST-INSTALL:
+		* Create a link to the plugin:
+		ln -sf /usr/lib/tclplugin/plugins/libnptcl3.1.so /PATH_TO_FIREFOX_OR_MOZILLA_INSTALL_DIR/plugins/
+
+USAGE:
+
+		* Problem with focus:
+		Firefox/Mozilla doesn't like giving focus to the plugin (tclet) on Unix/Linux.
+		Once the plugin is loaded, if you've to interact with the tclet (usually with keystroke), 
+		you must first, click outside Firefox/Mozilla and then back to get focus.
+ 
+INFO:
+
+		* The best wiki resource about tclplugin:
+		http://wiki.tcl.tk/12719
+
+		* Try some cool tclets here:
+		http://wiki.tcl.tk/10696
+		http://www.tcl.tk/software/plugin/applets.html
+
+WIN32:
+
+		* An up to date web site:
+		http://www.tcl.tk/software/plugin/
+
+		* You can get the Win32 plugin for Firefox/Mozilla at:
+		http://tkoutline.sourceforge.net/tclplugin.xpi
+
+		* Even for IE, install it from:
+		http://www.gamon.org/Profession/TCL/tclplugin30_002.exe

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A Free, High-Quality, and Portable Font Engine
+# URL: http://www.freetype.org/index2.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=freetype
+version=2.3.5
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

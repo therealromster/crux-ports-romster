@@ -1,0 +1,20 @@
+# $Id: $
+# Description: 	Perl compatibility regular expressions for OCaml
+# URL: http://www.ai.univie.ac.at/~markus/home/ocaml_sources.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  ocaml, libpcre
+
+name=pcre-ocaml
+version=5.09.2
+release=1
+source=(http://www.oefai.at/~markus/ocaml_sources/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build() {
+	mkdir -p $PKG/usr/lib/ocaml/site-lib
+	cd $name-$version
+	patch -p1 <../$name-$version.patch
+	make
+	make DESTDIR=$PKG/usr/lib/ocaml/site-lib install
+}

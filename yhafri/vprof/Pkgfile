@@ -1,0 +1,28 @@
+# $Id: $
+# Description: The Visual Profiler
+# URL: http://aros.ca.sandia.gov/~cljanss/perf/vprof/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, qt3, papi, binutils
+
+name=vprof
+version=0.12
+release=1
+source=(http://aros.ca.sandia.gov/~cljanss/perf/$name/$name-$version.tar.gz \
+	http://perfsuite.ncsa.uiuc.edu/perftools/$name-NCSA.patch)
+
+build () {
+	cd $name-$version
+
+	patch -p1< ../vprof-NCSA.patch
+	gcc -I/usr/include -L/usr/lib -o genpapi genpapi.c -lpapi
+	./genpapi -n
+
+	./configure --prefix=/usr \
+		    --with-papi=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

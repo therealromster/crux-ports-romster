@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A Coroutine Library for C and Unix
+# URL: http://swtch.com/libtask/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libtask
+version=1
+release=1
+source=(http://swtch.com/$name.tar.gz)
+
+build () {
+	make
+
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	install -D -m 644 task.h  $PKG/usr/include/task.h
+
+	chown -R root:root $PKG
+}

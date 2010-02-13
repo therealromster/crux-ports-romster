@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A LaTeX class to create a beamer presentation 
+# URL: http://latex-beamer.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: latex, latex-xkeyval
+
+name=latex-beamer
+version=3.06
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	http://kent.dl.sourceforge.net/sourceforge/$name/pgf-1.01.tar.gz \
+	http://kent.dl.sourceforge.net/sourceforge/$name/xcolor-2.00.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/beamer
+	mkdir -p $PKG/usr/share/texmf/tex/{latex,generic,plain}/pgf
+
+	find $name-$version/ -name "*.sty" -exec cp '{}' $PKG/usr/share/texmf/tex/latex/beamer/ \;
+	find $name-$version/ -name "*.cls" -exec cp '{}' $PKG/usr/share/texmf/tex/latex/beamer/ \;	
+
+	cp -rf pgf-1.01/generic/pgf $PKG/usr/share/texmf/tex/generic/
+	cp -rf pgf-1.01/latex/pgf   $PKG/usr/share/texmf/tex/latex/
+	cp -rf pgf-1.01/plain/pgf   $PKG/usr/share/texmf/tex/plain/
+	
+	mv xcolor/ $PKG/usr/share/texmf/tex/latex/
+
+	chmod -R +r $PKG
+	chown -R root:root $PKG
+}

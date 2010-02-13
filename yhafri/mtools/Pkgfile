@@ -1,0 +1,21 @@
+# $Id: $
+# Description:  Utilities for accessing unmounted MS-DOS disks from Unix
+# URL: http://mtools.linux.lu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Olle Gustafsson <ogg@linux.se>
+# Depends on:
+
+name=mtools
+version=3.9.10
+release=1
+source=(http://mtools.linux.lu/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build (){
+    cd $name-$version
+    patch -p1 < ../$name-$version.patch
+    ./configure --prefix=/usr
+    make
+    make prefix=$PKG/usr install
+}
+

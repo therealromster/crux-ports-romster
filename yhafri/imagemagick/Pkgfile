@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Image manipulation wizard
+# URL: http://imagemagick.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: danm, maol, jaeger
+# Depends on: x11, libjpeg, libungif, libpng, libtiff, freetype, lcms, libxml2
+
+name=imagemagick
+version=6.3.0
+release=4
+source=(http://kent.dl.sourceforge.net/sourceforge/imagemagick/ImageMagick-$version-0.tar.bz2)
+
+build () {
+    	mkdir -p $PKG/usr
+
+    	cd ImageMagick-$version
+
+    	./configure --prefix=/usr \
+		    --enable-shared \
+		    --enable-lzw \
+		    --with-perl 
+    	
+	make
+    	make DESTDIR=$PKG PREFIX=$PKG/usr install
+    	
+	rm -rf $PKG/usr/lib/perl5/?.?.? $PKG/usr/lib/ImageMagick/modules
+    	rm -rf $PKG/usr/share/ImageMagick/{Copyright.txt,QuickStart.txt,ImageMagick.html,images,www}
+    	rm -rf $PKG/usr/lib/libltdl*
+    	find $PKG -name perllocal.pod -o -name .packlist -exec rm {} \;
+	
+	chown -R root:root $PKG
+}

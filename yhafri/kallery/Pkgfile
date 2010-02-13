@@ -1,0 +1,23 @@
+# Description: an image gallery generator for KDE
+# URL: http://kallery.kdewebdev.org/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, imagemagick
+
+
+name=kallery
+version=1.0.7a
+release=2
+source=(http://kallery.kdewebdev.org/releases/kallery-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure	--prefix=/usr \
+        --disable-debug \
+        --disable-dependency-tracking \
+        --enable-final
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

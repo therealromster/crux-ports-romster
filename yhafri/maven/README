@@ -1,0 +1,9 @@
+POST-INSTALL:
+		* Add the bin directory to your path:
+		export PATH=/usr/lib/maven/bin:$PATH
+
+		* Make sure that JAVA_HOME is set to the location of your JDK, eg.:
+		export JAVA_HOME=/usr/lib/java
+
+TEST:
+		* Run mvn --version to verify that it is correctly installed.

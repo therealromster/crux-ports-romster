@@ -1,0 +1,32 @@
+--- fnord-1.10/fnord-conf	2003-06-20 23:59:34.000000000 +0200
++++ fnord-1.10/fnord-conf-new	2006-09-21 09:47:27.000000000 +0200
+@@ -17,7 +17,7 @@
+ mkdir -p $dir
+ echo "#!/bin/sh" > $dir/run
+ echo "cd $webroot" >> $dir/run
+-echo "exec envuidgid $acct tcpserver -RHl localhost ${myip:-0} 80 fnord 2>&1" >> $dir/run
++echo "exec envuidgid $acct tcpserver -RHl localhost ${myip:-0} 80 fnord-idx . 2>&1" >> $dir/run
+ chmod 755 $dir/run
+ 
+ # tell old daemontools that it should spawn a log process, too
+--- fnord-1.10/http	2002-08-26 00:34:56.000000000 +0200
++++ fnord-1.10/http-new	2006-09-21 09:48:51.000000000 +0200
+@@ -1,2 +1,17 @@
+ #!/bin/sh
+-tcpserver -RHl localhost 0 80 fnord-idx .
++# tcpserver -RHl localhost 0 80 fnord-idx .
++
++# Start fnord server
++# Usage: /path/to/http [port] [[webroot] [[ipaddr]]]
++# Examples: 
++#   /path/to/http      - current dir, port 80
++#   /path/to/http 8080 - current dir, port 8080
++#   /path/to/http 8080 /usr/doc - docs dir, port 8080
++#   /path/to/http 8080 /usr/doc 127.0.0.1 - localhost, docs dir, port 8080
++# Default: port=80, webroot=.(current dir), ip=0(all available ifaces)
++
++PORT=${1:-80}
++WEBROOT=${2:-.}
++IP=${3:-0}
++
++/usr/bin/tcpserver -RHl localhost ${IP} ${PORT} /usr/bin/fnord-idx ${WEBROOT}

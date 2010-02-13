@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Linux Arabic Support
+# URL: http://members.tripod.com/ahmedahamid/arabic/arabic.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=acon
+version=1.0.5
+release=1
+source=(http://members.tripod.com/ahmedahamid/arabic/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+      mkdir -p $PKG/usr/bin
+      cd $name
+      patch -p1<../$name-$version.patch
+      make CFLAGS="$CFLAGS"
+      make BINDIR=$PKG DATAINSDIR=$PKG/usr/lib/acon install
+      chown -R root:root $PKG
+}

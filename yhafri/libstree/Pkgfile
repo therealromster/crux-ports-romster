@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A Generic Suffix Tree Library
+# URL: http://www.cl.cam.ac.uk/~cpk25/libstree/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libstree
+version=0.4.2
+release=1
+source=(http://www.cl.cam.ac.uk/~cpk25/downloads/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/
+
+	chown -R root:root $PKG
+}

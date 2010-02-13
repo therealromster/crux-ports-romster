@@ -1,0 +1,30 @@
+# $Id: $
+# Description: HTTP high perfomance 1.1 webserver in Erlang
+# URL: http://yaws.hyber.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, linux-pam
+
+name=yaws
+version=1.73
+release=1
+source=(http://yaws.hyber.org/download/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+	mkdir -p $PKG/{etc,var}
+
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make 
+	#make ETCDIR=$PKG/etc VARDIR=$PKG/var DESTDIR=$PKG install
+	make DESTDIR=$PKG install
+
+	sed -i -e "s/yawsdir\=.*$/yawsdir\=\"\/usr\/lib\/yaws\"/"  $PKG/usr/bin/yaws
+
+	rm -rf $PKG/usr/share/doc
+
+        chown -R root:root $PKG
+}

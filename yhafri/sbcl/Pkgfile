@@ -1,0 +1,30 @@
+# $Id: $
+# Description: Steel Bank Common Lisp
+# URL: http://www.sbcl.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: cmucl
+
+name=sbcl
+version=1.0.6
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version-source.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	mkdir -p $PKG/usr/lib/$name/site-systems
+	mkdir -p $PKG/usr/share/man
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	sh make.sh "lisp -batch"
+	sh install.sh $PKG/usr
+
+	(rm -rf $PKG/share/doc)
+	for i in `find $PKG/usr/lib/$name -type "f"`; do sed -i "s|/usr/local|/usr|" $i; done  
+
+	chown -R root:root $PKG
+}
+

@@ -1,0 +1,24 @@
+POST-INSTALL:
+
+		* Load this module as follow:
+		# insmod /lib/modules/`uname -r`/kernel/drivers/net/tipc/tipc.ko
+
+		* Check it was correctly loaded:
+		# lsmod | grep tipc
+		# tail /var/log/messages
+
+		* Do some tests:
+		# tipc-config  -netid=1234 -a=1.1.1 -be=eth:eth0
+		# tail /var/log/messages
+
+POST-INSTALL:
+	
+		* To compile applications (ex. see demos below) with 
+		TIPC, you need to set:
+		export TIPC_DEV_ROOT=/usr/lib/tipc
+
+USAGE:
+		* Look at the cool demos here:
+		http://ovh.dl.sourceforge.net/sourceforge/tipc/tipc_demo-1.12.tar.gz
+
+		enjoy

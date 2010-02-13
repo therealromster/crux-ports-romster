@@ -1,0 +1,24 @@
+# $Id: $
+# Description: TeX Type-1 fonts from Adobe
+# URL: http://prosper.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-utopia
+version=1
+release=1
+source=(utopia.sty)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/fonts/{type1/adobe/utopia,afm/adobe/utopia}
+	mkdir -p $PKG/usr/share/texmf/tex/latex/adobe/utopia
+
+	wget -r -nd --no-parent http://www.ftp.funet.fi/index/unix/TeX/tex-archive/fonts/utopia/
+
+	mv utopia.sty $PKG/usr/share/texmf/tex/latex/adobe/utopia
+	mv *.afm $PKG/usr/share/texmf/fonts/afm/adobe/utopia
+	mv *.pfb $PKG/usr/share/texmf/fonts/type1/adobe/utopia
+
+	chown -R root:root $PKG
+}

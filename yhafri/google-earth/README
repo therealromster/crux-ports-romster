@@ -1,0 +1,1389 @@
+MINIMUM CONFIGURATION:
+
+- Kernel: 2.4 or later
+- glibc: 2.3.2 w/ NPTL or later
+- XFree86-4.0 or x.org R6.7 or later
+- CPU: Pentium 3, 500Mhz
+- System Memory (RAM): 128MB
+- Hard Disk: 400MB free space
+- Network Speed: 128 Kbits/sec
+- Screen: 1024x768, 16 bit color
+
+
+PRE-INSTALL:
+
+Your graphic card need to be correctly installed
+
+
+INFO:
+
+Google Earth version 4.0.2414
+Tue Oct 31 16:06:51 PST 2006
+Installation size: 55M
+
+
+Known issues and important information. Please read this first if you
+ are having problems with Google Earth!
+
+
+LOCALIZATION:
+
+ As you might have noticed, this README is only available in English for
+ the first release. Our apologies. The rest of Google Earth and the
+ installer should be available in at least English, French, Italian,
+ German, and Spanish.
+
+
+IF YOUR HOME DIRECTORY IS ON NFS:
+
+ Google Earth writes files only to $HOME/.googleearth ... if this directory
+ is on network storage, consider making a symlink from there to somewhere
+ on your local disk. Google Earth's file cache can take an enormous amount
+ of bandwidth if i/o is sent over a network, which drains your resources and
+ slows down the application.
+
+
+UPGRADING:
+
+ Google Earth's installer will automatically reinstall/upgrade when a user
+  runs the installer a second time. All you need to do is download a newer
+  version and run its installer to upgrade.
+
+
+UNINSTALLING:
+
+ Run the "uninstall" script as the user that installed the program, which
+  will be in the directory where you installed previously. Alternately,
+  delete the installed copy and also $HOME/.loki/installed/googleearth.xml
+
+ During operation, Google Earth writes files only to $HOME/.googleearth ...
+  when uninstalling, you can delete this directory at your discretion, but
+  you will lose your preferences, placemarks, and download cache.
+
+
+BROWSER AND EMAIL INTEGRATION:
+
+ Please read linux/README-mailto.txt in the installation directory
+  if you want Google Earth to launch a web browser and email
+  composition window correctly.
+
+
+GLIBC ISSUES:
+
+ If you crash on startup, you may have an outdated version of glibc, or a bad
+  interaction between Nvidia's drivers and glibc's pthread support. Many of
+  these cases can be resolved by exporting this environment variable before
+  running Google Earth.
+
+    LD_ASSUME_KERNEL=2.4.10
+
+ Alternately, consider upgrading your video drivers, which has been known to
+  fix this situation, too. We have also seen one case of the Nvidia drivers
+  mistaking the type of glibc installed, which was remedied with
+  LD_ASSUME_KERNEL, but in this case, a driver upgrade might be a better
+  solution. Installing the Nvidia drivers with the --force-tls=new option
+  may be a solution, but please don't do this unless you are sure of what
+  you are doing.
+
+ Similar rules may apply to ATI's drivers.
+
+ Please refer to your GNU/Linux distribution vendor to find out the best way
+  to upgrade the video drivers on your system.
+
+
+DESKTOP INTEGRATION:
+
+ Some systems may require the user to log out and restart before Google Earth
+  will appear in their Applications/Internet menu. Some may also explicitly
+  need the user to tell the file manager to open a .kml file in Google Earth
+  before it will make the connection, fixing other apps like Firefox all at
+  once. We are still researching why this happens to some users and not others.
+
+ Desktops that don't follow the freedesktop.org standards will not
+  install an icon in the Applications menu. This will happen on older
+  distributions. In these cases, the user may be able to install icons and
+  associations manually. Refer to your GNU/Linux distribution vendor for
+  details on how to customize your desktop.
+
+
+SOFTWARE MESA:
+
+ Google Earth can be run with "Mesa" (all software-rendered OpenGL), but the
+  experience is sub-optimal. If you have 3D-accelerated video hardware, please
+  install its drivers. Many distributions do not correctly install 3D drivers
+  for even popular, mainstream hardware. If this is the first 3D application
+  you've tried and it's very slow, it's likely that you don't have drivers
+  installed at all. Please refer to your GNU/Linux distribution vendor for
+  information on getting your video card drivers correctly installed.
+
+
+PRINTING:
+
+ Google Earth prints via Qt's interfaces, and should work if you have CUPS
+  installed and correctly configured.
+
+
+PROXIES:
+
+ Google Earth uses libCurl for HTTP/HTTPS access to the network, and as such,
+  will respect the same proxy settings that curl uses:
+
+      http_proxy [protocol://]<host>[:port]
+
+ If you have a squid proxy at 192.168.1.2, you might use something like this:
+
+      export http_proxy http://192.168.1.2:3128
+
+ Google Earth prompts you for the proxy password if it requires authorization.
+
+
+BUG REPORTS:
+
+ In the hopefully-unlikely event that Google Earth crashes, it will send the
+  bug report back to Google automatically next time you run the program. There
+  is NO personal information in the crash report (just where the program died,
+  how long it had been running, and some other things like that). If you would
+  rather these never be sent back, make sure read and write permission is
+  removed from your ~/.googleearth/crashlogs directory.
+
+
+DISCUSSION AND COMMUNITY:
+
+ Come hang out with us at Google Earth Community! Other users, both on
+  GNU/Linux and other platforms, come here to discuss all things
+  Google Earth. It's a great resource for everything from unique planetary
+  finds to world tours to Frequently Asked Questions to information on
+  developing and sharing your own content inside Google Earth.
+
+      http://bbs.keyhole.com/
+
+
+Enjoy!
+
+--ryan.
+
+
+
+
+
+
+
+
+
+
+
+
+The license information for all the third party libraries used
+ in Google Earth is reprinted below.
+
+
+libcurl ( http://curl.haxx.se/ ) ...
+
+  COPYRIGHT AND PERMISSION NOTICE
+   
+  Copyright (c) 1996 - 2006, Daniel Stenberg, <daniel@haxx.se>.
+   
+  All rights reserved.
+   
+  Permission to use, copy, modify, and distribute this software for any purpose
+  with or without fee is hereby granted, provided that the above copyright
+  notice and this permission notice appear in all copies.
+   
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN
+  NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+  DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+  OR OTHER DEALINGS IN THE SOFTWARE.
+   
+  Except as contained in this notice, the name of a copyright holder shall not
+  be used in advertising or otherwise to promote the sale, use or other dealings
+  in this Software without prior written authorization of the copyright holder.
+
+
+OpenSSL ( http://www.openssl.org/ ) ...
+
+   ===============================
+    Copyright (c) 1998-2005 The OpenSSL Project.  All rights reserved.
+   
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+   
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+   
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in
+       the documentation and/or other materials provided with the
+       distribution.
+   
+    3. All advertising materials mentioning features or use of this
+       software must display the following acknowledgment:
+       "This product includes software developed by the OpenSSL Project
+       for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
+   
+    4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
+       endorse or promote products derived from this software without
+       prior written permission. For written permission, please contact
+       openssl-core@openssl.org.
+   
+    5. Products derived from this software may not be called "OpenSSL"
+       nor may "OpenSSL" appear in their names without prior written
+       permission of the OpenSSL Project.
+   
+    6. Redistributions of any form whatsoever must retain the following
+       acknowledgment:
+       "This product includes software developed by the OpenSSL Project
+       for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+   
+    THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
+    EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+    PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
+    ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+    SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+    NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+    HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+    STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+    OF THE POSSIBILITY OF SUCH DAMAGE.
+    ====================================================================
+   
+    This product includes cryptographic software written by Eric Young
+    (eay@cryptsoft.com).  This product includes software written by Tim
+    Hudson (tjh@cryptsoft.com).
+   
+   ---------------------------------------------------------------------
+   Original SSLeay License
+   -----------------------
+  
+    Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+    All rights reserved.
+   
+    This package is an SSL implementation written
+    by Eric Young (eay@cryptsoft.com).
+    The implementation was written so as to conform with Netscapes SSL.
+   
+    This library is free for commercial and non-commercial use as long as
+    the following conditions are aheared to.  The following conditions
+    apply to all code found in this distribution, be it the RC4, RSA,
+    lhash, DES, etc., code; not just the SSL code.  The SSL documentation
+    included with this distribution is covered by the same copyright terms
+    except that the holder is Tim Hudson (tjh@cryptsoft.com).
+   
+    Copyright remains Eric Young's, and as such any Copyright notices in
+    the code are not to be removed.
+    If this package is used in a product, Eric Young should be given attribution
+    as the author of the parts of the library used.
+    This can be in the form of a textual message at program startup or
+    in documentation (online or textual) provided with the package.
+   
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions
+    are met:
+    1. Redistributions of source code must retain the copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+    3. All advertising materials mentioning features or use of this software
+       must display the following acknowledgement:
+       "This product includes cryptographic software written by
+        Eric Young (eay@cryptsoft.com)"
+       The word 'cryptographic' can be left out if the rouines from
+       the library being used are not cryptographic related :-).
+    4. If you include any Windows specific code (or a derivative
+       thereof) from the apps directory (application code) you must
+       include an acknowledgement: "This product includes software
+       written by Tim Hudson (tjh@cryptsoft.com)"
+   
+    THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND ANY EXPRESS
+    OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+    ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE
+    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,
+    OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+    PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+    THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+    TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+    THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+    SUCH DAMAGE.
+   
+    The licence and distribution terms for any publically available
+    version or derivative of this code cannot be changed.  i.e. this
+    code cannot simply be copied and put under another distribution
+    licence [including the GNU Public Licence.]
+
+
+
+Silicon Graphics GLU ( http://oss.sgi.com/ ) ...
+
+  SGI FREE SOFTWARE LICENSE B (Version 1.1 [02/22/2000]) 
+
+  1. Definitions.
+
+  1.1. "Additional Notice Provisions" means such additional provisions
+       as appear in the Notice in Original Code under the heading
+       "Additional Notice Provisions."
+
+  1.2. "Covered Code" means the Original Code or Modifications, or any
+       combination thereof.
+
+  1.3. "Hardware" means any physical device that accepts input,
+       processes input, stores the results of processing, and/or
+       provides output.
+
+  1.4. "Larger Work" means a work that combines Covered Code or
+       portions thereof with code not governed by the terms of this
+       License.
+
+  1.5. "Licensable" means having the right to grant, to the maximum
+       extent possible, whether at the time of the initial grant or
+       subsequently acquired, any and all of the rights conveyed
+       herein.
+
+  1.6. "License" means this document.
+
+  1.7. "Licensed Patents" means patent claims Licensable by SGI that
+       are infringed by the use or sale of Original Code or any
+       Modifications provided by SGI, or any combination thereof.
+
+  1.8. "Modifications" means any addition to or deletion from the
+       substance or structure of the Original Code or any previous
+       Modifications. When Covered Code is released as a series of
+       files, a Modification is:
+
+    A. Any addition to the contents of a file containing Original Code
+       and/or addition to or deletion from the contents of a file
+       containing previous Modifications. 
+
+    B. Any new file that contains any part of the Original Code or
+       previous Modifications.
+ 
+  1.9. "Notice" means any notice in Original Code or Covered Code, as
+       required by and in compliance with this License.
+
+  1.10. "Original Code" means source code of computer software code
+       that is described in the source code Notice required by Exhibit
+       A as Original Code, and updates and error corrections
+       specifically thereto.
+
+  1.11. "Recipient" means an individual or a legal entity exercising
+       rights under, and complying with all of the terms of, this
+       License or a future version of this License issued under
+       Section 8. For legal entities, "Recipient" includes any entity
+       that controls, is controlled by, or is under common control
+       with Recipient. For purposes of this definition, "control" of
+       an entity means (a) the power, direct or indirect, to direct or
+       manage such entity, or (b) ownership of fifty percent (50%) or
+       more of the outstanding shares or beneficial ownership of such
+       entity.
+
+  1.12. "Recipient Patents" means patent claims Licensable by a
+       Recipient that are infringed by the use or sale of Original
+       Code or any Modifications provided by SGI, or any combination
+       thereof.
+
+  1.13. "SGI" means Silicon Graphics, Inc.
+
+  1.14. "SGI Patents" means patent claims Licensable by SGI other than
+        the Licensed Patents.
+
+  2.License Grant and Restrictions.
+
+  2.1. SGI License Grant. Subject to the terms of this License and any
+       third party intellectual property claims, for the duration of
+       intellectual property protections inherent in the Original
+       Code, SGI hereby grants Recipient a worldwide, royalty-free,
+       non-exclusive license, to do the following: (i) under
+       copyrights Licensable by SGI, to reproduce, distribute, create
+       derivative works from, and, to the extent applicable, display
+       and perform the Original Code and/or any Modifications provided
+       by SGI alone and/or as part of a Larger Work; and (ii) under
+       any Licensable Patents, to make, have made, use, sell, offer
+       for sale, import and/or otherwise transfer the Original Code
+       and/or any Modifications provided by SGI. Recipient accepts the
+       terms and conditions of this License by undertaking any of the
+       aforementioned actions. The patent license shall apply to the
+       Covered Code if, at the time any related Modification is added,
+       such addition of the Modification causes such combination to be
+       covered by the Licensed Patents. The patent license in Section
+       2.1(ii) shall not apply to any other combinations that include
+       the Modification. No patent license is provided under SGI
+       Patents for infringements of SGI Patents by Modifications not
+       provided by SGI or combinations of Original Code and
+       Modifications not provided by SGI.
+
+  2.2. Recipient License Grant. Subject to the terms of this License
+       and any third party intellectual property claims, Recipient
+       hereby grants SGI and any other Recipients a worldwide,
+       royalty-free, non-exclusive license, under any Recipient
+       Patents, to make, have made, use, sell, offer for sale, import
+       and/or otherwise transfer the Original Code and/or any
+       Modifications provided by SGI.
+
+  2.3. No License For Hardware Implementations. The licenses granted
+       in Section 2.1 and 2.2 are not applicable to implementation in
+       Hardware of the algorithms embodied in the Original Code or any
+       Modifications provided by SGI .
+
+  3. Redistributions. 
+
+  3.1. Retention of Notice/Copy of License. The Notice set forth in
+       Exhibit A, below, must be conspicuously retained or included in
+       any and all redistributions of Covered Code. For distributions
+       of the Covered Code in source code form, the Notice must appear
+       in every file that can include a text comments field; in
+       executable form, the Notice and a copy of this License must
+       appear in related documentation or collateral where the
+       Recipient's rights relating to Covered Code are described. Any
+       Additional Notice Provisions which actually appears in the
+       Original Code must also be retained or included in any and all
+       redistributions of Covered Code.
+
+  3.2. Alternative License. Provided that Recipient is in compliance
+       with the terms of this License, Recipient may, so long as
+       without derogation of any of SGI's rights in and to the
+       Original Code, distribute the source code and/or executable
+       version(s) of Covered Code under (1) this License; (2) a
+       license identical to this License but for only such changes as
+       are necessary in order to clarify Recipient's role as licensor
+       of Modifications; and/or (3) a license of Recipient's choosing,
+       containing terms different from this License, provided that the
+       license terms include this Section 3 and Sections 4, 6, 7, 10,
+       12, and 13, which terms may not be modified or superseded by
+       any other terms of such license. If Recipient elects to use any
+       license other than this License, Recipient must make it
+       absolutely clear that any of its terms which differ from this
+       License are offered by Recipient alone, and not by SGI. It is
+       emphasized that this License is a limited license, and,
+       regardless of the license form employed by Recipient in
+       accordance with this Section 3.2, Recipient may relicense only
+       such rights, in Original Code and Modifications by SGI, as it
+       has actually been granted by SGI in this License.
+
+  3.3. Indemnity. Recipient hereby agrees to indemnify SGI for any
+       liability incurred by SGI as a result of any such alternative
+       license terms Recipient offers.
+
+  4. Termination. This License and the rights granted hereunder will
+     terminate automatically if Recipient breaches any term herein and
+     fails to cure such breach within 30 days thereof. Any sublicense
+     to the Covered Code that is properly granted shall survive any
+     termination of this License, absent termination by the terms of
+     such sublicense. Provisions that, by their nature, must remain in
+     effect beyond the termination of this License, shall survive.
+
+  5. No Trademark Or Other Rights. This License does not grant any
+     rights to: (i) any software apart from the Covered Code, nor
+     shall any other rights or licenses not expressly granted
+     hereunder arise by implication, estoppel or otherwise with
+     respect to the Covered Code; (ii) any trade name, trademark or
+     service mark whatsoever, including without limitation any related
+     right for purposes of endorsement or promotion of products
+     derived from the Covered Code, without prior written permission
+     of SGI; or (iii) any title to or ownership of the Original Code,
+     which shall at all times remains with SGI. All rights in the
+     Original Code not expressly granted under this License are
+     reserved. 
+
+  6. Compliance with Laws; Non-Infringement. There are various
+     worldwide laws, regulations, and executive orders applicable to
+     dispositions of Covered Code, including without limitation
+     export, re-export, and import control laws, regulations, and
+     executive orders, of the U.S. government and other countries, and
+     Recipient is reminded it is obliged to obey such laws,
+     regulations, and executive orders. Recipient may not distribute
+     Covered Code that (i) in any way infringes (directly or
+     contributorily) any intellectual property rights of any kind of
+     any other person or entity or (ii) breaches any representation or
+     warranty, express, implied or statutory, to which, under any
+     applicable law, it might be deemed to have been subject.
+
+  7. Claims of Infringement. If Recipient learns of any third party
+     claim that any disposition of Covered Code and/or functionality
+     wholly or partially infringes the third party's intellectual
+     property rights, Recipient will promptly notify SGI of such
+     claim.
+
+  8. Versions of the License. SGI may publish revised and/or new
+     versions of the License from time to time, each with a
+     distinguishing version number. Once Covered Code has been
+     published under a particular version of the License, Recipient
+     may, for the duration of the license, continue to use it under
+     the terms of that version, or choose to use such Covered Code
+     under the terms of any subsequent version published by
+     SGI. Subject to the provisions of Sections 3 and 4 of this
+     License, only SGI may modify the terms applicable to Covered Code
+     created under this License.
+
+  9. DISCLAIMER OF WARRANTY. COVERED CODE IS PROVIDED "AS IS." ALL
+     EXPRESS AND IMPLIED WARRANTIES AND CONDITIONS ARE DISCLAIMED,
+     INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTIES AND
+     CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY, FITNESS FOR
+     A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. SGI ASSUMES NO RISK
+     AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE. SHOULD THE
+     SOFTWARE PROVE DEFECTIVE IN ANY RESPECT, SGI ASSUMES NO COST OR
+     LIABILITY FOR SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF
+     WARRANTY IS AN ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY
+     COVERED CODE IS AUTHORIZED HEREUNDER EXCEPT SUBJECT TO THIS
+     DISCLAIMER.
+
+  10. LIMITATION OF LIABILITY. UNDER NO CIRCUMSTANCES NOR LEGAL
+      THEORY, WHETHER TORT (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE
+      OR STRICT LIABILITY), CONTRACT, OR OTHERWISE, SHALL SGI OR ANY
+      SGI LICENSOR BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL,
+      INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER INCLUDING,
+      WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE,
+      LOSS OF DATA, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL
+      OTHER COMMERCIAL DAMAGES OR LOSSES, EVEN IF SUCH PARTY SHALL
+      HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. THIS
+      LIMITATION OF LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH
+      OR PERSONAL INJURY RESULTING FROM SGI's NEGLIGENCE TO THE EXTENT
+      APPLICABLE LAW PROHIBITS SUCH LIMITATION. SOME JURISDICTIONS DO
+      NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR
+      CONSEQUENTIAL DAMAGES, SO THAT EXCLUSION AND LIMITATION MAY NOT
+      APPLY TO RECIPIENT.
+
+  11. Indemnity. Recipient shall be solely responsible for damages
+      arising, directly or indirectly, out of its utilization of
+      rights under this License. Recipient will defend, indemnify and
+      hold harmless Silicon Graphics, Inc. from and against any loss,
+      liability, damages, costs or expenses (including the payment of
+      reasonable attorneys fees) arising out of Recipient's use,
+      modification, reproduction and distribution of the Covered Code
+      or out of any representation or warranty made by Recipient.
+
+  12. U.S. Government End Users. The Covered Code is a "commercial
+      item" consisting of "commercial computer software" as such terms
+      are defined in title 48 of the Code of Federal Regulations and
+      all U.S. Government End Users acquire only the rights set forth
+      in this License and are subject to the terms of this License.
+
+  13. Miscellaneous. This License represents the complete agreement
+      concerning the its subject matter. If any provision of this
+      License is held to be unenforceable, such provision shall be
+      reformed so as to achieve as nearly as possible the same legal
+      and economic effect as the original provision and the remainder
+      of this License will remain in effect. This License shall be
+      governed by and construed in accordance with the laws of the
+      United States and the State of California as applied to
+      agreements entered into and to be performed entirely within
+      California between California residents. Any litigation relating
+      to this License shall be subject to the exclusive jurisdiction
+      of the Federal Courts of the Northern District of California
+      (or, absent subject matter jurisdiction in such courts, the
+      courts of the State of California), with venue lying exclusively
+      in Santa Clara County, California, with the losing party
+      responsible for costs, including without limitation, court costs
+      and reasonable attorneys fees and expenses. The application of
+      the United Nations Convention on Contracts for the International
+      Sale of Goods is expressly excluded. Any law or regulation that
+      provides that the language of a contract shall be construed
+      against the drafter shall not apply to this License.
+
+  Exhibit A
+
+  License Applicability. Except to the extent portions of this file
+  are made subject to an alternative license as permitted in the SGI
+  Free Software License B, Version 1.1 (the "License"), the contents
+  of this file are subject only to the provisions of the License. You
+  may not use this file except in compliance with the License. You may
+  obtain a copy of the License at Silicon Graphics, Inc., attn: Legal
+  Services, 1600 Amphitheatre Parkway, Mountain View, CA 94043-1351,
+  or at:
+
+    http://oss.sgi.com/projects/FreeB
+
+  Note that, as provided in the License, the Software is distributed
+  on an "AS IS" basis, with ALL EXPRESS AND IMPLIED WARRANTIES AND
+  CONDITIONS DISCLAIMED, INCLUDING, WITHOUT LIMITATION, ANY IMPLIED
+  WARRANTIES AND CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY,
+  FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+  Original Code. The Original Code is: [name of software, version
+  number, and release date], developed by Silicon Graphics, Inc. The
+  Original Code is Copyright (c) [dates of first publication, as
+  appearing in the Notice in the Original Code] Silicon Graphics,
+  Inc. Copyright in any portions created by third parties is as
+  indicated elsewhere herein. All Rights Reserved.
+
+  Additional Notice Provisions: [such additional provisions, if any,
+  as appear in the Notice in the Original Code under the heading
+  "Additional Notice Provisions"]
+
+
+
+libjpeg ( http://www.ijg.org/files/jpegsrc.v6b.tar.gz ) ...
+
+  The authors make NO WARRANTY or representation, either express or
+  implied, with respect to this software, its quality, accuracy,
+  merchantability, or fitness for a particular purpose.  This software
+  is provided "AS IS", and you, its user, assume the entire risk as to
+  its quality and accuracy.
+  
+  This software is copyright (C) 1991-1998, Thomas G. Lane.
+  All Rights Reserved except as specified below.
+  
+  Permission is hereby granted to use, copy, modify, and distribute this
+  software (or portions thereof) for any purpose, without fee, subject
+  to these conditions:
+
+  (1) If any part of the source code for this software is distributed,
+  then this README file must be included, with this copyright and
+  no-warranty notice unaltered; and any additions, deletions, or
+  changes to the original files must be clearly indicated in
+  accompanying documentation.
+
+  (2) If only executable code is distributed, then the accompanying
+  documentation must state that "this software is based in part on the
+  work of the Independent JPEG Group".
+
+  (3) Permission for use of this software is granted only if the user
+  accepts full responsibility for any undesirable consequences; the
+  authors accept NO LIABILITY for damages of any kind.
+  
+  These conditions apply to any software derived from or based on the
+  IJG code, not just to the unmodified library.  If you use our work,
+  you ought to acknowledge us.
+  
+  Permission is NOT granted for the use of any IJG author's name or
+  company name in advertising or publicity relating to this software
+  or products derived from it.  This software may be referred to only
+  as "the Independent JPEG Group's software".
+  
+  We specifically permit and encourage the use of this software as the
+  basis of commercial products, provided that all warranty or
+  liability claims are assumed by the product vendor.
+  
+  
+  ansi2knr.c is included in this distribution by permission of
+  L. Peter Deutsch, sole proprietor of its copyright holder, Aladdin
+  Enterprises of Menlo Park, CA.  ansi2knr.c is NOT covered by the
+  above copyright and conditions, but instead by the usual
+  distribution terms of the Free Software Foundation; principally,
+  that you must include source code if you redistribute it.  (See the
+  file ansi2knr.c for full details.)  However, since ansi2knr.c is not
+  needed as part of any program generated from the IJG code, this does
+  not limit you more than the foregoing paragraphs do.
+  
+  The Unix configuration script "configure" was produced with GNU
+  Autoconf.  It is copyright by the Free Software Foundation but is
+  freely distributable.  The same holds for its supporting scripts
+  (config.guess, config.sub, ltconfig, ltmain.sh).  Another support
+  script, install-sh, is copyright by M.I.T. but is also freely
+  distributable.
+  
+  It appears that the arithmetic coding option of the JPEG spec is
+  covered by patents owned by IBM, AT&T, and Mitsubishi.  Hence
+  arithmetic coding cannot legally be used without obtaining one or
+  more licenses.  For this reason, support for arithmetic coding has
+  been removed from the free JPEG software.  (Since arithmetic coding
+  provides only a marginal gain over the unpatented Huffman mode, it
+  is unlikely that very many implementations will support it.)  So far
+  as we are aware, there are no patent restrictions on the remaining
+  code.
+  
+  The IJG distribution formerly included code to read and write GIF
+  files.  To avoid entanglement with the Unisys LZW patent, GIF
+  reading support has been removed altogether, and the GIF writer has
+  been simplified to produce "uncompressed GIFs".  This technique does
+  not use the LZW algorithm; the resulting GIF files are larger than
+  usual, but are readable by all standard GIF decoders.
+  
+  We are required to state that
+      "The Graphics Interchange Format(c) is the Copyright property of
+      CompuServe Incorporated.  GIF(sm) is a Service Mark property of
+      CompuServe Incorporated."
+
+
+
+libPNG ( http://www.libpng.org/ ) ...
+
+  The PNG Reference Library is supplied "AS IS".  The Contributing
+  Authors and Group 42, Inc. disclaim all warranties, expressed or
+  implied, including, without limitation, the warranties of
+  merchantability and of fitness for any purpose.  The Contributing
+  Authors and Group 42, Inc.  assume no liability for direct,
+  indirect, incidental, special, exemplary, or consequential damages,
+  which may result from the use of the PNG Reference Library, even if
+  advised of the possibility of such damage.
+
+  Permission is hereby granted to use, copy, modify, and distribute
+  this source code, or portions hereof, for any purpose, without fee,
+  subject to the following restrictions:
+
+  1. The origin of this source code must not be misrepresented.
+
+  2. Altered versions must be plainly marked as such and must not
+     be misrepresented as being the original source.
+
+  3. This Copyright notice may not be removed or altered from any
+     source or altered source distribution.
+
+  The Contributing Authors and Group 42, Inc. specifically permit,
+  without fee, and encourage the use of this source code as a
+  component to supporting the PNG file format in commercial products.
+  If you use this source code in a product, acknowledgment is not
+  required but would be appreciated.
+
+
+  A "png_get_copyright" function is available, for convenient use in
+  "about" boxes and the like:
+
+     printf("%s",png_get_copyright(NULL));
+
+  Also, the PNG logo (in PNG format, of course) is supplied in the
+  files "pngbar.png" and "pngbar.jpg (88x31) and "pngnow.png" (98x31).
+
+  Libpng is OSI Certified Open Source Software.  OSI Certified Open
+  Source is a certification mark of the Open Source Initiative.
+
+
+
+libtiff ( http://www.libtiff.org/ ) ...
+
+  Use and Copyright
+  
+  Copyright (c) 1988-1997 Sam Leffler
+  Copyright (c) 1991-1997 Silicon Graphics, Inc.
+  
+  Permission to use, copy, modify, distribute, and sell this software
+  and its documentation for any purpose is hereby granted without fee,
+  provided that (i) the above copyright notices and this permission
+  notice appear in all copies of the software and related
+  documentation, and (ii) the names of Sam Leffler and Silicon
+  Graphics may not be used in any advertising or publicity relating to
+  the software without the specific, prior written permission of Sam
+  Leffler and Silicon Graphics.
+  
+  THE SOFTWARE IS PROVIDED "AS-IS" AND WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS, IMPLIED OR OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY
+  WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+  
+  IN NO EVENT SHALL SAM LEFFLER OR SILICON GRAPHICS BE LIABLE FOR ANY
+  SPECIAL, INCIDENTAL, INDIRECT OR CONSEQUENTIAL DAMAGES OF ANY KIND,
+  OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+  PROFITS, WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON
+  ANY THEORY OF LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE
+  USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+
+libmng ( http://libmng.com/ ) ...
+
+  COPYRIGHT NOTICE:                                                    
+
+  Copyright (c) 2000 Gerard Juyn (gerard@libmng.com)                   
+
+  For the purposes of this copyright and license, "Contributing Authors"
+  is defined as the following set of individuals:                      
+
+  Gerard Juyn                                                       
+
+  The MNG Library is supplied "AS IS".  The Contributing Authors       
+  disclaim all warranties, expressed or implied, including, without    
+  limitation, the warranties of merchantability and of fitness for any 
+  purpose.  The Contributing Authors assume no liability for direct,   
+  indirect, incidental, special, exemplary, or consequential damages,  
+  which may result from the use of the MNG Library, even if advised of 
+  the possibility of such damage.                                      
+
+  Permission is hereby granted to use, copy, modify, and distribute this
+  source code, or portions hereof, for any purpose, without fee, subject
+  to the following restrictions:                                       
+
+  1. The origin of this source code must not be misrepresented;        
+  you must not claim that you wrote the original software.          
+
+  2. Altered versions must be plainly marked as such and must not be   
+  misrepresented as being the original source.                      
+
+  3. This Copyright notice may not be removed or altered from any source
+  or altered source distribution.                                   
+
+  The Contributing Authors specifically permit, without fee, and       
+  encourage the use of this source code as a component to supporting   
+  the MNG and JNG file format in commercial products.  If you use this 
+  source code in a product, acknowledgment would be highly appreciated.
+
+  Parts of this software have been adapted from the libpng package.    
+  Although this library supports all features from the PNG specification
+  (as MNG descends from it) it does not require the libpng package.    
+  It does require the zlib library and optionally the IJG jpeg library,
+  and/or the "little-cms" library by Marti Maria (depending on the     
+  inclusion of support for JNG and Full-Color-Management respectively. 
+
+  This library's function is primarily to read and display MNG         
+  animations. It is not meant as a full-featured image-editing         
+  component! It does however offer creation and editing functionality  
+  at the chunk level.                                                  
+
+
+
+zlib ( http://www.zlib.net ) ...
+
+  zlib.h -- interface of the 'zlib' general purpose compression library
+  version 1.2.3, July 18th, 2005
+
+  Copyright (C) 1995-2005 Jean-loup Gailly and Mark Adler
+
+  This software is provided 'as-is', without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
+
+  Jean-loup Gailly jloup@gzip.org
+  Mark Adler madler@alumni.caltech.edu
+
+
+
+Expat XML Parser ( http://www.libexpat.org/ ) ...
+
+  Copyright (c) 1998, 1999, 2000 Thai Open Source Software Center Ltd
+                                 and Clark Cooper
+  Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006 Expat maintainers.
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be included
+  in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+* FreeImage ( http://freeimage.sourceforge.net/ ) ...
+
+  This software uses the FreeImage open source image library.
+  See http://freeimage.sourceforge.net for details.
+  FreeImage is used under the FIPL, version 1.0
+
+  FreeImage Public License - Version 1.0
+  --------------------------------------------- 
+  
+  1. Definitions. 
+  
+  1.1. "Contributor" means each entity that creates or contributes to
+  the creation of Modifications. 
+  
+  1.2. "Contributor Version" means the combination of the Original
+  Code, prior Modifications used by a Contributor, and the
+  Modifications made by that particular Contributor. 
+  
+  1.3. "Covered Code" means the Original Code or Modifications or the
+  combination of the Original Code and Modifications, in each case
+  including portions thereof. 
+  
+  1.4. "Electronic Distribution Mechanism" means a mechanism generally
+  accepted in the software development community for the electronic
+  transfer of data. 
+  
+  1.5. "Executable" means Covered Code in any form other than Source
+  Code. 
+  
+  1.6. "Initial Developer" means the individual or entity identified as
+  the Initial Developer in the Source Code notice required by Exhibit
+  A. 
+  
+  1.7. "Larger Work" means a work which combines Covered Code or
+  portions thereof with code not governed by the terms of this License.
+  
+  
+  1.8. "License" means this document. 
+  
+  1.9. "Modifications" means any addition to or deletion from the
+  substance or structure of either the Original Code or any previous
+  Modifications. When Covered Code is released as a series of files, a
+  Modification is: 
+  
+  A. Any addition to or deletion from the contents of a file containing
+  Original Code or previous Modifications. 
+  
+  B. Any new file that contains any part of the Original Code or
+  previous Modifications. 
+  
+  1.10. "Original Code" means Source Code of computer software code
+  which is described in the Source Code notice required by Exhibit A as
+  Original Code, and which, at the time of its release under this
+  License is not already Covered Code governed by this License. 
+  
+  1.11. "Source Code" means the preferred form of the Covered Code for
+  making modifications to it, including all modules it contains, plus
+  any associated interface definition files, scripts used to control
+  compilation and installation of an Executable, or a list of source
+  code differential comparisons against either the Original Code or
+  another well known, available Covered Code of the Contributor's
+  choice. The Source Code can be in a compressed or archival form,
+  provided the appropriate decompression or de-archiving software is
+  widely available for no charge. 
+  
+  1.12. "You" means an individual or a legal entity exercising rights
+  under, and complying with all of the terms of, this License or a
+  future version of this License issued under Section 6.1. For legal
+  entities, "You" includes any entity which controls, is controlled by,
+  or is under common control with You. For purposes of this definition,
+  "control" means (a) the power, direct or indirect, to cause the
+  direction or management of such entity, whether by contract or
+  otherwise, or (b) ownership of fifty percent (50%) or more of the
+  outstanding shares or beneficial ownership of such entity. 
+  
+  2. Source Code License. 
+  
+  2.1. The Initial Developer Grant. The Initial Developer hereby grants
+  You a world-wide, royalty-free, non-exclusive license, subject to
+  third party intellectual property claims: 
+  
+  (a) to use, reproduce, modify, display, perform, sublicense and
+  distribute the Original Code (or portions thereof) with or without
+  Modifications, or as part of a Larger Work; and 
+  
+  (b) under patents now or hereafter owned or controlled by Initial
+  Developer, to make, have made, use and sell ("Utilize") the Original
+  Code (or portions thereof), but solely to the extent that any such
+  patent is reasonably necessary to enable You to Utilize the Original
+  Code (or portions thereof) and not to any greater extent that may be
+  necessary to Utilize further Modifications or combinations. 
+  
+  2.2. Contributor Grant. Each Contributor hereby grants You a
+  world-wide, royalty-free, non-exclusive license, subject to third
+  party intellectual property claims: 
+  
+  (a) to use, reproduce, modify, display, perform, sublicense and
+  distribute the Modifications created by such Contributor (or portions
+  thereof) either on an unmodified basis, with other Modifications, as
+  Covered Code or as part of a Larger Work; and 
+  
+  (b) under patents now or hereafter owned or controlled by
+  Contributor, to Utilize the Contributor Version (or portions
+  thereof), but solely to the extent that any such patent is reasonably
+  necessary to enable You to Utilize the Contributor Version (or
+  portions thereof), and not to any greater extent that may be
+  necessary to Utilize further Modifications or combinations. 
+  
+  3. Distribution Obligations. 
+  
+  3.1. Application of License. The Modifications which You create or to
+  which You contribute are governed by the terms of this License,
+  including without limitation Section 2.2. The Source Code version of
+  Covered Code may be distributed only under the terms of this License
+  or a future version of this License released under Section 6.1, and
+  You must include a copy of this License with every copy of the Source
+  Code You distribute. You may not offer or impose any terms on any
+  Source Code version that alters or restricts the applicable version
+  of this License or the recipients' rights hereunder. However, You may
+  include an additional document offering the additional rights
+  described in Section 3.5. 
+  
+  3.2. Availability of Source Code. Any Modification which You create
+  or to which You contribute must be made available in Source Code form
+  under the terms of this License either on the same media as an
+  Executable version or via an accepted Electronic Distribution
+  Mechanism to anyone to whom you made an Executable version available;
+  and if made available via Electronic Distribution Mechanism, must
+  remain available for at least twelve (12) months after the date it
+  initially became available, or at least six (6) months after a
+  subsequent version of that particular Modification has been made
+  available to such recipients. You are responsible for ensuring that
+  the Source Code version remains available even if the Electronic
+  Distribution Mechanism is maintained by a third party. 
+  
+  3.3. Description of Modifications. You must cause all Covered Code to
+  which you contribute to contain a file documenting the changes You
+  made to create that Covered Code and the date of any change. You must
+  include a prominent statement that the Modification is derived,
+  directly or indirectly, from Original Code provided by the Initial
+  Developer and including the name of the Initial Developer in (a) the
+  Source Code, and (b) in any notice in an Executable version or
+  related documentation in which You describe the origin or ownership
+  of the Covered Code. 
+  
+  3.4. Intellectual Property Matters 
+  
+  (a) Third Party Claims. If You have knowledge that a party claims an
+  intellectual property right in particular functionality or code (or
+  its utilization under this License), you must include a text file
+  with the source code distribution titled "LEGAL" which describes the
+  claim and the party making the claim in sufficient detail that a
+  recipient will know whom to contact. If you obtain such knowledge
+  after You make Your Modification available as described in Section
+  3.2, You shall promptly modify the LEGAL file in all copies You make
+  available thereafter and shall take other steps (such as notifying
+  appropriate mailing lists or newsgroups) reasonably calculated to
+  inform those who received the Covered Code that new knowledge has
+  been obtained. 
+  
+  (b) Contributor APIs. If Your Modification is an application
+  programming interface and You own or control patents which are
+  reasonably necessary to implement that API, you must also include
+  this information in the LEGAL file. 
+  
+  3.5. Required Notices. You must duplicate the notice in Exhibit A in
+  each file of the Source Code, and this License in any documentation
+  for the Source Code, where You describe recipients' rights relating
+  to Covered Code. If You created one or more Modification(s), You may
+  add your name as a Contributor to the notice described in Exhibit A.
+  If it is not possible to put such notice in a particular Source Code
+  file due to its structure, then you must include such notice in a
+  location (such as a relevant directory file) where a user would be
+  likely to look for such a notice. You may choose to offer, and to
+  charge a fee for, warranty, support, indemnity or liability
+  obligations to one or more recipients of Covered Code. However, You
+  may do so only on Your own behalf, and not on behalf of the Initial
+  Developer or any Contributor. You must make it absolutely clear than
+  any such warranty, support, indemnity or liability obligation is
+  offered by You alone, and You hereby agree to indemnify the Initial
+  Developer and every Contributor for any liability incurred by the
+  Initial Developer or such Contributor as a result of warranty,
+  support, indemnity or liability terms You offer. 
+  
+  3.6. Distribution of Executable Versions. You may distribute Covered
+  Code in Executable form only if the requirements of Section 3.1-3.5
+  have been met for that Covered Code, and if You include a notice
+  stating that the Source Code version of the Covered Code is available
+  under the terms of this License, including a description of how and
+  where You have fulfilled the obligations of Section 3.2. The notice
+  must be conspicuously included in any notice in an Executable
+  version, related documentation or collateral in which You describe
+  recipients' rights relating to the Covered Code. You may distribute
+  the Executable version of Covered Code under a license of Your
+  choice, which may contain terms different from this License, provided
+  that You are in compliance with the terms of this License and that
+  the license for the Executable version does not attempt to limit or
+  alter the recipient's rights in the Source Code version from the
+  rights set forth in this License. If You distribute the Executable
+  version under a different license You must make it absolutely clear
+  that any terms which differ from this License are offered by You
+  alone, not by the Initial Developer or any Contributor. You hereby
+  agree to indemnify the Initial Developer and every Contributor for
+  any liability incurred by the Initial Developer or such Contributor
+  as a result of any such terms You offer. 
+  
+  3.7. Larger Works. You may create a Larger Work by combining Covered
+  Code with other code not governed by the terms of this License and
+  distribute the Larger Work as a single product. In such a case, You
+  must make sure the requirements of this License are fulfilled for the
+  Covered Code. 
+  
+  4. Inability to Comply Due to Statute or Regulation. 
+  
+  If it is impossible for You to comply with any of the terms of this
+  License with respect to some or all of the Covered Code due to
+  statute or regulation then You must: (a) comply with the terms of
+  this License to the maximum extent possible; and (b) describe the
+  limitations and the code they affect. Such description must be
+  included in the LEGAL file described in Section 3.4 and must be
+  included with all distributions of the Source Code. Except to the
+  extent prohibited by statute or regulation, such description must be
+  sufficiently detailed for a recipient of ordinary skill to be able to
+  understand it. 
+  
+  5. Application of this License. 
+  
+  This License applies to code to which the Initial Developer has
+  attached the notice in Exhibit A, and to related Covered Code. 
+  
+  6. Versions of the License. 
+  
+  6.1. New Versions. Floris van den Berg may publish revised and/or new
+  versions of the License from time to time. Each version will be given
+  a distinguishing version number. 
+  
+  6.2. Effect of New Versions. Once Covered Code has been published
+  under a particular version of the License, You may always continue to
+  use it under the terms of that version. You may also choose to use
+  such Covered Code under the terms of any subsequent version of the
+  License published by Floris van den Berg No one other than Floris van
+  den Berg has the right to modify the terms applicable to Covered Code
+  created under this License. 
+  
+  6.3. Derivative Works. If you create or use a modified version of
+  this License (which you may only do in order to apply it to code
+  which is not already Covered Code governed by this License), you must
+  (a) rename Your license so that the phrases "FreeImage", `FreeImage
+  Public License", "FIPL", or any confusingly similar phrase do not
+  appear anywhere in your license and (b) otherwise make it clear that
+  your version of the license contains terms which differ from the
+  FreeImage Public License. (Filling in the name of the Initial
+  Developer, Original Code or Contributor in the notice described in
+  Exhibit A shall not of themselves be deemed to be modifications of
+  this License.) 
+  
+  7. DISCLAIMER OF WARRANTY. 
+  
+  COVERED CODE IS PROVIDED UNDER THIS LICENSE ON AN "AS IS" BASIS,
+  WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,
+  WITHOUT LIMITATION, WARRANTIES THAT THE COVERED CODE IS FREE OF
+  DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR
+  NON-INFRINGING. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF
+  THE COVERED CODE IS WITH YOU. SHOULD ANY COVERED CODE PROVE DEFECTIVE
+  IN ANY RESPECT, YOU (NOT THE INITIAL DEVELOPER OR ANY OTHER
+  CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY SERVICING, REPAIR OR
+  CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART
+  OF THIS LICENSE. NO USE OF ANY COVERED CODE IS AUTHORIZED HEREUNDER
+  EXCEPT UNDER THIS DISCLAIMER. 
+  
+  8. TERMINATION. 
+  
+  This License and the rights granted hereunder will terminate
+  automatically if You fail to comply with terms herein and fail to
+  cure such breach within 30 days of becoming aware of the breach. All
+  sublicenses to the Covered Code which are properly granted shall
+  survive any termination of this License. Provisions which, by their
+  nature, must remain in effect beyond the termination of this License
+  shall survive. 
+  
+  9. LIMITATION OF LIABILITY. 
+  
+  UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER TORT
+  (INCLUDING NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE INITIAL
+  DEVELOPER, ANY OTHER CONTRIBUTOR, OR ANY DISTRIBUTOR OF COVERED CODE,
+  OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO YOU OR ANY OTHER
+  PERSON FOR ANY INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL
+  DAMAGES OF ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR
+  LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR
+  ANY AND ALL OTHER COMMERCIAL DAMAGES OR LOSSES, EVEN IF SUCH PARTY
+  SHALL HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. THIS
+  LIMITATION OF LIABILITY SHALL NOT APPLY TO LIABILITY FOR DEATH OR
+  PERSONAL INJURY RESULTING FROM SUCH PARTY'S NEGLIGENCE TO THE EXTENT
+  APPLICABLE LAW PROHIBITS SUCH LIMITATION. SOME JURISDICTIONS DO NOT
+  ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL
+  DAMAGES, SO THAT EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU. 
+  
+  10. U.S. GOVERNMENT END USERS. 
+  
+  The Covered Code is a "commercial item," as that term is defined in
+  48 C.F.R. 2.101 (Oct. 1995), consisting of "commercial computer
+  software" and "commercial computer software documentation," as such
+  terms are used in 48 C.F.R. 12.212 (Sept. 1995). Consistent with 48
+  C.F.R. 12.212 and 48 C.F.R. 227.7202-1 through 227.7202-4 (June
+  1995), all U.S. Government End Users acquire Covered Code with only
+  those rights set forth herein. 
+  
+  11. MISCELLANEOUS. 
+  
+  This License represents the complete agreement concerning subject
+  matter hereof. If any provision of this License is held to be
+  unenforceable, such provision shall be reformed only to the extent
+  necessary to make it enforceable. This License shall be governed by
+  Dutch law provisions (except to the extent applicable law, if any,
+  provides otherwise), excluding its conflict-of-law provisions. With
+  respect to disputes in which at least one party is a citizen of, or
+  an entity chartered or registered to do business in, the The
+  Netherlands: (a) unless otherwise agreed in writing, all disputes
+  relating to this License (excepting any dispute relating to
+  intellectual property rights) shall be subject to final and binding
+  arbitration, with the losing party paying all costs of arbitration;
+  (b) any arbitration relating to this Agreement shall be held in
+  Almelo, The Netherlands; and (c) any litigation relating to this
+  Agreement shall be subject to the jurisdiction of the court of
+  Almelo, The Netherlands with the losing party responsible for costs,
+  including without limitation, court costs and reasonable attorneys
+  fees and expenses. Any law or regulation which provides that the
+  language of a contract shall be construed against the drafter shall
+  not apply to this License. 
+  
+  12. RESPONSIBILITY FOR CLAIMS. 
+  
+  Except in cases where another Contributor has failed to comply with
+  Section 3.4, You are responsible for damages arising, directly or
+  indirectly, out of Your utilization of rights under this License,
+  based on the number of copies of Covered Code you made available, the
+  revenues you received from utilizing such rights, and other relevant
+  factors. You agree to work with affected parties to distribute
+  responsibility on an equitable basis. 
+  
+  EXHIBIT A. 
+  
+  "The contents of this file are subject to the FreeImage Public
+  License Version 1.0 (the "License"); you may not use this file except
+  in compliance with the License. You may obtain a copy of the License
+  at http://home.wxs.nl/~flvdberg/freeimage-license.txt 
+  
+  Software distributed under the License is distributed on an "AS IS"
+  basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See
+  the License for the specific language governing rights and
+  limitations under the License.	
+  
+
+Collada ( http://www.collada.org/ ) ...
+
+  SCEA Shared Source License 1.0
+  
+  Terms and Conditions:
+  1. Definitions:
+  
+  "Software" shall mean the software and related documentation,
+  whether in Source or Object Form, made available under this SCEA
+  Shared Source license ("License"), that is indicated by a copyright
+  notice file included in the source files or attached or accompanying
+  the source files.
+  
+  "Licensor" shall mean Sony Computer Entertainment America,
+  Inc. (herein "SCEA")
+  
+  "Object Code" or "Object Form" shall mean any form that results from
+  translation or transformation of Source Code, including but not
+  limited to compiled object code or conversions to other forms
+  intended for machine execution.
+  
+  "Source Code" or "Source Form" shall have the plain meaning
+  generally accepted in the software industry, including but not
+  limited to software source code, documentation source, header and
+  configuration files.
+  
+  "You" or "Your" shall mean you as an individual or as a company, or
+  whichever form under which you are exercising rights under this
+  License.
+  
+  2. License Grant.
+  
+  Licensor hereby grants to You, free of charge subject to the terms
+  and conditions of this License, an irrevocable, non-exclusive,
+  worldwide, perpetual, and royalty-free license to use, modify,
+  reproduce, distribute, publicly perform or display the Software in
+  Object or Source Form .
+  
+  3. No Right to File for Patent.
+  
+  In exchange for the rights that are granted to You free of charge
+  under this License, You agree that You will not file for any patent
+  application, seek copyright protection or take any other action that
+  might otherwise impair the ownership rights in and to the Software
+  that may belong to SCEA or any of the other contributors/authors of
+  the Software.
+  
+  4. Contributions.
+  
+  SCEA welcomes contributions in form of modifications, optimizations,
+  tools or documentation designed to improve or expand the performance
+  and scope of the Software (collectively "Contributions"). Per the
+  terms of this License You are free to modify the Software and those
+  modifications would belong to You. You may however wish to donate
+  Your Contributions to SCEA for consideration for inclusion into the
+  Software. For the avoidance of doubt, if You elect to send Your
+  Contributions to SCEA, You are doing so voluntarily and are giving
+  the Contributions to SCEA and its parent company Sony Computer
+  Entertainment, Inc., free of charge, to use, modify or distribute in
+  any form or in any manner. SCEA acknowledges that if You make a
+  donation of Your Contributions to SCEA, such Contributions shall not
+  exclusively belong to SCEA or its parent company and such donation
+  shall not be to Your exclusion. SCEA, in its sole discretion, shall
+  determine whether or not to include Your donated Contributions into
+  the Software, in whole, in part, or as modified by SCEA. Should SCEA
+  elect to include any such Contributions into the Software, it shall
+  do so at its own risk and may elect to give credit or special thanks
+  to any such contributors in the attached copyright notice. However,
+  if any of Your contributions are included into the Software, they
+  will become part of the Software and will be distributed under the
+  terms and conditions of this License. Further, if Your donated
+  Contributions are integrated into the Software then Sony Computer
+  Entertainment, Inc. shall become the copyright owner of the Software
+  now containing Your contributions and SCEA would be the Licensor.
+  
+  5. Redistribution in Source Form
+  
+  You may redistribute copies of the Software, modifications or
+  derivatives thereof in Source Code Form, provided that You:
+  
+        a. Include a copy of this License and any copyright notices with source
+  
+        b. Identify modifications if any were made to the Software
+  
+        c. Include a copy of all documentation accompanying the
+           Software and modifications made by You
+  
+  6. Redistribution in Object Form
+  
+  If You redistribute copies of the Software, modifications or
+  derivatives thereof in Object Form only (as incorporated into
+  finished goods, i.e. end user applications) then You will not have a
+  duty to include any copies of the code, this License, copyright
+  notices, other attributions or documentation.
+  
+  7. No Warranty
+  
+  THE SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT ANY
+  REPRESENTATIONS OR WARRANTIES OF ANY KIND, EITHER EXPRESS OR
+  IMPLIED, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OF TITLE,
+  NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR
+  PURPOSE. YOU ARE SOLELY RESPONSIBLE FOR DETERMINING THE
+  APPROPRIATENESS OF USING, MODIFYING OR REDISTRIBUTING THE SOFTWARE
+  AND ASSUME ANY RISKS ASSOCIATED WITH YOUR EXERCISE OF PERMISSIONS
+  UNDER THIS LICENSE.
+  
+  8. Limitation of Liability
+  
+  UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY WILL EITHER PARTY
+  BE LIABLE TO THE OTHER PARTY OR ANY THIRD PARTY FOR ANY DIRECT,
+  INDIRECT, CONSEQUENTIAL, SPECIAL, INCIDENTAL, OR EXEMPLARY DAMAGES
+  WITH RESPECT TO ANY INJURY, LOSS, OR DAMAGE, ARISING UNDER OR IN
+  CONNECTION WITH THIS LETTER AGREEMENT, WHETHER FORESEEABLE OR
+  UNFORESEEABLE, EVEN IF SUCH PARTY HAS BEEN ADVISED OF THE
+  POSSIBILITY OF SUCH INJURY, LOSS, OR DAMAGE. THE LIMITATIONS OF
+  LIABILITY SET FORTH IN THIS SECTION SHALL APPLY TO THE FULLEST
+  EXTENT PERMISSIBLE AT LAW OR ANY GOVERMENTAL REGULATIONS.
+  
+  9. Governing Law and Consent to Jurisdiction
+  
+  This Agreement shall be governed by and interpreted in accordance
+  with the laws of the State of California, excluding that body of law
+  related to choice of laws, and of the United States of America. Any
+  action or proceeding brought to enforce the terms of this Agreement
+  or to adjudicate any dispute arising hereunder shall be brought in
+  the Superior Court of the County of San Mateo, State of California
+  or the United States District Court for the Northern District of
+  California. Each of the parties hereby submits itself to the
+  exclusive jurisdiction and venue of such courts for purposes of any
+  such action. In addition, each party hereby waives the right to a
+  jury trial in any action or proceeding related to this Agreement.
+  
+  10. Copyright Notice for Redistribution of Source Code
+  
+  Copyright 2005 Sony Computer Entertainment Inc.
+  
+  Licensed under the SCEA Shared Source License, Version 1.0 (the
+  "License"); you may not use this file except in compliance with the
+  License. You may obtain a copy of the License at:
+
+  http://research.scea.com/scea_shared_source_license.html
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+  implied. See the License for the specific language governing
+  permissions and limitations under the License.
+
+
+Qt ( http://www.trolltech.com/ ) ...
+
+  Qt 3.3.5 is being used under the Qt Commercial License Agreement 2.9.1.
+  The Qt GUI Toolkit is Copyright (C) 1994-2005 Trolltech AS.
+

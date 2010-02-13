@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A distributed filesystem for file sharing, providing location independence, scalability, security, and transparent migration capabilities for data
+# URL: http://www.openafs.org/main.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses
+
+name=openafs
+version=1.5.12
+release=1
+source=(http://www.$name.org/dl/$name/$version/$name-$version-src.tar)
+
+build () {
+	tar xf $name-$version-src.tar
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

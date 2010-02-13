@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Glide3 library for the 3dfx Voodoo graphic cards
+# URL: http://glide.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jürgen Daubert <juergen.daubert@t-online.de>
+# Depends on:
+
+
+name=libglide
+version=3_10_00_30303
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/glide/glide3x-$version-lib-linux.tgz)
+
+
+build () {
+	mkdir -p $PKG/usr/lib
+
+	install -m 755 *.so $PKG/usr/lib
+
+	chown -R root:root $PKG
+}

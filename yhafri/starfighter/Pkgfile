@@ -1,0 +1,22 @@
+# Description: Project: Starfighter is an arcade-worthy 2D scrolling shooter 
+# URL: http://www.parallelrealities.co.uk/starfighter.php
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: sdl_image, sdl_mixer, sdl_ttf
+
+# Go to http://www.parallelrealities.co.uk/starfighter.php#Downloads to
+# download the source file.
+
+name=starfighter
+version=1.1
+release=1
+source=($name-$version-$release.tar.gz $name-$version.patch)
+
+build() {
+	cd $name-$version
+	patch -p0 -i ../$name-$version.patch
+	make
+	mkdir -p $PKG/usr/{bin,share/{parallelrealities,doc/starfighter}}
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/doc
+}

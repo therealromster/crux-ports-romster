@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A caching, forwarding DNS proxy server
+# URL: http://dnrd.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dnrd
+version=2.20
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make 
+	make prefix=$PKG/usr install
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

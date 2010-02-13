@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Stand-alone encoder and decoder for base64
+# URL: http://www.chiark.greenend.org.uk/~sgtatham/utils/base64.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=base64
+version=1
+release=1
+source=(http://www.chiark.greenend.org.uk/~sgtatham/utils/$name.tar.gz)
+
+build () {
+	cd $name
+
+	make
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

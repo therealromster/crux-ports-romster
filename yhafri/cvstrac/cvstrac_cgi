@@ -1,0 +1,14 @@
+#! /bin/sh
+#
+# cvstrac.cgi: CGI script for cvstrac
+#
+
+# For use with Subversion
+# SCM=svntrac
+# For use with CVS 
+# SCM=cvstrac
+SCM=svntrac
+
+/usr/bin/$SCM cgi /var/lib/cvstrac MyProject
+
+# End of file

@@ -1,0 +1,20 @@
+--- epm-4.1/Makefile.in	2007-05-08 17:33:33.000000000 +0200
++++ epm-4.1/Makefile.in-new	2007-05-08 17:33:28.000000000 +0200
+@@ -53,12 +53,12 @@
+ #
+ 
+ bindir		=	@bindir@
+-datadir		=	@datadir@
++datadir		=	$(DESTROOT)@datadir@
+ docdir		=	@docdir@
+-exec_prefix	=	@exec_prefix@
+-mandir		=	@mandir@
+-prefix		=	@prefix@
+-libdir		=	@libdir@
++exec_prefix	=	$(DESTROOT)@prefix@
++mandir		=	$(DESTROOT)@mandir@
++prefix		=	$(DESTROOT)@prefix@
++libdir		=	$(DESTROOT)@libdir@
+ srcdir		=	@srcdir@
+ 
+ VPATH		=	$(srcdir)

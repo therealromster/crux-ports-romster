@@ -1,0 +1,20 @@
+# $Id: $
+# Description: DateTime helper functions and objects
+# URL: http://search.cpan.org/~jsiracusa/Rose-DateTime-0.53/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-rose-datetime
+version=0.532
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JS/JSIRACUSA/Rose-DateTime-$version.tar.gz)
+
+build () {
+	cd Rose-DateTime-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

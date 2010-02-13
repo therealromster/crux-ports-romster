@@ -1,0 +1,18 @@
+REQUIREMENTS
+			1. Kernel support for USB device filesystem
+			2. Mount the usbfs. This can be done with an entry in /etc/fstab: 
+   			none /proc/bus/usb usbfs defaults 0 0
+
+POST-INSTALL
+			1. To give other users than root access to the usb devices, either
+			   install hotplug or create a executable file /sbin/hotplug with
+			   the following content:
+   
+			#!/bin/sh
+   				if [ "$ACTION" = "add" ]; then
+      				sleep 1
+      				chown root:users "$DEVICE"
+      				chmod 0660 "$DEVICE"
+   			fi
+   			# End of file
+

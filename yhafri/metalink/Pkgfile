@@ -1,0 +1,20 @@
+# $Id: $
+# Description: An open standard that bundles the various ways (FTP/HTTP/P2P) to get files into one format for easier downloads
+# URL: http://metalinks.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: boost, libgcrypt
+
+name=metalink
+version=0.3.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/metalinks/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	make PREFIX=$PKG install
+
+	chown -R root:root $PKG
+}

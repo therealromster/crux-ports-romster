@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Definition of MIME types
+# URL: http://search.cpan.org/~markov/MIME-Types-1.16/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-mime-types
+version=1.16
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MA/MARKOV/MIME-Types-$version.tar.gz)
+
+build () {
+	cd MIME-Types-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

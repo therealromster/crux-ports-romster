@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A powerful string library
+# URL: http://www.spelio.net.ru/soft/#LIBSTRFUNC
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libstrfunc
+version=8.2
+release=2
+source=(http://lionet.info/soft/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

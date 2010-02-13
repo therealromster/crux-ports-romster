@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Facility for creating read-only scalars, arrays, hashes
+# URL: http://84.45.18.237/~roode/Readonly-1.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=p5-readonly
+version=1.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RO/ROODE/Readonly-$version.tar.gz)
+
+build () {
+	cd Readonly-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

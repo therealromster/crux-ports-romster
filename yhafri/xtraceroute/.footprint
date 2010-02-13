@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/xtraceroute
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/xtraceroute.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/xtraceroute/
+-rw-r--r--	root/root	usr/share/xtraceroute/earth.png
+-rw-r--r--	root/root	usr/share/xtraceroute/night.png
+-rwxr-xr-x	root/root	usr/share/xtraceroute/xtraceroute-resolve-location.sh

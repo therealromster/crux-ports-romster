@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Simple, compact and correct param-checking functions
+# URL: http://search.cpan.org/~adamk/Params-Util-0.20/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-params-util
+version=0.20
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/Params-Util-$version.tar.gz)
+
+build () {
+	cd Params-Util-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

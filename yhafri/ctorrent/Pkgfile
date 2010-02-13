@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Enhanced command line BitTorrent client 
+# URL: http://www.rahul.net/dholmes/ctorrent/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ctorrent
+version=3.2
+release=1
+source=(http://www.rahul.net/dholmes/$name/$name-dnh$version.tar.gz)
+
+build () {
+	cd $name-dnh$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

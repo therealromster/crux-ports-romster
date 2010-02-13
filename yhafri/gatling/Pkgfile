@@ -1,0 +1,33 @@
+# $Id: $
+# Description: A high performance web server
+# URL: http://www.fefe.de/gatling/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=gatling
+version=0.9
+release=1
+source=(http://dl.fefe.de/$name-$version.tar.bz2 \
+	http://dl.fefe.de/libowfat-0.24.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	mv libowfat-* libowfat/
+	cp libowfat/iopause.h2 libowfat/iopause.h
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make prefix=$PKG/usr install
+
+	for bench in bindbench cgi dl forkbench \
+		     forksbench ioerr manymapbench \
+		     mktestdata mmapbench pthreadbench;
+	do
+		install -D -m 755 $bench $PKG/usr/bin/$bench
+	done
+
+	chown -R root:root $PKG
+}

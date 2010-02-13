@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/ezV24/
+-rw-r--r--	root/root	usr/include/ezV24/ezV24.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libezV24-0_s.a
+lrwxrwxrwx	root/root	usr/lib/libezV24.so -> /usr/lib/libezV24.so.0
+lrwxrwxrwx	root/root	usr/lib/libezV24.so.0 -> /usr/lib/libezV24.so.0.1
+-rwxr-xr-x	root/root	usr/lib/libezV24.so.0.1

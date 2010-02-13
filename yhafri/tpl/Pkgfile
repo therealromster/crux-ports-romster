@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Fast and easy serialization in C
+# URL: http://tpl.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libtpl
+version=1.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/tpl/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,4 @@
+POST-INSTALL:
+		* Add the following line to your "/etc/apache/httpd.conf" 
+		  file to load "libapreq2" module:
+		LoadModule apreq_module lib/apache/mod_apreq2.so

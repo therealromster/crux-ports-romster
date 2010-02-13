@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A convenience tool to ease the use of ANSI coloring in your shell
+# URL: http://runslinux.net/projects/color
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=color
+version=1.2
+release=1
+source=(http://runslinux.net/projects/color/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+    
+	make CFLAGS="$CFLAGS"
+    	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+    
+	chown -R root:root $PKG
+}

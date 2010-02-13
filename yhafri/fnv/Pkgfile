@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Fowler / Noll / Vo Hash algorithm
+# URL: http://www.isthe.com/chongo/tech/comp/fnv/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=fnv
+version=4.1
+release=1
+source=(http://www.isthe.com/chongo/src/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib,include}
+	cd $name
+	patch -p1<../$name-$version.patch
+	
+	make
+	make prefix=$PKG install
+
+	chown -R root:root $PKG
+}

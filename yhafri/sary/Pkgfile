@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A suffix array library and tools
+# URL: http://sary.sourceforge.net
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sary
+version=1.2.0
+release=1
+source=(http://sary.sourceforge.net/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

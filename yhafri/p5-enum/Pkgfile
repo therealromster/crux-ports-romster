@@ -1,0 +1,20 @@
+# $Id: $
+# Description: C style enumerated types and bitmask flags in Perl 
+# URL: http://search.cpan.org/~zenin/enum-1.016/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-enum
+version=1.016
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/Z/ZE/ZENIN/enum-$version.tar.gz)
+
+build () {
+	cd enum-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

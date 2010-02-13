@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl Tk contribution
+# URL: http://search.cpan.org/~gaas/URI-1.33/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tk-contrib
+version=0.07
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AC/ACH/Tk-Contrib-$version.tar.gz)
+
+build () {
+	cd Tk-Contrib-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

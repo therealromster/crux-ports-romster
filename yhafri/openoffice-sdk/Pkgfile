@@ -1,0 +1,42 @@
+# $Id: $
+# Description: OpenOffice SDK
+# URL: http://www.openoffice.org
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openoffice, jdk, perl, stlport, rpm2targz, zip
+
+name=openoffice-sdk
+version=2.2.0
+release=1
+source=(ftp://ftp.tu-chemnitz.de/pub/openoffice/stable/$version/OOo-SDK_${version}_LinuxIntel_install.sh \
+	$name-$version.patch)
+
+build()
+{
+	mkdir -p $PKG/usr/{bin,lib}
+
+	echo "tmp" | sh OOo-SDK_${version}_LinuxIntel_install.sh
+	cd tmp/RPMS
+	rpm2targz openoffice.org-sdk-$version-9134.i586.rpm
+	tar xf openoffice.org-sdk-$version-9134.i586.tar.gz
+
+	cd opt/openoffice.org2.2_sdk
+	patch -p0<$SRC/$name-$version.patch
+
+	rm -f *.html README LICENSE
+
+	for i in setsdkenv_unix setsdkenv_unix.sh setsdkenv_unix.csh; do
+		(ln -sf /usr/lib/$name/$i $PKG/usr/bin/$i)
+        done
+
+	cd ..
+	mv openoffice.org2.2_sdk $PKG/usr/lib/$name
+
+	rm -rf $PKG/usr/lib/$name/{docs,examples}
+
+	for i in autodoc cppumaker idlc idlcpp javamaker rdbmaker regcomp regcompare regmerge regview uno xml2cmp; do
+		ln -s /usr/lib/$name/linux/bin/$i $PKG/usr/bin/$i
+	done
+	
+	chown -R root:root $PKG
+}

@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Inline QSORT() implementation
+# URL: http://www.corpit.ru/mjt/qsort.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=qsort
+version=1
+release=1
+source=(http://www.corpit.ru/mjt/$name/$name.h)
+
+build () {
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+	chown -R root:root $PKG
+}

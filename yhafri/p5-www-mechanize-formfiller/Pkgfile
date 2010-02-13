@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Framework to automate HTML forms 
+# URL: http://search.cpan.org/~corion/WWW-Mechanize-FormFiller-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-www-mechanize
+
+name=p5-www-mechanize-formfiller
+version=0.05
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CO/CORION/WWW-Mechanize-FormFiller-$version.tar.gz)
+
+build () {
+	cd WWW-Mechanize-FormFiller-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

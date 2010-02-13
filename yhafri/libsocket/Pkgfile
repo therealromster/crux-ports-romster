@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Generic C++ socket library
+# URL: http://www.happycoders.org/software/libsocket.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libsocket
+version=1.7
+release=1
+source=(http://www.speedblue.org/conf/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

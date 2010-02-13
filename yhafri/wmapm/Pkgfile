@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Laptop Advanced Power Management dockapp with APM support
+# URL: http://www.ne.jp/asahi/linux/timecop/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmapm
+version=1.21
+release=1
+source=(http://www.ne.jp/asahi/linux/timecop/software/wmacpi-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name-$version
+        make CFLAGS="$CFLAGS"
+	mv $name $PKG/usr/bin
+        chown -R root:root $PKG
+}

@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Kerkis fonts for LaTeX
+# URL: http://www.ctan.org/tex-archive/fonts/greek/kerkis/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-kerkis
+version=1
+release=1
+source=(ftp://tug.ctan.org/pub/tex-archive/fonts/greek/kerkis.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/fonts/{tfm,vf,afm}
+	mkdir -p $PKG/usr/share/texmf/dvips/base/kerkis
+	mkdir -p $PKG/usr/share/texmf/fonts/type1
+	mkdir -p $PKG/usr/share/texmf/tex/latex
+    mkdir -p $PKG/usr/share/texmf/fonts/map/dvips/kerkis
+
+	cd kerkis
+	rm -rf License.txt README.html
+
+    mv dvips/kerkis.map $PKG/usr/share/texmf/fonts/map/dvips/kerkis
+	mv dvips/ $PKG/usr/share/texmf/dvips/base/kerkis
+	mv tex/   $PKG/usr/share/texmf/tex/latex/kerkis
+
+	mv type1/ $PKG/usr/share/texmf/fonts/type1/kerkis
+	mv vf/    $PKG/usr/share/texmf/fonts/vf/kerkis
+	mv afm/   $PKG/usr/share/texmf/fonts/afm/kerkis
+	mv tfm/   $PKG/usr/share/texmf/fonts/tfm/kerkis
+
+	chown -R root:root $PKG
+}

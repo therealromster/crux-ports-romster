@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Shaman-X disaster recovery kit for Linux
+# URL: http://www.shaman-x.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=wdx
+version=0.4.2
+release=1
+source=($name-$version.patch)
+
+build () {
+	cvs -z3 -d:pserver:anonymous@cvs.savannah.nongnu.org:/sources/shaman-x co shaman-x
+	cd shaman-x/shaman-x/$name/src
+    	patch -p0<$SRC/$name-$version.patch
+
+	make wdx
+	make PREFIX=$PKG install
+	
+	cd configuration-files
+	for i in wdx*script*; do install -D -m 755 $i $PKG/usr/bin/$i;   done
+	for i in mission*;    do install -D -m 644 $i $PKG/etc/$name/$i; done
+
+    	chown -R root:root $PKG
+}

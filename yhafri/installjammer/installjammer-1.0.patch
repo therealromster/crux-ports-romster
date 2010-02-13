@@ -1,0 +1,8 @@
+--- installjammer/installjammer	2006-05-03 02:57:36.000000000 +0200
++++ installjammer/installjammer-new	2006-07-06 00:28:23.000000000 +0200
+@@ -86,4 +86,4 @@
+   exit 1
+ fi
+ 
+-exec ${INSTALLKIT} ${INSTALLJAMMER_HOME}/installjammer.tcl $* >> debug.log
++exec ${INSTALLKIT} ${INSTALLJAMMER_HOME}/installjammer.tcl $* >> /tmp/installjammer.log

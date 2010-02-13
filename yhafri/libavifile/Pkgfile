@@ -1,0 +1,37 @@
+# $Id: $
+# Description: Linux avi libary and utils (video stuff)
+# URL: http://avifile.sourceforge.net/
+# Packager: Martin Opel, mo at obbl-net dot de
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libsdl, liba52, libxvid, libmad, lame, libdivx, freetype, libvorbis, libiconv
+
+name=libavifile
+version=0.7-0.7.45
+release=2
+source=(http://kent.dl.sourceforge.net/sourceforge/avifile/avifile-$version.tar.bz2 \
+	$name-$version.patch \
+	avifile-$version-gcc4.patch)
+
+build() {
+	#cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/avifile login
+	#cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/avifile co avifile
+	#cd avifile
+	#./autogen.sh
+
+	cd avifile-$version
+	patch -p0<../$name-$version.patch
+	patch -p1<../avifile-$version-gcc4.patch
+
+	./configure --prefix=/usr  \
+                --without-qt       \
+                --disable-xvidtest \
+                --disable-xvid
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/avifile-0.7/doc
+
+	chmod -R go-w $PKG
+	chown -R root:root $PKG
+}

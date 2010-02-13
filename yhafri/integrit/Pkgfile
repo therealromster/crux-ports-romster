@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A simple but robust integrity verification programs
+# URL: http://integrit.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=integrit
+version=4.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    	make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    	chown -R root:root $PKG
+}

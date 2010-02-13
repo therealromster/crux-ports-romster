@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to ImageMagick
+# URL: http://search.cpan.org/~jcristy/PerlMagick-6.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: imagemagick
+
+name=p5-perlmagick
+version=6.02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JC/JCRISTY/PerlMagick-$version.tar.gz)
+
+build () {
+	cd PerlMagick-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

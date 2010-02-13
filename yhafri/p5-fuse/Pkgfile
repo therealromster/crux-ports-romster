@@ -1,0 +1,25 @@
+# Description: write filesystems in Perl using FUSE
+# URL: http://cpan.uwinnipeg.ca/dist/Fuse
+# Maintainer: 
+# Packager: Han Boetes, han at mijncomputer dot nl
+# Depends on: perl fuse
+
+name=p5-fuse
+version=0.06
+release=1
+source=(http://cpan.uwinnipeg.ca/cpan/authors/id/D/DP/DPAVLIN/Fuse-$version.tar.gz)
+
+build()
+{
+    cd Fuse-$version
+    perl Makefile.PL
+    make OPTIMIZE="$CFLAGS"
+    make install DESTDIR=$PKG
+    # Remove perlcrap
+    find $PKG \
+        -name .packlist -or \
+        -name '*.bs' -or \
+        -name perllocal.pod | xargs rm
+    # Remove empty directories
+    find $PKG -depth -empty -exec rm -rf {} \;
+}

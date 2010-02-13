@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/aoi
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/aoi/
+-rw-r--r--	root/root	usr/lib/aoi/ArtOfIllusion.jar
+drwxr-xr-x	root/root	usr/lib/aoi/Icons/
+-rw-r--r--	root/root	usr/lib/aoi/Icons/32x32.png
+-rw-r--r--	root/root	usr/lib/aoi/Icons/48x48.png
+-rw-r--r--	root/root	usr/lib/aoi/Icons/64x64.png
+drwxr-xr-x	root/root	usr/lib/aoi/Plugins/
+-rw-r--r--	root/root	usr/lib/aoi/Plugins/OSSpecific.jar
+-rw-r--r--	root/root	usr/lib/aoi/Plugins/Renderers.jar
+-rw-r--r--	root/root	usr/lib/aoi/Plugins/SPManager.jar
+-rw-r--r--	root/root	usr/lib/aoi/Plugins/Tools.jar
+-rw-r--r--	root/root	usr/lib/aoi/Plugins/Translators.jar
+drwxr-xr-x	root/root	usr/lib/aoi/Scripts/
+drwxr-xr-x	root/root	usr/lib/aoi/Scripts/Objects/
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Objects/Fur.aoi
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Objects/Fur.bsh
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Objects/Particle Jet.bsh
+drwxr-xr-x	root/root	usr/lib/aoi/Scripts/Startup/
+drwxr-xr-x	root/root	usr/lib/aoi/Scripts/Tools/
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Tools/Join Objects.bsh
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Tools/Platonic Solid.bsh
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Tools/Sculpt.bsh
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Tools/Text.bsh
+-rw-r--r--	root/root	usr/lib/aoi/Scripts/Tools/Thicken.bsh

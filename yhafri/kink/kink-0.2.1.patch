@@ -1,0 +1,12 @@
+diff -r -U3 kink-0.2.1_orig/kink/kink.cpp kink-0.2.1_fixed/kink/kink.cpp
+--- kink-0.2.1_orig/kink/kink.cpp	2004-10-06 13:38:27.440856848 -0600
++++ kink-0.2.1_fixed/kink/kink.cpp	2004-10-06 13:40:58.473896336 -0600
+@@ -156,7 +156,7 @@
+ 	listed_devices[listed_count].device_port = port;
+ 	++listed_count;
+ 
+-  cmbDevices->insertItem(QString::fromAscii((const char *)model,strlen(model)) + " on " + (type==PARPORT ? "/dev/lp" : "/dev/usb/lp") + QString::number(port));
++	cmbDevices->insertItem(QString::fromAscii((char*)model,strlen((char*)model)) + " on " + (type==PARPORT ? "/dev/lp" : "/dev/usb/lp") + QString::number(port));
+ }
+ 
+ 

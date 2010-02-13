@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Design by Contract for C
+# URL: http://rubyforge.org/projects/dbc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: racc
+
+name=dbc
+version=2.0.0
+release=1
+source=(http://rubyforge.org/frs/download.php/4389/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr
+ 
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	ruby setup.rb config --prefix=/usr
+	ruby setup.rb setup
+	ruby setup.rb install --prefix=$PKG
+
+	chown -R root:root $PKG
+}

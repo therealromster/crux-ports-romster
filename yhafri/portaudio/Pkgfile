@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Portable cross-platform Audio API
+# URL: http://www.portaudio.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=portaudio
+version=svn
+release=1
+source=(http://www.portaudio.com/archives/pa_snapshot.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{include,lib}
+	
+	cd $name
+	./configure --prefix=/usr \
+        	    --with-host_os
+
+    make
+    make PREFIX=$PKG/usr install
+
+    chown -R root:root $PKG
+}

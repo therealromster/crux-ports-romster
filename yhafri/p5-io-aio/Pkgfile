@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Asynchronous Input/Output 
+# URL: http://search.cpan.org/~mlehmann/IO-AIO-0.5/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-io-aio
+version=2.5
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/IO-AIO-$version.tar.gz)
+
+build () {
+	cd IO-AIO-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

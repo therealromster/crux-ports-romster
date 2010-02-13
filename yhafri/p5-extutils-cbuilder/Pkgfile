@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Compile and link C code for Perl modules 
+# URL: http://search.cpan.org/~kwilliams/ExtUtils-CBuilder-0.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-extutils-cbuilder
+version=0.15
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/ExtUtils-CBuilder-$version.tar.gz)
+
+build () {
+	cd ExtUtils-CBuilder-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# Description: download accelerator which provides a 200 to 300 percent improvement in your file downloading speeds
+# URL: http://prozilla.genesys.ro
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+
+name=prozilla
+version=2.0.4
+release=1
+source=(http://$name.genesys.ro/downloads/$name/tarballs/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

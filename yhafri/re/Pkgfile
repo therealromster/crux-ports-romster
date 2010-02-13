@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Implementatoin of regular expressions in pure Erlang
+# URL: http://zanazan.am/erlang/re.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=re
+version=1
+release=1
+source=(http://zanazan.am/erlang/$name.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	erl -make
+
+	mv $name.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv $name.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	
+	chown -R root:root $PKG
+}

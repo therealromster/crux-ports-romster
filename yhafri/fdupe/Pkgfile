@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Finding duplicate files
+# URL: http://freshmeat.net/projects/fdupe/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl
+
+name=fdupe
+version=1.5
+release=1
+source=(http://public.fh-wolfenbuettel.de/~schneibe/stuff/$name.pl)
+
+build () {
+	install -D -m 755 $name.pl $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

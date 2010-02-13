@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Catalyst TT View with template names relative to the Controller
+# URL: http://84.45.18.237/~johanl/Catalyst-View-TT-ControllerLocal-0.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-template-toolkit, p5-catalyst
+
+name=p5-catalyst-view-tt-controllerlocal
+version=0.02
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/J/JO/JOHANL/Catalyst-View-TT-ControllerLocal-$version.tar.gz)
+
+build () {
+	cd Catalyst-View-TT-ControllerLocal-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

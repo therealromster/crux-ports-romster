@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Perl interface to GD graphics library 
+# URL: http://search.cpan.org/~lds/GD-2.19/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libgd
+
+name=p5-gd
+version=2.34
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/L/LD/LDS/GD-$version.tar.gz \
+	rmnasty)
+
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd GD-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	install -D -m 755 ../rmnasty  $PKG/usr/bin/rmnasty
+	chown -R root:root $PKG
+}

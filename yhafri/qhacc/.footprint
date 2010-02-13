@@ -1,0 +1,228 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/qhacc
+-rwxr-xr-x	root/root	usr/bin/qhacc-cli
+-rwxr-xr-x	root/root	usr/bin/qhacc-config
+-rwxr-xr-x	root/root	usr/bin/qhacc-gui
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/localfileplugin.h
+-rw-r--r--	root/root	usr/include/plugininfo.h
+-rw-r--r--	root/root	usr/include/plugins.h
+-rw-r--r--	root/root	usr/include/qhacc.h
+-rw-r--r--	root/root	usr/include/qhaccconstants.h
+-rw-r--r--	root/root	usr/include/qhaccext.h
+-rw-r--r--	root/root	usr/include/qhaccsegmenter.h
+-rw-r--r--	root/root	usr/include/qhacctable.h
+-rw-r--r--	root/root	usr/include/qhacctablerows.h
+-rw-r--r--	root/root	usr/include/qhaccutils.h
+-rw-r--r--	root/root	usr/include/resultset.h
+-rw-r--r--	root/root	usr/include/sqldbplugin.h
+-rw-r--r--	root/root	usr/include/tableops.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/qhacc/
+-rw-r--r--	root/root	usr/lib/qhacc/libacct.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libacct.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libacct.so -> libacct.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libacct.so.1 -> libacct.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libacct.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libarcio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libarcio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libarcio.so -> libarcio.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libarcio.so.2 -> libarcio.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libarcio.so.2.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libaves.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libaves.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libaves.so -> libaves.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libaves.so.1 -> libaves.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libaves.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libbalances.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libbalances.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libbalances.so -> libbalances.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libbalances.so.1 -> libbalances.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libbalances.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libbudget.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libbudget.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libbudget.so -> libbudget.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libbudget.so.1 -> libbudget.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libbudget.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libcliimpio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libcliimpio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libcliimpio.so -> libcliimpio.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libcliimpio.so.2 -> libcliimpio.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libcliimpio.so.2.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libdbbase.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdbbase.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdbbase.so -> libdbbase.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdbbase.so.8 -> libdbbase.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdbbase.so.8.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libdeltas.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdeltas.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdeltas.so -> libdeltas.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdeltas.so.1 -> libdeltas.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdeltas.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libdoublebargraph.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdoublebargraph.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdoublebargraph.so -> libdoublebargraph.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdoublebargraph.so.1 -> libdoublebargraph.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdoublebargraph.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libdoublelinegraph.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdoublelinegraph.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdoublelinegraph.so -> libdoublelinegraph.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libdoublelinegraph.so.1 -> libdoublelinegraph.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libdoublelinegraph.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libextprgio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libextprgio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libextprgio.so -> libextprgio.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libextprgio.so.2 -> libextprgio.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libextprgio.so.2.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libfiledbio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libfiledbio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libfiledbio.so -> libfiledbio.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libfiledbio.so.8 -> libfiledbio.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libfiledbio.so.8.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libgraphbase.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libgraphbase.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libgraphbase.so -> libgraphbase.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libgraphbase.so.1 -> libgraphbase.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libgraphbase.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libjournal.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libjournal.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libjournal.so -> libjournal.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libjournal.so.1 -> libjournal.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libjournal.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libmbudget.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libmbudget.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libmbudget.so -> libmbudget.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libmbudget.so.1 -> libmbudget.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libmbudget.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libmonthlygraph.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libmonthlygraph.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libmonthlygraph.so -> libmonthlygraph.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libmonthlygraph.so.1 -> libmonthlygraph.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libmonthlygraph.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libnativedbio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libnativedbio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libnativedbio.so -> libnativedbio.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libnativedbio.so.8 -> libnativedbio.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libnativedbio.so.8.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libpayee.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libpayee.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libpayee.so -> libpayee.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libpayee.so.1 -> libpayee.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libpayee.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libpiegraph.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libpiegraph.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libpiegraph.so -> libpiegraph.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libpiegraph.so.1 -> libpiegraph.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libpiegraph.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libprofitloss.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libprofitloss.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libprofitloss.so -> libprofitloss.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libprofitloss.so.1 -> libprofitloss.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libprofitloss.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libqhacc.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqhacc.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqhacc.so -> libqhacc.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqhacc.so.8 -> libqhacc.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqhacc.so.8.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libqhaccext.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqhaccext.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqhaccext.so -> libqhaccext.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqhaccext.so.8 -> libqhaccext.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqhaccext.so.8.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libqhaccutils.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqhaccutils.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqhaccutils.so -> libqhaccutils.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqhaccutils.so.8 -> libqhaccutils.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqhaccutils.so.8.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libqifio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqifio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqifio.so -> libqifio.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libqifio.so.2 -> libqifio.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libqifio.so.2.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libshares.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libshares.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libshares.so -> libshares.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libshares.so.1 -> libshares.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libshares.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libsinglebargraph.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libsinglebargraph.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libsinglebargraph.so -> libsinglebargraph.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libsinglebargraph.so.1 -> libsinglebargraph.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libsinglebargraph.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libsinglelinegraph.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libsinglelinegraph.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libsinglelinegraph.so -> libsinglelinegraph.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libsinglelinegraph.so.1 -> libsinglelinegraph.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libsinglelinegraph.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libtbal.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libtbal.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libtbal.so -> libtbal.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libtbal.so.1 -> libtbal.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libtbal.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libtrans.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libtrans.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libtrans.so -> libtrans.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libtrans.so.1 -> libtrans.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libtrans.so.1.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libupgradeio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libupgradeio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libupgradeio.so -> libupgradeio.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libupgradeio.so.2 -> libupgradeio.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libupgradeio.so.2.0.0
+-rw-r--r--	root/root	usr/lib/qhacc/libxmlio.a
+-rwxr-xr-x	root/root	usr/lib/qhacc/libxmlio.la
+lrwxrwxrwx	root/root	usr/lib/qhacc/libxmlio.so -> libxmlio.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/qhacc/libxmlio.so.2 -> libxmlio.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/qhacc/libxmlio.so.2.0.0
+drwxr-xr-x	root/root	usr/lib/qhacc/plugins/
+drwxr-xr-x	root/root	usr/lib/qhacc/plugins/db/
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/db/libextprgio.so -> ../../libextprgio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/db/libupgradeio.so -> ../../libupgradeio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/db/libxmlio.so -> ../../libxmlio.so
+drwxr-xr-x	root/root	usr/lib/qhacc/plugins/export/
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/export/libarcio.so -> ../../libarcio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/export/libextprgio.so -> ../../libextprgio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/export/libxmlio.so -> ../../libxmlio.so
+drwxr-xr-x	root/root	usr/lib/qhacc/plugins/graph/
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/graph/libdoublebargraph.so -> ../../libdoublebargraph.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/graph/libdoublelinegraph.so -> ../../libdoublelinegraph.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/graph/libpiegraph.so -> ../../libpiegraph.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/graph/libsinglebargraph.so -> ../../libsinglebargraph.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/graph/libsinglelinegraph.so -> ../../libsinglelinegraph.so
+drwxr-xr-x	root/root	usr/lib/qhacc/plugins/import/
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/import/libarcio.so -> ../../libarcio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/import/libcliimpio.so -> ../../libcliimpio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/import/libextprgio.so -> ../../libextprgio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/import/libqifio.so -> ../../libqifio.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/import/libxmlio.so -> ../../libxmlio.so
+drwxr-xr-x	root/root	usr/lib/qhacc/plugins/report/
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libacct.so -> ../../libacct.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libaves.so -> ../../libaves.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libbalances.so -> ../../libbalances.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libbudget.so -> ../../libbudget.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libdeltas.so -> ../../libdeltas.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libjournal.so -> ../../libjournal.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libmbudget.so -> ../../libmbudget.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libpayee.so -> ../../libpayee.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libprofitloss.so -> ../../libprofitloss.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libshares.so -> ../../libshares.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libtbal.so -> ../../libtbal.so
+lrwxrwxrwx	root/root	usr/lib/qhacc/plugins/report/libtrans.so -> ../../libtrans.so
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/qhacc/
+drwxr-xr-x	root/root	usr/share/qhacc/easysetup/
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/Makefile
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/accounts
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/jobs (EMPTY)
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/journals
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/namedtrans (EMPTY)
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/preferences
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/splits (EMPTY)
+-rw-r--r--	root/root	usr/share/qhacc/easysetup/transactions (EMPTY)
+drwxr-xr-x	root/root	usr/share/qhacc/extras/
+-rw-r--r--	root/root	usr/share/qhacc/extras/qhacccvs.sh
+-rw-r--r--	root/root	usr/share/qhacc/qhacc_bg_BG.qm
+-rw-r--r--	root/root	usr/share/qhacc/qhacc_bg_BG.ts
+-rw-r--r--	root/root	usr/share/qhacc/qhacc_es_ES.qm
+-rw-r--r--	root/root	usr/share/qhacc/qhacc_es_ES.ts

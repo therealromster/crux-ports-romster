@@ -1,0 +1,58 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/fis -> /usr/lib/fispro-2.1/bin/fis
+lrwxrwxrwx	root/root	usr/bin/fisimple -> /usr/lib/fispro-2.1/bin/fisimple
+lrwxrwxrwx	root/root	usr/bin/fisopt -> /usr/lib/fispro-2.1/bin/fisopt
+-rwxr-xr-x	root/root	usr/bin/fispro
+lrwxrwxrwx	root/root	usr/bin/fistree -> /usr/lib/fispro-2.1/bin/fistree
+lrwxrwxrwx	root/root	usr/bin/fpa -> /usr/lib/fispro-2.1/bin/fpa
+lrwxrwxrwx	root/root	usr/bin/genrules -> /usr/lib/fispro-2.1/bin/genrules
+lrwxrwxrwx	root/root	usr/bin/hfpcfg -> /usr/lib/fispro-2.1/bin/hfpcfg
+lrwxrwxrwx	root/root	usr/bin/hfpfis -> /usr/lib/fispro-2.1/bin/hfpfis
+lrwxrwxrwx	root/root	usr/bin/hfpfissr -> /usr/lib/fispro-2.1/bin/hfpfissr
+lrwxrwxrwx	root/root	usr/bin/hfpselect -> /usr/lib/fispro-2.1/bin/hfpselect
+lrwxrwxrwx	root/root	usr/bin/hfpsr -> /usr/lib/fispro-2.1/bin/hfpsr
+lrwxrwxrwx	root/root	usr/bin/hfpvertex -> /usr/lib/fispro-2.1/bin/hfpvertex
+lrwxrwxrwx	root/root	usr/bin/infuz -> /usr/lib/fispro-2.1/bin/infuz
+lrwxrwxrwx	root/root	usr/bin/jar -> /usr/lib/fispro-2.1/bin/jar
+lrwxrwxrwx	root/root	usr/bin/links -> /usr/lib/fispro-2.1/bin/links
+lrwxrwxrwx	root/root	usr/bin/perf -> /usr/lib/fispro-2.1/bin/perf
+lrwxrwxrwx	root/root	usr/bin/sample -> /usr/lib/fispro-2.1/bin/sample
+lrwxrwxrwx	root/root	usr/bin/sethfpfis -> /usr/lib/fispro-2.1/bin/sethfpfis
+lrwxrwxrwx	root/root	usr/bin/wm -> /usr/lib/fispro-2.1/bin/wm
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/fispro-2.1/
+drwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/fis
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/fisimple
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/fisopt
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/fistree
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/fpa
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/genrules
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/hfpcfg
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/hfpfis
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/hfpfissr
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/hfpselect
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/hfpsr
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/hfpvertex
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/infuz
+drwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/jar/
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/fispro.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/freehep-base.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/freehep-graphics2d.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/freehep-graphicsio-emf.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/freehep-graphicsio-gif.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/freehep-graphicsio-pdf.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/freehep-graphicsio-ps.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/freehep-graphicsio.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/plot.jar
+-rw-r--r--	root/root	usr/lib/fispro-2.1/bin/jar/util.jar
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/libfispro.so
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/libjnifis.so
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/links
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/perf
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/sample
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/sethfpfis
+-rwxr-xr-x	root/root	usr/lib/fispro-2.1/bin/wm
+lrwxrwxrwx	root/root	usr/lib/libfispro.so -> /usr/lib/fispro-2.1/bin/libfispro.so
+lrwxrwxrwx	root/root	usr/lib/libjnifis.so -> /usr/lib/fispro-2.1/bin/libjnifis.so

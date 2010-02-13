@@ -1,0 +1,21 @@
+# Description: 
+# URL: http://www.xiaprojects.com/www/prodotti/kxdocker/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kxdocker
+
+name=kxdocker-configurator
+version=1.0.0
+release=1
+source=(http://www.xiaprojects.com/www/downloads/files/kxdocker/1.0.0/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+    chown -R root.root $PKG
+}

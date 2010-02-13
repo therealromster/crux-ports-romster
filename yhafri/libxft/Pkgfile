@@ -1,0 +1,22 @@
+# $Id: $
+# Description: The X Font library
+# URL: http://freedesktop.org/Software/Xft
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, xrender
+
+name=libxft
+version=2.1.6
+release=1
+source=(http://freedesktop.org/~ajax/xlibs-release/libXft-$version.tar.bz2)
+
+build () {
+	cd libXft-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

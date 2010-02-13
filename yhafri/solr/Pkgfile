@@ -1,0 +1,22 @@
+# $Id: $
+# Description: An enterprise search server based on the Lucene search engine with XML/HTTP and JSON APIs
+# URL: http://lucene.apache.org/solr
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant, junit, jetty
+# could use Tomcat or Resin instead of "Jetty". But Jetty is fast and tiny
+
+name=solr
+version=1.2.0
+release=1
+source=(http://apache.fastorama.com/dist/lucene/$name/1.2/apache-$name-$version.tgz)
+
+build () {
+	cd apache-$name-$version
+
+	ant dist
+
+	install -D dist/apache-$name-$version.war $PKG/usr/lib/jetty/webapps/$name.war
+
+	chown -R root:root $PKG
+}

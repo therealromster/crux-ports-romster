@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Fast Tcl/Tk Web Browser
+# URL: http://browsex.com/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk
+
+name=browsex
+version=2.0
+release=1
+source=(http://$name.com/download/v$version/brx.linux.bin-$version.0.gz)
+
+build () {
+	gunzip brx.linux.bin-$version.0.gz 
+
+	install -D -m 755 brx.linux.bin-$version.0 $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Java library that allows you to generate PDF files on the fly
+# URL: http://www.lowagie.com/iText/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ant
+
+name=itext
+version=1.3.6
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-src-$version.tar.gz)
+
+build () {
+	cd ant
+
+	ant -f compile.xml jar
+
+	install -D $SRC/../build/bin/iText.jar $PKG/usr/lib/$name/iText.jar
+
+	chown -R root:root $PKG
+}

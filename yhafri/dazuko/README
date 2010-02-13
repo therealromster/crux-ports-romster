@@ -1,0 +1,5 @@
+PRE-INSTALL:
+
+		* security module support must be enabled in your kernel
+		* you will need to recompile a kernel with capabilities 
+		  as a kernel module

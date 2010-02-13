@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A collection of performance analysis software
+# URL: http://perfsuite.ncsa.uiuc.edu/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk, papi, graphviz, expat, tdom
+
+name=perfsuite
+version=0.6.2a4
+release=1
+source=(http://perfsuite.ncsa.uiuc.edu/download/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-binutils \
+		    --with-papi=/usr \
+		    --with-tdom=/usr/lib
+
+	make
+	make DESTDIR=$PKG install
+
+	cd tools/psprocess/
+	make
+	make DESTDIR=$PKG install 
+
+	rm -rf $PKG/usr/share/perfsuite/examples
+
+	chown -R root:root $PKG
+}

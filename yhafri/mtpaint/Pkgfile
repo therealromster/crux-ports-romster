@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A simple GTK+1/2 painting program
+# URL: http://www.btinternet.com/~mark.tyler4/mtpaint/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, libgif, libjpeg, libtiff, libpng, freetype
+
+name=mtpaint
+version=2.03
+release=2
+source=(http://www.btinternet.com/~mark.tyler4/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure gtk2 686 --prefix=/usr
+
+	make
+	install -D -m 755 -o root -g root src/$name $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

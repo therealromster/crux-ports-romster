@@ -1,0 +1,32 @@
+--- devede/install.sh	2006-03-15 16:05:56.000000000 +0100
++++ devede/install.sh-new	2006-04-24 19:04:12.000000000 +0200
+@@ -1,15 +1,16 @@
+ #!/bin/bash
+ 
+-install devede.py /usr/bin/
+-chmod 755 /usr/bin/devede.py
+-install -d /usr/share/devede/
+-install -d /usr/share/doc/devede/
+-install -d /usr/share/locale/es/LC_MESSAGES
+-install -d /usr/share/locale/gl/LC_MESSAGES
+-install po/es.mo /usr/share/locale/es/LC_MESSAGES/devede.mo
+-install po/gl.mo /usr/share/locale/gl/LC_MESSAGES/devede.mo
+-install devede.glade /usr/share/devede/devede.glade
+-install devede.png /usr/share/pixmaps/
+-install devede.desktop /usr/share/applications/devede.desktop
+-install docs/* /usr/share/doc/devede/
+-install pixmaps/* /usr/share/devede/
++PKG=$1
++install devede.py $PKG/usr/bin/
++chmod 755 $PKG/usr/bin/devede.py
++install -d $PKG/usr/share/devede/
++install -d $PKG/usr/share/doc/devede/
++#install -d $PKG/usr/share/locale/es/LC_MESSAGES
++install -d $PKG/usr/share/locale/gl/LC_MESSAGES
++#install po/es.mo $PKG/usr/share/locale/es/LC_MESSAGES/devede.mo
++install po/gl.mo $PKG/usr/share/locale/gl/LC_MESSAGES/devede.mo
++install devede.glade $PKG/usr/share/devede/devede.glade
++install devede.png $PKG/usr/share/pixmaps/
++install devede.desktop $PKG/usr/share/applications/devede.desktop
++#install docs/* $PKG/usr/share/doc/devede/
++install pixmaps/* $PKG/usr/share/devede/

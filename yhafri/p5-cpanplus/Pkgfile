@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Command-line access to the CPAN interface 
+# URL: http://search.cpan.org/~kane/CPANPLUS-0.053/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-cpanplus
+version=0.072
+release=1
+source=(http://cpan.etla.org/authors/id/K/KA/KANE/CPANPLUS-$version.tar.gz)
+
+build () {
+	cd CPANPLUS-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

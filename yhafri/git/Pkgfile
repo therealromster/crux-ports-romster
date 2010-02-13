@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Fast Version Control System
+# URL: http://git.or.cz/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl, curl, iconv
+
+name=git
+version=1.5.2.5
+release=1
+source=(http://kernel.org/pub/software/scm/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	sed -i "s|EXTLIBS = -lz|EXTLIBS = -lz -liconv|" Makefile
+
+	make prefix=/usr
+	make prefix=/usr DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/lib/perl5/5.8.8/linux-thread-multi/perllocal.pod
+	rm -rf $PKG/usr/lib/perl5/site_perl/5.8.8/Error.pm
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Tk widget that displays content formatted according to the HTML and CSS standards
+# URL: http://tkhtml.tcl.tk/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, tk
+
+name=tkhtml
+version=3-alpha-15
+release=1
+source=(http://$name.tcl.tk/$name$version.tar.gz)
+
+build () {
+	cd htmlwidget
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/{bin,include}
+
+	chown -R root:root $PKG
+}

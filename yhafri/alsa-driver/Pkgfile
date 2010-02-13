@@ -1,0 +1,42 @@
+# $Id: $
+# Description: Advanced Linux Sound Architecture
+# URL: http://www.alsa-project.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+
+name=alsa-driver
+version=1.0.12
+release=1
+source=(ftp://ftp.alsa-project.org/pub/driver/$name-$version.tar.bz2 \
+	sound snddevices)
+
+build() {
+	mkdir -p $PKG/etc/rc.d/
+    	cd $name-$version
+
+        [ -z "$ALSA_CARDS" ] && ALSA_CARDS="all"
+
+        ./configure --prefix=/usr \
+                    --with-cards=$ALSA_CARDS \
+		    --with-sequencer=yes \
+		    --with-debug=full \
+                    --with-kernel=/usr/src/linux-`uname -r` \
+                    --with-build=/lib/modules/`uname -r`/build
+        
+	sed -i -e '/depmod/d' Makefile
+
+ #--with-oss=yes
+	
+ #--with-cards=intel8x0
+ #--with-cards=ens1371
+
+    	make
+    	make DESTDIR=$PKG install
+
+	install -D -m 755 $SRC/sound      $PKG/etc/rc.d/sound
+	install -D -m 755 $SRC/snddevices $PKG/usr/sbin/snddevices
+
+    	chown -R root:root $PKG
+}

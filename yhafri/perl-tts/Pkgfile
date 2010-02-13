@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl Text-to-Speech
+# URL: http://tcts.fpms.ac.be/synthesis/mbrola.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: audioplay
+
+name=perl-tts
+version=1.0
+release=1
+source=(http://tcts.fpms.ac.be/synthesis/mbrola/tts/French/perl_tts.zip \
+	$name-$version.patch)
+
+build () {
+	cd tts-French
+	patch -p1<../$name-$version.patch
+	install -D -m 755 text2phone $PKG/usr/bin/text2phone
+	install -D base $PKG/etc/perl-tts/base
+	chown -R root:root $PKG
+}

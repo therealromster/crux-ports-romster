@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libshp/
+-rw-r--r--	root/root	usr/include/libshp/shapefil.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libshp.a
+-rwxr-xr-x	root/root	usr/lib/libshp.la
+lrwxrwxrwx	root/root	usr/lib/libshp.so -> libshp.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libshp.so.1 -> libshp.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libshp.so.1.0.1

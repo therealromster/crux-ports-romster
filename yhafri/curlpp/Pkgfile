@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A C++ wrapper for libcURL
+# URL: http://rrette.com/curlpp.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: curl
+
+name=curlpp
+version=0.6.0-pre4
+release=2
+source=(http://rrette.com/downloads/sources/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                    --enable-static
+
+    	make
+	make DESTDIR=$PKG install
+
+    	chown -R root:root $PKG
+}

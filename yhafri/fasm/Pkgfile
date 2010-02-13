@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Fast and efficient assembler for x86 arch
+# URL: http://flatassembler.net/index.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=fasm
+version=1.67
+release=20
+source=(http://flatassembler.net/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	mv $SRC/$name/$name $PKG/usr/bin
+        chown -R root:root $PKG
+}

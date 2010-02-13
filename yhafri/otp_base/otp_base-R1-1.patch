@@ -1,0 +1,11 @@
+--- otp/tools/utilities/appgen	2006-10-21 00:27:44.000000000 +0200
++++ otp/tools/utilities/appgen-new	2006-10-21 00:27:53.000000000 +0200
+@@ -57,7 +57,7 @@
+ # include directory
+ mv $APP_NAME/include/blank_app.hrl $APP_NAME/include/"$APP_NAME".hrl
+ 
+-find $APP_NAME -name ".svn" | xargs rm -r
++find $APP_NAME -name ".svn" -exec rm -rf '{}' \;
+ mv $APP_NAME ../../lib
+ mv "$APP_NAME"_rel ../../release
+ 

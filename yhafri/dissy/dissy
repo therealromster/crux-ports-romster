@@ -1,0 +1,3 @@
+#!/bin/sh
+
+(cd /usr/lib/dissy &>/dev/null; ./scripts/dissy $@)

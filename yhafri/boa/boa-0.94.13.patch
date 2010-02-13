@@ -1,0 +1,11 @@
+--- boa-0.94.13/src/compat.h	2002-06-06 07:02:28.000000000 +0200
++++ boa-0.94.13/src/compat.h-new	2005-04-16 13:36:52.677159056 +0200
+@@ -117,7 +117,7 @@
+ #endif
+ 
+ #ifdef HAVE_TM_GMTOFF
+-#define TIMEZONE_OFFSET(foo) foo##->tm_gmtoff
++#define TIMEZONE_OFFSET(foo) foo->tm_gmtoff
+ #else
+ #define TIMEZONE_OFFSET(foo) timezone
+ #endif

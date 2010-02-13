@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Converts plain text to HTML / SGML (Linuxdoc) / Texinfo / LaTeX / Wiki
+# URL: http://www.nongnu.org/bhl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=bhl
+version=1.9
+release=1
+source=(http://www.cognition.ens.fr/~guerry/$name/download/$name.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

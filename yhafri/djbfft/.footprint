@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-sr-x	root/root	usr/lib/djbfft/
+drwxr-sr-x	root/root	usr/lib/djbfft/include/
+-rw-r--r--	root/root	usr/lib/djbfft/include/complex4.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/complex8.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/fftc4.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/fftc8.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/fftfreq.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/fftr4.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/fftr8.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/real4.h
+-rw-r--r--	root/root	usr/lib/djbfft/include/real8.h
+drwxr-sr-x	root/root	usr/lib/djbfft/lib/
+-rw-r--r--	root/root	usr/lib/djbfft/lib/djbfft.a

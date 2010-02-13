@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Coroutines in C
+# URL: http://www.chiark.greenend.org.uk/~sgtatham/coroutines.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=coroutine
+version=1
+release=1
+source=(http://www.chiark.greenend.org.uk/~sgtatham/$name.h)
+
+build () {
+	install -D -m 644 $name.h $PKG/usr/share/$name/$name.h
+
+	chown -R root:root $PKG
+}

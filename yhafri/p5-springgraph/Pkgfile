@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Directed Graph alternative to GraphViz
+# URL: http://84.45.18.237/~teejay/SpringGraph-0.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-gd
+
+name=springgraph
+version=0.05
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/T/TE/TEEJAY/SpringGraph-$version.tar.gz)
+
+build () {
+	cd SpringGraph-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

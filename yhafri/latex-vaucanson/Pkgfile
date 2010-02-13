@@ -1,0 +1,22 @@
+# $Id: $
+# Description: La(TeX) package for drawing automata and graphs
+# URL: http://www.liafa.jussieu.fr/~lombardy/Vaucanson-G/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex, latex-pstricks
+
+name=latex-vaucanson
+version=1
+release=1
+source=(http://www.liafa.jussieu.fr/~lombardy/Vaucanson-G/vaucanson-g.tar.gz)
+
+build () {
+
+    mkdir -p $PKG/usr/share/texmf/tex/generic/vaucanson-g
+
+    cd vaucanson-g
+
+    cp *.tex *.sty $PKG/usr/share/texmf/tex/generic/vaucanson-g
+
+	chown -R root:root $PKG
+}

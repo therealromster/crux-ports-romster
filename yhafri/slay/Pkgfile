@@ -1,0 +1,14 @@
+# Description: provides a way to quickly rid yourself of every process a particular is running
+# URL: http://www.freebsd.org/ports/sysutils.html
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=slay
+version=1.2
+release=1
+source=(ftp://ftp.freebsd.org/pub/FreeBSD/ports/distfiles/Slay.$version.tar.gz)
+
+build() {
+    install -m 755 -D Slay.$version/slay	$PKG/usr/sbin/slay
+}

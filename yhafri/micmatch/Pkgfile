@@ -1,0 +1,22 @@
+# $Id: $
+# Description: OCaml pattern matching library
+# URL:         http://martin.jambon.free.fr/micmatch.html
+# Maintainer: Younes Hafri <yhafri@club-internet.fr>
+# Packager: Younes Hafri <yhafri@club-internet.fr>
+# Depends on:  ocaml, findlib, pcre-ocaml
+
+name=micmatch
+version=0.691
+release=1
+source=(http://martin.jambon.free.fr/$name.tar.bz2 \
+	$name-$version.patch)
+
+build() {
+    mkdir -p $PKG/usr/{bin,lib/ocaml/site-lib}	
+    cd $name
+    patch -p1 < ../$name-$version.patch	
+    make BINDIR=$PKG/usr/bin
+    make BINDIR=$PKG/usr/bin DESTDIR=$PKG/usr/lib/ocaml/site-lib  install
+    chown -R root:root $PKG
+}
+

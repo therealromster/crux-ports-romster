@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Performance Application Programming Interface
+# URL: http://icl.cs.utk.edu/papi/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perfctr
+
+name=papi
+version=3.5.0
+release=1
+source=(http://icl.cs.utk.edu/projects/$name/downloads/$name-$version.tar.gz \
+	$name-kernel-patch.sh)
+
+build () {
+	cd $name-$version/src
+	./configure --prefix=/usr \
+		    --with-bitmode=32
+
+	make
+	make PREFIX=$PKG/usr install
+
+	#cd perfctr-2.6.x
+	#make
+	#make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

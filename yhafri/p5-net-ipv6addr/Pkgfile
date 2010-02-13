@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to check the validity of IPv6 addresses 
+# URL: http://search.cpan.org/~tmonroe/Net-IPv6Addr-0.2/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-math-base85, p5-net-ipv4addr
+
+name=p5-net-ipv6addr
+version=0.2
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TM/TMONROE/Net-IPv6Addr-$version.tar.gz)
+
+build () {
+	cd Net-IPv6Addr-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: For really clean Perl programs 
+# URL: http://search.cpan.org/src/DCONWAY/Acme-Bleach-1.12/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-acme-bleach
+version=1.12
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DC/DCONWAY/Acme-Bleach-$version.tar.gz)
+
+build () {
+	cd Acme-Bleach-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

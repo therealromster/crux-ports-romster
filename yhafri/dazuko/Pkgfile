@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Gateway to File Access Control
+# URL: http://www.dazuko.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dazuko
+version=2.3.3
+release=1
+source=(http://www.$name.org/files/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --with-did=cnid \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

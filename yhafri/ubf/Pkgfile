@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A language for transporting and describing complex data structures across a network
+# URL: http://www.sics.se/~joe/ubf/site/home.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=ubf
+version=1.12
+release=1
+source=(http://www.sics.se/~joe/ubf/downloads/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{ebin,src}
+	cd $name-$version
+	make 
+	cp -rf *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	cp -rf *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+
+        chown -R root:root $PKG/
+}

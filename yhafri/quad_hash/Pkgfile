@@ -1,0 +1,23 @@
+# $Id: $
+# Description: C hashtable with quadratic probing
+# URL: http://www.zentus.com/c/hash.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=quad_hash
+version=2
+release=1
+source=(hash.h hash.c)
+
+build () {
+	gcc $CFLAGS -c hash.c
+
+	ar cvr hash.a hash.c
+	ar -s hash.a
+
+	install -D -m 644 hash.h $PKG/usr/include/hash.h
+	install -D -m 644 hash.a $PKG/usr/lib/hash.a
+
+	chown -R root:root $PKG
+}

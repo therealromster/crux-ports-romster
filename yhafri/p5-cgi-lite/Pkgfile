@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module to decode form and query information, including file uploads, as well as cookies
+# URL: http://mirror.internet.tp/cpan/authors/id/S/SM/SMYLERS/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-cgi-lite
+version=2.02
+release=1
+source=(http://mirror.internet.tp/cpan/authors/id/S/SM/SMYLERS/CGI-Lite-$version.tar.gz)
+
+build () {
+	cd CGI-Lite-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

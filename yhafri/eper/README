@@ -1,0 +1,5 @@
+POST-INSTALL
+
+		* Make the environment variable ESDL_PATH to point to top of
+		ESDL installation. Put this in your ~/.bashrc:
+		ESDL_PATH=/usr/lib/erlang/lib/esdl-VERSION

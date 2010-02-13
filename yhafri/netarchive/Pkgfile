@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Java ARC utilities
+# URL: http://www.netarchive.dk/website/sources/index-en.htm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=netarchive
+version=0.2
+release=1
+source=(http://www.netarchive.dk/website/sources/JavaArcUtils-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+    	javac  dk/netarkivet/ArcUtils/*.java
+    	rm -rf dk/netarkivet/ArcUtils/*.java
+	mv dk $PKG/usr/lib/$name
+	chown -R root:root $PKG
+}

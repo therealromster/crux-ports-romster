@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A cross-platform GUI front-end to read document in CHM format
+# URL: http://xchm.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  chmlib, wxgtk
+
+name=xchm
+version=1.9
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr \
+	            --enable-optimize \
+        	    --enable-gtk2 \
+                    --enable-unicode
+	make
+	make prefix=$PKG/usr install
+    
+        rm -rf $PKG/usr/share/locale
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Glasgow Haskell Compiler
+# URL: http://www.haskell.org/ghc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: readline, expat, gettext, libgmp, libiconv, openssl, rpm2targz
+
+name=ghc
+version=6.4.2
+release=2
+source=(ftp://fr2.rpmfind.net/linux/MandrakeCooker/cooker/i586/media/contrib/$name-$version-3mdk.i586.rpm)
+
+build () {
+	rpm2targz $name-$version-3mdk.i586.rpm
+
+	tar xf $name-$version-3mdk.i586.tar.gz -C $PKG
+	rm -rf $PKG/usr/share/
+
+	chown -R root:root $PKG
+}

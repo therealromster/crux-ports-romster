@@ -1,0 +1,20 @@
+# Description: attractively represents one's filesystem as a set of concentric segmented-rings
+# URL: http://www.methylblue.com/filelight/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=filelight
+version=1.0-beta6
+release=2
+source=(http://www.methylblue.com/filelight/packages/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

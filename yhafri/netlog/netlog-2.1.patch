@@ -1,0 +1,73 @@
+--- netlog-2.1/Makefile	2000-02-25 01:33:13.000000000 +0100
++++ netlog-2.1/Makefile-new	2006-02-15 16:46:21.000000000 +0100
+@@ -54,23 +54,11 @@
+ 	@echo ; (cd test ; make distclean)
+ 
+ install: $(LIBRARY)
+-	@echo
+-	@echo "Where should the Netlog library be installed? [/usr/local/lib]"
+-	@read  LIB_DIR;                                                     \
++	LIB_DIR=$(PREFIX)/usr/lib;                                          \
+ 	export LIB_DIR;                                                     \
+-	LIB_DIR=`echo $$LIB_DIR | perl -p -e 's/~/$$ENV{"HOME"}/'`;         \
+-	if test -z "$$LIB_DIR"; then                                        \
+-	  LIB_DIR=/usr/local/lib;                                           \
+-	fi;                                                                 \
+-	echo;                                                               \
+-	echo "Where should the Netlog headers be installed? [/usr/local/include]"; \
+-	read  INCLUDE_DIR;                                                  \
++	INCLUDE_DIR=$(PREFIX)/usr/include;                                  \
+ 	export INCLUDE_DIR;                                                 \
+-	INCLUDE_DIR=`echo $$INCLUDE_DIR | perl -p -e 's/~/$$ENV{"HOME"}/'`; \
+-	if test -z "$$INCLUDE_DIR"; then                                    \
+-	  INCLUDE_DIR=/usr/local/include;                                   \
+-	fi;                                                                 \
+-	@echo ; (cd src  ; make install)
++	(cd src  ; make install)
+ 
+ tar:
+ 	@echo
+--- netlog-2.1/cfg/configure	2000-02-25 00:08:50.000000000 +0100
++++ netlog-2.1/cfg/configure-new	2006-02-15 16:52:33.000000000 +0100
+@@ -581,20 +581,7 @@
+   echo "Using \"autodetect\" for the compiler will look for gcc, then cc."
+   
+ 
+-if test -z "$CC"; then
+-  CC="autodetect"
+-fi
+-echo "What C compiler would you like to use? [$CC] "
+-read tmp
+-if test -n "$tmp"; then  
+-  CC="$tmp"
+-fi
+-
+-
+-  if test "$CC" = autodetect ; then
+-    CC=""
+-  fi
+-fi
++CC="gcc"
+ 
+ # Extract the first word of "gcc", so it can be a program name with args.
+ set dummy gcc; ac_word=$2
+@@ -816,18 +803,7 @@
+ echo
+ echo "If netlog is compiled with pthreads, programs must link with -lpthread"
+ 
+-
+-if test -z "$ac_cv_use_pthread"; then
+-  ac_cv_use_pthread="yes"
+-fi
+-echo "Make netlog thread safe (using pthreads)? [$ac_cv_use_pthread] "
+-read tmp
+-if test -n "$tmp"; then  
+-  ac_cv_use_pthread="$tmp"
+-fi
+-
+-
+-if test "$ac_cv_use_pthread" = yes ; then
++ac_cv_use_pthread=yes
+   
+ 
+ echo $ac_n "checking for pthread_create in -lpthreads""... $ac_c" 1>&6

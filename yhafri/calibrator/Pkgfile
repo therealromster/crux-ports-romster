@@ -1,0 +1,17 @@
+# $Id: $
+# Description: A Cache-Memory and TLB calibration tool
+# URL: http://homepages.cwi.nl/~manegold/Calibrator/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=calibrator
+version=0.9e
+release=1
+source=(http://homepages.cwi.nl/~manegold/Calibrator/src/calibrator.c)
+
+build () {
+    mkdir -p $PKG/usr/bin
+    gcc $name.c -o $PKG/usr/bin/$name -lm 
+    chown -R root:root $PKG
+}

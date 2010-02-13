@@ -1,0 +1,29 @@
+# $Id: $
+# Description: Agile scripting language for Java
+# URL: http://groovy.codehaus.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: j2sdk
+
+name=groovy
+version=1.0
+release=1
+source=(http://dist.codehaus.org/$name/distributions/$name-$version-beta-8.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	chmod +x $name-$version-beta-8/bin/*
+	rm -rf $name-$version-beta-8/docs/  $name-$version-beta-8/LICENSE.txt
+	rm -rf $name-$version-beta-8/bin/*.bat
+
+	mv $name-$version-beta-8 $PKG/usr/lib/$name
+
+	ln -sf /usr/lib/$name/bin/grok           $PKG/usr/bin/grok
+	ln -sf /usr/lib/$name/bin/groovyc        $PKG/usr/bin/groovyc
+	ln -sf /usr/lib/$name/bin/groovy         $PKG/usr/bin/groovy
+	ln -sf /usr/lib/$name/bin/groovysh       $PKG/usr/bin/groovysh
+	ln -sf /usr/lib/$name/bin/groovyConsole  $PKG/usr/bin/groovyConsole
+
+        chown -R root:root $PKG
+}

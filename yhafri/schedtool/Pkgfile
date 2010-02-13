@@ -1,0 +1,25 @@
+# $Id: $
+# Description: schedtool interfaces with the Linux CPU scheduler
+# URL: http://freshmeat.net/projects/schedtool/?topic_id=136
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=schedtool
+version=1.2.4
+release=1
+source=(http://linuv.uv.es/mirror/gentoo/distfiles/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+    	make no_affinity
+
+	sed -i "s,DESTPREFIX=/usr/local,DESTPREFIX=${PKG}/usr," Makefile
+
+    	make install
+
+	rm -rf $PKG/usr/share
+
+	chown -R root:root $PKG
+}

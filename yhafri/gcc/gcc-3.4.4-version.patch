@@ -1,0 +1,11 @@
+--- gcc-3.4.4/gcc/version.c	2005-05-19 09:51:53.000000000 +0200
++++ gcc-3.4.4-new/gcc/version.c	2005-07-21 21:29:37.000000000 +0200
+@@ -5,7 +5,7 @@
+    please modify this string to indicate that, e.g. by putting your
+    organization's name in parentheses at the end of the string.  */
+ 
+-const char version_string[] = "3.4.4";
++const char version_string[] = "3.4.4 (CRUX)";
+ 
+ /* This is the location of the online document giving instructions for
+    reporting bugs.  If you distribute a modified version of GCC,

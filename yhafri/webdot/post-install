@@ -1,0 +1,3 @@
+#!/bin/sh
+
+chown $1:$2 /usr/var/cache/webdot

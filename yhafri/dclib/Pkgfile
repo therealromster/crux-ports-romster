@@ -1,0 +1,20 @@
+# Description: Direct connect interface library for dcgui
+# URL: http://dcgui.berlios.de/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: qt3, openssl, libxml2
+
+name=dclib
+version=0.3.7
+release=1
+source=(http://download.berlios.de/dcgui/dclib-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

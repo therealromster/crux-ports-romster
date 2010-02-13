@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A graphical web browser in less than 400KB
+# URL: http://www.dillo.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: glib1, gtk1, libjpeg, libpng, openssl
+
+name=dillo
+version=0.8.6
+release=1
+source=(http://www.dillo.org/download/$name-$version.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+    cd $name-$version
+    patch -p1<../$name-$version.patch
+    ./configure --prefix=/usr \
+		--enable-ipv6 \
+		--enable-cookies \
+		--enable-ssl \
+		--enable-png \
+		--enable-jpeg \
+		--enable-gif \
+		--disable-dlgui
+
+    make
+    make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

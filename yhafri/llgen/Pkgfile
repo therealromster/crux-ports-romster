@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A ELL(1) parser generator
+# URL: http://www.cs.vu.nl/~ceriel/LLgen.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=llgen
+version=1
+release=1
+source=(ftp://ftp.cs.vu.nl/pub/ceriel/LLgen.tar.gz)
+
+build () {
+	cd LLgen
+
+	make
+	install -D -m 755 src/LLgen $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

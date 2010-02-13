@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Free Lossless Audio Codec
+# URL: http://flac.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libiconv, libogg
+
+name=flac
+version=1.1.2
+release=2
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+        fix-xmms-crash.patch)
+
+build() {
+	cd $name-$version
+        patch -p1 < $SRC/fix-xmms-crash.patch
+
+	./configure --prefix=/usr
+
+	make LIBS="-liconv"
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}
+

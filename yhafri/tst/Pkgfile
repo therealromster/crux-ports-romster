@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Ternary Search Trie
+# URL: http://www.octavian.org/cs/software.html 
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tst
+version=1.3
+release=1
+source=(http://www.octavian.org/cs/$name$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cd $name$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

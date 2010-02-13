@@ -1,0 +1,19 @@
+# Description: French (fr) internationalized (i18n) files
+# URL: http://www.kde.org
+# Maintainer: sten, nick dot steeves at shaw dot ca
+# Packager: 
+# Depends on: kdebase
+
+name=kde-i18n-fr
+version=3.5.4
+release=1
+source=(http://download.kde.org/stable/$version/src/kde-i18n/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug \
+        --enable-final
+    make
+    make DESTDIR=$PKG install
+}

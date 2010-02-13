@@ -1,0 +1,28 @@
+# $Id: $
+# Description: A font to draw a skull
+# URL: http://www.ctan.org/tex-archive/fonts/skull/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-skull
+version=1
+release=1
+source=(http://ring.riken.jp/archives/text/CTAN/fonts/skull.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf
+	mkdir -p $PKG/usr/share/texmf/fonts/source/public/skull
+	mkdir -p $PKG/usr/share/texmf/source/latex/skull
+	mkdir -p $PKG/usr/share/texmf/tex/latex/skull
+
+	cd skull
+	latex skull.ins
+
+	cp skull.mf            $PKG/usr/share/texmf/fonts/source/public/skull
+	cp skull.dtx skull.ins $PKG/usr/share/texmf/source/latex/skull
+	cp skull.sty           $PKG/usr/share/texmf/tex/latex/skull
+
+	mv * $PKG/usr/share/texmf/
+	chown -R root:root $PKG
+}

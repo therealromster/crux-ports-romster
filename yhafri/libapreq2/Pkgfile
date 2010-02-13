@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Methods for dealing with client request data
+# URL: http://84.45.18.237/~joesuf/libapreq2-2.07/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: apache, p5-apache-test, mod_perl, p5-apache-test, p5-extutils-xsbuilder
+
+name=libapreq2
+version=2.08
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/J/JO/JOESUF/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

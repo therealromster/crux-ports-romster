@@ -1,0 +1,20 @@
+# Description: a feature-rich image viewer / management system for KDE
+# URL: http://www.jalix.org/projects/showimg/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=showimg
+version=0.9.5
+release=1
+source=(http://www.jalix.org/projects/showimg/download/0.9.5/showimg-0.9.5.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

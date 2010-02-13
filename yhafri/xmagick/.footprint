@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/xmagick.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libxmagick.a
+-rwxr-xr-x	root/root	usr/lib/libxmagick.la
+lrwxrwxrwx	root/root	usr/lib/libxmagick.so -> libxmagick.so.0.2.1
+lrwxrwxrwx	root/root	usr/lib/libxmagick.so.0 -> libxmagick.so.0.2.1
+-rwxr-xr-x	root/root	usr/lib/libxmagick.so.0.2.1
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/XMagickImageToXImage.3.gz
+-rw-r--r--	root/root	usr/man/man3/XMagickRGBBits.3.gz
+-rw-r--r--	root/root	usr/man/man3/XMagickXImageToImage.3.gz
+-rw-r--r--	root/root	usr/man/man3/xmagick.3.gz

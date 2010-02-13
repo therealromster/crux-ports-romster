@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Control X from the command line for scripts
+# URL: http://hoopajoo.net/projects/xautomation.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xautomation
+version=0.96
+release=1
+source=(http://hoopajoo.net/static/projects/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	if [ -z $KEYBOARD_MAP ]; then
+           ./configure --prefix=/usr	
+	else
+  	   ./configure --prefix=/usr \
+	     	       --enable-keyboard=$KEYBOARD_MAP
+	fi
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

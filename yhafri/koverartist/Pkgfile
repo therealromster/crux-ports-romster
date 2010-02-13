@@ -1,0 +1,20 @@
+# Description: an application which aids in the creation and printing of CD-covers
+# URL: http://lisas.de/kover/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=koverartist
+version=0.4
+release=1
+source=(http://members.inode.at/499177/software/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name
+    ./configure	--prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

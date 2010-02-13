@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Library to broadcast information through text messages with a subscription mechanism based on regular expressions
+# URL: http://www.tls.cena.fr/products/ivy/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tk, gtk, libpcre
+
+name=ivy-c
+version=3.8.1
+release=1
+source=(http://www.tls.cena.fr/products/ivy/download/packages/$name-$version-1.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version-1/src
+
+	make
+	make PREFIX=$PKG/usr install
+
+	rm -rf $PKG/usr/share/
+
+	ln -sf  /usr/lib/libgivy.so.3.8 $PKG/usr/lib/libgivy.so
+	ln -sf  /usr/lib/libgivy.so.3.8 $PKG/usr/lib/libgivy.so.3
+
+	ln -sf  /usr/lib/libivy.so.3.8 $PKG/usr/lib/libivy.so
+	ln -sf  /usr/lib/libivy.so.3.8 $PKG/usr/lib/libivy.so.3
+
+	ln -sf  /usr/lib/libtclivy.so.3.8 $PKG/usr/lib/libtclivy.so
+	ln -sf  /usr/lib/libtclivy.so.3.8 $PKG/usr/lib/libtclivy.so.3
+	
+	chown -R root:root $PKG
+}

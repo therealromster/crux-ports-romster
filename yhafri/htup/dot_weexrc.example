@@ -1,0 +1,22 @@
+[weex_profile_name]
+HostName = ftp.somehost.net
+LoginName = jdoe
+Password = foob/-\R!
+SrcDir = /home/$USER/work/ports
+DestDir = /your/website's/ports/dir Don't forget to backup your site first.
+FollowSymlinks = true
+
+[default]
+AsciiFile = {
+*.htm
+*.html
+*.txt
+*.asc
+}
+IgnoreLocalFile = {
+*.tar.*
+*.bak
+*.tmp
+*.swp
+*~
+}

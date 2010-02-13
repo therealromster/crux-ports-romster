@@ -1,0 +1,22 @@
+# $Id: $
+# Description: XOSD displays text on your screen
+# URL: http://www.ignavus.net/software.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libiconv, zlib, regex
+
+name=odt2txt
+version=0.3
+release=1
+source=(http://stosberg.net/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make DESTDIR=$PKG/usr install
+
+	chown -R root:root $PKG
+}

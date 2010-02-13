@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl modules for parsing and evaluating XPath statements
+# URL: http://search.cpan.org/~msergeant/XML-XPath-1.13/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-xml-parser
+
+name=p5-xml-xpath
+version=1.13
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSERGEANT/XML-XPath-$version.tar.gz)
+
+build () {
+	cd XML-XPath-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

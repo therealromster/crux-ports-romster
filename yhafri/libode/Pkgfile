@@ -1,0 +1,20 @@
+# Description: a high performance library for simulating rigid body dynamics
+# URL: http://www.ode.org
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Dependencies: x11
+
+name=libode
+version=0.5
+release=1
+source=(http://dl.sourceforge.net/sourceforge/opende/ode-$version.tgz)
+
+build() {
+    cd ode-$version
+    make configure
+    make ode-lib
+    mkdir -p $PKG/usr/include
+    cp -r include/ode/ $PKG/usr/include/
+    install -D lib/libode.a $PKG/usr/lib/libode.a
+    rm $PKG/usr/include/ode/README
+}

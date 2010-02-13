@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A tiny application which monitors list of files and executes program if any of them changes
+# URL: http://estec.net/notex.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=notex
+version=20040916
+release=1
+source=($name-$version.tar)
+#source=(http://estec.net/files/$name-$version.tar.gz)
+
+build () {
+	tar xf $name-$version.tar
+	cd $name-$version
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

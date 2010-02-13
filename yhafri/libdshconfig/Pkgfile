@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Library for parsing dsh-style configuration files
+# URL: http://www.netfort.gr.jp/~dancer/software/downloads/list.cgi#dsh
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libdshconfig
+version=0.20.9
+release=1
+source=(http://www.netfort.gr.jp/~dancer/software/downloads/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+	  	    --disable-nls
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,43 @@
+# $Id: $
+# Description: A low level VRML97 tool with GUI
+# URL: http://www.csv.ica.uni-stuttgart.de/vrml/dune/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: lesstif, libsball, transcode, sox, firefox, libpng, libjpeg, libz, libglut, expat, freetype
+
+name=white_dune
+version=0.29beta320
+release=1
+source=(http://www.csv.ica.uni-stuttgart.de/vrml/dune/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man/man1,lib/$name}
+
+	cd $name-$version
+
+	./configure --prefix=/usr \
+		    --with-soundeditor=/usr/bin/sox \
+		    --with-movieeditor=/usr/bin/transcode \
+		    --with-wwwbrowser=/usr/bin/firefox \
+		    --with-eulerrotation \
+		    --with-routeatend \
+		    --without-stereo \
+		    --with-aflockdebug \
+		    --with-optimization
+
+	make
+
+	mv bin logo tools $PKG/usr/lib/$name
+	mv man/* $PKG/usr/man/man1
+
+	ln -sf /usr/lib/$name/bin/dune          $PKG/usr/bin/dune
+	ln -sf /usr/lib/$name/bin/dune4kids     $PKG/usr/bin/dune4kids
+	ln -sf /usr/lib/$name/bin/germandune    $PKG/usr/bin/germandune
+	ln -sf /usr/lib/$name/bin/illegal2vrml  $PKG/usr/bin/illegal2vrml
+	ln -sf /usr/lib/$name/bin/nostereodune  $PKG/usr/bin/nostereodune
+	ln -sf /usr/lib/$name/bin/redbluedune   $PKG/usr/bin/redbluedune
+	ln -sf /usr/lib/$name/bin/redgreendune  $PKG/usr/bin/redgreendune
+
+
+	chown -R root:root $PKG
+}

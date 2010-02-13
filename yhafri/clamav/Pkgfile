@@ -1,0 +1,46 @@
+# $Id: $
+# Description: An antivirus toolkit
+# URL: http://www.clamav.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Malster Clover <clover@mail.nnov.ru>
+# Depends on: libunrar3, libstdc++-compat, curl, zlib, bzip2, libgmp, libgcrypt, openssl
+
+name=clamav
+version=0.88.6
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version-libunrar3.patch clamd clamd.conf freshclam.conf)
+
+build () {
+	mkdir -p $PKG/{etc/rc.d,var/{lib/$name,log,run/$name,$name/{quarantine,tmp}}}
+
+    	ln -s $name-$version $name-devel.orig
+    	cd $name-$version
+
+    	patch -p1 < ../$name-$version-libunrar3.patch
+
+	aclocal
+	autoconf
+    	automake
+
+	./configure --prefix=/usr \
+                    --sysconfdir=/etc \
+                    --mandir=/usr/man \
+                    --enable-id-check \
+                    --with-libcurl \
+                    --with-tcpwrappers \
+		    --with-zlib=/usr \
+		    --disable-clamav \
+		    --with-{user,group}=$name \
+		    --with-dbdir=/var/lib/$name
+
+	make
+	make DESTDIR=$PKG install
+
+	install -m 644 -o root -g root $SRC/freshclam.conf $PKG/etc/freshclam.conf
+	install -m 644 -o root -g root $SRC/clamd.conf     $PKG/etc/clamd.conf
+	install -m 700 -o root -g root $SRC/clamd          $PKG/etc/rc.d/clamd
+
+	touch $PKG/var/{log/{clamd,freshclam}.log}
+	chown $name.$name -R $PKG/var/{lib/$name,log/{clamd,freshclam}.log,run/$name,$name}
+}

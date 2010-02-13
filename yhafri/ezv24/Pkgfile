@@ -1,0 +1,25 @@
+# $Id: $
+# Description: An easy to use programming interface to the serial ports
+# URL: http://ezv24.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=ezv24
+version=0.1.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/libezV24-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cd libezV24-$version
+	patch -p1 <../$name-$version.patch
+	make
+	make PREFIX=$PKG/usr install
+
+	ln -sf /usr/lib/libezV24.so.0.1 $PKG/usr/lib/libezV24.so.0 
+	ln -sf /usr/lib/libezV24.so.0   $PKG/usr/lib/libezV24.so
+
+	chown -R root:root $PKG
+}

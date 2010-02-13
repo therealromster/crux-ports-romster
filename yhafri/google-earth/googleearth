@@ -1,0 +1,8 @@
+#!/bin/sh
+GOOGLEEARTH_DATA_PATH="/opt/google-earth"
+
+LD_LIBRARY_PATH=.:${GOOGLEEARTH_DATA_PATH}:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH
+
+cd "${GOOGLEEARTH_DATA_PATH}/"
+exec "./googleearth-bin" $*

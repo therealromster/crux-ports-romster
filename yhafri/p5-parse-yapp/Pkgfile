@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for generating and using LALR parsers
+# URL: http://search.cpan.org/~fdesar/Parse-Yapp-1.05/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-parse-yapp
+version=1.05
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/F/FD/FDESAR/Parse-Yapp-$version.tar.gz)
+
+build () {
+	cd Parse-Yapp-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

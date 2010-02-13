@@ -1,0 +1,25 @@
+# $Id: $
+# Description: A fast, reliable, simple package for creating and reading constant databases
+# URL: http://cr.yp.to/cdb/install.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cdb
+version=0.75
+release=1
+source=(http://cr.yp.to/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	for i in get make make-12 make-sv stats test dump; \
+	do \
+		install -D -m 755 ${name}$i $PKG/usr/bin/${name}$i; \
+	done
+
+	chown -R root:root $PKG
+}

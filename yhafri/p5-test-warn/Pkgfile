@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension to test methods for warnings 
+# URL: http://search.cpan.org/~bigj/Test-Warn-0.08/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-array-compare, p5-tree-dag_node, p5-sub-uplevel, p5-test-builder-tester
+
+name=p5-test-warn
+version=0.08
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BI/BIGJ/Test-Warn-$version.tar.gz)
+
+build () {
+	cd Test-Warn-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

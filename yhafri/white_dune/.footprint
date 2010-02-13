@@ -1,0 +1,39 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/dune -> /usr/lib/white_dune/bin/dune
+lrwxrwxrwx	root/root	usr/bin/dune4kids -> /usr/lib/white_dune/bin/dune4kids
+lrwxrwxrwx	root/root	usr/bin/germandune -> /usr/lib/white_dune/bin/germandune
+lrwxrwxrwx	root/root	usr/bin/illegal2vrml -> /usr/lib/white_dune/bin/illegal2vrml
+lrwxrwxrwx	root/root	usr/bin/nostereodune -> /usr/lib/white_dune/bin/nostereodune
+lrwxrwxrwx	root/root	usr/bin/redbluedune -> /usr/lib/white_dune/bin/redbluedune
+lrwxrwxrwx	root/root	usr/bin/redgreendune -> /usr/lib/white_dune/bin/redgreendune
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/white_dune/
+drwxr-xr-x	root/root	usr/lib/white_dune/bin/
+-rwxr-xr-x	root/root	usr/lib/white_dune/bin/dune
+-rwxr-xr-x	root/root	usr/lib/white_dune/bin/dune4kids
+-rwxr-xr-x	root/root	usr/lib/white_dune/bin/germandune
+-rwxr-xr-x	root/root	usr/lib/white_dune/bin/illegal2vrml
+-rwxr-xr-x	root/root	usr/lib/white_dune/bin/nostereodune
+-rwxr-xr-x	root/root	usr/lib/white_dune/bin/redbluedune
+-rwxr-xr-x	root/root	usr/lib/white_dune/bin/redgreendune
+drwxr-xr-x	root/root	usr/lib/white_dune/logo/
+-rw-r--r--	root/root	usr/lib/white_dune/logo/dune.wrl
+-rw-r--r--	root/root	usr/lib/white_dune/logo/flow2.jpg
+-rw-r--r--	root/root	usr/lib/white_dune/logo/manta.wrl
+-rw-r--r--	root/root	usr/lib/white_dune/logo/manta2.wrl
+-rw-r--r--	root/root	usr/lib/white_dune/logo/white_dune_text.png
+-rw-r--r--	root/root	usr/lib/white_dune/logo/whitesand.jpg
+drwxr-xr-x	root/root	usr/lib/white_dune/tools/
+-rw-r--r--	root/root	usr/lib/white_dune/tools/addAngle2OrientationInterpolator.awk
+-rw-r--r--	root/root	usr/lib/white_dune/tools/collectViewpoints.awk
+-rw-r--r--	root/root	usr/lib/white_dune/tools/collectViewpoints.sh
+-rw-r--r--	root/root	usr/lib/white_dune/tools/creaseangleChange.awk
+-rw-r--r--	root/root	usr/lib/white_dune/tools/creaseangleChange.sh
+-rw-r--r--	root/root	usr/lib/white_dune/tools/img2pixeltexture.sh
+-rw-r--r--	root/root	usr/lib/white_dune/tools/povray_mkskybox.sh
+-rw-r--r--	root/root	usr/lib/white_dune/tools/readme
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dune.1.gz
+-rw-r--r--	root/root	usr/man/man1/illegal2vrml.1.gz

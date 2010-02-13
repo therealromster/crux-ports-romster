@@ -1,0 +1,24 @@
+To set configure Kmail for PGP/MIME, please see:
+http://kmail.kde.org/kmail-pgpmime-howto.html
+
+Here is a breakdown, for the lazy, of what must be done to get
+PGP/MIME working:
+
+prt-get depinst pinentry-qt
+
+And as your GnuPG-utilizing user:
+
+mkdir ~/.kde/env
+echo 'eval `gpg-agent --daemon`' > ~/.kde/env/gpg-agent.sh
+chmod +x ~/.kde/env/gpg-agent.sh
+
+mkdir ~/.kde/shutdown
+cat <<EOF>> ~/.kde/shutdown/gpg-agent.sh
+#!/bin/sh
+# This was pulled from: http://gentoo-wiki.com/HOWTO_KMail_gpg-agent_kde
+# the second field of the GPG_AGENT_INFO variable is the
+# process ID of the gpg-agent active in the current session
+# so we'll just kill that, rather than all of them :)
+kill \`echo $GPG_AGENT_INFO | cut -d ':' -f 2\`
+EOF
+chmod +x ~/.kde/shutdown/gpg-agent.sh

@@ -1,0 +1,11 @@
+--- pdftk-1.12/pdftk/Makefile.Generic	2004-08-14 08:55:16.000000000 +0200
++++ pdftk-1.12/pdftk/Makefile.Generic-new	2005-10-05 13:22:07.542471278 +0200
+@@ -24,7 +24,7 @@
+ # ASK_ABOUT_WARNINGS to true; otherwise: false; override this default
+ # with the dont_ask or do_ask command-line options
+ CPPFLAGS= -O2 -DPATH_DELIM=0x2f -DASK_ABOUT_WARNINGS=false
+-CXXFLAGS= -lgcj
++CXXFLAGS= -lgcj -liconv
+ 
+ # itext compiler flags
+ export GCJFLAGS=

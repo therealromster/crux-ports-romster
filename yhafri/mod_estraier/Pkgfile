@@ -1,0 +1,46 @@
+# $Id: $
+# Description: An Apache module for Hyper Estraier
+# URL: http://modestraier.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: apache, hyperestraier
+
+name=mod_estraier
+version=0.3.2
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/modestraier/$name-0.3.2.tar.gz)
+
+build () {
+	cd $name
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+
+	install -D .libs/mod_estraier.so  $PKG/usr/lib/apache/mod_estraier.so
+	install -D .libs/mod_estraier.lai $PKG/usr/lib/apache/mod_estraier.la
+	install -D .libs/mod_estraier.a   $PKG/usr/lib/apache/mod_estraier.a
+
+	ranlib    $PKG/usr/lib/apache/mod_estraier.a
+	chmod 644 $PKG/usr/lib/apache/mod_estraier.a
+
+	chmod 755 $PKG/usr/lib/apache/mod_estraier.so
+
+	install -D .libs/mod_estraier_search.so $PKG/usr/lib/apache/mod_estraier_search.so
+	install -D .libs/mod_estraier_search.lai $PKG/usr/lib/apache/mod_estraier_search.la
+	install -D .libs/mod_estraier_search.a   $PKG/usr/lib/apache/mod_estraier_search.a
+	ranlib $PKG/usr/lib/apache/mod_estraier_search.a
+	chmod 644 $PKG/usr/lib/apache/mod_estraier_search.a
+
+	chmod 755 $PKG/usr/lib/apache/mod_estraier_search.so
+
+	install -D .libs/mod_estraier_cache.so  $PKG/usr/lib/apache/mod_estraier_cache.so
+	install -D .libs/mod_estraier_cache.lai $PKG/usr/lib/apache/mod_estraier_cache.la
+	install -D .libs/mod_estraier_cache.a   $PKG/usr/lib/apache/mod_estraier_cache.a
+	ranlib $PKG/usr/lib/apache/mod_estraier_cache.a
+	chmod 644 $PKG/usr/lib/apache/mod_estraier_cache.a
+
+	chmod 755 $PKG/usr/lib/apache/mod_estraier_cache.so
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Matrix of Reals 
+# URL: http://search.cpan.org/~leto/Math-MatrixReal-1.9/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-math-matrixreal
+version=1.9
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/L/LE/LETO/Math-MatrixReal-$version.tar.gz)
+
+build () {
+	cd Math-MatrixReal-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

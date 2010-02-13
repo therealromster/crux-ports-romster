@@ -1,0 +1,6 @@
+POST-INSTALL:
+
+	* To take into account the arabtex class, you must execute 	the command "texhash" as root:
+	# texhash
+
+

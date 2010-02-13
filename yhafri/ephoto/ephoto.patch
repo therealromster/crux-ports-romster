@@ -1,0 +1,10 @@
+--- ephoto/data/images/Makefile.in	2006-12-05 21:10:10.000000000 +0100
++++ ephoto/data/images/Makefile.in-new	2006-12-05 21:12:49.000000000 +0100
+@@ -202,7 +202,6 @@
+ 	go-down.png \
+ 	go-next.png \
+ 	image.png \
+-	logo.png \
+ 	preferences-system.png \
+ 	redo.png \
+ 	remove.png \

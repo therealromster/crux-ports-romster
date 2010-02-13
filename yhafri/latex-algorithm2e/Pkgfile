@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Algorithm package for LaTeX with Hyperref and Beamer compatibity
+# URL: http://www.lirmm.fr/~fiorio/AlgorithmSty/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-algorithm2e
+version=0.9
+release=1
+source=(algorithm2e.sty)
+
+build () {
+
+	install -D -o root -g root -m 0644 algorithm2e.sty \
+        $PKG/usr/share/texmf/tex/latex/algorithm/algorithm2e.sty    
+}

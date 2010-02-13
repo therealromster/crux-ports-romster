@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Perl low level graphics using gnuplot
+# URL: http://search.cpan.org/~ilyaz/Term-Gnuplot-0.5704/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gnuplot
+
+name=p5-term-gnuplot
+version=0.5704
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/I/IL/ILYAZ/modules/Term-Gnuplot-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd Term-Gnuplot-$version
+	patch -p1 <../$name-$version.patch
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

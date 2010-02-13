@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A drop-in replacement for GNU make for more reliable builds
+# URL: http://makepp.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=makepp
+version=1.40
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-${version}.1a.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man,share/makepp/html}
+
+	cd $name-$version
+
+	sed -i "s|#JJ|use lib ('/usr/share/makepp');|" makepp
+	sed -i "s|#JJ|use lib ('/usr/share/makepp');|" makeppclient
+
+	patch -p1<$SRC/$name-$version.patch
+
+	perl install.pl $PKG
+	rm -rf $PKG/usr/share/makepp/html
+
+        sed -i "s|$PKG||" $PKG/usr/bin/makepp
+        sed -i "s|$PKG||" $PKG/usr/bin/makeppclient
+
+	chown -R root:root $PKG
+}

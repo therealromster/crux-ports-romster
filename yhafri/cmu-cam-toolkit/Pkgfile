@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Statistical Language Modeling Toolkit
+# URL: http://svr-www.eng.cam.ac.uk/~prc14/toolkit.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=cmu-cam-toolkit
+version=2.05
+release=1
+source=(http://svr-www.eng.cam.ac.uk/~prc14/CMU-Cam_Toolkit_v2.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+	cd CMU-Cam_Toolkit_v2/src
+
+	patch -p2<$SRC/$name-$version.patch
+	make prefix=$PKG install
+
+	chown -R root:root $PKG
+}

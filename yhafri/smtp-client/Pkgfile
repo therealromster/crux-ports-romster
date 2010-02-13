@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A Simple SMTP client in Erlang
+# URL: http://www.erlang.org/user.html#smtp_client-1.1
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=smtp-client
+version=1.1
+release=1
+source=(http://www.erlang.org/contrib/smtp_client-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{ebin,src}
+	cd smtp_client-$version
+	erl -make
+	cp -rf *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	cp -rf *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+        chown -R root:root $PKG/
+}

@@ -1,0 +1,20 @@
+# Description: a desktop organization tool
+# URL: http://basket.kde.org/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=basket
+version=0.5.0
+release=2
+source=(ftp://ftp.FreeBSD.org/pub/FreeBSD/ports/distfiles/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

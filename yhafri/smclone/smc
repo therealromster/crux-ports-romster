@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /usr/share/smc/
+./bin/smc || exit 1
+exit 0

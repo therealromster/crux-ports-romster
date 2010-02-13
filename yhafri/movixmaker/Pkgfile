@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A GUI or command line utility to create customized bootable disk images of eMoviX, MoviX or MoviX²
+# URL: http://savannah.nongnu.org/projects/movixmaker/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libconfig-inifiles-perl
+
+name=movixmaker
+version=2-0.8.3
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

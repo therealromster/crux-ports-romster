@@ -1,0 +1,23 @@
+# $Id: $
+# Description: XSLT, DOM and XPath processor
+# URL: http://www.gingerall.com/charlie/ga/xml/p_sab.xml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Nuno Afonso <nuno.afonso@tagus.ist.utl.pt>
+# Depends on: expat
+
+name=sablotron
+version=1.0.2
+release=1
+source=(http://download-1.gingerall.cz/download/sablot/Sablot-$version.tar.gz)
+
+build(){
+    cd Sablot-$version
+
+    ./configure --prefix=/usr 
+
+    make
+    make DESTDIR=$PKG install
+
+    rm -rf $PKG/usr/share
+    chown -R root:root $PKG
+}

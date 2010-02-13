@@ -1,0 +1,84 @@
+--- install	2007-06-18 17:19:10.000000000 +0200
++++ install-new	2007-06-18 17:36:15.000000000 +0200
+@@ -1,4 +1,4 @@
+-#! /bin/ksh
++#!/usr/bin/ksh
+ #----------------------------------------------------------------------------
+ #
+ #   install     Rebuilds and installs Libero on UNIX systems
+@@ -46,7 +46,7 @@
+ #CCNAME="gcc"                           #   If using GNU C
+ 
+ CATALOG=install.cat                     #   List of files in product
+-DEFAULTDIR=/usr/local/bin               #   Default install directory
++DEFAULTDIR=$PKG/usr/bin               #   Default install directory
+ VERSION=2.20                            #   Product version
+ 
+ terminate_event=255
+@@ -210,16 +210,7 @@
+ 
+ function get_source_install_action
+ {
+-    echo ""
+-    echo "Choose an action:"
+-    echo "  (b)uild Libero and optionally install"
+-    echo "  (i)nstall Libero in target directory"
+-    echo "  (d)e-install Libero"
+-    echo "  (c)lean-up current directory"
+-    echo "  (q)uit"
+-    echo ""
+-    echo "Choice:"
+-    read ACTION
++    ACTION="b"
+ 
+     if   test "$ACTION" = "b"; then
+         the_next_event=$build_event
+@@ -281,7 +272,6 @@
+ 
+ function compile_all_subroutines
+ {
+-    rm -f *.o
+     for FILE in `awk '/^&.*@c/ {print $2}' $CATALOG`; do
+         echo "Compiling $FILE..."
+         $CCNAME -c $CCOPTS $FILE
+@@ -305,31 +295,11 @@
+ 
+ function get_directory_name
+ {
+-    echo "Enter the install directory:"
+-    echo "  (Enter)$DEFAULTDIR"
+-    echo "  (.)$PWD"
+-    echo "  (q)uit"
+-    echo ""
+-    echo "Choice:"
+-    read INSTALLDIR
++    INSTALLDIR=""
+ 
+     if test "$INSTALLDIR" = ""; then
+         INSTALLDIR=$DEFAULTDIR
+         the_next_event=$ok_event
+-
+-    elif test "$INSTALLDIR" = "."; then
+-        echo "install: leaving files in current directory"
+-        the_next_event=$current_event
+-
+-    elif test "$INSTALLDIR" = "q"; then
+-        the_next_event=$quit_event
+-
+-    elif test -d "$INSTALLDIR"; then
+-        the_next_event=$ok_event
+-
+-    else
+-        echo "install: $INSTALLDIR is not a directory"
+-        the_next_event=$error_event
+     fi
+ }
+ 
+@@ -442,6 +412,7 @@
+         echo State $LR_state - event $LR_event is out of range
+         exit 1
+     fi
++
+     eval "LR_idx $LR_event \$LR_action$LR_state"; LR_index=$?
+     LR_savest=$LR_state
+ 

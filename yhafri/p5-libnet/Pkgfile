@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Network Command class
+# URL: http://search.cpan.org/~gbarr/libnet-1.19/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-libnet
+version=1.20
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GB/GBARR/libnet-$version.tar.gz)
+
+build () {
+	cd libnet-$version
+	echo "n" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

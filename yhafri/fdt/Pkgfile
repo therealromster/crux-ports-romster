@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Fast Data Transfer
+# URL: http://monalisa.cern.ch/FDT/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=fdt
+version=0.6.2
+release=1
+source=($name.jar ${name}Server.sh ${name}Client.sh)
+
+build () {
+
+	install -D -m 755 $name.jar        $PKG/usr/lib/$name/$name.jar
+	install -D -m 755 ${name}Server.sh $PKG/usr/bin/${name}Server.sh
+	install -D -m 755 ${name}Client.sh $PKG/usr/bin/${name}Client.sh
+
+	chown -R root:root $PKG
+}

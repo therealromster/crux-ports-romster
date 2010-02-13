@@ -1,0 +1,3 @@
+INSTALL:
+		* Compile with:
+		# pkgmk -cf pkgmk.conf -d -i

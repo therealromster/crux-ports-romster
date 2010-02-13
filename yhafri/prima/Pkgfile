@@ -1,0 +1,23 @@
+# $Id: $
+# Description: An extensible Perl toolkit for multi-platform GUI development
+# URL: http://www.prima.eu.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libxpm, libpng, libjpeg, libungif, libtiff, libiconv, x11
+
+name=prima
+version=1.21
+release=1
+source=(http://www.prima.eu.org/download/Prima.tar.gz)
+
+build () {
+	cd Prima-$version
+	perl Makefile.PL PREFIX=$PKG/usr COMPILER=gcc CFLAGS="$CFLAGS"
+
+	make 
+	make install
+
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+
+	chown -R root:root $PKG
+}

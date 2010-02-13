@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl wrappers for the GLib utility and Object libraries
+# URL: http://search.cpan.org/~tsch/Glib-1.061/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: glib, p5-extutils-depends
+
+name=p5-glib
+version=1.120
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/Glib-$version.tar.gz)
+
+build () {
+	cd Glib-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

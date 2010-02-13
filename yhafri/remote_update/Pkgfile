@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Script for performing automated administration to many UNIX machines via SSH
+# URL: http://www.viraj.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-expect
+
+name=remote_update
+version=1.6
+release=1
+source=(http://www.viraj.org/$name/$name-$version.tar.gz)
+
+build () {
+
+	install -D -m 755 $name-$version/$name.pl $PKG/usr/bin/$name
+	
+	chown -R root:root $PKG
+}

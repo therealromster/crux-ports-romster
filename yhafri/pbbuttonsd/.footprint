@@ -1,0 +1,41 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/pbbcmd
+-rwxr-xr-x	root/root	usr/bin/pbbuttonsd
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/pbbuttonsd.conf
+drwxr-xr-x	root/root	usr/etc/power/
+-rw-r--r--	root/root	usr/etc/power/README
+drwxr-xr-x	root/root	usr/etc/power/event.d/
+lrwxrwxrwx	root/root	usr/etc/power/event.d/apmd-compat -> ../scripts.d/apmd-compat
+lrwxrwxrwx	root/root	usr/etc/power/event.d/bdflush -> ../scripts.d/bdflush
+lrwxrwxrwx	root/root	usr/etc/power/event.d/hdsetup -> ../scripts.d/hdsetup
+-rwxr-xr-x	root/root	usr/etc/power/pmcs-apmd
+-rw-r--r--	root/root	usr/etc/power/pmcs-config
+-rwxr-xr-x	root/root	usr/etc/power/pmcs-pbbuttonsd
+-rwxr-xr-x	root/root	usr/etc/power/pmcs-pmud
+drwxr-xr-x	root/root	usr/etc/power/scripts.d/
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/PMac_3400
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/apmd-compat
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/bdflush
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/cpufreq
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/hdsetup
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/laptopmode.sh
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/pcmcia
+-rwxr-xr-x	root/root	usr/etc/power/scripts.d/skeleton
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/pbb.h
+-rw-r--r--	root/root	usr/include/pbberrno.h
+-rw-r--r--	root/root	usr/include/pbbipc.h
+-rw-r--r--	root/root	usr/include/pbblist.h
+-rw-r--r--	root/root	usr/include/pbbmisc.h
+-rw-r--r--	root/root	usr/include/pbbtaglist.h
+-rw-r--r--	root/root	usr/include/pbbtags.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libpbb.a
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/pbbcmd.1.gz
+-rw-r--r--	root/root	usr/man/man1/pbbuttonsd.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/pbbuttonsd.conf.5.gz

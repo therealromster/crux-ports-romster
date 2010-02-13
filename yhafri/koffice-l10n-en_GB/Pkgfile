@@ -1,0 +1,17 @@
+# Description: British English (en_GB) translations for KOffice
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# URL: http://www.koffice.org/
+# Depends on: koffice
+
+name=koffice-l10n-en_GB
+version=1.5.1
+release=1
+source=(http://download.kde.org/stable/koffice-$version/src/koffice-l10n/$name-$version.tar.bz2)
+
+build(){
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

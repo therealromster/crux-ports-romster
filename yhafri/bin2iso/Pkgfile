@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Simple utility to convert a BIN image format to ISO format
+# URL: http://mange.dynalias.org/linux/bin2iso/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bin2iso
+version=1
+release=1
+source=($name.c)
+
+build () {
+	gcc -o $name $name.c
+
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

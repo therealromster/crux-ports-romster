@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Creates mathematically accurate, camera-quality figures, plots and line animations 
+# URL: http://math.holycross.edu/~ahwang/current/ePiX.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex, ghostscript, imagemagick
+
+name=epix 
+version=1.2.0
+release=2
+source=(http://math.holycross.edu/~ahwang/$name/$name-$version-$release.tar.bz2)
+
+build () {
+	cd $name-${version}-$release
+
+	./configure --prefix=/usr \
+		    --with-contrib
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

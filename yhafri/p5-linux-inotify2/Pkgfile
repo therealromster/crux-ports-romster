@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Scalable directory/file change notification 
+# URL: http://search.cpan.org/~mlehmann/Linux-Inotify2-0.8/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-linux-inotify2
+version=1.1
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/Linux-Inotify2-$version.tar.gz)
+
+build () {
+	cd Linux-Inotify2-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

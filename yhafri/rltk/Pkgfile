@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Library designed for creating PDF,SVG,EPS... documents programmatically
+# URL: http://www.python.net/~gherman/RLTK.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python, zlib, pil
+
+name=rltk
+version=1.20
+release=1
+source=(http://www.reportlab.org/ftp/ReportLab_1_20.tgz)
+
+build () {
+    mkdir -p $PKG/usr/lib/python
+	cd reportlab_1_20
+    find . -iname  "docs"    -type "d" | xargs rm -rf
+    find . -iname  "test"    -type "d" | xargs rm -rf
+    find . -iname  "demos"   -type "d" | xargs rm -rf
+    find . -iname  "*\.txt"  -type "f" | xargs rm -rf
+    find . -iname  "README*" -type "f" | xargs rm -rf
+    #python setup.py install --home=$PKG/usr
+    mv reportlab $PKG/usr/lib/python
+    chown -R root:root $PKG
+}

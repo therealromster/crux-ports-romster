@@ -1,0 +1,19 @@
+# Description: a KDE app which monitors the ink level of an HP DeskJet printer
+# URL: http://kink.sourceforge.net/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: libinklevel
+
+name=kink
+version=0.2.1
+release=2
+source=(http://umn.dl.sourceforge.net/sourceforge/kink/kink-$version.tar.bz2 kink-0.2.1.patch)
+
+build() {
+	cd $name-$version
+	patch -p1 < ../kink-0.2.1.patch
+        ./configure --prefix=/usr
+        make
+        make DESTDIR=$PKG install
+#        rm -rf $PKG/usr/share/doc
+}

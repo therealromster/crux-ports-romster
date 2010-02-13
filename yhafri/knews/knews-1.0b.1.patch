@@ -1,0 +1,19 @@
+--- configure.h	1998-12-29 11:47:02.000000000 +0100
++++ configure.h-new	2006-05-20 11:17:43.000000000 +0200
+@@ -16,7 +16,7 @@
+  */
+ /* #define MAIL_COMMAND "/usr/sbin/sendmail -t" */
+ /* #define MAIL_COMMAND "/usr/lib/sendmail -t"  */
+-
++#define MAIL_COMMAND "usr/bin/mail"
+ 
+ 
+ /*  The following macros control the generation of email addresses.
+@@ -35,7 +35,6 @@
+ 
+ 
+ 
+-
+ /***********************************************
+  *             MISC CONFIGURATION              *
+  ***********************************************/

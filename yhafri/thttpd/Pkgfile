@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Tiny turbo throttling HTTP server
+# URL: http://www.acme.com/software/thttpd/thttpd.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=thttpd
+version=2.25b
+release=1
+source=(http://www.acme.com/software/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+    make
+	make DESTDIR=$PKG install
+
+    chown -R root:root $PKG
+}

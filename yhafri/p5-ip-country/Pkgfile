@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Fast lookup of country codes from IP addresses
+# URL: http://search.cpan.org/~nwetters/IP-Country-2.20/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-ip-country
+version=2.23
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/N/NW/NWETTERS/IP-Country-$version.tar.gz)
+
+build () {
+	cd IP-Country-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: OO way to manipulate JSON data in python
+# URL: http://code.google.com/p/objson/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: python
+
+name=objson
+version=0.1
+release=1
+source=(http://$name.googlecode.com/files/$name-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr
+
+	cd $name-$version
+
+    	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+    	chown -R root:root $PKG
+}

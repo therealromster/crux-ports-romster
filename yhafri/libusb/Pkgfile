@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Library giving userland programs access to USB devices
+# URL: http://libusb.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jugen Daubert, juergen dot daubert at t-online dot de
+# Depends on:
+
+name=libusb
+version=0.1.12
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+    	cd $name-$version
+    	./configure --prefix=/usr \
+                    --disable-nls \
+                    --without-qt \
+                    --disable-build-docs
+    	make
+    	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

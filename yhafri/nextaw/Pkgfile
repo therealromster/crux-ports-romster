@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A a replacement library for the Athena (libXaw) widget set
+# URL: http://siag.nu/neXtaw/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=nextaw
+version=0.15.1
+release=1
+source=(http://siag.nu/pub/neXtaw/neXtaw-$version.tar.gz)
+
+build () {
+	cd neXtaw-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

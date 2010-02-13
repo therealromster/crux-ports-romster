@@ -1,0 +1,24 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gif2dbl
+-rwxr-xr-x	root/root	usr/bin/gif2mask
+-rwxr-xr-x	root/root	usr/bin/listaction
+-rwxr-xr-x	root/root	usr/bin/listfdb
+-rwxr-xr-x	root/root	usr/bin/listjpeg
+-rwxr-xr-x	root/root	usr/bin/listmp3
+-rwxr-xr-x	root/root	usr/bin/listswf
+-rwxr-xr-x	root/root	usr/bin/makefdb
+-rwxr-xr-x	root/root	usr/bin/makeswf
+-rwxr-xr-x	root/root	usr/bin/png2dbl
+-rwxr-xr-x	root/root	usr/bin/raw2adpcm
+-rwxr-xr-x	root/root	usr/bin/swftoperl
+-rwxr-xr-x	root/root	usr/bin/swftophp
+-rwxr-xr-x	root/root	usr/bin/swftopython
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/ming.h
+-rw-r--r--	root/root	usr/include/ming_config.h
+-rw-r--r--	root/root	usr/include/mingpp.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libming.so -> /usr/lib/libming.so.0.3
+lrwxrwxrwx	root/root	usr/lib/libming.so.0 -> /usr/lib/libming.so.0.3
+-rwxr-xr-x	root/root	usr/lib/libming.so.0.3

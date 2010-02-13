@@ -1,0 +1,10 @@
+--- dillo-0.8.6/dpi/https.c	2006-03-24 16:52:23.000000000 +0100
++++ dillo-0.8.6/dpi/https.c-new	2006-05-22 22:45:35.000000000 +0200
+@@ -62,7 +62,6 @@
+ #include "dpiutil.h"
+ 
+ #define ENABLE_SSL
+-#undef ENABLE_SSL
+ #ifdef ENABLE_SSL
+ 
+ #include <openssl/ssl.h>

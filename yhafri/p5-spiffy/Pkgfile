@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Spiffy Perl Interface Framework For You
+# URL: http://search.cpan.org/~ingy/Spiffy-0.25/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-scalar-list-utils
+
+name=p5-spiffy
+version=0.30
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/I/IN/INGY/Spiffy-$version.tar.gz)
+
+build () {
+	cd Spiffy-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

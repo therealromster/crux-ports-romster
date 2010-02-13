@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for emulating troublesome interfaces
+# URL: http://search.cpan.org/~chromatic/Test-MockObject-1.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-scalar-list-utils, p5-universal-can, p5-universal-isa
+
+name=p5-test-mockobject
+version=1.02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CH/CHROMATIC/Test-MockObject-$version.tar.gz)
+
+build () {
+	cd Test-MockObject-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,19 @@
+# $Id: $
+# Description: LaTeX subclass for printing context free grammar
+# URL: http://www.ctan.org/tools/filesearch?preferredCTAN=ctan.unsw.edu.au&action=/search/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=latex-bibunits
+version=1
+release=1
+source=(http://www.tug.org/cgi-bin/dirarchive/tex-archive/macros/latex/contrib/bibunits.zip)
+
+build () {
+	mkdir -p $PKG/usr/share/texmf/tex/latex/bibunits
+	cd bibunits
+	latex bibunits.ins
+	mv bibunits.sty $PKG/usr/share/texmf/tex/latex/bibunits
+	chown -R root:root $PKG
+}

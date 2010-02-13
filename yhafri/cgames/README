@@ -1,0 +1,4 @@
+PRE-INSTALL:
+
+		* create group games:
+		# groupadd games

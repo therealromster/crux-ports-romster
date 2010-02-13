@@ -1,0 +1,17 @@
+# Description: Free Software for extracting Microsoft cabinet files, also called .CAB files
+# URL: http://www.kyz.uklinux.net/cabextract.php
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on:
+
+name=cabextract
+version=1.1
+release=1
+source=(http://www.kyz.uklinux.net/downloads/cabextract-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

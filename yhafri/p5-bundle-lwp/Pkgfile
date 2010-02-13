@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Libwww-perl related modules
+# URL: http://search.cpan.org/~gaas/libwww-perl-5.800/lib/Bundle/LWP.pm
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-compress-zlib, p5-crypt-ssleay, p5-html-parser, p5-uri, p5-libnet
+
+name=p5-bundle-lwp
+version=5.803
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/libwww-perl-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd libwww-perl-$version
+	patch -p1 < ../$name-$version.patch
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

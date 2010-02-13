@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Determining LCP-decomposition of the text
+# URL: http://www.math.toronto.edu/dkhmelev/PROGS/misc/lar-eng.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=lar
+version=0.0.2
+release=1
+source=(http://www.math.toronto.edu/dkhmelev/PROGS/misc/src/$name-$version.tgz)
+
+build () {
+	cd $name-$version
+
+	make
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

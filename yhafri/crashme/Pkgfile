@@ -1,0 +1,16 @@
+# Description: stress tests operating system stability
+# URL: http://people.delphiforums.com/gjc/crashme.html
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=crashme
+version=2.4
+release=2
+source=(http://people.delphiforums.com/gjc/crashme.tgz)
+
+build() {
+	patch -p1 < ../../*.patch
+	make
+	install -D crashme $PKG/usr/bin/crashme
+}

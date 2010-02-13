@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Terminal screen handling and optimization
+# URL: http://search.cpan.org/~giraffed/Curses-1.14/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses
+
+name=p5-curses
+version=1.14
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GI/GIRAFFED/Curses-$version.tgz \
+	$name-$version.patch)
+
+build () {
+	cd Curses-$version
+
+	patch -p1<../$name-$version.patch
+	#cat hints/c-none.h > c-config.h
+
+	perl Makefile.PL PANELS MENUS FORMS
+
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

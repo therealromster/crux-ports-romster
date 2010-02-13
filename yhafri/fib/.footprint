@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-r--r--r--	root/root	usr/include/fib.h
+drwxr-xr-x	root/root	usr/lib/
+-r--r--r--	root/root	usr/lib/libfib.a
+-r--r--r--	root/root	usr/lib/libfib.so.1
+-r--r--r--	root/root	usr/lib/libfib_p.a

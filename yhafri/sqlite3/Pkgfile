@@ -1,0 +1,37 @@
+# $Id: $
+# Description: A self-contained, embeddable, zero-configuration SQL database
+# URL: http://www.sqlite.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sqlite3
+version=3.5.2
+release=7
+source=(http://www.sqlite.org/sqlite-$version.tar.gz \
+	sqlite-$version.patch fts1.patch)
+
+build () {
+    	cd sqlite-$version
+	patch -p1<../fts1.patch
+
+	CFLAGS="-DSQLITE_EXTENSION_INIT1 -DSQLITE_EXTENSION_INIT2" \
+	./configure --prefix=/usr \
+		    --enable-shared \
+		    --enable-static \
+		    --disable-nls
+
+    	#patch -p1<../sqlite-$version.patch
+    
+	make
+	(
+	cd ext/fts1
+	for i in *.c; do gcc -fPIC -g -c $i; done
+	gcc -shared -Wl,-soname,libfts1.so.1 -o libtfs1.so.1.0.1 *.o -lc
+	install -D -m 755 libtfs1.so.1.0.1 $PKG/usr/lib/libtfs1.so.1.0.1
+	ln -sf /usr/lib/libtfs1.so.1.0.1 $PKG/usr/lib/libtfs1.so
+	)
+    	make DESTDIR=$PKG install
+    	
+	chown -R root:root $PKG
+}

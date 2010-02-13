@@ -1,0 +1,15 @@
+# Description: a client for Overnet, a completely decentralized peer to peer network
+# URL: http://www.overnet2000.com/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=overnet
+version=1.3.0
+release=1
+source=(http://www.zen18864.zen.co.uk/$name/$version/${name}clc_${version}_i386.tar.gz)
+
+build() {
+	cp -r usr $PKG
+	rm -rf $PKG/usr/share/doc
+}

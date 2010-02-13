@@ -1,0 +1,45 @@
+--- quicktime4linux-2.0.4/Makefile	2004-08-08 17:24:44.000000000 +0000
++++ quicktime4linux-2.0.4/Makefile-new	2004-11-24 09:45:00.461566224 +0000
+@@ -1,6 +1,6 @@
+ OBJDIR := $(shell uname --machine)
+ USE_MMX = 0
+-CC = gcc
++CC = gcc -DHAVE_MMX
+ 
+ 
+ 
+@@ -17,7 +17,7 @@
+ #DECORE_DIR := decore50
+ ENCORE_INCLUDE := $(ENCORE_DIR)/encore.h
+ #DECORE_INCLUDE := $(DECORE_DIR)/decore.h
+-MPEG3_DIR := $(shell expr ../libmpeg3* )
++MPEG3_DIR := ../libmpeg3-1.5.4
+ FAAD_DIR := faad2
+ FAAC_DIR := faac
+ OBJS := 
+@@ -242,7 +242,7 @@
+ $(shell echo  $(OBJS) $(DV_OBJS) $(DVMMXOBJS) $(ENCOREMMX_OBJS) $(JPEG_NASM) $(JPEG_FAIL) $(FFMPEG_OBJS) $(FFMPEGIA32_OBJS) $(LAME_OBJS) $(FAAD_OBJS) $(FAAC_OBJS) > $(OBJDIR)/objs)
+ #$(shell echo  $(OBJS) $(DV_OBJS) $(DVMMXOBJS) $(DECOREMMX_OBJS) $(ENCOREMMX_OBJS) $(JPEG_NASM) $(JPEG_FAIL) $(FFMPEG_OBJS) $(FFMPEGIA32_OBJS) $(LAME_OBJS) > $(OBJDIR)/objs)
+ 
+-all: $(OBJDIR) $(OUTPUT)
++all: $(OBJDIR) $(OUTPUT) $(UTILS)
+ 
+ #$(OUTPUT): $(DV_OBJS) $(DVMMXOBJ) $(OBJS) $(DVMMXOBJS) $(DECOREMMX_OBJS) $(ENCOREMMX_OBJS) $(JPEG_NASM) $(FFMPEG_OBJS) $(FFMPEGIA32_OBJS) $(LAME_OBJS) $(JPEG_FAIL) 
+ $(OUTPUT): $(DV_OBJS) $(DVMMXOBJ) $(OBJS) $(DVMMXOBJS) $(ENCOREMMX_OBJS) $(JPEG_NASM) $(FFMPEG_OBJS) $(FFMPEGIA32_OBJS) $(LAME_OBJS) $(FAAD_OBJS) $(FAAC_OBJS) $(JPEG_FAIL) 
+@@ -271,7 +271,6 @@
+ 	$(CC) -o $(OBJDIR)/qtinfo $(OBJDIR)/qtinfo.o $(LIBS)
+ 
+ util:  $(UTILS)
+-	
+ 
+ clean:
+ 	rm -rf $(OBJDIR)
+@@ -285,7 +284,7 @@
+ 	tar zcvf quicktime.tar.gz quicktime
+ 
+ install:
+-	cp $(UTILS) /usr/bin
++	cp $(UTILS) $(DESTDIR)/usr/bin
+ 
+ $(OBJDIR)/dump.o \
+ $(OBJDIR)/make_streamable.o \

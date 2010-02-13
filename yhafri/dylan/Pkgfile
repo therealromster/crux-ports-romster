@@ -1,0 +1,19 @@
+# $Id: $
+# Description: An advanced object-oriented dynamic language
+# URL: http://www.gwydiondylan.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=dylan
+version=2.4.0
+release=1
+source=(http://www.gwydiondylan.org/downloads/binaries/linux/x86/tar/gwydion-$name-$version-x86-linux.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr
+
+	mv usr/local/* $PKG/usr
+
+	chown -R root:root $PKG
+}

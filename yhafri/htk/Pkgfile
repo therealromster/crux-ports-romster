@@ -1,0 +1,35 @@
+# $Id: $
+# Description: Hidden Markov Model Toolkit
+# URL: http://htk.eng.cam.ac.uk/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# pdm4fC8c
+# Depends on: 
+
+name=htk
+version=3.3
+release=1
+source=(http://htk.eng.cam.ac.uk/ftp/software/HTK-$version.tar.gz)
+
+build () {
+    cd $name
+
+    export CPU=linux
+    export HTKCC="gcc -ansi -O2 -DOSS_AUDIO -L/usr/X11R6/lib"
+    export HTKCF="-ansi -O2 -DOSS_AUDIO -L/usr/X11R6/lib"
+
+    mkdir -p hbin/bin.$CPU
+    export HBIN=../hbin
+
+    (cd HTKLib;   make)
+    (cd HTKTools; make)
+    (cd HLMLib;   make)
+    (cd HLMTools; make)
+
+    cd hbin/bin.$CPU
+    for i in *; do
+        install -D -m 755 $i $PKG/usr/bin/$i
+    done
+
+    chown -R root:root $PKG
+}

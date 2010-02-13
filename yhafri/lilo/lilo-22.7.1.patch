@@ -1,0 +1,21 @@
+diff -ru lilo-22.7/Makefile lilo-22.7-new/Makefile
+--- lilo-22.7/Makefile	2005-04-12 17:32:50.000000000 +0200
++++ lilo-22.7-new/Makefile	2005-04-15 01:00:00.204783424 +0200
+@@ -60,7 +60,7 @@
+ #   XL_SECS=n	  Support for extra large (non-standard) floppies.
+ 
+ CONFIG=-DBDATA -DDSECS=3 -DEVMS -DIGNORECASE -DLVM -DONE_SHOT -DPASS160 \
+-   -DREISERFS -DREWRITE_TABLE -DSOLO_CHAIN -DVERSION -DVIRTUAL
++   -DREISERFS -DREWRITE_TABLE -DSOLO_CHAIN -DVIRTUAL
+ 
+ # set the compiler optimization level
+ 
+@@ -124,7 +124,7 @@
+ .SUFFIXES:	.img .b .com .S .s
+ 
+ 
+-all: lilo bootsect.b diag1.img # OBSOLETE:  $(BOOTS) edit dparam.com activate
++all: lilo bootsect.b # diag1.img # OBSOLETE:  $(BOOTS) edit dparam.com activate
+ 	if [ -x /usr/bin/bcc -o -x /usr/local/bin/bcc ]; then \
+ 		make diagnostic; \
+ 		make dosexe; fi

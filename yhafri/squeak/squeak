@@ -1,0 +1,4 @@
+#!/bin/sh
+
+(cd /usr/local/lib/squeak/3.7-7/squeak; ./squeak $@)
+

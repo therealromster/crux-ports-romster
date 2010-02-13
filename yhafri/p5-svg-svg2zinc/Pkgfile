@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Display or convert SVG files in scripts, classes, images... 
+# URL: http://search.cpan.org/~cmertz/svg-svg2zinc-0.10/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-xml-parser, p5-tk, tk-zinc
+
+name=p5-svg-svg2zinc
+version=0.10
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CM/CMERTZ/svg-svg2zinc-$version.tar.gz)
+
+build () {
+	cd svg-svg2zinc-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

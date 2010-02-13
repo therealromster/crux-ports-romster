@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Provide the stuff missing in List::Util 
+# URL: http://search.cpan.org/~vparseval/List-MoreUtils-0.22/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=p5-list-moreutils
+version=0.22
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/V/VP/VPARSEVAL/List-MoreUtils-$version.tar.gz)
+
+build () {
+	cd List-MoreUtils-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

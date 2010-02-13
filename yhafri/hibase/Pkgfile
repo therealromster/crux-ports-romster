@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A Persistent Functional Programming Environment DataBase
+# URL: http://hibase.cs.hut.fi/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: bison ,flex
+
+name=hibase
+version=0.1.3
+release=1
+source=(http://$name.cs.hut.fi/dist/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

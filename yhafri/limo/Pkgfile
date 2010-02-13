@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Lucene Index Monitor
+# URL: http://limo.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jetty
+
+name=limo
+version=0.61
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.war)
+
+build () {
+	install -D -m 755 $name-$version.war $PKG/usr/lib/jetty/webapps/$name.war
+
+	chown -R root:root $PKG
+}

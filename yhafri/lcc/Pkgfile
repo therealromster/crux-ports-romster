@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A Retargetable Compiler for ANSI C
+# URL: http://www.cs.princeton.edu/software/lcc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz
+
+name=lcc
+version=4.1-7
+release=1
+source=(ftp://ftp.cs.princeton.edu/pub/packages/$name/contrib/$name-$version.i386.rpm)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	
+	rpm2targz $name-$version.i386.rpm
+	tar xzvf $name-$version.i386.tar.gz -C $PKG
+
+	ln -sf /usr/local/bin/$name  $PKG/usr/bin/$name
+	ln -sf /usr/local/bin/lburg  $PKG/usr/bin/lburg
+	ln -sf /usr/local/bin/bprint $PKG/usr/bin/bprint
+
+	mv $PKG/usr/local/man  $PKG/usr
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Extension module for Perl giving access to Tk via the Tcl extension
+# URL: http://search.cpan.org/~vkon/Tcl-Tk-0.84/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-tcl-tk
+
+name=p5-tcl-tk
+version=0.88
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/V/VK/VKON/Tcl-Tk-$version.tar.gz)
+
+build () {
+	cd Tcl-Tk-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

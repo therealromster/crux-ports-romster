@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Allow user to easily create dvds from groups of pictures, sometimes from a directory and sometimes from an online photo album
+# URL: http://dvd-slideshow.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, dvdauthor, mjpegtools, imagemagick, ffmpeg, lame, toolame, dvdrtools
+
+name=dvd-slideshow
+version=0.7.5
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/man/man1/
+	mkdir -p $PKG/usr/bin/.
+
+	cd $name-$version
+
+	patch -p1<../$name-$version.patch
+
+	sh ./install.sh $PKG
+
+	chown -R root:root $PKG
+}

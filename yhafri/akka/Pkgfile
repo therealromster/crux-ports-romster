@@ -1,0 +1,28 @@
+# $Id: $
+# Description: Akka is a tool for Arabizing Linux/Unix consoles
+# URL: http://www.arabeyes.org/project.php?proj=Akka
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, swig, fribidi, orbit
+
+name=akka
+version=1.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/$name-$version.tgz)
+
+build () {
+        mkdir -p $PKG/usr/bin
+        mkdir -p $PKG/etc/$name
+        mkdir -p $PKG/etc/console-tools
+	mkdir -p $PKG/usr/share/keymaps
+	mkdir -p $PKG/usr/share/fonts/$name/glyph
+	cd $name-$version
+	perl ./chonfigure
+        make CFLAGS="-O2"
+	cp src/$name $PKG/usr/bin
+	cp keymaps/us-latin1.map $PKG/etc/console-tools/
+	cp keymaps/arabic.kmap   $PKG/usr/share/keymaps/
+	cp fonts/*               $PKG/usr/share/fonts/$name/
+	cp glyph/*               $PKG/usr/share/fonts/$name/glyph/
+        chown -R root:root $PKG
+}

@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/binlm2arpa
+-rwxr-xr-x	root/root	usr/bin/evallm
+-rwxr-xr-x	root/root	usr/bin/idngram2lm
+-rwxr-xr-x	root/root	usr/bin/idngram2stats
+-rwxr-xr-x	root/root	usr/bin/interpolate
+-rwxr-xr-x	root/root	usr/bin/mergeidngram
+-rwxr-xr-x	root/root	usr/bin/ngram2mgram
+-rwxr-xr-x	root/root	usr/bin/text2idngram
+-rwxr-xr-x	root/root	usr/bin/text2wfreq
+-rwxr-xr-x	root/root	usr/bin/text2wngram
+-rwxr-xr-x	root/root	usr/bin/wfreq2vocab
+-rwxr-xr-x	root/root	usr/bin/wngram2idngram
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/SLM2.a

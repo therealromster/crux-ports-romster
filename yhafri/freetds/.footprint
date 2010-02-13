@@ -1,0 +1,61 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bsqldb
+-rwxr-xr-x	root/root	usr/bin/datacopy
+-rwxr-xr-x	root/root	usr/bin/defncopy
+-rwxr-xr-x	root/root	usr/bin/freebcp
+-rwxr-xr-x	root/root	usr/bin/tdspool
+-rwxr-xr-x	root/root	usr/bin/tsql
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/freetds.conf
+-rw-r--r--	root/root	usr/etc/locales.conf
+-rw-r--r--	root/root	usr/etc/pool.conf
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/bkpublic.h
+-rw-r--r--	root/root	usr/include/cspublic.h
+-rw-r--r--	root/root	usr/include/cstypes.h
+-rw-r--r--	root/root	usr/include/ctpublic.h
+-rw-r--r--	root/root	usr/include/sqldb.h
+-rw-r--r--	root/root	usr/include/sqlfront.h
+-rw-r--r--	root/root	usr/include/sybdb.h
+-rw-r--r--	root/root	usr/include/syberror.h
+-rw-r--r--	root/root	usr/include/sybfront.h
+-rw-r--r--	root/root	usr/include/tds.h
+-rw-r--r--	root/root	usr/include/tds_sysdep_public.h
+-rw-r--r--	root/root	usr/include/tdsconvert.h
+-rw-r--r--	root/root	usr/include/tdssrv.h
+-rw-r--r--	root/root	usr/include/tdsver.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libct.a
+-rwxr-xr-x	root/root	usr/lib/libct.la
+lrwxrwxrwx	root/root	usr/lib/libct.so -> libct.so.4.0.0
+lrwxrwxrwx	root/root	usr/lib/libct.so.4 -> libct.so.4.0.0
+-rwxr-xr-x	root/root	usr/lib/libct.so.4.0.0
+-rw-r--r--	root/root	usr/lib/libsybdb.a
+-rwxr-xr-x	root/root	usr/lib/libsybdb.la
+lrwxrwxrwx	root/root	usr/lib/libsybdb.so -> libsybdb.so.5.0.0
+lrwxrwxrwx	root/root	usr/lib/libsybdb.so.5 -> libsybdb.so.5.0.0
+-rwxr-xr-x	root/root	usr/lib/libsybdb.so.5.0.0
+-rw-r--r--	root/root	usr/lib/libtds.a
+-rwxr-xr-x	root/root	usr/lib/libtds.la
+lrwxrwxrwx	root/root	usr/lib/libtds.so -> libtds.so.5.0.0
+lrwxrwxrwx	root/root	usr/lib/libtds.so.5 -> libtds.so.5.0.0
+-rwxr-xr-x	root/root	usr/lib/libtds.so.5.0.0
+-rw-r--r--	root/root	usr/lib/libtdsodbc.a
+-rwxr-xr-x	root/root	usr/lib/libtdsodbc.la
+lrwxrwxrwx	root/root	usr/lib/libtdsodbc.so -> libtdsodbc.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libtdsodbc.so.0 -> libtdsodbc.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libtdsodbc.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libtdssrv.a
+-rwxr-xr-x	root/root	usr/lib/libtdssrv.la
+lrwxrwxrwx	root/root	usr/lib/libtdssrv.so -> libtdssrv.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libtdssrv.so.2 -> libtdssrv.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libtdssrv.so.2.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/bsqldb.1.gz
+-rw-r--r--	root/root	usr/man/man1/datacopy.1.gz
+-rw-r--r--	root/root	usr/man/man1/defncopy.1.gz
+-rw-r--r--	root/root	usr/man/man1/freebcp.1.gz
+-rw-r--r--	root/root	usr/man/man1/tsql.1.gz
+drwxr-xr-x	root/root	usr/share/

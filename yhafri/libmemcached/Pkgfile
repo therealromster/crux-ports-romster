@@ -1,0 +1,21 @@
+# $Id: $
+# Description: C API for memcached
+# URL: http://people.freebsd.org/~seanc/libmemcache/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libevent
+
+name=libmemcache
+version=1.4.0
+release=1
+source=(http://people.freebsd.org/~seanc/$name/$name-$version.rc2.tar.bz2)
+
+build () {
+	cd $name-$version.rc2
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

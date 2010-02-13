@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A tool to count lines of code in C and C++ files
+# URL: http://www.chris-lott.org/resources/cmetrics/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=lc
+version=2
+release=1
+source=(http://www.chris-lott.org/resources/cmetrics/$name$version.tar.gz)
+
+build () {
+	cd $name$version
+
+	make
+
+	install -D -m 755 $name   $PKG/usr/bin/$name
+	install -D -m 644 $name.1 $PKG/usr/man/man1/$name.1
+	
+	chown -R root:root $PKG
+}

@@ -1,0 +1,41 @@
+--- monkey-0.9.0/Makefile	2005-04-16 14:02:21.648720048 +0200
++++ monkey-0.9.0/Makefile-new	2005-04-16 14:07:00.459334392 +0200
+@@ -16,22 +16,22 @@
+ 
+ install:
+ 	make -C src all
+-	install -d $(BINDIR)
+-	install -d $(CGIBIN)
+-	install -d $(SYSCONFDIR) 
+-	install -d $(DATADIR)
+-	install -d ${DATADIR}/imgs
+-	install -d ${DATADIR}/php
+-	install -d ${DATADIR}/docs
+-	install -d ${LOGDIR}
+-	install -s -m 755 bin/monkey $(BINDIR)
+-	install -m 755 bin/banana $(BINDIR)
+-	install -m 755 ./cgi-bin/* $(CGIBIN)
+-	install -m 600 ./conf/*.* $(SYSCONFDIR)
+-	install -m 644 ./htdocs/*.* $(DATADIR)
+-	install -m 644 ./htdocs/imgs/*.* ${DATADIR}/imgs
+-	install -m 644 ./htdocs/php/*.* ${DATADIR}/php
+-	install -m 644 ./htdocs/docs/*.* ${DATADIR}/docs
++	install -d ${PREFIX}$(BINDIR)
++	install -d ${PREFIX}$(CGIBIN)
++	install -d ${PREFIX}$(SYSCONFDIR) 
++	install -d ${PREFIX}$(DATADIR)
++	install -d ${PREFIX}${DATADIR}/imgs
++	install -d ${PREFIX}${DATADIR}/php
++	install -d ${PREFIX}${DATADIR}/docs
++	install -d ${PREFIX}${LOGDIR}
++	install -s -m 755 bin/monkey ${PREFIX}/$(BINDIR)
++	install -m 755 bin/banana ${PREFIX}/$(BINDIR)
++	install -m 755 ./cgi-bin/* ${PREFIX}/$(CGIBIN)
++	install -m 600 ./conf/*.* ${PREFIX}$(SYSCONFDIR)
++	install -m 644 ./htdocs/*.* ${PREFIX}$(DATADIR)
++	install -m 644 ./htdocs/imgs/*.* ${PREFIX}${DATADIR}/imgs
++	install -m 644 ./htdocs/php/*.* ${PREFIX}${DATADIR}/php
++	install -m 644 ./htdocs/docs/*.* ${PREFIX}${DATADIR}/docs
+ 	@echo 
+ 	@echo  " Running Monkey :"
+ 	@echo  " ----------------"

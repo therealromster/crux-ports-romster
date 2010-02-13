@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Informations about remaining battery and cpu temperature in dockapp
+# URL: http://www.bensinclair.com/dockapp/showapp.php3?id=300
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmbatteries
+version=0.1.3
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

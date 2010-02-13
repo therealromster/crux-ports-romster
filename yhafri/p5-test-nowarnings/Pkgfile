@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Make sure you didn't emit any warnings while testing
+# URL: http://search.cpan.org/~fdaly/Test-NoWarnings-0.082/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-test-tester
+
+name=p5-test-nowarnings
+version=0.082
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/F/FD/FDALY/Test-NoWarnings-$version.tar.gz)
+
+build () {
+	cd Test-NoWarnings-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

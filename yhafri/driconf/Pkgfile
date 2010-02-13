@@ -1,0 +1,19 @@
+# Description: a graphical configuration tool for the Direct Rendering Infrastructure
+# URL: http://dri.freedesktop.org/wiki/DriConf
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: x11, python
+
+name=driconf
+version=0.9.0
+release=1
+source=(http://people.freedesktop.org/~fxkuehl/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    python setup.py install \
+        --prefix=/usr \
+        --root=/$PKG \
+        --install-lib=/usr/lib/python
+    rm -rf $PKG/usr/share/locale/
+}

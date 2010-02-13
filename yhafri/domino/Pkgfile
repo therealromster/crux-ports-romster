@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A Java toolkit to access any Human Input Device through a DOM tree
+# URL: http://www.eseo.fr/~obeaudoux/domino/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=domino
+version=0.6
+release=1
+source=(http://www.eseo.fr/~obeaudoux/$name/$name-$version.tar.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib
+
+	(
+	cd $name-$version
+	mv jars/*.jar .
+	rm -rf *.class *.txt jars/
+	)
+
+	mv $name-$version $PKG/usr/lib/$name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

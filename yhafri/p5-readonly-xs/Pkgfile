@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Companion module for Readonly.pm, to speed up read-only scalar variables
+# URL: http://search.cpan.org/~roode/Readonly-XS-1.04/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-readonly
+
+name=p5-readonly-xs
+version=1.04
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RO/ROODE/Readonly-XS-$version.tar.gz)
+
+build () {
+	cd Readonly-XS-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

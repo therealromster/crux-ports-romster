@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Advanced UML1/2 modeling tool
+# URL: http://gentleware.com/index.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=poseidon
+version=4.1.0
+release=1
+source=(http://download.gentleware.biz/${name}CE-$version.zip)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib}
+
+	mv ${name}CE-$version $PKG/usr/lib/${name}-$version
+
+	cd $PKG/usr/lib/${name}-$version
+	rm -rf LICENSE.txt docs/ examples/ licenses-3rdparty/ bin/{Clipboard.exe,${name}Mac.sh,$name.bat}
+	
+	chmod +x $PKG/usr/lib/${name}-$version/bin/$name.sh 
+	ln -sf /usr/lib/${name}-$version/bin/$name.sh $PKG/usr/bin/$name
+	
+	chown -R root:root $PKG
+}

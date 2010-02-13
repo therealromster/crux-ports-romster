@@ -1,0 +1,69 @@
+#!/bin/bash
+#   copyright (c) 2004 GPL  Mike Chirico mchirico@users.sourceforge.net
+#     version 1.1
+#
+#    For Sqlite hits ref: 
+#    http://prdownloads.sourceforge.net/souptonuts/sqlite_examples.tar.gz?download
+#
+#
+#  A quick script to create notes during the day
+#  BEGIN TRANSACTION;
+#    CREATE TABLE notes (nkey integer primary key,msg text,category text, timeEnter Date);
+#    CREATE TRIGGER insert_notes_timeEnter 
+#              After insert on notes begin update notes 
+#               set timeEnter = Datetime('now','localtime') where rowid=new.rowid; end;
+#  COMMIT;
+#
+FILE_LOCATION=$HOME
+FILE='notes.db'
+[ -f "${FILE_LOCATION}/${FILE}" ] || sqlite3 "${FILE_LOCATION}/${FILE}" "BEGIN TRANSACTION;
+                           CREATE TABLE notes (nkey integer primary key,msg text,category text, timeEnter Date);
+                           CREATE TRIGGER insert_notes_timeEnter
+                            After insert on notes begin update notes
+                             set timeEnter = Datetime('now','localtime') where rowid=new.rowid; end;
+                             COMMIT;"
+while getopts "ltcf:e:d" opt; do
+ case $opt in
+     l ) sqlite3 "${FILE_LOCATION}/${FILE}" "select * from notes"; exit 1;;
+     t ) sqlite3 "${FILE_LOCATION}/${FILE}" "select * from notes where timeEnter >= '"$(date "+%Y-%m-%d")"'"; exit 2;;
+     c ) sqlite3 "${FILE_LOCATION}/${FILE}" "select category,count(category) from notes group by category"; exit 3;;
+     f ) sqlite3 "${FILE_LOCATION}/${FILE}" "select * from notes where msg like '${OPTARG}'"; exit 3;;
+     e ) MYEXE=$(${OPTARG})
+         MYEXE=$(echo ${MYEXE}|sed -e s/\'/_/g -e s/\"/__/g)
+         sqlite3 "${FILE_LOCATION}/${FILE}" "insert into notes (msg) values ('${MYEXE}')"
+         exit 3;;
+     d ) sqlite3 "${FILE_LOCATION}/${FILE}" "delete from notes where nkey=(select max(nkey) from notes)"; exit 2;;
+esac
+done
+shift $(($OPTIND -1))
+
+if [ "$#" -eq 0 ]; then
+ echo "This command is used to list notes in "
+ echo "a database."
+ echo ""
+ echo "n <option> "
+ echo " -l list all notes"
+ echo " -t list notes for today"
+ echo " -c list categories"
+ echo " -f <search string> seach for text"
+ echo " -e <cmd> execute command and add to notes"
+ echo " -d delete last entry"
+ exit 2;
+fi
+
+
+
+if [ "$#" -gt 2 ]; then
+MSG=$(echo ${*}|sed -e s/\'/_/g -e s/\"/__/g)
+    sqlite3 "${FILE_LOCATION}/${FILE}" "insert into notes (msg) values ('${MSG}')"
+else
+MSG=$(echo ${1}|sed -e s/\'/_/g -e s/\"/__/g)
+  if [ "$#" == 2 ]; then
+    CATEGORY=$(echo ${2}|sed -e s/\'/_/g -e s/\"/__/g)
+    sqlite3 "${FILE_LOCATION}/${FILE}" "insert into notes (msg,category) values ('${MSG}','${CATEGORY}')"
+  else
+    sqlite3 "${FILE_LOCATION}/${FILE}" "insert into notes (msg) values ('${MSG}')"
+  fi
+fi
+
+

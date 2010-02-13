@@ -1,0 +1,23 @@
+# $Id: $
+# Description: OpenVPN is a full-featured SSL VPN
+# URL: http://openvpn.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl, lzo
+
+name=openvpn
+version=2.0
+release=1
+source=(http://openvpn.sourceforge.net/beta/$name-${version}_beta17.tar.gz)
+
+build () {
+	cd $name-${version}_beta17
+	./configure --prefix=/usr \
+                --enable-pthread \
+                --enable-iproute2
+
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

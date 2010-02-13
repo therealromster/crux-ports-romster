@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Command Line Tool for Transparent PNGs
+# URL: http://www.theiling.de/projects/transparency.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libpng, libungif, liberror
+
+name=transparency
+version=0.1.151
+release=1
+source=(http://www.theiling.de/downloads/$name-$version-src.tar.bz2)
+
+build () {
+	cd $name-$version-src
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

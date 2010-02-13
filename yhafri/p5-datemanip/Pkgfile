@@ -1,0 +1,20 @@
+# $Id: $
+# Description:  A perl 5 module which allows you to easily parse and manipulate dates 
+# URL: http://www.cise.ufl.edu/~sbeck/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-datemanip
+version=5.45
+release=1
+source=(http://www.cise.ufl.edu/~sbeck/DateManip.tar.gz)
+
+build () {
+	cd DateManip-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

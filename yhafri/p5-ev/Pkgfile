@@ -1,0 +1,20 @@
+# $Id: $
+# Description: High performance full-featured event loop
+# URL: http://search.cpan.org/~mlehmann/EV-0.1/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libev
+
+name=p5-ev
+version=1.72
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/EV-$version.tar.gz)
+
+build () {
+	cd EV-$version
+	echo "y" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

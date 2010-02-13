@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Benchmarking web server using httperf
+# URL: http://www.xenoclast.org/autobench/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: httperf
+
+name=autobench
+version=2.1.2
+release=1
+source=(http://www.xenoclast.org/$name/downloads/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

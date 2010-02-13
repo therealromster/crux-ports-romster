@@ -1,0 +1,18 @@
+# $Id: $
+# Description: Volume mixer dockapp
+# URL: http://www.fukt.bth.se/~per/mixer/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=mixer
+version=1.8.0
+release=1
+source=(http://www.fukt.bth.se/~per/mixer/Mixer.app-$version.tar.gz)
+
+build () {
+	cd Mixer.app-$version
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install-x11
+        chown -R root:root $PKG
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Beautiful Perl widgets
+# URL: http://search.cpan.org/~dkwilson/Tk-DKW-0.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tk-dkw
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DK/DKWILSON/Tk-DKW-$version.tar.gz)
+
+build () {
+	cd Tk-DKW-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Application test framework
+# URL: http://www.gnu.org/software/dejagnu
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Tilman Sauerbeck (tilman at code-monkey de)
+# Depends on: expect
+
+name=dejagnu
+version=1.4.4
+release=1
+source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

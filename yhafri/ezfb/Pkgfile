@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Linux Frame Buffer API
+# URL: http://www.akrobiz.com/ezfb/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ezfb
+version=9.05
+release=1
+source=(http://www.akrobiz.com/$name/code/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+
+	ar cr $name.a ezfb_bmp.o ezfb_colors.o ezfb_device.o \
+		      ezfb_fonts.o ezfb_pixels.o ezfb_tty.o  \
+		      ezfb_laser_palettes.o ilda.o
+
+	install -D $name.a        $PKG/usr/lib/$name.a
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

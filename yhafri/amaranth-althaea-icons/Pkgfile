@@ -1,0 +1,15 @@
+# Description: KDE iconset like Crystal SVG, but simpler-looking, with more shadows. They are also softer on the eyes, and much lower contrast.
+# URL: http://www.icon-king.com/
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=amaranth-althaea-icons
+version=0.5
+release=2
+source=(http://download.freshmeat.net/themes/amaranth/amaranth-althaea-.5.tar.gz)
+
+build() {
+    mkdir -p $PKG/usr/share/icons
+    cp -r Altheae $PKG/usr/share/icons
+}

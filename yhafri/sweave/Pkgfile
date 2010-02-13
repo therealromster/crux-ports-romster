@@ -1,0 +1,16 @@
+# $Id: $
+# Description: A framework for mixing LaTeX source code and statistic tools like S or R for automatic document generation
+# URL: http://www.ci.tuwien.ac.at/~leisch/Sweave/FAQ.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: r
+
+name=sweave
+version=1
+release=1
+source=(http://www.ci.tuwien.ac.at/~leisch/Sweave/Sweave.sh)
+
+build () {
+    install -D -m 755 $SRC/Sweave.sh $PKG/usr/bin/$name.sh
+    chown -R root:root $PKG
+}

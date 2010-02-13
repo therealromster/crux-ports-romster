@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Objective CAML Compiler
+# URL: http://caml.inria.fr/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafrin <ycrux@club-internet.fr>
+# Depends on:  x11
+
+name=ocaml
+version=3.10.0
+release=1
+source=(http://caml.inria.fr/pub/distrib/$name-3.10/$name-$version.tar.gz)
+
+build() {
+    	cd $name-$version
+
+    	./configure -prefix /usr -with-pthread 
+
+    	make world opt
+    	make PREFIX=$PKG/usr install installopt
+
+    	sed -i "s|$PKG||" $PKG/usr/lib/ocaml/ld.conf
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: An ASCII relational database for UNIX
+# URL: http://cfa-www.harvard.edu/~john/starbase/starbase.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=starbase
+version=3.3.2
+release=1
+source=(http://cfa-www.harvard.edu/~john/$name/${name}$version.tar.gz)
+
+build () {
+	cd ${name}$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

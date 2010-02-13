@@ -1,0 +1,26 @@
+--- makefile~	2005-04-25 12:25:37.000000000 -0600
++++ makefile	2006-02-25 03:23:32.000000000 -0700
+@@ -8,8 +8,8 @@
+ USEPAK = 1
+ 
+ PREFIX=$(DESTDIR)/usr
+-BINDIR = $(PREFIX)/games/
+-DATADIR = $(PREFIX)/share/games/parallelrealities/
++BINDIR = $(PREFIX)/bin/
++DATADIR = $(PREFIX)/share/parallelrealities/
+ DOCDIR = $(PREFIX)/share/doc/$(PROG)/
+ ICONDIR = $(PREFIX)/share/icons/
+ KDE = $(PREFIX)/share/applnk/Games/Arcade/
+@@ -74,9 +74,9 @@
+ 	mkdir -p $(GNOME)
+ 
+ 	strip $(PROG)
+-	install -o root -g games -m 755 $(PROG) $(BINDIR)$(PROG)
+-	install -o root -g games -m 644 $(PAKNAME) $(DATADIR)$(PAKNAME)
+-	install -o root -g games -m 644 $(DOCS) $(DOCDIR)
++	install -m 755 $(PROG) $(BINDIR)$(PROG)
++	install -m 644 $(PAKNAME) $(DATADIR)$(PAKNAME)
++	install -m 644 $(DOCS) $(DOCDIR)
+ 	cp $(ICONS)$(PROG).png $(ICONDIR)
+ 	cp $(ICONS)$(PROG)-mini.png $(ICONDIR)mini/$(PROG).png
+ 	cp $(ICONS)$(PROG)-large.png $(ICONDIR)large/$(PROG).png

@@ -1,0 +1,53 @@
+DOC:
+        * See the link below for an example of how to use psqlodbc with 
+	unixODBC:
+	http://www.cs.umu.se/kurser/TDBC86/H04/Slides/11_OH_odbc.pdf
+
+EXAMPLE:
+        Configuration example of database called ALIX:
+
+        * /etc/odbcinst.ini
+	[PostgreSQL]
+	Description     = PostgreSQL 8.0.1 driver (psqlodbc-08.00.0102)
+	Driver          = /usr/lib/psqlodbc.so
+	FileUsage       = 1
+	CPTimeout       = 
+	CPReuse         = 
+	CommLog         = 1
+
+        * /etc/odbc.ini
+	[PostgreSQL-example]
+	Description         = Base de donnees example
+	Driver              = PostgreSQL
+	Trace               = Yes
+	TraceFile           = sql.log
+	Database            = ALIX
+	Servername          = localhost
+	UserName            = ycrux
+	Password            = ycruxpassword
+	Port                = 5432
+	ReadOnly            = No
+	RowVersioning       = No
+	ShowSystemTables    = No
+	ShowOidColumn       = No
+	FakeOidIndex        = No
+	ConnSettings        =
+
+        * /home/ycrux/.odbc.ini
+        [PostgreSQL-example]
+        Description         = Base de donnees example
+        Driver              = PostgreSQL
+        Trace               = Yes
+        TraceFile           = sql.log
+        Database            = ALIX
+        Servername          = localhost
+        UserName            = ycrux
+        Password            = ycruxpassword
+        Port                = 5432
+        ReadOnly            = No
+        RowVersioning       = No
+        ShowSystemTables    = No
+        ShowOidColumn       = No
+        FakeOidIndex        = No
+        ConnSettings        =
+

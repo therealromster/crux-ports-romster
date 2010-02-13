@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Erlang Regular expressions
+# URL: http://www.cellicium.com/erlang/contribs/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=gregexp
+version=1.9.2
+release=1
+source=(http://www.cellicium.com/erlang/contribs/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	cd $name-$version
+	erl -make
+	cp -rf gregexp.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	cp -rf gregexp.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+        chown -R root:root $PKG/
+}

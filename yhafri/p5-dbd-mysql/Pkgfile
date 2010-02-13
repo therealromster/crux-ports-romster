@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A bundle to install Perl drivers for mSQL or MySQL 
+# URL: http://search.cpan.org/~rudy/DBD-mysql-2.9004/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: mysql
+
+name=p5-dbd-mysql
+version=3.0002_5
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-$version.tar.gz)
+
+build () {
+	cd DBD-mysql-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

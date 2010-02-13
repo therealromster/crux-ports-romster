@@ -1,0 +1,34 @@
+POST-INSTALL:
+
+		* first of all, create users dnscache and dnslog:
+		# useradd dnscache
+		# useradd dnslog
+
+		* tell dnscache to listen to address 192.168.1.3 to servers DNS requests
+		(change it to what you want depending on your config). 
+		# dnscache-conf dnscache dnslog /var/dnscache 192.168.1.3
+		
+		* tell dnscache about your primary DNS server name of your ISP.
+		In my case, 194.117.200.15 for club-internet (my internet provider):
+		# echo 194.117.200.15 > /var/dnscache/root/servers/@
+
+		* turn on the forward:
+		# echo 1 > /var/dnscache/env/FORWARDONLY
+
+		* let dnscache accepts all requests from your local network:
+		# touch /var/dnscache/root/ip/192.168.1
+
+		* change your resolve.conf to use your local DNS cache :
+		# echo "nameserver 192.168.1.3" > /etc.resolv.conf 
+		
+		* test the beast:
+		# /etc/rc.d/dnscache start
+		# host www.nerim.net 192.168.1.13 (slow the first time, but dnscache store it in the cache)
+		# host www.nerim.net 192.168.1.13 (very fast after that because retrieved from cache)
+		# ...
+		# dnsip www.yahoo.com
+		# dnsname `dnsip www.yahoo.com`
+
+		* you can activate this service permanently by adding dnscache to your /etc/rc.conf
+		Enjoy
+	

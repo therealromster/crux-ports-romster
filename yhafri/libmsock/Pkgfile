@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A library for TCP/IP client-server applications on Unix
+# URL: http://www.muquit.com/muquit/software/libmsock/libmsock.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libmsock
+version=1
+release=1
+source=(http://www.muquit.com/muquit/software/libmsock/libmsock.tar.gz)
+
+build () {
+    mkdir -p $PKG/usr/{lib,include}
+	cd ${name}
+	./configure
+    make CFLAGS="$CFLAGS"
+    mv ${name}.a $PKG/usr/lib
+    mv msock.h   $PKG/usr/include
+
+    chown -R root:root $PKG
+}

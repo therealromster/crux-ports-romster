@@ -1,0 +1,29 @@
+# $Id: $
+# Description: OpenMosix User Space Cluster Daemon
+# URL: http://omuscd.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: help2man
+
+name=omuscd
+version=0b2-0701251429
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.src.tgz \
+	$name-$version.patch)
+
+build () {
+	cd $name-0b2
+	patch -p1<../$name-$version.patch
+
+	make distclean bindist
+	make PREFIX=$PKG/usr install
+
+	serialnum=`cat serialnum`
+	tar xzf /tmp/$name-0b2-$serialnum/$name-0b2-$serialnum.tgz -C $PKG
+	rm -rf $PKG/usr/share
+
+	cd $PKG/etc/rc.d
+	mv init.d/$name . && rm -rf init.d
+
+	chown -R root:root $PKG
+}

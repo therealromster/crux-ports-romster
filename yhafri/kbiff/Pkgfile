@@ -1,0 +1,21 @@
+# Description: a mail notification utility for the KDE project
+# URL: http://www.granroth.org/kbiff/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=kbiff
+version=3.8
+release=2
+source=(http://dl.sourceforge.net/sourceforge/kbiff/kbiff-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug \
+        --enable-final
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

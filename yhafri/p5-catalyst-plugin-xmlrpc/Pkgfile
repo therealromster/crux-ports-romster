@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Dispatch XMLRPC methods with Catalyst 
+# URL: http://search.cpan.org/~sri/Catalyst-Plugin-XMLRPC-0.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-catalyst, p5-rpc-xml
+
+name=p5-catalyst-plugin-xmlrpc
+version=0.06
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SR/SRI/Catalyst-Plugin-XMLRPC-$version.tar.gz)
+
+build () {
+	cd Catalyst-Plugin-XMLRPC-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

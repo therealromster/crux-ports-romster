@@ -1,0 +1,68 @@
+# $Id: $
+# Description: Patched version of Mozilla Firefox to improve complex-layout and right-to-left languages
+# URL: http://www.mozilla.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on: gtk, freetype, libidl
+
+name=firefox
+version=1.0.7
+release=2
+source=(http://ftp.mozilla.org/pub/mozilla.org/$name/releases/$version/source/$name-$version-source.tar.bz2 \
+	http://www.fukt.bth.se/~per/crux/files/$name/$name-1.0.6-init.tar.bz2 \
+	$name-$version-rtl-v4.12.patch \
+	mozilla-$name-1.0-gnome-uriloader.patch \
+	${name}_runscript \
+	mozconfig)
+
+build() {
+	export MOZILLA_CLIENT=1
+	export BUILD_OPT=1
+	export NO_STATIC_LIB=1
+	export USE_PTHREADS=1
+	export MOZ_PHOENIX=1
+
+	CXXFLAGS="${CXXFLAGS} -Wno-deprecated"
+
+	cd mozilla
+
+	patch -p1 < $SRC/$name-$version-rtl-v4.12.patch
+	patch -p1 < $SRC/mozilla-$name-1.0-gnome-uriloader.patch
+
+	sed "s/#CFLAGS#/$CFLAGS/" $SRC/mozconfig > .mozconfig
+
+	make -f client.mk build
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cp -rL dist/bin $PKG/usr/lib/$name
+	#ln -sf ../lib/$name/firefox $PKG/usr/bin/firefox
+
+	cd $PKG/usr/lib/$name
+
+	rm -rf Test* bloaturls.txt res/samples res/throbber
+
+	MOZILLA_FIVE_HOME=$PWD LD_LIBRARY_PATH=$PWD ./regxpcom
+	MOZ_DISABLE_GNOME=1 MOZILLA_FIVE_HOME=$PWD LD_LIBRARY_PATH=$PWD ./regchrome
+	rm -rf $TMPDIRECTORY
+
+	touch chrome/user-skins.rdf chrome/user-locales.rdf
+
+	# Install init files
+	cp -rf $SRC/{components.ini,defaults.ini,extensions} $PKG/usr/lib/$name
+
+	# Install development files
+	#mkdir -p $PKG/usr/lib/pkgconfig \
+	# 	  $PKG/usr/include/firefox \
+	#	  $PKG/usr/share/idl/firefox
+
+	#cp -rL $SRC/mozilla/dist/idl/* $PKG/usr/share/idl/firefox
+	#cp -rL $SRC/mozilla/dist/include/* $PKG/usr/include/firefox
+	#cp -rL $SRC/mozilla/build/unix/firefox-*.pc $PKG/usr/lib/pkgconfig
+
+	#sed -i "s|/firefox-$version|/firefox|g" \
+	#	$PKG/usr/lib/pkgconfig/*.pc $PKG/usr/lib/$name/$name-config
+
+	# That infamous runscript of mine.
+    	sed -e 's|@prefix@|/usr/lib|' $SRC/${name}_runscript > $PKG/usr/bin/$name
+    	chmod 755 $PKG/usr/bin/$name
+}

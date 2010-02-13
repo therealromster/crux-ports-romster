@@ -1,0 +1,70 @@
+#!/bin/sh
+
+#------------------------------------------------------------------------
+#  Add new user and group
+
+TryAddGroup() {
+
+	AdditionalParameter=$1
+	testStr=`grep firebird /etc/group`
+	
+    if [ -z "$testStr" ]
+      then
+        groupadd $AdditionalParameter firebird
+    fi
+	
+}
+
+
+TryAddUser() {
+
+	AdditionalParameter=$1
+    	testStr=`grep firebird /etc/passwd`
+	
+    	if [ -z "$testStr" ]
+      	then
+        	useradd $AdditionalParameter -M -d $FBRootDir -s /bin/false \
+            	-c "Firebird Database Owner" -g firebird firebird 
+    	fi
+
+}
+
+
+addFirebirdUser() {
+
+	TryAddGroup "-g 84 -r" >/dev/null 2>&1
+	TryAddGroup "-g 84" >/dev/null 2>&1
+	TryAddGroup "-r" >/dev/null 2>&1
+	TryAddGroup " "
+	
+	TryAddUser "-u 84 -r" >/dev/null 2>&1
+	TryAddUser "-u 84" >/dev/null 2>&1
+	TryAddUser "-r" >/dev/null 2>&1
+	TryAddUser " "
+
+}
+
+
+#= Main Pre ============================================
+
+    origDir=`pwd`
+
+    FBRootDir=/opt/firebird
+    FBBin=$FBRootDir/bin
+#    RunUser=root
+    RunUser=firebird
+    DBAPasswordFile=$FBRootDir/SYSDBA.password
+    export FBRootDir
+    export FBBin
+    export RunUser
+    export DBAPasswordFile
+
+
+    # Update ownership of files
+    if [ $RunUser = firebird ]
+      then
+        # Prepare firebird user
+	echo "Create firebird user and firebird group"
+        addFirebirdUser
+    fi
+

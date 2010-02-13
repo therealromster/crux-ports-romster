@@ -1,0 +1,6 @@
+# acl file for kadmin utility
+#
+# principal@REALM	permissions	optional target principal
+
+#*/admin@EXAMPLE.COM	*
+

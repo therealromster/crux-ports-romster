@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Documents convertor to text
+# URL: http://www.akademia.ch/info/unix/pub/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: perl, python
+
+name=docx2txt
+version=1
+release=1
+source=(http://www.akademia.ch/info/unix/pub/sxw2txt \
+	http://www.akademia.ch/info/unix/pub/sxw2txt.sh \
+	http://www.akademia.ch/info/unix/pub/rtf2html \
+	http://www.akademia.ch/info/unix/pub/word2txt.sh)
+
+build () {
+	mv sxw2txt sxw2txt.pl
+
+	for i in sxw* rtf* word*; do
+		install -D -m 755 $i $PKG/usr/bin/$i
+	done
+
+	chown -R root:root $PKG
+}

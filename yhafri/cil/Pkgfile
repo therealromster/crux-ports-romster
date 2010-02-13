@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Infrastructure for C Program Analysis and Transformation
+# URL: http://manju.cs.berkeley.edu/cil/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ocaml
+
+name=cil
+version=1.3.5
+release=1
+source=(http://manju.cs.berkeley.edu/cil/distrib/$name-$version.tar.gz)
+
+build () {
+	cd $name
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

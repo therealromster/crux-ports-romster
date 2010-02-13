@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl extension for SHA-1/224/256/384/512 
+# URL: http://search.cpan.org/~mshelor/Digest-SHA-5.30/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-diges-sha1
+version=5.34
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSHELOR/Digest-SHA-$version.tar.gz)
+
+build () {
+	cd Digest-SHA-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

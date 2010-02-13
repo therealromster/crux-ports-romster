@@ -1,0 +1,25 @@
+# $Id: $
+# Description: O'Caml automatic libraries installation.
+# URL:         http://www.ocaml-programming.de/godi/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  
+
+name=godi
+version=20040717
+release=1
+source=(http://www.ocaml-programming.de/packages/$name-bootstrap-$version.tar.gz)
+
+build() {
+    mkdir -p $PKG/usr/lib/ocaml/godi
+    cd $name-bootstrap-$version
+    echo "\r" | ./bootstrap --prefix $PKG/usr/lib/ocaml/godi
+    GODI=$PKG/usr/lib/ocaml/godi
+    PATH=$PATH:$GODI/bin:$GODI/sbin
+    sh bootstrap_stage2
+    sed -i "s/\/usr\/ports\/yhafri\/godi\/work\/pkg\(\/usr\/lib\/ocaml\/godi\)/\1/" $PKG/usr/lib/ocaml/godi/etc/godi.conf
+    chown -R root:root $PKG
+}
+
+
+#    sed -i "s/$PKG\(\/usr\/lib\/ocaml\/godi\)/\1/" $PKG/usr/lib/ocaml/godi/etc/godi.conf

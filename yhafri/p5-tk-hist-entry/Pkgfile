@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl entry widget with history capability 
+# URL: http://search.cpan.org/~srezic/Tk-HistEntry-0.42/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-tk-hist-entry
+version=0.42
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SR/SREZIC/Tk-HistEntry-$version.tar.gz)
+
+build () {
+	cd Tk-HistEntry-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

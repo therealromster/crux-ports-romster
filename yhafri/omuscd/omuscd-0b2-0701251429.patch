@@ -1,0 +1,30 @@
+--- omuscd-0b2/Makefile	2007-01-25 15:23:10.000000000 +0100
++++ omuscd-0b2/Makefile-new	2007-04-21 08:37:00.000000000 +0200
+@@ -7,7 +7,7 @@
+ 
+ CONFIGPATH=$(DESTDIR)/etc/sysconfig
+ INITPATH=$(DESTDIR)/etc/rc.d/init.d
+-PREFIX=$(DESTDIR)/usr/local
++PREFIX=$(DESTDIR)/usr
+ 
+ BINPATH=$(PREFIX)/bin
+ MANPATH=$(PREFIX)/man/man$(MANNUM)
+@@ -146,7 +146,7 @@
+ default:
+ 	@if [ -d secure ] ; then $(MAKE) $(DAEMON) ; else $(MAKE) help ; fi
+ 
+-all: distclean $(DAEMON) doc/FAQ doc/GPG-KEY $(MANZIP) 
++all: distclean $(DAEMON) $(MANZIP) 
+ 
+ alldist: bindist srcdist rpmdist
+ 	@ls -ls $(ARCHPATH)
+@@ -324,9 +324,6 @@
+ 	@fold -s -80 $< > $@
+ 	@touch doc
+ 
+-doc/GPG-KEY: ./secure/.gnupg/pubring.gpg
+-	@gpg --homedir ./secure/.gnupg --batch --yes --armor --output $@ --export g_remlin
+-
+ $(DAEMON): serialnum $(OBJECTS) 
+ 	@$(LD) -o $@ $(LDFLAGS) $(OBJECTS) 
+ 	@echo "Compilation & Linking of \"$@\" OK"

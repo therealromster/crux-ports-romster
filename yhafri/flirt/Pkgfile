@@ -1,0 +1,23 @@
+# $Id: $
+# Description: An SWF rendering library
+# URL: http://flirt.sourceforge.net/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=flirt
+version=20040823
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/include
+	cd $name-$version
+
+	make
+
+	install -D -m 644 lib$name.a $PKG/usr/lib/lib$name.a
+	mv *.h $PKG/usr/include
+
+	chown -R root:root $PKG
+}

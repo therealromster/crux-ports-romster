@@ -1,0 +1,20 @@
+# $Id: $
+# Description: The Fastest Lexer in the West
+# URL: http://search.cpan.org/~ioannis/Parse-Flex-0.11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-scalar-util
+
+name=p5-parse-flex
+version=0.11
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/I/IO/IOANNIS/Parse-Flex-$version.tar.gz)
+
+build () {
+	cd Parse-Flex-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

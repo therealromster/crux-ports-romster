@@ -1,0 +1,21 @@
+# $Id: $
+# Description: GNU an implementation of SIP
+# URL: http://www.gnu.org/software/osip/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=libosip
+version=3.0.3
+release=2
+source=(http://ftp.gnu.org/gnu/osip/${name}2-$version.tar.gz)
+
+build () {
+	cd ${name}2-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

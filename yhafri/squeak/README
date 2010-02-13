@@ -1,0 +1,9 @@
+POST-INSTALL:
+
+		* To use Squeak, type the following commands in your session:
+		$ mkdir ~/squeak # Or anywhere you want
+		$ cd ~/squeak    # Change to your default Squeak directory
+		$ inisqueak      # Type this command just once at 
+			         # the first time you install Squeak
+		$ squeak         # To start Squeak
+

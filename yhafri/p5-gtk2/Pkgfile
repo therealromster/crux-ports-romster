@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the Gimp Toolkit library 
+# URL: http://search.cpan.org/~tsch/Gtk2-1.061/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, p5-extutils-depends, p5-extutils-pkgconfig, p5-glib, p5-cairo
+
+name=p5-gtk2
+version=1.121
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/Gtk2-$version.tar.gz)
+
+build () {
+	cd Gtk2-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

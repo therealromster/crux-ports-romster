@@ -1,0 +1,27 @@
+# $Id: $
+# Description: C/C++ Software Security Tool
+# URL: http://www.cigital.com/its4/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: flex, bison
+
+name=its4
+version=1.1.1
+release=1
+source=($name-$version.tgz $name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,etc/share/$name,man}
+
+	cd $name
+	./configure --prefix=/usr
+	patch -p0<../$name-$version.patch
+
+	make
+	make prefix=$PKG/usr install
+
+	mv $PKG/usr/its4/vulns.i4d $PKG/usr/etc/share/$name/vulns.i4d
+	rm -rf $PKG/usr/its4
+
+	chown -R root:root $PKG
+}

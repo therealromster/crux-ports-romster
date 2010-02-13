@@ -1,0 +1,5 @@
+POST-INSTALL:
+
+		* You have to add a new user and group to your system:
+		# groupadd clamav
+		# useradd -g clamav -s /bin/false -c "Clam AntiVirus" clamav

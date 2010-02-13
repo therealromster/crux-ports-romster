@@ -1,0 +1,23 @@
+# $Id: $
+# Description: High-Availability for Linux
+# URL: http://linux-ha.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gnutls, libnet, swig, linux-pam, zlib
+
+name=heartbeat
+version=2.0.7
+release=1
+source=(http://linux-ha.org/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+        	    --enable-swig
+
+	make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+    	
+	rm -rf $PKG/usr/share
+    	chown -R root:root $PKG
+}

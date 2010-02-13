@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A free open source continuous integration tool 
+# URL: http://xinc.entrypoint.biz/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, mod_php
+
+name=xinc
+version=svn
+release=1
+source=($name-$version.patch)
+
+build () {
+	svn co http://xinc.entrypoint.biz/svn/xinc/trunk xinc
+
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	./install.sh $PKG/usr
+
+	(find $PKG -name ".svn" -type "d" -exec rm -rf '{}' \;)
+
+	chown -R root:root $PKG
+}

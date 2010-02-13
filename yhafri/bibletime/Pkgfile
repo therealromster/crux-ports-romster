@@ -1,0 +1,18 @@
+# Description: Bible study software for KDE
+# URL: http://www.bibletime.info/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: sword
+
+name=bibletime
+version=1.5.3
+release=1
+source=(http://dl.sourceforge.net/sourceforge/bibletime/bibletime-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/doc
+}

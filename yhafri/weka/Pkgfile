@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Data Mining Software in Java
+# URL: http://www.cs.waikato.ac.nz/~ml/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: j2sdk
+
+name=weka
+version=3-4-7
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.zip \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	cd $name-$version
+	rm -rf CHANGELOG* COPYING *.pdf README* doc/
+	cp -rf * $PKG/usr/lib/$name
+	install -m 755 ../$name $PKG/usr/bin/
+        chown -R root:root $PKG
+}

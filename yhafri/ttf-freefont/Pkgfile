@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Free outline fonts covering the ISO 10646/Unicode UCS 
+# URL: http://savannah.nongnu.org/projects/freefont/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, chkfontpath, ttmkfdir
+
+name=ttf-freefont
+version=1
+release=1
+source=(http://savannah.nongnu.org/download/freefont/freefont-sfd.tar.gz \
+	http://savannah.nongnu.org/download/freefont/freefont-ttf.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/share/fonts/truetype
+
+	mv sfd/* $PKG/usr/share/fonts/truetype
+
+	chown -R root:root $PKG
+}

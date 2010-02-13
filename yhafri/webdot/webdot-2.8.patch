@@ -1,0 +1,10 @@
+--- webdot-2.6/Makefile.in	2005-08-28 15:34:12.000000000 +0200
++++ webdot-2.6/Makefile.in-new	2005-11-07 20:37:15.000000000 +0100
+@@ -60,7 +60,6 @@
+ 	rm -rf $(DESTDIR)$(CACHE_DIR)/webdot
+ 	mkdir -p $(DESTDIR)$(CACHE_DIR)/webdot
+ 	chmod 700 $(DESTDIR)$(CACHE_DIR)/webdot
+-	chown $(HTTPD-USER-GROUP) $(DESTDIR)$(CACHE_DIR)/webdot
+ 
+ uninstall:
+ 	rm -f $(DESTDIR)$(CGI-BIN_DIR)/webdot

@@ -1,0 +1,31 @@
+# $Id: $
+# Description: The Better String Library
+# URL: http://bstring.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bstring
+version=03312007
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.zip)
+
+build () {
+	gcc $CFLAGS -c bsafe.c
+	gcc $CFLAGS -c bstraux.c 
+	gcc $CFLAGS -c bstrlib.c
+	ar -cr $name.a bstrlib.o bsafe.o bstraux.o
+	
+	g++ $CXXFLAGS -c bstrwrap.cpp
+	ar -cr c$name.a bstrlib.o bstrwrap.o
+
+	install -D -m 644 bsafe.h    $PKG/usr/include/bsafe.h
+	install -D -m 644 bstrlib.h  $PKG/usr/include/bstrlib.h
+	install -D -m 644 bstraux.h  $PKG/usr/include/bstraux.h
+	install -D -m 644 bstrwrap.h $PKG/usr/include/bstrwrap.h
+
+	install -D -m 644 $name.a    $PKG/usr/lib/$name.a
+	install -D -m 644 c$name.a   $PKG/usr/lib/c$name.a
+
+	chown -R root:root $PKG
+}

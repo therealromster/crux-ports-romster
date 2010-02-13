@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Window manager improved 2
+# URL: http://wmii.suckless.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libixp
+
+name=wmii
+version=3.5.1
+release=1
+source=(http://libs.suckless.org/download/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/usr/local/* $PKG/usr
+	rm -rf $PKG/usr/local
+
+	chown -R root:root $PKG
+}

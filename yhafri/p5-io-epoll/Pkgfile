@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to the scalable IO multiplexing for Linux 2.5.44 and higher 
+# URL: http://search.cpan.org/~brucek/IO-Epoll-0.01/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-io-epoll
+version=0.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BR/BRUCEK/IO-Epoll-$version.tar.gz)
+
+build () {
+	cd IO-Epoll-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

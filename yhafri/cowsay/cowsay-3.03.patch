@@ -1,0 +1,46 @@
+diff -pruN cowsay-3.03-orig/cowsay cowsay-3.03/cowsay
+--- cowsay-3.03-orig/cowsay	2000-05-20 03:29:49.000000000 +0200
++++ cowsay-3.03/cowsay	2003-07-24 10:19:26.000000000 +0200
+@@ -1,4 +1,4 @@
+-#%BANGPERL%
++#!/usr/bin/perl
+ 
+ ##
+ ## Cowsay 3.03
+@@ -16,7 +16,7 @@ $version = "3.03";
+ $progname = basename($0);
+ $eyes = "oo";
+ $tongue = "  ";
+-$cowpath = $ENV{'COWPATH'} || '%PREFIX%/share/cows';
++$cowpath = $ENV{'COWPATH'} || '/usr/share/cowsay/cows';
+ @message = ();
+ $thoughts = "";
+ 
+@@ -106,6 +106,9 @@ sub maxlength {
+ 	$l = length $i;
+ 	$m = $l if ($l > $m);
+     }
++    if ($m == -1) {
++	$m = 0;
++    }
+     return $m;
+ }
+ 
+diff -pruN cowsay-3.03-orig/cowsay.1 cowsay-3.03/cowsay.1
+--- cowsay-3.03-orig/cowsay.1	1999-11-04 20:50:40.000000000 +0100
++++ cowsay-3.03/cowsay.1	2003-07-24 10:19:38.000000000 +0200
+@@ -149,12 +149,12 @@ much like
+ .B PATH or
+ .BR MANPATH .
+ It should always contain the
+-.B /usr/local/share/cows
++.B /usr/share/cowsay/cows
+ directory, or at least a directory with a file called 
+ .B default.cow
+ in it.
+ .SH FILES
+-.B %PREFIX%/share/cows
++.B /usr/share/cowsay/cows
+ holds a sample set of cowfiles.  If your
+ .B COWPATH
+ is not explicitly set, it automatically contains this directory.

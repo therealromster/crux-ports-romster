@@ -1,0 +1,18 @@
+# $Id: $
+# Description: A lightweight window manager for X11
+# URL: http://wmi.modprobe.de/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: automake, autoconf, x11
+
+name=wmi
+version=10
+release=1
+source=(http://download.berlios.de/$name/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure CPPFLAGS="`echo $CFLAGS`"
+    make 
+    make prefix=$PKG/usr install
+}

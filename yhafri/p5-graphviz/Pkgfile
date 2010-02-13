@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Interface to the GraphViz graphing tool 
+# URL: http://search.cpan.org/~lbrocard/GraphViz-2.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: graphviz, p5-ipc-run
+
+name=p5-graphviz
+version=2.02
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/L/LB/LBROCARD/GraphViz-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd GraphViz-$version
+	patch -p1<$SRC/$name-$version.patch
+
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

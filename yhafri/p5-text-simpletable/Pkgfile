@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Simple Eyecandy ASCII Tables
+# URL: http://search.cpan.org/~sri/Text-SimpleTable-0.02/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-text-simpletable
+version=0.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SR/SRI/Text-SimpleTable-$version.tar.gz)
+
+build () {
+	cd Text-SimpleTable-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

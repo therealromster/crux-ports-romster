@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Fast memory allocation library for multithreaded applications
+# URL: http://www.garret.ru/~knizhnik/threadalloc/readme.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=threadalloc
+version=1.05
+release=1
+source=(http://www.garret.ru/~knizhnik/$name-$version.tar.gz)
+
+build () {
+	cd $name
+
+	make
+	ar -r $name.a $name.o
+
+	install -D $name.a        $PKG/usr/lib/lib$name.a
+        install -D -m 644 $name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

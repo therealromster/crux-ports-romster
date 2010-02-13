@@ -1,0 +1,21 @@
+# Description: a KDE app that up/downloads files through one's IR device
+# URL: http://www.kde-apps.org/content/show.php?content=14683
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: openobex, kdebase
+
+name=kbeam
+version=0.61
+release=2
+source=(http://umn.dl.sourceforge.net/sourceforge/kbeam/kbeam-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug \
+        --enable-final
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

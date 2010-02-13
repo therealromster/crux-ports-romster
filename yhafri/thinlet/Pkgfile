@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Beautiful tiny java GUI toolkit based on XML description
+# URL: http://www.thinlet.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=thinlet
+version=1
+release=1
+source=(http://thinlet.sourceforge.net/$name-2005-03-28.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name/
+	cd $name
+	export JAVA_HOME=/usr/lib/jdk
+	mv ./lib/$name.jar $PKG/usr/lib/$name/
+        chown -R root:root $PKG
+}

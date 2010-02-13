@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Writes a demo program from a tutorial POD 
+# URL: http://search.cpan.org/~chromatic/Pod-ToDemo-1.00/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-test-exception
+
+name=p5-pod-todemo
+version=1.00
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CH/CHROMATIC/Pod-ToDemo-$version.tar.gz)
+
+build () {
+	cd Pod-ToDemo-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

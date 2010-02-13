@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A collection of miscellaneous C functions including several string buffer operations
+# URL: http://www.ibiblio.org/pub/Linux/devel/lang/c/!INDEX.short.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=rekerlib
+version=0.2.0
+release=1
+source=(http://www.ibiblio.org/pub/Linux/devel/lang/c/$name-$version.tgz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{lib,include}
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG install
+
+	ln -sf /usr/lib/libfr.so.$version $PKG/usr/lib/libfr.so
+
+	chown -R root:root $PKG
+}

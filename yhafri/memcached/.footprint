@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/memcached
+-rwxr-xr-x	root/root	usr/bin/memcached-debug
+-rwxr-xr-x	root/root	usr/bin/memcached-init
+-rwxr-xr-x	root/root	usr/bin/memcached-tool
+-rwxr-xr-x	root/root	usr/bin/start-memcached
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/memcached.1.gz

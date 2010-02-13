@@ -1,0 +1,19 @@
+# Description: a BitTorrent program for KDE
+# URL: http://ktorrent.pwsp.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase
+
+name=ktorrent
+version=2.0beta1
+release=1
+source=(http://ktorrent.pwsp.net/downloads/$version/ktorrent-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/locale/* ! -wholename "*locale/en*" -delete
+}

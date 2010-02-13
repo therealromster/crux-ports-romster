@@ -1,0 +1,30 @@
+# $Id: $
+# Description: A distributed fault-tolerant Jabber server in Erlang
+# URL: http://ejabberd.jabber.ru/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, libiconv, expat, openssl, subversion 
+
+name=ejabberd
+version=svn
+release=1
+source=($name.sh)
+
+#http://www.process-one.net/en/projects/ejabberd/download/$version/$name-$version.tar.gz
+
+build () {
+	mkdir -p $PKG/usr/bin
+	svn co http://svn.process-one.net/$name/trunk $name
+
+	#cd $name-$version/src
+	cd $name/src
+
+	./configure --prefix=/usr \
+	            --with-openssl=/usr
+	make
+	make DESTDIR=$PKG install
+
+	install -D -m 755 $SRC/$name.sh $PKG/usr/bin/$name
+
+        chown -R root:root $PKG/
+}

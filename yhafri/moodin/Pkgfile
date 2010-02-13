@@ -1,0 +1,18 @@
+# Description: a splash screen engine for KDE
+# URL: http://kde-look.org/content/show.php?content=25705
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=moodin
+version=0.4.2
+release=2
+source=(http://moodwrod.com/files/ksplash-engine-moodin_$version.tar.gz)
+
+build() {
+    cd $name
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+}

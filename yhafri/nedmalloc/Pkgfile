@@ -1,0 +1,23 @@
+# $Id: $
+# Description: An alternative malloc implementation written in C
+# URL: http://www.nedprod.com/programs/portable/nedmalloc/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=nedmalloc
+version=1.03
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/${name}_v103.zip)
+
+build () {
+	cd $name
+
+	gcc -c $name.c
+	ar cr $name.a $name.o
+
+	install -D -m 644 $name.a $PKG/usr/lib/$name.a
+	install -D -m 644 $name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

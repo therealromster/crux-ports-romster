@@ -1,0 +1,22 @@
+# $Id: $
+# Description: An image viewer
+# URL: http://wolfpack.twu.net/IV/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libungif, libjpeg, libpng, libxpm, gtk, imlib
+
+name=iv
+version=1.4.2
+release=1
+source=(http://wolfpack.twu.net/users/wolfpack/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure Linux --prefix=/usr \
+			  --disable="libgif"
+
+	(make)
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

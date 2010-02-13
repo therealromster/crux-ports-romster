@@ -1,0 +1,16 @@
+--- tau-2.16/utils/archfind	2006-02-02 03:35:01.000000000 +0100
++++ tau-2.16/utils/archfind-new	2006-12-20 16:29:50.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/bin/csh -fb
++#!/bin/tcsh -fb
+ 
+ # Based on parts of tcsh's tc.vers.c && PVM's aimk
+ 
+--- tau-2.16/utils/ConfigQuery	1997-11-26 21:04:39.000000000 +0100
++++ tau-2.16/utils/ConfigQuery-new	2006-12-20 16:29:09.000000000 +0100
+@@ -1,4 +1,4 @@
+-#!/bin/csh
++#!/bin/tcsh
+ 
+ #############################################################################
+ # This script looks at the files in ./utils and simply

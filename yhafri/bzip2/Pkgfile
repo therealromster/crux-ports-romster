@@ -1,0 +1,37 @@
+# $Id: $
+# Description: Bzip2 library and tool
+# URL: http://www.bzip.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bzip2
+version=1.0.3
+release=2
+source=(http://www.bzip.org/1.0.3/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build() {
+	cd $name-$version
+
+	patch -p1 < ../$name-$version.patch
+
+	make
+	make -f Makefile-libbz2_so
+	make PREFIX=$PKG/usr install
+	install -D libbz2.so.$version $PKG/usr/lib/libbz2.so.$version
+	
+	rm $PKG/usr/bin/{bunzip2,bzcat,bzcmp,bzfgrep,bzegrep,bzmore}
+
+	ln -sf /usr/lib/libbz2.so.$version $PKG/usr/lib/libbz2.so.1.0
+	ln -sf bzip2 $PKG/usr/bin/bunzip2
+	ln -sf bzip2 $PKG/usr/bin/bzcat
+	ln -sf bzdiff $PKG/usr/bin/bzcmp
+	ln -sf bzgrep $PKG/usr/bin/bzegrep
+	ln -sf bzgrep $PKG/usr/bin/bzfgrep
+	ln -sf bzless $PKG/usr/bin/bzmore
+	ln -sf bzip2.1.gz $PKG/usr/man/man1/bunzip2.1.gz
+	ln -sf bzip2.1.gz $PKG/usr/man/man1/bzcat.1.gz
+
+	chown -R root:root $PKG
+}

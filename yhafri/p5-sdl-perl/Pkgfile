@@ -1,0 +1,43 @@
+# $Id: $
+# Description: SDL perl extension 
+# URL: http://search.cpan.org/~dgoehrig/SDL_Perl-2.1.3/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-module-build, p5-pod-todemo, sdl_image, sdl_net, sdl_gfx, sdl_mixer, sdl_ttf
+
+name=p5-sdl-perl
+version=2.1.3
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DG/DGOEHRIG/SDL_Perl-$version.tar.gz)
+
+build () {
+	cd SDL_Perl-$version
+	perl Build.PL
+	perl Build
+	perl Build install install_base=${PKG}/usr
+	#perl Build install --install_path lib=${PKG}/usr/lib/perl5/site_perl/5.8.7 \
+	#		   --install_path arch=${PKG}/usr/lib/perl5/linux-thread-multi/auto \
+	#		   --install_path bindoc=${PKG}/usr/man/man1/ \
+	#		   --install_path libdoc=${PKG}/usr/man/man3/
+
+	#make OPTIMIZE="${CFLAGS}"
+	#make DESTDIR=${PKG} install
+
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+
+	# Update the paths and directories
+	PERL_VERSION=`perl -e 'printf "%vd", $^V'`
+
+	mkdir -p $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux-thread-multi/auto
+
+	cp $PKG/usr/lib/perl5/linux-thread-multi/*.pm $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux-thread-multi/
+	for i in `find $PKG/usr/lib/perl5/linux-thread-multi -maxdepth 1 -type "d"`;
+	do
+		cp -rf $i $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux-thread-multi/
+	done
+
+	rm -rf $PKG/usr/lib/perl5/linux-thread-multi
+	rm -rf $PKG/usr/lib/perl5/site_perl/$PERL_VERSION/linux-thread-multi/linux-thread-multi/
+ 
+	chown -R root:root $PKG
+}

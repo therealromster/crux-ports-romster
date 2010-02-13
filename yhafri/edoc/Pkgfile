@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Erlang program documentation generator
+# URL: http://user.it.uu.se/~richardc/edoc/doc/edoc/edoc.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=edoc
+version=0.4
+release=1
+source=(http://user.it.uu.se/~richardc/edoc/$name.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version
+	cd $name
+	make clean
+	make 
+	cp -rf ebin/ include/ priv/ src/ $PKG/usr/lib/erlang/lib/$name-$version/
+	find $PKG -name "Makefile" -exec rm -rf {} \;
+	find $PKG -name "TODO" -exec rm -rf {} \;
+	find $PKG -name ".cvsignore" -exec rm -rf {} \;
+        chown -R root:root $PKG/
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Administrative tool for working with clusters of machines
+# URL: http://www.ka.sara.nl/home/walter//pconsole/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pconsole
+version=1.0
+release=1
+source=(http://www.ka.sara.nl/home/walter/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

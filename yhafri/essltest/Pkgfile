@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A minimal Erlang SSL server
+# URL: http://telegraphics.com.au/svn/essltest/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=essltest
+version=1
+release=1
+source=(http://telegraphics.com.au/svn/essltest/trunk/essltest.erl \
+	http://telegraphics.com.au/svn/essltest/trunk/Makefile)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	erl -make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+
+	chown -R root:root $PKG
+}

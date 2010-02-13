@@ -1,0 +1,26 @@
+# $Id: $
+# Description: An open source java implementation of the The Internet Archive Wayback Machine
+# URL: http://archive-access.sourceforge.net/projects/wayback/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, apache-tomcat
+
+name=wayback
+version=0.6.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/archive-access/$name-$version-200607241157.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name-$version}
+	cd $name-$version-200607241157
+
+	chmod +x bin/*
+	mv bin/ lib/ webapp/ $PKG/usr/lib/$name-$version
+	ln -sf /usr/lib/$name-$version $PKG/usr/lib/$name
+
+	ln -sf /usr/lib/$name-$version/bin/create-test-arc $PKG/usr/bin/create-test-arc
+	ln -sf /usr/lib/$name-$version/bin/location-client $PKG/usr/bin/location-client
+	ln -sf /usr/lib/$name-$version/bin/pipeline-client $PKG/usr/bin/pipeline-client
+
+	chown -R root:root $PKG
+}

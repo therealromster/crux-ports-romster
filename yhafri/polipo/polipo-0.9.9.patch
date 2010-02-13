@@ -1,0 +1,34 @@
+--- polipo-0.9.8/Makefile	2004-06-28 23:30:07.000000000 +0200
++++ polipo-0.9.8/Makefile-new	2005-04-16 14:44:45.338020496 +0200
+@@ -76,26 +76,24 @@
+ 	mkdir -p $(TARGET)$(LOCAL_ROOT)/doc
+ 	rm -f $(TARGET)$(BINDIR)/polipo
+ 	cp -f polipo $(TARGET)$(BINDIR)/
+-	cp -f html/* $(TARGET)$(LOCAL_ROOT)/doc
+-	cp -f localindex.html $(TARGET)$(LOCAL_ROOT)/index.html
++
+ 
+ install.man: all
+ 	mkdir -p $(TARGET)$(MANDIR)/man1
+ 	mkdir -p $(TARGET)$(INFODIR)
+ 	cp -f polipo.man $(TARGET)$(MANDIR)/man1/polipo.1
+-	cp polipo.info $(TARGET)$(INFODIR)/
+-	install-info --info-dir=$(INFODIR) polipo.info
++
+ 
+ 
+ polipo.info: polipo.texi
+-	makeinfo polipo.texi
++	echo polipo.texi
+ 
+ html/index.html: polipo.texi
+ 	mkdir -p html
+-	makeinfo --html -o html polipo.texi
++	echo --html -o html polipo.texi
+ 
+ polipo.html: polipo.texi
+-	makeinfo --html --no-split --no-headers -o polipo.html polipo.texi
++	echo --html --no-split --no-headers -o polipo.html polipo.texi
+ 
+ polipo.pdf: polipo.texi
+ 	texi2pdf polipo.texi

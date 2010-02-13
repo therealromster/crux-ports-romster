@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to pkg-config 
+# URL: http://search.cpan.org/~tsch/ExtUtils-PkgConfig-1.06/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: pkgconfig
+
+name=p5-extutils-pkgconfig
+version=1.07
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/Gtk2-Perl/ExtUtils-PkgConfig-$version.tar.gz)
+
+build () {
+	cd ExtUtils-PkgConfig-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

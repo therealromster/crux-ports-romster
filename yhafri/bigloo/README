@@ -1,0 +1,6 @@
+PRE-INSTALL:
+		* Set the ARCH environment variable to fit your CPU:
+                For example:
+
+		# export ARCH=[i586|i686|athlon|athlon-tbird|athlon-mp|
+			       athlon-xp|k6-2|k6-3|pentium3|pentium4]

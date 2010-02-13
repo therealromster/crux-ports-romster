@@ -1,0 +1,20 @@
+# Description: Language bindings for the KDE integrated desktop
+# URL: http://www.kde.org
+# Maintainer: sten, nick dot steeves at shaw dot ca
+# Packager: 
+# Depends on: ruby, perl, python
+
+name=kdebindings
+version=3.5.4
+release=1
+source=(http://download.kde.org/stable/3.5.4/src/$name-$version.tar.bz2)
+
+build() {
+    export QTDIR=/usr/share/qt
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --without-java \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+}

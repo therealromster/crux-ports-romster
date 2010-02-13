@@ -1,0 +1,12 @@
+--- tiff/tiffread.c	2004-09-21 23:56:44.000000000 +0200
++++ tiff/tiffread.c-new	2006-05-10 23:53:11.000000000 +0200
+@@ -18,6 +18,9 @@
+ #include <caml/memory.h>
+ #include <caml/fail.h>
+ 
++typedef unsigned char uint8;
++typedef unsigned short uint16;
++
+ #if HAVE_TIFF
+ 
+ /* These are defined in caml/config.h */

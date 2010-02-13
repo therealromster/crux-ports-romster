@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/dict.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/dict.So
+-rw-r--r--	root/root	usr/lib/hashtable.So
+-rw-r--r--	root/root	usr/lib/hb_tree.So
+-rw-r--r--	root/root	usr/lib/libdict.a
+-rwxr-xr-x	root/root	usr/lib/libdict.so
+-rw-r--r--	root/root	usr/lib/libdict_p.a
+-rw-r--r--	root/root	usr/lib/pr_tree.So
+-rw-r--r--	root/root	usr/lib/rb_tree.So
+-rw-r--r--	root/root	usr/lib/sp_tree.So
+-rw-r--r--	root/root	usr/lib/tr_tree.So
+-rw-r--r--	root/root	usr/lib/wb_tree.So

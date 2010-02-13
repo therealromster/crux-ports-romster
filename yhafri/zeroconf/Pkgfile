@@ -1,0 +1,21 @@
+# $Id: $
+# Description: IPv4 link-local addresses
+# URL: http://www.progsoc.org/~wildfire/zeroconf/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=zeroconf
+version=0.9
+release=1
+source=(http://www.progsoc.org/~wildfire/$name/download/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+	install -D -m 644 $name.8 $PKG/usr/man/man8/$name.8
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# Description: Gnutella Client for Unix
+# URL:         http://gtk-gnutella.sf.net
+# Packager:    
+# Maintainer:  sten, nick dot steeves at shaw dot ca
+# Depends on:  gtk, libxml2
+
+name=gtk-gnutella
+version=0.96b
+release=1
+source=(http://dl.sourceforge.net/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./Configure -de \
+	-D prefix=/usr \
+	-D privlib=/usr/share/gtk-gnutella \
+	-U d_enablenls \
+	-D gtkversion=2
+    make
+    make INSTALL_PREFIX=$PKG install
+}

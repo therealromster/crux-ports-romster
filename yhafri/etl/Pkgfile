@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Voria Extended Class and Template Library
+# URL: http://www.synfig.com/download/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=etl
+version=0.04.08
+release=1
+source=(http://www.bridgetone.com/voria/files/ETL-$version.tar.gz)
+
+build () {
+	cd ETL-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

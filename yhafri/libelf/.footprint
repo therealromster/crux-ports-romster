@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/gelf.h
+-rw-r--r--	root/root	usr/include/libelf.h
+drwxr-xr-x	root/root	usr/include/libelf/
+-rw-r--r--	root/root	usr/include/libelf/elf_repl.h
+-rw-r--r--	root/root	usr/include/libelf/gelf.h
+-rw-r--r--	root/root	usr/include/libelf/libelf.h
+-rw-r--r--	root/root	usr/include/libelf/nlist.h
+-rw-r--r--	root/root	usr/include/libelf/sys_elf.h
+-rw-r--r--	root/root	usr/include/nlist.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libelf.a
+lrwxrwxrwx	root/root	usr/lib/libelf.so -> libelf.so.0.8.6
+lrwxrwxrwx	root/root	usr/lib/libelf.so.0 -> libelf.so.0.8.6
+-rwxr-xr-x	root/root	usr/lib/libelf.so.0.8.6
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libelf.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/locale/
+drwxr-xr-x	root/root	usr/share/locale/de/
+drwxr-xr-x	root/root	usr/share/locale/de/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/de/LC_MESSAGES/libelf.mo

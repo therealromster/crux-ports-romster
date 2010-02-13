@@ -1,0 +1,32 @@
+PRE-INSTALL:
+
+  Remove mod_perl 2.0.*
+
+POST-INSTALL:
+
+  To enable mod_perl2, add the following 
+  lines to /etc/apache/httpd.conf:
+
+  LoadModule perl_module lib/apache/mod_perl.so
+  PerlRequire "/etc/apache/startup.pl"
+
+
+TEST:
+  * To test the installation, add to your httpd.conf:
+  PerlModule Hello
+  <Location /hello>
+     SetHandler perl-script
+     PerlHandler Hello
+  </Location>   
+
+  * Copy the file Hello.pm to:
+  mkdir -p /var/www/perl
+  cp Hello.pm /var/www/perl
+
+  * Point your browser to:
+  http://localhost/hello/
+
+
+LINK:
+	http://perl.apache.org/docs/2.0/user/intro/start_fast.html
+

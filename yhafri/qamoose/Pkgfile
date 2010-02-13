@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Facilitates the access to an English/Arabic user-defined dictionary via web access using the DICT protocol
+# URL: http://www.arabeyes.org/project.php?proj=QaMoose
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=qamoose
+version=2.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/arabeyes/$name-$version.tar.bz2)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+	cd $name-$version
+
+	cp -rf dict_create.pl  dict_lib.pl  html/ miniQ.cgi dict_admin.cgi \
+			   dict_header.pl dict_main.cgi images/ $PKG/usr/lib/$name
+
+
+	chown -R root:root $PKG
+}

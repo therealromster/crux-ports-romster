@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for tty in `seq 1 6`;
+do
+	splash -n -s -u $tty \
+       		/etc/bootsplash/themes/current/config/bootsplash-1024x768.cfg
+done
+

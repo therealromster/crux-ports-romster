@@ -1,0 +1,42 @@
+# $Id: $
+# Description: Lish Universal SHell - lisp and perl compiler
+# URL: http://lush.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Erlend Bergsås Mikkelsen <howl@online.no>
+# Depends on: x11, libsdl, sdl_ttf, sdl_mixer, sdl_image, sdl_net, python, lapack, gsl, ffmpeg, blas, alsa-lib, db3, binutils, mesa3d
+
+name=lush
+version=1.1
+release=2
+source=(http://internap.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+    	mkdir -p $PKG/usr/bin $PKG/usr/man/man1 $PKG/usr/share/lush
+
+	cd $name-$version
+
+	./configure --prefix=/usr \
+                    --with-x
+
+	make
+    
+    	cp src/lush $PKG/usr/bin;
+    	cp etc/$name.1 $PKG/usr/man/man1;
+
+    	for subdir in etc includes src sys lsh packages; do
+        	for file in `find $subdir \( -type d -name C\* -prune \) -o \( -type f -print \)`; do
+            	install -D "$file" "$PKG/usr/share/lush/$file";
+        	done;
+    	done;
+
+	find "$PKG/usr/share" -type f -exec chmod -x {} \;
+    	find "$PKG/usr/share" -iname "*.lsh" -exec chmod +x {} \;
+
+    	find $PKG/usr -iname "demos*"     -type "d" | xargs rm -rf
+    	find $PKG/usr -iname "examples*"  -type "d" | xargs rm -rf
+    	find $PKG/usr -iname "manual*"    -type "d" | xargs rm -rf
+    
+	rm -rf $PKG/usr/share/lush/etc/README.ivtools
+
+    	chown -R root:root $PKG
+}

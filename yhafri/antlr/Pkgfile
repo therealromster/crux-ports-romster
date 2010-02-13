@@ -1,0 +1,31 @@
+# $Id: $
+# Description: ANTLR provides a framework for constructing recognizers, compilers and translators
+# URL: http://www.antlr.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, python
+
+name=antlr
+version=2.7.6
+release=1
+source=(http://www.antlr.org/download/$name-$version.tar.gz)
+
+build () {
+	#mkdir -p $PKG/usr/{bin,lib}
+
+	cd $name-$version
+	./configure
+	make
+	install -D ./lib/cpp/src/libantlr.a $PKG/usr/lib/libantlr.a
+
+	cd lib/python
+	python setup.py build
+	python setup.py install --home=$PKG/usr
+
+	cd $SRC/$name-$version/$name
+	install -D -m 644 $name.jar $PKG/usr/lib/$name/$name.jar
+
+	#mv cantlr     		    $PKG/bin
+
+        chown -R root:root $PKG
+}

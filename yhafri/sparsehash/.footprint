@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/google/
+-rw-r--r--	root/root	usr/include/google/dense_hash_map
+-rw-r--r--	root/root	usr/include/google/dense_hash_set
+-rw-r--r--	root/root	usr/include/google/sparse_hash_map
+-rw-r--r--	root/root	usr/include/google/sparse_hash_set
+drwxr-xr-x	root/root	usr/include/google/sparsehash/
+-rw-r--r--	root/root	usr/include/google/sparsehash/config.h
+-rw-r--r--	root/root	usr/include/google/sparsehash/densehashtable.h
+-rw-r--r--	root/root	usr/include/google/sparsehash/hash_fun.h
+-rw-r--r--	root/root	usr/include/google/sparsehash/sparsehashtable.h
+-rw-r--r--	root/root	usr/include/google/sparsetable
+drwxr-xr-x	root/root	usr/lib/

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Write Perl classes in Java
+# URL: http://84.45.18.237/~patl/Inline-Java-0.50/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-inline, jdk
+
+name=p5-inline-java
+version=0.50_91
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/P/PA/PATL/Inline-Java-$version.tar.gz)
+
+build () {
+	cd Inline-Java-$version
+	echo "y" | perl Makefile.PL J2SDK=/usr/lib/java
+	make java
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

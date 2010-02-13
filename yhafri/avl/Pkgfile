@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Implementation of threaded AVL trees
+# URL: http://home.fazekas.hu/~nagydani/avl/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=avl
+version=0.4
+release=1
+source=(http://home.fazekas.hu/~nagydani/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+
+	install -D -m 755 lib$name.so $PKG/usr/lib/lib$name.so
+	install -D -m 644 $name.h     $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

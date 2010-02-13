@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A daemon to centralize keys and associated data
+# URL: http://sharedance.pureftpd.org/project/sharedance
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=sharedance
+version=0.6
+release=1
+source=(http://download.pureftpd.org/pub/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

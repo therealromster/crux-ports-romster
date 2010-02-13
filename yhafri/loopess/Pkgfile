@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A a small signal and select loop C++ library
+# URL: http://www.elude.ca/loopess/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=loopess
+version=2.1
+release=1
+source=(http://www.elude.ca/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	install -D $name.a $PKG/usr/lib/$name.a
+ 
+	chown -R root:root $PKG
+}

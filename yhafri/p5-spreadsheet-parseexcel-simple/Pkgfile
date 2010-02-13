@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A simple interface to Excel data 
+# URL: http://search.cpan.org/~tmtm/Spreadsheet-ParseExcel-Simple-1.03/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-spreadsheet-parseexcel
+
+name=p5-spreadsheet-parseexcel-simple
+version=1.03
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TM/TMTM/Spreadsheet-ParseExcel-Simple-$version.tar.gz)
+
+build () {
+	cd Spreadsheet-ParseExcel-Simple-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

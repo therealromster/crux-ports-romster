@@ -1,0 +1,5 @@
+INFO:
+
+	* If you put the following entry in your mailcap file,
+	# Some mailclients, like mutt, will extract text from .doc-files:
+	# application/msword;antiword %s;copiousoutput

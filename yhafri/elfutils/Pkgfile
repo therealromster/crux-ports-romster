@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Collection of utilities and DSOs to handle compiled objects
+# URL: http://packages.debian.org/unstable/source/elfutils
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Han Boetes <han@mijncomputer.nl>
+# Depends on:
+
+name=elfutils
+version=0.123
+release=1
+source=(ftp://ftp.easynet.nl/mirror/gentoo/distfiles/$name-$version.tar.gz \
+	ftp://ftp.easynet.nl/mirror/gentoo/distfiles/$name-$version-patches-1.0.tar.bz2 \
+	elfutils-0.123-no-nested-functions.patch \
+        elfutils-0.123-portability.patch  
+	elfutils-0.123-robustify.patch)
+
+build() {
+    	cd $name-$version
+ 
+	for i in $SRC/*.patch; do patch -p1 < $i; done
+
+	./configure --prefix=/usr \
+		    --disable-nls
+
+    	make
+    	make DESTDIR=$PKG install
+    
+	# These are also provided by binutils
+    	rm $PKG/usr/bin/{ld,nm,readelf,size,strip,addr2line,objdump,ranlib,strings}
+    	rm -rf $PKG/usr/{usr,share}
+
+	chown -R root:root $PKG
+}

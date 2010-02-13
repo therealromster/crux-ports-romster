@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/goom2
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/goom/
+-rw-r--r--	root/root	usr/include/goom/goom.h
+-rw-r--r--	root/root	usr/include/goom/goom_config.h
+-rw-r--r--	root/root	usr/include/goom/goom_config_param.h
+-rw-r--r--	root/root	usr/include/goom/goom_filters.h
+-rw-r--r--	root/root	usr/include/goom/goom_graphic.h
+-rw-r--r--	root/root	usr/include/goom/goom_plugin_info.h
+-rw-r--r--	root/root	usr/include/goom/goom_tools.h
+-rw-r--r--	root/root	usr/include/goom/goom_typedefs.h
+-rw-r--r--	root/root	usr/include/goom/goom_visual_fx.h
+-rw-r--r--	root/root	usr/include/goom/goomsl.h
+-rw-r--r--	root/root	usr/include/goom/goomsl_hash.h
+-rw-r--r--	root/root	usr/include/goom/goomsl_heap.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libgoom2.la
+lrwxrwxrwx	root/root	usr/lib/libgoom2.so -> libgoom2.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libgoom2.so.0 -> libgoom2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libgoom2.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libgoom2.pc
+drwxr-xr-x	root/root	usr/lib/xmms/
+drwxr-xr-x	root/root	usr/lib/xmms/Visualization/
+-rwxr-xr-x	root/root	usr/lib/xmms/Visualization/libxmmsgoom2.la
+-rwxr-xr-x	root/root	usr/lib/xmms/Visualization/libxmmsgoom2.so

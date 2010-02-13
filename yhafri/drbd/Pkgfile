@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A block device which is designed to build high availability clusters
+# URL: http://www.drbd.org/start.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=drbd
+version=8.0.2
+release=1
+source=($name-$version.patch)
+
+build () {
+	svn co http://svn.$name.org/$name/tags/$name-$version
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG install
+
+      	cd $PKG/etc && mv init.d rc.d
+
+	chown -R root:root $PKG
+}

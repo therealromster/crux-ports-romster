@@ -1,0 +1,29 @@
+# $Id: $
+# Description: A small XML parsing library
+# URL: http://www.easysw.com/~mike/mxml/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=mxml
+version=2.3
+release=1
+source=(http://ftp.funet.fi/pub/mirrors/ftp.easysw.com/pub/$name/$version/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --with-ansi \
+		    --with-shared
+
+	make
+	make DSTROOT=$PKG install
+
+	rm -rf $PKG/usr/share/doc/
+
+	chown -R root:root $PKG
+}

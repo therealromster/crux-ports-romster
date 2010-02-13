@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Kit for Objective Judgement and Knowledge-based Detection of Performance Bottlenecks
+# URL: http://www.fz-juelich.de/zam/kojak/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: g95, wx, python, libxml2
+
+name=kojak
+version=2.2
+release=1
+source=(http://www.fz-juelich.de/zam/datapool/Kojak/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make PREFIX=$PKG install
+
+	chown -R root:root $PKG
+}

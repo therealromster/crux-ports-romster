@@ -1,0 +1,35 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/imdisplay
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gtk-2.0/
+drwxr-xr-x	root/root	usr/lib/gtk-2.0/2.4.0/
+drwxr-xr-x	root/root	usr/lib/gtk-2.0/2.4.0/loaders/
+lrwxrwxrwx	root/root	usr/lib/gtk-2.0/2.4.0/loaders/fitsi_loader.so -> fitsi_loader.so.0.7.0
+-rw-r--r--	root/root	usr/lib/gtk-2.0/2.4.0/loaders/fitsi_loader.so.0.7.0
+drwxr-xr-x	root/root	usr/lib/slang/
+drwxr-xr-x	root/root	usr/lib/slang/v2/
+drwxr-xr-x	root/root	usr/lib/slang/v2/modules/
+lrwxrwxrwx	root/root	usr/lib/slang/v2/modules/gtk-module.so -> libslgtk.so
+-rw-r--r--	root/root	usr/lib/slang/v2/modules/gtkextra-module.so
+lrwxrwxrwx	root/root	usr/lib/slang/v2/modules/libslgtk.so -> libslgtk.so.0.5.16
+lrwxrwxrwx	root/root	usr/lib/slang/v2/modules/libslgtk.so.0 -> libslgtk.so.0.5.16
+-rw-r--r--	root/root	usr/lib/slang/v2/modules/libslgtk.so.0.5.16
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/imdisplay.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/slsh/
+drwxr-xr-x	root/root	usr/share/slsh/local-packages/
+-rw-r--r--	root/root	usr/share/slsh/local-packages/gtk.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/gtkextra.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/gtkplot.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/imdisplay.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/rgbselect.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/rgbwidget.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/slirprc-gtk.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/toolbox.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/vwdraw.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/vwhere.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/vwprefs.sl
+-rw-r--r--	root/root	usr/share/slsh/local-packages/vwutils.sl

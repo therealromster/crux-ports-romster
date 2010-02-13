@@ -1,0 +1,22 @@
+--- rc.multi		2005-11-06 19:30:10.000000000 +0100
++++ rc.multi-new	2005-11-06 19:48:24.000000000 +0100
+@@ -6,10 +6,19 @@
+ # Load configuration
+ . /etc/rc.conf
+ 
++# Load Bootsplash configuration
++. /etc/bootsplash/bootsplash.conf
++
+ # Start services
+ if [ "${SERVICES[*]}" ]; then
+ 	echo -n "starting services:"
++
++	pb=0; increment=`echo "$(( 100 / ${#SERVICES[*]} ))"`
++
+ 	for service in ${SERVICES[@]}; do
++
++		progressbar $pb; let "pb = pb + $increment"
++
+ 		echo -n " $service"
+ 		/etc/rc.d/$service start &> /tmp/rc.$$ || echo -n "[ERROR]"
+ 		/usr/bin/logger -t $service -f /tmp/rc.$$

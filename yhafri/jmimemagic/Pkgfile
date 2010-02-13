@@ -1,0 +1,17 @@
+# $Id: $
+# Description: A Java library for determining the content type of files or streams
+# URL: http://jmimemagic.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=jmimemagic
+version=0.1.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.jar)
+
+build () {
+	install -D -m 755 $name-$version.jar $PKG/usr/bin/$name.jar
+
+	chown -R root:root $PKG
+}

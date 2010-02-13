@@ -1,0 +1,27 @@
+# Description: the Cache interface
+# URL: http://cpan.uwinnipeg.ca/dist/Cache
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: p5-file-nfslock
+
+name=p5-cache
+local capsname=Cache-Cache
+version=2.04
+release=1
+source=(http://www.cpan.org/modules/by-module/${capsname%%-*}/Cache-$version.tar.gz)
+
+build()
+{
+    cd Cache-$version
+    perl Makefile.PL
+    make OPTIMIZE="$CFLAGS"
+    make install DESTDIR=$PKG
+    # Remove perlcrap
+    find $PKG \
+        -name .packlist -or \
+        -name '*.bs' -or \
+        -name autosplit.ix -or \
+        -name perllocal.pod | xargs rm
+    # Remove empty directories
+    find $PKG -depth -empty -exec rm -rf {} \;
+}

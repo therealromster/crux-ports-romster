@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Scheme compiler which produces a portable and efficient C
+# URL: http://www.call-with-current-continuation.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=chicken
+version=2.41
+release=1
+source=(http://www.call-with-current-continuation.org/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

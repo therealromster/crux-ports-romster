@@ -1,0 +1,11 @@
+--- spread-src-3.17.3/java/build.xml	2004-11-23 20:48:45.291673280 +0100
++++ spread-src-3.17.3/java/build.xml-new	2004-11-23 20:48:28.108285552 +0100
+@@ -12,7 +12,7 @@
+         <property name="project" value="spread"/>
+         <property name="title" value="${Name} ${version} API for Java"/>
+         <property name="year" value="2004"/>
+-        <property name="build.compiler" value="jikes"/>
++        <property name="build.compiler" value="modern"/>
+         <property name="build.dir" value="dest"/>
+         <property name="build.src" value="${build.dir}/src"/>
+         <property name="build.dest" value="${build.dir}/class"/>

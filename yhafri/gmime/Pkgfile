@@ -1,0 +1,19 @@
+# Description: A core library/utilities for creation/parsing of MIME messages
+# URL: http://spruce.sourceforge.net/gmime/
+# Maintainer: Matt Housh, jaeger at morpheus dot net
+# Depends on: glib, pkg-config, mono, gtk-sharp2
+
+name=gmime
+version=2.2.1
+release=1
+source=(http://spruce.sourceforge.net/$name/sources/v2.2/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr \
+		--disable-gtk-doc \
+		--enable-mono
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/gtk-doc
+}

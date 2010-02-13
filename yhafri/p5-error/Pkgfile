@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Error/exception handling in an OO-ish way
+# URL: http://84.45.18.237/~uarun/Error-0.15/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-error
+version=0.15
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/U/UA/UARUN/Error-$version.tar.gz)
+
+build () {
+	cd Error-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

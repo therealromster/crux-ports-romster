@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Library and database for multilingualization of applications
+# URL: http://www.m17n.org/emacs-bidi/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, ispell, libxml2, freetype, fribidi, libotf, m17n-db
+
+name=m17n
+version=1.2.0
+release=1
+source=(http://www.m17n.org/m17n-lib/download/$name-lib-$version.tar.gz \
+	http://yhafri.club.fr/my_crux_config/m17nfonts.tar.gz)
+#ftp://ftp.m17n.org/pub/mule/.notready/${name}fonts.tar.gz)
+    
+
+build () {
+	mkdir -p $PKG/usr/share/fonts
+    	
+	mv ${name}fonts $PKG/usr/share/fonts/m17n
+
+    	cd ${name}-lib-$version
+    
+	./configure --prefix=/usr \
+        	    --datadir=/usr/share/fonts \
+               	    --with-x
+    
+	make
+    	make DESTDIR=$PKG install
+    
+	chown -R root:root $PKG
+}

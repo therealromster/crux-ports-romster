@@ -1,0 +1,23 @@
+# Description: allows GTK to use Qt widget styles
+# URL: http://www.freedesktop.org/Software/gtk-qt
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: cvs, qt3, gtk, gtk1
+
+name=gtk-qt-engine
+version=cvs
+release=3
+source=()
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	cvs -d :pserver:anoncvs:anoncvs@freedesktop.org:/cvs/gtk-qt co $name
+	cp -a $PKGMK_SOURCE_DIR/$name $SRC/$name
+    cd $SRC/$name
+	make -f Makefile.cvs
+    ./configure --prefix=/usr
+	make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

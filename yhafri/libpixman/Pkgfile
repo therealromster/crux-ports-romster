@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Merge between Pixel Region Library and Image Compositing Library
+# URL: http://cairographics.org/snapshots/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=libpixman
+version=0.1.4
+release=1
+source=(http://cairographics.org/snapshots/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		        --enable-share
+
+    make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    chown -R root:root $PKG
+}

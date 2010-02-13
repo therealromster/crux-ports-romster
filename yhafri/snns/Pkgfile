@@ -1,0 +1,34 @@
+# $Id: $
+# Description: Stuttgart Neural Network Simulator
+# URL: http://www-ra.informatik.uni-tuebingen.de/SNNS/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=snns
+version=4.2
+release=1
+source=(http://www-ra.informatik.uni-tuebingen.de/downloads/SNNS/SNNSv$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{bin,man}
+	cd SNNSv$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr \
+		    --with-x
+
+        make CFLAGS="$CFLAGS" compile
+	make install-tools
+	make install-xgui
+	make install-man
+
+	mv tools/bin/i686-pc-linux-gnu/*   $PKG/usr/bin/
+	mv xgui/bin/i686-pc-linux-gnu/xgui $PKG/usr/bin/
+	mv man/man1 $PKG/usr/man
+
+	ln -sf /usr/bin/xgui $PKG/usr/bin/$name
+
+        chown -R root:root $PKG
+}

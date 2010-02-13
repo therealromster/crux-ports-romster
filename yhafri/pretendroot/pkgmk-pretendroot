@@ -1,0 +1,4 @@
+#!/bin/sh
+export PRETENDROOTDIR=`mktemp -d /tmp/pkgmk-pretendroot.XXXXXXXXXX`
+pretendroot pkgmk "$@"
+rm -fr $PRETENDROOTDIR

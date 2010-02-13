@@ -1,0 +1,74 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/flac
+-rwxr-xr-x	root/root	usr/bin/metaflac
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/FLAC++/
+-rw-r--r--	root/root	usr/include/FLAC++/all.h
+-rw-r--r--	root/root	usr/include/FLAC++/decoder.h
+-rw-r--r--	root/root	usr/include/FLAC++/encoder.h
+-rw-r--r--	root/root	usr/include/FLAC++/export.h
+-rw-r--r--	root/root	usr/include/FLAC++/metadata.h
+drwxr-xr-x	root/root	usr/include/FLAC/
+-rw-r--r--	root/root	usr/include/FLAC/all.h
+-rw-r--r--	root/root	usr/include/FLAC/assert.h
+-rw-r--r--	root/root	usr/include/FLAC/callback.h
+-rw-r--r--	root/root	usr/include/FLAC/export.h
+-rw-r--r--	root/root	usr/include/FLAC/file_decoder.h
+-rw-r--r--	root/root	usr/include/FLAC/file_encoder.h
+-rw-r--r--	root/root	usr/include/FLAC/format.h
+-rw-r--r--	root/root	usr/include/FLAC/metadata.h
+-rw-r--r--	root/root	usr/include/FLAC/ordinals.h
+-rw-r--r--	root/root	usr/include/FLAC/seekable_stream_decoder.h
+-rw-r--r--	root/root	usr/include/FLAC/seekable_stream_encoder.h
+-rw-r--r--	root/root	usr/include/FLAC/stream_decoder.h
+-rw-r--r--	root/root	usr/include/FLAC/stream_encoder.h
+drwxr-xr-x	root/root	usr/include/OggFLAC++/
+-rw-r--r--	root/root	usr/include/OggFLAC++/all.h
+-rw-r--r--	root/root	usr/include/OggFLAC++/decoder.h
+-rw-r--r--	root/root	usr/include/OggFLAC++/encoder.h
+-rw-r--r--	root/root	usr/include/OggFLAC++/export.h
+drwxr-xr-x	root/root	usr/include/OggFLAC/
+-rw-r--r--	root/root	usr/include/OggFLAC/all.h
+-rw-r--r--	root/root	usr/include/OggFLAC/export.h
+-rw-r--r--	root/root	usr/include/OggFLAC/file_decoder.h
+-rw-r--r--	root/root	usr/include/OggFLAC/file_encoder.h
+-rw-r--r--	root/root	usr/include/OggFLAC/seekable_stream_decoder.h
+-rw-r--r--	root/root	usr/include/OggFLAC/seekable_stream_encoder.h
+-rw-r--r--	root/root	usr/include/OggFLAC/stream_decoder.h
+-rw-r--r--	root/root	usr/include/OggFLAC/stream_encoder.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libFLAC++.a
+-rwxr-xr-x	root/root	usr/lib/libFLAC++.la
+lrwxrwxrwx	root/root	usr/lib/libFLAC++.so -> libFLAC++.so.5.0.0
+lrwxrwxrwx	root/root	usr/lib/libFLAC++.so.5 -> libFLAC++.so.5.0.0
+-rwxr-xr-x	root/root	usr/lib/libFLAC++.so.5.0.0
+-rw-r--r--	root/root	usr/lib/libFLAC.a
+-rwxr-xr-x	root/root	usr/lib/libFLAC.la
+lrwxrwxrwx	root/root	usr/lib/libFLAC.so -> libFLAC.so.7.0.0
+lrwxrwxrwx	root/root	usr/lib/libFLAC.so.7 -> libFLAC.so.7.0.0
+-rwxr-xr-x	root/root	usr/lib/libFLAC.so.7.0.0
+-rw-r--r--	root/root	usr/lib/libOggFLAC++.a
+-rwxr-xr-x	root/root	usr/lib/libOggFLAC++.la
+lrwxrwxrwx	root/root	usr/lib/libOggFLAC++.so -> libOggFLAC++.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libOggFLAC++.so.2 -> libOggFLAC++.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libOggFLAC++.so.2.0.0
+-rw-r--r--	root/root	usr/lib/libOggFLAC.a
+-rwxr-xr-x	root/root	usr/lib/libOggFLAC.la
+lrwxrwxrwx	root/root	usr/lib/libOggFLAC.so -> libOggFLAC.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libOggFLAC.so.3 -> libOggFLAC.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libOggFLAC.so.3.0.0
+drwxr-xr-x	root/root	usr/lib/xmms/
+drwxr-xr-x	root/root	usr/lib/xmms/Input/
+-rwxr-xr-x	root/root	usr/lib/xmms/Input/libxmms-flac.la
+-rwxr-xr-x	root/root	usr/lib/xmms/Input/libxmms-flac.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/flac.1.gz
+-rw-r--r--	root/root	usr/man/man1/metaflac.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/libFLAC++.m4
+-rw-r--r--	root/root	usr/share/aclocal/libFLAC.m4
+-rw-r--r--	root/root	usr/share/aclocal/libOggFLAC++.m4
+-rw-r--r--	root/root	usr/share/aclocal/libOggFLAC.m4

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+export JETTY_HOME=/usr/lib/jetty
+(cd $JETTY_HOME; ./jetty.sh $@ && sleep 5)

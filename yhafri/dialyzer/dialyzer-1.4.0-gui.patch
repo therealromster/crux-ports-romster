@@ -1,0 +1,24 @@
+--- dialyzer.original/src/dialyzer_gui.erl	2006-03-09 17:56:09.000000000 +0100
++++ dialyzer/src/dialyzer_gui.erl	2006-05-17 10:04:05.000000000 +0200
+@@ -685,12 +685,15 @@
+       S
+   end.
+ 
+-butlast([H1, H2 | T])->
+-  [H1 | butlast([H2|T])];
+-butlast([_]) ->
++butlast([H|T])->
++  [H | kill_last(T)].
++
++kill_last([_H|[]]) ->
++  [];
++kill_last([]) ->
+   [];
+-butlast([]) ->
+-  ["/"].
++kill_last([H|T]) ->
++  [H | kill_last(T)].
+   
+ 
+ change_dir_absolute(S = #gui_state{file_wd=FWD, dir_entry=DirEntry,
+

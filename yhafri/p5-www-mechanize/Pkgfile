@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Handy web browsing in a Perl object
+# URL: http://search.cpan.org/dist/WWW-Mechanize/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-html-parser, p5-net-daemon, p5-bundle-lwp, p5-uri, p5-io-socket-ssl, p5-html-tagset, p5-crypt-ssleay
+
+name=p5-www-mechanize
+version=1.22
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/P/PE/PETDANCE/WWW-Mechanize-$version.tar.gz \ 
+	$name-$version.patch)
+
+build () {
+	cd WWW-Mechanize-$version
+	patch -p1<../$name-$version.patch
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

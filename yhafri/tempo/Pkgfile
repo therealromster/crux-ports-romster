@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Emacs package for creating templates
+# URL: http://www.lysator.liu.se/~davidk/elisp/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: emacs
+
+name=tempo
+version=1
+release=1
+source=(http://www.lysator.liu.se/~davidk/elisp/$name.el)
+
+build () {
+	install -D -m 644 $name.el $PKG/usr/share/emacs/site-lisp/$name.el
+	chown -R root:root $PKG
+}

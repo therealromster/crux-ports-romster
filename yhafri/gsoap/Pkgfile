@@ -1,0 +1,23 @@
+# $Id: $
+# Description: SOAP C++ Web Services
+# URL: http://gsoap2.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: openssl
+
+name=gsoap
+version=2.7
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/gsoap2/${name}_$version.3.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-shared \
+	            --enable-namespaces
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

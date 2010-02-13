@@ -1,0 +1,9 @@
+# Macros
+sunprod=solaris-e450
+# Machines
+#
+# Name          Group           Hardware        OS
+bilbo           prod            intel           linux
+baggins         prod            e4500           solaris
+tolkien         devel           e450            solaris
+

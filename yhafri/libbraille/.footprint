@@ -1,0 +1,96 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/test_libbraille
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/libbraille.conf
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/braille.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libbraille-0.13.so.0 -> libbraille-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille.a
+-rwxr-xr-x	root/root	usr/lib/libbraille.la
+lrwxrwxrwx	root/root	usr/lib/libbraille.so -> libbraille-0.13.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/libbraille/
+lrwxrwxrwx	root/root	usr/lib/libbraille/alva-0.13.so.0 -> alva-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/alva-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/alva.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/alva.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/alva.so -> alva-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/braillelite-0.13.so.0 -> braillelite-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/braillelite-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/braillelite.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/braillelite.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/braillelite.so -> braillelite-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/braillenote-0.13.so.0 -> braillenote-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/braillenote-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/braillenote.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/braillenote.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/braillenote.so -> braillenote-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/combibraille-0.13.so.0 -> combibraille-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/combibraille-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/combibraille.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/combibraille.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/combibraille.so -> combibraille-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/eco-0.13.so.0 -> eco-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/eco-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/eco.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/eco.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/eco.so -> eco-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/eurobraille-0.13.so.0 -> eurobraille-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/eurobraille-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/eurobraille.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/eurobraille.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/eurobraille.so -> eurobraille-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/handytech-0.13.so.0 -> handytech-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/handytech-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/handytech.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/handytech.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/handytech.so -> handytech-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/hermes-0.13.so.0 -> hermes-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/hermes-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/hermes.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/hermes.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/hermes.so -> hermes-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/none-0.13.so.0 -> none-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/none-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/none.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/none.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/none.so -> none-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/text-0.13.so.0 -> text-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/text-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/text.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/text.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/text.so -> text-0.13.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbraille/vario-0.13.so.0 -> vario-0.13.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbraille/vario-0.13.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libbraille/vario.a
+-rwxr-xr-x	root/root	usr/lib/libbraille/vario.la
+lrwxrwxrwx	root/root	usr/lib/libbraille/vario.so -> vario-0.13.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/python2.3/
+drwxr-xr-x	root/root	usr/lib/python2.3/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.3/site-packages/_braille.a
+-rwxr-xr-x	root/root	usr/lib/python2.3/site-packages/_braille.la
+lrwxrwxrwx	root/root	usr/lib/python2.3/site-packages/_braille.so -> _braille.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/python2.3/site-packages/_braille.so.0 -> _braille.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/python2.3/site-packages/_braille.so.0.0.0
+-rw-r--r--	root/root	usr/lib/python2.3/site-packages/braille.py
+-rw-r--r--	root/root	usr/lib/python2.3/site-packages/braille.pyc
+-rw-r--r--	root/root	usr/lib/python2.3/site-packages/braille.pyo
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/libbraille/
+-rw-r--r--	root/root	usr/share/libbraille/children.tbl
+-rw-r--r--	root/root	usr/share/libbraille/dany.tbl
+-rw-r--r--	root/root	usr/share/libbraille/es.tbl
+-rw-r--r--	root/root	usr/share/libbraille/french.tbl
+-rw-r--r--	root/root	usr/share/libbraille/german.tbl
+-rw-r--r--	root/root	usr/share/libbraille/nico.tbl
+-rw-r--r--	root/root	usr/share/libbraille/no-h.tbl
+-rw-r--r--	root/root	usr/share/libbraille/no-p.tbl
+-rw-r--r--	root/root	usr/share/libbraille/simple.tbl
+-rw-r--r--	root/root	usr/share/libbraille/steph.tbl
+-rw-r--r--	root/root	usr/share/libbraille/sweden.tbl
+-rw-r--r--	root/root	usr/share/libbraille/swedish.tbl
+-rw-r--r--	root/root	usr/share/libbraille/uk.tbl
+-rw-r--r--	root/root	usr/share/libbraille/us.tbl
+-rw-r--r--	root/root	usr/share/libbraille/win_latin1-fr.tbl

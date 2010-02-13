@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Firefox SVG viewer
+# URL: http://www.adobe.com/svg/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=adobesvg
+version=3.01
+release=1
+source=(http://download.adobe.com/pub/adobe/magic/svgviewer/linux/3.x/${version}x88/en/adobesvg-${version}x88-linux-i386.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib/firefox/plugins
+
+	rm -rf $name-$version/{SVGHelp.html,ReadMe.html,uninstall.sh,install.sh}
+    	
+	cp -rf $name-$version $PKG/usr/lib/
+    	ln -sf /usr/lib/$name-$version              $PKG/usr/lib/$name
+    	ln -sf /usr/lib/$name-$version/libNPSVG3.so $PKG/usr/lib/firefox/plugins/libNPSVG3.so
+    	
+	chown -R root:root $PKG
+}

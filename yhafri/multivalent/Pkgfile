@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Open source Java software to natively view all formats
+# URL: http://multivalent.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=multivalent
+version=20040415
+release=1
+source=(http://unc.dl.sourceforge.net/sourceforge/$name/Multivalent$version.jar \
+	$name)
+
+build () {
+	install -d $PKG/usr/{bin,lib/$name}
+	install -D -m 644 $SRC/Multivalent$version.jar $PKG/usr/lib/$name/Multivalent$version.jar
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+    	chown -R root:root $PKG
+}

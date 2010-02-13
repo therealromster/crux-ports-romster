@@ -1,0 +1,19 @@
+# Description: your task is to empty a board by clicking on 2 equal chips, before time runs out
+# URL: http://www.KDE-Apps.org/content/show.php?content=24398
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs
+
+name=fleur
+version=1.6
+release=2
+source=(http://download.berlios.de/ujagames-linux/fleur2_game_${version}.tar.gz fleur)
+
+build() {
+    export QTDIR=/usr/share/qt
+    cd fleur2_game
+    ./install_fleur2_arts_engl.cmd
+    mkdir -p $PKG/usr/lib
+    cp -r fleur2 $PKG/usr/lib/fleur2
+    install -D -m 755 $SRC/fleur $PKG/usr/bin/fleur
+}

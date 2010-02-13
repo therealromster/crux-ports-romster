@@ -1,0 +1,26 @@
+# $Id: $
+# Description: An Erlang email server  
+# URL: http://erlsoft.org/modules/erlmail/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=erlmail
+version=0.0.3
+release=1
+source=(http://erlsoft.org/releases/$name-$version.tar.gz)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{ebin,include,src}
+
+	cd $name-$version	
+	(cd src; erl -make)
+
+	mv src/*.beam  $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv src/*.erl   $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv src/*.hrl   $PKG/usr/lib/erlang/lib/$name-$version/include
+
+	rm -rf $PKG/usr/lib/erlang/lib/$name-$version/src/Makefile
+
+	chown -R root:root $PKG
+}

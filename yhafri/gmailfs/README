@@ -1,0 +1,23 @@
+POST-INSTALL:
+
+		* Load FUSE kernel module as root:
+		# modprobe fuse 
+
+		* You can mount your Gmail filesystem either
+		via fstab or on the command line using mount.
+
+		To use fstab, create an entry /etc/fstab that
+		looks something like:
+
+		/usr/bin/gmailfs.py /path/of/mount/point gmailfs noauto,username=gmailuser,password=gmailpass,fsname=zOlRRa
+
+		The username and password fields speak for themselves.
+		The fsname is the name of this Gmail filesystem. 
+		It is important to choose a hard-to-guess name here,
+		because if others can guess the fsname, they can corrupt 
+		your Gmail filesystem by injecting spurious messages
+		into your Inbox.
+
+		To mount from the command line, do:
+
+		mount -t gmailfs /usr/bin/gmailfs.py /path/of/mount/point -o username=gmailuser,password=gmailpass,fsname=zOlRRa

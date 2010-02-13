@@ -1,0 +1,39 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gambit/
+drwxr-xr-x	root/root	usr/lib/gambit/bin/
+-rwxr-xr-x	root/root	usr/lib/gambit/bin/gsc
+-rwxr-xr-x	root/root	usr/lib/gambit/bin/gsc-cc-o
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/gsc-script -> gsi
+-rwxr-xr-x	root/root	usr/lib/gambit/bin/gsi
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/gsi-script -> gsi
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/scheme-ieee-1178-1990 -> gsi
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/scheme-r4rs -> gsi
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/scheme-r5rs -> gsi
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/scheme-srfi-0 -> gsi
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/six -> gsi
+lrwxrwxrwx	root/root	usr/lib/gambit/bin/six-script -> gsi
+drwxr-xr-x	root/root	usr/lib/gambit/doc/
+-rw-r--r--	root/root	usr/lib/gambit/doc/gambit-c.html
+-rw-r--r--	root/root	usr/lib/gambit/doc/gambit-c.pdf
+-rw-r--r--	root/root	usr/lib/gambit/doc/gambit-c.txt
+drwxr-xr-x	root/root	usr/lib/gambit/include/
+-rw-r--r--	root/root	usr/lib/gambit/include/gambit.h
+drwxr-xr-x	root/root	usr/lib/gambit/info/
+-rw-r--r--	root/root	usr/lib/gambit/info/gambit-c.info
+-rw-r--r--	root/root	usr/lib/gambit/info/gambit-c.info-1
+-rw-r--r--	root/root	usr/lib/gambit/info/gambit-c.info-2
+-rw-r--r--	root/root	usr/lib/gambit/info/gambit-c.info-3
+drwxr-xr-x	root/root	usr/lib/gambit/lib/
+-rw-r--r--	root/root	usr/lib/gambit/lib/_gambc.c
+-rw-r--r--	root/root	usr/lib/gambit/lib/digest#.scm
+-rw-r--r--	root/root	usr/lib/gambit/lib/digest.scm
+-rw-r--r--	root/root	usr/lib/gambit/lib/gambit#.scm
+-rw-r--r--	root/root	usr/lib/gambit/lib/libgambc.a
+-rw-r--r--	root/root	usr/lib/gambit/lib/r4rs#.scm
+-rw-r--r--	root/root	usr/lib/gambit/lib/r5rs#.scm
+drwxr-xr-x	root/root	usr/lib/gambit/share/
+drwxr-xr-x	root/root	usr/lib/gambit/share/emacs/
+drwxr-xr-x	root/root	usr/lib/gambit/share/emacs/site-lisp/
+-rw-r--r--	root/root	usr/lib/gambit/share/emacs/site-lisp/gambit.el
+-rw-r--r--	root/root	usr/lib/gambit/syntax-case.scm

@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Application Launcher for Linux
+# URL: http://apwal.free.fr/index.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, gtk, libxml2
+
+name=apwal
+version=0.4.5
+release=1
+source=(http://apwal.free.fr/download/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+
+	cd $name
+	patch -p1<../$name-$version.patch
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

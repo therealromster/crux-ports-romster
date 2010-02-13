@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Synthetic Data Generation Code for Associations and Sequential Patterns
+# URL: http://www.almaden.ibm.com/software/quest/Resources/index.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=assoc-gen
+version=1
+release=1
+source=(http://www.almaden.ibm.com/software/quest/Resources/datasets/data/assoc.gen.tar.Z \
+	assoc-gen.patch)
+
+build () {
+	patch -p1<$name.patch
+	make
+	strip gen
+	install -D -m 755 gen $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

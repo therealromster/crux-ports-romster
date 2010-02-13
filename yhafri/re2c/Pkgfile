@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A fast scanners for generating C-based recognizers from regular expressions.
+# URL: http://re2c.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=re2c
+version=0.13.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/re2c/$name-$version.tar.gz)
+
+build () {
+    	cd $name-$version
+    	
+	./configure
+    	
+	make 
+    	make prefix=$PKG/usr install
+	
+	chown -R root:root $PKG
+}

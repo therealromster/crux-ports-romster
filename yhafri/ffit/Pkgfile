@@ -1,0 +1,23 @@
+# $Id: $
+# Description: First-Fit and Best-Fit allocators
+# URL: http://rtportal.upv.es/rtmalloc/allocators/halffit/index.shtml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ffit
+version=0.2.1
+release=1
+source=(http://rtportal.upv.es/rtmalloc/allocators/ff_bf/$name-$version.tbz2)
+
+build () {
+	tar xjvf $name-$version.tbz2
+	cd $name-$version
+	gcc -c $name.c
+
+	ar cr $name.a $name.o
+	install -D $name.a $PKG/usr/lib/$name.a
+	install -D $name.h $PKG/usr/include/$name.h
+
+	chown -R root:root $PKG
+}

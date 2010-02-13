@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A set of classes for core data, message and XML handling
+# URL: http://search.cpan.org/~rjray/RPC-XML-0.58/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-rpc-xml
+version=0.58
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RJ/RJRAY/RPC-XML-$version.tar.gz)
+
+build () {
+	cd RPC-XML-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

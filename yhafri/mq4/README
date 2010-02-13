@@ -1,0 +1,13 @@
+PRE-INSTALL:
+
+
+		* Register yourself at http://netarchive.dk/suite and download the
+		  package "NetarchiveSuite-X.Y.Z.zip" in this directory
+
+
+POST-INSTALL:
+
+		* Set the following env variables:
+		export JAVA=/usr/lib/java
+		export IMQ_JAVAHOME=/usr/lib/java
+		export IMQ=/opt/sun/mq/bin/imqbrokerd

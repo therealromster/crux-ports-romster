@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Graph Plotting Module for Perl 5 
+# URL: http://search.cpan.org/CPAN/authors/id/M/MV/MVERB/GDGraph-1.43.tar.gz
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libgd, p5-gd, p5-gd-text-util
+
+name=p5-gd-graph
+version=1.4308
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BW/BWARFIELD/GDGraph-$version.tar.gz)
+
+build () {
+	cd GDGraph-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

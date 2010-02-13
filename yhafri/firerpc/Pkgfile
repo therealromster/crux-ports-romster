@@ -1,0 +1,21 @@
+# $Id: $
+# Description: C Interface to make remote function queries via XML RPC
+# URL: http://www.firestuff.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=firerpc
+version=0.9.13
+release=1
+source=(http://www.firestuff.org/projects/$name-$version.tar.bz2)
+
+build () {
+	cd $name
+	./configure --prefix=/usr
+
+	make
+	make PREFIX=$PKG/usr install
+
+	chown -R root:root $PKG
+}

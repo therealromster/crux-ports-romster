@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A free "data flow" development environment
+# URL: http://flowdesigner.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, libgnomeui
+
+name=flowdesigner
+version=0.9.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/FlowDesigner-$version.tar.gz)
+
+build () {
+	cd FlowDesigner-$version
+	./configure --prefix=/usr \
+                --enable-sse \
+                --enable-3dnow \
+                --enable-multithread \
+                --enable-x86-asm \
+                --enable-smp
+
+    make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+    chown -R root:root $PKG
+}

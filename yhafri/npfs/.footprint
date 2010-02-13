@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ufs
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/spclient.h
+-rw-r--r--	root/root	usr/include/spfs.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libspclient.a
+-rw-r--r--	root/root	usr/lib/libspfs.a

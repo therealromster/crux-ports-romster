@@ -1,0 +1,22 @@
+# $Id: $
+# Description: More widgets library
+# URL: http://siag.nu/mowitz/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, xawm
+
+name=mowitz
+version=0.3.0
+release=1
+source=(http://siag.nu/pub/$name/Mowitz-$version.tar.gz)
+
+build () {
+	cd Mowitz-$version
+	./configure --prefix=/usr \
+                    --with-xawm=Xaw3d
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,32 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/varnishd
+-rwxr-xr-x	root/root	usr/bin/varnishhist
+-rwxr-xr-x	root/root	usr/bin/varnishlog
+-rwxr-xr-x	root/root	usr/bin/varnishncsa
+-rwxr-xr-x	root/root	usr/bin/varnishstat
+-rwxr-xr-x	root/root	usr/bin/varnishtop
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libvarnish.a
+-rwxr-xr-x	root/root	usr/lib/libvarnish.la
+lrwxrwxrwx	root/root	usr/lib/libvarnish.so -> libvarnish.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libvarnish.so.0 -> libvarnish.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libvarnish.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libvarnishapi.a
+-rwxr-xr-x	root/root	usr/lib/libvarnishapi.la
+lrwxrwxrwx	root/root	usr/lib/libvarnishapi.so -> libvarnishapi.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libvarnishapi.so.0 -> libvarnishapi.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libvarnishapi.so.0.0.0
+-rw-r--r--	root/root	usr/lib/libvcl.a
+-rwxr-xr-x	root/root	usr/lib/libvcl.la
+lrwxrwxrwx	root/root	usr/lib/libvcl.so -> libvcl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libvcl.so.0 -> libvcl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libvcl.so.0.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/varnishd.1.gz
+-rw-r--r--	root/root	usr/man/man1/varnishhist.1.gz
+-rw-r--r--	root/root	usr/man/man1/varnishlog.1.gz
+-rw-r--r--	root/root	usr/man/man1/varnishncsa.1.gz
+-rw-r--r--	root/root	usr/man/man1/varnishstat.1.gz
+-rw-r--r--	root/root	usr/man/man1/varnishtop.1.gz

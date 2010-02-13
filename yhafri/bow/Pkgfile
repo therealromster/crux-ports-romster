@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A Toolkit for Statistical Language Modeling, Text Retrieval, Classification and Clustering
+# URL: http://www.cs.cmu.edu/~mccallum/bow/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=bow
+version=20020213
+release=1
+source=(http://www.cs.cmu.edu/~mccallum/$name/src/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/include/argp.h
+
+	chown -R root:root $PKG
+}

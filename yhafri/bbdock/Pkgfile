@@ -1,0 +1,19 @@
+# $Id: $
+# Description: Application launcher dockapp
+# URL: http://www.bensinclair.com/dockapp/showapp.php3?id=327
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libpng
+
+name=bbdock
+version=0.01
+release=1
+source=(http://www.hhsw.de/downloads/$name-$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name
+        make CFLAGS="$CFLAGS"
+	install -m 755 $name $PKG/usr/bin/$name
+        chown -R root:root $PKG
+}

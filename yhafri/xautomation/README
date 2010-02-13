@@ -1,0 +1,10 @@
+PRE-INSTALL:
+
+		* Set the envirnoment variabl KEYBOARD to your
+		keyboard map language (default is us). For example:
+		export KEYBOARD_MAP=fr
+
+
+TEST:
+		* Try:
+		$ xte  'mousemove 100 100' 'mouseclick 3

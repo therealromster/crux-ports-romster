@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A library for dealing with MS ITSS/CHM format files.
+# URL: http://66.93.236.84/~jedwin/projects/chmlib/
+# Packager: Huynh Ngoc Chau Tran, nthuynh at fastmail dot com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=chmlib
+version=0.38
+release=1
+source=(http://66.93.236.84/~jedwin/projects/$name/$name-$version.tar.gz)
+
+build() {
+    	cd $name-$version
+    	./configure --prefix=/usr
+
+    	make
+    	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

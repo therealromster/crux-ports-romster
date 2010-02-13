@@ -1,0 +1,25 @@
+# $Id: $
+# Description: GNU pico clone (a tiny text editor)
+# URL: http://www.nano-editor.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Simone Rota <sip@varlock.com>
+# Depends on:
+
+name=nano
+version=1.2.5
+release=1
+source=(http://www.nano-editor.org/dist/v1.2/$name-$version.tar.gz \
+	${name}rc-$version)
+
+build(){
+  cd $name-$version
+  ./configure --prefix=/usr \
+	      --enable-color \
+	      --enable-multibuffer \
+	      --enable-nanorc --disable-nls
+
+  make
+  make DESTDIR=$PKG install
+  rm -r $PKG/usr/info
+}
+  

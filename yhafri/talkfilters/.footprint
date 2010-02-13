@@ -1,0 +1,35 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/austro
+-rwxr-xr-x	root/root	usr/bin/b1ff
+-rwxr-xr-x	root/root	usr/bin/brooklyn
+-rwxr-xr-x	root/root	usr/bin/chef
+-rwxr-xr-x	root/root	usr/bin/cockney
+-rwxr-xr-x	root/root	usr/bin/drawl
+-rwxr-xr-x	root/root	usr/bin/dubya
+-rwxr-xr-x	root/root	usr/bin/fudd
+-rwxr-xr-x	root/root	usr/bin/funetak
+-rwxr-xr-x	root/root	usr/bin/jethro
+-rwxr-xr-x	root/root	usr/bin/jive
+-rwxr-xr-x	root/root	usr/bin/kraut
+-rwxr-xr-x	root/root	usr/bin/pansy
+-rwxr-xr-x	root/root	usr/bin/pirate
+-rwxr-xr-x	root/root	usr/bin/postmodern
+-rwxr-xr-x	root/root	usr/bin/redneck
+-rwxr-xr-x	root/root	usr/bin/valspeak
+-rwxr-xr-x	root/root	usr/bin/warez
+-rwxr-xr-x	root/root	usr/bin/wrap
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/talkfilters.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libtalkfilters.a
+-rwxr-xr-x	root/root	usr/lib/libtalkfilters.la
+lrwxrwxrwx	root/root	usr/lib/libtalkfilters.so -> libtalkfilters.so.1.0.4
+lrwxrwxrwx	root/root	usr/lib/libtalkfilters.so.1 -> libtalkfilters.so.1.0.4
+-rwxr-xr-x	root/root	usr/lib/libtalkfilters.so.1.0.4
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/talkfilters.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/talkfilters.1.gz
+-rw-r--r--	root/root	usr/man/man1/wrap.1.gz

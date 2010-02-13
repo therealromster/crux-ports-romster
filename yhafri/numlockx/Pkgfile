@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Make your X start with NumLock on
+# URL: http://ktown.kde.org/~seli/numlockx/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=numlockx
+version=1.1
+release=1
+source=(http://ktown.kde.org/~seli/numlockx/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

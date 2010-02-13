@@ -1,0 +1,26 @@
+# $Id: $
+# Description: International Components for Unicode for C
+# URL: http://www.icu-project.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=icu
+version=3.8
+release=1
+source=(http://download.$name-project.org/files/${name}4c/$version/${name}4c-3_8-src.tgz)
+
+build () {
+	cd $name/source
+	chmod +x runConfigureICU configure install-sh
+
+	./runConfigureICU LinuxRedHat --prefix=/usr \
+			 	      --enable-shared \
+			              --disable-samples  \
+			              --disable-tests  \
+			 	      --enable-rpath
+        make
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

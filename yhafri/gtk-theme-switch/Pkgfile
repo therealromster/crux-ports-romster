@@ -1,0 +1,24 @@
+# $Id: $
+# Description: GTK2 Theme Switcher
+# URL: http://www.muhri.net/nav.php3?node=gts
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk
+
+name=gtk-theme-switch
+version=2.0.4
+release=1
+source=(http://ftp.debian.org/debian/pool/main/g/$name/${name}_${version}.tar.gz)
+
+build() {
+	cd ${name}-${version}
+
+	make
+
+	install -D -m 755 switch2 $PKG/usr/bin/switch2
+	install -D -m 755 switch $PKG/usr/bin/switch
+	install -D switch.1 $PKG/usr/man/man1/switch.1
+
+	chown -R root:root $PKG
+}
+

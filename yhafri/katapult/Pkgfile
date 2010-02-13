@@ -1,0 +1,20 @@
+# Description: an application designed to allow faster access to applications, bookmarks, and other items
+# URL: http://www.kde-apps.org/content/show.php?content=33985
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdebase
+
+name=katapult
+version=0.3.1
+release=2
+source=(http://dl.sourceforge.net/sourceforge/$name/${name}_$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-debug
+    make
+    make DESTDIR=$PKG install
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

@@ -1,0 +1,19 @@
+--- tts-French/text2phone	1996-12-11 14:36:52.000000000 +0100
++++ tts-French/text2phone-new	2005-06-04 14:38:17.977714088 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ ############################################
+ # text2phone:
+@@ -19,8 +19,8 @@
+ #$olabase = $ENV{"II_OLA_BASE"};
+ #$text2phonebase = $ENV{"II_OLA_BASE"};
+ 
+-$olabase = "fr1";
+-$text2phonebase = "base";
++$olabase = "/etc/mbrola/voices/fr1/fr1";
++$text2phonebase = "/etc/perl-tts/base";
+ 
+ $mbrola_cmd = "| mbrola $olabase - -.au | audioplay";
+ 

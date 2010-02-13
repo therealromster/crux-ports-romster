@@ -1,0 +1,52 @@
+# $Id: $
+# Description: The Dxstore Database System
+# URL: http://www.dss.bc.ca/dx/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: db, gdbm
+
+name=dxstore
+version=0.2
+release=1
+source=(http://www.dss.bc.ca/dx/dist/$name-$version/$name-$version.tgz \
+	$name-$version.patch)
+
+build () {
+	cd dx-$version
+
+	./configure --prefix=/usr
+	patch -p1 < $SRC/$name-$version.patch
+
+	make
+	make dxtest
+	(cd cmdline
+	make
+	install -D -m 755 dxcp           $PKG/usr/bin/dxcp
+	install -D -m 755 dxfetch        $PKG/usr/bin/dxfetch
+	install -D -m 755 dxlist         $PKG/usr/bin/dxlist
+	install -D -m 755 dxstore        $PKG/usr/bin/dxstore
+	)
+
+	(cd conv
+	make dx
+	make db
+	make gdbm
+	install -D -m 755 convdb         $PKG/usr/bin/convdb
+	install -D -m 755 convgdbm       $PKG/usr/bin/convgdbm
+	install -D -m 755 countdb        $PKG/usr/bin/countdb
+	install -D -m 755 countdx        $PKG/usr/bin/countdx
+	install -D -m 755 countgdbm      $PKG/usr/bin/countgdbm
+	install -D -m 755 deldb          $PKG/usr/bin/deldb
+	install -D -m 755 deldx          $PKG/usr/bin/deldx
+	install -D -m 755 mkdb           $PKG/usr/bin/mkdb
+	install -D -m 755 mkdx           $PKG/usr/bin/mkdx
+	install -D -m 755 mkgdbm         $PKG/usr/bin/mkgdbm
+	)
+
+	install -D -m 755 dxtest         $PKG/usr/include/dxtest
+	install -D -m 644 dx.h           $PKG/usr/include/dx.h
+	install -D -m 644 lib${name}32.a $PKG/usr/lib/lib${name}32.a
+	ln -sf /usr/lib/lib${name}32.a   $PKG/usr/lib/lib${name}.a
+
+	chown -R root:root $PKG
+}

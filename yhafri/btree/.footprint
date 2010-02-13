@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/btree/
+drwxr-xr-x	root/root	usr/lib/btree/include/
+-r--r--r--	root/root	usr/lib/btree/include/btree.h
+drwxr-xr-x	root/root	usr/lib/btree/lib/
+-r--r--r--	root/root	usr/lib/btree/lib/libbtree.a
+-r--r--r--	root/root	usr/lib/btree/lib/libbtree.so.1
+-r--r--r--	root/root	usr/lib/btree/lib/libbtree_p.a
+drwxr-xr-x	root/root	usr/lib/btree/man/
+drwxr-xr-x	root/root	usr/lib/btree/man/man3/
+-r--r--r--	root/root	usr/lib/btree/man/man3/btree.3.gz

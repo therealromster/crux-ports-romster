@@ -1,0 +1,19 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/json/
+-rw-r--r--	root/root	usr/include/json/arraylist.h
+-rw-r--r--	root/root	usr/include/json/bits.h
+-rw-r--r--	root/root	usr/include/json/debug.h
+-rw-r--r--	root/root	usr/include/json/json.h
+-rw-r--r--	root/root	usr/include/json/json_object.h
+-rw-r--r--	root/root	usr/include/json/json_tokener.h
+-rw-r--r--	root/root	usr/include/json/json_util.h
+-rw-r--r--	root/root	usr/include/json/linkhash.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libjson.a
+-rwxr-xr-x	root/root	usr/lib/libjson.la
+lrwxrwxrwx	root/root	usr/lib/libjson.so -> libjson.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libjson.so.0 -> libjson.so.0.0.1
+-rwxr-xr-x	root/root	usr/lib/libjson.so.0.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/json.pc

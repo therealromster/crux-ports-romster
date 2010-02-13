@@ -1,0 +1,17 @@
+# $Id: $
+# Description: The Nordic Web Archive Toolset
+# URL: http://nwatoolset.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: j2sdk, apache, jakarta-tomcat, php, p5-xml-tokeparser, p5-html-parser, p5-xml-simple, p5-bundle-lwp, p5-uri, p5-text-iconv, mod_php, p5-config-general
+
+name=nwatoolset
+version=1.1
+release=1
+source=(http://$name.sourceforge.net/$name\_1_1_RC10.tar.gz)
+
+build () {
+        cd $name\_1_1_RC10
+        
+        chown -R root:root $PKG
+}

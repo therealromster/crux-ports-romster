@@ -1,0 +1,19 @@
+# $Id: $
+# Description: The Java Byte Code Engineering Library
+# URL: http://jakarta.apache.org/bcel/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant
+
+name=bcel
+version=5.1
+release=1
+source=(http://www.apache.org/dist/jakarta/bcel/binaries/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	install -D $name-$version.jar $PKG/usr/lib/ant/lib/$name-$version.jar
+
+	chown -R root:root $PKG
+}

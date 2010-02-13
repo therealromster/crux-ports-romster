@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Setup a CGI enviroment from a HTTP::Request
+# URL: http://search.cpan.org/~chansen/HTTP-Request-AsCGI-0.3/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-class-accessor, p5-libwww-perl
+
+name=p5-http-request-ascgi
+version=0.5
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CH/CHANSEN/HTTP-Request-AsCGI-$version.tar.gz)
+
+build () {
+	cd HTTP-Request-AsCGI-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

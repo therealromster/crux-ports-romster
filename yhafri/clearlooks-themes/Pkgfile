@@ -1,0 +1,150 @@
+# $Id: $
+# Description: Clearlooks themes and test application
+# URL: http://art.gnome.org/themes/gtk2/1151
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: clearlooks
+
+name=clearlooks-themes
+version=1
+release=1
+source=(http://www.stellingwerff.com/TheWidgetFactory/TheWidgetFactory-0.2.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1004/GTK2-SmoothGNOME.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1007/GTK2-SmoothGNOMEExtras.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1010/GTK2-Pharago.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1011/GTK2-Serenity.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1032/GTK2-IndustrialColorpack.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1033/GTK2-Whiteplate.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1058/GTK2-EXperience.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1064/GTK2-ClearLooksDarkBlue.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1065/GTK2-ClearlooksDarkOrange.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1067/GTK2-EvilMac.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1068/GTK2-Clearsky.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1080/GTK2-Neutrino.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1084/GTK2-YattaBlues.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1086/GTK2-ClearlooksMyst.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1087/GTK2-ClearLooksWarningMod.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1088/GTK2-Dogmastik.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1091/GTK2-EasyListening.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1092/GTK2-Gonxical.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1094/GTK2-EasyListeningPale.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1099/GTK2-Wonderlooks.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1122/GTK2-Outcrop.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1123/GTK2-SmoothMech.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1125/GTK2-BlueHeart.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1126/GTK2-WaterVapor.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1129/GTK2-Tactile.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1134/GTK2-Gnursid.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1142/GTK2-Beastie.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1146/GTK2-Clearlooks9x.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1147/GTK2-MarbleLook.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1158/GTK2-Toxig.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1161/GTK2-Boxx.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1163/GTK2-GmLooks.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1170/GTK2-PhlatBlueDubbed.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1172/GTK2-Alphacube.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1180/GTK2-TIshBrushedBlue.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1187/GTK2-VistaGray.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1195/GTK2-ClearlooksXp.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1196/GTK2-ClearlooksFonky.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1202/GTK2-ClearlooksVista.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/1203/GTK2-ClearlooksVisto.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/21/GTK2-GnuBubble.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/213/GTK2-H2O-default-2.0.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/230/GTK2-Angelistic2.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/274/GTK2-Wonderland-Engine-1.0.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/283/GTK2-Etria.org.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/284/GTK2-Etria.org-blue.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/285/GTK2-Traspy.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/286/GTK2-Traspy-Nolines.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/409/GTK2-H2O-Ruby-0.1.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/421/GTK2-BlueSmooth.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/425/GTK2-Smooth-Tangerine-Dream.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/432/GTK2-Aquativo-1.5.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/442/GTK2-TheBlues.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/452/GTK2-Smooth-Cool-Blue.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/466/GTK2-eMaCs.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/467/GTK2-GitM.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/470/GTK2-MardiGrasDeux.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/473/GTK2-WinXP-Silver.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/474/GTK2-Xfce.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/493/GTK2-Galaxy.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/504/GTK2-Variance-Default-0.1.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/549/GTK2-6nome.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/550/GTK2-BlackmarbleMatrix.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/566/GTK2-Aero-1.2.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/567/GTK2-Milk-2.0.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/571/GTK2-Glossy_P.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/591/GTK2-Sunset.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/593/GTK2-Smooth-Lime.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/594/GTK2-Smooth-Desert.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/598/GTK2-Yattacier3.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/603/GTK2-Smooth-Metal.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/606/GTK2-Smooth-Retro.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/608/GTK2-Mist-Posh.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/609/GTK2-Smooth-Ivory.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/610/GTK2-Mist-Titanium.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/612/GTK2-Mist-Lush.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/613/GTK2-Smooth-ColdBlue.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/614/GTK2-AluminumAlloy-Smog.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/615/GTK2-AluminumAlloy-Volcanic.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/626/GTK2-Mist-4dIndigo.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/627/GTK2-Mist-Deep_Plastik.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/628/GTK2-Mist-Diana.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/629/GTK2-Mist-Ivory.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/630/GTK2-Mist-Khaos.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/631/GTK2-Mist-Opposite.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/632/GTK2-Mist-Plastik_Gorilla.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/633/GTK2-Mist-Sage.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/634/GTK2-Mist-Solaris.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/635/GTK2-Mist-Steel.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/636/GTK2-Mist-Ti_Equilibrium.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/638/GTK2-Digital-Cream.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/639/GTK2-SmoothStreak.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/647/GTK2-Leech1.3.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/648/GTK2-Iceberg.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/650/GTK2-South-Side-2.tgz \
+	http://art.gnome.org/download/themes/gtk2/652/GTK2-Industrial-GONX-v0.2.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/654/GTK2-BasicallySmooth.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/685/GTK2-Smooth-Classical.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/686/GTK2-iFog-Sunset.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/687/GTK2-iFog-XP.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/689/GTK2-Phlat-Aqua2.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/690/GTK2-Phlat-Boogie.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/696/GTK2-Sylver.Pack-v2.0.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/700/GTK2-MySimple.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/702/GTK2-Litoral.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/712/GTK2-Tenebrific.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/713/GTK2-Office_0.7.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/725/GTK2-cde-motif.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/726/GTK2-CrystalKuvola-v1.0.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/727/GTK2-Munja-v1.0-3b.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/728/GTK2-toolbox-2.0.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/732/GTK2-Smooth-Q.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/733/GTK2-SnowLight.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/753/GTK2-Vignette.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/761/GTK2-woody.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/762/GTK2-olscool.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/763/GTK2-Simple-GNOME.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/764/GTK2-industrial-myst.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/765/GTK2-alif.tar.bz2 \
+	http://art.gnome.org/download/themes/gtk2/771/GTK2-MilkMint.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/87/GTK2-ThinIce-Engine.tar.gz \
+	http://art.gnome.org/download/themes/gtk2/1151/GTK2-TIshBrushedForClearlooks.tar.gz)
+
+#	http://art.gnome.org/download/themes/gtk2/1066/GTK2-ClearlooksWarning.tar.bz2 \
+
+build () {
+        mkdir -p $PKG/usr/share/themes/
+
+	cd TheWidgetFactory-0.2
+	./configure
+	make
+	install -D -m 755 src/twf $PKG/usr/bin/clearlooks-test
+	cd ..
+	rm -rf TheWidgetFactory-0.2
+
+        mv * $PKG/usr/share/themes/
+
+        chown -R root:root $PKG
+}

@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Visual modeling tool designed to create, view, and edit UML diagrams
+# URL: http://www.unimodeler.com/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk
+
+name=unimodeler
+version=1.4
+release=1
+source=(http://www.unimodeler.com/$name$version.tgz)
+
+build () {
+	install -D -m 755 $name$version $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

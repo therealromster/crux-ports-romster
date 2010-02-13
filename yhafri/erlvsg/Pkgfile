@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Very Simple Graphics for Erlang
+# URL: http://code.google.com/p/erlvsg/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, subversion, tile
+
+name=erlvsg
+version=svn
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,include}
+	
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+
+	cd $name/src
+	#make
+	erl -make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv *.hrl  $PKG/usr/lib/erlang/lib/$name-$version/include
+
+	chown -R root:root $PKG
+}

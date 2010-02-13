@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#
+# This script creates 'date.inc' to include the compiling date
+# in the program startup logo.
+#
+# (c) Thomas Proffen  (proffen@pa.msu.edu)
+#
+
+rm -f date.inc
+
+echo "c     date.inc"                          > date.inc
+echo "c     Created by makedate .."           >> date.inc
+echo "c "                                     >> date.inc
+echo "      character*35   cdate"             >> date.inc
+echo "      parameter      (cdate='`date`')"  >> date.inc

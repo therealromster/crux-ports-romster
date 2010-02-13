@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Erlang module producing typographic quality PDF from XML
+# URL: http://www.sics.se/~joe/erlguten-2.1/erlguten.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=erlguten
+version=svn
+release=1
+source=($name-svn.patch $name.sh)
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/erlang/lib/$name-$version}
+
+	svn co http://$name.googlecode.com/svn/trunk/ $name
+	cd $name
+	patch -p0<$SRC/$name-svn.patch
+
+	make
+
+	mv src/ priv/ ebin/  $PKG/usr/lib/erlang/lib/$name-$version/
+
+	install -D -m 755 $SRC/$name.sh $PKG/usr/bin/$name
+
+	find $PKG -name "*test*" -exec rm -rf {} \;
+	find $PKG -name "Makefile" -exec rm -rf {} \;
+	(find $PKG -name ".svn" -type "d" -exec rm -rf {} \;)
+	
+        chown -R root:root $PKG/
+}

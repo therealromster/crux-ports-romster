@@ -1,0 +1,22 @@
+# Description: a Qt Go client and full featured SGF editor
+# URL: http://qgo.sourceforge.net
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=qgo
+version=1.0.4-r2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/qgo/qgo-$version.tar.gz)
+
+build() {
+    cd $name-1.0.4
+    ./configure	--prefix=/usr
+    make
+    make DESTDIR=$PKG install
+#    rm -rf $PKG/usr/share/locale
+#    rm -rf $PKG/usr/share/doc
+#    rm -rf $PKG/usr/share/qGo/translations
+    echo "Categories=Qt;KDE;Game;BoardGame;" \
+        >> $PKG/usr/share/applnk/Games/qgo.desktop
+}

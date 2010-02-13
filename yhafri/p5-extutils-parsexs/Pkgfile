@@ -1,0 +1,20 @@
+# $Id: $
+# Description: converts Perl XS code into C code 
+# URL: http://search.cpan.org/~kwilliams/ExtUtils-ParseXS-2.09/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-extutils-parsexs
+version=2.15
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KW/KWILLIAMS/ExtUtils-ParseXS-$version.tar.gz)
+
+build () {
+	cd ExtUtils-ParseXS-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A tool for extracting selected columns from text files
+# URL: http://www.eskimo.com/~scs/src/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=column
+version=1
+release=1
+source=(ftp://ftp.eskimo.com/u/s/scs/src/$name.tar.gz)
+
+build () {
+	cd $name
+	
+	make
+	strip $name
+
+	install -D -m 777 $name $PKG/usr/bin/$name@
+
+	chown -R root:root $PKG
+}

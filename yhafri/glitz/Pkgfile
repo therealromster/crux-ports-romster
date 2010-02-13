@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A portable 2D graphics library that uses OpenGL 
+# URL: http://freedesktop.org/software/glitz
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libglut
+
+name=glitz
+version=0.4.0
+release=1
+source=(http://cairographics.org/snapshots/$name-$version.tar.gz)
+#ftp://ftp.freebsd.org/pub/FreeBSD/ports/local-distfiles/ahze/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --enable-shared \
+		    --with-x
+
+        make
+	make prefix=$PKG/usr install
+
+        chown -R root:root $PKG
+}

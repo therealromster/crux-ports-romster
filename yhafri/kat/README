@@ -1,0 +1,61 @@
+Dependencies
+=================================
+
+kdelibs         (required)
+sqlite3         (required)
+
+antiword        (recommended)
+openoffice      (recommended)
+koffice         (recommended)
+xpdf            (recommended)
+unrtf           (recommended)
+html2text       (recommended)
+
+gnumeric        (not in contrib)
+ppthtml         (no port exists)
+lyx2html        (no port exists)
+dvi2tty         (no port exists)
+man2html        (no port exists)
+xlhtml          (no port exists)
+pstotext        (no port exists)
+untex           (no port exists)
+mhonarc         (no port exists)
+hevea           (no port exists)
+
+
+Configuration
+===============================================================================
+
+Inotify is a file notification system for the Linux kernel. As of 2.6.13-rc3,
+it is included in the stable Linux kernel series. You can learn more about
+inotify here: http://www.kernel.org/pub/linux/kernel/people/rml/inotify/. 
+The Kat deamon does not require inotify, but it is strongly recommended as it
+will greatly improve your Kat search experience. Without it, Kat will not
+automatically detect all changes to your home directory and index the data in a
+timely fashion.
+
+Only versions of Inotify >=0.24 will work with all versions of Kat.  Because 
+Inotify is in Linus' kernel, the interface will be stable as of the release of
+the 2.6.13 kernel. All future versions of Kat above 0.6 will use this 
+interface.
+
+If you must use an older kernel, then you need this patch:
+http://www.kernel.org/pub/linux/kernel/people/rml/inotify/v2.6/0.24/inotify-0.24-rml-2.6.13-rc2-4.patch
+
+Make sure you enable (set to 'y') the option "Inotify file change notification
+support (INOTIFY)" under Device Drivers / Character Devices. This is the
+CONFIG_INOTIFY option. 
+It can also be found in File Systems if you use make menuconfig. Also ensure 
+extended attributes are enabled for your chosen filesystem(s). e.g. 
+EXT2_FS_XATTR, EXT3_FS_XATTR, REISERFS_FS_XATTR and so on.
+
+-- Based on http://kat.mandriva.com/wiki/index.php/Getting_started#3._Build_from_Sources
+
+
+Jaeger recommends mounting POSIX shared memory in his Beagle README.  This can be accomplished by verifying that the following line is in your /etc/fstab:
+
+none /dev/shm tmpfs defaults 0 0
+
+-------------------------------------------------------------------------------
+Now rebuild your kernel, and reboot!
+-------------------------------------------------------------------------------

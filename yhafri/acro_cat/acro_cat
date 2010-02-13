@@ -1,0 +1,15 @@
+#!/bin/sh
+#Concatenate two PDF files and output to the third argument
+
+echo "**** Converting PDF files to PostScript"
+acroread -toPostScript -pairs $1 /tmp/$1.ps
+acroread -toPostScript -pairs $2 /tmp/$2.ps
+echo "**** Concatenating PostScript files"
+a2ps -q --columns=1 -o /tmp/$1.both.ps /tmp/$1.ps /tmp/$2.ps
+echo "**** Converting to PostScript file to PDF"
+ps2pdf /tmp/$1.both.ps $3
+echo "**** File saved to:" $3
+echo "**** Cleaning up"
+rm -f /tmp/$1.ps
+rm -f /tmp/$2.ps
+rm -f /tmp/$1.both.ps 

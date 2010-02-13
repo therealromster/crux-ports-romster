@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Share Perl variables between processes 
+# URL: http://search.cpan.org/~bsugars/IPC-Shareable-0.60/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-storable
+
+name=p5-ipc-shareable
+version=0.60
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BS/BSUGARS/IPC-Shareable-$version.tar.gz)
+
+build () {
+	cd IPC-Shareable-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

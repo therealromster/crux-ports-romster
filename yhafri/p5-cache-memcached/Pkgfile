@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to memcached 
+# URL: http://www.danga.com/memcached/apis.bml
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-string-crc32, memcached
+
+name=p5-cache-memcached
+version=1.21
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/B/BR/BRADFITZ/Cache-Memcached-$version.tar.gz)
+
+build () {
+	cd Cache-Memcached-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

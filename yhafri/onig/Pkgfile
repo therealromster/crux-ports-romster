@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Regular expressions library with different character encoding
+# URL: http://www.geocities.jp/kosako3/oniguruma/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=onig
+version=5.9.0
+release=1
+source=(http://www.geocities.jp/kosako3/oniguruma/archive/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

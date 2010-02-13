@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Quick Database Manager
+# URL: http://qdbm.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib
+
+name=qdbm
+version=1.8.75
+release=1
+source=(http://$name.sourceforge.net/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+                    --enable-devel \
+                    --disable-zlib \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

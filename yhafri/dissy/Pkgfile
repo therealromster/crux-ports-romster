@@ -1,0 +1,23 @@
+# $Id: $
+# Description: A a disassembler for Linux and UNIX which supports multiple architectures
+# URL: http://rtlab.tekproj.bth.se/wiki/index.php/Dissy
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, pygtk, binutils
+
+name=dissy
+version=2
+release=1
+source=(http://www.ipd.bth.se/ska/sim_home/filer/$name-$version.tar.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib
+
+	mv $name-$version $PKG/usr/lib/$name
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	rm -rf $PKG/usr/lib/$name/{COPYING,ChangeLog,MANIFEST,README,UPGRADE}
+
+	chown -R root:root $PKG
+}

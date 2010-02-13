@@ -1,0 +1,8 @@
+POST-INSTALL:
+		* Set the environment variables:
+
+	        export JAVA_HOME=/usr/lib/java
+		export ANT_HOME=/usr/lib/ant
+		export JONAS_ROOT=/usr/lib/jonas
+        	export PATH=$JAVA_HOME:/bin:$ANT_HOME/bin:$JONAS_ROOT/bin/unix:$PATH
+

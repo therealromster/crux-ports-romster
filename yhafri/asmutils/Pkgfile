@@ -1,0 +1,27 @@
+# $Id: $
+# Description: A set of miscellaneous utilities written in assembly language, targeted on embedded systems and small distributions
+# URL: http://asm.sourceforge.net//asmutils.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=asmutils
+version=0.18
+release=1
+source=(http://asm.sourceforge.net//$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd $name-$version
+	patch -p1<../$name-$version.patch
+
+	make
+	make install
+	
+	rm -rf ./lib/test*
+	mv bin/ lib $PKG/usr/lib/$name
+
+	chown -R root:root $PKG
+}

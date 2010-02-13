@@ -1,0 +1,12 @@
+--- zgrviewer/run.sh	2005-10-17 10:39:00.000000000 +0200
++++ zgrviewer/run.sh-new	2005-11-07 22:08:05.000000000 +0100
+@@ -4,6 +4,7 @@
+ # set ZGRV_HOME to the absolute path of ZGRViewer's main directory
+ # e.g. ZGRV_HOME=/usr/local/zgrviewer
+ 
+-ZGRV_HOME=.
+-
++export ZGRV_HOME=/usr/lib/zgrviewer
++(cd $ZGRV_HOME;
+ java -cp $ZGRV_HOME/lib/zvtm.jar:$ZGRV_HOME/lib/zgrviewer.jar:$ZGRV_HOME/lib/xercesImpl.jar:$ZGRV_HOME/lib/xml-apis.jar:$ZGRV_HOME/lib/antlr.jar net.claribole.zgrviewer.ZGRViewer "$@"
++)

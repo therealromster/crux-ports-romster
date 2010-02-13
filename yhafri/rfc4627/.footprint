@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/ebin/
+-rw-r--r--	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/ebin/mod_jsonrpc.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/ebin/rfc4627.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/include/
+-rw-r--r--	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/include/mod_jsonrpc.hrl
+-rw-r--r--	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/include/rfc4627.hrl
+drwxr-xr-x	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/src/
+-rw-r--r--	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/src/mod_jsonrpc.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/rfc4627-1.0.2/src/rfc4627.erl

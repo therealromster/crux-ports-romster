@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A library subroutines for reading and writing data files in FITS data format
+# URL: http://heasarc.gsfc.nasa.gov/fitsio/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Erlend Bergsås Mikkelsen <howl@online.no>
+# Depends on:
+
+name=cfitsio
+version=2490
+release=1
+source=(ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/$name$version.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/{lib,include}
+	cd $name
+	CFLAGS="$CFLAGS" ./configure --prefix=/usr
+	make
+	make shared
+	mv libcfitsio.a libcfitsio.so $PKG/usr/lib
+	mv *.h $PKG/usr/include
+	chown -R root:root $PKG
+}

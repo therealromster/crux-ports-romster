@@ -1,0 +1,25 @@
+# $Id: $
+# Description: The Erlang Twist on Web Framworks
+# URL: http://code.google.com/p/erlyweb/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, yaws, erlydb
+
+name=erlyweb
+version=1.0
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{ebin,src}
+
+	svn checkout http://$name.googlecode.com/svn/trunk/ $name
+	cd $name/src
+
+	erl -make
+
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv *      $PKG/usr/lib/erlang/lib/$name-$version/src
+
+        chown -R root:root $PKG/
+}

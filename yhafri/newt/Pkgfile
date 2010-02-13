@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Not Erik's Windowing Toolkit - console I/O handling library
+# URL: http://packages.debian.org/experimental/source/newt
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libslang2, popt
+
+name=newt
+version=0.52.2
+release=1
+source=(http://ftp.debian.org/debian/pool/main/n/newt/${name}_${version}.orig.tar.gz)
+
+build () {
+	cd $name-$version
+	tar xzvf $name-$version.tar.gz
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

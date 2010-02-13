@@ -1,0 +1,304 @@
+--- gperf-3.0.1.orig/src/positions.h
++++ gperf-3.0.1/src/positions.h
+@@ -28,6 +28,9 @@
+ 
+ /* This class denotes a set of byte positions, used to access a keyword.  */
+ 
++class PositionIterator;
++class PositionReverseIterator;
++
+ class Positions
+ {
+   friend class PositionIterator;
+--- gperf-3.0.1.orig/debian/dirs
++++ gperf-3.0.1/debian/dirs
+@@ -0,0 +1,3 @@
++usr/bin
++usr/share/man/man1
++usr/share/info
+--- gperf-3.0.1.orig/debian/docs
++++ gperf-3.0.1/debian/docs
+@@ -0,0 +1 @@
++NEWS README 
+--- gperf-3.0.1.orig/debian/info
++++ gperf-3.0.1/debian/info
+@@ -0,0 +1,15 @@
++# This is a configuration files for installing a .info menu
++# The Description to be placed into the directory
++DESCR="GNU perfect hash function generator"
++
++# The section this info file should be placed in (Regexp) followed by
++# the new section name to be created if the Regexp does not match
++# (Optional. If not given the .info will be appended to the directory)
++SECTION_MATCH="Development"
++#SECTION_NAME="New Section Name"
++
++# The file referred to from the Info directory
++FILE=gperf.info
++
++# Optional. The files to be copied to /usr/info
++#FILES=*.info
+--- gperf-3.0.1.orig/debian/control
++++ gperf-3.0.1/debian/control
+@@ -0,0 +1,18 @@
++Source: gperf
++Section: devel
++Priority: optional
++Maintainer: J.H.M. Dassen (Ray) <jdassen@debian.org>
++Standards-Version: 3.6.2
++Build-Depends: debhelper (>= 4), dh-buildinfo
++
++Package: gperf
++Architecture: any
++Depends: ${shlibs:Depends}
++Replaces: libg++272-dev, libg++27-dev
++Description: Perfect hash function generator
++ gperf is a program that generates perfect hash functions for sets of
++ key words.
++ .
++ A perfect hash function is simply: A hash function and a data structure
++ that allows recognition of a key word in a set of words using exactly 1
++ probe into the data structure.
+--- gperf-3.0.1.orig/debian/rules
++++ gperf-3.0.1/debian/rules
+@@ -0,0 +1,77 @@
++#!/usr/bin/make -f
++# Made with the aid of dh_make, by Craig Small
++# Sample debian/rules that uses debhelper. GNU copyright 1997 by Joey Hess.
++# Some lines taken from debmake, by Cristoph Lameter.
++
++SHELL+= -e
++
++# Uncomment this to turn on verbose mode.
++#export DH_VERBOSE=1
++
++# This is the debhelper compatability version to use.
++export DH_COMPAT=4
++
++build: build-stamp
++build-stamp:
++	dh_testdir
++
++	env CFLAGS="-O2 -g -Wall" CXXFLAGS="-O2 -g -Wall" \
++		./configure --prefix=/usr -v \
++		--mandir=/usr/share/man --infodir=/usr/share/info
++	make all check
++
++	touch build-stamp
++
++clean:
++	dh_testdir
++	dh_testroot
++	rm -f build-stamp
++
++	# Add here commands to clean up after the build process.
++	-$(MAKE) distclean
++	rm -f debug.output
++
++	dh_clean
++
++# Build architecture-independent files here.
++binary-indep: build
++# We have nothing to do by default.
++
++# Build architecture-dependent files here.
++binary-arch: build
++#	dh_testversion
++	dh_testdir
++	dh_testroot
++	dh_clean -k
++	dh_installdirs
++
++	# Add here commands to install the files into debian/tmp
++	$(MAKE) install INSTALL="install -p" \
++		prefix=`pwd`/debian/gperf/usr \
++		docdir=`pwd`/debian/gperf/usr/share/doc/gperf/ \
++		mandir=`pwd`/debian/gperf/usr/share/man \
++		infodir=`pwd`/debian/gperf/usr/share/info
++	rm -rf debian/gperf/usr/share/man/dvi
++	rm -rf debian/gperf/usr/share/man/html
++
++	dh_installdocs
++	dh_installexamples
++	dh_installmenu
++#	dh_installinit
++	dh_installcron
++	#dh_installmanpages
++#	dh_undocumented
++	dh_installchangelogs ChangeLog
++	dh_strip
++	dh_compress
++	dh_fixperms
++	dh_installdeb
++	dh_shlibdeps
++	dh_buildinfo
++	dh_gencontrol
++#	dh_makeshlibs
++	dh_md5sums
++	dh_builddeb
++
++binary: binary-indep binary-arch
++.PHONY: build clean binary-indep binary-arch binary
+--- gperf-3.0.1.orig/debian/changelog
++++ gperf-3.0.1/debian/changelog
+@@ -0,0 +1,119 @@
++gperf (3.0.1-2) unstable; urgency=high
++
++  * [src/positions.h] Applied a short patch provided by Daniel Schepler
++    <schepler@math.berkeley.edu> to fix a FTBFS with gcc-4.0. (Closes: #310439)
++  * [debian/rules] Switched to debhelper 4; removed transitional "source"
++    and "diff" targets.
++  * [debian/control] Updated debhelper build dependency; updated
++    Standards-Version.
++  * [debian/gperf.install] New.
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Fri, 15 Jul 2005 19:54:24 +0200
++
++gperf (3.0.1-1) unstable; urgency=low
++
++  * New upstream release.
++  * [debian/control] Updated Standards-Version.
++  * [debian/control, debian/rules] Use dh_buildinfo.
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Thu, 24 Jul 2003 22:32:22 +0200
++
++gperf (3.0-3) unstable; urgency=medium
++
++  * [src/input.cc] Applied patch from
++    http://sourceforge.net/mailarchive/forum.php?thread_id=2496914&forum_id=5994
++    to fix an invalid code generation issue. (Closes: #194967).
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Tue, 10 Jun 2003 15:09:43 +0200
++
++gperf (3.0-2) unstable; urgency=low
++
++  * [NEWS] Corrected the version number from 2.97 to 3.0 .
++  * [debian/copyright] Updated years, authors.
++  * [debian/gperf.doc-base] Also list Bruno Haible as author.
++  * [debian/control] Updated Standards-Version.
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Mon,  9 Jun 2003 21:37:21 +0200
++
++gperf (3.0-1) unstable; urgency=low
++
++  * New upstream release.
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Thu,  8 May 2003 21:54:55 +0200
++
++gperf (2.7.2-3) unstable; urgency=low
++
++  * Rebuild against current C++ libraries. (Closes: #190949)
++  * [debian/control] Removed full stop from synopsis. Fixes lintian warning.
++  * [debian/control] Updated Standards-Version.
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Sun, 27 Apr 2003 15:46:59 +0200
++
++gperf (2.7.2-2) unstable; urgency=low
++
++  * Corrected format of doc-base entry and added "Index:". Thanks Robert
++    Luberda <robert@debian.org>. (Closes: #149543)
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Mon, 10 Jun 2002 19:36:44 +0200
++
++gperf (2.7.2-1) unstable; urgency=low
++
++  * New upstream release. (Closes: #94117)
++  * Updated maintainer address.
++  * Updated packaging, Standards-Version; fixed issues reported by Lintian.
++    (Closes: #66905, #92395)
++  * Updated copyright info.
++
++ -- J.H.M. Dassen (Ray) <jdassen@debian.org>  Mon,  7 May 2001 20:53:56 +0200
++
++gperf (2.7-6) unstable; urgency=low
++
++  * FHS migration.
++
++ -- J.H.M. Dassen (Ray) <jdassen@wi.LeidenUniv.nl>  Sat, 11 Sep 1999 12:50:50 +0200
++
++gperf (2.7-5) unstable; urgency=low
++
++  * Recompile to update libstdc++ dependencies. 
++
++ -- J.H.M. Dassen (Ray) <jdassen@wi.LeidenUniv.nl>  Sat,  7 Aug 1999 13:30:36 +0200
++
++gperf (2.7-4) unstable; urgency=low
++
++  * Use doc-base.
++  * gperf is under the GPL version 1, so include the full license text
++    rather than refer to the GPL in the common licenses archive, as that's
++    version 2. (Fixes: bug #36032)
++  * Partial FHS migration (man and info).
++  * Reformatted description.
++  * Updated Standards-Version.
++
++ -- J.H.M. Dassen (Ray) <jdassen@wi.LeidenUniv.nl>  Sat, 17 Jul 1999 14:38:42 +0200
++
++gperf (2.7-3) unstable; urgency=low
++
++  * Applied 2.7-19981006 patch required for recent versions egcs, as found in
++    the "infrastructure" directory on egcs mirrors. Thanks to Matt McLean for
++    bringing it to my attention. 
++  * [tests/text-[1-5].exp] Updated for the changed internal version number.
++
++ -- J.H.M. Dassen (Ray) <jdassen@wi.LeidenUniv.nl>  Mon,  2 Nov 1998 20:03:38 +0100
++
++gperf (2.7-2) unstable; urgency=low
++
++  * Improved the manpage with information from the Texinfo documentation and 
++    the --help output. 
++  * Install c++.gperf, c-parse.gperf and c.gperf as example files.
++  * Recompiled with libstdc++2.9 .
++
++ -- J.H.M. Dassen (Ray) <jdassen@wi.LeidenUniv.nl>  Tue, 15 Sep 1998 17:24:13 +0200
++
++gperf (2.7-1) frozen unstable; urgency=low
++
++  * Initial Release. With the recent changes in libg++, gperf has been
++    split of into a separate upstream package.
++    Therefore Replaces: libg++272-dev, libg++27-dev
++  * gperf is needed to compile modutils, and should therefore go into
++    frozen.
++
++ -- J.H.M. Dassen (Ray) <jdassen@wi.LeidenUniv.nl>  Wed,  6 May 1998 15:58:11 +0200
+--- gperf-3.0.1.orig/debian/postinst
++++ gperf-3.0.1/debian/postinst
+@@ -0,0 +1,5 @@
++#! /bin/sh
++set -e
++
++install-info --quiet --section "Development" "Development" /usr/share/info/gperf.info
++#DEBHELPER#
+--- gperf-3.0.1.orig/debian/gperf.doc-base
++++ gperf-3.0.1/debian/gperf.doc-base
+@@ -0,0 +1,9 @@
++Document: gperf
++Title: User's Guide to gperf
++Author: Douglas C. Schmidt, Bruno Haible
++Abstract: GNU Perfect Hash Function Generator
++Section: Apps/Programming
++
++Format: info
++Index: /usr/share/info/gperf.info.gz
++Files: /usr/share/info/gperf.info.gz
+--- gperf-3.0.1.orig/debian/copyright
++++ gperf-3.0.1/debian/copyright
+@@ -0,0 +1,12 @@
++This package was debianized by J.H.M. Dassen (Ray) jdassen@debian.org on
++Wed,  6 May 1998 11:59:55 +0200.
++
++It was downloaded from ftp.gnu.org
++
++Copyright:
++   Copyright (C) 1989-1998, 2000, 2002-2003 Free Software Foundation, Inc.
++   Written by Douglas C. Schmidt <schmidt@ics.uci.edu>
++   and Bruno Haible <bruno@clisp.org>.
++
++GNU GPERF is copyrighted under the GNU General Public License, version 2.
++A copy of this license can be found in /usr/share/common-licenses/GPL.
+--- gperf-3.0.1.orig/debian/examples
++++ gperf-3.0.1/debian/examples
+@@ -0,0 +1,3 @@
++tests/c++.gperf
++tests/c-parse.gperf
++tests/c.gperf

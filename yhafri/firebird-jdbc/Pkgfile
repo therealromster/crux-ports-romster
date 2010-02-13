@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Firebird JDBC driver
+# URL: http://www.firebirdsql.org/index.php?op=devel&sub=jdbc&id=faq
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk, ant
+
+name=firebird-jdbc
+version=2.0.1
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/firebird/JayBird-${version}JDK_1.5.zip)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	install -D jaybird-$version.jar   $PKG/usr/lib/$name/jaybird-$version.jar
+	install -D libjaybird2.so         $PKG/usr/lib/libjaybird2.so
+
+	chown -R root:root $PKG
+}

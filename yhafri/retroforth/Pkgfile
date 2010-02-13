@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A lightweight and complete implementation of the Forth programming language
+# URL: http://www.retroforth.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: fasm
+
+name=retroforth
+version=9.2.10
+release=1
+source=(http://www.retroforth.org/get/source/$version-hosted-source.tar.gz)
+
+build () {
+	cd $version-hosted-source
+	chmod +x make-dict build
+
+	./build linux
+
+	install -D -m 755 bin/rf-linux $PKG/usr/bin//rf
+
+	chown -R root:root $PKG
+}

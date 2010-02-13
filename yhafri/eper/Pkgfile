@@ -1,0 +1,26 @@
+# $Id: $
+# Description: A set of tools for performance tuning and debugging Erlang code
+# URL: http://code.google.com/p/eper/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, erlang
+
+name=eper
+version=svn
+release=1
+source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib
+
+	svn co http://$name.googlecode.com/svn/trunk/ $name
+
+	cd $name
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+    	chown -R root:root $PKG
+}

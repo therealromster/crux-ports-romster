@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Supports scanning a list of addresses and networks for open proxies
+# URL: http://monkey.org/~provos/scanssh/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libevent, libpcap
+
+name=scanssh
+version=2.1
+release=1
+source=(http://monkey.org/~provos/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+
+       chown -R root:root $PKG
+}

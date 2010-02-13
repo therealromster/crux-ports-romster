@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module for the statistical t-test
+# URL: http://backpan.perl.org/authors/id/J/JO/JONO/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-statistics-table-t
+version=0.01
+release=1
+source=(http://backpan.perl.org/authors/id/J/JO/JONO/Statistics-Table-t-$version.tar.gz)
+
+build () {
+	cd Statistics/Table/t/
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

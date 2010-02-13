@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Ethernet diagnostic and tuning tool
+# URL: http://directory.fsf.org/All_Packages_in_Directory/ethtool.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=ethtool
+version=5
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/gkernel/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	chown -R root:root $PKG
+}

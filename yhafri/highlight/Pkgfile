@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A universal source code to HTML, XHTML, RTF, TeX, or LaTeX convertor
+# URL: http://www.andre-simon.de/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=highlight
+version=2.4.7
+release=1
+source=(http://www.andre-simon.de/zip/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+
+	chown -R root:root $PKG
+}

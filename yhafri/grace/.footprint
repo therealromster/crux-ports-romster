@@ -1,0 +1,61 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/convcal -> /usr/lib/grace/bin/convcal
+lrwxrwxrwx	root/root	usr/bin/grace -> /usr/lib/grace/bin/xmgrace-5.99.0
+lrwxrwxrwx	root/root	usr/bin/grconvert -> /usr/lib/grace/bin/grconvert
+lrwxrwxrwx	root/root	usr/bin/xmgrace -> /usr/lib/grace/bin/xmgrace-5.99.0
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/grace/
+drwxr-xr-x	root/root	usr/lib/grace/auxiliary/
+-rw-r--r--	root/root	usr/lib/grace/auxiliary/magic.grace
+drwxr-xr-x	root/root	usr/lib/grace/bin/
+-rwxr-xr-x	root/root	usr/lib/grace/bin/convcal
+lrwxrwxrwx	root/root	usr/lib/grace/bin/grace-5.99.0 -> xmgrace-5.99.0
+lrwxrwxrwx	root/root	usr/lib/grace/bin/gracebat-5.99.0 -> xmgrace-5.99.0
+-rwxr-xr-x	root/root	usr/lib/grace/bin/grconvert
+-rwxr-xr-x	root/root	usr/lib/grace/bin/xmgrace-5.99.0
+drwxr-xr-x	root/root	usr/lib/grace/fonts/
+-rw-r--r--	root/root	usr/lib/grace/fonts/FontDataBase
+drwxr-xr-x	root/root	usr/lib/grace/fonts/enc/
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/CP1251.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/IsoLatin1.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/IsoLatin2.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/IsoLatin7.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/IsoLatin9.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/KOI8-R.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/KOI8-U.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/MacRoman.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/PDFDoc.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/PSLatin1.enc
+-rw-r--r--	root/root	usr/lib/grace/fonts/enc/WinAnsi.enc
+drwxr-xr-x	root/root	usr/lib/grace/fonts/type1/
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/d050000l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/d050000l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019003l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019003l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019004l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019004l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019023l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019023l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019024l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n019024l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021003l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021003l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021004l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021004l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021023l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021023l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021024l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n021024l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022003l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022003l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022004l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022004l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022023l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022023l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022024l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/n022024l.pfb
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/s050000l.afm
+-rw-r--r--	root/root	usr/lib/grace/fonts/type1/s050000l.pfb
+drwxr-xr-x	root/root	usr/lib/grace/templates/
+-rw-r--r--	root/root	usr/lib/grace/templates/Default.xgr

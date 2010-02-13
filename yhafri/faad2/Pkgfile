@@ -1,0 +1,26 @@
+# $Id: $
+# Description: ISO AAC audio decoder
+# URL: http://www.audiocoding.com
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libsndfile, id3lib
+
+name=faad2
+#version=20040923
+version=20050513
+release=1
+source=(http://downloads.videolan.org/pub/videolan/vlc/0.8.5/contrib/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	touch INSTALL && chmod +x bootstrap && ./bootstrap
+
+	./configure --prefix=/usr
+
+	cd libfaad && make DESTDIR=$PKG install && cd ..
+	cd common  && make DESTDIR=$PKG install && cd ..
+
+	chown -R root:root $PKG
+}
+

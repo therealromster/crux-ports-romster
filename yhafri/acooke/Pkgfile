@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Erlang utilities
+# URL: https://acooke.dyndns.org:4443/repos/default/src/erlang/lib/trunk/README
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: subversion, erlang
+
+name=acooke
+version=svn
+release=1
+source=()
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	svn co https://$name.dyndns.org:4443/repos/default/src/erlang/lib/trunk $name
+
+	cd $name
+
+	erl -make
+	
+	mv *.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv *.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	
+	chown -R root:root $PKG
+}

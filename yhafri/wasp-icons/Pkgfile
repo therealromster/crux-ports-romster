@@ -1,0 +1,17 @@
+# $Id: $
+# Description: Wasp Icons for KDE
+# URL: http://www.kde-look.org/content/show.php?content=9763
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: sten <nick.steeves@shaw.ca>
+# Depends on: 
+
+name=wasp-icons
+version=2.6.1
+release=2
+source=(http://pyavitz.home.comcast.net/kde/Wasp.SVG.Icons-v$version.tar.bz2)
+
+build() {
+	mkdir -p $PKG/usr/share/icons
+	cp -r Wasp $PKG/usr/share/icons
+	rm -rf $PKG/usr/share/icons/Wasp/{LICENSE,README,extras}
+}

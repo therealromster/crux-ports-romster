@@ -1,0 +1,23 @@
+# $Id: $
+# Description: Split files into smaller pieces and combine them back together
+# URL: http://gtk-splitter.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: gtk, mhash
+
+name=gtk-splitter
+version=2.2.1
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/doc/
+
+	chown -R root:root $PKG
+}

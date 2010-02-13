@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Small C library to parse ID3 tags
+# URL: http://packages.debian.org/unstable/libs/libid3-3.8.3c2
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: zlib
+
+name=libid3
+version=3.8.3
+release=1
+source=(http://ftp.debian.org/debian/pool/main/i/id3lib3.8.3/id3lib${version}_${version}.orig.tar.gz)
+
+build () {
+	cd id3lib-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

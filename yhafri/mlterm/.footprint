@@ -1,0 +1,51 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mlcc
+-rwxr-xr-x	root/root	usr/bin/mlclient
+-rwsr-xr-x	root/root	usr/bin/mlterm
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/mlterm/
+-rw-r--r--	root/root	usr/etc/mlterm/aafont
+-rw-r--r--	root/root	usr/etc/mlterm/color
+-rw-r--r--	root/root	usr/etc/mlterm/font
+-rw-r--r--	root/root	usr/etc/mlterm/key
+-rw-r--r--	root/root	usr/etc/mlterm/main
+-rw-r--r--	root/root	usr/etc/mlterm/menu
+-rw-r--r--	root/root	usr/etc/mlterm/taafont
+-rw-r--r--	root/root	usr/etc/mlterm/termcap
+-rw-r--r--	root/root	usr/etc/mlterm/tfont
+-rw-r--r--	root/root	usr/etc/mlterm/vaafont
+-rw-r--r--	root/root	usr/etc/mlterm/vfont
+-rw-r--r--	root/root	usr/etc/mlterm/xim
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libkik.la
+lrwxrwxrwx	root/root	usr/lib/libkik.so -> libkik.so.10.0.0
+lrwxrwxrwx	root/root	usr/lib/libkik.so.10 -> libkik.so.10.0.0
+-rwxr-xr-x	root/root	usr/lib/libkik.so.10.0.0
+-rwxr-xr-x	root/root	usr/lib/libmkf.la
+lrwxrwxrwx	root/root	usr/lib/libmkf.so -> libmkf.so.13.0.0
+lrwxrwxrwx	root/root	usr/lib/libmkf.so.13 -> libmkf.so.13.0.0
+-rwxr-xr-x	root/root	usr/lib/libmkf.so.13.0.0
+drwxr-xr-x	root/root	usr/lib/mlterm/
+-rwxr-xr-x	root/root	usr/lib/mlterm/libathena.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libathena.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/libim-kbd.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libim-kbd.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/libim-m17nlib.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libim-m17nlib.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/libmotif.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libmotif.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/libmozmodern.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libmozmodern.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/libnext.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libnext.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/libsample.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libsample.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/libsample2.la
+-rwxr-xr-x	root/root	usr/lib/mlterm/libsample2.so
+-rwxr-xr-x	root/root	usr/lib/mlterm/mlconfig
+-rwxr-xr-x	root/root	usr/lib/mlterm/mlterm-menu
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mlclient.1.gz
+-rw-r--r--	root/root	usr/man/man1/mlterm.1.gz

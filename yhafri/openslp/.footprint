@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/slp.conf
+-rw-r--r--	root/root	etc/slp.reg
+-rw-r--r--	root/root	etc/slp.spi
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/slptool
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/slp.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libslp.a
+-rwxr-xr-x	root/root	usr/lib/libslp.la
+lrwxrwxrwx	root/root	usr/lib/libslp.so -> libslp.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libslp.so.1 -> libslp.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libslp.so.1.0.0
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/slpd

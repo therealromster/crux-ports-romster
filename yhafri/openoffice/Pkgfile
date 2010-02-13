@@ -1,0 +1,40 @@
+# $Id: $
+# Description: A full featured cross platform office suite (binary)
+# URL: http://www.openoffice.org
+# Packager: Simone Rota <sip@varlock.com>
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:  x11
+
+name=openoffice
+version=2.3.0
+release=1
+source=(ftp://ftp.snt.utwente.nl/pub/software/openoffice/stable/$version/OOo_${version}_LinuxIntel_install_en-US.tar.gz \
+	openoffice_desktop.tar.gz)
+
+build()
+{
+    	# Make Buddy Lindsey happy.
+    	mv usr $PKG
+
+    	cd */RPMS
+    	rpm2targz openoffice.org-*.i586.rpm
+    	for i in *.tar.gz; do
+		tar xzf $i -C $PKG
+    	done
+    
+	install -d $PKG/usr/lib/
+    	mv $PKG/opt/openoffice.org* $PKG/usr/lib/$name
+    	rm -f $PKG/usr/lib/$name/[A-Z]*
+    	rm -rf $PKG/usr/lib/openoffice/share/template/en-US/wizard/letter/
+    
+	# Make Jay Dolan happy.
+    	install -d $PKG/usr/bin/
+    	for i in sbase scalc sdraw simpress smath soffice spadmin swriter; do
+		ln -s /usr/lib/$name/program/$i $PKG/usr/bin/$i
+    	done
+    
+	chown -R root:root $PKG
+    
+	find $PKG -name '*README*' -delete
+    	find $PKG -type d -empty -print0 |xargs -0 rmdir -p ||:
+}

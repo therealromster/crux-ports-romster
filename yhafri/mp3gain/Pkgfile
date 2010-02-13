@@ -1,0 +1,15 @@
+# Description: analyzes and adjusts whole mp3 files so that they have the same volume
+# URL: http://mp3gain.sourceforge.net/
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=mp3gain
+version=1_4_5
+release=1
+source=(http://switch.dl.sourceforge.net/sourceforge/$name/$name-$version-src.zip)
+
+build() {
+    make
+	install -m 755 -D mp3gain $PKG/usr/bin/mp3gain
+}

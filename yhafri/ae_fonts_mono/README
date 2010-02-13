@@ -1,0 +1,10 @@
+POST-INSTALL:
+        
+		* Check if you've this line in your /etc/X11/xorg.conf:
+		FontPath     "/usr/X11R6/lib/X11/fonts/misc/"
+
+                * Finish the install process by typing :
+                sh postinstall
+
+LINK:
+		http://www.arabeyes.org/project.php?proj=Khotot

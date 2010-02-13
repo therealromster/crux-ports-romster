@@ -1,0 +1,13 @@
+POST-INSTALL:
+
+
+			* Add '/usr/lib/eclipse/bin/i386_linux' dir to your $PATH variable:
+			export ECLIPSE_HOME=/usr/lib/eclipse
+			export PATH=$ECLIPSE_HOME/bin/i386_linux:$PATH
+
+
+			* To enable "Eclipse mode" under Emacs editor, add this to your ".emacs":
+(autoload 'eclipse-mode "eclipse.el" "ECLIPSE editing mode" t)
+(setq auto-mode-alist (cons '("\\.pl" . eclipse-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.ecl" . eclipse-mode) auto-mode-alist))
+

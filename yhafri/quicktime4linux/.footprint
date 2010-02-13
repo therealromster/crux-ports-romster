@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dechunk
+-rwxr-xr-x	root/root	usr/bin/make_streamable
+-rwxr-xr-x	root/root	usr/bin/qtdump
+-rwxr-xr-x	root/root	usr/bin/qtinfo
+-rwxr-xr-x	root/root	usr/bin/rechunk
+-rwxr-xr-x	root/root	usr/bin/recover
+-rwxr-xr-x	root/root	usr/bin/yuv4toyuv
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libquicktime.a

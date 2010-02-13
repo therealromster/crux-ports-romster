@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A heavily patched version of Xorg's transset
+# URL: http://forchheimer.se/transset-df/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: xbindkeys, xcompmgr
+
+name=transset-df
+version=5
+release=1
+source=(http://forchheimer.se/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+
+	make
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/X11R6/bin/$name
+	chown -R root:root $PKG
+}

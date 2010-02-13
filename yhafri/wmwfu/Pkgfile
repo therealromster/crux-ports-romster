@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A dockapp that checks remote hosts activity
+# URL: http://www.dockapps.org/file.php/id/51
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=wmwfu
+version=1.2
+release=1
+source=(http://www.dockapps.org/download.php/id/82/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name-$version/$name
+	patch -p2< ../../$name-$version.patch
+        make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+
+        chown -R root:root $PKG
+}

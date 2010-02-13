@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl I/O on in-core objects like strings and arrays
+# URL: http://search.cpan.org/~eryq/IO-stringy-2.109/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-io-stringy
+version=2.110
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DS/DSKOLL/IO-stringy-$version.tar.gz)
+
+build () {
+	cd IO-stringy-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

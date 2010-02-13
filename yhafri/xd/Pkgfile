@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Extended Dump and Load Utility
+# URL: http://www.fourmilab.ch/xd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=xd
+version=1
+release=1
+source=(http://www.fourmilab.ch/$name/$name.zip)
+
+build () {
+	make
+
+	install -D -m 755 $name   $PKG/usr/bin/$name
+	install -D -m 644 $name.1 $PKG/usr/man/man1/$name.1
+
+	chown -R root:root $PKG
+}

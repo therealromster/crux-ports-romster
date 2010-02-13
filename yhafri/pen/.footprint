@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mergelogs
+-rwxr-xr-x	root/root	usr/bin/pen
+-rwxr-xr-x	root/root	usr/bin/penctl
+-rwxr-xr-x	root/root	usr/bin/penlog
+-rwxr-xr-x	root/root	usr/bin/penlogd
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mergelogs.1.gz
+-rw-r--r--	root/root	usr/man/man1/pen.1.gz
+-rw-r--r--	root/root	usr/man/man1/penctl.1.gz
+-rw-r--r--	root/root	usr/man/man1/penlog.1.gz
+-rw-r--r--	root/root	usr/man/man1/penlogd.1.gz

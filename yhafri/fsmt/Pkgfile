@@ -1,0 +1,30 @@
+# $Id: $
+# Description: AT&T Finite-State Machine Library
+# URL: http://www.research.att.com/sw/tools/fsm/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=fsmt
+version=4.0
+release=1
+source=(http://akpublic.research.att.com/tmp/reuse/pkgBAAa0Dhy-/fsm-4_0.linux.i386.tar.gz)
+
+build () {
+	install -d $PKG/usr/bin
+	install -d $PKG/usr/man/{man1,man3,man5}
+
+	cd fsm-$version
+
+	mv bin/* $PKG/usr/bin
+	for i in doc/*;
+	do
+		gzip $i
+	done
+
+	mv doc/*.1.gz $PKG/usr/man/man1	   	
+	mv doc/*.3.gz $PKG/usr/man/man3	   	
+	mv doc/*.5.gz $PKG/usr/man/man5	   	
+	
+	chown -R root:root $PKG
+}

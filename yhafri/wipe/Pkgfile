@@ -1,0 +1,18 @@
+# $Id: $
+# Description: A UNIX tool for secure deletion
+# URL: http://abaababa.ouvaton.org/wipe/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=wipe
+version=0.20
+release=1
+source=(http://abaababa.ouvaton.org/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	make linux
+	install -D -m 755 -o root -g root $name $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

@@ -1,0 +1,33 @@
+# $Id: $
+# Description: Heritrix is the Internet Archive's open-source web crawler
+# URL: http://crawler.archive.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=heritrix
+version=1.12.1
+release=2
+source=(http://ovh.dl.sourceforge.net/sourceforge/archive-crawler/$name-$version.tar.gz \
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	mkdir -p $PKG/etc/rc.d
+	mkdir -p $PKG/tmp/$name/jobs
+
+	chmod 755 $name-$version/bin/*
+
+	sed -i "s/jobsdir.*/jobsdir = \/tmp\/heritrix\/jobs/" $name-$version/conf/heritrix.properties
+
+	mv $name-$version $PKG/usr/lib/
+
+	rm -rf $PKG/usr/lib/$name-$version/docs/
+	rm -rf $PKG/usr/lib/$name-$version/{LICENSE,README}.txt	
+
+	sed -i "s|VERSION|$version|" heritrix
+	install -D -m 755 $name $PKG/etc/rc.d/$name
+
+	chown -R root:root $PKG
+	chmod 1777 $PKG/tmp/
+}

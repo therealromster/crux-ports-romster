@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Perl class for coroutine process abstraction 
+# URL: http://search.cpan.org/~mlehmann/Coro-1.0a/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-event, p5-ev
+
+name=p5-coro
+version=4.2
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/Coro-${version}.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd Coro-$version
+	patch -p1<../$name-$version.patch
+	echo "y" | perl Makefile.PL
+	make
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

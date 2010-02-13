@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perform diffs on files and record sets 
+# URL: http://search.cpan.org/~rbs/Text-Diff-0.35/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-text-diff
+version=0.35
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RB/RBS/Text-Diff-$version.tar.gz)
+
+build () {
+	cd Text-Diff-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

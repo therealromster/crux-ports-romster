@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ocaml/
+drwxr-xr-x	root/root	usr/lib/ocaml/curl/
+-rw-r--r--	root/root	usr/lib/ocaml/curl/curl.a
+-rw-r--r--	root/root	usr/lib/ocaml/curl/curl.cma
+-rw-r--r--	root/root	usr/lib/ocaml/curl/curl.cmi
+-rw-r--r--	root/root	usr/lib/ocaml/curl/curl.cmxa
+-rw-r--r--	root/root	usr/lib/ocaml/curl/curl.mli
+-rw-r--r--	root/root	usr/lib/ocaml/curl/libcurl-helper.a

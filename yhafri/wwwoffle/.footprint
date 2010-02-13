@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/wwwoffle
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-fsck -> wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-gunzip -> wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-gzip -> wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-hash -> wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-ls -> wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-mv -> wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-read -> wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-rm -> wwwoffle-tools
+-rwxr-xr-x	root/root	usr/bin/wwwoffle-tools
+lrwxrwxrwx	root/root	usr/bin/wwwoffle-write -> wwwoffle-tools
+drwxr-xr-x	root/root	usr/doc/
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/wwwoffle.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/wwwoffle.conf.5.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/wwwoffled.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/wwwoffled

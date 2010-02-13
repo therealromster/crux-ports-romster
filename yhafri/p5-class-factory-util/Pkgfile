@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Provide utility methods for factory classes 
+# URL: http://search.cpan.org/~drolsky/Class-Factory-Util-1.6/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-class-factory-util
+version=1.6
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Class-Factory-Util-$version.tar.gz)
+
+build () {
+	cd Class-Factory-Util-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

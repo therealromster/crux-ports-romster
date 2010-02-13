@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Leader election behaviour in Erlang
+# URL: http://svn.ulf.wiger.net/gproc/patches/gen_leader/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=gen_leader
+version=svn
+release=1
+source=($name.erl)
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+	
+	erl -make
+
+	mv $name.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	mv $name.erl  $PKG/usr/lib/erlang/lib/$name-$version/src
+
+	chown -R root:root $PKG
+}

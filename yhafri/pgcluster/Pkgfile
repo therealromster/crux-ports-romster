@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Synchronous replication system of the multi-master composition for PostgreSQL
+# URL: http://pgfoundry.org/projects/pgcluster
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: postgresql
+
+name=pgcluster
+version=1.5.0rc9
+release=1
+source=(http://pgfoundry.org/frs/download.php/1122/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+
+	rm -rf $PKG/usr/doc/
+
+	chown -R root:root $PKG
+}

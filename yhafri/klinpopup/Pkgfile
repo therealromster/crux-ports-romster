@@ -1,0 +1,20 @@
+# Description: a small program to send and receive winpopup messages via samba like "net send"
+# URL: http://www.gerdfleischer.de/klinpopup.php
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=klinpopup
+version=0.3.3
+release=1
+source=(http://www.gerdfleischer.de/klinpopup/src/klinpopup-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+                --disable-debug
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/locale
+    rm -rf $PKG/usr/share/doc
+}

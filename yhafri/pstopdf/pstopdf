@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+if [ $# -lt 1 ]; then
+
+    echo "Usage: $0 file1.ps file2.ps ..."
+    echo
+    echo "Ex.  : $ $0 somewhere/*.ps"
+    echo "       Enter the file output name: /tmp/my_file.pdf"
+    echo "       PS files are converted and concatenated in one file: /tmp/my_file.pdf"
+    exit 1
+fi
+
+echo -n "Enter the file output name: "
+read on
+
+gs -sPAPERSIZE=a4 -dPDFA -dBATCH -dNOPAUSE -dNOOUTERSAVE -dUseCIEColor \
+        -sDEVICE=pdfwrite -sOutputFile=$on $@ &>/dev/null
+
+echo "PDF files are concatenated in one file: $on"

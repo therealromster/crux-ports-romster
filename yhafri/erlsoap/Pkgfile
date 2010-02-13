@@ -1,0 +1,32 @@
+# $Id: $
+# Description: Erlang interface to SOAP protocol
+# URL: http://forum.trapexit.org/viewtopic.php?p=21614
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, ibrowse
+
+name=erlsoap
+version=0.4.3
+release=1
+
+# source from: http://forum.trapexit.org/viewtopic.php?t=6331
+# patch  from: http://forum.trapexit.org/viewtopic.php?p=21672#21672
+ 
+source=($name-$version.zip \
+	soapclient.erl)
+
+
+build () {
+        mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin}
+
+	cd $name-$version
+	rm -rf ebin/*.beam
+	cp $SRC/soapclient.erl src/
+
+	(cd src; erl -make; mv *.beam ../ebin)
+
+	mv src/*       $PKG/usr/lib/erlang/lib/$name-$version/src
+	mv ebin/*.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+	
+	chown -R root:root $PKG
+}

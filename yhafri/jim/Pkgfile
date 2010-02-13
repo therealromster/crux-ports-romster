@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A small footprint implementation of the Tcl programming language
+# URL: http://jim.berlios.de/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+#sdl_gfx
+
+name=jim
+version=1
+release=1
+source=(http://www.hping.org/$name/$name-hourly.tar.gz)
+
+build () {
+	cd $name
+
+	make jim
+	make eventloop
+	make aio
+	make posix
+	#make sdl
+	#make readline
+
+	strip $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+	install -D -m 755 $name-aio-1.0.so       $PKG/usr/lib/$name-aio-1.0.so
+	install -D -m 755 $name-eventloop-1.0.so $PKG/usr/lib/$name-eventloop-1.0.so
+	install -D -m 755 $name-posix-1.0.so     $PKG/usr/lib/$name-posix-1.0.so
+
+	chown -R root:root $PKG
+}

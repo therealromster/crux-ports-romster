@@ -1,0 +1,19 @@
+# $Id: $
+# Description: A compact, single file executable containing Tcl, Tk, IncrTcl, Metakit
+# URL: http://www.equi4.com/tclkit.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=tclkit
+version=8.5a4
+release=1
+source=(http://www.equi4.com/pub/tk/$version/$name-linux-x86.gz)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	gunzip $name-linux-x86.gz
+	mv $name-linux-x86 $name
+	install -D -m 755 $name $PKG/usr/bin/$name
+        chown -R root:root $PKG
+}

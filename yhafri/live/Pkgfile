@@ -1,0 +1,30 @@
+# $Id: $
+# Description: C++ libraries for multimedia streaming (RTP/RTCP, RTSP, SIP)
+# URL: http://www.live555.com/liveMedia/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=live
+version=1
+release=1
+source=(http://www.live555.com/liveMedia/public/${name}555-latest.tar.gz)
+
+build () {
+	mkdir -p $PKG/usr/lib
+	cd $name 
+	
+	./genMakefiles linux
+
+	make COMPILE_OPTS="-I. -O -DSOCKLEN_T=socklen_t -I../liveMedia/include -I../groupsock/include -I../UsageEnvironment/include -I.././BasicUsageEnvironment/include"
+
+    	cd ..
+    	cp -rf $name $PKG/usr/lib
+
+    	rm -rf $PKG/usr/lib/$name/{README,COPYING,Makefile*,config*,gen*}
+    	find $PKG -iname "*.cpp"      -type "f" | xargs rm -rf
+    	find $PKG -iname "COPYING"    -type "f" | xargs rm -rf
+    	find $PKG -iname "Makefile*"  -type "f" | xargs rm -rf
+
+    	chown -R root:root $PKG
+}

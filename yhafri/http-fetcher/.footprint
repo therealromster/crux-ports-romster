@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/http_error_codes.h
+-rw-r--r--	root/root	usr/include/http_fetcher.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libhttp_fetcher.a
+-rwxr-xr-x	root/root	usr/lib/libhttp_fetcher.la
+lrwxrwxrwx	root/root	usr/lib/libhttp_fetcher.so -> libhttp_fetcher.so.1.1.0
+lrwxrwxrwx	root/root	usr/lib/libhttp_fetcher.so.1 -> libhttp_fetcher.so.1.1.0
+-rwxr-xr-x	root/root	usr/lib/libhttp_fetcher.so.1.1.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-rw-r--r--	root/root	usr/man/man3/http_fetch.3.gz
+-rw-r--r--	root/root	usr/man/man3/http_parseFilename.3.gz
+-rw-r--r--	root/root	usr/man/man3/http_perror.3.gz
+-rw-r--r--	root/root	usr/man/man3/http_setRedirects.3.gz
+-rw-r--r--	root/root	usr/man/man3/http_setReferer.3.gz
+-rw-r--r--	root/root	usr/man/man3/http_setTimeout.3.gz
+-rw-r--r--	root/root	usr/man/man3/http_setUserAgent.3.gz
+-rw-r--r--	root/root	usr/man/man3/http_strerror.3.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/http-fetcher.m4

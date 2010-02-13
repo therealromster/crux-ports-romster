@@ -1,0 +1,27 @@
+#!/bin/sh
+
+
+set -e
+
+if [ $# != 1 ];
+then
+	echo "Convert an HTML document to a PDF"
+	echo "Usage: $0 filename.html"
+	echo "This will convert 'filename.html' to 'filename.pdf'"
+	exit 1
+fi
+
+if [ ! -f "$1" ];
+then
+        echo "Error: $1 isn't a valid HTML file"
+        exit 1
+fi
+
+input=$1
+ext=${input##*.}
+
+output=`echo "$1" | sed -e "s|$ext|pdf|"`
+
+converter="/usr/bin/htmldoc"
+$converter --quiet --compression=9 --no-toc --pagemode document --textfont arial --fontsize 8 \
+	--header ... --footer ...  --size a4 --left 1.5cm --right 1.5cm --fontspacing 2 --webpage -f $output $1

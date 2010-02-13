@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/netarchive/
+drwxr-xr-x	root/root	usr/lib/netarchive/dk/
+drwxr-xr-x	root/root	usr/lib/netarchive/dk/netarkivet/
+drwxr-xr-x	root/root	usr/lib/netarchive/dk/netarkivet/ArcUtils/
+-rw-r--r--	root/root	usr/lib/netarchive/dk/netarkivet/ArcUtils/ARCFileOutput.class
+-rw-r--r--	root/root	usr/lib/netarchive/dk/netarkivet/ArcUtils/ARCInputStream.class
+-rw-r--r--	root/root	usr/lib/netarchive/dk/netarkivet/ArcUtils/BinSearch.class
+-rw-r--r--	root/root	usr/lib/netarchive/dk/netarkivet/ArcUtils/ExtractCDX.class
+-rw-r--r--	root/root	usr/lib/netarchive/dk/netarkivet/ArcUtils/GetPage.class
+-rw-r--r--	root/root	usr/lib/netarchive/dk/netarkivet/ArcUtils/GetPage2.class

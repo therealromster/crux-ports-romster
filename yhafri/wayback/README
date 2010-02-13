@@ -1,0 +1,39 @@
+POST-INSTALL:
+
+		* Add pointer to your wayback install:
+		export WAYBACK_HOME=/usr/lib/wayback
+
+		* Make sure that JAVA_HOME is set to the location of your JDK, eg.:
+		 export JAVA_HOME=/usr/lib/java
+
+		* By default, the wayback.war file is configured to operate 
+		in Archival URL mode. It can be installed by simply placing 
+		the wayback.war file into Tomcat's webapps/ directory.
+
+		$ export TOMCAT_HOME=/usr/lib/tomcat
+		$ mv /usr/lib/wayback/webapp/wayback.war $TOMCAT_HOME/webapps/
+
+		If you need to run the Wayback Machine application in a 
+		context path besides wayback, you will need to rename the 
+		wayback.war file to CONTEXT.war before placing it in the 
+		webapps/ directory. When Tomcat deploys the webapp, it will 
+		be accessible via CONTEXT/. 
+
+		$ export TOMCAT_HOME=/usr/lib/tomcat
+		$ mv /usr/lib/wayback/webapp/wayback.war $TOMCAT_HOME/webapps/CONTEXT.war
+
+		Running the Wayback Machine in proxy mode requires the webapp 
+		to run as the ROOT context, so you will need to rename wayback.war 
+		to ROOT.war before placing it in the webapps/ directory. If you 
+		have another ROOT webapp installed, you might want to move it out 
+		of the way before putting the ROOT.war (which was originally 
+		wayback.war) into place, but this is not required. If you do not 
+		move the old ROOT/ (and possibly the old ROOT.war) out of the way, 
+		they may be overwritten when Tomcat deploys the new ROOT webapp.
+
+		$ export TOMCAT_HOME=/usr/lib/tomcat
+		$ mv /usr/lib/wayback/webapp/wayback.war $TOMCAT_HOME/webapps/ROOT.war
+
+
+		See manual for futrher settings at:
+		http://archive-access.sourceforge.net/projects/wayback/user_manual.html

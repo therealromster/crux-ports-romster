@@ -1,0 +1,26 @@
+# $Id: $
+# Description: Erlang interface to posix regular expressions
+# URL: http://yaws.hyber.org/download/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang
+
+name=posregex
+version=1.0
+release=1
+source=(http://yaws.hyber.org/download/$name-$version.tgz)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/{src,ebin,priv}
+
+	cd $name
+
+	make
+
+	rm -rf src/Makefile
+        mv ebin/*.beam $PKG/usr/lib/erlang/lib/$name-$version/ebin
+        mv src/*       $PKG/usr/lib/erlang/lib/$name-$version/src
+        mv priv/*      $PKG/usr/lib/erlang/lib/$name-$version/priv
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,22 @@
+# $Id: $
+# Description: A lexical analyser generator for Haskell 
+# URL: http://www.haskell.org/alex/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ghc
+
+name=alex
+version=2.0.1
+release=1
+source=(http://www.haskell.org/$name/dist/$name-$version-src.tar.gz)
+
+build () {
+	cd $name-$version
+
+	GHC=/usr/bin/ghc ./configure --prefix=/usr
+
+	make 
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

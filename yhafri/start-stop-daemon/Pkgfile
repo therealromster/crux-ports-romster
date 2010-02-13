@@ -1,0 +1,21 @@
+# $Id: $
+# Description: Rewrite of the start stop daemon Perl script in C 
+# URL: http://www.koders.com/c/fid3ADAC80CB671F5EF100C7F7D63AFB1470A9C436B.aspx
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=start-stop-daemon
+version=1.9.18
+release=1
+source=($name.c)
+
+build () {
+	gcc $CFLAGS -o $name $name.c
+
+	strip $name
+
+	install -D -m 755 $name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

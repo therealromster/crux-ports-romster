@@ -1,0 +1,29 @@
+# $Id: $
+# Description: 2D platform-independent graphics library
+# URL: http://www.tecgraf.puc-rio.br/cd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: freetype
+
+name=cd
+version=4.4
+release=1
+source=(http://luaforge.net/frs/download.php/1305/${name}${version}_Linux26g4.tar.gz)
+#source=()
+
+build () {
+	mkdir -p $PKG/usr/lib/$name/{lib,include}
+
+        #cvs -z3 -d:pserver:anonymous@cvs.luaforge.net:/cvsroot/${name}lib co $name
+ 
+	rm -rf $name/include/CVS
+	rm -rf $name/lib/Linux26/CVS
+
+	mv $name/include/* $PKG/usr/lib/$name/include 
+	chmod +r $PKG/usr/lib/$name/include/*
+
+	mv $name/lib/Linux26*/*  $PKG/usr/lib/$name/lib
+	chmod +x $PKG/usr/lib/$name/lib/*
+
+	chown -R root:root $PKG
+}

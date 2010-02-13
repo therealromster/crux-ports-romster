@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl interface to libiconv
+# URL: http://search.cpan.org/~mpiotr/Text-Iconv-1.4/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: libiconv
+
+name=p5-text-iconv
+version=1.4
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MP/MPIOTR/Text-Iconv-$version.tar.gz)
+
+build () {
+	cd Text-Iconv-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

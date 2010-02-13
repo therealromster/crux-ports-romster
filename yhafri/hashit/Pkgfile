@@ -1,0 +1,25 @@
+# $Id: $
+# Description: Generic hash library implemented in C which supports multiple collision handling methods
+# URL: http://www.pleyades.net/david/hashit.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=hashit
+version=0.9.4
+release=1
+source=(http://www.pleyades.net/david/projects/$name/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+
+	(./0)
+	make
+
+	install -D -m 644 src/$name.h         $PKG/usr/include/$name.h
+	install -D -m 744 src/lib$name.so.1.0 $PKG/usr/lib/lib$name.so.1.0
+	cd $PKG/usr/lib
+	ln -sf lib$name.so.1.0 lib$name.so
+
+	chown -R root:root $PKG
+}

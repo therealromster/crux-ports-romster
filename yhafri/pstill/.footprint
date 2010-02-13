@@ -1,0 +1,123 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/pstill
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/pstill/
+drwxrwxr-x	root/root	usr/lib/pstill/PSFonts/
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Bold
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Bold.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Bold.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-BoldItalic
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-BoldItalic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-BoldItalic.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Italic
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Italic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Italic.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Roman
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Roman.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/CharterBT-Roman.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Courier -> /usr/X11R6/lib/X11/fonts/Type1/cour.pfa
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Courier-Bold -> /usr/X11R6/lib/X11/fonts/Type1/courb.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier-Bold.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier-Bold.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Courier-BoldItalic -> /usr/X11R6/lib/X11/fonts/Type1/courbi.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier-BoldItalic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier-BoldItalic.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Courier-Italic -> /usr/X11R6/lib/X11/fonts/Type1/couri.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier-Italic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier-Italic.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Bold
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Bold.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Bold.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-BoldItalic
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-BoldItalic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-BoldItalic.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Italic
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Italic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Italic.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Roman
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Roman.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Courier10PitchBT-Roman.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Cursor -> /usr/X11R6/lib/X11/fonts/Type1/cursor.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Cursor.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Cursor.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiMono -> /usr/X11R6/lib/X11/fonts/Type1/l047013t.pfa
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiMono-Bold -> /usr/X11R6/lib/X11/fonts/Type1/l047016t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono-Bold.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono-Bold.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiMono-BoldOblique -> /usr/X11R6/lib/X11/fonts/Type1/l047036t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono-BoldOblique.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono-BoldOblique.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiMono-Oblique -> /usr/X11R6/lib/X11/fonts/Type1/l047033t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono-Oblique.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono-Oblique.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiMono.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSans -> /usr/X11R6/lib/X11/fonts/Type1/l048013t.pfa
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSans-Bold -> /usr/X11R6/lib/X11/fonts/Type1/l048016t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans-Bold.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans-Bold.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSans-BoldOblique -> /usr/X11R6/lib/X11/fonts/Type1/l048036t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans-BoldOblique.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans-BoldOblique.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSans-Oblique -> /usr/X11R6/lib/X11/fonts/Type1/l048033t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans-Oblique.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans-Oblique.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSans.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSerif -> /usr/X11R6/lib/X11/fonts/Type1/l049013t.pfa
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSerif-Bold -> /usr/X11R6/lib/X11/fonts/Type1/l049016t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif-Bold.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif-Bold.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSerif-BoldOblique -> /usr/X11R6/lib/X11/fonts/Type1/l049036t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif-BoldOblique.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif-BoldOblique.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/LuxiSerif-Oblique -> /usr/X11R6/lib/X11/fonts/Type1/l049033t.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif-Oblique.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif-Oblique.widths
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/LuxiSerif.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Utopia-Bold -> /usr/X11R6/lib/X11/fonts/Type1/UTB_____.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-Bold.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-Bold.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Utopia-BoldItalic -> /usr/X11R6/lib/X11/fonts/Type1/UTBI____.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-BoldItalic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-BoldItalic.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Utopia-Italic -> /usr/X11R6/lib/X11/fonts/Type1/UTI_____.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-Italic.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-Italic.widths
+lrwxrwxrwx	root/root	usr/lib/pstill/PSFonts/Utopia-Regular -> /usr/X11R6/lib/X11/fonts/Type1/UTRG____.pfa
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-Regular.metrics
+-rw-r--r--	root/root	usr/lib/pstill/PSFonts/Utopia-Regular.widths
+-rw-rw-r--	root/root	usr/lib/pstill/annots.sl
+drwxrwxr-x	root/root	usr/lib/pstill/controls/
+-rw-r--r--	root/root	usr/lib/pstill/controls/FILL-on-1-letter.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/JAVASCRIPT-expireDoc_example.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/NUP-2-on-1-double.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/NUP-2-on-1.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/NUP-4-on-1.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/NUP-8-on-1.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/NUP-booklet-4-on-1.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/OUTLINES-add_some.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/POSTER-4x-tiled-Letter.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/POSTER-A1-tiled-A4.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/POSTER-tiled-A4.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/POSTER-tiled-Letter.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/SCALE-to-a2.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/SCALE-to-a3.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/SCALE-to-a4.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/SCALE-to-letter.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/SETINFO_fields.sl
+-rw-r--r--	root/root	usr/lib/pstill/controls/STAMP-addPageNum.sl
+-rw-rw-r--	root/root	usr/lib/pstill/controls/USING_CONTROL_SCRIPTS.txt
+-rw-r--r--	root/root	usr/lib/pstill/fontsub.table
+-rw-rw-r--	root/root	usr/lib/pstill/fontsub_gsfonts.table
+-rw-rw-r--	root/root	usr/lib/pstill/init.still
+-rwxrwxr-x	root/root	usr/lib/pstill/linkAllFonts.sh
+-rwxrwxr-x	root/root	usr/lib/pstill/pstill
+-rw-rw-r--	root/root	usr/lib/pstill/registration.html
+-rw-rw-r--	root/root	usr/lib/pstill/testfile.ps
+drwxrwxr-x	root/root	usr/lib/pstill/utils+helpers/
+-rwxrwxr-x	root/root	usr/lib/pstill/utils+helpers/do_many.sh

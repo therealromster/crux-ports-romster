@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Open Trace Format
+# URL: http://www.paratools.com/otf.php
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: vtf3, zlib
+
+name=otf
+version=1.2.6
+release=1
+source=(http://www.paratools.com/$name/llnl/OTF-SRC-$version.tar.gz)
+
+build () {
+	cd OTF-SRC-$version
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --with-vtf3 \
+		    --with-zlib
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

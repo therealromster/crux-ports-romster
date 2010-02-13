@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Xlt widgets set
+# URL: http://xlt.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=xlt
+version=11.1.11
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/Xlt-$version.tar.gz)
+
+build () {
+	cd Xlt-$version
+	./configure --prefix=/usr \
+                --with-x
+
+    make CFLAGS="$CFLAGS"
+	make DESTDIR=$PKG install
+    rm -rf $PKG/usr/Xlt/doc
+    chown -R root:root $PKG
+}

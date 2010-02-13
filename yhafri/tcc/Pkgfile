@@ -1,0 +1,22 @@
+# $Id: $
+# Description: Tiny C Compiler
+# URL: http://fabrice.bellard.free.fr/tcc/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=tcc
+version=0.9.23
+release=1
+source=(http://fabrice.bellard.free.fr/tcc/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+	patch -p1<../$name-$version.patch
+    	make
+	make DESTDIR=$PKG install
+    	rm -rf $PKG/usr/share
+    	chown -R root:root $PKG
+}

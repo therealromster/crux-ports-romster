@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl SAX parser using XML::Parser
+# URL: http://search.cpan.org/~kmacleod/libxml-perl-0.08/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libxml-perl
+version=0.08
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/K/KM/KMACLEOD/libxml-perl-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

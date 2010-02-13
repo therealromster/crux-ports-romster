@@ -1,0 +1,20 @@
+# $Id: $
+# Description: A sophisticated exporter for custom-built routines
+# URL: http://search.cpan.org/~rjbs/Sub-Exporter-0.970/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-data-optlist, p5-params-util, p5-sub-install
+
+name=p5-sub-exporter
+version=0.970
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Sub-Exporter-$version.tar.gz)
+
+build () {
+	cd Sub-Exporter-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

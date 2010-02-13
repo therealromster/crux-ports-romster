@@ -1,0 +1,43 @@
+--- Makefile	2006-05-09 23:25:31.000000000 +0200
++++ Makefile-new	2006-05-10 00:07:21.000000000 +0200
+@@ -153,11 +153,11 @@
+ #
+ # Tests.
+ 
+-Test    Test-icont:	; cd tests; $(MAKE) Test
+-Samples Samples-icont:	; cd tests; $(MAKE) Samples
++Test    Test-icont:	;
++Samples Samples-icont:	;
+ 
+-Test-iconc:		; cd tests; $(MAKE) Test-iconc
+-Samples-iconc:		; cd tests; $(MAKE) Samples-iconc
++Test-iconc:		; 
++Samples-iconc:		; 
+ 
+ 
+ #################################################################
+--- uni/iyacc/Makefile	2006-05-09 23:25:31.000000000 +0200
++++ uni/iyacc/Makefile-new	2006-05-10 00:12:34.000000000 +0200
+@@ -44,12 +44,10 @@
+ $(PROGRAM):     $(OBJS) $(LIBS)
+ 		@echo -n "Loading $(PROGRAM) ... "
+ 		@$(LINKER) $(LDFLAGS) -o $(PROGRAM) $(OBJS) $(LIBS)
+-		@cp iyacc test
+-		@cd test; make
+ 		@echo "done"
+ 
+ Clean:;		@rm -f $(OBJS) $(PROGRAM)
+-		@cd test; make clean
++
+ 
+ clobber:;	@rm -f $(OBJS) $(PROGRAM)
+ 
+@@ -69,8 +67,6 @@
+ 
+ tags:           $(HDRS) $(SRCS); @ctags $(HDRS) $(SRCS)
+ 
+-test:		$(PROGRAM)
+-		@cd test; make
+ 
+ ###
+ closure.o: defs.h

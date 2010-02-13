@@ -1,0 +1,12 @@
+--- GraphViz-2.02/lib/Devel/GraphVizProf.pm	2005-01-07 19:54:42.000000000 +0100
++++ GraphViz-2.02/lib/Devel/GraphVizProf.pm-new	2006-01-07 00:34:53.000000000 +0100
+@@ -144,7 +144,8 @@
+ 	    my $calls = $DB::calls{$file}->{$i}->{$file}->{$j};
+ #	    next unless $calls > 2;
+ 	    my $fromlabel = getlabel($file . $j);
+-	    my $ratio = $ctime / $maxtime;
++	    my $ratio = $ctime;
++	    $ratio = $ctime / $maxtime if($maxtime);
+ 	    $g->add_node("$file/$name", label => $name, color => "0,1,$ratio") unless ($name =~ m|/| || $seenlabel{"$file/$name"}++);
+ 	    my $fromtime = defined($DB::ctimes{$file}->[$j]) ?
+ 	      $DB::times{$file}->[$j] : 0;

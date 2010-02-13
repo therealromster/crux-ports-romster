@@ -1,0 +1,57 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/README.txt
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/dir-wcprops
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/empty-file (EMPTY)
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/entries
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/format
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/prop-base/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/prop-base/couch.beam.svn-base
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/prop-base/json.beam.svn-base
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/props/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/props/couch.beam.svn-work
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/props/json.beam.svn-work
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/text-base/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/text-base/couch.beam.svn-base
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/text-base/json.beam.svn-base
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/tmp/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/tmp/prop-base/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/tmp/props/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/tmp/text-base/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/tmp/wcprops/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/wcprops/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/wcprops/couch.beam.svn-work
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/.svn/wcprops/json.beam.svn-work
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/couch.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/ebin/json.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/README.txt
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/dir-wcprops
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/empty-file (EMPTY)
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/entries
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/format
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/prop-base/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/prop-base/couch.erl.svn-base (EMPTY)
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/prop-base/json.erl.svn-base (EMPTY)
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/props/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/props/couch.erl.svn-work (EMPTY)
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/props/json.erl.svn-work (EMPTY)
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/text-base/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/text-base/couch.erl.svn-base
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/text-base/json.erl.svn-base
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/tmp/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/tmp/prop-base/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/tmp/props/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/tmp/text-base/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/tmp/wcprops/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/wcprops/
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/wcprops/couch.erl.svn-work
+-r--r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/.svn/wcprops/json.erl.svn-work
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/couch.erl
+-rw-r--r--	root/root	usr/lib/erlang/lib/erlcouch-svn/src/json.erl

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A high-level, general-purpose programming language with a large repertoire of features for processing data structures and character strings
+# URL: http://www.cs.arizona.edu/icon/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11
+
+name=icon
+version=943
+release=1
+source=(http://www.cs.arizona.edu/$name/ftp/packages/unix/$name.v${version}src.tgz)
+
+build () {
+    mkdir -p $PKG/usr/local
+	cd $name.v${version}src
+    make X-Configure name=linux
+    make
+	make Install dest=$PKG/usr/local/$name
+    rm -rf $PKG/usr/local/$name/{README,doc}
+    chown -R root:root $PKG
+}

@@ -1,0 +1,21 @@
+# $Id: $
+# Description: POSIX Asynchronous I/O for Linux
+# URL: http://www.bullopensource.org/posix/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=libposix-aio
+version=0.8
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/paiol/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

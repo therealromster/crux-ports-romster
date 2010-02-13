@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/esasl-0.1/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/ebin/
+-rw-r--r--	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/ebin/eldap_expr.beam
+-rw-r--r--	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/ebin/esasl.app
+-rw-r--r--	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/ebin/esasl.beam
+drwxr-xr-x	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/include/
+drwxr-xr-x	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/priv/
+-rwxr-xr-x	root/root	usr/lib/erlang/lib/esasl-0.1~pre2/priv/gsasl_drv

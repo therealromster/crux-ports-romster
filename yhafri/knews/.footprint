@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/X11/
+drwxr-xr-x	root/root	etc/X11/app-defaults/
+-r--r--r--	root/root	etc/X11/app-defaults/Knews
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/X11R6/
+drwxr-xr-x	root/root	usr/X11R6/bin/
+-rwxr-xr-x	root/root	usr/X11R6/bin/knews
+drwxr-xr-x	root/root	usr/X11R6/lib/
+drwxr-xr-x	root/root	usr/X11R6/lib/X11/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/knews -> /usr/X11R6/bin/knews

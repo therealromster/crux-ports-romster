@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/google/
+-rw-r--r--	root/root	usr/include/google/coredumper.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libcoredumper.a
+-rwxr-xr-x	root/root	usr/lib/libcoredumper.la
+lrwxrwxrwx	root/root	usr/lib/libcoredumper.so -> libcoredumper.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcoredumper.so.0 -> libcoredumper.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libcoredumper.so.0.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+lrwxrwxrwx	root/root	usr/man/man3/GetCompressedCoreDump.3.gz -> GetCoreDump.3.gz
+-rw-r--r--	root/root	usr/man/man3/GetCoreDump.3.gz
+lrwxrwxrwx	root/root	usr/man/man3/WriteCompressedCoreDump.3.gz -> WriteCoreDump.3.gz
+-rw-r--r--	root/root	usr/man/man3/WriteCoreDump.3.gz
+lrwxrwxrwx	root/root	usr/man/man3/WriteCoreDumpLimited.3.gz -> WriteCoreDump.3.gz

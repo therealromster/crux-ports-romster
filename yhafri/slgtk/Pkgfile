@@ -1,0 +1,32 @@
+# $Id: $
+# Packager: Vincenzo Colosimo <vico@bicisport.de>
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Description: GTK bindings for libslang and a FITS image loader for GDK
+# URL: http://space.mit.edu/home/mnoble/slgtk/
+# Depends on: gtk, libslang2
+
+name=slgtk
+version=0.5.16
+release=1
+source=(ftp://space.mit.edu/pub/mnoble/${name}/${name}-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+
+    	./configure --prefix=/usr \
+		    --disable-nls
+
+	make
+	make prefix=$PKG/usr install
+	make pixbuf_loader
+	
+	install -D -m 644 contrib/gdk-pixbuf/fitsi_loader.so.0.7.0 \
+		          $PKG/usr/lib/gtk-2.0/2.4.0/loaders/fitsi_loader.so.0.7.0
+	
+	cd $PKG/usr/lib/gtk-2.0/2.4.0/loaders
+	ln -sf fitsi_loader.so.0.7.0 fitsi_loader.so
+	
+	rm -rf $PKG/usr/doc
+
+	chown -R root:root $PKG
+}

@@ -1,0 +1,27 @@
+# $Id: $
+# Description: Format string security checker for C files
+# URL: http://packages.debian.org/unstable/misc/pscan
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pscan
+version=1.2
+release=1
+source=(http://ftp.debian.org/debian/pool/main/p/$name/${name}_$version.orig.tar.gz \
+	http://ftp.debian.org/debian/pool/main/p/$name/${name}_${version}-4.diff.gz)
+
+build () {
+	gunzip ${name}_${version}-4.diff.gz
+
+	cd ${name}
+	patch -p1<../${name}_${version}-4.diff
+
+	make
+	install -D -m 755 $name $PKG/usr/bin/$name
+	gzip -9 $name.1; install -D -m 644 $name.1.gz $PKG/usr/man/man3/$name.1.gz
+
+	#make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

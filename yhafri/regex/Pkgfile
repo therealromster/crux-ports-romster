@@ -1,0 +1,23 @@
+# $Id: $
+# Description: GNU regular expression matcher
+# URL: http://www.gnu.org/directory/text/regex.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=regex
+version=0.12
+release=1
+source=(http://ftp.gnu.org/pub/gnu/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/{lib,include}
+	cd $name-$version
+	patch -p1 < ../$name-$version.patch
+	./configure --prefix=/usr
+
+        make CFLAGS="$CFLAGS"
+	make prefix=$PKG/usr install
+        chown -R root:root $PKG
+}

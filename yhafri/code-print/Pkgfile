@@ -1,0 +1,16 @@
+# $Id: $
+# Description: Perl script that uses TeX to print source code
+# URL: http://www.noserose.net/e/code/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tetex
+
+name=code-print
+version=1
+release=1
+source=(http://www.noserose.net/e/code/code_print)
+
+build () {
+	install -D -m 755 code_print $PKG/usr/bin/$name
+	chown -R root:root $PKG
+}

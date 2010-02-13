@@ -1,0 +1,25 @@
+# $Id: $
+# Description: The Mozart Standard Library
+# URL: http://www.mozart-oz.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: mozart
+
+name=mozart-std
+version=1.3.2
+release=1
+source=(http://www.mozart-oz.org/download/mozart-ftp/store/$version-2006-06-15-tar/mozart-$version.20060615-std.tar.gz)
+build () {
+	cd mozart-$version.20060615-std
+
+	./configure --prefix=/usr \
+		    --disable-nls \
+		    --disable-contrib-compat
+
+	make
+	make PREFIX=$PKG/usr install
+
+	rm -rf $PKG/usr/doc/
+
+	chown -R root:root $PKG
+}

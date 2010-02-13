@@ -1,0 +1,20 @@
+# $Id: $
+# Description: String of Unicode characters (UCS2/UTF16)
+# URL: http://search.cpan.org/~gaas/Unicode-String-2.07/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-unicode-string
+version=2.09
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Unicode-String-$version.tar.gz)
+
+build () {
+	cd Unicode-String-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

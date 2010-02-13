@@ -1,0 +1,11 @@
+--- tree-1.1.0/filetest.c	2006-05-24 00:31:42.000000000 +0200
++++ tree-1.1.0/filetest.c-new	2006-05-24 00:35:28.000000000 +0200
+@@ -50,7 +50,7 @@
+ 		to int?  if you've got an answer, e-mail me. */
+ 
+ 		case executable:return(is_executable(path));
+-		default:/* never happens, BABY! */
++		default:;
+ 	}
+ 	
+ }

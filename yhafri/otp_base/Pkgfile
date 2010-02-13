@@ -1,0 +1,31 @@
+# $Id: $
+# Description: A build environment that supports the OTP way of building applications with Erlang
+# URL: http://www.erlware.org/fos_erlware/project/otp_base
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: color, erlang
+
+name=otp_base
+version=R1-1
+release=1
+source=(http://www.erlware.org/fos_erlware/priv/downloads/$name-$version.tgz \
+	$name-$version.patch \
+	$name)
+
+build () {
+        mkdir -p $PKG/usr/lib
+	export EXAMPLE=location_server_rel
+	(cd otp; 
+	patch -p1<../$name-$version.patch;
+	touch release/$EXAMPLE/SKIP; 
+	make)
+
+	rm -f otp/licence.txt
+	find otp -name "README" -type "f" -exec rm -f '{}' \; 
+	rm -rf otp/release/$EXAMPLE
+
+	cp -rf otp $PKG/usr/lib
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

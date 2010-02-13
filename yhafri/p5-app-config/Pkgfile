@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl module for reading configuration files and parsing command line arguments
+# URL: http://search.cpan.org/~abw/AppConfig-1.56/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-file-homedir
+
+name=p5-app-config
+version=1.63
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/AppConfig-$version.tar.gz)
+
+build () {
+	cd AppConfig-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,16 @@
+# $Id: $ Description: GTK front-end for unixODBC 
+# URL: http://www.unixodbc.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: rpm2targz, unixodbc, gtk, libgnomeui
+
+name=unixodbc-gui-gtk
+version=2.2.11
+release=1
+source=(http://voxel.dl.sourceforge.net/sourceforge/unixodbc/unixODBC-gui-gtk-$version-1.i386.rpm)
+
+build () {
+	rpm2targz unixODBC-gui-gtk-$version-1.i386.rpm
+	tar xzvf unixODBC-gui-gtk-$version-1.i386.tar.gz -C $PKG
+    	chown -R root:root $PKG
+}

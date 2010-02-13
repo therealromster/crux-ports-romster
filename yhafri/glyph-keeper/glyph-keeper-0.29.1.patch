@@ -1,0 +1,28 @@
+--- glyph-keeper-0.29.1/include/glyph.h	2005-07-09 15:02:50.000000000 +0200
++++ glyph-keeper-0.29.1/include/glyph.h-new	2006-02-17 18:16:35.000000000 +0100
+@@ -149,7 +149,7 @@
+ 
+ #elif (GLYPH_TARGET == GLYPH_TARGET_SDL)
+ 
+-#include <sdl.h>
++#include <SDL.h>
+ #define GLYPH_TARGET_STR        "SDL"
+ #define GLYPH_TARGET_SURFACE    SDL_Surface
+ #define GLYPH_TARGET_HAS_RECTFILL
+--- glyph-keeper-0.29.1/src/glyph_internal.h	2005-06-24 11:35:00.000000000 +0200
++++ glyph-keeper-0.29.1/src/glyph_internal.h-new	2006-02-17 18:20:04.000000000 +0100
+@@ -19,10 +19,10 @@
+ #include <limits.h>
+ 
+ #include <ft2build.h>
+-#include FT_FREETYPE_H
+-#include FT_INTERNAL_OBJECTS_H
+-#include FT_BITMAP_H
+-#include FT_SYNTHESIS_H
++#include <freetype/freetype.h>
++#include <freetype/internal/ftobjs.h>
++/* #include FT_BITMAP_H */
++#include <freetype/ftsynth.h>
+ 
+ #include "../include/glyph.h"
+ #include "glyph_structs.h"

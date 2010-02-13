@@ -1,0 +1,19 @@
+--- acon/Makefile	1999-09-13 07:44:16.000000000 +0200
++++ acon/Makefile-new	2004-10-28 23:09:22.825027864 +0200
+@@ -5,6 +5,7 @@
+ KEYMAPS := keymaps/iso8859-6.map keymaps/cp-1256.map
+ TRANSLATIONS := translations/iso-8859-6 translations/cp-1256
+ DATAINSDIR := /usr/lib/acon
++BINTDIR := 
+ # Useful directories
+ 
+ MYCODEDIR := .
+@@ -59,7 +60,7 @@
+ 
+ .PHONY : install
+ install: acon
+-	install -m 4711 acon /usr/bin
++	install -m 4711 acon ${BINDIR}/usr/bin
+ 	install -d ${DATAINSDIR}
+ 	install -d ${DATAINSDIR}/keymaps
+ 	install -d ${DATAINSDIR}/fonts

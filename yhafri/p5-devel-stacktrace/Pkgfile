@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Stack trace and stack trace frame objects 
+# URL: http://search.cpan.org/~drolsky/Devel-StackTrace-1.11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-devel-stacktrace
+version=1.12
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Devel-StackTrace-$version.tar.gz)
+
+build () {
+	cd Devel-StackTrace-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

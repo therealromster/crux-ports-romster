@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Erlang interface to the X windows graphics system
+# URL: http://www.sics.se/~joe/ex11/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: erlang, unixdom
+
+name=ex11
+version=2.5
+release=1
+source=(http://www.sics.se/~joe/$name/download/release-$version.tgz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/lib/erlang/lib/$name-$version/
+	cd release-$version
+	patch -p1 < ../$name-$version.patch
+	make clean
+	make
+	cp -rf lib/     $PKG/usr/lib/erlang/lib/$name-$version/
+	cp -rf widgets/ $PKG/usr/lib/erlang/lib/$name-$version/
+	find $PKG -name "example*" -exec rm -rf {} \;
+	find $PKG -name "Makefile*" -exec rm -rf {} \;
+	find $PKG -name "notes" -exec rm -rf {} \;
+	find $PKG -name "*.pub" -exec rm -rf {} \;
+	find $PKG -name "*.txt" -exec rm -rf {} \;
+	find $PKG -name "*.html" -exec rm -rf {} \;
+	find $PKG -iname "COPYRIGHT" -exec rm -rf {} \;
+	find $PKG -name "README" -exec rm -rf {} \;
+        chown -R root:root $PKG/
+}

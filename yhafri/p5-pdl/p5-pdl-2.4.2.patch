@@ -1,0 +1,41 @@
+--- PDL-2.4.1/perldl.conf	2004-07-12 23:12:06.529368488 +0200
++++ PDL-2.4.1/perldl-new.conf	2004-07-12 23:27:33.629427856 +0200
+@@ -95,14 +95,14 @@
+ #
+ 
+ # default settings do not build PLPLOT.
+-        WITH_PLPLOT          => undef, # Leave it up to PDL to decide
+-        WHERE_PLPLOT_LIBS    => undef, # let PDL search for plplot installation
+-        WHERE_PLPLOT_INCLUDE => undef, # let PDL search for plplot installation
++#        WITH_PLPLOT          => undef, # Leave it up to PDL to decide
++#        WHERE_PLPLOT_LIBS    => undef, # let PDL search for plplot installation
++#        WHERE_PLPLOT_INCLUDE => undef, # let PDL search for plplot installation
+ 
+ # example manual settings:
+-#    WITH_PLPLOT          => 1,                        # Build PLPLOT interface
+-#    WHERE_PLPLOT_LIBS    => '/usr/local/plplot/lib',     # PLplot lib dir
+-#    WHERE_PLPLOT_INCLUDE => '/usr/local/plplot/include', # PLplot include dir
++    WITH_PLPLOT          => 1,                        # Build PLPLOT interface
++    WHERE_PLPLOT_LIBS    => '/usr/lib',     # PLplot lib dir
++    WHERE_PLPLOT_INCLUDE => '/usr/include', # PLplot include dir
+ 
+ 	
+ # Whether or not to build the PDL::Slatec module
+@@ -126,7 +126,7 @@
+ # 0 -> don't use
+ # true -> force use
+ 
+-        WITH_FFTW => undef,    # Leave it up to PDL to decide
++        WITH_FFTW => true,    # Leave it up to PDL to decide
+ 
+ # Location to search for the FFTW libs
+ 	FFTW_LIBS => [ '/lib','/usr/lib','/usr/local/lib'],
+@@ -141,7 +141,7 @@
+ #    about curses to fix it 
+ #  - 1 builds, 0 or undef does not build
+ #
+-        WITH_IO_BROWSER => 0,
++        WITH_IO_BROWSER => 1,
+ );
+ 
+ 

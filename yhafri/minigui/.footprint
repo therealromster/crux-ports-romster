@@ -1,0 +1,36 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/etc/
+-rw-r--r--	root/root	usr/etc/MiniGUI.cfg
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/minigui/
+-rw-r--r--	root/root	usr/include/minigui/common.h
+-rw-r--r--	root/root	usr/include/minigui/config.h
+-rw-r--r--	root/root	usr/include/minigui/control.h
+drwxr-xr-x	root/root	usr/include/minigui/ctrl/
+-rw-r--r--	root/root	usr/include/minigui/ctrl/button.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/combobox.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/ctrlhelper.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/edit.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/listbox.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/menubutton.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/newtoolbar.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/progressbar.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/propsheet.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/scrollbar.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/scrollview.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/static.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/textedit.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/toolbar.h
+-rw-r--r--	root/root	usr/include/minigui/ctrl/trackbar.h
+-rw-r--r--	root/root	usr/include/minigui/dti.c
+-rw-r--r--	root/root	usr/include/minigui/endianrw.h
+-rw-r--r--	root/root	usr/include/minigui/fixedmath.h
+-rw-r--r--	root/root	usr/include/minigui/gdi.h
+-rw-r--r--	root/root	usr/include/minigui/minigui.h
+-rw-r--r--	root/root	usr/include/minigui/window.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libminigui-1.6.so.2 -> libminigui-1.6.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libminigui-1.6.so.2.0.0
+-rw-r--r--	root/root	usr/lib/libminigui.a
+-rwxr-xr-x	root/root	usr/lib/libminigui.la
+lrwxrwxrwx	root/root	usr/lib/libminigui.so -> libminigui-1.6.so.2.0.0

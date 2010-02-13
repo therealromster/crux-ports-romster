@@ -1,0 +1,34 @@
+# $Id: $
+# Description: Lilo boot loader with image
+# URL: http://home.san.rr.com/johninsd/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=lilo
+version=22.7.1
+release=1
+source=(http://home.san.rr.com/johninsd/pub/linux/lilo/$name-$version.src.tar.gz \
+	$name-$version.patch \
+	lilo.conf \
+	http://www.bxlug.be/uploadfiles/62/download/debian-bootscreen-0.31.tar.bz2)
+
+build() {
+	cd $name-$version
+    	patch -p1 < ../$name-$version.patch
+
+    	make all
+    	make ROOT=$PKG install
+
+    	install -m 644 ../lilo.conf $PKG/etc
+    	rm -rf $PKG/sbin/mkrescue \
+	       $PKG/usr/man/man8/mkrescue.8
+
+	for i in $SRC/debian-bootscreen-0.31/*.bmp;
+	do
+		image=`basename $i`
+		install -D -m 644 $i $PKG/boot/$image
+	done
+
+	chown -R root:root $PKG
+}

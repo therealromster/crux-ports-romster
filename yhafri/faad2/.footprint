@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/faad.h
+-rw-r--r--	root/root	usr/include/neaacdec.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libfaad.a
+-rwxr-xr-x	root/root	usr/lib/libfaad.la
+lrwxrwxrwx	root/root	usr/lib/libfaad.so -> libfaad.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libfaad.so.0 -> libfaad.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libfaad.so.0.0.0

@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/libotf-config
+-rwxr-xr-x	root/root	usr/bin/otfdump
+-rwxr-xr-x	root/root	usr/bin/otflist
+-rwxr-xr-x	root/root	usr/bin/otftobdf
+-rwxr-xr-x	root/root	usr/bin/otfview
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/otf.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libotf.a
+-rwxr-xr-x	root/root	usr/lib/libotf.la
+lrwxrwxrwx	root/root	usr/lib/libotf.so -> libotf.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libotf.so.0 -> libotf.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libotf.so.0.0.0

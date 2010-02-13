@@ -1,0 +1,57 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/atlas/
+drwxr-xr-x	root/root	usr/atlas/include/
+drwxr-xr-x	root/root	usr/atlas/include/atlas/
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_buildinfo.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_cNCmm.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_cacheedge.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_cmv.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_cmvN.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_cmvS.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_cmvT.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_cr1.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_csysinfo.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_ctrsmXover.h (EMPTY)
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dNCmm.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dmv.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dmvN.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dmvS.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dmvT.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dr1.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dsysinfo.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_dtrsmXover.h (EMPTY)
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_sNCmm.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_smv.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_smvN.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_smvS.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_smvT.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_sr1.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_ssysinfo.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_strsmXover.h (EMPTY)
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_trsmNB.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_type.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_zNCmm.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_zmv.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_zmvN.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_zmvS.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_zmvT.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_zr1.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_zsysinfo.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/atlas_ztrsmXover.h (EMPTY)
+-rw-r--r--	root/root	usr/atlas/include/atlas/cXover.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/cmm.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/dXover.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/dmm.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/sXover.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/smm.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/zXover.h
+-rw-r--r--	root/root	usr/atlas/include/atlas/zmm.h
+-rw-r--r--	root/root	usr/atlas/include/cblas.h
+-rw-r--r--	root/root	usr/atlas/include/clapack.h
+drwxr-xr-x	root/root	usr/atlas/lib/
+-rw-r--r--	root/root	usr/atlas/lib/libatlas.a
+-rw-r--r--	root/root	usr/atlas/lib/libcblas.a
+-rw-r--r--	root/root	usr/atlas/lib/libf77blas.a
+-rw-r--r--	root/root	usr/atlas/lib/liblapack.a
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/lib/

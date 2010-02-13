@@ -1,0 +1,54 @@
+--- release-2.5/lib/Makefile	2004-05-12 11:53:44.000000000 +0200
++++ release-2.5/lib/Makefile-new	2004-07-16 23:05:14.681882280 +0200
+@@ -21,10 +21,10 @@
+ all:  ${MODS:%=%.beam} ex11_lib_read_jpeg
+ 
+ test: all
+-	erl -pa '../unixdom-0.1/ebin/' -s hello_world start
++	erl -pa '/usr/lib/erlang/lib/unixdom-0.1/ebin/' -s hello_world start
+ 
+ test1: all
+-	erl -pa '../unixdom-0.1/ebin/' -s hello_buttons start
++	erl -pa '/usr/lib/erlang/lib/unixdom-0.1/ebin/' -s hello_buttons start
+ 
+ ex11_lib_read_jpeg: ex11_lib_read_jpeg.o port_lib.o
+ 	gcc -o ex11_lib_read_jpeg ex11_lib_read_jpeg.o port_lib.o -ljpeg
+--- release-2.5/Makefile	2004-07-16 23:08:51.106980664 +0200
++++ release-2.5/Makefile-new	2004-07-16 23:09:21.058427352 +0200
+@@ -1,10 +1,8 @@
+ all:
+ 	cd lib; make
+-	cd unixdom-0.1/src; make
+ 	cd widgets; make
+ 
+ clean:
+ 	cd lib; make clean
+ 	cd widgets; make clean
+-	cd unixdom-0.1/src; make clean
+ 
+--- release-2.5/widgets/Makefile	2004-05-12 11:53:44.000000000 +0200
++++ release-2.5/widgets/Makefile-new	2004-07-16 23:21:47.266986408 +0200
+@@ -1,5 +1,4 @@
+ CC = gcc
+-CFLAGS = -I/usr/local/X11/include
+ 
+ LIBS = -L/usr/X11R6/lib -lX11
+ 
+@@ -33,13 +32,16 @@
+ # make test - run new experimental tests
+ 
+ all:  ${MODS:%=%.beam} mapdata.bin
+-	erl -pa '../lib' -pa '../unixdom-0.1/ebin/' -s example0 start
+ 
+ bang: erl_parse.beam
+ 
+ mapdata.bin: mapdata.dat map.beam
+ 	echo "map:reformat(), erlang:halt(). " | erl
+ 
++show:  ${MODS:%=%.beam} mapdata.bin
++	erl -pa '../lib' -pa '/usr/lib/erlang/lib/unixdom-0.1/ebin/' \
++	-s example0 start
++
+ test:  ${MODS:%=%.beam} 
+ 	erl -pa '../lib' -s sw_tests start
+ 

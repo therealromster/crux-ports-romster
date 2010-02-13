@@ -1,0 +1,24 @@
+# $Id: $
+# Description: A language for multithreaded parallel programming based on ANSI C
+# URL: http://supertech.csail.mit.edu/cilk/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=cilk
+version=5.4.2.3
+release=1
+source=(http://bradley.csail.mit.edu/~bradley/$name/downloads/$name-${version}_2867.tar.bz2 \
+	$name-$version.patch)
+
+build () {
+	cd $version
+	patch -p1<../$name-$version.patch
+
+	./configure --prefix=/usr
+
+	make
+	make prefix=$PKG/usr install
+
+	chown -R root:root $PKG
+}

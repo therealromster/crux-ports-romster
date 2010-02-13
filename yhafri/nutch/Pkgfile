@@ -1,0 +1,24 @@
+# $Id: $
+# Description: Open source web search engine
+# URL: http://www.nutch.org/docs/en/about.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: jdk
+
+name=nutch
+version=2007-04-23_06-52-53
+release=1
+source=(http://lucene.zones.apache.org:8080/hudson/job/Nutch-Nightly/lastSuccessfulBuild/artifact/trunk/build/$name-$version.tar.gz \ 
+	$name-$version.patch)
+
+
+build () {
+	mkdir -p $PKG/usr/{bin,lib/$name}
+	cd $name-$version
+	patch -p1< ../$name-$version.patch
+	rm -rf docs/ src/
+	rm -rf *.txt
+	mv * $PKG/usr/lib/$name
+	ln -sf /usr/lib/$name/bin/$name   $PKG/usr/bin/$name
+    	chown -R root:root $PKG
+}

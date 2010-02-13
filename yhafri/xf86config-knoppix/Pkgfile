@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A script used by knoppix to automatically generate an X config file
+# URL: http://gentoo-wiki.com/Mkxf86config
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ddcxinfo-knoppix
+
+name=xf86config-knoppix
+version=0.8
+release=1
+source=(http://debian-knoppix.alioth.debian.org/sources/${name}_${version}-6.tar.gz)
+
+build () {
+	mkdir -p $PKG/etc/X11
+	cd $name-$version
+
+	install -D -m 755 mkxf86config.sh $PKG/usr/sbin/mkxf86config.sh
+	cp XF86Config-4.in XF86Config.in $PKG/etc/X11
+	
+	chown -R root:root $PKG
+}

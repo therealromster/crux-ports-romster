@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Create a module Makefile
+# URL: http://search.cpan.org/~mschwern/ExtUtils-MakeMaker-6.30/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-extutils-makemaker
+version=6.30_01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MS/MSCHWERN/ExtUtils-MakeMaker-$version.tar.gz)
+
+build () {
+	cd ExtUtils-MakeMaker-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,30 @@
+# $Id: $
+# Description: Convert PS/EPS/TIFF/JPEG files to PDF, transcode PDF to PDF/X, generate EPS
+# URL: http://www.wizards.de/~frank/pstill.html
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on:
+
+name=pstill
+version=1727j
+release=1
+source=(http://www.wizards.de/~frank/$name${version}_linux_i686.tar.gz \
+	$name-$version.patch
+	$name)
+
+build () {
+	mkdir -p $PKG/usr/lib/$name
+
+	cd ${name}_dist
+	patch -p1<../$name-$version.patch
+
+	sh linkAllFonts.sh
+	./pstill -v -I
+	rm -rf COPYRIGHT pstill-license.txt INSTALL RECOMMENDED_OPTIONS  VERSION_1727j   
+
+	mv * $PKG/usr/lib/$name
+
+	install -D -m 755 $SRC/$name $PKG/usr/bin/$name
+
+	chown -R root:root $PKG
+}

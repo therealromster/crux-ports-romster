@@ -1,0 +1,60 @@
+--- edtk-1.5/examples/berkeley_db/Makefile	2007-06-20 17:27:56.000000000 +0200
++++ edtk-1.5/examples/berkeley_db/Makefile-new	2007-06-20 17:13:00.000000000 +0200
+@@ -36,7 +36,7 @@
+ # See README-cnewcom for instructions on downloading and patching Berkeley DB.
+ # The "findup" tool returns the first directory that contains a file
+ # or directory of the given name, searching upwards.
+-BDB_INSTALLED_DIR = $(shell findup BerkeleyDB.4.5)/BerkeleyDB.4.5
++BDB_INSTALLED_DIR = /usr
+ 
+ # The path & filename of the GSLgen executable
+ # See the top-level README file for how to obtain and build 
+@@ -44,7 +44,7 @@
+ # driver without it).
+ # (My own notes on building the tool are in the top-level 
+ # README-cnewcom file.)
+-GSLGEN_EXE:= $(shell findup gslgen)/gslgen/src/gslgen
++GSLGEN_EXE:= gslgen
+ 
+ 
+ # 
+@@ -58,7 +58,7 @@
+ ERL_DRIVER_H_DIR = $(shell erl -noshell -eval 'io:format("~s", [filename:dirname(filename:absname(os:getenv("BINDIR")))++"/include"])' -s erlang halt)
+ 
+ # Path to the non-driver-specific parts of EDTK
+-EDTK_DIR = $(shell findup edtk)/edtk
++EDTK_DIR = ../../edtk
+ 
+ # Path to various BDB files
+ EXTERNAL_CFLAGS = -I$(BDB_INSTALLED_DIR)/include
+--- edtk-1.5/examples/berkeley_db/releases/make_release.sh	2007-04-29 19:11:56.000000000 +0200
++++ edtk-1.5/examples/berkeley_db/releases/make_release.sh-new	2007-06-20 17:35:00.000000000 +0200
+@@ -75,17 +75,17 @@
+ 
+ # These lines depend on installation paths of other packages
+ # MAY NEED TO CHANGE THIS
+-cp  /usr/local/lib/libcoredumper.so                       $1/priv
+-cp  /usr/local/lib/libpcre.so                            $1/priv
+-cp ../../../../BerkeleyDB.4.5/lib/libdb-4.5.so            $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_recover              $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_stat                 $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_archive              $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_hotbackup            $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_printlog             $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_verify               $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_dump                 $1/priv
+-cp ../../../../BerkeleyDB.4.5/bin/db_load                 $1/priv
++cp /usr/lib/libcoredumper.so                       $1/priv
++cp /usr/lib/libpcre.so                            $1/priv
++cp /usr/lib/libdb-4.5.so            $1/priv
++cp /usr/bin/db_recover              $1/priv
++cp /usr/bin/db_stat                 $1/priv
++cp /usr/bin/db_archive              $1/priv
++cp /usr/bin/db_hotbackup            $1/priv
++cp /usr/bin/db_printlog             $1/priv
++cp /usr/bin/db_verify               $1/priv
++cp /usr/bin/db_dump                 $1/priv
++cp /usr/bin/db_load                 $1/priv
+ 
+ echo "Compiling $1/src/*.erl to $1/ebin/*.beam"
+ pushd $1/src

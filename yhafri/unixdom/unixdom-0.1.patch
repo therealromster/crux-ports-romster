@@ -1,0 +1,14 @@
+--- unixdom-0.1/src/Makefile	2001-09-19 04:33:15.000000000 +0200
++++ unixdom-0.1/src/Makefile-new	2004-07-16 22:51:16.872248704 +0200
+@@ -46,8 +46,9 @@
+ 
+ ERL_FLAGS = 
+ 
+-DRIVER_H_DIR = /usr/local/lib/erlang/usr/include
+-CFLAGS	= -g -I$(DRIVER_H_DIR) -DNEED_EXTRA_FUNCS -Wall -pedantic
++DRIVER_H_DIR = -I/usr/lib/erlang/usr/include \
++	       -I/usr/lib/erlang/usr/include/obsolete
++CFLAGS	= -g $(DRIVER_H_DIR) -DNEED_EXTRA_FUNCS -Wall -pedantic
+ 
+ .SUFFIXES: .jam .beam .erl .so .c
+ 

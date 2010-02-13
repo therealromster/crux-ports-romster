@@ -1,0 +1,29 @@
+# $Id$
+# Description: provides fortune cookies on demand
+# URL: http://www.redellipse.net/code/fortune
+# Maintainer: 
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: 
+
+name=fortune-mod
+version=1.99.1
+release=1
+source=(http://www.redellipse.net/code/downloads/$name-$version.tar.gz \
+	http://ftp.debian.org/debian/pool/main/f/fortunes-bofh-excuses/fortunes-bofh-excuses_1.2.orig.tar.gz
+	http://www.netmeister.org/apps/fortune-mod-calvin-0.1.1.tar.gz
+	
+)
+
+build() {
+    cd $name-$version
+	make REGEXDEFS='-DHAVE_REGEX_H -DPOSIX_REGEX -DHAVE_STDBOOL'  \
+		COOKIEDIR=/usr/share/fortune  \
+		LOCALDIR=/usr/local/share/fortune
+	make FORTDIR=$PKG/usr/bin  \
+		COOKIEDIR=$PKG/usr/share/fortune  \
+		BINDIR=$PKG/usr/sbin  \
+		BINMANDIR=$PKG/usr/man/man1  \
+		FORTMANDIR=$PKG/usr/man/man6 install
+	rm $PKG/usr/share/fortune/*.u8
+	rm $PKG/usr/share/fortune/off/*.u8
+}

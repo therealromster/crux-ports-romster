@@ -1,0 +1,21 @@
+# Description: a mindmapping-like tool used to produce complicated documents
+# URL: http://www.freehackers.org/~tnagy/kdissert
+# Maintainer:
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: kdelibs, python
+
+name=kdissert
+version=1.0.6-waf
+release=1
+source=(http://www.freehackers.org/~tnagy/kdissert/kdissert-$version.tar.bz2)
+
+build() {
+    cd kdissert-$version
+    tar -xjvf miniwaf.tar.bz2
+    export QTDIR=/usr/share/qt
+    ./waf.py configure --prefix=/usr --destdir=/tmp
+    ./waf.py build
+    ./waf.py install --prefix=/usr --destdir=$PKG
+    find $PKG/usr/share/{doc/HTML,locale}/* ! -wholename "*HTML/en*" \
+        ! -wholename "*locale/en*" -delete
+}

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Perl class to pack applications in a single executable file 
+# URL: http://search.cpan.org/~autrijus/PAR-0.85/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: p5-archive-zip, p5-module-scandeps, p5-par-dist, p5-module-signature
+
+name=p5-par
+version=0.91
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/S/SM/SMUELLER/PAR-$version.tar.gz)
+
+build () {
+	cd PAR-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

@@ -1,0 +1,8 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gtk-2.0/
+drwxr-xr-x	root/root	usr/lib/gtk-2.0/2.4.0/
+drwxr-xr-x	root/root	usr/lib/gtk-2.0/2.4.0/engines/
+-rwxr-xr-x	root/root	usr/lib/gtk-2.0/2.4.0/engines/libsmooth.la
+-rwxr-xr-x	root/root	usr/lib/gtk-2.0/2.4.0/engines/libsmooth.so
+lrwxrwxrwx	root/root	usr/lib/libsmooth.so -> /usr/lib/gtk-2.0/2.4.0/engines/libsmooth.so

@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Tcl extension module for Perl 
+# URL: http://search.cpan.org/~vkon/Tcl-0.84/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: tcl
+
+name=p5-tcl
+version=0.88
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/V/VK/VKON/Tcl-$version.tar.gz)
+
+build () {
+	cd Tcl-$version
+	perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

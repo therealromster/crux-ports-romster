@@ -1,0 +1,51 @@
+--- freewrl-1.17.1/vrml.conf	2006-04-05 21:01:27.000000000 +0200
++++ freewrl-1.17.1/vrml.conf-new	2006-05-14 10:59:36.000000000 +0200
+@@ -33,7 +33,7 @@
+ 
+ # Java Runtime. Java, Jikes, etc is ok, so long as it is not ancient.
+ #if you do not have Java, comment this and the JAVA_INST line below out.
+-JAVA => "/usr/bin/java",
++JAVA => "/usr/lib/java/bin/java",
+ 
+ # how to copy one file to another:
+ COPIER => "/bin/cp",
+@@ -51,7 +51,7 @@
+ #
+ # WARNINGS => "off" to turn off user supplied gcc compiler warnings
+ 
+-   WARNINGS => "off",
++   WARNINGS => "high",
+ 
+ # BOUNDS_CHECK => "on" to turn on bounds checking
+ #  (requires gcc compiled with the bounds checking extension)
+@@ -85,13 +85,13 @@
+ ############################################################################
+ # Netscape/Mozilla,... installation
+ 
+-    NETSCAPE_INST => '/usr/lib/mozilla/plugins',
+-    NETSCAPE_CLASSES => '/usr/lib/mozilla/plugins',
+-    NETSCAPE_PLUGINS => '/usr/lib/mozilla/plugins',
++    NETSCAPE_INST => '/usr/lib/freewrl/plugins',
++    NETSCAPE_CLASSES => '/usr/lib/freewrl/plugins',
++    NETSCAPE_PLUGINS => '/usr/lib/freewrl/plugins',
+ 
+ ############################################################################
+ # Java dest. if no Java, comment out the JAVA line above, and the JAVA_INST line below.
+-    JAVA_INST => '/usr/java/j2sdk1.4.0',
++    JAVA_INST => '/usr/lib/java',
+ 
+ ############################################################################
+ # LDFLAGS.  Set linker flags here.
+@@ -111,10 +111,10 @@
+ 
+ 	# where the RPMS and SRPMS and SOURCES and SPECS directories live:
+ 	# might be /usr/src/redhat, /usr/src/packages, or...?
+-	RPM_PREFIX => '/usr/src/redhat',
++	#RPM_PREFIX => '/usr/src/redhat',
+ 
+ 	# what OS version is this built on? each Linux release has a different
+ 	# file name here - might be /etc/SuSE-release. Not required if RPM_PREFIX
+ 	# is commented out.
+-	RPM_OSNAME_FILE => '/etc/redhat-release',
++	#RPM_OSNAME_FILE => '/etc/redhat-release',
+ );

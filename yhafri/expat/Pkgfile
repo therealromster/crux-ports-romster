@@ -1,0 +1,19 @@
+# $Id: $
+# Description: The Expat XML Parser
+# URL: http://www.libexpat.org/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Maintainer: Per Lidén <per@fukt.bth.se>
+# Depends on:
+
+name=expat
+version=2.0.0
+release=1
+source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() { 
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make prefix=$PKG/usr install
+    chown -R root:root $PKG
+}

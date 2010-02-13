@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ncbrowse
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/ncbrowse/
+-rw-r--r--	root/root	usr/lib/ncbrowse/dods.jar
+-rw-r--r--	root/root	usr/lib/ncbrowse/lashandler.jar
+-rw-r--r--	root/root	usr/lib/ncbrowse/ncBrowse.jar
+-rw-r--r--	root/root	usr/lib/ncbrowse/netcdfAll.jar
+-rw-r--r--	root/root	usr/lib/ncbrowse/noaa_pmel.jar
+-rw-r--r--	root/root	usr/lib/ncbrowse/png.jar
+-rw-r--r--	root/root	usr/lib/ncbrowse/visad.jar

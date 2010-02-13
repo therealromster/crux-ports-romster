@@ -1,0 +1,31 @@
+# $Id: $
+# Description: Objective Caml image processing library
+# URL: http://pauillac.inria.fr/camlimages/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, ocaml, libjpeg, libpng, freetype, libungif, ghostscript, libtiff
+
+name=camlimages
+version=2.2
+release=1
+source=(ftp://ftp.inria.fr/INRIA/caml-light/bazar-ocaml/$name-$version.tgz \
+	$name-$version.patch)
+
+build () {
+	ln -sf /usr/bin/ocamlc /usr/bin/ocamlc.opt
+	ln -sf /usr/bin/ocamlopt /usr/bin/ocamlopt.opt
+
+	mkdir -p $PKG/usr/lib/ocaml
+
+	cd $name-$version
+	patch -p0<../$name-$version.patch
+
+	./configure
+
+        make
+	make opt
+
+	make LIBDIR=$PKG/usr/lib/ocaml/camlimages/ install
+
+        chown -R root:root $PKG
+}

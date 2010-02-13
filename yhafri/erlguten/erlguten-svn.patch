@@ -1,0 +1,11 @@
+--- src/eg_afm.erl	2007-04-23 22:25:54.000000000 +0200
++++ src/eg_afm.erl-new	2007-04-23 22:31:24.000000000 +0200
+@@ -187,7 +187,7 @@
+ 
+ mkMk(FontMap) ->
+     Str = ["ERLC_FLAGS=+nowarn_unused_vars +nowarn_unused_function\n"
+-	   "include ../../../../../support/include.mk\n\n"
++	   "include ../../../conf/include.mk\n\n"
+ 	   "../../../ebin/%.beam: %.erl\n"
+ 	   "\t$(ERLC) $(ERLC_FLAGS) -o ../../../ebin $<\n\n"
+ 	   "MODS= egFontMap ",

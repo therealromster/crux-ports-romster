@@ -1,0 +1,36 @@
+# $Id: $
+# Description: Bug tracking system for Subversion and CVS with integrated Wiki and repository browser
+# URL: http://www.cvstrac.org
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Jürgen Daubert, juergen dot daubert at t-online dot de
+# Depends on: subversion, sqlite
+
+name=cvstrac
+version=2.0.1
+release=1
+source=(http://www.$name.org/$name-$version.tar.gz \
+        ${name}_cgi ${name}d)
+
+build () {
+	cd $name-$version
+
+        name=svntrac
+
+    	sed "/^SRCDIR/s/=.*$/=\./; s/-O[02]/$CFLAGS/ " linux-gcc.mk > Makefile
+    	make APPNAME=$name
+    	chmod 777 .
+    	(su nobody -c "./$name init . MyProject")
+    
+    	install -D -m 755 $name $PKG/usr/bin/$name
+    	#ln -s $name $PKG/usr/bin/$name
+    
+    	install -d $PKG/var/lib
+    	install -d -o nobody -g nobody $PKG/var/lib/$name
+    	install -m 644 -o nobody -g nobody MyProject.db $PKG/var/lib/$name
+
+	name=cvstrac    
+    	install -D -m 755 $SRC/${name}_cgi $PKG/var/www/cgi-bin/$name.cgi
+    	install -D -m 755 $SRC/${name}d    $PKG/etc/rc.d/$name
+
+	chown -R root:root $PKG
+}

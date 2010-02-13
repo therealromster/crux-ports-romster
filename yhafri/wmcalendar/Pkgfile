@@ -1,0 +1,21 @@
+# $Id: $
+# Description: A calendar dockapp
+# URL: http://wmcalendar.sourceforge.net/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: x11, libical, gtk
+
+name=wmcalendar
+version=0.5.0
+release=1
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	$name-$version.patch)
+
+build () {
+	mkdir -p $PKG/usr/bin
+	cd $name-$version/Src
+	patch -p2 < ../../$name-$version.patch
+        make CFLAGS="$CFLAGS"
+	install -m 755 wmCalendar $PKG/usr/bin/$name
+        chown -R root:root $PKG
+}

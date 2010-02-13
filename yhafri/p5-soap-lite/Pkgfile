@@ -1,0 +1,20 @@
+# $Id: $
+# Description: Client and server side SOAP implementation
+# URL: http://84.45.18.237/~byrne/SOAP-Lite-0.67/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=p5-soap-lite
+version=0.67
+release=1
+source=(http://84.45.18.237/CPAN/authors/id/B/BY/BYRNE/SOAP/SOAP-Lite-$version.tar.gz)
+
+build () {
+	cd SOAP-Lite-$version
+	echo "yes" | perl Makefile.PL
+	make OPTIMIZE="${CFLAGS}"
+	make DESTDIR=${PKG} install
+	find ${PKG} -name perllocal.pod -exec rm {} \;
+	chown -R root:root $PKG
+}

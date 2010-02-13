@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/grdesktop
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/gconf/
+drwxr-xr-x	root/root	usr/etc/gconf/schemas/
+-rw-r--r--	root/root	usr/etc/gconf/schemas/grdesktop.schemas
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/grdesktop.1.gz

@@ -1,0 +1,6 @@
+POST-INSTALL:
+
+		* Add this line in your /etc/samba/smb.conf in the  
+		"Global Settings" section:
+
+		message command = /usr/bin/LinPopUp "%f" "%m" %s; rm %s

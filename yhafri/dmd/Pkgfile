@@ -1,0 +1,25 @@
+# $Id: $
+# Description: D programming language 
+# URL: http://www.digitalmars.com/d/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: 
+
+name=dmd
+version=1
+release=1
+source=(http://ftp.digitalmars.com/$name.zip)
+
+build () {
+
+	mkdir -p $PKG/usr/lib
+	mkdir -p $PKG/etc
+
+	sed -i "s|DFLAGS=.*|DFLAGS=/usr/lib/$name/src/phobos|" $name/bin/$name.conf
+	cp $name/bin/$name.conf $PKG/etc
+	chmod 755 $name/bin/$name $name/bin/obj2asm $name/bin/dumpobj
+	cp $name/lib/libphobos.a $PKG/usr/lib
+	mv $name $PKG/usr/lib
+	rm -rf $PKG/usr/lib/dmd/lib/readme.txt
+	chown -R root:root $PKG
+}

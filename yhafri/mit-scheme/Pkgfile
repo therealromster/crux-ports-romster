@@ -1,0 +1,33 @@
+# $Id: $
+# Description: MIT implementation of the UnCommon Lisp
+# URL: http://www.gnu.org/software/mit-scheme/
+# Maintainer: Younes Hafri <ycrux@club-internet.fr>
+# Packager: Younes Hafri <ycrux@club-internet.fr>
+# Depends on: ncurses,openssl
+
+name=mit-scheme
+version=7.7.1
+release=1
+source=(http://mirrors.sunsite.dk/gnu/$name/stable.pkg/$version/$name-$version-ix86-gnu-linux.tar.gz \
+	http://mirrors.sunsite.dk/gnu/$name/stable.pkg/$version/$name-$version-src-ucode.tar.gz \
+	mit-scheme-$version.patch)
+	
+
+build() {
+	patch -p0 < mit-scheme-$version.patch
+    	cd scheme-$version/src/microcode
+    	
+	./configure --prefix=/usr
+    
+	make
+    	cd ../../..
+    	cp -fp scheme-$version/src/microcode/scheme bin/.
+    	cp -fp scheme-$version/src/microcode/bchscheme bin/.
+    	
+	mkdir $PKG/usr
+    
+	rm -fr lib/$name/{doc,edwin/info}
+    	mv bin/ lib/ $PKG/usr/
+    	
+	chown -R root.root $PKG
+}
