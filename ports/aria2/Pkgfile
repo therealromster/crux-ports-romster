@@ -5,7 +5,7 @@
 # Depends on: c-ares openssl libxml2 zlib
 
 name=aria2
-version=1.8.2
+version=1.9.0
 release=1
 source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2"
 up2date_url="http://sourceforge.net/projects/$name/files/"
