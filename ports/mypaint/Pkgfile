@@ -1,0 +1,24 @@
+# Description: A fast and easy open-source graphics application for digital painters.
+# URL: http://mypaint.intilinux.com/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: scons numpy protobuf pygtk
+
+name=mypaint
+version=0.8.2
+release=1
+source=(http://download.gna.org/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	scons \
+		${SCONSFLAGS} \
+		NLS=0 \
+		destdir="${PKG}" \
+		prefix=/usr
+
+	scons prefix=$PKG/usr install
+	python -mcompileall $PKG
+	rm -r $PKG/usr/share/locale
+}
