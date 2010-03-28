@@ -2,15 +2,15 @@
 # URL: http://www.i-scream.org/libstatgrab/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: 
+# Depends on: ncurses
 
 name=libstatgrab
-version=0.16
+version=0.17
 release=1
-source=(ftp://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-$version.tar.gz)
+source=(ftp://ftp.i-scream.org/pub/i-scream/libstatgrab/$name-$version.tar.gz)
 
 build() {
-	cd libstatgrab-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -20,4 +20,3 @@ build() {
 	make
 	make -j 1 DESTDIR=$PKG install
 }
-
