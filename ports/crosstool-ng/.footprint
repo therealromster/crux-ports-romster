@@ -619,6 +619,7 @@ drwxr-xr-x	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/270-alpha-asm_page.patch
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/280-alpha-asm_elf.patch
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/290-gcc-4.3-include.patch
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/300-fix-binutils-version-check.patch
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/maybe/
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/maybe/100-allow-gcc-4.0-powerpc32.patch
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/glibc/2.3.6/maybe/101-allow-gcc-4.0-powerpc64.patch

@@ -5,7 +5,7 @@
 # Depends on: texinfo
 
 name=crosstool-ng
-version=1.6.0
+version=1.6.1
 release=1
 source=(http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2)
 
@@ -18,7 +18,7 @@ build() {
 		--libdir=/usr/lib/ct-ng
 
 	#--libdir is not honnored workaround
-	sed -i -e 's|^LIBDIR := /usr/lib/ct-ng/ct-ng-1.6.0$|LIBDIR := /usr/lib/ct-ng/|' Makefile
+	sed -i -e "s|^LIBDIR := /usr/lib/ct-ng/ct-ng-${version}$|LIBDIR := /usr/lib/ct-ng/|" Makefile
 
 	make
 	make DESTDIR=$PKG install
