@@ -58,6 +58,7 @@ drwxr-xr-x	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/pointset_math.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/quad.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/rect.h
+-rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/rect_packer.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/sha1.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/size.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Core/Math/triangle_math.h
@@ -188,6 +189,10 @@ drwxr-xr-x	root/root	usr/include/ClanLib-2.1/ClanLib/Database/
 drwxr-xr-x	root/root	usr/include/ClanLib-2.1/ClanLib/Display/
 drwxr-xr-x	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/color.h
+-rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/color_hsl.h
+-rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/color_hsl2.h
+-rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/color_hsv.h
+-rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/color_hsv2.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/draw.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/gradient.h
 -rw-r--r--	root/root	usr/include/ClanLib-2.1/ClanLib/Display/2D/image.h
