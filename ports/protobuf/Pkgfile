@@ -1,0 +1,26 @@
+# Description: Protocol Buffers are a way of encoding structured data in an efficient yet extensible format.
+# URL: http://code.google.com/p/protobuf/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: setuptools
+
+name=protobuf
+version=2.3.0
+release=1
+source=(http://$name.googlecode.com/files/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+
+	cd python
+	python setup.py test
+	python setup.py install --root=$PKG
+}
