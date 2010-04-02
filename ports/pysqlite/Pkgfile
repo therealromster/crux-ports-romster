@@ -1,21 +1,13 @@
 # Description:	Sqlite bindings for Python.
-# URL: http://oss.itsystementwicklung.de/trac/pysqlite/
+# URL: http://code.google.com/p/pysqlite/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packagerr: Alan Mizrahi, alan at mizrahi dot com dot ve
-# Depends on: sqlite python
+# Depends on: sqlite3 python
 
 name=pysqlite
-version=2.4.1
+version=2.6.0
 release=1
-source=(http://oss.itsystementwicklung.de/download/$name/${version%.*}/$version/$name-$version.tar.gz)
-
-up2date_branch="curl -s 'http://oss.itsystementwicklung.de/download/$name/' | \
-	grep '<a ' | sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|/$||' | \
-	egrep -v '^(doc|mail-archives)' | tail -n 1"
-
-up2date="curl -s 'http://oss.itsystementwicklung.de/download/$name/${version%.*}/' | \
-	grep '<a ' | sed -e 's|.*href=\"\([^\"]*\)\".*|\1|' -e 's|/$||' | tail -n 1"
-
+source=(http://$name.googlecode.com/files/$name-$version.tar.gz)
 build() {
 	cd $name-$version
 	python setup.py install --root=$PKG
