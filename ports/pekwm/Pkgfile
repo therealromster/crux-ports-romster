@@ -5,9 +5,9 @@
 # Depends on: imlib2 libpcre xorg-libxft xorg-libxpm xorg-libxrandr
 
 name=pekwm
-version=0.1.11
+version=0.1.12
 release=1
-source="http://www.pekwm.org/projects/3/files/$name-$version.tar.bz2"
+source="http://www.pekwm.org/projects/$name/files/$name-$version.tar.gz"
 up2date_url="http://pekwm.org/projects/pekwm/releases"
 
 build() {
