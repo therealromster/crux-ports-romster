@@ -1,6 +1,5 @@
-# $Id: 
 # Description: Zeppoo can detect if a rootkit is installed on your system.
-# URL: http://www.zeppoo.net/
+# URL: http://www.antirootkit.com/software/Zeppoo.htm
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, <romster@shortcircuit.net.au>
 # Depends on:
@@ -8,7 +7,7 @@
 name=zeppoo
 version=0.0.4
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
@@ -26,4 +25,3 @@ build() {
 	#make DESTDIR=$PKG install
 	#chown -R root:root $PKG
 }
-
