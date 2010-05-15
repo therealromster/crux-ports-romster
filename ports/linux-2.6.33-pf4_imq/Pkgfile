@@ -1,6 +1,6 @@
-# Description: Linux kernel with realtime patchset.
+# Description: Linux kernel with pf-patchset and IMQ patchset.
 # URL: http://www.kernel.org/
-# Maintainer: Antonio SJ Musumeci, bile at landofbile dot com
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on:
 
 version=2.6.33-pf4_imq
