@@ -1,13 +1,14 @@
 # Description: QT app to control the JACK sound server daemon.
-# URL: http://qjackctl.sf.net
+# URL: http://qjackctl.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Han Boetes, han at mijncomputer dot nl
 # Depends on: qt4 jack
 
 name=qjackctl
-version=0.3.5
+version=0.3.6
 release=1
-source=(http://downloads.sourceforge.net/$name/$name-$version.tar.gz)
+source="http://downloads.sourceforge.net/$name/$name-$version.tar.gz"
+up2date_url="http://sourceforge.net/projects/qjackctl/files/"
 
 build() {
 	cd $name-$version
