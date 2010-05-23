@@ -1,0 +1,23 @@
+# Description: LADSPA audio plugins.
+# URL: http://plugin.org.uk/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Vincenzo Colosimo, vico at bicisport dot de
+# Depends on: fftw
+
+name=swh-plugins
+version=0.4.15
+release=1
+source="http://plugin.org.uk/releases/$version/$name-$version.tar.gz"
+up2date_url="http://plugin.org.uk/releases/"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-3dnow \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}
