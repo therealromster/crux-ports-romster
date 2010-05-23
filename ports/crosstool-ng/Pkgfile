@@ -5,9 +5,9 @@
 # Depends on: texinfo
 
 name=crosstool-ng
-version=1.6.1
+version=1.7.0
 release=1
-source=(http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2)
+source="http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2"
 
 build() {
 	cd $name-$version
