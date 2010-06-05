@@ -5,7 +5,7 @@
 # Depends on: cmake freeglut libsdl qt4
 
 name=stellarium
-version=0.10.2
+version=0.10.5
 release=1
 source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
