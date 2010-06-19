@@ -2,15 +2,15 @@
 # URL: http://coin3d.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: libpng libsndfile libtiff libungif libvorbis xorg-libx11
+# Depends on: libpng libsndfile libtiff giflib libvorbis xorg-libx11
 
 name=simage
-version=1.6.1
+version=1.7.0
 release=1
-source=(ftp://ftp.coin3d.org/pub/coin/src/all/simage-$version.tar.gz)
+source="ftp://ftp.coin3d.org/pub/coin/src/all/$name-$version.tar.gz"
 
 build() {
-	cd simage-$version
+	cd $name-$version
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install

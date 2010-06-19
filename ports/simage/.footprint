@@ -5,9 +5,11 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/simage.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libsimage.la
-lrwxrwxrwx	root/root	usr/lib/libsimage.so -> libsimage.so.20.6.1
-lrwxrwxrwx	root/root	usr/lib/libsimage.so.20 -> libsimage.so.20.6.1
--rwxr-xr-x	root/root	usr/lib/libsimage.so.20.6.1
+lrwxrwxrwx	root/root	usr/lib/libsimage.so -> libsimage.so.20.7.0
+lrwxrwxrwx	root/root	usr/lib/libsimage.so.20 -> libsimage.so.20.7.0
+-rwxr-xr-x	root/root	usr/lib/libsimage.so.20.7.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/simage.pc
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/Coin/
 drwxr-xr-x	root/root	usr/share/Coin/conf/
