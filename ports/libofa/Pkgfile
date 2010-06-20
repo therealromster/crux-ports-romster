@@ -2,7 +2,7 @@
 # URL: http://code.google.com/p/musicip-libofa/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Antonio SJ Musumeci, bile at landofbile dot com
-# Depends on: fftw
+# Depends on: fftw expat
 
 name=libofa
 version=0.9.3
