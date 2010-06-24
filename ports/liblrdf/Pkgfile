@@ -2,12 +2,12 @@
 # URL: http://sourceforge.net/projects/lrdf
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Diederick de Vries <diederick at diederickdevries dot net>
-# Depends on: librdf raptor
+# Depends on: raptor ladspa
 
 name=liblrdf
 version=0.4.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/lrdf/$name-$version.tar.gz)
+source="http://dl.sourceforge.net/sourceforge/lrdf/$name-$version.tar.gz"
 
 build() {
 	cd $name-$version
@@ -16,7 +16,6 @@ build() {
 		--prefix=/usr \
 		--disable-static
 
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
-
