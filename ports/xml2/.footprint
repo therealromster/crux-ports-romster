@@ -1,0 +1,8 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/2csv
+lrwxrwxrwx	root/root	usr/bin/2html -> /usr/bin/2xml
+-rwxr-xr-x	root/root	usr/bin/2xml
+-rwxr-xr-x	root/root	usr/bin/csv2
+lrwxrwxrwx	root/root	usr/bin/html2 -> /usr/bin/xml2
+-rwxr-xr-x	root/root	usr/bin/xml2

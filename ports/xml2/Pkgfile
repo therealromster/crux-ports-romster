@@ -1,0 +1,35 @@
+# Description: These tools are used to convert XML and HTML to and from a line-oriented format.
+# URL: http://dan.egnor.name/xml2/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libxml2
+
+name=xml2
+version=0.4
+release=1
+source="
+	http://download.ofb.net/gale/$name-$version.tar.gz
+	xml2-0.4-libxml2.patch
+"
+
+build() {
+	cd $name-$version
+
+	patch -p 1 -i $SRC/xml2-0.4-libxml2.patch
+	autoreconf
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+
+	rm \
+		$PKG/usr/bin/2html \
+		$PKG/usr/bin/html2
+
+	ln -sf /usr/bin/xml2 $PKG/usr/bin/html2
+	ln -sf /usr/bin/2xml $PKG/usr/bin/2html
+}
