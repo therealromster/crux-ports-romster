@@ -1,24 +1,22 @@
-# Description: Linux kernel with pf-patchset and IMQ patchset.
+# Description: Linux kernel with pf-patchset.
 # URL: http://www.kernel.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on:
 
-version=2.6.33-pf4_imq
+version=2.6.34-pf5
 name=linux-${version}
 release=1
 source="
-	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.33.tar.bz2
-	patch-2.6.33-pf4
-	linux-2.6.33.3-imq-test1.diff
+	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.34.tar.bz2
+	http://nebula.pl.ua/download.php?q=b1f1007614f02b19040116a232370234ee2123f0
 "
 
 build() {
-	mv linux-2.6.33 $name
+	mv linux-2.6.34 $name
+	mv download.php?q=b1f1007614f02b19040116a232370234ee2123f0 patch-2.6.34-pf5.bz2
 	cd $name
 
-	patch -p 1 -i $SRC/patch-2.6.33-pf4
-	patch -p 1 -i $SRC/linux-2.6.33.3-imq-test1.diff
-	sed -i -e "s|^EXTRAVERSION = -pf4$|EXTRAVERSION = -pf4_imq|" Makefile
+	bzcat $SRC/patch-2.6.34-pf5.bz2 | patch -p 1
 
 	if [ -e /usr/src/${name}.config ]; then
 		cp /usr/src/${name}.config ./.config
