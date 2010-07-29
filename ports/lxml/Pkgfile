@@ -1,0 +1,15 @@
+# Description: A pythonic binding for the libxml2 and libxslt libraries.
+# URL: http://codespeak.net/lxml/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libxml2 libxslt setuptools cython
+
+name=lxml
+version=2.2.7
+release=1
+source="http://codespeak.net/lxml/$name-$version.tgz"
+
+build() {
+	cd $name-$version
+	python setup.py install --root $PKG
+}
