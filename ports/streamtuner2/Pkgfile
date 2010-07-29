@@ -1,0 +1,29 @@
+# Description: An internet radio browser.
+# URL: http://milki.erphesfurt.de/streamtuner2/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: pyxdg pygtk lxml pyquery pil
+
+name=streamtuner2
+version=2.0.5
+release=1
+source="
+	http://downloads.sourceforge.net/sourceforge/$name/$name-$version.src.tgz
+	http://milki.erphesfurt.de/$name/$name-$version.src.tgz
+"
+
+build() {
+	cd $name
+
+	install -d \
+		$PKG/usr/share/$name \
+		$PKG/usr/bin \
+		$PKG/usr/share/applications \
+		$PKG/usr/share/icons/hicolor/375x90/apps
+
+	cp -r * $PKG/usr/share/$name/
+
+	mv $PKG/usr/share/$name/st2.py $PKG/usr/bin/st2
+	mv $PKG/usr/share/$name/streamtuner2.desktop $PKG/usr/share/applications/
+	#mv $PKG/usr/share/$name/streamtuner2.png $PKG/usr/share/icons/hicolor/375x90/apps/
+}
