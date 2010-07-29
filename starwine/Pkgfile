@@ -1,0 +1,37 @@
+# Description: Wine - Implementation of Windows DLL's and core. Included patches for starcraft battle.net
+# URL: http://www.winehq.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Daniel Walpole, daniel at walpole dot id dot au
+# Depends on: fontconfig hal lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
+# Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
+
+name=starwine
+sname=wine
+group=wine
+version=1.2
+release=1
+source="
+	http://ibiblio.org/pub/linux/system/emulators/$sname/$sname-$version.tar.bz2
+	wine-1.2-rc6_slowness.patch
+	wine-1.2-rc6_battle_net.patch
+"
+
+build() {
+	cd $sname-$version
+
+	# don't add -pipe if we compile in tmpfs it actually slows us down.
+	sed -i -e 's/^EXTRACFLAGS="-Wall -pipe"/EXTRACFLAGS="-Wall"/' configure
+
+	patch -p 1 -i $SRC/wine-1.2-rc6_battle_net.patch
+	patch -p 1 -i $SRC/wine-1.2-rc6_slowness.patch
+
+	./configure \
+		--verbose \
+		--prefix=/opt/wine-starcraft \
+		--mandir=/opt/wine-starcraft/man \
+		--disable-tests
+
+	make depend
+	make
+	make DESTDIR=$PKG install
+}

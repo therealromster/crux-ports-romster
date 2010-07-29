@@ -1,0 +1,89 @@
+--- wine-1.2-rc6/dlls/ddraw/surface.c	2010-07-02 19:24:56.000000000 +0200
++++ wine-1.2-rc6-starcraft/dlls/ddraw/surface.c	2010-07-11 23:11:13.248999585 +0200
+@@ -48,6 +48,11 @@
+ 
+ WINE_DEFAULT_DEBUG_CHANNEL(ddraw);
+ 
++/*# too many locks hack, globals...*/
++BYTE bitsBuffer[640*480];
++long int nTicks = 0;
++BOOL bSkipped = FALSE;
++
+ /*****************************************************************************
+  * IUnknown parts follow
+  *****************************************************************************/
+@@ -547,8 +552,35 @@
+     IDirectDrawSurfaceImpl *This = (IDirectDrawSurfaceImpl *)iface;
+     WINED3DLOCKED_RECT LockedRect;
+     HRESULT hr;
++    /*# too many Locks hack */
++    HWND hwndTest;
++    /* too many Locks hack #*/
+     TRACE("(%p)->(%p,%p,%x,%p)\n", This, Rect, DDSD, Flags, h);
+ 
++    /*# too many Locks hack */
++    /* do not apply in battle.net menus */
++    hwndTest = FindWindowExA(NULL,NULL,"SDlgDialog",NULL);
++    /* roughly 50fps */
++    if(GetTickCount()-nTicks > 20)
++    {
++	bSkipped = FALSE;	
++	nTicks = GetTickCount();
++    }
++    /* return buffer instead of surface */
++    else if(!hwndTest)
++    {
++	DDSD->dwWidth = 640;
++	DDSD->dwHeight = 480;
++	DDSD->u1.dwLinearSize = 640;
++	DDSD->dwBackBufferCount=0;
++	DDSD->dwAlphaBitDepth=0;
++	DDSD->lpSurface = bitsBuffer;
++	bSkipped = TRUE;
++
++	return DD_OK;
++    }
++    /*# too many Locks hack #*/
++
+     if(!DDSD)
+         return DDERR_INVALIDPARAMS;
+ 
+@@ -614,6 +646,11 @@
+     This->surface_desc.lpSurface = LockedRect.pBits;
+     DD_STRUCT_COPY_BYSIZE(DDSD,&(This->surface_desc));
+ 
++    /*# too many Locks hack */
++    /* copy memory buffer to screen, do not apply in battle.net menus */
++    if(!hwndTest) memcpy(LockedRect.pBits,bitsBuffer,640*480);
++    /*# too many Locks hack #*/
++
+     TRACE("locked surface returning description :\n");
+     if (TRACE_ON(ddraw)) DDRAW_dump_surface_desc(DDSD);
+ 
+@@ -640,9 +677,26 @@
+ {
+     IDirectDrawSurfaceImpl *This = (IDirectDrawSurfaceImpl *)iface;
+     HRESULT hr;
++    /*# too many Locks hack */
++    HWND hwndTest;
++    /* too many Locks hack #*/
+     TRACE("(%p)->(%p)\n", This, pRect);
+ 
++    /*# too many Locks hack */
++    /* do not apply in battle.net menus */
++    hwndTest = FindWindowExA(NULL,NULL,"SDlgDialog",NULL);
++    /* skip unlock if we skipped lock (WARNING: multiple overlapping locks?)*/
++    if(bSkipped)
++	return 0x0;
++    /* too many Locks hack #*/
++
+     EnterCriticalSection(&ddraw_cs);
++    
++    /*# too many Locks hack */
++    /* copy screen to memory buffer, do not apply in battle.net menus */
++    if(!hwndTest) memcpy(bitsBuffer,This->surface_desc.lpSurface,640*480);
++    /* too many Locks hack #*/
++
+     hr = IWineD3DSurface_UnlockRect(This->WineD3DSurface);
+     if(SUCCEEDED(hr))
+     {
