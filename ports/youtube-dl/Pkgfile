@@ -1,0 +1,15 @@
+# Description: A command-line program to download videos from YouTube.com and a few more sites.
+# URL: http://bitbucket.org/rg3/youtube-dl/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: python
+
+name=youtube-dl
+version=2010.07.24
+release=1
+source="http://bitbucket.org/rg3/youtube-dl/raw/$version/youtube-dl"
+
+build() {
+	sed -i -e 's|#!/usr/bin/env python|#!/usr/bin/python|' $SRC/youtube-dl
+	install -m 0755 -D $SRC/youtube-dl $PKG/usr/bin/youtube-dl
+}
