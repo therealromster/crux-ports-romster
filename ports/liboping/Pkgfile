@@ -2,12 +2,11 @@
 # URL: http://verplant.org/liboping/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Mark Rosenstand, mark at borkware dot net
-# Depends on:
 
 name=liboping
-version=0.3.5
+version=1.4.0
 release=1
-source=(http://verplant.org/liboping/files/liboping-$version.tar.bz2)
+source="http://verplant.org/liboping/files/liboping-$version.tar.bz2"
 
 build() {
 	cd liboping-$version
