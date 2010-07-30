@@ -5,9 +5,9 @@
 # Depends on: gtk
 
 name=emelfm2
-version=0.4.1
+version=0.7.3
 release=1
-source=(http://emelfm2.net/rel/emelfm2-$version.tar.gz)
+source="http://emelfm2.net/rel/emelfm2-$version.tar.bz2"
 
 build() {
 	cd emelfm2-$version
@@ -15,4 +15,3 @@ build() {
 	make PREFIX=$PKG/usr MAN_DIR=$PKG/usr/man/man1 install
 	rm -r $PKG/usr/share/doc
 }
-
