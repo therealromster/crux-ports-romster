@@ -5,9 +5,9 @@
 # Depends on: python
 
 name=mutagen
-version=1.13
+version=1.15
 release=1
-source=(http://www.sacredchao.net/~piman/software/mutagen-$version.tar.gz)
+source="http://www.sacredchao.net/~piman/software/mutagen-$version.tar.gz"
 
 build() {
     cd mutagen-$version
@@ -15,4 +15,3 @@ build() {
     python setup.py build
     python setup.py install --root $PKG
 }
-
