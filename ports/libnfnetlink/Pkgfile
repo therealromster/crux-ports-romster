@@ -2,14 +2,11 @@
 # URL: http://www.tw.netfilter.org/projects/libnfnetlink/index.html
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Nathan Pardoe, lithium at poolofrandomness dot com
-# Depends on: 
 
 name=libnfnetlink
-version=0.0.41
+version=1.0.0
 release=1
-url='http://www.netfilter.org/projects/libnfnetlink/files'
-up2date="lynx -dump '$url/?C=M;O=D' |grep tar.bz2$ |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '1 p'"
-source=($url/$name-$version.tar.bz2)
+source="http://www.netfilter.org/projects/libnfnetlink/files/$name-$version.tar.bz2"
 
 build() {
 	cd $name-$version
