@@ -162,6 +162,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/
 -rw-r--r--	root/root	usr/include/wine/windows/d3d9caps.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3d9types.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3dcaps.h
+-rw-r--r--	root/root	usr/include/wine/windows/d3dcommon.h
+-rw-r--r--	root/root	usr/include/wine/windows/d3dcommon.idl
 -rw-r--r--	root/root	usr/include/wine/windows/d3dhal.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3drm.h
 -rw-r--r--	root/root	usr/include/wine/windows/d3drmdef.h
@@ -538,7 +540,6 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/srrestoreptapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/sspi.h
 -rw-r--r--	root/root	usr/include/wine/windows/stdole2.idl
--rw-r--r--	root/root	usr/include/wine/windows/stdole2.tlb
 -rw-r--r--	root/root	usr/include/wine/windows/sti.h
 -rw-r--r--	root/root	usr/include/wine/windows/storage.h
 -rw-r--r--	root/root	usr/include/wine/windows/strmif.h
@@ -877,6 +878,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fltlib.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fusion.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/fwpuclnt.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/gameux.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/gdi.exe16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/gdi32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/gdiplus.dll
@@ -963,6 +965,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mssip32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mstask.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcirt.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcp90.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcr100.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcr70.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcr71.dll
@@ -1040,6 +1043,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/rsabase.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/rsaenh.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/rtutils.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/rundll.exe16
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/rundll32.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/samlib.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/sane.ds
@@ -1167,6 +1171,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wow32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/write.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/ws2_32.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/wscript.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wsock32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wtsapi32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wuapi.dll
@@ -1181,6 +1186,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/fltlib.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/fusion.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/fwpuclnt.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/gameux.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/gdi.exe16.so
 -rwxr-xr-x	root/root	usr/lib/wine/gdi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/gdiplus.dll.so
@@ -1314,6 +1320,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/libopengl32.def
 -rw-r--r--	root/root	usr/lib/wine/libpdh.def
 -rw-r--r--	root/root	usr/lib/wine/libpowrprof.def
+-rw-r--r--	root/root	usr/lib/wine/libpropsys.def
 -rw-r--r--	root/root	usr/lib/wine/libpsapi.def
 -rw-r--r--	root/root	usr/lib/wine/libquartz.def
 -rw-r--r--	root/root	usr/lib/wine/librasapi32.def
@@ -1419,6 +1426,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/mssip32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mstask.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcirt.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/msvcp90.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcr100.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcr70.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcr71.dll.so
@@ -1496,6 +1504,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/rsabase.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/rsaenh.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/rtutils.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/rundll.exe16.so
 -rwxr-xr-x	root/root	usr/lib/wine/rundll32.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/samlib.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sane.ds.so
@@ -1623,6 +1632,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/wow32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/write.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/ws2_32.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/wscript.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/wsock32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wtsapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wuapi.dll.so
