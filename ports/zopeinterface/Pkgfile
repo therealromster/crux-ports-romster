@@ -1,0 +1,19 @@
+# Description: Zope3 interface library.
+# URL: http://pypi.python.org/pypi/zope.interface/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Lucas Hazel, lucas at die dot net dot au
+# Depends on: python
+	
+name=zopeinterface
+sname=zope.interface
+version=3.6.1
+release=3
+source="http://pypi.python.org/packages/source/z/$sname/$sname-$version.tar.gz"
+up2date_url="http://pypi.python.org/pypi/$sname"
+	
+build() {
+	cd $sname-$version
+	python setup.py install --root=$PKG --prefix=/usr
+	rm $PKG/usr/lib/python*/site-packages/zope/interface/README{,.ru}.txt
+	find $PKG -name '*egg-info' | xargs rm -rf
+}
