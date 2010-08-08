@@ -1,0 +1,21 @@
+# Description: Python bindings for libtorrent.
+# URL: http://code.google.com/p/libtorrent/
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libtorrent python
+
+name=python-libtorrent
+sname=libtorrent-rasterbar
+group=libtorrent
+version=0.15.1
+release=1
+source="http://libtorrent.googlecode.com/files/$sname-$version.tar.gz"
+
+build() {
+	cd $sname-$version
+	./configure --prefix=/usr --enable-python-binding
+	make
+	cd bindings/python
+	python setup.py build
+	python setup.py install --root=$PKG
+}
