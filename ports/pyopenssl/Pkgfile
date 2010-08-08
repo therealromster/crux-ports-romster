@@ -1,16 +1,16 @@
-# Description: Python interface to the OpenSSL library
-# URL: http://pyopenssl.sourceforge.net/
+# Description: Python interface to the OpenSSL library.
+# URL: https://launchpad.net/pyopenssl
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Younes Hafri <ycrux@club-internet.fr>
 # Depends on: python
 
 name=pyopenssl
-version=0.7
+sname=pyOpenSSL
+version=0.10
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/pyOpenSSL-$version.tar.gz)
+source="http://pypi.python.org/packages/source/p/$sname/$sname-$version.tar.gz"
 
 build() {
-	cd pyOpenSSL-$version
+	cd $sname-$version
 	python setup.py install --root=$PKG
 }
-
