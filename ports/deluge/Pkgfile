@@ -2,12 +2,12 @@
 # URL: http://deluge-torrent.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Brett Goulder, predatorfreak at dcaf-security dot org.
-# Depends on: libglade librsvg pygtk pyxdg dbus-python boost setuptools
+# Depends on: libglade librsvg pygtk pyxdg dbus-python boost setuptools twistedweb pyopenssl chardet python-libtorrent
 
 name=deluge
-version=1.1.9
+version=1.2.3
 release=1
-source=(http://download.deluge-torrent.org/source/$name-$version.tar.bz2)
+source="http://download.deluge-torrent.org/source/$name-$version.tar.lzma"
 
 build() {
 	cd $name-$version
