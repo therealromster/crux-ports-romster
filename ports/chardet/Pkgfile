@@ -1,0 +1,16 @@
+# Description: Python module for character encoding auto-detection.
+# URL: http://chardet.feedparser.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Marcin Karpezo, sirmacik at crux dot org dot pl
+# Depends on: python
+
+name=chardet
+sname=python2-chardet
+version=2.0.1
+release=1
+source="http://chardet.feedparser.org/download/$sname-$version.tgz"
+
+build(){
+    cd $sname-$version
+    python setup.py install --root=$PKG
+}
