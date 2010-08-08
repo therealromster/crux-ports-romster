@@ -1,0 +1,19 @@
+# Description: libtorrent library.
+# URL: http://code.google.com/p/libtorrent/
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: boost openssl zlib
+
+name=libtorrent
+sname=libtorrent-rasterbar
+group=libtorrent
+version=0.15.1
+release=1
+source="http://libtorrent.googlecode.com/files/$sname-$version.tar.gz"
+
+build() {
+	cd $sname-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
