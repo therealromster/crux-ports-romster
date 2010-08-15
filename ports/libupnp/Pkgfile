@@ -1,0 +1,27 @@
+# Description: An Portable Open Source UPnP Development Kit.
+# URL: http://pupnp.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=libupnp
+version=1.6.6
+release=1
+source="
+	http://downloads.sourceforge.net/sourceforge/pupnp/$name-$version.tar.bz2
+	libupnp-1.6.6-patch-statevar-query.patch
+"
+
+build() {
+	cd $name-$version
+
+	patch -p 1 -i $SRC/libupnp-1.6.6-patch-statevar-query.patch
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-static \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+}
