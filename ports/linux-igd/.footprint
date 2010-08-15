@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/linuxigd/
+-rw-r--r--	root/root	etc/linuxigd/dummy.xml
+-rw-r--r--	root/root	etc/linuxigd/gateconnSCPD.xml
+-rw-r--r--	root/root	etc/linuxigd/gatedesc.xml
+-rw-r--r--	root/root	etc/linuxigd/gateicfgSCPD.xml
+-rw-r--r--	root/root	etc/linuxigd/ligd.gif
+-rw-r--r--	root/root	etc/upnpd.conf
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/upnpd.8.gz
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/upnpd
