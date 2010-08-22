@@ -5,9 +5,9 @@
 # Depends on: boost openssl
 
 name=asio
-version=1.4.1
+version=1.4.5
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2"
 up2date_url="http://sourceforge.net/projects/$name/files/"
 
 build() {
