@@ -1,0 +1,16 @@
+# Description:	tovid is a collection of video disc authoring tools; it can help you create your own DVDs, VCDs, and SVCDs for playback on your home DVD player.
+# URL: http://tovid.wikia.com/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: dvdauthor imagemagick libdvdcss lsdvd mplayer sox transcode txt2tags wxpython
+
+name=tovid
+version=0.33
+release=1
+source="http://tovid.googlecode.com/files/$name-$version.tar.gz"
+
+build () {
+	cd $name-$version
+	python setup.py build
+	python setup.py install --root $PKG
+}
