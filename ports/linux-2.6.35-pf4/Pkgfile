@@ -3,20 +3,20 @@
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on:
 
-version=2.6.35-pf1
+version=2.6.35-pf4
 name=linux-${version}
 group=kernel
 release=1
 source="
 	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.35.tar.bz2
-	http://nebula.pl.ua/download.php?q=bd8ba5b081d43d125fd590f2dd8457776cb0418e
+	http://nebula.pl.ua/download.php?q=8a36de60290c3b1894124e2320b97f48301758d3
 "
 
 build() {
 	mv linux-2.6.35 $name
 	cd $name
 	
-	mv $SRC/download.php?q=bd8ba5b081d43d125fd590f2dd8457776cb0418e $SRC/patch-$version.bz2
+	mv $SRC/download.php?q=8a36de60290c3b1894124e2320b97f48301758d3 $SRC/patch-$version.bz2
 	bunzip2 $SRC/patch-$version.bz2
 
 	patch -p 1 -i $SRC/patch-$version
