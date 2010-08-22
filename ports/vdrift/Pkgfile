@@ -5,10 +5,10 @@
 # Depends on: scons asio libsdl glew openal sdl_gfx sdl_image sdl_net libvorbis
 
 name=vdrift
-version=20090615
+version=20100630
 sversion=${version:0:4}-${version:4:2}-${version:6}
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$sversion-src.tar.bz2
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$sversion.tar.bz2
 	vdrift.desktop)
 
 build() {
@@ -40,5 +40,5 @@ build() {
 	# install menu entry
 	install -D -m 0644 $SRC/vdrift.desktop $PKG/usr/share/applications/vdrift.desktop
 
-	find "${PKG}" -name 'SConscript' -exec rm \{\} +
+	find "${PKG}" -name 'SConscript' -exec rm '{}' +
 }
