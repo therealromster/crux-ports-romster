@@ -4,12 +4,12 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=txt2tags-vim
-version=2.4
+group=txt2tags
+version=2.5
 release=1
-source=(http://dl.sourceforge.net/sourceforge/txt2tags/txt2tags-$version.tgz)
+source="http://downloads.sourceforge.net/sourceforge/txt2tags/txt2tags-$version.tgz"
 
 build() {
 	cd txt2tags-$version
 	install -m 0644 -D extras/txt2tags.vim $PKG//usr/share/vim/syntax/txt2tags.vim
 }
-
