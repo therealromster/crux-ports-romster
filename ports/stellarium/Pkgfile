@@ -7,8 +7,8 @@
 name=stellarium
 version=0.10.5
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
-
+source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz"
+up2date_url="http://sourceforge.net/projects/$name/files/"
 
 build() {
 	cd $name-$version
