@@ -5,9 +5,9 @@
 # Depends on: mesa3d xorg-libxi xorg-libxmu
 
 name=glew
-version=1.5.2
+version=1.5.6
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tgz"
 up2date_url="http://sourceforge.net/projects/$name/files/"
 
 build() {
