@@ -1,0 +1,23 @@
+# Description: C++ bittorent library.
+# URL: http://libtorrent.rakshasa.no/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Brett Goulder, predatorfreak at dcaf-security dot org.
+# Depends on: libsigc++ curl
+
+name=rb_libtorrent
+sname=libtorrent
+version=0.12.6
+release=1
+source=(http://libtorrent.rakshasa.no/downloads/$sname-$version.tar.gz)
+
+build() {
+	cd $sname-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--disable-debug
+
+	make
+	make DESTDIR=$PKG install
+}
