@@ -5,9 +5,9 @@
 # Depends on: imlib2
 
 name=fvwm
-version=2.5.28
+version=2.5.31
 release=1
-source=(ftp://ftp.fvwm.org/pub/fvwm/version-2/$name-$version.tar.bz2)
+source="ftp://ftp.fvwm.org/pub/fvwm/version-2/$name-$version.tar.bz2"
 
 build() {
 	cd $name-$version
