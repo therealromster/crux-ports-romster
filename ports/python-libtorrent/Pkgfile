@@ -7,9 +7,10 @@
 name=python-libtorrent
 sname=libtorrent-rasterbar
 group=libtorrent
-version=0.15.1
+version=0.15.3
 release=1
 source="http://libtorrent.googlecode.com/files/$sname-$version.tar.gz"
+up2date_url="http://code.google.com/p/libtorrent/downloads/list"
 
 build() {
 	cd $sname-$version
