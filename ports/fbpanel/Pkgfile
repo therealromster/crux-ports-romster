@@ -5,15 +5,14 @@
 # Depends on: gtk
 
 name=fbpanel
-version=5.6
+version=6.1
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tbz2)
-up2date_url="http://sourceforge.net/projects/fbpanel/files/"
+source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tbz2"
 
 build() {
 	tar -C $SRC --use-compress-program=bzip2 -xf $name-$version.tbz2
 	cd $name-$version
-	./configure --prefix=/usr
+	./configure --prefix=/usr --libexecdir=/usr/lib
 	make
 	make DESTDIR=$PKG install
 }
