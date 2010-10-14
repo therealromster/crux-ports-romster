@@ -13,15 +13,7 @@ drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/arch/x86/kernel/
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/arch/x86/kernel/cpu/
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/arch/x86/kernel/cpu/cpufreq/
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/arch/x86/kernel/cpu/cpufreq/powernow-k8.ko
-drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/crypto/
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/crypto/lzf.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/
-drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/block/
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/block/pktcdvd.ko
-drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/cpufreq/
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/cpufreq/cpufreq_powersave.ko
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/cpufreq/cpufreq_stats.ko
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/cpufreq/cpufreq_userspace.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/hwmon/
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/hwmon/hwmon-vid.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/hwmon/hwmon.ko
@@ -86,25 +78,22 @@ drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/media/video/gsp
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/media/video/videobuf-dvb.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/media/video/videodev.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/net/
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/8139too.ko
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/amd8111e.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/net/r8169.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/drivers/scsi/
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/drivers/scsi/scsi_wait_scan.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/fs/
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/fs/fuse/
+-rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/fs/fuse/cuse.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/fs/fuse/fuse.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/sound/
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/ac97_bus.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/sound/core/
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/sound/core/oss/
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/oss/snd-mixer-oss.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/oss/snd-pcm-oss.ko
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/
 drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/oss/
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/oss/snd-seq-oss.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/snd-seq-device.ko
--rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/snd-seq-dummy.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/snd-seq-midi-emul.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/snd-seq-midi-event.ko
 -rw-r--r--	root/root	lib/modules/<kernel-version>/kernel/sound/core/seq/snd-seq-midi.ko
@@ -153,6 +142,7 @@ drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/sound/synth/emux/
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.ccwmap
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.dep
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.dep.bin
+-rw-r--r--	root/root	lib/modules/<kernel-version>/modules.devname
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.ieee1394map
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.inputmap
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.isapnpmap
@@ -160,6 +150,7 @@ drwxr-xr-x	root/root	lib/modules/<kernel-version>/kernel/sound/synth/emux/
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.order
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.pcimap
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.seriomap
+-rw-r--r--	root/root	lib/modules/<kernel-version>/modules.softdep
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.symbols
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.symbols.bin
 -rw-r--r--	root/root	lib/modules/<kernel-version>/modules.usbmap
@@ -28878,11 +28869,6 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/asm-generic/bitops/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/asm-generic/vmlinux.lds.h
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/asm-generic/xor.h
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/8139too.h (EMPTY)
-drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/8139too/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/8139too/8129.h (EMPTY)
-drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/8139too/tune/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/8139too/tune/twister.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/ac97/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/ac97/bus.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/acpi.h (EMPTY)
@@ -28904,8 +28890,6 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/acpi/sysfs/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/acpi/sysfs/power.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/acpi/thermal.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/aio.h (EMPTY)
-drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/amd8111/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/amd8111/eth.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/anon/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/anon/inodes.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/arch/
@@ -29006,10 +28990,6 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/blk/dev/sr/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/block.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/bounce.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/bug.h (EMPTY)
-drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/cdrom/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cdrom/pktcdvd.h (EMPTY)
-drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/cdrom/pktcdvd/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cdrom/pktcdvd/buffers.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/chr/
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/chr/dev/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/chr/dev/sg.h (EMPTY)
@@ -29030,11 +29010,6 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/gov/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/gov/conservative.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/gov/ondemand.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/gov/performance.h (EMPTY)
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/gov/powersave.h (EMPTY)
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/gov/userspace.h (EMPTY)
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/stat.h (EMPTY)
-drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/stat/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/stat/details.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/freq/table.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/idle.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/cpu/idle/
@@ -29074,7 +29049,6 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/hash.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/hash2.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/hmac.h (EMPTY)
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/lzf.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/lzo.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/manager.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/manager2.h (EMPTY)
@@ -29091,6 +29065,7 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/michael/
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/twofish/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/twofish/common.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/crypto/workqueue.h (EMPTY)
+-rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/cuse.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/dab.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/debug/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/debug/bugverbose.h (EMPTY)
@@ -29655,6 +29630,8 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/no/
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/nr/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/nr/cpus.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/nvram.h (EMPTY)
+drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/optimize/
+-rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/optimize/inlining.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/output/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/output/format.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/packet.h (EMPTY)
@@ -29871,8 +29848,6 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/hda/codec/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/hda/generic.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/hda/intel.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/hwdep.h (EMPTY)
-drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/mixer/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/mixer/oss.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/ossemul.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/pci.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/pcm.h (EMPTY)
@@ -29886,7 +29861,6 @@ drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/rawmidi/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/rawmidi/seq.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/rtctimer.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/seq/
--rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/seq/dummy.h (EMPTY)
 drwxr-xr-x	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/seq/rtctimer/
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/seq/rtctimer/default.h (EMPTY)
 -rw-r--r--	root/root	usr/src/linux-2.6.34-pf7/include/config/snd/sequencer.h (EMPTY)

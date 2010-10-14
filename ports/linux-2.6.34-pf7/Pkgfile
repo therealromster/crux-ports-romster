@@ -8,16 +8,16 @@ name=linux-${version}
 group=kernel
 release=1
 source="
-	http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.34.tar.bz2
-	http://nebula.pl.ua/download.php?q=106555bacfcdde2f2520f218dc6f658e2b7d1967
+	http://www.kernel.org/pub/linux/kernel/v2.6/linux-${version%-*}.tar.bz2
+	http://pf-kernel.org.ua/sources/${version%-*}/patch-$version.bz2
 "
 
 build() {
-	mv linux-2.6.34 $name
-	mv download.php?q=106555bacfcdde2f2520f218dc6f658e2b7d1967 patch-$version.bz2
+	mv linux-${version%-*} $name
 	cd $name
 
-	bzcat $SRC/patch-$version.bz2 | patch -p 1
+	bunzip2 $SRC/patch-$version.bz2
+	patch -p 1 -i $SRC/patch-$version
 
 	if [ -e /usr/src/${name}.config ]; then
 		cp /usr/src/${name}.config ./.config
