@@ -1,0 +1,31 @@
+# Description: Find pieces of code that could benefit from a refactoring.
+# URL: http://unique.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: wxpython
+
+name=unique
+version=0.23
+release=1
+source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2"
+
+build() {
+	cd $name-$version
+
+	PYTHONVERSION=`python -c "import sys; print \"%s.%s\" % (sys.version_info[0], sys.version_info[1]);"`
+
+	install -d \
+		$PKG/usr/lib/python$PYTHONVERSION/site-packages/$name \
+		$PKG/usr/bin
+
+	sed -i -e '1i #!/usr/bin/python' $SRC/$name-$version/unique.py
+
+	cp -a * $PKG/usr/lib/python$PYTHONVERSION/site-packages/$name/
+
+	ln -sf /usr/lib/python$PYTHONVERSION/site-packages/$name/unique.py \
+		$PKG/usr/bin/unique
+	
+	rm $PKG/usr/lib/python$PYTHONVERSION/site-packages/$name/{Changelog.txt,gpl.txt,README.txt}
+	rm -r $PKG/usr/lib/python$PYTHONVERSION/site-packages/unique/web
+	python -mcompileall $PKG/usr/lib/python$PYTHONVERSION/site-packages/$name/
+}
