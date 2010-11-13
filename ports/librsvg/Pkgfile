@@ -2,14 +2,14 @@
 # URL: http://librsvg.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: gtk libgsf libcroco
-# Optional: gnome-vfs
-
+# Depends on: gtk libcroco
 
 name=librsvg
-version=2.22.3
+version=2.32.0
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}/$name-$version.tar.bz2)
+up2date_url="http://ftp.gnome.org/pub/GNOME/sources/$name/"
+up2date_branch_filter='[0-9]+.[0-9]+'
 
 build() {
 	cd $name-$version
@@ -24,5 +24,5 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/{lib/mozilla,share/gtk-doc}
+	rm -r $PKG/usr/share/gtk-doc
 }
