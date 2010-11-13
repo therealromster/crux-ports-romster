@@ -5,7 +5,7 @@
 # Depends on: pyxdg pygtk lxml pyquery pil
 
 name=streamtuner2
-version=2.0.7
+version=2.0.8
 release=1
 source="
 	http://downloads.sourceforge.net/sourceforge/$name/$name-$version.src.tgz
@@ -14,6 +14,8 @@ source="
 
 build() {
 	cd $name
+
+	python -mcompileall $SRC
 
 	install -d \
 		$PKG/usr/share/$name \
@@ -25,5 +27,4 @@ build() {
 
 	mv $PKG/usr/share/$name/st2.py $PKG/usr/bin/st2
 	mv $PKG/usr/share/$name/streamtuner2.desktop $PKG/usr/share/applications/
-	#mv $PKG/usr/share/$name/streamtuner2.png $PKG/usr/share/icons/hicolor/375x90/apps/
 }
