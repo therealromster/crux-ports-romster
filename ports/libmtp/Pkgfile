@@ -1,0 +1,35 @@
+# Description: An implementation of MTP.
+# URL: http://libmtp.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Hannes Mayer, kontakt at ecarux dot de
+# Depends on: libusb
+
+name=libmtp
+version=1.0.1
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--disable-dependency-tracking \
+
+	make
+	make DESTDIR=$PKG install
+
+	local f symlink
+	symlink='mtp-delfile mtp-getfile mtp-newfolder mtp-sendfile mtp-sendfile mtp-sendtr'
+	for f in $symlink; do
+		rm $PKG/usr/bin/$f
+		ln -sf mtp-connect $PKG/usr/bin/$f
+	done 
+
+	install -d $PKG/etc/udev/rules.d
+	install -m 0755 libmtp.rules $PKG/etc/udev/rules.d/
+
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share
+}

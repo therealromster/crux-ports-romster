@@ -1,0 +1,36 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/udev/
+drwxr-xr-x	root/root	etc/udev/rules.d/
+-rwxr-xr-x	root/root	etc/udev/rules.d/libmtp.rules
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mtp-albumart
+-rwxr-xr-x	root/root	usr/bin/mtp-albums
+-rwxr-xr-x	root/root	usr/bin/mtp-connect
+lrwxrwxrwx	root/root	usr/bin/mtp-delfile -> mtp-connect
+-rwxr-xr-x	root/root	usr/bin/mtp-detect
+-rwxr-xr-x	root/root	usr/bin/mtp-emptyfolders
+-rwxr-xr-x	root/root	usr/bin/mtp-files
+-rwxr-xr-x	root/root	usr/bin/mtp-folders
+-rwxr-xr-x	root/root	usr/bin/mtp-format
+lrwxrwxrwx	root/root	usr/bin/mtp-getfile -> mtp-connect
+-rwxr-xr-x	root/root	usr/bin/mtp-getplaylist
+-rwxr-xr-x	root/root	usr/bin/mtp-hotplug
+lrwxrwxrwx	root/root	usr/bin/mtp-newfolder -> mtp-connect
+-rwxr-xr-x	root/root	usr/bin/mtp-newplaylist
+-rwxr-xr-x	root/root	usr/bin/mtp-playlists
+-rwxr-xr-x	root/root	usr/bin/mtp-reset
+lrwxrwxrwx	root/root	usr/bin/mtp-sendfile -> mtp-connect
+lrwxrwxrwx	root/root	usr/bin/mtp-sendtr -> mtp-connect
+-rwxr-xr-x	root/root	usr/bin/mtp-thumb
+-rwxr-xr-x	root/root	usr/bin/mtp-tracks
+-rwxr-xr-x	root/root	usr/bin/mtp-trexist
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libmtp.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libmtp.la
+lrwxrwxrwx	root/root	usr/lib/libmtp.so -> libmtp.so.8.3.1
+lrwxrwxrwx	root/root	usr/lib/libmtp.so.8 -> libmtp.so.8.3.1
+-rwxr-xr-x	root/root	usr/lib/libmtp.so.8.3.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libmtp.pc
