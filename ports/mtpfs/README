@@ -1,0 +1,14 @@
+How to mount a filesystem
+-------------------------
+
+To mount a device run:
+
+  mtpfs <mount_point>
+
+To unmount do:
+
+  fusermount -u <mount_point>
+
+Note that you may need to be root to do all this if permissions on the
+MTP device are not correct
+
