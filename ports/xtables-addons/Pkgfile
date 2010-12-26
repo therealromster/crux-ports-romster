@@ -5,9 +5,9 @@
 # Depends on: iptables geoip_iv0_database
 
 name=xtables-addons
-version=1.18
+version=1.31
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/project/$name/Xtables-addons/$version/$name-$version.tar.xz)
 #source="mirror://sourceforge/$name/$name-$version.tar.bz2"
 up2date_url="http://sourceforge.net/projects/xtables-addons/files/"
 
@@ -22,13 +22,4 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	chmod a-x $PKG/usr/lib/xtables/*.so
-
-	#remove ipset there is a ipset package
-	rm \
-		$PKG/usr/lib/xtables/libipset_* \
-		$PKG/usr/man/man8/ipset.8 \
-		$PKG/usr/sbin/ipset
-
-	rmdir $PKG/usr/sbin
 }
