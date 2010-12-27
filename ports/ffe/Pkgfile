@@ -1,0 +1,22 @@
+# Description: Flat file extractor, parse different flat file structures and print them in different formats.
+# URL: http://ff-extractor.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=ffe
+version=0.2.8
+release=1
+source=(http://downloads.sourceforge.net/project/ff-extractor/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}
