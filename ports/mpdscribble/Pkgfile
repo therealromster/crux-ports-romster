@@ -1,0 +1,30 @@
+# Description: mpd client which submits track info to last.fm and similiar services.
+# URL: http://mpd.wikia.com/wiki/Client:Mpdscribble
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Moritz Wilhelmy, moritz plus crux at wzff dot de
+# Depends on: libmpdclient glib curl
+
+name=mpdscribble
+version=0.20
+release=1
+source=(http://downloads.sourceforge.net/musicpd/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/man \
+		--with-http-client=curl
+
+	make DESTDIR=$PKG all install
+
+	install -d $PKG/var/cache/mpdscribble
+
+	touch $PKG/var/cache/mpdscribble/{jamendo,librefm,lastfm}.journal
+	chmod 0640 $PKG/var/cache/mpdscribble/{jamendo,librefm,lastfm}.journal
+
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share
+}

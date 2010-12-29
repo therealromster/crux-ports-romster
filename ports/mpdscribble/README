@@ -1,0 +1,13 @@
+Don't forget to chown the /var/cache/mpdscribble/*.journal to the user you want
+to run mpdscribble as, it needs to be writable for this user, otherwise played
+songs can't be cached if no internet connection is present (mpdscribble does
+this to scrobble played tracks later if a connection to the scrobbler server
+could not be established)
+
+You might also want to add a rule similiar to the following to
+/etc/pkgadd.conf, to protect the cache from accidentally being overwritten by
+upgrades.
+
+-- snip --
+UPGRADE		^var/cache/mpdscribble/.*\.journal$	NO
+-- snip -- 

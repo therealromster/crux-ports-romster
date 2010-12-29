@@ -1,0 +1,14 @@
+drwxr-xr-x	root/root	etc/
+-rw-------	root/root	etc/mpdscribble.conf
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mpdscribble
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mpdscribble.1.gz
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/cache/
+drwxr-xr-x	root/root	var/cache/mpdscribble/
+-rw-r-----	root/root	var/cache/mpdscribble/jamendo.journal (EMPTY)
+-rw-r-----	root/root	var/cache/mpdscribble/lastfm.journal (EMPTY)
+-rw-r-----	root/root	var/cache/mpdscribble/librefm.journal (EMPTY)
