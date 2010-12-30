@@ -4,17 +4,12 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=libupnp
-version=1.6.6
+version=1.6.10
 release=1
-source="
-	http://downloads.sourceforge.net/sourceforge/pupnp/$name-$version.tar.bz2
-	libupnp-1.6.6-patch-statevar-query.patch
-"
+source=(http://downloads.sourceforge.net/project/pupnp/pupnp/libUPnP%20$version/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
-
-	patch -p 1 -i $SRC/libupnp-1.6.6-patch-statevar-query.patch
 
 	./configure \
 		--prefix=/usr \
