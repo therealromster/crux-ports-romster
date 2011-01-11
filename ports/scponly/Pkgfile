@@ -2,15 +2,18 @@
 # URL: http://sublimation.org/scponly/wiki/index.php/Main_Page
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on:
 
 name=scponly
 version=4.8
 release=1
-source=(http://dl.sourceforge.net/sourceforge/scponly/scponly-$version.tgz)
+source=(http://downloads.sourceforge.net/project/$name/$name/$name-$version/$name-$version.tgz
+	scponly-4.8-gcc_fix.patch)
 
 build() {
-	cd scponly-$version
+	cd $name-$version
+
+	patch -p 1 -i $SRC/scponly-4.8-gcc_fix.patch
+
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
