@@ -8,7 +8,7 @@ name=vdrift
 version=20100630
 sversion=${version:0:4}-${version:4:2}-${version:6}
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$sversion.tar.bz2
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name/$name-$sversion/$name-$sversion.tar.bz2
 	vdrift.desktop)
 
 build() {
