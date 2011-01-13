@@ -2,21 +2,15 @@
 # URL: http://www.etallen.com/cpuid.html
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: 
 
 name=cpuid
-version=20060917
+version=20101002
 release=1
-source=(http://www.etallen.com/cpuid/cpuid-$version.src.tar.gz)
+source=(http://www.etallen.com/cpuid/$name-$version.src.tar.gz)
 
 build() {
-	cd cpuid-$version
-
-	sed -i \
-		-e "s|-g|$CFLAGS|" \
-		-e 's|/share/man|/man|g' Makefile
-
-	make
+	cd $name-$version
+	sed -i -e 's|/share/man|/man|g' Makefile
+	make -e CFLAGS="$CFLAGS"
 	make BUILDROOT=$PKG install
 }
-
