@@ -1072,6 +1072,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/netsh.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/newdev.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/ngen.exe
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/normaliz.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/notepad.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/npmshtml.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/ntdll.dll
@@ -1407,6 +1408,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/libnddeapi.def
 -rw-r--r--	root/root	usr/lib/wine/libnetapi32.def
 -rw-r--r--	root/root	usr/lib/wine/libnewdev.def
+-rw-r--r--	root/root	usr/lib/wine/libnormaliz.def
 -rw-r--r--	root/root	usr/lib/wine/libntdll.def
 -rw-r--r--	root/root	usr/lib/wine/libntdsapi.def
 -rw-r--r--	root/root	usr/lib/wine/libntoskrnl.exe.def
@@ -1557,6 +1559,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/netsh.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/newdev.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/ngen.exe.so
+-rwxr-xr-x	root/root	usr/lib/wine/normaliz.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/notepad.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/npmshtml.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/ntdll.dll.so
