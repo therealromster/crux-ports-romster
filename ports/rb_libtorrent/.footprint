@@ -9,6 +9,7 @@ drwxr-xr-x	root/root	usr/include/torrent/data/
 -rw-r--r--	root/root	usr/include/torrent/data/block.h
 -rw-r--r--	root/root	usr/include/torrent/data/block_list.h
 -rw-r--r--	root/root	usr/include/torrent/data/block_transfer.h
+-rw-r--r--	root/root	usr/include/torrent/data/chunk_utils.h
 -rw-r--r--	root/root	usr/include/torrent/data/file.h
 -rw-r--r--	root/root	usr/include/torrent/data/file_list.h
 -rw-r--r--	root/root	usr/include/torrent/data/file_list_iterator.h
@@ -18,12 +19,15 @@ drwxr-xr-x	root/root	usr/include/torrent/data/
 -rw-r--r--	root/root	usr/include/torrent/data/transfer_list.h
 -rw-r--r--	root/root	usr/include/torrent/dht_manager.h
 -rw-r--r--	root/root	usr/include/torrent/download.h
+-rw-r--r--	root/root	usr/include/torrent/download_info.h
 -rw-r--r--	root/root	usr/include/torrent/error.h
 -rw-r--r--	root/root	usr/include/torrent/event.h
 -rw-r--r--	root/root	usr/include/torrent/exceptions.h
 -rw-r--r--	root/root	usr/include/torrent/hash_string.h
 -rw-r--r--	root/root	usr/include/torrent/http.h
 -rw-r--r--	root/root	usr/include/torrent/object.h
+-rw-r--r--	root/root	usr/include/torrent/object_raw_bencode.h
+-rw-r--r--	root/root	usr/include/torrent/object_static_map.h
 -rw-r--r--	root/root	usr/include/torrent/object_stream.h
 -rw-r--r--	root/root	usr/include/torrent/path.h
 drwxr-xr-x	root/root	usr/include/torrent/peer/
@@ -39,14 +43,15 @@ drwxr-xr-x	root/root	usr/include/torrent/peer/
 -rw-r--r--	root/root	usr/include/torrent/poll_select.h
 -rw-r--r--	root/root	usr/include/torrent/rate.h
 -rw-r--r--	root/root	usr/include/torrent/resume.h
+-rw-r--r--	root/root	usr/include/torrent/thread_base.h
 -rw-r--r--	root/root	usr/include/torrent/throttle.h
 -rw-r--r--	root/root	usr/include/torrent/torrent.h
 -rw-r--r--	root/root	usr/include/torrent/tracker.h
 -rw-r--r--	root/root	usr/include/torrent/tracker_list.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libtorrent.la
-lrwxrwxrwx	root/root	usr/lib/libtorrent.so -> libtorrent.so.11.0.6
-lrwxrwxrwx	root/root	usr/lib/libtorrent.so.11 -> libtorrent.so.11.0.6
--rwxr-xr-x	root/root	usr/lib/libtorrent.so.11.0.6
+lrwxrwxrwx	root/root	usr/lib/libtorrent.so -> libtorrent.so.13.0.0
+lrwxrwxrwx	root/root	usr/lib/libtorrent.so.13 -> libtorrent.so.13.0.0
+-rwxr-xr-x	root/root	usr/lib/libtorrent.so.13.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libtorrent.pc
