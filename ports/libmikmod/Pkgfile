@@ -1,29 +1,24 @@
 # Description: A library which supports many formats, including: mod, s3m, it, and xm.
 # URL: http://mikmod.raphnet.net/
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Daniel Mueller, daniel at danm dot de
 # Depends on: alsa-lib
 
 name=libmikmod
-version=3.1.11
-release=2
-source=(http://mikmod.raphnet.net/files/libmikmod-$version{.tar.gz,-a.diff})
+version=3.1.12
+release=1
+source=(http://downloads.sourceforge.net/project/mikmod/libmikmod%20%28source%29/$version/$name-$version.tar.gz)
 
 build(){
-	cd libmikmod-$version
-	patch -p1 -i $SRC/libmikmod-$version-a.diff
+	cd $name-$version
 	
-	sed -i docs/Makefile.in \
-		-e 's|^EXTRA_DIST = .*|EXTRA_DIST = libmikmod-config.1.in|g' \
-		-e 's|^INFO_DEPS = .*|INFO_DEPS =|g'
-
 	./configure \
 		--prefix=/usr \
-		--disable-static \
+		--disable-static
 
 	make
 	make DESTDIR=$PKG install
+
 	chmod a+x $PKG/usr/lib/*.la
 	rm -r $PKG/usr/info
 }
-
