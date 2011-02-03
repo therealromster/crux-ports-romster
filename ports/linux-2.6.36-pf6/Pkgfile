@@ -9,7 +9,7 @@ group=kernel
 release=1
 source="
 	http://www.kernel.org/pub/linux/kernel/v2.6/linux-${version%-*}.tar.bz2
-	http://pf-kernel.org.ua/sources/${version%-*}/patch-$version.bz2
+	http://pf.natalenko.name/sources/${version%-*}/patch-$version.bz2
 "
 
 up2date_url='http://pf-kernel.org.ua/sources/2.6.36/'
@@ -24,8 +24,12 @@ build() {
 
 	if [ -e /usr/src/${name}.config ]; then
 		cp /usr/src/${name}.config ./.config
+	elif [ -e /usr/src/${name}/.config ]; then
+		cp /usr/src/${name}/.config ./.config
 	elif [ -e /usr/src/linux/.config ]; then
 		cp /usr/src/linux/.config ./.config
+	elif [ -e /boot/kconfig-${version} ]; then
+                cp /boot/kconfig-${version} ./.config
 	elif [ -e /boot/config ]; then
 		cp /boot/config ./.config
 	elif [ -e /proc/config.gz ]; then
