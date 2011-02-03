@@ -24,9 +24,9 @@ drwxr-xr-x	root/root	usr/lib/gtk-2.0/2.10.0/engines/
 drwxr-xr-x	root/root	usr/lib/gtk-3.0/
 drwxr-xr-x	root/root	usr/lib/gtk-3.0/engines/
 -rwxr-xr-x	root/root	usr/lib/librsvg-2.la
-lrwxrwxrwx	root/root	usr/lib/librsvg-2.so -> librsvg-2.so.2.32.0
-lrwxrwxrwx	root/root	usr/lib/librsvg-2.so.2 -> librsvg-2.so.2.32.0
--rwxr-xr-x	root/root	usr/lib/librsvg-2.so.2.32.0
+lrwxrwxrwx	root/root	usr/lib/librsvg-2.so -> librsvg-2.so.2.32.1
+lrwxrwxrwx	root/root	usr/lib/librsvg-2.so.2 -> librsvg-2.so.2.32.1
+-rwxr-xr-x	root/root	usr/lib/librsvg-2.so.2.32.1
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/librsvg-2.0.pc
 drwxr-xr-x	root/root	usr/man/
