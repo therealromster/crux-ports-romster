@@ -1,0 +1,23 @@
+# Description: A C++ bittorrent library designed to run on anything from embedded systems to large scale seed servers.
+# URL: http://code.google.com/p/libtorrent/
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: boost openssl zlib python
+
+name=libtorrent-rasterbar
+version=0.15.5
+release=1
+source="http://libtorrent.googlecode.com/files/$name-$version.tar.gz"
+up2date_url="http://code.google.com/p/libtorrent/downloads/list"
+
+build() {
+	cd $name-$version
+	./configure \
+		--prefix=/usr \
+		--enable-python-binding \
+		--enable-debug
+
+	make
+	make DESTDIR=$PKG install
+	find $PKG -type f -iname '*.egg-info' -delete
+}
