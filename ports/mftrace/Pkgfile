@@ -1,0 +1,22 @@
+# Description: Scalable Fonts for MetaFont.
+# URL: http://lilypond.org/mftrace/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: fontforge python t1utils tetex
+
+name=mftrace
+version=1.2.16
+release=1
+source=(http://lilypond.org/download/sources/mftrace/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}
