@@ -29,7 +29,7 @@ build() {
 	elif [ -e /usr/src/linux/.config ]; then
 		cp /usr/src/linux/.config ./.config
 	elif [ -e /boot/kconfig-${version} ]; then
-                cp /boot/kconfig-${version} ./.config
+		cp /boot/kconfig-${version} ./.config
 	elif [ -e /boot/config ]; then
 		cp /boot/config ./.config
 	elif [ -e /proc/config.gz ]; then
