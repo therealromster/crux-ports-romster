@@ -3,7 +3,7 @@
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on:
 
-version=2.6.37-pf2
+version=2.6.37-pf5
 name=linux-${version}
 group=kernel
 release=1
@@ -24,8 +24,12 @@ build() {
 
 	if [ -e /usr/src/${name}.config ]; then
 		cp /usr/src/${name}.config ./.config
+	elif [ -e /usr/src/${name}/.config ]; then
+		cp /usr/src/${name}/.config ./.config
 	elif [ -e /usr/src/linux/.config ]; then
 		cp /usr/src/linux/.config ./.config
+	elif [ -e /boot/kconfig-${version} ]; then
+		cp /boot/kconfig-${version} ./.config
 	elif [ -e /boot/config ]; then
 		cp /boot/config ./.config
 	elif [ -e /proc/config.gz ]; then
