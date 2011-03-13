@@ -1,0 +1,21 @@
+# Description: An read-only FUSE filesystem that transcodes FLAC audio files to MP3.
+# URL: http://mp3fs.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: fuse flac lame libid3tag libogg
+
+name=mp3fs
+version=0.30
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
