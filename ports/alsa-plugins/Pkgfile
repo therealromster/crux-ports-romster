@@ -1,17 +1,21 @@
-# Description: ALSA extra plug-ins.
+# Description: ALSA Plugins contains plugins for various audio libraries and sound servers. 
 # URL: http://www.alsa-project.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Vitaly Sinilin, vs at kp4 dot ru
 # Depends on: alsa-lib
 
 name=alsa-plugins
-version=1.0.22
+version=1.0.24
 release=1
 source=(ftp://ftp.alsa-project.org/pub/plugins/$name-$version.tar.bz2)
 
 build() {
-    cd $name-$version
-    ./configure --prefix=/usr
-    make
-    make DESTDIR=$PKG install
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	install -m 0755 -d $PKG/usr/share/doc/alsa-plugins-$version
+	install -m 0644 doc/{README*,*.txt} \
+		$PKG/usr/share/doc/alsa-plugins-$version
+
 }
