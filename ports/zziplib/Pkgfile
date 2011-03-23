@@ -4,13 +4,13 @@
 # Packager: Aaron Marks, nymacro at gmail dot  com
 
 name=zziplib
-version=0.13.49
+version=0.13.58
 release=1
 
-source=(http://dl.sourceforge.net/sourceforge/zziplib/zziplib-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
 
 build() {
-	cd zziplib-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -19,4 +19,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
