@@ -6,18 +6,20 @@ drwxr-xr-x	root/root	usr/include/OIS/
 -rw-r--r--	root/root	usr/include/OIS/OISEffect.h
 -rw-r--r--	root/root	usr/include/OIS/OISEvents.h
 -rw-r--r--	root/root	usr/include/OIS/OISException.h
+-rw-r--r--	root/root	usr/include/OIS/OISFactoryCreator.h
 -rw-r--r--	root/root	usr/include/OIS/OISForceFeedback.h
 -rw-r--r--	root/root	usr/include/OIS/OISInputManager.h
 -rw-r--r--	root/root	usr/include/OIS/OISInterface.h
 -rw-r--r--	root/root	usr/include/OIS/OISJoyStick.h
 -rw-r--r--	root/root	usr/include/OIS/OISKeyboard.h
 -rw-r--r--	root/root	usr/include/OIS/OISMouse.h
+-rw-r--r--	root/root	usr/include/OIS/OISMultiTouch.h
 -rw-r--r--	root/root	usr/include/OIS/OISObject.h
 -rw-r--r--	root/root	usr/include/OIS/OISPrereqs.h
 drwxr-xr-x	root/root	usr/lib/
--rwxr-xr-x	root/root	usr/lib/libOIS-1.0.0.so
+-rwxr-xr-x	root/root	usr/lib/libOIS-1.3.0.so
 -rw-r--r--	root/root	usr/lib/libOIS.a
 -rwxr-xr-x	root/root	usr/lib/libOIS.la
-lrwxrwxrwx	root/root	usr/lib/libOIS.so -> libOIS-1.0.0.so
+lrwxrwxrwx	root/root	usr/lib/libOIS.so -> libOIS-1.3.0.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/OIS.pc
