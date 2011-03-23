@@ -1,20 +1,16 @@
-# $Id: 
 # Description: Play commodore 64 audo file formats.
 # URL: http://www.tnsp.org/xmms-sid.php
-# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
-# Depends on:
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=libsidplay2
-version=2.1.1+20060528.ccr
+version=20101222
 release=1
-# sourceforge is broken as always :0
-#source=(http://dl.sourceforge.net/sourceforge/$name2/$name-$version.tar.gz)
-source=(http://www.tnsp.org/xs-files/libsidplay-$version.tar.gz)
+source=(http://www.tnsp.org/xs-files/libsidplay-2.1.1+ccr-$version.tar.gz)
 
 build () {
-	cd libsidplay-$version
+	cd libsidplay-2.1.1+ccr-$version
 	./configure --prefix=/usr
-	make && make DESTDIR=$PKG install
-	chown -R root:root $PKG
+	make
+	make DESTDIR=$PKG install
 }
