@@ -1,0 +1,14 @@
+diff -pruN lrzip-0.601.orig/Makefile.am lrzip-0.601/Makefile.am
+--- lrzip-0.601.orig/Makefile.am	2011-03-25 12:53:52.234827936 +1100
++++ lrzip-0.601/Makefile.am	2011-03-25 13:01:22.544827937 +1100
+@@ -75,8 +75,8 @@ EXTRA_DIST = \
+ 		$(dist_doc_DATA)
+ 
+ install-exec-hook:
+-	$(LN_S) -f @bindir@/lrzip$(EXEEXT) @bindir@/lrunzip
+-	$(LN_S) -f @bindir@/lrztar @bindir@/lrzuntar
++	$(LN_S) -f lrzip$(EXEEXT) $(DESTDIR)@bindir@/lrunzip
++	$(LN_S) -f lrztar $(DESTDIR)@bindir@/lrzuntar
+ 
+ 
+ uninstall-local:

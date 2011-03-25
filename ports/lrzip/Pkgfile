@@ -5,12 +5,17 @@
 # Depends on: lzo zlib bzip2 xz
 
 name=lrzip
-version=0.571
+version=0.601
 release=1
-source="http://ck.kolivas.org/apps/$name/$name-$version.tar.bz2"
+source="
+	http://ck.kolivas.org/apps/$name/$name-$version.tar.bz2
+	lrzip-0.601-ln_destdir.patch"
 
 build() {
 	cd $name-$version
+
+	patch -p 1 -i $SRC/lrzip-0.601-ln_destdir.patch
+	automake
 
 	./configure \
 		--prefix=/usr \
