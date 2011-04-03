@@ -1047,6 +1047,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msisip.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msisys.ocx
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msnet32.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/mspatcha.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msrle32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mssign32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mssip32.dll
@@ -1535,6 +1536,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/msisip.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msisys.ocx.so
 -rwxr-xr-x	root/root	usr/lib/wine/msnet32.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/mspatcha.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msrle32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mssign32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mssip32.dll.so
