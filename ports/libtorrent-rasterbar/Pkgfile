@@ -12,10 +12,14 @@ up2date_url="http://code.google.com/p/libtorrent/downloads/list"
 
 build() {
 	cd $name-$version
+
+	# http://code.google.com/p/libtorrent/issues/detail?id=171
+	CXXFLAGS+=' -DBOOST_FILESYSTEM_VERSION=2'
+	CFLAGS+=' -DBOOST_FILESYSTEM_VERSION=2 -O3'
+
 	./configure \
 		--prefix=/usr \
-		--enable-python-binding \
-		--enable-debug
+		--enable-python-binding
 
 	make
 	make DESTDIR=$PKG install
