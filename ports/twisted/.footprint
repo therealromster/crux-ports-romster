@@ -35,6 +35,11 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/application/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/application/service.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/application/strports.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/application/strports.pyc
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/application/test/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/application/test/__init__.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/application/test/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/application/test/test_internet.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/application/test/test_internet.pyc
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/conch/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/conch/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/conch/__init__.pyc
@@ -228,8 +233,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/cred/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/cred/portal.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/cred/strcred.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/cred/strcred.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/cred/util.py (EMPTY)
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/cred/util.pyc
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/enterprise/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/enterprise/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/enterprise/__init__.pyc
@@ -276,14 +279,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/internet/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/base.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfreactor.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfreactor.pyc
-drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/cfdate.pxi
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/cfdecl.pxi
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/cfrunloop.pxi
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/cfsocket.pxi
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/cfsupport.c
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/cfsupport.pyx
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/cfsupport/python.pxi
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/default.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/default.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/defer.py
@@ -367,6 +362,13 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/internet/iocpreacto
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/__init__.pyc
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/fake_CAs/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/fake_CAs/not-a-certificate
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/fake_CAs/thing1.pem
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/fake_CAs/thing2-duplicate.pem
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/fake_CAs/thing2.pem
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/fakeendpoint.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/fakeendpoint.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/inlinecb_tests.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/inlinecb_tests.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/process_helper.py
@@ -393,10 +395,14 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_inotify.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_iocp.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_iocp.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_main.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_main.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_pollingfile.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_pollingfile.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_posixbase.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_posixbase.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_posixprocess.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_posixprocess.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_process.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_process.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_protocol.py
@@ -413,8 +419,12 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_time.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_tls.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_tls.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_udp.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_udp.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_unix.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_unix.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_win32events.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/test/test_win32events.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/threads.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/threads.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/internet/tksupport.py
@@ -650,6 +660,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/news/
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/news/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/news/test/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/news/test/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/news/test/test_database.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/news/test/test_database.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/news/test/test_news.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/news/test/test_news.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/news/test/test_nntp.py
@@ -750,8 +762,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/plugins/
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/protocols/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/protocols/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/protocols/__init__.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/protocols/_c_urlarg.c
--rwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/protocols/_c_urlarg.so
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/protocols/amp.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/protocols/amp.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/protocols/basic.py
@@ -834,8 +844,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/python/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/dispatch.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/dist.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/dist.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/dxprofile.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/dxprofile.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/failure.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/failure.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/fakepwd.py
@@ -921,8 +929,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/python/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/threadable.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/threadpool.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/threadpool.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/timeoutqueue.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/timeoutqueue.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/urlpath.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/urlpath.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/python/usage.py
@@ -1163,8 +1169,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_error.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_explorer.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_explorer.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_extensions.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_extensions.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_factories.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_factories.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_failure.py
@@ -1283,8 +1287,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_threads.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_timehelpers.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_timehelpers.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_timeoutqueue.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_timeoutqueue.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_tpfile.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_tpfile.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/test/test_twistd.py
@@ -1392,8 +1394,14 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/web/_auth/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_auth/digest.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_auth/wrapper.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_auth/wrapper.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_element.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_element.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_flatten.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_flatten.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_newclient.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_newclient.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_stan.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_stan.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_version.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/_version.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/client.py
@@ -1438,6 +1446,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/web/_auth/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/sux.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/tap.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/tap.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/template.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/template.pyc
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/web/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/__init__.pyc
@@ -1451,6 +1461,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/web/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_domhelpers.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_error.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_error.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_flatten.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_flatten.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_http.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_http.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_http_headers.py
@@ -1467,10 +1479,14 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/web/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_script.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_soap.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_soap.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_stan.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_stan.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_static.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_static.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_tap.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_tap.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_template.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_template.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_util.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_util.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_vhost.py
@@ -1485,8 +1501,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/web/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_xml.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_xmlrpc.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/test/test_xmlrpc.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/trp.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/trp.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/twcgi.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/twcgi.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/web/util.py
@@ -1522,12 +1536,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/im/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/locals.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/pbsupport.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/pbsupport.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/proxyui.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/proxyui.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/tap.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/tap.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/tocsupport.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/im/tocsupport.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/iwords.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/iwords.pyc
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/protocols/
@@ -1562,8 +1570,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/protocols/jab
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/protocols/msn.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/protocols/oscar.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/protocols/oscar.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/protocols/toc.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/protocols/toc.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/service.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/service.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/tap.py
@@ -1581,6 +1587,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_irc.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_irc_service.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_irc_service.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_ircsupport.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_ircsupport.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabberclient.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabberclient.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabbercomponent.py
@@ -1589,6 +1597,8 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabbererror.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabberjid.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabberjid.pyc
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabberjstrports.py
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabberjstrports.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabbersasl.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabbersasl.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_jabbersaslmechanisms.py
@@ -1605,8 +1615,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_service.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_tap.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_tap.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_toc.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_toc.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_xishutil.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_xishutil.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_xmlstream.py
@@ -1615,8 +1623,6 @@ drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/test/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_xmpproutertap.pyc
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_xpath.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/test/test_xpath.pyc
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/toctap.py
--rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/toctap.pyc
 drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/twisted/words/xish/
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/xish/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.6/site-packages/twisted/words/xish/__init__.pyc

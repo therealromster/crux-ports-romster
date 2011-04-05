@@ -6,7 +6,7 @@
 
 name=twisted
 sname=Twisted
-version=10.1.0
+version=11.0.0
 release=1
 source="http://tmrc.mit.edu/mirror/twisted/Twisted/${version%.*}/$sname-$version.tar.bz2"
 
@@ -14,6 +14,6 @@ build() {
 	cd $sname-$version
 	python setup.py install --root=$PKG
 	find $PKG -name '*.egg-info' \
-	    -o -name topfiles \
-	    | xargs rm -rf
+		-o -name topfiles \
+		| xargs rm -rf
 }
