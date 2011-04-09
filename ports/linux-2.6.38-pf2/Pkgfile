@@ -1,9 +1,8 @@
 # Description: Linux kernel with pf-patchset.
 # URL: http://www.kernel.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on:
 
-version=2.6.38-pf1
+version=2.6.38-pf2
 name=linux-${version}
 group=kernel
 release=1
@@ -12,7 +11,7 @@ source="
 	http://pf.natalenko.name/sources/${version%-*}/patch-$version.bz2
 "
 
-up2date_url='http://pf-kernel.org.ua/sources/2.6.37/'
+up2date_url='http://pf-kernel.org.ua/sources/2.6.38/'
 sname=patch
 
 build() {
