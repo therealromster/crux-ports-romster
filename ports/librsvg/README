@@ -1,5 +1,0 @@
-POST-INSTALL:
-
-	For this application to work properly with SVG-based themes, you 
-	must update your gdk-pixbuf.loaders a post-install script is 
-	included todo this.
