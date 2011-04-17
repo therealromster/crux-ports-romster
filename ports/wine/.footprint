@@ -1053,6 +1053,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mssip32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/mstask.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcirt.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcp100.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcp80.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcp90.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/msvcr100.dll
@@ -1146,6 +1147,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/samlib.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/sane.ds
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/sc.exe
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/scarddlg.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/sccbase.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/schannel.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/secedit.exe
@@ -1204,6 +1206,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/userenv.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/usp10.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/uxtheme.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/vcomp.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vdhcp.vxd
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vdmdbg.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/ver.dll16
@@ -1542,6 +1545,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/mssip32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/mstask.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcirt.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/msvcp100.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcp80.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcp90.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/msvcr100.dll.so
@@ -1635,6 +1639,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/samlib.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sane.ds.so
 -rwxr-xr-x	root/root	usr/lib/wine/sc.exe.so
+-rwxr-xr-x	root/root	usr/lib/wine/scarddlg.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/sccbase.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/schannel.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/secedit.exe.so
@@ -1693,6 +1698,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/userenv.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/usp10.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/uxtheme.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/vcomp.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/vdhcp.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/vdmdbg.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/ver.dll16.so
