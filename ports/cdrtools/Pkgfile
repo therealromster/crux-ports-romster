@@ -5,9 +5,9 @@
 # Depends on: 
 
 name=cdrtools
-version=2.01.01a69
+version=3.00
 release=1
-source=(ftp://ftp.berlios.de/pub/cdrecord/alpha/$name-$version.tar.bz2)
+source="ftp://ftp.berlios.de/pub/cdrecord/$name-$version.tar.bz2"
 
 build() {
 	cd $name-${version%a*}
@@ -44,11 +44,16 @@ build() {
 		$PKG/usr/lib/profiled
 
 	rm \
-		$PKG/usr/man/man5/makefiles.5 \
-		$PKG/usr/man/man5/makerules.5
+		$PKG/usr/share/man/man5/makefiles.5 \
+		$PKG/usr/share/man/man5/makerules.5
 
+	install -d $PKG/usr/man/man{1,8}
+	mv $PKG/usr/share/man/man1 $PKG/usr/man/
+	mv $PKG/usr/share/man/man8 $PKG/usr/man/
+
+	rmdir $PKG/usr/share/man/man5
+	rmdir $PKG/usr/share/man
 	rmdir $PKG/usr/share
-	rmdir $PKG/usr/man/man5
 
 	chown -c root:cdrom $PKG/usr/bin/cdrecord
 	chmod -c -R u+w,g-w,g+r,o+r $PKG

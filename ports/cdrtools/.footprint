@@ -1,6 +1,8 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/btcflash
+-rwxr-xr-x	root/root	usr/bin/cdda2mp3
+-rwxr-xr-x	root/root	usr/bin/cdda2ogg
 -rwxr-xr-x	root/root	usr/bin/cdda2wav
 -r-sr-x---	root/cdrom	usr/bin/cdrecord
 -rwxr-xr-x	root/root	usr/bin/devdump
@@ -17,6 +19,7 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/align.h
 -rw-r--r--	root/root	usr/include/avoffset.h
 drwxr-xr-x	root/root	usr/include/scsilib/
+-rw-r--r--	root/root	usr/include/scsilib/_regex.h
 -rw-r--r--	root/root	usr/include/scsilib/align.h
 -rw-r--r--	root/root	usr/include/scsilib/alloca.h
 -rw-r--r--	root/root	usr/include/scsilib/archdefs.h
@@ -51,6 +54,7 @@ drwxr-xr-x	root/root	usr/include/scsilib/
 -rw-r--r--	root/root	usr/include/scsilib/ioctl.h
 -rw-r--r--	root/root	usr/include/scsilib/ipc.h
 -rw-r--r--	root/root	usr/include/scsilib/jmpdefs.h
+-rw-r--r--	root/root	usr/include/scsilib/libgen.h
 -rw-r--r--	root/root	usr/include/scsilib/libport.h
 -rw-r--r--	root/root	usr/include/scsilib/librmt.h
 -rw-r--r--	root/root	usr/include/scsilib/limits.h
@@ -70,6 +74,7 @@ drwxr-xr-x	root/root	usr/include/scsilib/
 -rw-r--r--	root/root	usr/include/scsilib/procfs.h
 -rw-r--r--	root/root	usr/include/scsilib/prototyp.h
 -rw-r--r--	root/root	usr/include/scsilib/pwd.h
+-rw-r--r--	root/root	usr/include/scsilib/regex.h
 -rw-r--r--	root/root	usr/include/scsilib/resource.h
 -rw-r--r--	root/root	usr/include/scsilib/rmd160.h
 -rw-r--r--	root/root	usr/include/scsilib/rmtio.h
@@ -174,12 +179,14 @@ lrwxrwxrwx	root/root	usr/lib/libsiconv.so -> libsiconv.so.1.0
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/btcflash.1.gz
+-rw-r--r--	root/root	usr/man/man1/cdda2mp3.1.gz
 -rw-r--r--	root/root	usr/man/man1/cdda2ogg.1.gz
 -rw-r--r--	root/root	usr/man/man1/cdda2wav.1.gz
 -rw-r--r--	root/root	usr/man/man1/cdrecord.1.gz
 -rw-r--r--	root/root	usr/man/man1/readcd.1.gz
 -rw-r--r--	root/root	usr/man/man1/rscsi.1.gz
 -rw-r--r--	root/root	usr/man/man1/scgcheck.1.gz
+-rw-r--r--	root/root	usr/man/man1/scgskeleton.1.gz
 drwxr-xr-x	root/root	usr/man/man8/
 -rw-r--r--	root/root	usr/man/man8/devdump.8.gz
 -rw-r--r--	root/root	usr/man/man8/isodebug.8.gz
