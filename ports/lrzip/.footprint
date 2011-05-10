@@ -1,12 +1,14 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/lrunzip -> lrzip
+lrwxrwxrwx	root/root	usr/bin/lrzcat -> lrzip
 -rwxr-xr-x	root/root	usr/bin/lrzip
 -rwxr-xr-x	root/root	usr/bin/lrztar
 lrwxrwxrwx	root/root	usr/bin/lrzuntar -> lrztar
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/lrunzip.1.gz
+-rw-r--r--	root/root	usr/man/man1/lrzcat.1.gz
 -rw-r--r--	root/root	usr/man/man1/lrzip.1.gz
 -rw-r--r--	root/root	usr/man/man1/lrztar.1.gz
 -rw-r--r--	root/root	usr/man/man1/lrzuntar.1.gz
