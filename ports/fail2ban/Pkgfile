@@ -1,0 +1,33 @@
+# Description: Bans IP that makes too many password failures.
+# URL: http://www.fail2ban.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Jose V Beneyto, sepen at crux dot nu
+# Depends on: python
+
+name=fail2ban
+version=0.8.4
+release=1
+source="
+	http://downloads.sourceforge.net/project/$name/$name-stable/$name-$version/$name-$version.tar.bz2
+	fail2ban-0.8.4-hashlib.patch
+	fail2ban-0.8.4-sshd-breakin.patch
+	fail2ban-0.8.4-cve2009-5023.patch
+	fail2ban-0.8.4-iptables_race.patch
+	fail2ban.rc
+"
+
+build() {
+	cd $name-$version
+
+	patch -p 1 -i $SRC/fail2ban-0.8.4-hashlib.patch
+	patch -p 1 -i $SRC/fail2ban-0.8.4-sshd-breakin.patch
+	patch -p 0 -i $SRC/fail2ban-0.8.4-cve2009-5023.patch
+	patch -p 1 -i $SRC/fail2ban-0.8.4-iptables_race.patch
+
+	python setup.py install --root=$PKG --prefix=/usr
+	python -mcompileall $PKG
+
+	install -m 0750 -D $SRC/fail2ban.rc $PKG/etc/rc.d/fail2ban
+
+	rm $PKG/usr/share/fail2ban/fail2ban-$version-py*.egg-info
+}
