@@ -1,0 +1,31 @@
+# Description: Gtk-based DC and ADC client based on dcpp core.
+# URL: http://code.google.com/p/eiskaltdc
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk bzip2 zlib gettext openssl pango glib libglade boost cmake
+
+name=eiskaltdcpp
+version=2.2.2
+release=1
+source=(http://eiskaltdc.googlecode.com/files/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	install -d build
+	cd build
+
+	cmake ../ \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DUSE_GTK=ON \
+		-DUSE_QT=OFF \
+		-DUSE_LIBGNOME2=OFF \
+		-DUSE_LIBNOTIFY=OFF \
+		-DUSE_MINIUPNP=OFF \
+		-DUSE_ESKTOP_ENTRY_PATH=/usr/share/applications/ \
+		-DUSE_PIXMAPS_ENTRY_PATH=/usr/share/pixmaps/
+
+	make
+	make DESTDIR=$PKG install
+}
