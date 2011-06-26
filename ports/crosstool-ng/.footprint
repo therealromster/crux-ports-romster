@@ -1081,6 +1081,12 @@ drwxr-xr-x	root/root	usr/lib/ct-ng/patches/newlib/1.18.0/
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/ppl/
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/ppl/0.10.2/
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/ppl/0.10.2/100-fix-configure-with-gmp-5_0_1.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/ppl/0.11.1/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/ppl/0.11.1/100-fix-java-test-vs-enabled-shared.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/ppl/0.11.2/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/ppl/0.11.2/100-fix-java-test-vs-enabled-shared.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/ppl/0.11/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/ppl/0.11/100-fix-java-test-vs-enabled-shared.patch
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/strace/
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/strace/4.5.15/
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/strace/4.5.15/100-autoreconf.patch
