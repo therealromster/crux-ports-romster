@@ -279,8 +279,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/dxfile.h
 -rw-r--r--	root/root	usr/include/wine/windows/dxgi.h
 -rw-r--r--	root/root	usr/include/wine/windows/dxgi.idl
+-rw-r--r--	root/root	usr/include/wine/windows/dxgiformat.h
 -rw-r--r--	root/root	usr/include/wine/windows/dxgitype.h
--rw-r--r--	root/root	usr/include/wine/windows/dxgitype.idl
 -rw-r--r--	root/root	usr/include/wine/windows/dyngraph.idl
 -rw-r--r--	root/root	usr/include/wine/windows/endpointvolume.h
 -rw-r--r--	root/root	usr/include/wine/windows/endpointvolume.idl
@@ -295,6 +295,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/exdispid.h
 -rw-r--r--	root/root	usr/include/wine/windows/fci.h
 -rw-r--r--	root/root	usr/include/wine/windows/fdi.h
+-rw-r--r--	root/root	usr/include/wine/windows/fltdefs.h
 -rw-r--r--	root/root	usr/include/wine/windows/fusion.h
 -rw-r--r--	root/root	usr/include/wine/windows/fusion.idl
 -rw-r--r--	root/root	usr/include/wine/windows/gameux.h
@@ -327,6 +328,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/icm.h
 -rw-r--r--	root/root	usr/include/wine/windows/icmpapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/idispids.h
+-rw-r--r--	root/root	usr/include/wine/windows/iextag.h
+-rw-r--r--	root/root	usr/include/wine/windows/iextag.idl
 -rw-r--r--	root/root	usr/include/wine/windows/ifdef.h
 -rw-r--r--	root/root	usr/include/wine/windows/imagehlp.h
 -rw-r--r--	root/root	usr/include/wine/windows/imm.h
@@ -1216,6 +1219,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/userenv.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/usp10.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/uxtheme.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/vbscript.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vcomp.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vdhcp.vxd
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/vdmdbg.dll
@@ -1713,6 +1717,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/userenv.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/usp10.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/uxtheme.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/vbscript.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/vcomp.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/vdhcp.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/vdmdbg.dll.so
