@@ -1,28 +1,26 @@
-# Description: Open source version of Google Chrome web browser
+# Description: Open source version of Google Chrome web browser.
 # URL: http://chromium.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Tadeusz Sosnierz, tadzikes gmail com
-# Depends on: cups dbus-glib ffmpeg gtk libevent nss xorg-libxscrnsaver xorg-libxtst
+# Depends on: cups dbus-glib ffmpeg gtk libevent nss xorg-libxscrnsaver xorg-libxtst libgcrypt
 
 name=chromium
-version=10.0.616.0
-#version=11.0.696.65
+version=14.0.806.0
 release=1
-source=(http://build.chromium.org/buildbot/official/chromium-$version.tar.bz2
+source=(http://build.chromium.org/official/$name-$version.tar.bz2
 	chromium.sh) 
 
 build() {
 	cd $name-$version
 
-	CFLAGS+=' -I/usr/include/nspr'
-	#export CFLAGS="${CFLAGS} -fno-ipa-cp"
+	CXXFLAGS+=' -I/usr/include/nspr' # bug still pressent in version=14.0.806.0
 	build/gyp_chromium -f make build/all.gyp --depth=. \
 		-Dgcc_version=45 \
 		-Dno_strict_aliasing=1 \
 		-Dwerror= \
 		-Dlinux_sandbox_path=/usr/lib/chromium/chromium-sandbox \
 		-Dlinux_strip_binary=1 \
-		-Drelease_extra_cflags="${CFLAGS}" \
+		-Drelease_extra_cflags="${CXXFLAGS}" \
 		-Dproprietary_codecs=1 \
 		-Duse_system_libjpeg=1 \
 		-Duse_system_libxslt=1 \
@@ -33,12 +31,14 @@ build() {
 		-Duse_system_ffmpeg=0 \
 		-Duse_system_yasm=1 \
 		-Duse_system_libevent=1 \
-		-Duse_system_sqlite=1 \
+		-Duse_system_sqlite=0 \
 		-Duse_system_ssl=0 \
 		-Dremove_webcore_debug_symbols=1 \
 		-Duse_gconf=0 \
 		-Duse_gnome_keyring=0 \
 		-Dlinux_link_gnome_keyring=0
+
+	#BUG -Duse_system_sqlite=1 errors with undefined reference to chromium_sqlite3_initialize_unix_sqlite3_*
 
 	make chrome chrome_sandbox BUILDTYPE=Release
 	install -m 0755 -D out/Release/chrome $PKG/usr/lib/chromium/chromium
@@ -54,10 +54,6 @@ build() {
 
 	install -m 0755 -D out/Release/libffmpegsumo.so \
 		$PKG/usr/lib/chromium/libffmpegsumo.so
-
-	#ln -s /usr/lib/libavcodec.so.52 $PKG/usr/lib/chromium/
-	#ln -s /usr/lib/libavformat.so.52 $PKG/usr/lib/chromium/
-	#ln -s /usr/lib/libavutil.so.50 $PKG/usr/lib/chromium/
 
 	cp -a out/Release/locales out/Release/resources \
 		$PKG/usr/lib/chromium/
