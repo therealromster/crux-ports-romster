@@ -5,18 +5,12 @@
 # Depends on: libxml2
 
 name=xml2
-version=0.4
+version=0.5
 release=1
-source="
-	http://download.ofb.net/gale/$name-$version.tar.gz
-	xml2-0.4-libxml2.patch
-"
+source="http://download.ofb.net/gale/$name-$version.tar.gz"
 
 build() {
 	cd $name-$version
-
-	patch -p 1 -i $SRC/xml2-0.4-libxml2.patch
-	autoreconf
 
 	./configure \
 		--prefix=/usr \
