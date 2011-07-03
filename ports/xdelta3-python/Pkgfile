@@ -5,7 +5,7 @@
 # Depends on: swig python
 
 name=xdelta3-python
-version=3.0u
+version=3.0.0
 release=1
 source=(http://xdelta.googlecode.com/files/xdelta$version.tar.gz)
 
@@ -25,4 +25,5 @@ build() {
 	install -m 0755 -d $PKG/usr/share/swig/$swig_version/python
 	install -m 0644 -t $PKG/usr/lib/python$python_version/site-packages/ xdelta3.py xdelta3.pyc
 	install -m 0644 -t $PKG/usr/share/swig/$swig_version/python/ xdelta3.swig
+	find $PKG -name '*.egg-info' | xargs rm -rf
 }
