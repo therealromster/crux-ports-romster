@@ -5,7 +5,7 @@
 # Depends on: libgd
 
 name=webalizer
-version=2.21-02
+version=2.23-05
 release=1
 source=(ftp://ftp.mrunix.net/pub/$name/$name-$version-src.tar.bz2)
 
