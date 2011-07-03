@@ -1,17 +1,17 @@
-# Description: Binary diff, differential compression tools.
+# Description: A binary diff tool that uses the VCDIFF (RFC 3284) format and compression.
 # URL: http://xdelta.org/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on:
 
 name=xdelta3
-version=3.0u
+version=3.0.0
 release=1
-source=(http://xdelta.googlecode.com/files/xdelta$version.tar.gz)
+source="http://xdelta.googlecode.com/files/xdelta$version.tar.gz"
+up2date_url='http://code.google.com/p/xdelta/downloads/list'
 
 build() {
 	cd xdelta$version
-	make xdelta3
+	make CFLAGS="$CFLAGS" xdelta3
 	install -D -m 0755 xdelta3 $PKG/usr/bin/xdelta3
+	install -D -m 0644 xdelta3.1 $PKG/usr/man/man1/xdelta3.1
 }
-
