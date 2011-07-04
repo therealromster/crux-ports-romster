@@ -5,11 +5,12 @@
 # Depends on: cups dbus-glib ffmpeg gtk libevent nss xorg-libxscrnsaver xorg-libxtst libgcrypt xdelta3
 
 name=chromium
-version=14.0.808.0
+version=14.0.809.0
 release=1
 source=(http://build.chromium.org/official/$name-14.0.806.0.tar.bz2
 	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.806.0-14.0.807.0.tar.bz2.vcdiff
 	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.807.0-14.0.808.0.tar.bz2.vcdiff
+	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.808.0-14.0.809.0.tar.bz2.vcdiff
 	chromium.sh) 
 
 build() {
@@ -18,8 +19,15 @@ build() {
 	cp $PKGMK_SOURCE_DIR/$name-14.0.806.0.tar.bz2 .
 	###
 	xdelta3 -R -d -s chromium-14.0.806.0.tar.bz2 chromium-14.0.806.0-14.0.807.0.tar.bz2.vcdiff chromium-14.0.807.0.tar
-	xdelta3 -D -R -d -s chromium-14.0.807.0.tar chromium-14.0.807.0-14.0.808.0.tar.bz2.vcdiff $name-$version.tar
+	xdelta3 -D -R -d -s chromium-14.0.807.0.tar chromium-14.0.807.0-14.0.808.0.tar.bz2.vcdiff chromium-14.0.808.0.tar
+	xdelta3 -D -R -d -s chromium-14.0.808.0.tar chromium-14.0.808.0-14.0.809.0.tar.bz2.vcdiff $name-$version.tar
 	tar -xf $name-$version.tar
+
+	rm chromium-14.0.807.0.tar
+	rm chromium-14.0.808.0.tar
+	rm chromium-14.0.809.0.tar
+	rm chromium-14.0.806.0-14.0.807.0.tar.bz2.vcdiff chromium-14.0.807.0-14.0.808.0.tar.bz2.vcdiff chromium-14.0.808.0-14.0.809.0.tar.bz2.vcdiff chromium-14.0.806.0.tar.bz2
+
 	cd $name-$version
 
 	CXXFLAGS+=' -I/usr/include/nspr' # bug still pressent in version=14.0.806.0
