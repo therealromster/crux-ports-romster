@@ -7,10 +7,10 @@
 name=texinfo
 version=4.13a
 release=1
-source=(ftp://ftp.gnu.org/gnu/texinfo/texinfo-$version.tar.gz)
+source="ftp://ftp.gnu.org/gnu/texinfo/$name-$version.tar.lzma"
 
 build() {
-	cd texinfo-${version/a/}
+	cd $name-${version/a/}
 
 	./configure \
 		--prefix=/usr \
