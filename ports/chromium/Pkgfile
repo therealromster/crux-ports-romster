@@ -5,7 +5,7 @@
 # Depends on: cups dbus-glib ffmpeg gtk libevent nss xorg-libxscrnsaver xorg-libxtst libgcrypt xdelta3
 
 name=chromium
-version=14.0.811.0
+version=14.0.812.0
 release=1
 source=(
 	http://build.chromium.org/official/$name-14.0.806.0.tar.bz2
@@ -14,6 +14,7 @@ source=(
 	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.808.0-14.0.809.0.tar.bz2.vcdiff
 	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.809.0-14.0.810.0.tar.bz2.vcdiff
 	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.810.0-14.0.811.0.tar.bz2.vcdiff
+	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.811.0-14.0.812.0.tar.bz2.vcdiff
 	chromium.sh
 )
 
@@ -32,6 +33,8 @@ build() {
 	rm chromium-14.0.809.0.tar chromium-14.0.809.0-14.0.810.0.tar.bz2.vcdiff
 	xdelta3 -D -R -d -s chromium-14.0.810.0.tar chromium-14.0.810.0-14.0.811.0.tar.bz2.vcdiff chromium-14.0.811.0.tar
 	rm chromium-14.0.810.0.tar chromium-14.0.810.0-14.0.811.0.tar.bz2.vcdiff
+	xdelta3 -D -R -d -s chromium-14.0.811.0.tar chromium-14.0.811.0-14.0.812.0.tar.bz2.vcdiff chromium-14.0.812.0.tar
+	rm chromium-14.0.811.0.tar chromium-14.0.811.0-14.0.812.0.tar.bz2.vcdiff
 	tar -xf $name-$version.tar
 
 	cd $name-$version
