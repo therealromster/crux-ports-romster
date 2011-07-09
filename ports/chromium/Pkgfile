@@ -5,39 +5,40 @@
 # Depends on: cups dbus-glib ffmpeg gtk libevent nss xorg-libxscrnsaver xorg-libxtst libgcrypt xdelta3
 
 name=chromium
-version=14.0.813.0
+version_start=14.0.806.0
+version=14.0.814.0
 release=1
-source=(
-	http://build.chromium.org/official/$name-14.0.806.0.tar.bz2
-	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.806.0-14.0.807.0.tar.bz2.vcdiff
-	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.807.0-14.0.808.0.tar.bz2.vcdiff
-	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.808.0-14.0.809.0.tar.bz2.vcdiff
-	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.809.0-14.0.810.0.tar.bz2.vcdiff
-	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.810.0-14.0.811.0.tar.bz2.vcdiff
-	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.811.0-14.0.812.0.tar.bz2.vcdiff
-	http://www.hvlinux.net/crux/distfiles/$name/chromium-14.0.812.0-14.0.813.0.tar.bz2.vcdiff
-	chromium.sh
-)
+source=(http://build.chromium.org/official/$name-$version_start.tar.bz2
+	chromium.sh)
+
+vstart="$(echo $version_start | sed -e 's/\(.*\)\.\(.*\)\.\(.*\)\.\(.*\)/\3/')"
+vend="$(($(echo $version | sed -e 's/\(.*\)\.\(.*\)\.\(.*\)\.\(.*\)/\3/') - 1))"
+vnew="$(($(echo $version_start | sed -e 's/\(.*\)\.\(.*\)\.\(.*\)\.\(.*\)/\3/') + 1))"
+vold="$vstart"
+
+for file in $(seq $vstart $vend | xargs); do
+	source=("${source[@]}" "http://www.hvlinux.net/crux/distfiles/$name/$name-14.0.$vold.0-14.0.$vnew.0.tar.bz2.vcdiff")
+	vold="$(($vold + 1))"
+	vnew="$(($vnew + 1))"
+done
 
 build() {
-	### It would be better if we could tell pkgmk not to extract the archive
-	rm -rf $name-14.0.806.0
-	cp $PKGMK_SOURCE_DIR/$name-14.0.806.0.tar.bz2 .
-	bunzip2 chromium-14.0.806.0.tar.bz2
-	xdelta3 -D -R -d -s chromium-14.0.806.0.tar chromium-14.0.806.0-14.0.807.0.tar.bz2.vcdiff chromium-14.0.807.0.tar
-	rm chromium-14.0.806.0.tar chromium-14.0.806.0-14.0.807.0.tar.bz2.vcdiff
-	xdelta3 -D -R -d -s chromium-14.0.807.0.tar chromium-14.0.807.0-14.0.808.0.tar.bz2.vcdiff chromium-14.0.808.0.tar
-	rm chromium-14.0.807.0.tar chromium-14.0.807.0-14.0.808.0.tar.bz2.vcdiff
-	xdelta3 -D -R -d -s chromium-14.0.808.0.tar chromium-14.0.808.0-14.0.809.0.tar.bz2.vcdiff chromium-14.0.809.0.tar
-	rm chromium-14.0.808.0.tar chromium-14.0.808.0-14.0.809.0.tar.bz2.vcdiff
-	xdelta3 -D -R -d -s chromium-14.0.809.0.tar chromium-14.0.809.0-14.0.810.0.tar.bz2.vcdiff chromium-14.0.810.0.tar
-	rm chromium-14.0.809.0.tar chromium-14.0.809.0-14.0.810.0.tar.bz2.vcdiff
-	xdelta3 -D -R -d -s chromium-14.0.810.0.tar chromium-14.0.810.0-14.0.811.0.tar.bz2.vcdiff chromium-14.0.811.0.tar
-	rm chromium-14.0.810.0.tar chromium-14.0.810.0-14.0.811.0.tar.bz2.vcdiff
-	xdelta3 -D -R -d -s chromium-14.0.811.0.tar chromium-14.0.811.0-14.0.812.0.tar.bz2.vcdiff chromium-14.0.812.0.tar
-	rm chromium-14.0.811.0.tar chromium-14.0.811.0-14.0.812.0.tar.bz2.vcdiff
-	xdelta3 -D -R -d -s chromium-14.0.812.0.tar chromium-14.0.812.0-14.0.813.0.tar.bz2.vcdiff chromium-14.0.813.0.tar
-	rm chromium-14.0.812.0.tar chromium-14.0.812.0-14.0.813.0.tar.bz2.vcdiff
+	# It would be better if we could tell pkgmk not to extract the archive
+	rm -rf $name-14.0.$vstart.0
+	cp $PKGMK_SOURCE_DIR/$name-14.0.$vstart.0.tar.bz2 .
+	bunzip2 chromium-14.0.$vstart.0.tar.bz2
+
+	local vend="$(($(echo $version | sed -e 's/\(.*\)\.\(.*\)\.\(.*\)\.\(.*\)/\3/') - 1))"
+	local vnew=807
+	local vold="$vstart"
+
+	for file in $(seq $vstart $vend | xargs); do
+		xdelta3 -D -R -d -s chromium-14.0.$vold.0.tar chromium-14.0.$vold.0-14.0.$vnew.0.tar.bz2.vcdiff chromium-14.0.$vnew.0.tar
+		rm chromium-14.0.$vold.0.tar chromium-14.0.$vold.0-14.0.$vnew.0.tar.bz2.vcdiff
+		vold="$(($vold + 1))"
+		vnew="$(($vnew + 1))"
+	done
+
 	tar -xf $name-$version.tar
 
 	cd $name-$version
