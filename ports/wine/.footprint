@@ -320,6 +320,9 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/htiframe.idl
 -rw-r--r--	root/root	usr/include/wine/windows/htmlhelp.h
 -rw-r--r--	root/root	usr/include/wine/windows/http.h
+-rw-r--r--	root/root	usr/include/wine/windows/httprequest.h
+-rw-r--r--	root/root	usr/include/wine/windows/httprequest.idl
+-rw-r--r--	root/root	usr/include/wine/windows/httprequestid.h
 -rw-r--r--	root/root	usr/include/wine/windows/i_cryptasn1tls.h
 -rw-r--r--	root/root	usr/include/wine/windows/iads.h
 -rw-r--r--	root/root	usr/include/wine/windows/iads.idl
@@ -458,6 +461,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/oaidl.h
 -rw-r--r--	root/root	usr/include/wine/windows/oaidl.idl
 -rw-r--r--	root/root	usr/include/wine/windows/objbase.h
+-rw-r--r--	root/root	usr/include/wine/windows/objectarray.h
+-rw-r--r--	root/root	usr/include/wine/windows/objectarray.idl
 -rw-r--r--	root/root	usr/include/wine/windows/objidl.h
 -rw-r--r--	root/root	usr/include/wine/windows/objidl.idl
 -rw-r--r--	root/root	usr/include/wine/windows/objsafe.h
@@ -610,6 +615,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/vmr9.h
 -rw-r--r--	root/root	usr/include/wine/windows/vmr9.idl
 -rw-r--r--	root/root	usr/include/wine/windows/vmrender.idl
+-rw-r--r--	root/root	usr/include/wine/windows/vsstyle.h
+-rw-r--r--	root/root	usr/include/wine/windows/vssym32.h
 -rw-r--r--	root/root	usr/include/wine/windows/wbemcli.h
 -rw-r--r--	root/root	usr/include/wine/windows/wbemcli.idl
 -rw-r--r--	root/root	usr/include/wine/windows/werapi.h
@@ -662,6 +669,8 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/wmistr.h
 -rw-r--r--	root/root	usr/include/wine/windows/wnaspi32.h
 -rw-r--r--	root/root	usr/include/wine/windows/wownt32.h
+-rw-r--r--	root/root	usr/include/wine/windows/wpcapi.h
+-rw-r--r--	root/root	usr/include/wine/windows/wpcapi.idl
 -rw-r--r--	root/root	usr/include/wine/windows/ws2def.h
 -rw-r--r--	root/root	usr/include/wine/windows/ws2ipdef.h
 -rw-r--r--	root/root	usr/include/wine/windows/ws2spi.h
