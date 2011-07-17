@@ -6,46 +6,45 @@
 
 name=chromium
 version_start=14.0.806.0
-version=14.0.822.0
+version=14.0.823.0
 release=1
 source=(http://build.chromium.org/official/$name-$version_start.tar.bz2
 	chromium.sh)
 
-vstart="$(echo $version_start | sed -e 's/\(.*\)\.\(.*\)\.\(.*\)\.\(.*\)/\3/')"
 vcdiff="$(curl -s http://www.hvlinux.net/crux/distfiles/chromium/ | html2 | grep @href= | sed -e 's|.*@href=||' | grep vcdiff$)"
 found_line=false
 
 for file in $vcdiff; do
-	vold="$(echo $file | sed -e 's|\([a-zA-Z]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\).*\.vcdiff$|\4|')"
-	vnew="$(echo $file | sed -e 's|\([a-zA-Z]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\).*\.vcdiff$|\8|')"
-	if [ "$vold" = "$vstart" ]; then
+	vold="$(echo $file | sed -e 's|[a-zA-Z]\{1,\}-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\)-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\).*\.vcdiff$|\1|')"
+	vnew="$(echo $file | sed -e 's|[a-zA-Z]\{1,\}-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\)-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\).*\.vcdiff$|\2|')"
+	if [ "$vold" = "$version_start" ]; then
 		found_line=true
 	fi
 
 	if [ "$found_line" = true ]; then
-		source=("${source[@]}" "http://www.hvlinux.net/crux/distfiles/$name/$name-14.0.$vold.0-14.0.$vnew.0.tar.bz2.vcdiff")
+		source=("${source[@]}" "http://www.hvlinux.net/crux/distfiles/$name/$name-$vold-$vnew.tar.bz2.vcdiff")
 	fi
 done
 
 build() {
 	# It would be better if we could tell pkgmk not to extract the archive
-	rm -rf $name-14.0.$vstart.0
-	cp $PKGMK_SOURCE_DIR/$name-14.0.$vstart.0.tar.bz2 .
-	bunzip2 chromium-14.0.$vstart.0.tar.bz2
+	rm -rf $name-$version_start
+	cp $PKGMK_SOURCE_DIR/$name-$version_start.tar.bz2 .
+	bunzip2 chromium-$version_start.tar.bz2
 
 	found_line=false
 
 	for file in $vcdiff; do
-		vold="$(echo $file | sed -e 's|\([a-zA-Z]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\).*\.vcdiff$|\4|')"
-		vnew="$(echo $file | sed -e 's|\([a-zA-Z]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)-\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\)\.\([0-9]\{1,\}\).*\.vcdiff$|\8|')"
-		if [ "$vold" = "$vstart" ]; then
+		vold="$(echo $file | sed -e 's|[a-zA-Z]\{1,\}-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\)-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\).*\.vcdiff$|\1|')"
+		vnew="$(echo $file | sed -e 's|[a-zA-Z]\{1,\}-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\)-\([0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\).*\.vcdiff$|\2|')"
+		if [ "$vold" = "$version_start" ]; then
 			found_line=true
 		fi
 
 		if [ "$found_line" = true ]; then
-			xdelta3 -D -R -d -s chromium-14.0.$vold.0.tar chromium-14.0.$vold.0-14.0.$vnew.0.tar.bz2.vcdiff \
-				chromium-14.0.$vnew.0.tar
-			rm chromium-14.0.$vold.0.tar chromium-14.0.$vold.0-14.0.$vnew.0.tar.bz2.vcdiff
+			xdelta3 -D -R -d -s chromium-$vold.tar chromium-$vold-$vnew.tar.bz2.vcdiff \
+				chromium-$vnew.tar
+			rm chromium-$vold.tar chromium-$vold-$vnew.tar.bz2.vcdiff
 		fi
 	done
 
