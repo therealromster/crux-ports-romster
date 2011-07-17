@@ -1,0 +1,29 @@
+# Description: AVFS is a virtual filesystem that allows browsing of compressed files.
+# URL: http://avf.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: bzip2 fuse xz zlib
+
+name=avfs
+version=1.0.0
+release=1
+source=(http://downloads.sourceforge.net/project/avf/avfs/$version/$name-$version.tar.bz2
+	avfs-0.9.8-gcc43_fix_open_missing_mode.patch)
+
+build() {
+	cd $name-$version
+
+	patch -p 0 -i $SRC/avfs-0.9.8-gcc43_fix_open_missing_mode.patch
+
+	./configure \
+		--prefix=/usr \
+		--disable-static \
+		--with-system-zlib \
+		--with-system-bzlib
+
+	make
+	make DESTDIR=$PKG install
+
+	rm $PKG/usr/lib/avfs/extfs/README
+	rmdir $PKG/usr/sbin
+}
