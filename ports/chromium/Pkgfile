@@ -6,7 +6,7 @@
 
 name=chromium
 version_start=14.0.806.0
-version=14.0.824.0
+version=14.0.825.0
 release=1
 source=(http://build.chromium.org/official/$name-$version_start.tar.bz2
 	chromium.sh)
