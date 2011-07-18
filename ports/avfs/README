@@ -1,0 +1,9 @@
+This version of AVFS includes FUSE support. It is user-based.
+
+To execute:
+1) as user, mkdir ~/.avfs
+2) make sure fuse is either compiled into the kernel OR
+   modprobe fuse or add to startup.
+3) run mountavfs
+To unload daemon, type umountavfs
+
