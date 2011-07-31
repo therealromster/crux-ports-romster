@@ -5,10 +5,11 @@
 version=2.6.39-pf4
 name=linux-${version}
 group=kernel
-release=1
+release=2
 source="
 	http://www.kernel.org/pub/linux/kernel/v2.6/linux-${version%-*}.tar.bz2
 	http://pf.natalenko.name/sources/${version%-*}/patch-$version.bz2
+	http://www.linuximq.net/patchs/linux-${version%-*}-imq-multiqueue-test1.diff.bz2
 "
 
 up2date_url='http://pf-kernel.org.ua/sources/2.6.39/'
@@ -17,7 +18,10 @@ sname=patch
 build() {
 	mv linux-${version%-*} $name
 	cd $name
-	
+
+	bunzip2 $SRC/linux-${version%-*}-imq-multiqueue-test1.diff.bz2
+	patch -p 1 -i $SRC/linux-${version%-*}-imq-multiqueue-test1.diff
+
 	bunzip2 $SRC/patch-$version.bz2
 	patch -p 1 -i $SRC/patch-$version
 
