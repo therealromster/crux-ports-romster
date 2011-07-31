@@ -2,38 +2,26 @@
 # URL: http://www.linuximq.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: iproute2 iptables
 
 name=iptables-imq
-version=1.4.2
+version=1.4.12
 release=1
-source=(ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2
-	http://www.linuximq.net/patchs/iptables-1.4.1-imq.diff)
+source="
+	ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2
+	http://www.linuximq.net/patchs/iptables-1.4.10-imq.patch
+"
 
 build() {
 	cd iptables-$version
-	patch -p 1 -i $SRC/iptables-1.4.1-imq.diff
-	rm extensions/.IMQ-test extensions/.IMQ-test6
-	
-	# quick hack to only build IMQ to save some time
-	# TODO propper patch with options to only build
-	# some modules
-	sed -i \
-		-e 's|^pfx_build_mod := $(patsubst ${srcdir}/.*|pfx_build_mod := |' \
-		-e 's|^pf4_build_mod := $(patsubst ${srcdir}/.*|pf4_build_mod := IMQ|' \
-		-e 's|^pf6_build_mod := $(patsubst ${srcdir}/.*|pf6_build_mod := IMQ|' \
-		extensions/GNUmakefile.in
+
+	patch -p 1 -i $SRC/iptables-1.4.10-imq.patch
 	
 	./configure \
 		--prefix=/usr \
-		--libexecdir=/usr/lib \
 		--mandir=/usr/man \
-		--disable-dependency-tracking \
-		--with-kernel="/usr/src/linux-$(uname -r)"
+		--libexecdir=/usr/lib \
+		--enable-libipq
 
-	cd extensions
 	make
 	make DESTDIR=$PKG install
-	chmod a-x $PKG/usr/lib/xtables/*.so
 }
-
