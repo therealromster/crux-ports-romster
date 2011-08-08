@@ -5,12 +5,11 @@
 # Depends on: python
 
 name=pyparsing
-version=1.4.6
+version=1.5.6
 release=1
-source=(http://dl.sourceforge.net/sourceforge/pyparsing/pyparsing-$version.tar.gz)
+source="http://downloads.sourceforge.net/project/$name/$name/$name-$version/$name-$version.tar.gz"
 
 build() {
-	cd pyparsing-$version
+	cd $name-$version
 	python setup.py install --root=$PKG
 }
-
