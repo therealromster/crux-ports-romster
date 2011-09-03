@@ -995,6 +995,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/iccvid.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/icinfo.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/icmp.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/ieframe.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/iexplore.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/ifsmgr.vxd
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/imaadp32.acm
@@ -1136,6 +1137,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/ping.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/plugplay.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/powrprof.dll
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/presentationfontcache.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/printui.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/progman.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/propsys.dll
@@ -1299,6 +1301,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/write.exe
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/ws2_32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wscript.exe
+-rw-r--r--	root/root	usr/lib/wine/fakedlls/wshom.ocx
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wsock32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wtsapi32.dll
 -rw-r--r--	root/root	usr/lib/wine/fakedlls/wuapi.dll
@@ -1332,6 +1335,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/iccvid.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/icinfo.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/icmp.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/ieframe.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/iexplore.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/ifsmgr.vxd.so
 -rwxr-xr-x	root/root	usr/lib/wine/imaadp32.acm.so
@@ -1411,6 +1415,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rw-r--r--	root/root	usr/lib/wine/libglu32.def
 -rw-r--r--	root/root	usr/lib/wine/libhid.def
 -rw-r--r--	root/root	usr/lib/wine/libhlink.def
+-rw-r--r--	root/root	usr/lib/wine/libieframe.def
 -rw-r--r--	root/root	usr/lib/wine/libimagehlp.def
 -rw-r--r--	root/root	usr/lib/wine/libimm32.def
 -rw-r--r--	root/root	usr/lib/wine/libinetcomm.def
@@ -1632,6 +1637,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/ping.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/plugplay.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/powrprof.dll.so
+-rwxr-xr-x	root/root	usr/lib/wine/presentationfontcache.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/printui.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/progman.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/propsys.dll.so
@@ -1795,6 +1801,7 @@ drwxr-xr-x	root/root	usr/lib/wine/fakedlls/
 -rwxr-xr-x	root/root	usr/lib/wine/write.exe.so
 -rwxr-xr-x	root/root	usr/lib/wine/ws2_32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wscript.exe.so
+-rwxr-xr-x	root/root	usr/lib/wine/wshom.ocx.so
 -rwxr-xr-x	root/root	usr/lib/wine/wsock32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wtsapi32.dll.so
 -rwxr-xr-x	root/root	usr/lib/wine/wuapi.dll.so
