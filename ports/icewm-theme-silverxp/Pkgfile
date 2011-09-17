@@ -7,7 +7,7 @@
 name=icewm-theme-silverxp
 version=1.2.17-single
 release=1
-source=(http://dl.sourceforge.net/sourceforge/icewmsilverxp/SilverXP-$version-$release.tar.bz2 \
+source=(http://downloads.sourceforge.net/project/icewmsilverxp/SilverXP/1.2.17-1/SilverXP-$version-1.tar.bz2
 	http://linux.cergynux.net/tux_vs_ms_butterfly_big.jpg)
 
 build() {
@@ -31,4 +31,3 @@ build() {
 		$PKG/usr/share/icewm/themes/silverxp/README.txt \
 		$PKG/usr/share/icewm/themes/silverxp/README.html
 }
-
