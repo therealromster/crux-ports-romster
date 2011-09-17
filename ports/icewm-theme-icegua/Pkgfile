@@ -7,11 +7,11 @@
 name=icewm-theme-icegua
 version=1.0.2
 release=1
-source=(http://themes.freshmeat.net/redir/icequa/38923/url_tgz/icequa-default-$version.tar.gz)
+source=(http://www.mirrorservice.org/sites/www.ibiblio.org/gentoo/distfiles/icequa-default-$version.tar)
 
 build() {
+	tar -xf icequa-default-$version.tar
 	install -d $PKG/usr/share/icewm/themes/icequa
 	cp -dpR IceQua/* $PKG/usr/share/icewm/themes/icequa/
 	chmod -R 0644 $PKG/usr/share/icewm/themes/icequa/
 }
-
