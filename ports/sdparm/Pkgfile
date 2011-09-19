@@ -1,14 +1,12 @@
 # Description: List or change SCSI/ATAPI disk parameters.
-# URL: http://sg.torque.net/sg/sdparm.html
+# URL: http://sg.danny.cz/sg/sdparm.html
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: acrux
 
 name=sdparm
-version=1.03
+version=1.06
 release=1
-url='http://sg.torque.net/sg'
-up2date="lynx -dump '$url/sdparm.html' |grep 'sdparm' |sort -n -r |grep -m1 '.tgz$' |sed 's/.*-\(.*\).t.*/\1/'"
-source=($url/p/$name-$version.tgz)
+source=(http://sg.danny.cz/sg/p/$name-$version.tgz)
 
 build() {
 	cd $name-$version
@@ -20,5 +18,6 @@ build() {
     
 	make
 	make DESTDIR=$PKG install
+	mv $PKG/usr/sbin/bin/sdparm $PKG/usr/sbin
+	rmdir $PKG/usr/sbin/bin
 }
-
