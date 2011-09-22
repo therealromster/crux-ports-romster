@@ -5,12 +5,15 @@
 # Depends on: zlib libpng
 
 name=optipng
-version=0.6.4
+version=0.6.5
 release=1
-source="http://downloads.sourceforge.net/optipng/$name-$version.tar.gz"
+source=(http://downloads.sourceforge.net/project/optipng/OptiPNG/$name-$version/$name-$version.tar.gz
+	optipng-0.6.5-libpng-1.4.8.patch)
 
 build() {
 	cd $name-$version/
+
+	patch -p 1 -i $SRC/optipng-0.6.5-libpng-1.4.8.patch
 
 	./configure \
 		-prefix=/usr \
