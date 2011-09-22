@@ -7,9 +7,7 @@
 name=libast
 version=0.7
 release=1
-url='http://www.eterm.org/download'
-up2date="lynx -dump '$url' |grep -v Eterm |grep 'tar.gz$' |sed -ne 's/.*-\(.*\)\.t.*/\1/' -e '$ p'"
-source=($url/$name-$version.tar.gz)
+source=(http://www.eterm.org/download/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
@@ -25,4 +23,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
