@@ -9,15 +9,14 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/Ettable
 -rwxr-xr-x	root/root	usr/bin/kEsetroot
 drwxr-xr-x	root/root	usr/lib/
--rwxr-xr-x	root/root	usr/lib/libEterm-0.9.5.so
+-rwxr-xr-x	root/root	usr/lib/libEterm-0.9.6.so
 -rwxr-xr-x	root/root	usr/lib/libEterm.la
-lrwxrwxrwx	root/root	usr/lib/libEterm.so -> libEterm-0.9.5.so
+lrwxrwxrwx	root/root	usr/lib/libEterm.so -> libEterm-0.9.6.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/Eterm.1.gz
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/Eterm/
--rw-r--r--	root/root	usr/share/Eterm/gdb.scr
 drwxr-xr-x	root/root	usr/share/Eterm/pix/
 -rw-r--r--	root/root	usr/share/Eterm/pix/bar_horizontal_1.png
 -rw-r--r--	root/root	usr/share/Eterm/pix/bar_horizontal_2.png
