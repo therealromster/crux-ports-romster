@@ -2,16 +2,19 @@
 # URL: http://cdstatus.sourceforge.net/
 # Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on:
 
 name=cdstatus
-version=0.96.05
+version=0.97.03
 release=1
-source=(http://dl.sourceforge.net/sourceforge/cdstatus/cdstatus-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/project/cdstatus/cdstatus/cdstatus%200.97.03/$name-$version.tar.bz2)
 
 build() {
 	cd cdstatus-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man
+
 	make
 	make prefix=$PKG/usr install
 }
