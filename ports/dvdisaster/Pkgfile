@@ -2,12 +2,12 @@
 # URL: http://dvdisaster.net/en/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: gtk+ xorg-libxcomposite
+# Depends on: gtk xorg-libxcomposite
 
 name=dvdisaster
-version=0.72.1
+version=0.72.2
 release=1
-source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source=(http://dvdisaster.net/downloads/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
