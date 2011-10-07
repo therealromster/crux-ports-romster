@@ -9,7 +9,7 @@
 name=safe-build-dev
 version=20090628-2136
 release=1
-source="ftp://romster.dyndns.org/linux/source/safe-build/safe_build-$version.tar.bz2"
+source=(http://romster.dyndns.org/distfiles/safe_build-$version.tar.bz2)
 
 build() {
 	cd safe_build-$version
