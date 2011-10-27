@@ -1,0 +1,71 @@
+# Description: P2P application for web searching.
+# URL: http://yacy.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: ant
+
+name=yacy
+version=0.99
+release=1
+source=(http://www.yacy.net/release/${name}_v${version}_20101105_7309.tar.gz
+	yacy-start.sh yacy-stop.sh yacy.rc)
+
+build() {
+	cd $name
+	ant
+
+	# remove source files
+	find $SRC/$name -type f -name '*.java' -delete
+	rm $SRC/$name/build.xml \
+		$SRC/$name/build.properties
+	rm -r $SRC/$name/source \
+		$SRC/$name/RELEASE
+
+	# install
+	install -d $PKG/usr/lib/yacy
+	cp -R * $PKG/usr/lib/yacy/
+
+	# remove junk files
+	find $PKG -type f -name '*.License' -delete
+
+	rm $PKG/usr/lib/yacy/addon/Notepad++/Readme.txt \
+		$PKG/usr/lib/yacy/defaults/yacy.network.readme \
+		$PKG/usr/lib/yacy/gpl.txt \
+		$PKG/usr/lib/yacy/readme.txt \
+		$PKG/usr/lib/yacy/addon/yacyInit.readme \
+		$PKG/usr/lib/yacy/startYACY.bat \
+		$PKG/usr/lib/yacy/startYACY_debug.bat \
+		$PKG/usr/lib/yacy/stopYACY.bat \
+		$PKG/usr/lib/yacy/addon/YaCy-Search.bat \
+		$PKG/usr/lib/yacy/{AUTHORS,COPYRIGHT,ChangeLog,NOTICE}
+
+	# move cache directory
+	install -d $PKG/var/cache/yacy
+	mv $PKG/usr/lib/yacy/DATA $PKG/var/cache/yacy/DATA
+	chmod 0660 $PKG/var/cache/yacy/DATA
+	ln -s /var/cache/yacy/DATA $PKG/usr/lib/yacy/DATA
+	chown -R yacy:yacy $PKG/var/cache/yacy
+	chmod -R 0770 $PKG/var/cache/yacy
+
+	# move configuration files
+	install -d $PKG/etc/yacy
+	local files='yacy.logging yacy.stopwords yacy.yellow'
+
+	for file in $files; do
+		mv $PKG/usr/lib/yacy/$file $PKG/etc/yacy/$file
+		chown root:yacy $PKG/etc/yacy/$file
+		chmod 0640 $PKG/etc/yacy/$file
+		ln -s /etc/yacy/$file $PKG/usr/lib/yacy/$file
+	done
+
+	# symlink generated configuration file
+	ln -s /var/cache/yacy/DATA/SETTINGS/yacy.conf $PKG/etc/yacy/yacy.conf
+
+	# install service
+	chown root:yacy $PKG/usr/lib/yacy/startYACY.sh $PKG/usr/lib/yacy/stopYACY.sh
+	chmod 0750 $PKG/usr/lib/yacy/startYACY.sh $PKG/usr/lib/yacy/stopYACY.sh
+	install -d $PKG/usr/sbin
+	install -m 0750 -g yacy $SRC/yacy-start.sh $PKG/usr/sbin/yacy-start
+	install -m 0750 -g yacy $SRC/yacy-stop.sh $PKG/usr/sbin/yacy-stop
+	install -m 0750 -D $SRC/yacy.rc $PKG/etc/rc.d/yacy
+}

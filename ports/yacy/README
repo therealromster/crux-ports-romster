@@ -1,0 +1,32 @@
+REQUIREMENTS:
+
+PRECAUTION:
+
+	Once running goto the main page http://localhost:8080/ and 
+	set a password and maybe change the port too.
+
+PRE-INSTALL:
+
+	Yacy expects to have a user and group dedicated to it, a 
+	pre-install script has been added to the port which takes 
+	care of this.
+
+POST-INSTALL:
+
+	Edit your favourite web browser and point it to proxy 
+	localhost 8080 or which ip on your lan and port you have 
+	assigned.
+
+PRE-REMOVE:
+
+POST-REMOVE:
+
+NOTES:
+
+	Please add "yacy" to the SERVICES array in /etc/rc.conf if 
+	you'd like to run yacy as a service (highly recomended).
+
+	Upon startup yacy takes some time to load before the web 
+	browser will load the initial page, and some time to 
+	shutdown too to save its state.
+
