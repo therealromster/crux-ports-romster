@@ -5,13 +5,18 @@
 # Depends on: fontforge
 
 name=wine
-version=1.3.27
+version=1.3.31
 release=1
-source="http://downloads.sourceforge.net/$name/$name-$version.tar.bz2"
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2
+	http://www.compholio.com/wine-kane/download.php?file=wine-kane_1.3.30.patch.gz)
 up2date_url="http://ibiblio.org/pub/linux/system/emulators/$name/"
 
 build() {
 	cd $name-$version
+
+	mv $SRC/download.php?file=wine-kane_1.3.30.patch.gz $SRC/wine-kane_1.3.30.patch.gz
+
+	zcat $SRC/wine-kane_1.3.30.patch.gz | patch -p 1
 
 	# don't add -pipe if we compile in tmpfs it actually slows us down.
 	sed -i -e 's/^EXTRACFLAGS="-Wall -pipe"/EXTRACFLAGS="-Wall"/' configure
