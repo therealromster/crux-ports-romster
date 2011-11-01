@@ -7,21 +7,20 @@
 name=fvwm-themes
 version=0.7.0
 release=1
-source=(http://dl.sourceforge.net/fvwm-themes/fvwm-themes-$version.tar.bz2 \
-	fvwm-themes-$version-install.patch)
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.bz2
+	$name-0.7.0-install.patch)
 
 build() {
-	cd fvwm-themes-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
 		--x-includes=/usr/include/xorg \
 		--x-libraries=/usr/lib/X11
 
-	patch -i ../fvwm-themes-$version-install.patch
+	patch -i $SRC/$name-0.7.0-install.patch
 	make
 	make DESTDIR=$PKG install
 	find $PKG/usr/share/fvwm/locale/* ! -wholename "*locale/en*" -delete
 	find $PKG/usr/share/fvwm/themes -name 'README' -delete
 }
-
