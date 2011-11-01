@@ -1,6 +1,6 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
-lrwxrwxrwx	root/root	usr/bin/ldbash -> /usr/lib/ldbash
+-rwxr-xr-x	root/root	usr/bin/ldbash
 drwxr-xr-x	root/root	usr/etc/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/bash/
@@ -10,7 +10,6 @@ drwxr-xr-x	root/root	usr/lib/bash/
 -rw-r--r--	root/root	usr/lib/bash/locks.sh
 -rw-r--r--	root/root	usr/lib/bash/messages.sh
 -rw-r--r--	root/root	usr/lib/bash/urlcoding.sh
--rwxr-xr-x	root/root	usr/lib/ldbash
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/getopt_long.1.gz
@@ -50,6 +49,3 @@ drwxr-xr-x	root/root	usr/sbin/
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/aclocal/
 -rw-r--r--	root/root	usr/share/aclocal/libbash.m4
-drwxrwxrwx	root/root	usr/var/
-drwxrwxrwx	root/root	usr/var/lock/
-drwxrwxrwx	root/root	usr/var/lock/dirlocks/
