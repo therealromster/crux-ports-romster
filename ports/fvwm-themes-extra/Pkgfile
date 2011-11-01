@@ -7,7 +7,7 @@
 name=fvwm-themes-extra
 version=0.7.0
 release=1
-source=(http://dl.sourceforge.net/fvwm-themes/fvwm-themes-extra-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.bz2)
 
 build() {
 	install -d $PKG/usr/share/fvwm/themes
