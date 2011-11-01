@@ -5,7 +5,7 @@
 # Depends on: libsdl libmikmod smpeg
 
 name=sdl_sound
-version=1.0.1
+version=1.0.3
 release=1
 
 source=(http://www.icculus.org/SDL_sound/downloads/SDL_sound-$version.tar.gz)
@@ -16,4 +16,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
