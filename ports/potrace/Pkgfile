@@ -5,14 +5,19 @@
 # Depends on:
 
 name=potrace
-version=1.8
+version=1.10
 release=1
-source="http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz"
-up2date_url="http://sourceforge.net/project/showfiles.php?group_id=87635&package_id=91415"
+source="http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz"
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
 	make
 	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share $PKG/usr/include $PKG/usr/lib
 }
