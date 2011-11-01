@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -e /usr/bin/python ] && [ -e /usr/share/meld/meld ]; then
+  python /usr/share/meld/meld "$@"
+fi
+
+# End of File

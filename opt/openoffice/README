@@ -1,0 +1,33 @@
+OPENOFFICE.ORG CRUX PORT NOTES
+
+1. OpenOffice 2.x does not correctly work on with the
+   default CRUX NFS ports. If you need to open files
+   on a NFS share, disable OpenOffice locking in 
+   /usr/bin/soffice at the beginning of the file.
+   You should end up with something like:
+
+     STAR_PROFILE_LOCKING_DISABLED=1
+     export STAR_PROFILE_LOCKING_DISABLED
+     
+     # SAL_ENABLE_FILE_LOCKING=1
+     # export SAL_ENABLE_FILE_LOCKING
+
+2. The apps can be launched with "soffice -app",
+   i.e "soffice -writer", "soffice -calc", etc. 
+   Use spadmin to configure printers.
+
+3. This is a quick port, ie no bloat removed.
+   I hope I'll find some time to provide a better
+   port in the near future. 
+   For now, it's here for your convenience.
+
+4. This is the binary release of OpenOffice.org.
+   I'm afraid a source build could take days to complete.
+
+5. In order to make the app use gtk widgets, put this
+   line in your ~/.xinitrc file (or other appropriate places):
+
+   xprop -root -format GNOME_SM_PROXY 8i -set GNOME_SM_PROXY 1 
+
+
+- Simone - 

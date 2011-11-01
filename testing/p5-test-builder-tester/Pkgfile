@@ -1,0 +1,18 @@
+# Description: Test testsuites that have been built with Test::Builder. 
+# URL: http://search.cpan.org/~markf/Test-Builder-Tester-1.01/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club dash internet dot fr
+# Depends on:
+
+name=p5-test-builder-tester
+version=1.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/M/MA/MARKF/Test-Builder-Tester-$version.tar.gz)
+
+build() {
+	cd Test-Builder-Tester-$version
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+	find $PKG -name perllocal.pod -delete
+}

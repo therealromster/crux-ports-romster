@@ -1,0 +1,19 @@
+# Description: Lemmingball Z is a fighting game for linux and windows, loosely based on `Dragonball Z` the hit anime.
+# URL: http://www.lbz3d.com/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on:
+
+name=lbz3d
+version=20090902
+release=1
+source=(http://www.lemmingballz.net/$name.tar.bz2
+	$name.sh)
+
+build() {
+	cd $name
+	install -d $PKG/usr/lib/$name
+	cp -a * $PKG/usr/lib/$name/
+	install -D -m 0755 $SRC/$name.sh $PKG/usr/bin/$name
+	rm $PKG/usr/lib/lbz3d/lbzrun
+}

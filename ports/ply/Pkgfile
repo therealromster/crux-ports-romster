@@ -1,0 +1,16 @@
+# Description: A python lex/yacc implementation.
+# URL: http://www.dabeaz.com/ply/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: python
+
+name=ply
+version=3.4
+release=1
+source=(http://www.dabeaz.com/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+	find $PKG -name '*.egg-info' | xargs rm -rf
+}

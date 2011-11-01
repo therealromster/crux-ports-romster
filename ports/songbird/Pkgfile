@@ -1,0 +1,27 @@
+# Description: Songbird is an open-source customizable music player that's under active development.
+# URL:         http://www.getsongbird.com/
+.*$ Alex Kostrewa, alexko256 at googlemail dot com
+# Depends on:  gtk gstreamer
+
+name=songbird
+version=1.2.0
+release=1
+source=(http://download.${name}nest.com/installer/linux/i686/Songbird_$version-1146_linux-i686.tar.gz)
+
+build() {
+	mkdir -p $PKG/usr/{bin,share}
+	mkdir $PKG/usr/share/$name
+		
+	cd Songbird
+	cp * $PKG/usr/share/$name -r 
+		
+	rm $PKG/usr/share/$name/*.txt
+	rm $PKG/usr/share/$name/*.html
+	rm $PKG/usr/share/$name/xulrunner/README.txt
+	rm $PKG/usr/share/$name/xulrunner/LICENSE		
+		
+	chmod +x $PKG/usr/share/songbird/{songbird,songbird-bin}
+
+	ln -sf /usr/share/songbird/songbird /usr/bin/songbird 	
+	ln -sf /usr/share/songbird/songbird-bin /usr/bin/songbird-bin 
+}

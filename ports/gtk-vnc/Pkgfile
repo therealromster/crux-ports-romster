@@ -1,0 +1,16 @@
+# Description: A VNC viewer widget for GTK
+# URL: http://gtk-vnc.sourceforge.net/
+.*$Matt Housh, jaeger at morpheus dot net
+# Depends on: pygtk xorg-libxdmcp xorg-libxau freetype2 gnutls libgcrypt xorg-libxdamage xorg-libxext libxml2 cyrus-sasl libffi
+
+name=gtk-vnc
+version=0.4.2
+release=1
+source=(http://ftp.acc.umu.se/pub/GNOME/sources/gtk-vnc/0.4/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make -j1
+	make DESTDIR=$PKG install
+}

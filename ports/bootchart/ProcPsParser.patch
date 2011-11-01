@@ -1,0 +1,52 @@
+--- trunk/bootchart/src/org/bootchart/parser/linux/ProcPsParser.java	2005/10/18 16:27:09	352
++++ trunk/bootchart/src/org/bootchart/parser/linux/ProcPsParser.java	2007/07/08 12:05:41	403
+@@ -47,6 +47,18 @@
+  */
+ public class ProcPsParser {
+ 	private static final Logger log = Logger.getLogger(ProcPsParser.class.getName());
++	
++	/**
++	 * Maximum time difference between two consecutive samples.  Anything more
++	 * indicates an error.
++	 */
++	private static final int MAX_SAMPLE_DIFF = 60000;
++	/**
++	 * Maximum uptime for a sample.  Used to sanity check log file values and
++	 * ignore inconsistent samples.
++	 */
++	private static final long MAX_UPTIME =
++	  System.currentTimeMillis() - 1072911600000L; // 30 years+ uptime
+ 
+ 	/**
+ 	 * Parses the <code>proc_ps.log</code> file.  The output from
+@@ -80,6 +92,7 @@
+ 		Date time = null;
+ 		// last time
+ 		Date ltime = null;
++		long lastUptime = -1;
+ 		while (line != null) {
+ 			// skip empty lines
+ 			while (line != null && line.trim().length() == 0) {
+@@ -92,7 +105,20 @@
+ 			line = line.trim();
+ 			if (line.matches("^\\d+$")) {
+ 				// jiffies (1/100s uptime)
+-				time = new Date(Long.parseLong(line) * 10);
++				long uptime = Long.parseLong(line) * 10;
++				if (lastUptime != -1 &&
++					(uptime < lastUptime || uptime - lastUptime > MAX_SAMPLE_DIFF)) {
++					log.warning("Invalid uptime: " + uptime + ", ignoring sample");
++					line = reader.readLine();
++					continue;
++				} else if (uptime > MAX_UPTIME) {
++					log.warning("Invalid uptime: " + uptime + ", ignoring sample");
++					line = reader.readLine();
++					continue;
++				}
++				lastUptime = uptime;
++				time = new Date(uptime);
++				
+ 				if (startTime == null) {
+ 					startTime = time;
+ 				}
+

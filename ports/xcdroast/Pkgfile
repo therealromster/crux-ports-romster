@@ -1,0 +1,34 @@
+# Description: cd burning application 
+# URL: http://www.xcdroast.org/
+.*$Hannes Mayer, kontakt at ecarux dot de
+# Depends on: cdrtools gtk
+
+name=xcdroast
+version=0.98alpha16
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+unset _filter
+up2date_url="http://sourceforge.net/project/showfiles.php?group_id=7578&package_id=7703"
+up2date="curl --silent ${up2date_timeout} \
+	'${up2date_url}' | \
+	sed -e 's|/[A|a]>|/a>\n|g' | \
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
+	sed -e 's|^.*://.*/||g' | \
+	grep '^${name}[-|_][0-9][.0-9]*' | \
+	${_filter}
+	sed -ne 's|^${name}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
+	uniq | tail -n 1"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-gtk2 \
+		--disable-nls
+
+	make 
+	make DESTDIR=$PKG install
+	rmdir $PKG/usr/etc
+}

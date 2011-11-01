@@ -1,0 +1,22 @@
+# Description: A daemon which supports the UPnP Internet Gateway Device (IGD) specification and NAT Port Mapping Protocol (NAT-PMP).
+# URL: http://miniupnp.free.fr/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: iptables
+
+name=miniupnpd
+version=1.5
+release=1
+source=(http://miniupnp.free.fr/files/download.php?file=$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	sed -i \
+		-e 's|iptables.h|xtables.h|' \
+		-e 's|linux/netfilter/nf_nat.h|net/netfilter/nf_nat.h|' \
+		netfilter/iptcrdr.c
+
+	make -f Makefile.linux
+	make -f Makefile.linux DESTDIR=$PKG install
+}

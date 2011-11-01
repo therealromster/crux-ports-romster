@@ -1,0 +1,24 @@
+# Description: Build and install perl modules.
+# URL: http://search.cpan.org/~kwilliams/Module-Build/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Richard Pöttler, richard dot poettler at gmail dot com
+# Depends on:
+
+name=p5-module-build
+version=0.30
+release=1
+source=(http://www.cpan.org/modules/by-module/Module/Module-Build-$version.tar.gz)
+
+build() {
+	cd Module-Build-$version
+	perl Build.PL --prefix $PKG/usr --installdirs site
+	./Build
+	./Build install
+
+	find $PKG \( \
+		-name perllocal.pod -o \
+		-name .packlist \
+		\) -delete
+
+	find $PKG -type d -empty -delete
+}

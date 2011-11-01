@@ -1,0 +1,30 @@
+# Description: A full featured cross platform office suite (binary)
+# URL: http://www.openoffice.org
+# Maintainer: Simone Rota, sip at crux dot nu
+# Packager: Simone Rota, sip at crux dot nu
+# Depends on: mesa3d xorg-libxaw xorg-libxcursor xorg-libxft xorg-libxinerama xorg-libxi xorg-libxrandr rpm2targz
+
+name=openoffice
+version=3.0.0
+release=1
+source=(http://openoffice-atl.osuosl.org/stable/$version/OOo_${version}_LinuxIntel_install_en-US.tar.gz)
+
+build() {
+	mkdir $SRC/tmp
+	export TMPDIR=$SRC/tmp
+	cd OO*/RPMS
+	for f in *.rpm; do rpm2targz $f; done
+	for f in *.tar.gz; do tar xvzf $f -C $PKG; done
+	
+	rm -rf $PKG/usr/*
+	mkdir -p $PKG/usr/lib/openoffice
+	mv $PKG/opt/openoffice*/* $PKG/usr/lib/openoffice
+
+	mkdir -p $PKG/usr/bin
+	ln -sf /usr/lib/openoffice/program/soffice $PKG/usr/bin/soffice
+	ln -sf /usr/lib/openoffice/program/spadmin $PKG/usr/bin/spadmin
+
+	rm -r $PKG/opt
+	chown -R root:root $PKG
+
+}

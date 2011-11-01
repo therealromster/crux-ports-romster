@@ -1,0 +1,19 @@
+# Description: Glasgow Haskell compiler
+# URL:         http://www.haskell.org/haskellwiki/Glasgow_Haskell_Compiler
+.*$ Moritz Wilhelmy <moritz plus crux at wzff dot de>
+# Depends on:  libffi ghc
+
+name=ghc
+version=7.0.1
+release=2
+source=(http://www.haskell.org/$name/dist/$version/$name-$version-src.tar.bz2 build.mk)
+
+build() {
+  cd $name-$version
+  ./configure --prefix=/usr --mandir=/usr/man
+  cp $SRC/build.mk mk/
+  mkdir -p $PKG/usr/{bin,lib}
+  make
+  make DESTDIR=$PKG install
+  rm -rf $PKG/usr/share/doc
+}

@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bio2jack-config
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/bio2jack.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libbio2jack.a
+-rwxr-xr-x	root/root	usr/lib/libbio2jack.la
+lrwxrwxrwx	root/root	usr/lib/libbio2jack.so -> libbio2jack.so.0.9.0
+lrwxrwxrwx	root/root	usr/lib/libbio2jack.so.0 -> libbio2jack.so.0.9.0
+-rwxr-xr-x	root/root	usr/lib/libbio2jack.so.0.9.0

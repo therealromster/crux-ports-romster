@@ -1,0 +1,24 @@
+msort 8.52
+  lib gmp not linked
+  lib icu      3.8.1
+  lib tre      0.7.5
+  lib uninum not linked
+  glibc        2.8
+Compiled Jan 26 2009 06:45:27 on i686
+under Linux 2.6.28 #1 SMP PREEMPT Fri Dec 26 17:09:41 EST 2008
+Copyright 1993-2008 William J. Poser (billposer@alum.mit.edu)
+This program is free software; you can redistribute
+it and/or modify it under the terms of version 3 of
+the GNU General Public License as published by the
+Free Software Foundation.
+Invoked by command line:
+  msort -w --comparison-type N -r   -2 foo
+Sorting on whole record.
+Increasing numeric string
+Started:			   2009-01-26T08:15:43+1100
+Completed:			   2009-01-26T08:15:43+1100
+Dynamically allocated memory:         135,168 bytes
+Random number generator seed:      1232918143
+Comparisons:                                6
+Records written:                            5
+----------------------------------------------------------------------

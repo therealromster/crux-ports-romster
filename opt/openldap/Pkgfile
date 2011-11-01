@@ -1,0 +1,73 @@
+# Description: Lightweight Directory Access Protocol (LDAP) Toolkit.
+# URL: http://www.openldap.org/
+# Packager: Daniel Mueller, daniel at danm dot de
+# Maintainer: Richard Poetler, richard dot poettler at gmail dot com
+# Depends on: perl openssl cyrus-sasl
+
+name=openldap
+version=2.4.17
+release=1
+source=(ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/$name-$version.tgz
+	$name-config.patch slurpd slapd)
+up2date_url="ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/"
+
+
+build(){
+	cd $name-$version
+	patch -p 0 -i $SRC/$name-config.patch
+
+	#CFLAGS+='-D_GNU_SOURCE' \
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--sysconfdir=/etc \
+		--libexecdir=/usr/sbin \
+		--localstatedir=/var/openldap \
+		--disable-nls \
+		--enable-syslog \
+		--with-threads \
+		--with-tls \
+		--with-cyrus-sasl \
+		--enable-spasswd \
+		--enable-dynamic \
+		--enable-ipv6 \
+		--enable-modules \
+		--enable-crypt \
+		--enable-rewrite \
+		--enable-ldbm \
+		--enable-ldbm-api=berkeley \
+		--enable-ldbm-type=btree \
+		--enable-bdb \
+		--enable-hdb \
+		--enable-ldap \
+		--enable-meta \
+		--enable-monitor \
+		--enable-dnssrv \
+		--enable-null \
+		--enable-perl \
+		--with-dyngroup \
+		--with-proxycache \
+		--enable-wrappers \
+		--enable-slurpd \
+		--enable-aci \
+		--enable-shared
+
+	make depend
+	make
+	make DESTDIR=$PKG install   
+
+	sed -i -e "s|-L${PKG}/usr/lib||g" $PKG/usr/lib/*.la
+	/sbin/ldconfig -n $PKG/usr/lib
+
+	# compatiblity links
+	(cd $PKG/usr/lib; 
+	 ln -s liblber.so liblber.so.2;
+	 ln -s libldap.so libldap.so.2;
+	 ln -s libldap_r.so libldap_r.so.2) || exit 1
+
+	mkdir -p $PKG/etc/rc.d
+	install -m 755 $SRC/slapd $PKG/etc/rc.d/slapd
+	install -m 755 $SRC/slurpd $PKG/etc/rc.d/slurpd
+
+	rm $PKG/etc/openldap/schema/README
+}

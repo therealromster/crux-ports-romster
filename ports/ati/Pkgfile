@@ -1,0 +1,73 @@
+# Description: ATI Proprietary Linux Display Driver.
+# URL: http://www.ati.com/support/drivers/linux/radeon-linux.html
+.*$Jose V Beneyto, sepen at users dot sourceforge dot net
+# Packager: Jose V Beneyto, sepen at users dot sourceforge dot net
+# Depends on: mesa3d gl-select
+
+name=ati
+version=10.12
+release=1
+#source=(http://www2.ati.com/drivers/linux/$name-driver-installer-${version/./-}-x86.x86_64.run \
+#        atieventsd)
+source=(http://www2.ati.com/drivers/linux/$name-driver-installer-${version/./-}-x86.x86_64.run \
+        atieventsd)
+
+
+build() {
+  chmod +x ${name}-driver-installer-${version/./-}-x86.x86_64.run
+  ./$name-driver-installer-${version/./-}-x86.x86_64.run --extract $SRC/tmp
+
+  # 2.6.36 kernel fix
+  # http://linux.derkeiler.com/Mailing-Lists/SuSE/2010-11/msg00251.html
+  sed -i -e '410d' $SRC/tmp/common/lib/modules/fglrx/build_mod/firegl_public.c
+
+  # force to build kernel
+  [ ! -z $KVER ] && sed -e "s|^uname_r=.*|uname_r=$KVER|g" \
+    -i $SRC/tmp/common/lib/modules/fglrx/build_mod/make.sh
+  
+  # make
+  cd $SRC/tmp/common/lib/modules/fglrx/build_mod
+  ln -s $SRC/tmp/arch/x86/lib/modules/fglrx/build_mod/libfglrx_ip.a.GCC4 .
+  chmod +x make.sh
+  ./make.sh
+
+  # install kernel module
+  install -D -m 0644 $SRC/tmp/common/lib/modules/fglrx/build_mod/2.6.x/fglrx.ko \
+  $PKG/lib/modules/`uname -r`/kernel/drivers/char/drm/fglrx.ko
+  
+  # install xorg
+  install -d $PKG/usr/{bin,sbin}
+  install -m 0755 $SRC/tmp/arch/x86/usr/X11R6/bin/* $PKG/usr/bin
+  install -m 0755 $SRC/tmp/arch/x86/usr/sbin/* $PKG/usr/sbin
+  install -d $PKG/usr/lib/{dri,xorg/modules}
+  install -m 0644 $SRC/tmp/arch/x86/usr/X11R6/lib/*.* $PKG/usr/lib
+  install -m 0644 $SRC/tmp/arch/x86/usr/X11R6/lib/modules/dri/* $PKG/usr/lib/dri
+  mv $SRC/tmp/x740/usr/X11R6/lib/modules/* $PKG/usr/lib/xorg/modules
+  mv $SRC/tmp/common/usr/X11R6/include $PKG/usr
+  mv $SRC/tmp/common/usr/include/GL $PKG/usr/include
+  install -m 0755 $SRC/tmp/common/usr/sbin/atigetsysteminfo.sh $PKG/usr/sbin
+  sed -e 's|/usr/X11/XF86Config*||' -i $PKG/usr/sbin/atigetsysteminfo.sh 
+  install -D -m 0444 $SRC/tmp/common/usr/share/man/man8/atieventsd.8 \
+    $PKG/usr/man/man8/atieventsd.8
+  mv $SRC/tmp/common/etc $PKG
+  rm -f $PKG/etc/ati/*logo*  
+
+  # setup file modes
+  find $PKG/usr/lib -type f -name '*.so*' -exec chmod 0755 {} \;
+  find $PKG/usr/lib -type f -name '*.la' -exec chmod 0644 {} \;
+  find $PKG/usr/include -type f -name '*.h' -exec chmod 0444 {} \;
+  
+  # finetune the installation
+  ln -sf /usr/lib/libfglrx_pp.so.1.0 $PKG/usr/lib/libfglrx_pp.so.1
+  ln -sf /usr/lib/libfglrx_gamma.so.1.0 $PKG/usr/lib/libfglrx_gamma.so.1
+  install -D -m 0755 $SRC/atieventsd $PKG/etc/rc.d/atieventsd
+  
+  # required for use xorg-gl-select
+  mv $PKG/usr/lib/xorg/modules/extensions/libglx{.so,_so_ati}
+  #mv $PKG/usr/lib/xorg/modules/extensions/libdri{.so,_so_ati}
+  mv $PKG/usr/lib/libGL{.so.1.2,_so_1_2_ati}
+
+  # patching file to avoid X11R6 paths
+  perl -pi -e "s/\0\/usr\/X11R6\/lib\/modules\/dri\0/\0\/usr\/lib\/dri\0padpadpadpadpa/" \
+    $PKG/usr/lib/libGL_so_1_2_ati
+}

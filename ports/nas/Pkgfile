@@ -1,0 +1,18 @@
+# Description: The Network Audio System is a network transparent, client/server audio transport system.
+# URL: http://radscan.com/nas.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: xorg-imake xorg-libx11 libxp
+
+name=nas
+version=1.9.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.src.tar.gz)
+
+build() {
+	cd $name-$version
+	imake -DUseInstalled -I/usr/lib/X11/config
+	make WORLDOPTS='-k CDEBUGFLAGS="${CFLAGS} -DSTARTSERVER"' World
+	make install DESTDIR=$PKG
+	make install.man DESTDIR=$PKG
+}

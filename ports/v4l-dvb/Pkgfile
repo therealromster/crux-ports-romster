@@ -1,0 +1,25 @@
+# Description: dvb-apps - small utils for DVB to scan, zap, view signal strength
+# URL: http://www.linuxtv.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: mercurial dvb-firmware-cx23885
+
+name=v4l-dvb
+version=mercurial
+release=1
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	if cd v4l-dvb 2>/dev/null ; then
+	    hg pull -u
+	    hg update
+	else
+	    hg clone http://linuxtv.org/hg/v4l-dvb
+	fi
+
+	ln -s $PKGMK_SOURCE_DIR/v4l-dvb $SRC
+
+	cd $SRC/$name
+	make
+	make prefix=$PKG/usr install
+}

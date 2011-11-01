@@ -1,0 +1,88 @@
+#!/bin/bash
+
+source Pkgfile
+source /etc/pkgmk.conf
+
+[ -z "${EXT}" ] && EXT='.tar.lzma'
+[ -z "${sname}" ] && sname="${name}"
+[ -z "${diff[@]}" ] && diff=(${source[@]})
+[ -z "${PKGMK_WORK_DIR}" ] && PKGMK_WORK_DIR="$PWD/work"
+[ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="$PWD"
+
+info() {
+	echo "=======> $1"
+}
+
+warning() {
+	info "WARNING: $1" >&2
+}
+
+error() {
+	info "ERROR: $1" >&2
+}
+
+is_installed() {
+	local PACKAGE="$1"
+	if [ -n "$PACKAGE" ] && [ -n "`pkginfo -i | egrep '^$PACKAGE '`" ]; then
+		warning "'$PACKAGE' is not installed, can not do a incremental update."
+		exit
+	fi
+}
+
+if [ -e "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}" ]; then
+	info 'Source file is upto date.'
+	exit
+fi
+
+if [ -e "${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}${EXT}" ]; then
+	warning "Missing old source file '${sname}-${OLD_VERSION}${EXT}'."
+	exit
+fi
+
+is_installed 'xdelta'
+[ "${EXT}" == '.tar.lzma' ] && is_installed 'lzma'
+
+if [ ! -e "${PKGMK_WORK_DIR}" ]; then
+	mkdir -p "${PKGMK_WORK_DIR}"
+fi
+cd "${PKGMK_WORK_DIR}"
+
+if [ ! -e "${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta" ]; then
+	DOWNLOAD_OPTS="-q --fail --globoff --progress-bar --retry 5 --speed-time 5 --speed-limit 1024 "
+	DOWNLOAD_OPTS+="--user-agent 'Mozilla/4.0 (compatible; MSIE 5.0; Windows NT)'"
+	URL="${diff[0]}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta"
+	SAVE_TO="${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta"
+	curl $DOWNLOAD_OPTS --url  $URL --output $SAVE_TO
+	if [ $? -gt 0 ]; then
+		error 'Curl failed.'
+		exit
+	fi
+	exit
+fi
+
+cp "${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}${EXT}" . || error 'copy failed' || exit
+cp "${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta" .
+echo -n '[ 25%] Decompressing source, '
+lzma -d "${sname}-${OLD_VERSION}${EXT}"
+echo 'done.'
+
+echo -n '[ 50%] Patching source, '
+xdelta patch "${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta"
+rm "${sname}-${OLD_VERSION}.tar"
+mv "${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta" "${PKGMK_SOURCE_DIR}/"
+echo 'done.'
+
+echo -n '[ 75%] Compressing patched source, '
+lzma -9 "${sname}-${version}.tar"
+echo 'done.'
+
+echo -n '[100%] Saving patched source, '
+mv "${sname}-${version}${EXT}" "${PKGMK_SOURCE_DIR}/"
+echo 'done.'
+
+cd - > /dev/null
+if [ -e "${PKGMK_WORK_DIR}" ]; then
+	rm -rf "${PKGMK_WORK_DIR}"
+fi
+
+# End of file

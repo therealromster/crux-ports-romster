@@ -1,0 +1,21 @@
+# Description: A Linux kernel based approach to using OSS applications with the Jack Audio Connection Kit.
+# URL: http://fort.xdas.com/~kor/oss2jack/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libsamplerate fusd-kor
+
+name=oss2jack
+version=0.25
+release=1
+source="http://fort.xdas.com/~kor/$name/$name-$version.tar.gz"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--with-fusd=/usr
+
+	make
+	make DESTDIR=$PKG install
+}

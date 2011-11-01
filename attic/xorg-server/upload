@@ -1,0 +1,18 @@
+#!/bin/sh
+
+. Pkgfile
+. /etc/pkgmk.conf
+
+[ -z "$PKGMK_WORK_DIR" ] && PKGMK_WORK_DIR="$PWD/work"
+[ -z "$PKGMK_SOURCE_DIR" ] && PKGMK_SOURCE_DIR="$PWD"
+[ -z "${sname}" ] && sname="${name}"
+
+############# upload ##############
+scp "$PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta" dcaf:distfiles/
+
+scp "$PKGMK_SOURCE_DIR/$sname-$OLD_VERSION.tar-$sname-$version.tar.xdelta" scguy318:html/romster/linux/
+
+#scp work/imagemagick/ImageMagick-6.4.2-6.tar-ImageMagick-6.4.2-7.tar.xdelta scguy318:html/romster/linux/
+###################################
+
+# End of file

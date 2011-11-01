@@ -1,0 +1,18 @@
+# Description: Test exception based code.
+# URL: http://search.cpan.org/~adie/Test-Exception-0.27/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club dash internet dot fr
+# Depends on: p5-test-builder-tester p5-sub-uplevel
+
+name=p5-test-exception
+version=0.27
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/A/AD/ADIE/Test-Exception-$version.tar.gz)
+
+build() {
+	cd Test-Exception-$version
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+	find $PKG -name perllocal.pod -delete
+}

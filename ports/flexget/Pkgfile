@@ -1,0 +1,17 @@
+# Description: FlexGet is a program aimed to automate downloading or processing content (torrents, podcasts, etc.) from different sources like RSS-feeds, html-pages, various sites and more.
+# URL: http://flexget.com/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: feedparser sqlalchemy pyyaml beautifulsoup html5lib pyrss2gen pynzb progressbar jinja2 flask cherrypy
+
+name=flexget
+version=1.0r2383
+release=1
+source=(http://download.flexget.com/unstable/FlexGet-$version.tar.gz)
+
+build() {
+	cd FlexGet-$version
+	python setup.py build
+	python setup.py install --root=$PKG install
+	#find $PKG -name '*.egg-info' | xargs rm -rf
+}

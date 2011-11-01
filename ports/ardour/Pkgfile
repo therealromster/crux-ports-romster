@@ -1,0 +1,17 @@
+# Description: A multichannel digital audio workstation.
+# URL: http://ardour.org/
+.*$Vincenzo Colosimo, vico at bicisport dot de
+# Depends on: libgnomecanvas boost gtk jack-audio-connection-kit libart_lgpl liblrdf scons aubio
+
+name=ardour
+version=2.8
+release=1
+source="http://ardour.org/files/releases/$name-$version.tar.bz2"
+
+build() {
+	unset CFLAGS
+	cd $name-$version
+	sed -i -e 's|/etc|/usr/etc|' SConstruct
+	scons PREFIX=/usr DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/locale
+}

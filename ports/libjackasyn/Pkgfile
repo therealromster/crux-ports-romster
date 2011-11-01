@@ -1,0 +1,29 @@
+# Description: An application/library for connecting OSS apps to Jackit.
+# URL: http://gige.xdv.org/soft/libjackasyn
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: jack libsamplerate
+
+name=libjackasyn
+version=0.13
+release=1
+source=(ftp://ftp.freebsd.org/pub/FreeBSD/ports/distfiles/$name-$version.tar.gz
+	libjackasyn-0.13-qa.patch
+	libjackasyn-0.13-pic.patch
+	libjackasyn-0.13-libdir.patch
+	libjackasyn-0.13-execprefix.patch
+	libjackasyn-0.13-tests.patch)
+#http://gige.xdv.org/soft/libjackasyn/download/$name-$version.tar.gz
+build() {
+	cd $name-$version
+
+	patch -p 1 -i $SRC/libjackasyn-0.13-qa.patch
+	patch -p 1 -i $SRC/libjackasyn-0.13-pic.patch
+	patch -p 1 -i $SRC/libjackasyn-0.13-libdir.patch
+	patch -p 0 -i $SRC/libjackasyn-0.13-execprefix.patch
+	patch -p 1 -i $SRC/libjackasyn-0.13-tests.patch
+
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

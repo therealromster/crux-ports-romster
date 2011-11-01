@@ -1,0 +1,30 @@
+# Description: A pre-document language converter to formats (html, man, LaTeX, etc.).
+# URL: http://yodl.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on:
+
+name=yodl
+suffix=.orig
+version=2.14.0
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/${name}_$version$suffix.tar.gz)
+
+unset _filter
+up2date_url='http://sourceforge.net/project/showfiles.php?group_id=126615&package_id=138566'
+up2date="curl --silent $up2date_timeout \
+	'$up2date_url' | \
+	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\)[?].*\".*/\1/p' | \
+	sed -e 's|^.*://.*/||g' | \
+	grep '^${name}[-|_][0-9][.0-9]*' | \
+	${_filter}
+	sed -ne 's|^${name}[-|_]\{1\}\(.*\)${suffix}\.t.*$|\1|p' | \
+	uniq | head -n 1"
+
+build() {
+	cd $name-$version
+	#CFLAGS="-march=i686 -O2"
+	MAN_DIR=/usr/man
+	perl contrib/build.pl make-software make-man
+	perl contrib/build.pl yodl_bin=$PKG man_dir=$PKG doc_dir=$PKG install-software install-man
+}

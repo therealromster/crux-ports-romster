@@ -1,0 +1,18 @@
+REQUIREMENTS
+
+PRE-INSTALL
+
+POST-INSTALL
+
+To use vnstat, you need to add the following line to root's crontab:
+
+0-55/5 * * * *  /usr/bin/vnstat -u
+
+After that you need to introduce to vnstat every network interface you
+want to monitor:
+
+vnstat -u -i eth0
+vnstat -u -i eth1
+etc.
+
+PRECAUTION

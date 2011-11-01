@@ -1,0 +1,15 @@
+# Description: Lemmings Clone 
+# URL: http://pingus.seul.org/ 
+# Maintainer:  Hannes Mayer, kontakt at ecarux dot de 
+# Depends on: libxml2 libsdl sdl_mixer sdl_image libpng boost scons physfs 
+
+name=pingus 
+version=0.7.0
+release=1 
+source=(http://pingus.seul.org/files/$name-$version.tar.bz2) 
+
+build() { 
+	 cd $name-$version
+	 scons  
+ 	 ./install.sh $PKG/usr 
+}

@@ -1,0 +1,371 @@
+diff --git a/configure b/configure
+index 9a88bd5..ba437b1 100755
+--- a/configure
++++ b/configure
+@@ -20545,6 +20545,28 @@ fi
+ esac
+
+ 
++
++cat >>confdefs.h <<_ACEOF
++#define DLLFLAGS_STRING "$DLLFLAGS"
++_ACEOF
++
++
++cat >>confdefs.h <<_ACEOF
++#define EXTRACFLAGS_STRING "$EXTRACFLAGS"
++_ACEOF
++
++
++cat >>confdefs.h <<_ACEOF
++#define CPPFLAGS_STRING "$CPPFLAGS"
++_ACEOF
++
++
++cat >>confdefs.h <<_ACEOF
++#define CFLAGS_STRING "$CFLAGS"
++_ACEOF
++
++
++
+ DEPENDENCIES="### Dependencies:
+
+ .INIT: Makefile
+diff --git a/configure.ac b/configure.ac
+index e30ba97..3711807 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1523,6 +1523,13 @@ case $host_vendor in
+   *sun*) WINE_CHECK_DEFINE([__sun__]) ;;
+ esac
+
++dnl **** Define *FLAGS for debugging purposes. ****
++
++AC_DEFINE_UNQUOTED(DLLFLAGS_STRING, "$DLLFLAGS", [Define the DLLFLAGS string.])
++AC_DEFINE_UNQUOTED(EXTRACFLAGS_STRING, "$EXTRACFLAGS", [Define the EXTRACFLAGS string.])
++AC_DEFINE_UNQUOTED(CPPFLAGS_STRING, "$CPPFLAGS", [Define the CPPFLAGS string.])
++AC_DEFINE_UNQUOTED(CFLAGS_STRING, "$CFLAGS", [Define the CFLAGS string.])
++
+ dnl **** Generate output files ****
+
+ dnl autoconf versions before 2.59d need backslashes to escape newlines in subst variables
+diff --git a/include/config.h.in b/include/config.h.in
+index 75e5d64..8fed475 100644
+--- a/include/config.h.in
++++ b/include/config.h.in
+@@ -5,6 +5,18 @@
+ /* Specifies the compiler flag that forces a short wchar_t */
+ #undef CC_FLAG_SHORT_WCHAR
+
++/* Define the CFLAGS string. */
++#undef CFLAGS_STRING
++
++/* Define the CPPFLAGS string. */
++#undef CPPFLAGS_STRING
++
++/* Define the DLLFLAGS string. */
++#undef DLLFLAGS_STRING
++
++/* Define the EXTRACFLAGS string. */
++#undef EXTRACFLAGS_STRING
++
+ /* Define if you have ALSA 1.x including devel headers */
+ #undef HAVE_ALSA
+
+diff --git a/loader/main.c b/loader/main.c
+index 5e0f330..727ce35 100644
+--- a/loader/main.c
++++ b/loader/main.c
+@@ -2,6 +2,7 @@
+  * Emulator initialisation code
+  *
+  * Copyright 2000 Alexandre Julliard
++ * Copyright 2007 Andrew Riedi
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+@@ -27,6 +28,18 @@
+ #include <sys/mman.h>
+ #endif
+
++/* Determine if we have OSS. */
++#if HAVE_SYS_SOUNDCARD_H
++# include <sys/soundcard.h>
++#elif HAVE_MACHINE_SOUNDCARD_H
++# include <machine/soundcard.h>
++#elif HAVE_SOUNDCARD_H
++# include <soundcard.h>
++#endif
++#ifdef SNDCTL_DSP_STEREO
++# define HAVE_OSS 1
++#endif
++
+ #include "wine/library.h"
+ #include "main.h"
+
+@@ -72,7 +85,8 @@ static void check_command_line( int argc, char *argv[] )
+     static const char usage[] =
+         "Usage: wine PROGRAM [ARGUMENTS...]   Run the specified program\n"
+         "       wine --help                   Display this help and exit\n"
+-        "       wine --version                Output version information and exit";
++        "       wine --version                Output version information and exit\n"
++        "       wine --compile-info           Output compile-time information and exit";
+
+     if (argc <= 1)
+     {
+@@ -89,6 +103,240 @@ static void check_command_line( int argc, char *argv[] )
+         printf( "%s\n", wine_version );
+         exit(0);
+     }
++    if (!strcmp( argv[1], "--compile-info" ))
++    {
++        printf( "%s\n", wine_version );
++
++        /* Compiler */
++        printf( "\nCompiler:\n" );
++#ifdef __GNUC__
++/* GCC 3.0 and above all have __GNUC_PATCHLEVEL__ defined.  If this is not
++ * defined, assume we are working with the latest (released in 2001) GCC 2.95,
++ * which is GCC 2.95.3. */
++# ifndef __GNUC_PATCHLEVEL__
++# define __GNUC_PATCHLEVEL__ 3
++# endif
++        printf( "\tGCC Version: %d.%d.%d\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__ );
++/* Some distros patch their GCC to use -fstack-protector as default.  This flag
++ * has an impact on copy protection, and so it is important.  To get accurate
++ * information about this flag, we must check for it by itself.  We also check
++ * for -fstack-protector-all. */
++# if __SSP__
++        printf( "\tUse -fstack-protector: yes\n" );
++# else
++        printf( "\tUse -fstack-protector: no\n" );
++# endif
++# if __SSP_ALL__
++        printf( "\tUse -fstack-protector-all: yes\n" );
++# else
++        printf( "\tUse -fstack-protector-all: no\n" );
++# endif
++#endif
++#ifdef CFLAGS_STRING
++        printf( "\tCFLAGS: %s\n", CFLAGS_STRING );
++#endif
++#ifdef CPPFLAGS_STRING
++        printf( "\tCPPFLAGS: %s\n", CPPFLAGS_STRING );
++#endif
++#ifdef DLLFLAGS_STRING
++        printf( "\tDLLFLAGS: %s\n", DLLFLAGS_STRING );
++#endif
++#ifdef EXTRACFLAGS_STRING
++        printf( "\tEXTRACFLAGS: %s\n", EXTRACFLAGS_STRING );
++#endif
++
++        /* Audio */
++        printf( "\nAudio:\n" );
++#if HAVE_ALSA
++        printf( "\tALSA Support [Linux Only]: yes\n" );
++#else
++        printf( "\tALSA Support [Linux Only]: no\n" );
++#endif
++#if HAVE_COREAUDIO_COREAUDIO_H
++        printf( "\tCoreAudio Support [Mac OS X Only]: yes\n" );
++#else
++        printf( "\tCoreAudio Support [Mac OS X Only]: no\n" );
++#endif
++#if HAVE_ESD
++        printf( "\tEsounD Support: yes\n" );
++#else
++        printf( "\tEsounD Support: no\n" );
++#endif
++#if HAVE_JACK_JACK_H
++        printf( "\tJACK Support [Linux / Mac OS X Only]: yes\n" );
++#else
++        printf( "\tJACK Support [Linux / Mac OS X Only]: no\n" );
++#endif
++#if HAVE_AUDIO_AUDIOLIB_H || HAVE_AUDIO_SOUNDLIB_H
++        printf( "\tNAS Support: yes\n" );
++#else
++        printf( "\tNAS Support: no\n" );
++#endif
++#if HAVE_OSS
++        printf( "\tOSS Support: yes\n" );
++#else
++        printf( "\tOSS Support: no\n" );
++#endif
++
++        /* Graphics */
++        printf( "\nGraphics:\n" );
++#if HAVE_CURSES_H
++# if HAVE_NCURSES_H
++        printf( "\tCurses Support: ncurses\n" );
++# else
++        printf( "\tCurses Support: basic\n" );
++# endif
++#else
++        printf( "\tCurses Support: no\n" );
++#endif
++#if HAVE_GL_GL_H && HAVE_GL_GLX_H
++        printf( "\tDirect3D Support: yes\n" );
++#else
++        printf( "\tDirect3D Support: no\n" );
++#endif
++#if HAVE_FREETYPE
++        printf( "\tFreeType Support: yes\n" );
++#else
++        printf( "\tFreeType Support: no\n" );
++#endif
++#if HAVE_GL_GL_H
++        printf( "\tOpenGL Support: basic" );
++# if HAVE_GL_GLEXT_H
++        printf( ", glext" );
++# endif
++# if HAVE_GL_GLU_H
++        printf( ", glu" );
++# endif
++# if HAVE_GL_GLX_H
++        printf( ", glx" );
++# endif
++        printf( "\n" );
++#else
++        printf( "\tOpenGL Support: no\n" );
++#endif
++#if HAVE_X11_XLIB_H
++        printf( "\tX11 Support: Xlib" );
++# if HAVE_X11_XCURSOR_XCURSOR_H
++        printf( ", Xcursor" );
++# endif
++# if HAVE_X11_EXTENSIONS_XCOMPOSITE_H
++        printf( ", Xcomposite" );
++# endif
++# if HAVE_X11_EXTENSIONS_XF86VMODE_H
++        printf( ", xf86vmode" );
++# endif
++# if HAVE_X11_EXTENSIONS_XINERAMA_H
++        printf( ", Xinerama" );
++# endif
++# if HAVE_X11_EXTENSIONS_XINPUT_H
++        printf( ", Xinput" );
++# endif
++# if HAVE_X11_XKBLIB_H
++        printf( ", XKBlib" );
++# endif
++# if HAVE_X11_EXTENSIONS_XRANDR_H
++        printf( ", Xrandr" );
++# endif
++# if HAVE_X11_EXTENSIONS_XRENDER_H
++        printf( ", Xrender" );
++# endif
++# if HAVE_X11_EXTENSIONS_SHAPE_H
++        printf( ", Xshape" );
++# endif
++# if HAVE_X11_EXTENSIONS_XSHM_H
++        printf( ", Xshm" );
++# endif
++# if HAVE_X11_XUTIL_H
++        printf( ", Xutil" );
++# endif
++        printf( "\n" );
++#else
++        printf( "\tX11 Support: no" );
++#endif
++
++        /* Network */
++        printf( "\nNetwork:\n" );
++#if HAVE_CAPI20_H
++        printf( "\tCapi20 (ISDN) Support: yes\n" );
++#else
++        printf( "\tCapi20 (ISDN) Support: no\n" );
++#endif
++#if HAVE_NETIPX_IPX_H
++        printf( "\tIPX Support: yes\n" );
++#else
++        printf( "\tIPX Support: no\n" );
++#endif
++#if HAVE_LDAP
++        printf( "\tLDAP Support: yes\n" );
++#else
++        printf( "\tLDAP Support: no\n" );
++#endif
++
++        /* Other */
++        printf( "\nOther:\n" );
++#if HAVE_CARBON_CARBON_H
++        printf( "\tCarbon Support [Mac OS X Only]: yes\n" );
++#else
++        printf( "\tCarbon Support [Mac OS X Only]: no\n" );
++#endif
++#if HAVE_CUPS_CUPS_H
++        printf( "\tCUPS Support: yes\n" );
++#else
++        printf( "\tCUPS Support: no\n" );
++#endif
++#if HAVE_DBUS_DBUS_H
++        printf( "\tDBUS Support: yes\n" );
++#else
++        printf( "\tDBUS Support: no\n" );
++#endif
++#if HAVE_HAL_LIBHAL_H
++        printf( "\tHAL Support [Linux / FreeBSD Only]: yes\n" );
++#else
++        printf( "\tHAL Support [Linux / FreeBSD Only]: no\n" );
++#endif
++#if HAVE_IOKIT_IOKITLIB_H
++        printf( "\tI/O Kit Support [Mac OS X Only]: yes\n" );
++#else
++        printf( "\tI/O Kit Support [Mac OS X Only]: no\n" );
++#endif
++#if HAVE_OPENSSL_SSL_H
++        printf( "\tOpenSSL Support: basic" );
++# if HAVE_OPENSSL_SSL_H
++        printf( ", error" );
++# endif
++        printf( "\n" );
++#else
++        printf( "\tOpenSSL Support: no\n" );
++#endif
++#if HAVE_PTHREAD_H
++        printf( "\tPOSIX Thread Support: basic" );
++# if HAVE_PTHREAD_RWLOCK_T
++        printf( ", rwlock" );
++# endif
++# if HAVE_PTHREAD_RWLOCKATTR_T
++        printf( ", rwlockattr" );
++# endif
++        printf( "\n" );
++#else
++        printf( "\tPOSIX Thread Support: no\n" );
++#endif
++#if HAVE_VALGRIND_MEMCHECK_H
++        printf( "\tValgrind Support [Linux Only]: memcheck\n" );
++#else
++        printf( "\tValgrind Support [Linux Only]: no\n" );
++#endif
++#if HAVE_LIBXML2
++        printf( "\tXML Support: libxml2" );
++# if HAVE_LIBXSLT
++        printf( ", libxslt" );
++# endif
++        printf( "\n" );
++#else
++        printf( "\tXML Support: no\n" );
++#endif
++
++        exit(0);
++    }
+ }
+
+ 
+diff --git a/loader/wine.man.in b/loader/wine.man.in
+index 1a551f0..4cef3ee 100644
+--- a/loader/wine.man.in
++++ b/loader/wine.man.in
+@@ -8,6 +8,8 @@ wine \- run Windows programs on Unix
+ .B wine --help
+ .br
+ .B wine --version
++.br
++.B wine --compile-info
+ .PP
+ For instructions on passing arguments to Windows programs, please see the
+ .B
+-- 
+1.4.4.2

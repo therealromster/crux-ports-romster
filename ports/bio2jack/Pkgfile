@@ -1,0 +1,24 @@
+# Description: A library to speed the porting of general purpose bio(blocking io, OSS/ALSA) audio applications to the Jack audio server.
+# URL: http://bio2jack.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libsamplerate jack-audio-connection-kit
+
+name=bio2jack
+version=0.9
+release=1
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name
+
+	autoreconf -fi
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+}

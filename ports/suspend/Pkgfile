@@ -1,0 +1,17 @@
+# Description: easy to use suspend userspace tools
+# URL: http://suspend.sourceforge.net/
+.*$Hannes Mayer, kontakt at ecarux sot de
+# Depends on: 
+
+name=suspend 
+version=0.8
+release=1 
+source=(http://dl.sourceforge.net/sourceforge/suspend/suspend-$version.tar.gz) 
+
+build() { 
+	 cd $name-$version
+	  
+	 ./configure --prefix=/usr --sysconfdir=/etc 
+ 	 make 
+ 	 make DESTDIR=$PKG install 
+}

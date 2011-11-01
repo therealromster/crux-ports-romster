@@ -1,0 +1,303 @@
+#!/bin/bash
+#
+#  generate-xdelta
+# 
+#  Copyright (c) 2008 Danny Rawlins
+# 
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, 
+#  USA.
+#
+
+log_verbose() {
+	echo "=======> $1"
+}
+
+log_very_verbose() {
+	echo "=======> $1"
+}
+
+log_info() {
+	echo "=======> $1"
+}
+
+log_warn() {
+	echo "WARNING: $1" >&2
+}
+
+log_error() {
+	echo "ERROR: $1" >&2
+	exit 1
+}
+
+cd() {
+	local DIRECTORY PERMISSION
+	DIRECTORY="${1}"
+	PERMISSION="${2}"
+
+	if [ "$PERMISSION" == 'rw' ]; then
+		if [ -d "$DIRECTORY" ]; then
+			if [ ! -O "$DIRECTORY" ]; then
+				log_error "You do not own the directory '$DIRECTORY'."
+			fi
+
+				#if [ ! -G "$DIRECTORY" ]; then
+				#	log_error "You are not in the group '$DIRECTORY'."
+				#fi
+		fi
+
+		if [ ! -d "$DIRECTORY" ]; then
+
+
+			
+
+			log_very_verbose "Creating directory '$DIRECTORY'."
+			mkdir "$DIRECTORY"
+			if [ $? -gt 0 ]; then
+				log_error "Failed to create directory '$DIRECTORY'."
+			fi
+		elif [ ! -w "$DIRECTORY" ]; then
+			log_error "Directory '$DIRECTORY' not writable."
+		elif [ ! -x "$DIRECTORY" ] || [ ! -r "$DIRECTORY" ]; then
+			log_error "Directory '$DIRECTORY' not readable."
+		fi
+	elif [ "$PERMISSION" == 'ro' ]; then
+		if [ ! -d "$DIRECTORY" ]; then
+			log_error "Directory '$DIRECTORY' does not exist."
+		elif [ ! -w "$DIRECTORY" ]; then
+			log_error "Directory '$DIRECTORY' not writable."
+		elif [ ! -x "$DIRECTORY" ] || [ ! -r "$DIRECTORY" ]; then
+			log_error "Directory '$DIRECTORY' not readable."
+		fi
+	else
+		log_error "Missing or unknown PERMISSION argument."
+	fi
+
+	builtin cd "$DIRECTORY"
+
+	if [ $? -gt 0 ]; then
+		log_error "Failed to change directory to '$DIRECTORY'."
+	fi
+}
+
+check_file_exists() {
+	local FILE="${1}"
+
+	if [ $# -gt 1 ]; then
+		log_error 'check_file_exists() to many arguments.'
+	fi
+
+	if [ -e "${FILE}" ]; then
+		RETURN=1
+	else
+		RETURN=0
+	fi
+}
+
+check_file_missing() {
+	local FILE="${1}"
+
+	if [ $# -gt 1 ]; then
+		log_error 'check_file_missing() to many arguments.'
+	fi
+
+	if [ ! -e "${FILE}" ]; then
+		RETURN=1
+	else
+		RETURN=0
+	fi
+
+	#if [ ! -f "${FILE}" ]; then
+	#	log_error "'${FILE}' is not a regular file."
+	#fi
+}
+
+init() {
+	if [ -f "${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta" ]; then
+		log_warn 'You have the latest xdelta file.'
+		exit 1
+	fi
+
+	check_file_missing "${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}${EXT}"
+	if [ $RETURN == 1 ]; then
+		log_error "Missing old file version '${sname}-${OLD_VERSION}${EXT}'."
+	fi
+
+	check_file_exists "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}.orig"
+	if [ $RETURN == 1 ]; then
+		check_file_exists "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}"
+		if [ $RETURN == 1 ]; then
+			log_error 'Origional and patched source files exist.'
+		else
+			log_warn "'${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}.orig' exists."
+		fi
+	fi
+	
+	# backup origional source file
+	check_file_missing "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}.orig"
+	if [ $RETURN == 1 ]; then
+		check_file_exists "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}"
+		if [ $RETURN == 1 ]; then
+			log_verbose 'Backing up new origional source file.'
+			mv "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}" \
+				"${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}.orig"
+		fi
+	fi
+}
+
+make_xdelta() {
+	cd "${PKGMK_WORK_DIR}" rw
+
+	check_file_exists "${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}${EXT}"
+	if [ $RETURN == 1 ]; then
+		log_warn "'${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}${EXT}' exists."
+	else	
+		cp "${PKGMK_SOURCE_DIR}/${sname}-${OLD_VERSION}${EXT}" .
+	fi
+
+	check_file_exists "${PKGMK_WORK_DIR}/${sname}-${version}${EXT}"
+	if [ $RETURN == 1 ]; then
+		log_warn	"'${PKGMK_WORK_DIR}/${sname}-${version}${EXT}' exists."
+	else
+		cp "${PKGMK_SOURCE_DIR}/${sname}-${version}${EXT}.orig" \
+		"${PKGMK_WORK_DIR}/${sname}-${version}${EXT}"
+	fi
+
+	check_file_exists "${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}.tar"
+	if [ $RETURN == 1 ]; then
+		log_warn	"'${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}.tar' exists."
+	else
+		case "${EXT}" in
+			.tar.gz) gzip -d "${sname}-${OLD_VERSION}${EXT}" ;;
+			.tar.bz2) bzip2 -d "${sname}-${OLD_VERSION}${EXT}" ;;
+			.tar.lzma) lzma -d "${sname}-${OLD_VERSION}${EXT}" ;;
+			*)
+				log_error "Unknown type '${EXT}'."
+			;;
+		esac
+	fi
+
+	check_file_exists "${PKGMK_WORK_DIR}/${sname}-${version}.tar"
+	if [ $RETURN == 1 ]; then
+		log_warn "'${PKGMK_WORK_DIR}/${sname}-${version}.tar' exists."
+	else
+		case "${EXT}" in
+			.tar.gz) gzip -d "${sname}-${version}${EXT}" ;;
+			.tar.bz2) bzip2 -d "${sname}-${version}${EXT}" ;;
+			.tar.lzma) lzma -d "${sname}-${version}${EXT}" ;;
+			*)
+				log_error "Unknown type '${EXT}'."
+			;;
+		esac
+	fi
+
+	check_file_exists "${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta"
+	if [ $RETURN == 1 ]; then
+		log_warn	"'${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta' exists."
+	else
+		xdelta delta "${sname}-${OLD_VERSION}.tar" "${sname}-${version}.tar" \
+			"${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta"
+		mv "${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}.tar-${sname}-${version}.tar.xdelta" \
+		"${PKGMK_SOURCE_DIR}/"
+	fi	
+}
+
+make_sums() {
+	local i TMP_EXT EXT_SUM TMP_EXT_SUM PATH_FILE TMP_PATH_FILE
+	log_very_verbose "Generating file sums"
+	cd "${PKGMK_WORK_DIR}" rw
+
+	TMP_EXT='.tar'
+
+	PATH_FILE=(
+		"${PKGMK_WORK_DIR}/${sname}-${version}${TMP_EXT}"
+		"${PKGMK_WORK_DIR}/${sname}-${version}${EXT}" 
+		"${PKGMK_WORK_DIR}/${sname}-${version}${EXT}"
+		"${PKGMK_WORK_DIR}/${sname}-${version}${EXT}.orig"
+		"${PKGMK_WORK_DIR}/${sname}-${version}${EXT}.orig")
+
+	EXT_SUM=(
+		'.sha256sum'
+		'.md5sum'
+		'.sha256sum'
+		'.md5sum'
+		'.sha256sum')
+
+	if [ "${#PATH_FILE[@]}" != "${#EXT_SUM[@]}" ]; then
+		log_error "make_sums() PATH_FILE and EXT_SUM are not equal"
+	fi
+
+	i=0
+
+	while $i -lt ${#PATH_FILE[@]}; do
+
+		TMP_PATH_FILE="${PATH_FILE[$i]}"
+		TMP_EXT_SUM="${EXT_SUM[$i]}"
+
+		check_file_missing "${TMP_PATH_FILE}"
+
+		if [ $RETURN == 1 ]; then
+			log_warn "'${TMP_PATH_FILE}' is missing, wont create sums."
+		else
+			check_file_exists "${TMP_PATH_FILE}${TMP_EXT_SUM}"
+
+			if [ $RETURN == 1 ]; then
+				log_info "'${TMP_PATH_FILE}${TMP_EXT_SUM}' exists."
+			else
+				log_verbose "Generating '${PATH_FILE}${TMP_EXT_SUM}'."
+				md5sum "${TMP_PATH_FILE}" > "${TMP_PATH_FILE}${TMP_EXT_SUM}"
+			fi
+		fi
+		((i++))
+	done
+}
+
+cleanup() {
+	rm "${PKGMK_WORK_DIR}/${sname}-${OLD_VERSION}.tar"
+	rm "${PKGMK_WORK_DIR}/${sname}-${version}.tar"
+	if [ ! -f "${PKGMK_WORK_DIR}/*" ]; then
+		rmdir "${PKGMK_WORK_DIR}" 2> /dev/null
+	fi
+}
+
+main() {
+	init
+	make_xdelta
+	cleanup
+}
+
+check_file_missing 'Pkgfile'
+if [ $RETURN == 1 ]; then
+	log_error"Missing file './Pkgfile'."
+else
+	source 'Pkgfile'
+fi
+
+check_file_missing '/etc/pkgmk.conf'
+if [ $RETURN == 1 ]; then
+	"Missing file '/etc/pkgmk.conf'."
+else
+	source '/etc/pkgmk.conf'
+fi
+
+[ -z "${PKGMK_WORK_DIR}" ] && PKGMK_WORK_DIR="${PWD}/work"
+[ -z "${PKGMK_SOURCE_DIR}" ] && PKGMK_SOURCE_DIR="${PWD}"
+[ -z "${sname}" ] && sname="${name}"
+[ -z "${EXT}" ] && EXT='.tar.bz2'
+
+RETURN=0
+
+main
+
+# End of file

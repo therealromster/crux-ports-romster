@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# /etc/rc.d/wesnoth: start/stop wesnothd daemon
+#
+
+# User settings here
+DAEMON=rbldnsd
+RUN_AS_USER=rbldnsd
+
+if [ -f /etc/default/$DAEMON ] ; then
+  . /etc/default/$DAEMON
+else
+	echo "ERROR: Missing config file '/etc/$DAEMON'."
+	exit 1
+fi
+
+RETVAL=0
+
+case $1 in
+start)
+	echo -n "Starting $DAEMON..."
+	/usr/bin/$DAEMON -u ${RUN_AS_USER}:root -r /var/lib/rbldns -b 127.0.0.1 -p /var/run/rbldnsd.pid clients.blocked.rbl:ip4set:clients > /dev/null & RETVAL=$?
+	if [ $RETVAL = 0 ]; then
+		echo " done."
+	fi
+	;;
+stop)
+	echo -n "Shutting down $DAEMON..."
+	killall -q /usr/bin/$DAEMON
+	RETVAL=$?
+	echo " done."
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	RETVAL=$?
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	exit 1
+	;;
+esac
+
+exit $RETVAL
+
+# End of file

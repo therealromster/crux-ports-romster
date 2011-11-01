@@ -1,0 +1,14 @@
+# Description: 
+# URL: 
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=wallpaper-jpegwallpapers-nature-14-943889
+sname=Nature-14-943889
+version=1
+release=1
+source="http://www.jpegwallpapers.com/images/wallpapers/$sname.jpeg"
+
+build() {
+	install -D -m 0644 $sname.jpeg $PKG/usr/share/wallpapers/$sname.jpeg
+}

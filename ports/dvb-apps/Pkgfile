@@ -1,0 +1,30 @@
+# Description: dvb-apps - small utils for DVB to scan, zap, view signal strength
+# URL: http://www.linuxtv.org/
+# Maintainer:
+# Packager: 
+# Depends on: mercurial
+
+name=dvb-apps
+version=mercurial
+release=1
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	if cd dvb-apps 2>/dev/null ; then
+	    hg pull -u
+	    hg update
+	else
+	    hg clone http://linuxtv.org/hg/dvb-apps
+	fi
+
+	ln -s $PKGMK_SOURCE_DIR/dvb-apps $SRC
+
+	cd $SRC/$name
+
+#	find -type f \
+#	     -exec grep -q "<linux/dvb/video.h>" {} \; \
+#	     -exec sed -i 's:<linux/dvb/video.h>:"../include/video.h":' {} \;
+	make
+	make prefix=$PKG/usr install
+	find -type f -name evtest -exec cp {} $PKG/usr/bin \;
+}

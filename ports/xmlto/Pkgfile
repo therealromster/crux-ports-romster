@@ -1,0 +1,19 @@
+# Description: A frontend to an XSL toolchain.
+# URL: http://cyberelk.net/tim/software/xmlto/
+.*$Matt Housh, jaeger at morpheus dot net
+# Depends on: bash libxslt docbook-xml-dtd docbook-xml-entities docbook-xsl
+
+name=xmlto
+version=0.0.20
+release=1
+url="http://cyberelk.net/tim/data/$name/stable"
+up2date="lynx -dump '$url/?C=M;O=A' |grep '.tar.bz2$' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
+source=($url/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
+

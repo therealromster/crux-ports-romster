@@ -1,0 +1,32 @@
+# Description: Cinelerra does primarily 3 main things: capturing, compositing , and editing audio and video.
+# URL: http://cvs.cinelerra.org/
+.*$
+# Packager: Rouven Schuerch, rs at tegonal dot com
+# Depends on: xorg liba52 libdv faac ffmpeg fftw lame libavc1394 faad2 libraw1394 mjpegtools openexr libtheora x264 libiec61883
+
+name=cinelerra
+version=1017
+release=2
+source=()
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	if cd hvirtual ; then
+		svn update -r $version
+	else
+		svn checkout -r ${version} svn://svn.skolelinux.org/cinelerra/trunk/hvirtual
+	fi
+	
+	cp -r $PKGMK_SOURCE_DIR/hvirtual $SRC
+
+	cd $SRC/hvirtual
+
+	sh autogen.sh
+	./configure \
+		--prefix=/usr \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}
+

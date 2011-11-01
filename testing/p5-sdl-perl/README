@@ -1,0 +1,10 @@
+TODO:
+		Add the folowing line to Build.PL to create a Makefile.PL:
+		my $build   = SDL::Build->new(
+		                  create_makefile_pl => 'traditional', 
+				...
+
+		$build->create_makefile_pl('traditional', Module::Build->new_from_context);
+		
+		See http://perlmonks.org/?node_id=458282
+

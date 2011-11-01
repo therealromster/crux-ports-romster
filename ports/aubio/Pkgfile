@@ -1,0 +1,23 @@
+# Description: Library for audio labelling.
+# URL: http://aubio.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libsndfile libsamplerate fftw
+# Optional: alsa jack-audio-connection-kit
+
+name=aubio
+version=0.3.2
+release=1
+source="http://aubio.org/pub/$name-$version.tar.gz"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+}

@@ -1,0 +1,17 @@
+# Description: X11 print extension (Deprecated)
+# URL: 	       http://xorg.freedesktop.org
+# Packager:    Nathan Pardoe, npardoe at ticklestix dot co dot uk
+.*$ Nathan Pardoe, npardoe at ticklestix dot co dot uk
+# Depends on:  xorg
+
+name=printproto
+version=1.0.4
+release=1
+source=(http://xorg.freedesktop.org/releases/individual/proto/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

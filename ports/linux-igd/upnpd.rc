@@ -1,0 +1,50 @@
+#!/bin/sh
+
+#
+# /etc/rc.d/upnpd: start/stop upnpd daemon
+#
+
+# User settings here
+DAEMON=upnpd
+RUN_AS_USER=root
+INTERNAL_INTERFACE="eth1" # Internal (local network) interface
+EXTERNAL_INTERFACE="ppp0" # External (outward facing) interface
+#ALLOW_MULTICAST="yes" # If set to "no" the multicast route will not be created
+
+RETVAL=0
+
+case $1 in
+start)
+	echo -n "Starting $DAEMON..."
+	
+	if [ "$ALLOW_MULTICAST" = "yes" ] ; then
+		ip route add multicast -net 239.0.0.0 netmask 255.0.0.0 $INTERNAL_INTERFACE
+	fi
+
+		/usr/sbin/$DAEMON -- $EXTERNAL_INTERFACE $INTERNAL_INTERFACE
+	if [ $RETVAL = 0 ]; then
+		echo " done."
+	fi
+	;;
+stop)
+	echo -n "Shutting down $DAEMON..."
+	killall -q /usr/sbin/$DAEMON
+	RETVAL=$?
+	echo " done."
+	;;
+restart)
+	$0 stop
+	sleep 5
+	$0 start
+	RETVAL=$?
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	exit 1
+	;;
+esac
+
+exit $RETVAL
+
+# End of file
+

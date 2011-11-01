@@ -1,0 +1,67 @@
+# Description: WINE - Implementation of Windows DLL's and core.
+# URL: http://www.winehq.com/
+# Maintainer: Danny Rawlins, romster at shortcircuit dot net dot au
+# Packager: Daniel Walpole, daniel at walpole dot id dot au
+# Depends on: fontconfig hal-info lcms mesa3d xorg-libxcomposite xorg-libxcursor xorg-libxi xorg-libxrandr xorg-libxinerama
+
+# Optional: xorg-font-msttcorefonts openldap cups sane libgphoto2
+
+name=wine
+version=1.1.2
+release=1
+source=(http://ibiblio.org/pub/linux/system/emulators/wine/wine-$version.tar.bz2)
+
+build() {
+	cd wine-$version
+	CFLAGS="$(echo $CFLAGS | sed -e 's/-O[s0-3] //g')"
+	SAVE_CFLAGS="-O3 $CFLAGS"
+	SAVE_LDFLAGS="$LDFLAGS"
+
+	# ccache wont work with profiled builds
+	export CCACHE_DISABLE=1
+
+	# profile build
+	export CFLAGS="$SAVE_CFLAGS -fprofile-generate" LDFLAGS="$SAVE_LDFLAGS -fprofile-generate -lgcov"
+
+	./configure \
+		--verbose \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man \
+		--disable-nls \
+		--disable-oss
+
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" loader/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" libs/wine/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" dlls/adsiid/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" libs/port/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" dlls/actxprxy/Makefile
+#	find tools -name Makefile -exec sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" {} \;
+	
+	make depend
+	make
+	make check
+	make clean
+
+	# final build
+	export CFLAGS="$SAVE_CFLAGS -fprofile-use" LDFLAGS="$SAVE_LDFLAGS -fprofile-use"
+
+	./configure \
+		--verbose \
+		--prefix=/usr \
+		--mandir=$PKG/usr/man \
+		--disable-nls \
+		--disable-oss
+
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" loader/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" libs/wine/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" dlls/adsiid/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" libs/port/Makefile
+#	sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" dlls/actxprxy/Makefile
+#	find tools -name Makefile -exec sed -i -e "s/^CFLAGS    = .*/$SAVE_CFLAGS/" {} \;
+
+	make depend
+	make
+	make prefix=$PKG/usr install
+	rm -r $PKG/usr/man/??.UTF-8
+}
+

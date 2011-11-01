@@ -1,0 +1,19 @@
+# Description: Network traffic monitor
+# URL: http://humdi.net/vnstat/
+# Maintainer:
+# Packager: Jukka Heino, jukka dot heino at gmail dot com
+# Depends on:
+
+name=vnstat
+version=1.4
+release=1
+source=(http://humdi.net/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    sed -i 's:^CFLAGS = -O2:CFLAGS +=:' src/Makefile
+    make
+    install -d $PKG/var/lib/vnstat
+    install -D -m 755 src/vnstat $PKG/usr/bin/vnstat
+    install -D -m 644 man/vnstat.1 $PKG/usr/man/man1/vnstat.1
+}

@@ -1,0 +1,24 @@
+msort 8.52
+  lib gmp not linked
+  lib icu      4.0.1
+  lib tre      0.7.5
+  lib uninum not linked
+  glibc        2.8
+Compiled Feb 17 2009 00:51:04 on i686
+under Linux 2.6.28.3 #4 SMP PREEMPT Tue Feb 3 22:46:23 EST 2009
+Copyright 1993-2008 William J. Poser (billposer@alum.mit.edu)
+This program is free software; you can redistribute
+it and/or modify it under the terms of version 3 of
+the GNU General Public License as published by the
+Free Software Foundation.
+Invoked by command line:
+  msort --quiet --record-separator   --whole --comparison-type h --in foo
+Sorting on whole record.
+Increasing hybrid
+Started:			   2009-02-17T01:16:59+1100
+Completed:			   2009-02-17T01:16:59+1100
+Dynamically allocated memory:         135,168 bytes
+Random number generator seed:      1234793819
+Comparisons:                              988
+Records written:                          170
+----------------------------------------------------------------------

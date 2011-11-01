@@ -1,0 +1,18 @@
+# Description: A RAM based block device which acts as swap disk. Pages swapped to this disk are compressed and stored in memory itself.
+# URL: http://compcache.googlecode.com/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: lzo
+
+name=compcache
+version=0.5.3
+release=1
+source="http://$name.googlecode.com/files/$name-$version.tar.gz"
+
+build() {
+	cd $name-$version
+	make
+	install -d $PKG/lib/modules/$(uname -r)/kernel/drivers/block $PKG/usr/share/$name/
+	install -t $PKG/lib/modules/$(uname -r)/kernel/drivers/block/ ramzswap.ko xvmalloc.ko
+	install -t $PKG/usr/share/$name/ unuse_ramzswap.sh use_ramzswap.sh
+}

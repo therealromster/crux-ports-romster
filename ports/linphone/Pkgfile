@@ -1,0 +1,45 @@
+# Description:	Linphone is an internet phone or Voice Over IP phone (VoIP).
+# URL: http://www.linphone.org/index.php/eng
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Ivan Rodionov, jean at mosk ru
+# Depends on: libexosip2 libtheora speex p5-xml-parser ffmpeg libsdl readline alsa-lib gtk
+
+name=linphone
+version=3.0.0
+release=1
+url="http://download.savannah.gnu.org/releases/$name/stable/sources"
+source=($url/$name-$version.tar.gz)
+
+up2date="curl -s '$url/?C=M;O=D' | \
+	grep '.tar.' | sed \
+	-e 's|.*href=\"\([^\"]*\)\".*|\1|' \
+	-e 's|^.*/||' -e 's|?.*$||' | \
+	grep -v \".sig$\" | \
+	sed -e 's|^$name-\([^-]*\)\.tar\.gz$|\1|' | \
+	head -n 1"
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--mandir=/usr/man \
+		--enable-gnome_ui=no \
+		--disable-dependency-tracking \
+		--disable-static \
+		--disable-nls \
+		--disable-manual \
+		--enable-video \
+		--enable-alsa \
+		--disable-strict \
+#		--enable-external-ortp
+#		--enable-rsvp
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r \
+		$PKG/usr/share/doc \
+		$PKG/usr/man/cs/man1
+}

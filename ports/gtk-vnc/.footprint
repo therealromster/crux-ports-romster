@@ -1,0 +1,18 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gtk-vnc-1.0/
+-rw-r--r--	root/root	usr/include/gtk-vnc-1.0/vncdisplay.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libgtk-vnc-1.0.a
+-rwxr-xr-x	root/root	usr/lib/libgtk-vnc-1.0.la
+lrwxrwxrwx	root/root	usr/lib/libgtk-vnc-1.0.so -> libgtk-vnc-1.0.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libgtk-vnc-1.0.so.0 -> libgtk-vnc-1.0.so.0.0.1
+-rwxr-xr-x	root/root	usr/lib/libgtk-vnc-1.0.so.0.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/gtk-vnc-1.0.pc
+drwxr-xr-x	root/root	usr/lib/python2.6/
+drwxr-xr-x	root/root	usr/lib/python2.6/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.6/site-packages/gtkvnc.a
+-rwxr-xr-x	root/root	usr/lib/python2.6/site-packages/gtkvnc.la
+-rwxr-xr-x	root/root	usr/lib/python2.6/site-packages/gtkvnc.so

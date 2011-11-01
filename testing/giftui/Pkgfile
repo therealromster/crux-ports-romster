@@ -1,0 +1,26 @@
+# Description: A tabbed based GTK+ frontend for the giftd deamon.
+# URL: http://giftui.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk gift
+
+name=giftui
+version=0.4.1
+release=1
+source=(http://downloads.sourceforge.net/sourceforge/giftui/giftui-$version.tar.bz2)
+
+build() {
+	cd giftui-$version
+
+	./configure	\
+		--prefix=/usr \
+		--disable-nls \
+		--disable-dependency-tracking \
+		--disable-schemas-install \
+		--without-gconf
+
+
+	make
+	make DESTDIR=$PKG install
+}
+

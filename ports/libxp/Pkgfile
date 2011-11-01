@@ -1,0 +1,18 @@
+# Description: X11 print library (Deprecated)
+# URL: 	       http://xorg.freedesktop.org
+# Packager:    Nathan Pardoe, npardoe at ticklestix dot co dot uk
+.*$ Nathan Pardoe, npardoe at ticklestix dot co dot uk
+# Depends on:  printproto, xorg
+
+name=libxp
+version=1.0.0
+release=1
+source=(http://ftp.sh.cvut.cz/MIRRORS/xorg/X11R7.0/src/lib/libXp-X11R7.0-$version.tar.bz2)
+
+build() {
+	cd libXp-X11R7.0-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	find $PKG -name '*.la' -exec rm {} \;
+}

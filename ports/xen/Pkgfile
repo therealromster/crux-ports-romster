@@ -1,0 +1,40 @@
+# Description: a Virtual Machine Monitor
+# URL: http://www.xen.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: zlib ncurses xorg-libx11 bridge-utils iproute2 libsdl gettext pyopenssl libxml2-python
+
+name=xen
+version=3.2.1
+release=1
+#up2date="lynx -dump http://www.xen.org/download/ "
+source=(http://bits.xensource.com/oss-xen/release/$version/$name-$version.tar.gz
+	$name-tools-3.1.3-network-bridge-broadcast.patch
+	$name-tools-3.1.0-xen-detect-nopie-fix.patch
+	$name-tools-3.2.1-qemu-nodocs.patch)
+
+build() {
+	cd $name-$version
+
+	# Fix network broadcast on bridged networks
+	patch -p 1 -i "$SRC/$name-tools-3.1.3-network-bridge-broadcast.patch"
+
+	# Fix building small dumb utility called 'xen-detect' on hardened
+	patch -p 1 -i "$SRC/$name-tools-3.1.0-xen-detect-nopie-fix.patch"
+
+	# Introduce a configure option to disable qemu documentation building
+	patch -p 1 -i "$SRC/$name-tools-3.2.1-qemu-nodocs.patch"
+
+	export XEN_TARGET_ARCH='x86_32'
+	unset CFLAGS LDFLAGS
+
+	#make DESTDIR=$PKG debug=n pae=y world
+	make DESTDIR=$PKG install-xen
+	make DESTDIR=$PKG install-tools
+	make DESTDIR=$PKG install-docs
+	#make -j 1 DESTDIR=$PKG install
+	#make -C docs man-pages || echo "make man-pages failed" && exit 1
+
+	rm $PKG/usr/include/xen/COPYING
+}
+

@@ -1,0 +1,35 @@
+# Description: A C++ crypto library.
+# URL: http://botan.randombit.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: bzip2 zlib gmp openssl python
+
+name=botan
+sname=Botan
+version=1.8.7
+release=1
+source=(http://files.randombit.net/botan/$sname-$version.tbz)
+
+build() {
+	tar -C $SRC --use-compress-program=bzip2 -xf $sname-$version.tbz
+	cd $sname-$version
+
+	./configure.py \
+		--prefix="$PKG/usr" \
+		--with-tr1=system \
+		--cc=gcc \
+		--os=linux \
+		--with-bzip2 \
+		--with-gnump \
+		--with-openssl \
+		--with-zlib
+
+	make LIB_OPT="$CXXFLAGS"
+	make install
+
+	sed -i -e "s|$PKG||g" \
+		"$PKG/usr/bin/botan-config" \
+		"$PKG/usr/lib/pkgconfig/botan-1.8.pc"
+
+	mv "$PKG/usr/share/doc/$sname-$version" "$PKG/usr/share/doc/$name"
+}

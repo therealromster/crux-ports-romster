@@ -1,0 +1,19 @@
+# Description: A pure object-oriented language which converts to C or Java.
+# URL: http://smarteiffel.loria.fr/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=smarteiffel
+sname=SmartEiffel
+version=2.3
+sversion=2-3
+release=1
+source="https://gforge.inria.fr/frs/download.php/2461/$sname-$sversion.tar.bz2"
+
+build() {
+	cd $sname
+	export SmartEiffel=/usr/ports/work/smarteiffel/pkg/usr/etc/serc
+	./configure
+	make PLAIN=plain all
+	make PLAIN=plain USRDIR=$PKG/usr install
+}

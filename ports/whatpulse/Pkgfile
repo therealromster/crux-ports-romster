@@ -1,0 +1,15 @@
+# Description: Discover and track your keyboard and mouse usage. (binary)
+# URL: http://whatpulse.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: qt4
+
+name=whatpulse
+sname=WhatPulse-Linux
+version=0.9
+release=1
+source=(http://whatpulse.org/downloads/linux/$sname-$version.tar.gz)
+
+build() {
+	install -D -m 0755 WhatPulse $PKG/usr/bin/WhatPulse
+}

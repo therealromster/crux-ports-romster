@@ -1,0 +1,22 @@
+# Description: An open-source implementation of the Java Platform, Standard Edition.
+# URL: http://openjdk.java.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=openjdk
+version=1.7.0_b100
+release=1
+source=(http://www.java.net/download/openjdk/jdk7/promoted/b100/$name-7-ea-src-b100-09_jul_2010.zip)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+}

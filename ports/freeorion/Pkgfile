@@ -1,0 +1,48 @@
+# Description: A free, open source, turn-based space empire and galactic conquest (4X) computer game being designed and built by the FreeOrion project.
+# URL: http://www.freeorion.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: graphviz boost cmake python freetype libalut libvorbis ogre3d 
+
+name=freeorion
+sname=FreeOrion
+version=0.3.15
+release=1
+
+# http://www.freeorion.org/index.php/Compile
+source="
+	http://freeorion.svn.sourceforge.net/viewvc/freeorion/trunk/?view=tar&pathrev=3727
+	http://gigi.svn.sourceforge.net/viewvc/gigi/trunk/?view=tar&pathrev=813
+"
+#source="http://downloads.sourceforge.net/sourceforge/$name/$sname-$version-Linux-i386.tar.gz"
+
+build() {
+	mv '?view=tar&pathrev=3727' $name-$version.tar.gz
+	mv '?view=tar&pathrev=813' gigi-r813.tar.gz
+	tar zxvf $name-$version.tar.gz
+	tar zxvf gigi-r813.tar.gz
+
+	cd trunk
+
+	cd GG
+	cmake .
+	make
+	make DESTDIR=$PKG install
+	cd -
+
+	cd FreeOrion
+	cmake .
+	make
+	make DESTDIR=$PKG install
+
+
+
+#	./configure \
+#		--prefix=/usr \
+#		--mandir=/usr/man \
+#		--disable-dependency-tracking
+
+#	make
+#	make DESTDIR=$PKG install
+#	#rm -r $PKG/usr/share
+}

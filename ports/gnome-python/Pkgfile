@@ -1,0 +1,19 @@
+# Description: Python bindings for GNOME
+# URL: http://www.gnome.org/
+.*$Matt Housh, jaeger at morpheus dot net
+# Depends on: glib gtk python pygtk pyorbit libgnome libgnomeui libgnomecanvas gnome-vfs gconf libbonobo libbonoboui libgnomeprintui pkg-config
+# Group: gnome/bindings
+
+name=gnome-python
+version=2.22.3
+release=1
+gnomever=2.24.3
+source=(http://download.gnome.org/bindings/${gnomever%.*}/$gnomever/sources/python/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/gtk-doc
+}

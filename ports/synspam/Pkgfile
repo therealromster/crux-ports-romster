@@ -1,0 +1,20 @@
+# Description: .
+# URL: http://www.synspam.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: p5-unix-syslog 
+
+name=synspam
+version=0.2.6
+sversion=0.2.6-1
+release=1
+source="http://www.synspam.org/packages/$name/${name}_$sversion.tar.gz"
+
+build() {
+	cd $name-$version
+	install -d $PKG/usr/sbin
+	install -m 0754 synspam.pl $PKG/usr/bin/synspam
+	install -m 0754 sa-stats-ng.pl $PKG/usr/bin/sa-stats-ng
+	install -m 0754 synspam-report.sh $PKG/usr/bin/synspam-report
+	install -m 0644 -D synspam.conf $PKG/usr/etc/synspam.conf
+}

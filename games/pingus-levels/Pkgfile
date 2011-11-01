@@ -1,0 +1,17 @@
+# Description: Over 150 extra Levels for Pingus 
+# URL: http://www.xskat.de/pingus/pingus.html
+# Maintainer:  Hannes Mayer, kontakt at ecarux dot de 
+# Depends on: pingus
+
+name=pingus-levels 
+version=0.1
+release=1 
+source=(http://www.xskat.de/pingus/pingus-0.6.0-level-{ok,new-54}.tar.bz2 pingus-levels) 
+
+build() { 
+	 install -d $PKG/usr/share/games/pingus
+	 install -d $PKG/usr/bin
+	 cp -a $SRC/pingus-0.6.0-binary-linux-i386/share/games/pingus/levels $PKG/usr/share/games/pingus/
+	 install -m 755 $SRC/pingus-levels $PKG/usr/bin/
+	 chown -R root:root $PKG
+}

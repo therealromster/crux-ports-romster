@@ -1,0 +1,22 @@
+# Description: Small Daemon for DNSBLs.
+# URL: http://www.corpit.ru/mjt/rbldnsd.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club dash internet dot fr
+# Depends on: zlib
+
+name=rbldnsd
+version=0.996b
+release=1
+source=(http://www.corpit.ru/mjt/$name/${name}_$version.tar.gz
+	$name.rc)
+
+build() {
+	cd $name-$version
+	./configure
+	make
+
+	install -d $PKG/var/lib/rbldns
+	install -m 0755 -s -D $name $PKG/usr/bin/$name
+	install -m 0755 -D $SRC/$name.rc $PKG/etc/rc.d/$name
+}
+

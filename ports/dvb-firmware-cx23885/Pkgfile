@@ -1,0 +1,27 @@
+# Description: Firmware binaries for Conexent CX23885
+# URL: http://www.linuxtv.org/downloads/firmware/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on:
+
+name=dvb-firmware-cx23885
+version=20100518
+release=1
+source="
+	http://www.linuxtv.org/downloads/firmware/v4l-cx23885-avcore-01.fw
+	http://www.linuxtv.org/downloads/firmware/v4l-cx23885-enc.fw
+	http://www.steventoth.net/linux/xc5000/HVR-12x0-14x0-17x0_1_25_25271_WHQL.zip
+"
+
+build() {
+	install -d $PKG/lib/firmware
+
+	install -m 0644 -t $PKG/lib/firmware/ \
+		$SRC/v4l-cx23885-avcore-01.fw $SRC/v4l-cx23885-enc.fw
+
+	install -m 0755 /usr/src/linux-$(uname -r)/Documentation/video4linux/extract_xc3028.pl $SRC/Driver85/
+  
+	cd $SRC/Driver85
+	./extract_xc3028.pl hcw85bda.sys
+	install -m 0644 xc3028-v27.fw $PKG/lib/firmware/
+}

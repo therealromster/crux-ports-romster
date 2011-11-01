@@ -1,0 +1,26 @@
+# Description: An action/arcade game based on SolarFox for the Atari 2600; scramble through 60 levels collecting space boxes; while avoiding the obstacles. 
+# URL: http://pygame.org/shredwheat/solarwolf/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: pygame
+
+name=solarwolf
+version=1.5
+release=1
+source=(http://pygame.org/shredwheat/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	sed -i -e "s|/games/$name|/$name|" $name.py
+	sed -i -e "s|/games/$name|/bin/$name|" dist/$name.desktop
+	install -m 0755 -D $name.py $PKG/usr/bin/$name
+	install -d $PKG/usr/share/$name $PKG/usr/lib/$name
+	cp -rt $PKG/usr/share/$name/ data
+	cp -rt $PKG/usr/lib/$name/ code
+	install -m 0644 -D dist/$name.desktop $PKG/usr/share/applications/$name.desktop
+	install -m 0644 -D dist/$name.png $PKG/usr/share/icons/hicolor/64x64/apps/$name.png
+	install -m 0644 -D dist/$name.xpm $PKG/usr/share/icons/locolor/32x32/apps/$name.xpm
+	install -m 0644 -D dist/$name.6.gz $PKG/usr/man/man6/$name.6.gz
+	python -mcompileall $PKG
+}
+

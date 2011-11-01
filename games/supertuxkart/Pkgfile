@@ -1,0 +1,31 @@
+# Description: A new and improved version of TuxKart, a kart racing game featuring Tux and his friends
+# URL: http://supertuxkart.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: freeglut mesa3d libsdl libvorbis freealut libxext libxdamage plib
+
+name=supertuxkart
+version=0.6
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version-src.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking \
+		--bindir=/usr/bin \
+		--datarootdir=/usr/share
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
+
+	find $PKG -type f \
+	\( \
+		-name 'README' -o \
+		-name 'README.txt' \
+	\) -delete
+}

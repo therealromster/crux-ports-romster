@@ -1,0 +1,2 @@
+# fusd device
+SUBSYSTEM=="fusd", NAME="fusd/%k"

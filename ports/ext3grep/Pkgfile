@@ -1,0 +1,17 @@
+# Description: ext3 un-remove utility
+# URL: http://code.google.com/p/ext3grep/
+.*$Lennart Sauerbeck, devel at lennart dot sauerbeck dot org
+# Depends on:
+
+name=ext3grep
+version=0.10.1
+release=1
+source=(http://$name.googlecode.com/files/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+}

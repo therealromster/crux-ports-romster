@@ -1,0 +1,18 @@
+# Description: Writes a demo program from a tutorial POD.
+# URL: http://search.cpan.org/~chromatic/Pod-ToDemo-1.01/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club dash internet dot fr
+# Depends on: p5-test-exception
+
+name=p5-pod-todemo
+version=1.01
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CH/CHROMATIC/Pod-ToDemo-$version.tar.gz)
+
+build () {
+	cd Pod-ToDemo-$version
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+	find $PKG -name perllocal.pod -delete
+}

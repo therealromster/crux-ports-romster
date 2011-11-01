@@ -1,0 +1,17 @@
+# Description: ext3/ext2 undelete tool.
+# URL: http://www.giis.co.in/
+.*$
+# Depends on:
+
+name=giis
+version=4.4
+release=1
+source=(http://transact.dl.sourceforge.net/sourceforge/$name/${name}_$version.tar.gz)
+
+build() {
+	cd ${name}_$version/src
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+}

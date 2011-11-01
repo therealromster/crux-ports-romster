@@ -1,0 +1,28 @@
+# Description: A tool for performance analysis and visualization of the boot process.
+# URL: http://www.bootchart.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: runit jdk
+
+name=bootchart
+version=0.9
+release=1
+source=(http://prdownloads.sourceforge.net/$name/$name-$version.tar.bz2
+	ProcPsParser.patch)
+
+build() {
+	cd $name-$version
+	patch -p 2 -i $SRC/ProcPsParser.patch
+
+	ant -Dbuild.debug=true -Dcompiler.nowarn=true
+
+	install -m 0755 -D bootchart.jar \
+		$PKG/usr/share/java-utils/java-functions/bootchart.jar
+
+	sed -i -e 's/AUTO_RENDER="no"/AUTO_RENDER="yes"/g' \
+			script/bootchartd.conf
+
+	install -m 0755 -D script/bootchartd $PKG/sbin/bootchartd
+	install -m 0644 -D script/bootchartd.conf $PKG/etc/bootchartd.conf
+
+}

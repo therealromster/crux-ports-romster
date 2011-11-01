@@ -1,0 +1,25 @@
+# Description: A set of tools to transform, query, validate, and edit XML documents.
+# URL: http://xmlstar.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libxml2 libxslt
+
+name=xmlstarlet
+version=1.0.1
+release=1
+source=(http://downloads.sourceforge.net/sourceforge/xmlstar/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	local xsltlibs=$(pkg-config --libs libxslt libexslt)
+	local xmllibs=$(pkg-config --libs libxml-2.0)
+
+	LIBXSLT_LIBS="${xsltlibs}" LIBXML_LIBS="${xmllibs}" \
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}

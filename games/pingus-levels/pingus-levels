@@ -1,0 +1,22 @@
+#!/bin/sh
+PINGUS_DIR=/usr/share
+
+[ -x $PINGUS_DIR/games/pingus ] || PINGUS_DIR=$(pwd)/$(dirname $0)/..
+[ -x $PINGUS_DIR/games/pingus ] || PINGUS_DIR=$(dirname $0)/..
+[ -f /$(type -P zenity) ] || echo zenity not found
+cd $PINGUS_DIR/games/pingus/levels/ok
+exec >/dev/null 2>&1
+f=1
+while [ "$f" != "" ]
+do
+  f="$(zenity --title="Last Level: $(cat ~/.pingus.last)" --file-selection)"
+  [ "$f" != "" ] && echo $(basename $f) > ~/.pingus.last
+  cd $PINGUS_DIR/games
+  if grep -q "<demo>" $f /dev/null
+  then
+    pingus -r "" -p $f "$@"
+  else
+    pingus $f "$@"
+  fi
+  cd $(dirname $f)
+done

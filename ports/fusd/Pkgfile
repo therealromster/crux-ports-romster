@@ -1,0 +1,33 @@
+# Description: A Linux framework for proxying device file callbacks into user-space, allowing device files to be implemented by daemons instead of kernel code.
+# URL: http://www.circlemud.org/~jelson/software/fusd/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=fusd-kor
+#version=1.10-11
+version=20100806
+release=1
+source="
+	http://www.hvlinux.net/crux/distfiles/$name/$name-$version-r17362.tar.bz2
+	fusd-kor-2.6.33-kernel.patch
+	kfusd.rules
+"
+#	http://fort.xdas.com/~kor/oss2jack/$name-$version.tar.gz
+#source=(http://www.circlemud.org/pub/jelson/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name
+	patch -p 1 -i $SRC/fusd-kor-2.6.33-kernel.patch
+	make -j 1 KERNEL_HOME=/usr/src/linux-$(uname -r)
+
+	install -m 0755 -d $PKG/usr/lib
+	install -m 0755 -t $PKG/usr/lib/ libfusd/libfusd.a libfusd/libfusd.so.0.0
+	ln -sf libfusd.so.0.0 $PKG/usr/lib/libfusd.so
+
+	install -m 0755 -d $PKG/usr/include
+	install -m 0755 -t $PKG/usr/include include/fusd.h include/fusd_msg.h include/kfusd.h
+ 	
+	install -m 0755 -D kfusd/kfusd.ko $PKG/lib/modules/$(uname -r)/kernel/drivers/misc/kfusd.ko
+
+	install -m 0644 -D kfusd.rules $PKG/etc/udev/rules.d/85-kfusd.rules
+}

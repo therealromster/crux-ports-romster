@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dvdxchap
+-rwxr-xr-x	root/root	usr/bin/ogmcat
+-rwxr-xr-x	root/root	usr/bin/ogmdemux
+-rwxr-xr-x	root/root	usr/bin/ogminfo
+-rwxr-xr-x	root/root	usr/bin/ogmmerge
+-rwxr-xr-x	root/root	usr/bin/ogmsplit
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dvdxchap.1.gz
+-rw-r--r--	root/root	usr/man/man1/ogmcat.1.gz
+-rw-r--r--	root/root	usr/man/man1/ogmdemux.1.gz
+-rw-r--r--	root/root	usr/man/man1/ogminfo.1.gz
+-rw-r--r--	root/root	usr/man/man1/ogmmerge.1.gz
+-rw-r--r--	root/root	usr/man/man1/ogmsplit.1.gz

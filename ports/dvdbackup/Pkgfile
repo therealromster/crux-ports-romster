@@ -1,0 +1,25 @@
+# Description: DVD Backup utility
+# URL: http://dvd-create.sourceforge.net/
+.*$Brett Goulder, predatorfreak at dcaf-security dot org
+# Packager: Brett Goulder, predatorfreak at dcaf-security dot org
+# Depends on: libdvdread
+
+name=dvdbackup
+version=svn
+release=1
+source=($name-FPE.patch)
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	if cd $name ; then
+		svn update
+	else
+		svn co svn://svn.mplayerhq.hu/dvdnav/trunk/$name $name --config-dir ./
+	fi
+	cp -r $PKGMK_SOURCE_DIR/$name/ $SRC
+	cd $SRC/$name
+	patch -p1 -i $SRC/$name-FPE.patch
+	make
+	install -d $PKG/usr/bin
+	install -m0755 dvdbackup $PKG/usr/bin
+}
