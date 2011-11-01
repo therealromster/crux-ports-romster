@@ -15,6 +15,6 @@ drwxr-xr-x	root/root	usr/include/eXosip2/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libeXosip2.a
 -rwxr-xr-x	root/root	usr/lib/libeXosip2.la
-lrwxrwxrwx	root/root	usr/lib/libeXosip2.so -> libeXosip2.so.4.2.0
-lrwxrwxrwx	root/root	usr/lib/libeXosip2.so.4 -> libeXosip2.so.4.2.0
--rwxr-xr-x	root/root	usr/lib/libeXosip2.so.4.2.0
+lrwxrwxrwx	root/root	usr/lib/libeXosip2.so -> libeXosip2.so.7.2.0
+lrwxrwxrwx	root/root	usr/lib/libeXosip2.so.7 -> libeXosip2.so.7.2.0
+-rwxr-xr-x	root/root	usr/lib/libeXosip2.so.7.2.0
