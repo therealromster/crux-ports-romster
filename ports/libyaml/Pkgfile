@@ -6,7 +6,7 @@
 
 name=libyaml
 sname=yaml
-version=0.1.2
+version=0.1.4
 release=1
 source=(http://pyyaml.org/download/libyaml/$sname-$version.tar.gz)
 
