@@ -1,11 +1,11 @@
 # Description: Meld is a visual diff and merge tool.
 # URL: http://meld.sourceforge.net/
-.*$Jose V Beneyto, sepen at crux dot nu
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Jose V Beneyto, sepen at crux dot nu
 # Depends on: gnome-python
 
 name=meld
-version=1.5.0
+version=1.5.2
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}/$name-$version.tar.bz2)
 
