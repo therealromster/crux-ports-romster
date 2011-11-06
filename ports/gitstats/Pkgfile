@@ -1,0 +1,25 @@
+# Description: git statistics generator.
+# URL: http://sourceforge.net/projects/gitstats/
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: git python gnuplot
+
+name=gitstats
+version=git
+release=1
+source=()
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	if cd $name; then
+		git pull --rebase
+	else
+		git clone http://repo.or.cz/r/$name.git $name
+	fi
+
+	cp -r $PKGMK_SOURCE_DIR/$name $SRC
+	cd $SRC/$name
+	make all man
+	make PREFIX=$PKG/usr install
+	install -D doc/gitstats.1 $PKG/usr/man/man1/gitstats.1
+}
