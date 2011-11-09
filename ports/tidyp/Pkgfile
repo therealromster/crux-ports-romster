@@ -1,0 +1,16 @@
+# Description: HTML/XML/XHTML cleanup tool.
+# URL: http://tidyp.com/ 
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=tidyp
+version=1.04
+release=1
+source=(https://github.com/downloads/petdance/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
