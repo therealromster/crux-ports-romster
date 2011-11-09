@@ -1,0 +1,27 @@
+# Description: Game based on the Sonic the Hedgehog universe.
+# URL: http://opensnc.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: allegro cmake
+
+name=opensonic
+version=0.1.4
+release=1
+source=(http://downloads.sourceforge.net/project/opensnc/Open%20Sonic/$version/opensnc-src-$version.tar.gz)
+
+build() {
+	cd opensnc-src-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/opensonic/licenses
+
+	rm \
+		$PKG/usr/share/opensonic/readme.html \
+		$PKG/usr/share/opensonic/license.txt
+}
