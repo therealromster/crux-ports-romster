@@ -1,13 +1,13 @@
 # Description: Tools for working with ogg media streams (ogm).
-# URL:         http://www.bunkus.org/videotools/ogmtools/
-.*$ Brett Goulder, predatorfreak at dcaf-security dot org
-# Packager:    Damir Saric <damir.saric@du.hinet.hr>
-# Depends on:  libvorbis libdvdread
+# URL: http://www.bunkus.org/videotools/ogmtools/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Damir Saric, damir dot saric at du dot hinet dot hr
+# Depends on: libvorbis libdvdread
 
 name=ogmtools
 version=1.5
 release=1
-source=(http://www.bunkus.org/videotools/ogmtools/$name-$version.tar.bz2)
+source=(http://www.bunkus.org/videotools/$name/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
