@@ -1149,6 +1149,17 @@ drwxr-xr-x	root/root	usr/lib/ct-ng/patches/libelf/0.8.12/
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/libelf/0.8.12/100-fix-64-bit-detection.patch
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/libelf/0.8.13/
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/libelf/0.8.13/100-fix-64-bit-detection.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/linux/
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/linux/3.0.1/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/linux/3.0.1/100-headers_install-fix-__packed-in-exported-kernel-head.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/linux/3.0.2/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/linux/3.0.2/100-headers_install-fix-__packed-in-exported-kernel-head.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/linux/3.0.3/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/linux/3.0.3/100-headers_install-fix-__packed-in-exported-kernel-head.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/linux/3.0.4/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/linux/3.0.4/100-headers_install-fix-__packed-in-exported-kernel-head.patch
+drwxr-xr-x	root/root	usr/lib/ct-ng/patches/linux/3.0/
+-rw-r--r--	root/root	usr/lib/ct-ng/patches/linux/3.0/100-headers_install-fix-__packed-in-exported-kernel-head.patch
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/ltrace/
 drwxr-xr-x	root/root	usr/lib/ct-ng/patches/ltrace/0.4/
 -rw-r--r--	root/root	usr/lib/ct-ng/patches/ltrace/0.4/100-fix-build-with-exotic-linux-host-OS.patch
