@@ -29,8 +29,6 @@ drwxr-xr-x	root/root	usr/lib/ulogd/
 -rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_NACCT.so
 -rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_OPRINT.la
 -rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_OPRINT.so
--rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_SQLITE3.la
--rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_SQLITE3.so
 -rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_SYSLOG.la
 -rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_SYSLOG.so
 -rwxr-xr-x	root/root	usr/lib/ulogd/ulogd_output_XML.la

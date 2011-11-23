@@ -10,20 +10,20 @@ lrwxrwxrwx	root/root	usr/lib/liboping.so -> liboping.so.0.2.3
 lrwxrwxrwx	root/root	usr/lib/liboping.so.0 -> liboping.so.0.2.3
 -rwxr-xr-x	root/root	usr/lib/liboping.so.0.2.3
 drwxr-xr-x	root/root	usr/lib/perl5/
-drwxr-xr-x	root/root	usr/lib/perl5/5.10.1/
-drwxr-xr-x	root/root	usr/lib/perl5/5.10.1/linux/
--rw-r--r--	root/root	usr/lib/perl5/5.10.1/linux/perllocal.pod
+drwxr-xr-x	root/root	usr/lib/perl5/5.12/
+drwxr-xr-x	root/root	usr/lib/perl5/5.12/linux-thread-multi/
+-rw-r--r--	root/root	usr/lib/perl5/5.12/linux-thread-multi/perllocal.pod
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
-drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.1/
-drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.1/linux/
-drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.1/linux/Net/
--r--r--r--	root/root	usr/lib/perl5/site_perl/5.10.1/linux/Net/Oping.pm
-drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.1/linux/auto/
-drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.1/linux/auto/Net/
-drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.1/linux/auto/Net/Oping/
--rw-r--r--	root/root	usr/lib/perl5/site_perl/5.10.1/linux/auto/Net/Oping/.packlist
--r--r--r--	root/root	usr/lib/perl5/site_perl/5.10.1/linux/auto/Net/Oping/Oping.bs (EMPTY)
--r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.10.1/linux/auto/Net/Oping/Oping.so
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.12/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/Net/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/Net/Oping.pm
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/auto/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/auto/Net/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/auto/Net/Oping/
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/auto/Net/Oping/.packlist
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/auto/Net/Oping/Oping.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.12/linux-thread-multi/auto/Net/Oping/Oping.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man3/
 -r--r--r--	root/root	usr/man/man3/Net::Oping.3pm.gz

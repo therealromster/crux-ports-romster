@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/cdda2mp3
 -rwxr-xr-x	root/root	usr/bin/cdda2ogg
 -rwxr-xr-x	root/root	usr/bin/cdda2wav
--r-sr-x---	root/cdrom	usr/bin/cdrecord
+-r-xr-x---	root/cdrom	usr/bin/cdrecord
 -rwxr-xr-x	root/root	usr/bin/devdump
 -rwxr-xr-x	root/root	usr/bin/isodebug
 -rwxr-xr-x	root/root	usr/bin/isodump

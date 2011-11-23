@@ -1,7 +1,8 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/python2.4/
-drwxr-xr-x	root/root	usr/lib/python2.4/site-packages/
--rw-r--r--	root/root	usr/lib/python2.4/site-packages/py7zlib.py
--rw-r--r--	root/root	usr/lib/python2.4/site-packages/py7zlib.pyc
--rwxr-xr-x	root/root	usr/lib/python2.4/site-packages/pylzma.so
+drwxr-xr-x	root/root	usr/lib/python2.7/
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/py7zlib.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/py7zlib.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/pylzma-0.3.0-py2.7.egg-info
+-rwxr-xr-x	root/root	usr/lib/python2.7/site-packages/pylzma.so
