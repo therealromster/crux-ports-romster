@@ -4,17 +4,15 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=iptables-imq
-version=1.4.12
+version=1.4.12.1
 release=1
-source="
-	ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2
-	http://www.linuximq.net/patchs/iptables-1.4.10-imq.patch
-"
+source=(ftp://ftp.netfilter.org/pub/iptables/iptables-$version.tar.bz2
+	http://www.linuximq.net/patchs/iptables-1.4.12-IMQ-test4.diff)
 
 build() {
 	cd iptables-$version
 
-	patch -p 1 -i $SRC/iptables-1.4.10-imq.patch
+	patch -p 1 -i $SRC/iptables-1.4.12-IMQ-test4.diff
 	
 	./configure \
 		--prefix=/usr \
