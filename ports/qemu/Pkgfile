@@ -1,26 +1,31 @@
 # Description: Is a generic and open source machine emulator and virtualizer.
-# URL: http://www.nongnu.org/qemu/
+# URL: http://wiki.qemu.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Antonio SJ Musumeci
 # Depends on: libsdl
 
 name=qemu
-version=0.10.4
+version=1.0
 release=1
-source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.gz
-	70-kqemu.rules)
-up2date_url="http://download.savannah.gnu.org/releases-noredirect/$name/"
+source=(http://wiki.qemu.org/download/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 
-	./configure \
+  ./configure \
 		--prefix=/usr \
 		--cc="${CC:=gcc}" \
-		--host-cc="${CC:=gcc}"
+		--host-cc="${CC:=gcc}" \
+		--sysconfdir=/etc \
+		--disable-docs
 
+	# fix include issues with nspr
+	echo 'QEMU_CFLAGS+=-I/usr/include/nspr' >> libcacard/Makefile
 	make
 	make DESTDIR=$PKG install
-	install -m 0644 -D $SRC/70-kqemu.rules $PKG/etc/udev/rules.d/70-kqemu.rules
-}
 
+	make qemu.1 qemu-img.1 qemu-nbd.8
+	install -D -m 644 qemu.1 $PKG/usr/man/man1/qemu.1
+	install -D -m 644 qemu-img.1 $PKG/usr/man/man1/qemu-img.1
+	install -D -m 644 qemu-nbd.8 $PKG/usr/man/man8/qemu-nbd.8
+}
