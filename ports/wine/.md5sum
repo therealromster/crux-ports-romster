@@ -1,2 +1,7 @@
-f24fd3cf520c60dbc107e9ea31b3175d  download.php?file=wine-kane_1.3.30.patch.gz
-9c575dbbb308d269ad76e1c6f5a0866d  wine-1.3.31.tar.bz2
+476f536d0ea82f49a1a7e60bc473c65c  download.php?file=0001-ntdll-Pass-ReadFile-and-WriteFile-requests-on-socket.patch
+bfced379d19b10308bd9a72ebe96701f  download.php?file=0002-ws2_32-tests-Add-UDP-broadcast-tests.patch
+bb57f3ab961d3a1f692186e2dd60bdce  download.php?file=0003-server-Add-mechanism-for-storing-an-interface-ID-wit.patch
+0dc84a3bdcdb200136f5e05119377bc3  download.php?file=0004-ws2_32-Selectively-bind-UDP-sockets-to-interfaces-wh.patch
+c4f02ebe70f8e731e03d0fbbb3096097  download.php?file=0005-server-ws2_32-Support-UDP-binding-of-interfaces-on-s.patch
+ae7be1767e95e27360fc86f573649c19  wine-1.3.34.tar.bz2
+7b141d77270aed39a7213b3538be5a0a  wine-kane_1.3.30.patch
