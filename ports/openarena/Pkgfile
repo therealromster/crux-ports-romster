@@ -1,0 +1,50 @@
+# Description: A violent, sexy, multiplayer first person shooter based on the ioquake3 engine.
+# URL: http://openarena.ws
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libsdl speex libjpeg libvorbis xorg-libxext xorg-libxdamage openal curl mesa3d openal
+
+name=openarena
+vold=0.8.1
+version=0.8.5
+release=1
+source=(http://download.tuxfamily.org/openarena/rel/${vold//./}/source/$name-engine-$vold-1.tar.bz2
+	http://download.tuxfamily.org/openarena/rel/${vold//./}/oa${vold//./}.zip
+	http://download.tuxfamily.org/openarena/rel/${version//./}/oa${version//./}p.zip
+	openarena-0.8.5-makefile.patch
+	openarena-0.8.5-unbundling.patch
+	openarena-0.8.5-bots-strcpy-fix.patch)
+
+build() {
+	cd $name-engine-$vold
+
+	patch -p 1 -i $SRC/openarena-0.8.5-makefile.patch
+	patch -p 1 -i $SRC/openarena-0.8.5-unbundling.patch
+	patch -p 1 -i $SRC/openarena-0.8.5-bots-strcpy-fix.patch
+
+	sed -i \
+		-e '/ALDRIVER_DEFAULT/s/libopenal.so.0/libopenal.so/' \
+		code/client/snd_openal.c
+
+	sed -i -e '1i#define OF(x) x' $(find -name unzip.c)
+	touch jpegint.h
+
+	make \
+		DEFAULT_BASEDIR=/usr/share/$name \
+		BUILD_CLIENT_SMP=0 \
+		USE_INTERNAL_SPEEX=0 \
+		USE_VOIP=1 \
+		USE_MUMBLE=0 \
+		USE_LOCAL_HEADERS=0 \
+		GENERATE_DEPENDENCIES=0
+
+	mkdir -p $PKG/usr/{bin,share/{$name,applications,pixmaps}}
+	cp -r $SRC/$name-$vold/baseoa/ $PKG/usr/share/$name/
+	cp -r $SRC/$name-$vold/missionpack/ $PKG/usr/share/$name/
+
+	make COPYDIR=$PKG/usr/share/$name copyfiles
+
+	mv -f $PKG/usr/share/$name/$name.i386 $PKG/usr/bin/$name
+	mv -f $PKG/usr/share/$name/oa_ded.i386 $PKG/usr/bin/$name-server
+	find $PKG/usr/share -type f -exec chmod 0644 {} +
+}
