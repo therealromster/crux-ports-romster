@@ -1,18 +1,24 @@
-# Description: A frontend to an XSL toolchain.
-# URL: http://cyberelk.net/tim/software/xmlto/
-.*$Matt Housh, jaeger at morpheus dot net
-# Depends on: bash libxslt docbook-xml-dtd docbook-xml-entities docbook-xsl
+# Description: A shell-script tool for converting XML files to various formats.
+# URL: https://fedorahosted.org/xmlto/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Matt Housh, jaeger at morpheus dot net
+# Depends on: docbook-xml docbook-xsl
 
 name=xmlto
-version=0.0.20
+version=0.0.25
 release=1
-url="http://cyberelk.net/tim/data/$name/stable"
-up2date="lynx -dump '$url/?C=M;O=A' |grep '.tar.bz2$' |sed -ne 's/.*$name-\(.*\)\.t.*/\1/' -e '$ p'"
-source=($url/$name-$version.tar.bz2)
+source=(https://fedorahosted.org/releases/x/m/xmlto/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
-	./configure --prefix=/usr
+
+	sed -i -e 's/4\.2/4\.5/g' doc/xmlif.xml
+	sed -i -e 's/4\.2/4\.5/g' doc/xmlto.xml
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
 	make
 	make DESTDIR=$PKG install
 }
