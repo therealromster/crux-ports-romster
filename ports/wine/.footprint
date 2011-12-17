@@ -337,6 +337,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/iextag.h
 -rw-r--r--	root/root	usr/include/wine/windows/iextag.idl
 -rw-r--r--	root/root	usr/include/wine/windows/ifdef.h
+-rw-r--r--	root/root	usr/include/wine/windows/ifmib.h
 -rw-r--r--	root/root	usr/include/wine/windows/imagehlp.h
 -rw-r--r--	root/root	usr/include/wine/windows/imm.h
 -rw-r--r--	root/root	usr/include/wine/windows/imnact.h
@@ -352,6 +353,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/ipexport.h
 -rw-r--r--	root/root	usr/include/wine/windows/iphlpapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/ipifcons.h
+-rw-r--r--	root/root	usr/include/wine/windows/ipmib.h
 -rw-r--r--	root/root	usr/include/wine/windows/iprtrmib.h
 -rw-r--r--	root/root	usr/include/wine/windows/iptypes.h
 -rw-r--r--	root/root	usr/include/wine/windows/isguids.h
@@ -453,6 +455,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/netcon.idl
 -rw-r--r--	root/root	usr/include/wine/windows/netfw.h
 -rw-r--r--	root/root	usr/include/wine/windows/netfw.idl
+-rw-r--r--	root/root	usr/include/wine/windows/nldef.h
 -rw-r--r--	root/root	usr/include/wine/windows/npapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/nspapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/ntddcdrm.h
@@ -596,6 +599,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/t2embapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/tapi.h
 -rw-r--r--	root/root	usr/include/wine/windows/tchar.h
+-rw-r--r--	root/root	usr/include/wine/windows/tcpmib.h
 -rw-r--r--	root/root	usr/include/wine/windows/textserv.h
 -rw-r--r--	root/root	usr/include/wine/windows/textstor.h
 -rw-r--r--	root/root	usr/include/wine/windows/textstor.idl
@@ -605,6 +609,7 @@ drwxr-xr-x	root/root	usr/include/wine/windows/ddk/
 -rw-r--r--	root/root	usr/include/wine/windows/tom.idl
 -rw-r--r--	root/root	usr/include/wine/windows/traffic.h
 -rw-r--r--	root/root	usr/include/wine/windows/twain.h
+-rw-r--r--	root/root	usr/include/wine/windows/udpmib.h
 -rw-r--r--	root/root	usr/include/wine/windows/unknwn.h
 -rw-r--r--	root/root	usr/include/wine/windows/unknwn.idl
 -rw-r--r--	root/root	usr/include/wine/windows/urlhist.h
