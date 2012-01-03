@@ -1,17 +1,18 @@
-# Description: A FOSS clone of Transport Tycoon Deluxe
+# Description: A FOSS clone of Transport Tycoon Deluxe.
 # URL: http://www.openttd.org
-.*$Lennart Sauerbeck, devel at lennart dot sauerbeck dot org
-# Depends on: libsdl, libpng, fontconfig, lzo
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Lennart Sauerbeck, devel at lennart dot sauerbeck dot org
+# Depends on: libsdl libpng fontconfig lzo
 
 name=openttd
-version=1.0.4
-gfxversion=0.3.1
+version=1.1.4
+gfxversion=0.3.7
 sfxversion=0.2.3
 msxversion=0.3.1
 release=1
-source=(http://binaries.openttd.org/releases/$version/$name-$version-source.tar.bz2 \
-        http://binaries.openttd.org/extra/opengfx/$gfxversion/opengfx-$gfxversion-all.zip \
-        http://binaries.openttd.org/extra/opensfx/$sfxversion/opensfx-$sfxversion-all.zip \
+source=(http://binaries.openttd.org/releases/$version/$name-$version-source.tar.xz
+        http://binaries.openttd.org/extra/opengfx/$gfxversion/opengfx-$gfxversion-all.zip
+        http://binaries.openttd.org/extra/opensfx/$sfxversion/opensfx-$sfxversion-all.zip
         http://binaries.openttd.org/extra/openmsx/$msxversion/openmsx-$msxversion-all.zip)
 
 build() {
