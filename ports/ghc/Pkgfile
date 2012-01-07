@@ -1,19 +1,55 @@
-# Description: Glasgow Haskell compiler
-# URL:         http://www.haskell.org/haskellwiki/Glasgow_Haskell_Compiler
-.*$ Moritz Wilhelmy <moritz plus crux at wzff dot de>
-# Depends on:  libffi ghc
+# Description: Glasgow Haskell compiler.
+# URL: http://www.haskell.org/haskellwiki/Glasgow_Haskell_Compiler
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot co
+# Packager: Moritz Wilhelmy, moritz plus crux at wzff dot de
+# Depends on: libgmp readline libedit libffi
 
 name=ghc
-version=7.0.1
-release=2
-source=(http://www.haskell.org/$name/dist/$version/$name-$version-src.tar.bz2 build.mk)
+version=7.2.2
+release=1
+source=(http://www.haskell.org/ghc/dist/$version/$name-$version-src.tar.bz2)
 
 build() {
-  cd $name-$version
-  ./configure --prefix=/usr --mandir=/usr/man
-  cp $SRC/build.mk mk/
-  mkdir -p $PKG/usr/{bin,lib}
-  make
-  make DESTDIR=$PKG install
-  rm -rf $PKG/usr/share/doc
+
+	# if ghc is not previously installed bootstrap it
+	if [ ! -e /usr/bin/ghc ]; then
+
+		local uname=$(uname -m)
+
+		# download binary bootstrap file if it does not exist
+		if [ ! -f "$PKGMK_SOURCE_DIR/$name-$version-$uname-unknown-linux.tar.bz2" ]; then
+
+			wget http://www.haskell.org/ghc/dist/$version/$name-$version-$uname-unknown-linux.tar.bz2 \
+				--output-document="$PKGMK_SOURCE_DIR/$name-$version-$uname-unknown-linux.tar.bz2"
+		fi
+
+		mkdir tmp
+		cd tmp
+		tar -xjf "$PKGMK_SOURCE_DIR/$name-$version-$uname-unknown-linux.tar.bz2"
+		mv $name-$version ../$name-$version-binary
+		cd -
+		rmdir tmp
+
+		cd $name-$version-binary
+
+		# hack for gmp 5
+		ln -s /usr/lib/libgmp.so.10 libgmp.so.3
+		export LD_LIBRARY_PATH=$(pwd):$LD_LIBRARY_PATH
+
+		./configure --prefix=$SRC/binary
+		make install
+		cd $SRC
+
+		export PATH=$SRC/binary/bin:$PATH
+	fi
+
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/doc
 }
