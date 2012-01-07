@@ -1,9 +1,9 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/libffi-3.0.9/
-drwxr-xr-x	root/root	usr/lib/libffi-3.0.9/include/
--rw-r--r--	root/root	usr/lib/libffi-3.0.9/include/ffi.h
--rw-r--r--	root/root	usr/lib/libffi-3.0.9/include/ffitarget.h
+drwxr-xr-x	root/root	usr/lib/libffi-3.0.10/
+drwxr-xr-x	root/root	usr/lib/libffi-3.0.10/include/
+-rw-r--r--	root/root	usr/lib/libffi-3.0.10/include/ffi.h
+-rw-r--r--	root/root	usr/lib/libffi-3.0.10/include/ffitarget.h
 -rw-r--r--	root/root	usr/lib/libffi.a
 -rwxr-xr-x	root/root	usr/lib/libffi.la
 lrwxrwxrwx	root/root	usr/lib/libffi.so -> libffi.so.5.0.10
