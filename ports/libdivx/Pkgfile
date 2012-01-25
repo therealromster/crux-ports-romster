@@ -1,0 +1,22 @@
+# Description: DivX Codecs for Linux (binary).
+# URL: http://labs.divx.com/DivXLinuxCodec
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Martin Opel, mo at obbl-net dot de
+
+name=libdivx
+version=6.1.1
+release=1
+source=(http://download.divx.com/labs/divx${version//./}-20060201-gcc4.0.1.tar.gz)
+
+build() {
+	cd divx${version//./}-20060201-gcc4.0.1
+	install -d tmp
+	unzip -d tmp -P h08pzt4 contents.dat
+	install -d $PKG/usr/include/divx/{common,decoder,encoder}
+	install -m 0644 -D tmp/lib/libdivx.so $PKG/usr/lib/libdivx.so.0
+	install -m 0644 -t $PKG/usr/include/divx/common/ tmp/include/common/* 
+	install -m 0644 -t $PKG/usr/include/divx/decoder/ tmp/include/decoder/* 
+	install -m 0644 -t $PKG/usr/include/divx/encoder/ tmp/include/encoder/* 
+	ln -s /usr/lib/libdivx.so.0 $PKG/usr/lib/libdivx.so
+}
+
