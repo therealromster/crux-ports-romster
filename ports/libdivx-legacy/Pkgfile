@@ -1,0 +1,17 @@
+# Description: DivX Codecs for Linux (binary)
+# URL: http://labs.divx.com/DivXLinuxCodec
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Martin Opel, mo at obbl-net dot de
+
+name=libdivx-legacy
+version=5.0.5
+release=1
+source=(http://download.divx.com/divx/divx4linux-std-20030428.tar.gz)
+
+build() {
+	cd divx4linux-20030428
+	install -d $PKG/usr/{lib,include}
+	install -m 0644 -t $PKG/usr/lib libdivxdecore.so libdivxencore.so
+	install -m 0644 -t $PKG/usr/include decore.h encore2.h portab.h
+}
+
