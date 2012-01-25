@@ -1,0 +1,34 @@
+# Description: Library for AVI video files.
+# URL: http://avifile.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Martin Opel, mo at obbl-net dot de
+# Depends on: ffmpeg liba52 libdivx libdivx-legacy libmad win32-essential-codecs xorg-libxft xorg-libxi xorg-libxinerama xorg-libxv xorg-libxxf86dga
+
+name=avifile
+version=0.7-0.7.45
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name/0.7.45-20060306/$name-$version.tar.bz2
+	avifile-$version-gcc4.patch)
+
+build() {
+	cd avifile-$version
+	patch -p 1 -i $SRC/avifile-$version-gcc4.patch
+	export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:`pwd`/lib"
+
+	# remove samples does not build on current gcc
+	sed -i -e 's/^ doc include debian libavqt player samples$/ doc include debian libavqt player/' \
+		 Makefile.in
+
+	./configure \
+		--prefix=/usr \
+		--enable-x86opt \
+		--without-qt \
+		--disable-xvidtest \
+		--disable-xvid \
+		--disable-ffmpeg-risky \
+		--with-linux-prefix='/usr/include/linux'
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/avifile-${version%-*}/doc
+}
