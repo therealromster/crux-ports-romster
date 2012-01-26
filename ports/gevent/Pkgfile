@@ -1,0 +1,15 @@
+# Description: A coroutine-based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libevent event loop.
+# URL: http://www.gevent.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: greenlet libevent
+
+name=gevent
+version=0.13.6
+release=1
+source=(http://pypi.python.org/packages/source/g/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+}
