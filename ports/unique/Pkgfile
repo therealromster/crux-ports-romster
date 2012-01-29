@@ -5,9 +5,9 @@
 # Depends on: wxpython
 
 name=unique
-version=0.23
+version=0.25
 release=1
-source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2"
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
