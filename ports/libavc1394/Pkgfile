@@ -1,0 +1,22 @@
+# Description: libavc1394 is a programming interface for the 1394 Trade Association AV/C (Audio/Video Control) Digital Interface Command Set.
+# URL: http://sourceforge.net/projects/libavc1394/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Eric Fortner, ericmf at gci dot net
+# Depends on: libraw1394
+
+name=libavc1394
+version=0.5.4
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls
+
+	make
+	make DESTDIR=$PKG install
+}

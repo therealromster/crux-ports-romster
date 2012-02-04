@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dvcont
+-rwxr-xr-x	root/root	usr/bin/mkrfc2734
+-rwxr-xr-x	root/root	usr/bin/panelctl
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libavc1394/
+-rw-r--r--	root/root	usr/include/libavc1394/avc1394.h
+-rw-r--r--	root/root	usr/include/libavc1394/avc1394_vcr.h
+-rw-r--r--	root/root	usr/include/libavc1394/rom1394.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libavc1394.a
+-rwxr-xr-x	root/root	usr/lib/libavc1394.la
+lrwxrwxrwx	root/root	usr/lib/libavc1394.so -> libavc1394.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/libavc1394.so.0 -> libavc1394.so.0.3.0
+-rwxr-xr-x	root/root	usr/lib/libavc1394.so.0.3.0
+-rw-r--r--	root/root	usr/lib/librom1394.a
+-rwxr-xr-x	root/root	usr/lib/librom1394.la
+lrwxrwxrwx	root/root	usr/lib/librom1394.so -> librom1394.so.0.3.0
+lrwxrwxrwx	root/root	usr/lib/librom1394.so.0 -> librom1394.so.0.3.0
+-rwxr-xr-x	root/root	usr/lib/librom1394.so.0.3.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libavc1394.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dvcont.1.gz
+-rw-r--r--	root/root	usr/man/man1/mkrfc2734.1.gz
+-rw-r--r--	root/root	usr/man/man1/panelctl.1.gz
