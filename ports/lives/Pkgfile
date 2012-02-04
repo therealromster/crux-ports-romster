@@ -2,25 +2,18 @@
 # URL: http://lives.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: mplayer imagemagick gtk libjpeg sox
-# Optional: win32-essential-codecs xmms dvdrtools python libsdl mencoder libmjpeg-tools libtheora jack-audio-connection-kit
+# Depends on: gtk imagemagick jack libavc1394 liboil libtheora libvisual libvorbis mjpegtools mplayer python sox
 
 name=lives
-version=0.9.8.12
+version=1.3.12
 release=1
-source=(http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-$version.tar.bz2 \
-	lives-$version-install.patch)
+source=(http://www.xs4all.nl/%7Esalsaman/lives/current/LiVES-$version.tar.bz2)
 
 build() {
-	cd lives-$version
+	cd $name-$version
 
-	patch -p 1 -i ../lives-$version-install.patch
-	export CFLAGS="`echo $CFLAGS | sed -e 's/-O[s0-3]/-O3/'`"
-	rm po/*.po
-
-	sed -i \
-		-e 's/USE_NLS=yes/USE_NLS=no/' \
-		-e 's/ENABLE_NLS 1/ENABLE_NLS 0/' configure
+	# brakes libweed
+	CFLAGS="${CFLAGS//-flto/}" LDFLAGS="${LDFLAGS//-flto/}"
 
 	./configure \
 		--prefix=/usr \
@@ -28,6 +21,9 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
+
+	rm $PKG/usr/bin/lives
+	ln -sf /usr/bin/lives-exe $PKG/usr/bin/lives
+
 	rm -r $PKG/usr/share/doc
 }
-
