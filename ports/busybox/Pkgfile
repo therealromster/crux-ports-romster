@@ -1,0 +1,18 @@
+# Description: Tiny versions of many UNIX utilities into a single executable.
+# URL: http://busybox.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=busybox
+version=1.19.4
+release=1
+source=(http://busybox.net/downloads/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	make defconfig
+	make
+	make CONFIG_PREFIX=$PKG install
+	find $PKG/ -type l -exec rm -rf {} +
+	rmdir $PKG/usr/{bin,sbin} $PKG/sbin $PKG/usr
+}
