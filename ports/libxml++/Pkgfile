@@ -5,17 +5,18 @@
 # Depends on: glibmm libxml2
 
 name=libxml++
-version=2.26.1
+version=2.34.1
 release=1
-source="http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}/$name-$version.tar.bz2"
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
+	CFLAGS="${CFLAGS//-flto/}" CXXFLAGS="${CXXFLAGS//-flto/}" LDFLAGS="${LDFLAGS//-flto/}"
+
 	./configure \
 		--prefix=/usr \
-		--disable-nls \
-		--disable-static
+		--disable-nls
 
 	make
 	make DESTDIR=$PKG install
