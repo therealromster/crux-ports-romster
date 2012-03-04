@@ -5,11 +5,11 @@
 # Depends on: iptables
 
 name=collectd
-version=5.0.0
+version=5.0.3
 release=1
 source=(http://collectd.org/files/$name-$version.tar.bz2)
 
-build () {
+build() {
 	cd $name-$version
 
 	CFLAGS+=' -Wno-error'
