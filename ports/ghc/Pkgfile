@@ -5,7 +5,7 @@
 # Depends on: libgmp readline libedit libffi
 
 name=ghc
-version=7.2.2
+version=7.4.1
 release=1
 source=(http://www.haskell.org/ghc/dist/$version/$name-$version-src.tar.bz2)
 
@@ -15,6 +15,7 @@ build() {
 	if [ ! -e /usr/bin/ghc ]; then
 
 		local uname=$(uname -m)
+		uname="${uname//i686/i386}"
 
 		# download binary bootstrap file if it does not exist
 		if [ ! -f "$PKGMK_SOURCE_DIR/$name-$version-$uname-unknown-linux.tar.bz2" ]; then
