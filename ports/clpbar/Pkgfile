@@ -1,13 +1,12 @@
 # Description: Command Line Progress Bar.
 # URL: http://clpbar.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on:
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=clpbar
-version=1.10.9
+version=1.11.1
 release=1
-source=(http://dl.sourceforge.net/sourceforge/clpbar/bar_$version.tar.gz)
+source=(http://sourceforge.net/projects/$name/files/$name/bar-$version/bar_$version.tar.gz)
 
 build() {
 	cd bar-$version
@@ -19,4 +18,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
