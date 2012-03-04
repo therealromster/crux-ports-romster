@@ -6,12 +6,14 @@
 
 name=clanlib
 sname=ClanLib
-version=2.1.1
+version=2.3.5
 release=1
 source=(http://clanlib.org/download/releases-2.0/$sname-$version.tgz)
 
 build() {
 	cd $sname-$version
+
+	CFLAGS="${CFLAGS//-flto/}" LDFLAGS="${LDFLAGS//-flto/}"
 
 	./configure \
 		--prefix=/usr \
