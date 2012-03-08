@@ -17,18 +17,3 @@ drwxr-xr-x	root/root	usr/lib/alsa-lib/
 -rwxr-xr-x	root/root	usr/lib/alsa-lib/libasound_module_rate_speexrate.so
 lrwxrwxrwx	root/root	usr/lib/alsa-lib/libasound_module_rate_speexrate_best.so -> libasound_module_rate_speexrate.so
 lrwxrwxrwx	root/root	usr/lib/alsa-lib/libasound_module_rate_speexrate_medium.so -> libasound_module_rate_speexrate.so
-drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/doc/
-drwxr-xr-x	root/root	usr/share/doc/alsa-plugins-1.0.24/
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/README-arcam-av
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/README-jack
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/README-maemo
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/README-pcm-oss
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/README-pulse
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/a52.txt
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/lavcrate.txt
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/samplerate.txt
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/speexdsp.txt
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/speexrate.txt
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/upmix.txt
--rw-r--r--	root/root	usr/share/doc/alsa-plugins-1.0.24/vdownmix.txt
