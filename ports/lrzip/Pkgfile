@@ -5,9 +5,9 @@
 # Depends on: lzo zlib bzip2 xz
 
 name=lrzip
-version=0.606
+version=0.610
 release=1
-source="http://ck.kolivas.org/apps/$name/$name-$version.tar.bz2"
+source=(http://ck.kolivas.org/apps/$name/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
