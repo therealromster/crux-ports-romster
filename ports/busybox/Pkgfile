@@ -5,11 +5,12 @@
 
 name=busybox
 version=1.19.4
-release=1
+release=2
 source=(http://busybox.net/downloads/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
+	LDFLAGS+=' --static'
 	make defconfig
 	make
 	make CONFIG_PREFIX=$PKG install
