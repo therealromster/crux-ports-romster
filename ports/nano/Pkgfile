@@ -1,0 +1,31 @@
+# Description: GNU pico clone (a tiny text editor)
+# URL:         http://www.nano-editor.org
+# Maintainer:  Danny Rawlins, monster dot romster at gmail dot com
+# Packager:    Simone Rota, sip at crux dot nu
+# Depends on:  ncurses
+
+name=nano
+version=2.2.6
+release=1
+source=(http://www.nano-editor.org/dist/v${version%.*}/$name-$version.tar.gz)
+
+build() {
+	# copy the source twice for each build as
+	# using make clean requires texinfo
+	install -d $SRC/{build,build.static}
+	cp -r $name-$version/* $SRC/build
+	cp -r $name-$version/* $SRC/build.static
+
+	cd $SRC/build
+	./configure --prefix=/usr --disable-nls --mandir=/usr/man
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share
+	rm $PKG/usr/bin/rnano $PKG/usr/man/man1/rnano.1
+
+	cd $SRC/build.static
+	LDFLAGS+=' -static'
+	./configure --prefix=/usr --disable-nls --mandir=/usr/man
+	make
+	install -m 0755 -D src/nano $PKG/usr/bin/nano.static
+}
