@@ -5,15 +5,18 @@
 
 name=busybox
 version=1.19.4
-release=2
+release=3
 source=(http://busybox.net/downloads/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
+	make defconfig
+	make
+	install -m 0755 -D busybox $PKG/sbin/busybox
+
+	make clean
 	LDFLAGS+=' --static'
 	make defconfig
 	make
-	make CONFIG_PREFIX=$PKG install
-	find $PKG/ -type l -exec rm -rf {} +
-	rmdir $PKG/usr/{bin,sbin} $PKG/sbin $PKG/usr
+	install -m 0755 -D busybox $PKG/sbin/busybox.static
 }
