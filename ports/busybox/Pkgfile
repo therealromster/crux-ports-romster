@@ -15,7 +15,7 @@ build() {
 	install -m 0755 -D busybox $PKG/sbin/busybox
 
 	make clean
-	LDFLAGS+=' --static'
+	LDFLAGS+=' -static'
 	make defconfig
 	make
 	install -m 0755 -D busybox $PKG/sbin/busybox.static
