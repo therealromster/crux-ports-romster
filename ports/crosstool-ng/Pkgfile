@@ -2,12 +2,12 @@
 # URL: http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Alex Kostrewa, alexko256 at googlemail dot com
-# Depends on: texinfo
+# Depends on: texinfo gperf
 
 name=crosstool-ng
-version=1.13.2
+version=1.14.1
 release=1
-source="http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2"
+source=(http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
@@ -18,7 +18,7 @@ build() {
 		--libdir=/usr/lib/ct-ng
 
 	#--libdir is not honnored workaround
-	sed -i -e "s|^LIBDIR := /usr/lib/ct-ng/ct-ng-${version}$|LIBDIR := /usr/lib/ct-ng/|" Makefile
+#	sed -i -e '/^export libdir\s/s|:=|:= /usr/lib/ct-ng/|' Makefile
 
 	make
 	make -j 1 DESTDIR=$PKG install
