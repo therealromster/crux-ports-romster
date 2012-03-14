@@ -1,8 +1,11 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/dssi_analyse_plugin
+-rwxr-xr-x	root/root	usr/bin/dssi_list_plugins
 -rwxr-xr-x	root/root	usr/bin/dssi_osc_send
 -rwxr-xr-x	root/root	usr/bin/dssi_osc_update
 -rwxr-xr-x	root/root	usr/bin/jack-dssi-host
+lrwxrwxrwx	root/root	usr/bin/karplong -> jack-dssi-host
 lrwxrwxrwx	root/root	usr/bin/less_trivial_synth -> jack-dssi-host
 lrwxrwxrwx	root/root	usr/bin/trivial_sampler -> jack-dssi-host
 lrwxrwxrwx	root/root	usr/bin/trivial_synth -> jack-dssi-host
@@ -10,6 +13,8 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/dssi.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/dssi/
+-rwxr-xr-x	root/root	usr/lib/dssi/karplong.la
+-rwxr-xr-x	root/root	usr/lib/dssi/karplong.so
 -rwxr-xr-x	root/root	usr/lib/dssi/less_trivial_synth.la
 -rwxr-xr-x	root/root	usr/lib/dssi/less_trivial_synth.so
 drwxr-xr-x	root/root	usr/lib/dssi/less_trivial_synth/
@@ -22,3 +27,10 @@ drwxr-xr-x	root/root	usr/lib/dssi/trivial_sampler/
 -rwxr-xr-x	root/root	usr/lib/dssi/trivial_synth.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/dssi.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/dssi_analyse_plugin.1.gz
+-rw-r--r--	root/root	usr/man/man1/dssi_list_plugins.1.gz
+-rw-r--r--	root/root	usr/man/man1/dssi_osc_send.1.gz
+-rw-r--r--	root/root	usr/man/man1/dssi_osc_update.1.gz
+-rw-r--r--	root/root	usr/man/man1/jack-dssi-host.1.gz

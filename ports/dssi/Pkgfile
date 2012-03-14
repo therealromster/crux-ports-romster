@@ -2,18 +2,21 @@
 # URL: http://dssi.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Diederick de Vries, diederick at diederickdevries.net
-# Depends on: qt3 liblo ladspa jack-audio-connection-kit libsamplerate
+# Depends on: qt4 liblo ladspa jack-audio-connection-kit libsamplerate
 
 name=dssi
-version=0.9.1
+version=1.1.1
 release=1
-source=(http://dl.sourceforge.net/sourceforge/dssi/dssi-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
 
 build() {
 	cd dssi-$version
 	export QTDIR=/usr/share/qt
-	./configure --prefix=/usr
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
 	make
 	make DESTDIR=$PKG install
 }
-
