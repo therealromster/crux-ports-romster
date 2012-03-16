@@ -5,7 +5,7 @@
 
 name=busybox
 version=1.19.4
-release=3
+release=4
 source=(http://busybox.net/downloads/$name-$version.tar.bz2)
 
 build() {
@@ -15,7 +15,7 @@ build() {
 	install -m 0755 -D busybox $PKG/sbin/busybox
 
 	make clean
-	LDFLAGS+=' -static'
+	export LDFLAGS+=' -static'
 	make defconfig
 	make
 	install -m 0755 -D busybox $PKG/sbin/busybox.static
