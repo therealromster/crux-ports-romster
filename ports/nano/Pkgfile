@@ -6,7 +6,7 @@
 
 name=nano
 version=2.2.6
-release=1
+release=2
 source=(http://www.nano-editor.org/dist/v${version%.*}/$name-$version.tar.gz)
 
 build() {
@@ -24,7 +24,7 @@ build() {
 	rm $PKG/usr/bin/rnano $PKG/usr/man/man1/rnano.1
 
 	cd $SRC/build.static
-	LDFLAGS+=' -static'
+	export LDFLAGS+=' -static'
 	./configure --prefix=/usr --disable-nls --mandir=/usr/man
 	make
 	install -m 0755 -D src/nano $PKG/usr/bin/nano.static
