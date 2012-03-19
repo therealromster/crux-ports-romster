@@ -5,6 +5,16 @@ lrwxrwxrwx	root/root	usr/bin/lrzcat -> lrzip
 -rwxr-xr-x	root/root	usr/bin/lrzip
 -rwxr-xr-x	root/root	usr/bin/lrztar
 lrwxrwxrwx	root/root	usr/bin/lrzuntar -> lrztar
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/Lrzip.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/liblrzip.a
+-rwxr-xr-x	root/root	usr/lib/liblrzip.la
+lrwxrwxrwx	root/root	usr/lib/liblrzip.so -> liblrzip.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblrzip.so.0 -> liblrzip.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblrzip.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/lrzip.pc
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/lrunzip.1.gz
