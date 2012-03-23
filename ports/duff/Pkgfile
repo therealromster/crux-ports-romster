@@ -1,17 +1,21 @@
 # Description: DUplicate File Finder.
 # URL: http://duff.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 name=duff
-version=0.4
+version=0.5.2
 release=1
-source=(http://dl.sourceforge.net/sourceforge/duff/duff-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.bz2)
 
 build() {
-	cd duff-$version
-	./configure --prefix=/usr
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
 	make
 	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/{doc,locale}
 }
 
