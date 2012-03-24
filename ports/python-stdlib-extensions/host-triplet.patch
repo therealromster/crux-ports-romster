@@ -1,0 +1,12 @@
+diff -pruN python-stdlib-extensions-2.7.3.orig/2.7/setup.py python-stdlib-extensions-2.7.3/2.7/setup.py
+--- python-stdlib-extensions-2.7.3.orig/2.7/setup.py	2012-03-24 15:23:31.547652379 +1100
++++ python-stdlib-extensions-2.7.3/2.7/setup.py	2012-03-24 16:02:25.346507485 +1100
+@@ -380,7 +380,7 @@ class PyBuildExt(build_ext):
+         # lib_dirs and inc_dirs are used to search for files;
+         # if a file is found in one of those directories, it can
+         # be assumed that no additional -I,-L directives are needed.
+-        gnu_triplet = os.popen('dpkg-architecture -qDEB_HOST_MULTIARCH 2>/dev/null || dpkg-architecture -qDEB_HOST_GNU_TYPE').readline()[:-1]
++        gnu_triplet = os.popen('ls /usr/lib/gcc/x86_64-unknown-linux-gnu &>/dev/null && echo x86_64-unknown-linux-gnu || echo i686-pc-linux-gnu').readline()[:-1]
+         lib_dirs = self.compiler.library_dirs + [
+             os.path.join('/lib', gnu_triplet),
+             os.path.join('/usr/lib', gnu_triplet),

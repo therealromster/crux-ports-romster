@@ -1,0 +1,17 @@
+# Description: Python stdlib extensions, provides tkinter (python-tk) and gdbm modles to python.
+# URL: http://packages.debian.org/wheezy/python-tk
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: setuptools tk xorg-libx11
+
+name=python-stdlib-extensions
+version=2.7.3
+release=1
+source=(http://ftp.de.debian.org/debian/pool/main/p/python-stdlib-extensions/python-stdlib-extensions_$version-1.tar.gz
+	host-triplet.patch)
+
+build() {
+	cd $name-$version/2.7
+	patch -p 2 -i $SRC/host-triplet.patch
+	python setup.py install --root $PKG
+}
