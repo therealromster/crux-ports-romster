@@ -1,0 +1,35 @@
+# Description: Linear Algebra PACKage - F77 routines for Linear Algebra
+# URL: http://www.netlib.org/lapack/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: acrux, acrux at linuxmail dot org
+# Depends on: gcc-fortran
+
+name=lapack
+version=3.4.0
+release=1
+source=(http://www.netlib.org/$name/$name.tgz)
+
+build() {
+	export CXXFLAGS+=" -fPIC" CFLAGS+=" -fPIC"
+
+	cd $name-$version
+
+	mv make.inc.example make.inc
+	mv INSTALL/make.inc.gfortran make.inc
+
+	export FC="${FC:-gfortran}"
+	export FFLAGS="${FFLAGS:-CFLAGS}"
+
+	sed -i \
+		-e "s|-O2|$CFLAGS|g" \
+		-e "s|^FORTRAN  = .*|FORTRAN  = $FC|" \
+		-e "s|^NOOPT  =.*|NOOPT  = ${FFLAGS/-O?/-O0}|" \
+		-e "s|^OPTS  =.*|OPTS=  = $FFLAGS|" \
+		make.inc
+
+
+	make blaslib lapacklib
+
+	install -d $PKG/usr/lib
+	install -m 0644 -t $PKG/usr/lib/ liblapack.a librefblas.a
+}
