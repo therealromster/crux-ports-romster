@@ -19,8 +19,8 @@ drwxr-xr-x	root/root	usr/include/rlog/
 -rw-r--r--	root/root	usr/include/rlog/rloglocation.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/librlog.la
-lrwxrwxrwx	root/root	usr/lib/librlog.so -> librlog.so.1.3.4
-lrwxrwxrwx	root/root	usr/lib/librlog.so.1 -> librlog.so.1.3.4
--rwxr-xr-x	root/root	usr/lib/librlog.so.1.3.4
+lrwxrwxrwx	root/root	usr/lib/librlog.so -> librlog.so.5.0.0
+lrwxrwxrwx	root/root	usr/lib/librlog.so.5 -> librlog.so.5.0.0
+-rwxr-xr-x	root/root	usr/lib/librlog.so.5.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/librlog.pc
