@@ -5,7 +5,7 @@
 # Depends on: gtk xorg-libxcomposite
 
 name=dvdisaster
-version=0.72.2
+version=0.72.3
 release=1
 source=(http://dvdisaster.net/downloads/$name-$version.tar.bz2)
 
