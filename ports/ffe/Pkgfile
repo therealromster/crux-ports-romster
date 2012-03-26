@@ -4,9 +4,9 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=ffe
-version=0.2.8
+version=0.3.2
 release=1
-source=(http://downloads.sourceforge.net/project/ff-extractor/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/ff-extractor/ff-extractor/$version/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
