@@ -1,24 +1,18 @@
 # Description: An I/O benchmark and stress/hardware verification tool.
-# URL: http://freshmeat.net/projects/fio/
+# URL: http://http://freecode.com/projects/fio
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: libaio
 
 name=fio
-version=1.26
+version=2.0.6
 release=1
 source=(http://brick.kernel.dk/snaps/$name-$version.tar.bz2)
 
 up2date_url='http://brick.kernel.dk/snaps/'
-up2date="curl --silent $up2date_timeout \
-	'$up2date_url' | \
-	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
-	grep '^${name}[-|_][0-9][.0-9]*' | \
-	sed -ne 's|^${name}[-|_]\{1\}\(.*\)\.t.*$|\1|p' | \
-	uniq | tail -n 1"
 
 build() {
-	cd $name
+	cd $name-$version
 	make OPTFLAGS="$CFLAGS"
 	make DESTDIR=$PKG prefix=/usr install
 }
