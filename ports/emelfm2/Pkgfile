@@ -5,9 +5,9 @@
 # Depends on: gtk
 
 name=emelfm2
-version=0.7.3
+version=0.8.0
 release=1
-source="http://emelfm2.net/rel/emelfm2-$version.tar.bz2"
+source=(http://emelfm2.net/rel/emelfm2-$version.tar.bz2)
 
 build() {
 	cd emelfm2-$version
