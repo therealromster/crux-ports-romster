@@ -5,24 +5,13 @@
 # Depends on: python
 
 name=fail2ban
-version=0.8.4
+version=0.8.6
 release=1
-source="
-	http://downloads.sourceforge.net/project/$name/$name-stable/$name-$version/$name-$version.tar.bz2
-	fail2ban-0.8.4-hashlib.patch
-	fail2ban-0.8.4-sshd-breakin.patch
-	fail2ban-0.8.4-cve2009-5023.patch
-	fail2ban-0.8.4-iptables_race.patch
-	fail2ban.rc
-"
+source=(https://github.com/downloads/$name/$name/fail2ban_$version.orig.tar.gz
+	fail2ban.rc)
 
 build() {
-	cd $name-$version
-
-	patch -p 1 -i $SRC/fail2ban-0.8.4-hashlib.patch
-	patch -p 1 -i $SRC/fail2ban-0.8.4-sshd-breakin.patch
-	patch -p 0 -i $SRC/fail2ban-0.8.4-cve2009-5023.patch
-	patch -p 1 -i $SRC/fail2ban-0.8.4-iptables_race.patch
+	cd fail2ban-fail2ban-a20d1f8
 
 	python setup.py install --root=$PKG --prefix=/usr
 	python -mcompileall $PKG
