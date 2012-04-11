@@ -1,0 +1,24 @@
+# Description: Fastjar is an implementation of Sun's jar utility.
+# URL: https://savannah.nongnu.org/projects/fastjar
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: zlib
+
+name=fastjar
+version=0.98
+release=1
+source=(http://download.savannah.nongnu.org/releases/fastjar/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	rm -r $PKG/usr/share/info
+	rmdir $PKG/usr/share
+}
