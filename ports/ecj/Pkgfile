@@ -1,0 +1,26 @@
+# Description: Ant Compiler Adapter for Eclipse Java Compiler.
+# URL: http://cs.gmu.edu/~eclab/projects/ecj/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: jre ant unzip
+
+name=ecj
+version=3.7.1
+date=201109091335
+release=1
+source=(http://download.eclipse.org/eclipse/downloads/drops/R-$version-$date/ecjsrc-$version.jar
+	ecj)
+
+build() {
+	# https://projects.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/eclipse-ecj
+
+	mkdir src
+	unzip ecjsrc-$version.jar -d src
+	cd src
+	ant build
+
+	install -m 0644 -D $SRC/src/ecj.jar $PKG/usr/share/java/eclipse-ecj-$version.jar
+	ln -s eclipse-ecj-$version.jar $PKG/usr/share/java/ecj.jar
+	ln -s eclipse-ecj-$version.jar $PKG/usr/share/java/eclipse-ecj.jar
+	install -m 0755 -D $SRC/ecj $PKG/usr/bin/ecj
+}

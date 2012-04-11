@@ -1,0 +1,8 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ecj
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/java/
+lrwxrwxrwx	root/root	usr/share/java/ecj.jar -> eclipse-ecj-3.7.1.jar
+-rw-r--r--	root/root	usr/share/java/eclipse-ecj-3.7.1.jar
+lrwxrwxrwx	root/root	usr/share/java/eclipse-ecj.jar -> eclipse-ecj-3.7.1.jar
