@@ -1,0 +1,65 @@
+# Description: The GNU Compiler Collection.
+# URL: http://gcc.gnu.org/
+# Maintainer: HVLinux system team
+
+name=gcc46
+version=4.6.3
+release=1
+source=(http://ftp.gnu.org/gnu/gcc/gcc-$version/gcc-{core,g++,objc}-$version.tar.bz2
+        gcc-nocheck-fixincludes.patch gcc-4.5.3-multilib-dirs.patch)
+	
+build() {
+	patch -d gcc-$version -p 1 -i $SRC/gcc-nocheck-fixincludes.patch
+	patch -d gcc-$version -p 1 -i $SRC/gcc-4.5.3-multilib-dirs.patch
+	local SUFFIX=-${version%.*}
+	
+	mkdir build
+	cd build
+	../gcc-$version/configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--libexecdir=/usr/lib \
+		--program-suffix=$SUFFIX \
+		--enable-languages=c,c++,objc \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--disable-nls \
+		--with-x=no \
+		--with-system-zlib \
+		--enable-multilib \
+		--with-pkgversion="CRUX-x86_64-multilib"
+
+	if [ -n "$(pkginfo -i | grep '^distcc ')" ]; then
+		CC="/usr/bin/distcc"
+	elif [ -n "$(pkginfo -i | grep '^ccache ')" ]; then
+		CC="/usr/bin/ccache"
+	fi
+
+	make \
+		STAGE_CC_WRAPPER="$CC" \
+		STAGE1_MAKEFLAGS="$MAKEFLAGS" \
+		STAGE2_MAKEFLAGS="$MAKEFLAGS"
+
+	make -j 1 DESTDIR=$PKG install
+
+	install -d $PKG/lib
+	ln -sf ../usr/bin/cpp$SUFFIX $PKG/lib/cpp$SUFFIX
+	ln -sf gcc$SUFFIX $PKG/usr/bin/cc$SUFFIX
+	ln -sf g++$SUFFIX $PKG/usr/bin/c++$SUFFIX
+
+	mv $PKG/usr/lib/gcc/*/$version/include-fixed/{limits.h,syslimits.h} $PKG/usr/lib/gcc/*/$version/include/
+
+	rm -f $PKG/usr/lib{,32}/{libiberty.a,libstdc++.so.6.0.16-gdb.py}
+	#rm -r $PKG/usr/lib/lib{,32}{stdc++,supc++,gcc_s,objc}.*
+	rm -r $PKG/usr/share 
+	rm -r $PKG/usr/bin/*-linux-gnu-*
+	rm -r $PKG/usr/lib/gcc/*/$version/{install-tools,include-fixed}
+	rm -r $PKG/usr/man/man7
+
+	rm -r $PKG/usr/lib/{libgcc_s,libgomp,libmudflap,libmudflapth,libobjc,libssp,libssp_nonshared,libstdc++,libsupc++}.*
+	rm -r $PKG/usr/lib32/{libgcc_s,libgomp,libmudflap,libmudflapth,libobjc,libssp,libssp_nonshared,libstdc++,libsupc++}.*
+
+	#sed -i "s|-L$SRC[^ ]* ||g" $PKG/usr/lib{,32}/{libstdc++.la,libsupc++.la}
+}
