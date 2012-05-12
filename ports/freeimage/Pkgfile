@@ -4,13 +4,12 @@
 # Packager: nacho
 
 name=freeimage
-version=3.15.0
+version=3.15.3
 release=1
 source=(http://downloads.sourceforge.net/sourceforge/$name/FreeImage${version//./}.zip)
  
 build() {
 	cd FreeImage
-	sed -i -e '/^	ldconfig/d' Makefile.gnu
 	make
 	make DESTDIR=$PKG install
 }
