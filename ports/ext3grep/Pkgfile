@@ -1,7 +1,7 @@
-# Description: ext3 un-remove utility
+# Description: ext3 un-remove utility.
 # URL: http://code.google.com/p/ext3grep/
-.*$Lennart Sauerbeck, devel at lennart dot sauerbeck dot org
-# Depends on:
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Lennart Sauerbeck, devel at lennart dot sauerbeck dot org
 
 name=ext3grep
 version=0.10.1
