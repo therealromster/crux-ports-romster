@@ -1,6 +1,6 @@
 # Description: Continuous Collision Detection and Physics Library.
 # URL: http://www.bulletphysics.com/
-.*$Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
 # Depends on: cmake freeglut
 
@@ -8,7 +8,7 @@ name=bullet
 version=2.78
 sversion=$version-r2387
 release=1
-source="http://bullet.googlecode.com/files/$name-$sversion.tgz"
+source=(http://bullet.googlecode.com/files/$name-$sversion.tgz)
 
 build() {
 	cd $name-$version

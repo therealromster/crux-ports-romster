@@ -1,8 +1,8 @@
 # Description: X11 print library (Deprecated)
-# URL: 	       http://xorg.freedesktop.org
-# Packager:    Nathan Pardoe, npardoe at ticklestix dot co dot uk
-.*$ Nathan Pardoe, npardoe at ticklestix dot co dot uk
-# Depends on:  printproto, xorg
+# URL: http://xorg.freedesktop.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Nathan Pardoe, npardoe at ticklestix dot co dot uk
+# Depends on: printproto xorg
 
 name=libxp
 version=1.0.0

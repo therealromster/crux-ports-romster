@@ -1,7 +1,7 @@
 # Description: Linux kernel with realtime patchset.
 # URL: http://www.kernel.org/
-.*$Antonio SJ Musumeci, bile at landofbile dot com
-# Depends on:
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Antonio SJ Musumeci, bile at landofbile dot com
 
 version=2.6.33.3-rt19
 sversion=2.6.33.3

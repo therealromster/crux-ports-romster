@@ -1,6 +1,7 @@
 # Description: Python bindings for GNOME
 # URL: http://www.gnome.org/
-.*$Matt Housh, jaeger at morpheus dot net
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Matt Housh, jaeger at morpheus dot net
 # Depends on: glib gtk python pygtk pyorbit libgnome libgnomeui libgnomecanvas gnome-vfs gconf libbonobo libbonoboui libgnomeprintui pkg-config
 # Group: gnome/bindings
 

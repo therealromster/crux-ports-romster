@@ -1,6 +1,7 @@
 # Description: A VNC viewer widget for GTK
 # URL: http://gtk-vnc.sourceforge.net/
-.*$Matt Housh, jaeger at morpheus dot net
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Matt Housh, jaeger at morpheus dot net
 # Depends on: pygtk xorg-libxdmcp xorg-libxau freetype2 gnutls libgcrypt xorg-libxdamage xorg-libxext libxml2 cyrus-sasl libffi
 
 name=gtk-vnc

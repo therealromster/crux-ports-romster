@@ -1,8 +1,8 @@
 # Description: X11 print extension (Deprecated)
-# URL: 	       http://xorg.freedesktop.org
-# Packager:    Nathan Pardoe, npardoe at ticklestix dot co dot uk
-.*$ Nathan Pardoe, npardoe at ticklestix dot co dot uk
-# Depends on:  xorg
+# URL: http://xorg.freedesktop.org
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Nathan Pardoe, npardoe at ticklestix dot co dot uk
+# Depends on: xorg
 
 name=printproto
 version=1.0.4
