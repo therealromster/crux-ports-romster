@@ -1,23 +1,21 @@
 # Description: Media reception and transmission for DV, MPEG2-TS, and AMDTP using only raw1394.
-# URL: http://www.linux1394.org/
+# URL: https://ieee1394.wiki.kernel.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Rouven Schuerch, rs at tegonal dot com
 # Depends on: libraw1394
 
 name=libiec61883
-version=1.1.0
+version=1.2.0
 release=1
-source=(http://www.linux1394.org/dl/libiec61883-$version.tar.gz)
+source=(http://www.kernel.org/pub/linux/libs/ieee1394/$name-$version.tar.xz)
 
 build() {
-	cd libiec61883-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-static
+		--mandir=/usr/man
 
 	make
 	make DESTDIR=$PKG install
 }
-
