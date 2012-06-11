@@ -5,20 +5,20 @@
 # Depends on: curl libxslt libxml2
 
 name=raptor
-version=1.4.16
+version=2.0.7
 release=1
-source=(http://download.librdf.org/source/raptor-$version.tar.gz)
+source=(http://download.librdf.org/source/raptor2-$version.tar.gz)
 
 build() {
-	cd raptor-$version
+	cd raptor2-$version
 
 	./configure \
 		--prefix=/usr \
-		--datarootdir=/usr \
-		--disable-static
+		--mandir=/usr/man \
+		--enable-release \
+		--enable-silent-rules
 
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/gtk-doc
+	rm -r $PKG/usr/share
 }
-
