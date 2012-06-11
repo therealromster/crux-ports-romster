@@ -3,6 +3,7 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/lrdf.h
 -rw-r--r--	root/root	usr/include/lrdf_types.h
 drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/liblrdf.a
 -rwxr-xr-x	root/root	usr/lib/liblrdf.la
 lrwxrwxrwx	root/root	usr/lib/liblrdf.so -> liblrdf.so.2.0.0
 lrwxrwxrwx	root/root	usr/lib/liblrdf.so.2 -> liblrdf.so.2.0.0

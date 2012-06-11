@@ -1,21 +1,19 @@
 # Description: A lightweight RDF library with special support for LADSPA plugins.
-# URL: http://sourceforge.net/projects/lrdf
+# URL: https://github.com/swh/LRDF
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Diederick de Vries <diederick at diederickdevries dot net>
+# Packager: Diederick de Vries, diederick at diederickdevries dot net
 # Depends on: raptor ladspa
 
 name=liblrdf
-version=0.4.0
+version=0.5.0
 release=1
-source="http://dl.sourceforge.net/sourceforge/lrdf/$name-$version.tar.gz"
+source=(https://github.com/swh/LRDF/tarball/$version/$name-$version.tar.gz)
 
 build() {
-	cd $name-$version
-
-	./configure \
-		--prefix=/usr \
-		--disable-static
-
+	cd *-LRDF-*
+	aclocal
+	automake --add-missing
+	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 }
