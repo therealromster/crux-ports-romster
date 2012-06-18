@@ -1,0 +1,15 @@
+# Description: Python bindings for FUSE.
+# URL: http://fuse.sourceforge.net/wiki/index.php/FusePython
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: James Mills, prologic at shortcircuit dot net dot au
+# Depends on: setuptools fuse
+
+name=fuse-python
+version=0.2.1
+release=1
+source=(http://downloads.sourceforge.net/project/fuse/$name/$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	python setup.py install --root=$PKG
+}
