@@ -1,0 +1,19 @@
+# Description: Python module to access the shadow password file.
+# URL: http://www.twistedmatrix.com/users/z3p/files/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Younes Hafri, ycrux at club-internet dot fr
+# Depends on: python
+
+name=pyshadow
+version=0.2
+release=1
+source=(http://www.twistedmatrix.com/users/z3p/files/pyshadow-$version.tar.gz)
+
+build() {
+	install -d $PKG/usr
+	cd pyshadow-$version
+
+	python setup.py build
+	python setup.py install --home=$PKG/usr
+}
+
