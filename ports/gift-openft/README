@@ -1,0 +1,3 @@
+POST-INSTALL:
+    * Add "OpenFT" to the variable "plugins" in your ~/.giFT/giftd.conf
+

@@ -1,0 +1,19 @@
+# Description: The Ares network plug-in for giFT.
+# URL: http://gift.sourceforge.net/software/plugins.mhtml
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: gift
+
+name=gift-ares
+version=0.3.0
+release=1
+source=(http://www.hvlinux.net/crux/distfiles/$name/$name-$version.tar.bz2
+	http://update.kceasy.com/update/ares/nodes.gzip)
+
+build() {
+	cd gift-ares-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	zcat $SRC/nodes.gzip |tr -d '\r' > $PKG/usr/share/giFT/Ares/nodes
+}

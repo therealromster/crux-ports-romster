@@ -1,0 +1,16 @@
+# Description: A completely abstract low-level filesharing protocol.
+# URL: http://gift.sourceforge.net/
+# Packager: Coviello Giuseppe, giuseppecoviello at tin dot it
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+
+name=gift
+version=0.11.8.1
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}

@@ -1,0 +1,21 @@
+# Description: The FastTrack plug-in for giFT.
+# URL: http://gift.sourceforge.net/software/plugins.mhtml
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Coviello Giuseppe, giuseppecoviello at tin dot it
+# Depends on: gift
+
+name=gift-fasttrack
+version=0.8.9
+release=1
+source=(http://www.hvlinux.net/crux/distfiles/$name/giFT-FastTrack-$version.tar.gz
+	http://update.kceasy.com/update/fasttrack/nodes.gzip
+	http://update.kceasy.com/update/fasttrack/banlist.gzip)
+
+build() {
+	cd giFT-FastTrack-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	zcat $SRC/nodes.gzip |tr -d '\r' > $PKG/usr/share/giFT/FastTrack/nodes
+	zcat $SRC/banlist.gzip |tr -d '\r' > $PKG/usr/share/giFT/FastTrack/banlist
+}
