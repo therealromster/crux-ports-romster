@@ -1,0 +1,26 @@
+# Description: DBI PostgreSQL interface for Perl.
+# URL: http://search.cpan.org/~turnstep/DBD-Pg/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: p5-dbi postgresql
+
+name=p5-dbd-pg
+version=2.19.2
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TU/TURNSTEP/DBD-Pg-$version.tar.gz)
+
+build() {
+	cd DBD-Pg-$version
+
+	perl Makefile.PL
+	make CC="${CC:-gcc}" LD="${CC:-gcc}" OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+	
+	find $PKG -type f \( \
+		-name '.packlist' -o \
+		-name '*.bs' -o \
+		-name 'autosplit.ix' -o \
+		-name 'perllocal.pod' \) -delete
+
+	find $PKG -depth -empty -delete
+}
