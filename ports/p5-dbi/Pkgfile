@@ -1,0 +1,25 @@
+# Description: Database independent interface for Perl
+# URL: http://search.cpan.org/~timb/DBI/DBI.pm
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Victor Martinez, pitillo at ono dot com
+
+name=p5-dbi
+version=1.622
+release=1
+source=(http://cpan.cpantesters.org/authors/id/T/TI/TIMB/DBI-$version.tar.gz)
+
+build() {
+	cd DBI-$version
+
+	perl Makefile.PL
+	make CC="${CC:-gcc}" LD="${CC:-gcc}" OPTIMIZE="$CFLAGS"
+	make DESTDIR=$PKG install
+
+	find $PKG -type f \( \
+		-name '.packlist' -o \
+		-name '*.bs' -o \
+		-name 'autosplit.ix' -o \
+		-name 'perllocal.pod' \) -delete
+
+	find $PKG -depth -empty -delete
+}
