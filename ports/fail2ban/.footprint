@@ -11,6 +11,7 @@ drwxr-xr-x	root/root	etc/fail2ban/action.d/
 -rw-rw-r--	root/root	etc/fail2ban/action.d/iptables-multiport-log.conf
 -rw-rw-r--	root/root	etc/fail2ban/action.d/iptables-multiport.conf
 -rw-rw-r--	root/root	etc/fail2ban/action.d/iptables-new.conf
+-rw-rw-r--	root/root	etc/fail2ban/action.d/iptables-xt_recent-echo.conf
 -rw-rw-r--	root/root	etc/fail2ban/action.d/iptables.conf
 -rw-rw-r--	root/root	etc/fail2ban/action.d/mail-buffered.conf
 -rw-rw-r--	root/root	etc/fail2ban/action.d/mail-whois-lines.conf
@@ -29,6 +30,7 @@ drwxr-xr-x	root/root	etc/fail2ban/filter.d/
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/apache-nohome.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/apache-noscript.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/apache-overflows.conf
+-rw-rw-r--	root/root	etc/fail2ban/filter.d/asterisk.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/common.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/courierlogin.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/couriersmtp.conf
@@ -37,6 +39,7 @@ drwxr-xr-x	root/root	etc/fail2ban/filter.d/
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/dropbear.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/exim.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/gssftpd.conf
+-rw-rw-r--	root/root	etc/fail2ban/filter.d/lighttpd-auth.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/lighttpd-fastcgi.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/named-refused.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/pam-generic.conf
@@ -45,6 +48,7 @@ drwxr-xr-x	root/root	etc/fail2ban/filter.d/
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/proftpd.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/pure-ftpd.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/qmail.conf
+-rw-rw-r--	root/root	etc/fail2ban/filter.d/recidive.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/sasl.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/sieve.conf
 -rw-rw-r--	root/root	etc/fail2ban/filter.d/sshd-ddos.conf
@@ -122,6 +126,8 @@ drwxr-xr-x	root/root	usr/share/fail2ban/server/
 -rw-r--r--	root/root	usr/share/fail2ban/server/filtergamin.pyc
 -rw-r--r--	root/root	usr/share/fail2ban/server/filterpoll.py
 -rw-r--r--	root/root	usr/share/fail2ban/server/filterpoll.pyc
+-rw-r--r--	root/root	usr/share/fail2ban/server/filterpyinotify.py
+-rw-r--r--	root/root	usr/share/fail2ban/server/filterpyinotify.pyc
 -rw-r--r--	root/root	usr/share/fail2ban/server/iso8601.py
 -rw-r--r--	root/root	usr/share/fail2ban/server/iso8601.pyc
 -rw-r--r--	root/root	usr/share/fail2ban/server/jail.py

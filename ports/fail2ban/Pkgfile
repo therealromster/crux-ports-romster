@@ -5,18 +5,17 @@
 # Depends on: python
 
 name=fail2ban
-version=0.8.6
+version=0.8.7.1
 release=1
 source=(https://github.com/downloads/$name/$name/fail2ban_$version.orig.tar.gz
 	fail2ban.rc)
 
 build() {
-	cd fail2ban-fail2ban-a20d1f8
+	cd $name-$version
 
 	python setup.py install --root=$PKG --prefix=/usr
 	python -mcompileall $PKG
 
 	install -m 0750 -D $SRC/fail2ban.rc $PKG/etc/rc.d/fail2ban
-
-	rm $PKG/usr/share/fail2ban/fail2ban-$version-py*.egg-info
+	rm $PKG/usr/share/fail2ban/*.egg-info
 }
