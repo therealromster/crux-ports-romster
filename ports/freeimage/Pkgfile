@@ -1,15 +1,21 @@
 # Description: Library for loading and saving image formats.
 # URL: http://freeimage.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: nacho
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=freeimage
 version=3.15.3
-release=1
+release=2
 source=(http://downloads.sourceforge.net/sourceforge/$name/FreeImage${version//./}.zip)
  
 build() {
+	cp -r FreeImage FreeImagefip
+
 	cd FreeImage
 	make
 	make DESTDIR=$PKG install
+
+	cd $SRC/FreeImagefip
+	make -f Makefile.fip
+   make -f Makefile.fip DESTDIR=$PKG install
 }
