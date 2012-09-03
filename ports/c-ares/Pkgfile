@@ -2,10 +2,9 @@
 # URL: http://daniel.haxx.se/projects/c-ares/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Han Boetes, han at mijncomputer dot nl
-# Depends on:
 
 name=c-ares
-version=1.8.0
+version=1.9.1
 release=1
 source=(http://daniel.haxx.se/projects/$name/download/$name-$version.tar.gz)
 
