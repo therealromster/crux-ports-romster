@@ -1,0 +1,16 @@
+# Description: A fast high-level screen scraping and web crawling framework.
+# URL: http://scrapy.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on setuptools
+
+name=scrapy
+version=0.14.4
+release=1
+source=(http://pypi.python.org/packages/source/S/Scrapy/Scrapy-$version.tar.gz)
+
+build() {
+	cd Scrapy-$version
+	python setup.py install --root=$PKG
+	rm -r $PKG/usr/lib/python*/site-packages/Scrapy-*-py*.egg-info
+}
