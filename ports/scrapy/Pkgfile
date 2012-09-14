@@ -2,7 +2,7 @@
 # URL: http://scrapy.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on setuptools
+# Depends on w3lib
 
 name=scrapy
 version=0.14.4
@@ -12,5 +12,6 @@ source=(http://pypi.python.org/packages/source/S/Scrapy/Scrapy-$version.tar.gz)
 build() {
 	cd Scrapy-$version
 	python setup.py install --root=$PKG
+	chmod -R +r $PKG
 	rm -r $PKG/usr/lib/python*/site-packages/Scrapy-*-py*.egg-info
 }
