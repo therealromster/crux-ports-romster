@@ -2,21 +2,24 @@
 # URL: http://code.google.com/p/musicip-libofa/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Antonio SJ Musumeci, bile at landofbile dot com
-# Depends on: fftw expat
+# Depends on: fftw expat curl
 
 name=libofa
 version=0.9.3
-release=3
+release=4
 source=(http://musicip-libofa.googlecode.com/files/$name-$version.tar.gz
-	 libofa-0.9.3-gcc-4.patch
-	 libofa-0.9.3-gcc-4.3.patch
-	 libofa-0.9.3-gcc-4.4.patch)
+	 gcc-4.patch
+	 gcc4.3.patch
+	 gcc4.5.patch
+	 libofa-0.9.3-curl-7.21.patch)
 
 build() {
 	cd $name-$version
-	patch -p 0 -i $SRC/libofa-0.9.3-gcc-4.patch
-	patch -p 1 -i $SRC/libofa-0.9.3-gcc-4.3.patch
-	patch -p 1 -i $SRC/libofa-0.9.3-gcc-4.4.patch
+	patch -p 1 -i $SRC/gcc-4.patch
+	patch -p 1 -i $SRC/gcc4.3.patch
+	patch -p 1 -i $SRC/gcc4.5.patch
+	patch -p 1 -i $SRC/libofa-0.9.3-curl-7.21.patch
+
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
