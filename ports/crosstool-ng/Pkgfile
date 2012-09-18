@@ -1,13 +1,13 @@
 # Description: crosstool-NG aims at building toolchains.
-# URL: http://ymorin.is-a-geek.org/dokuwiki/projects/crosstool
+# URL: http://crosstool-ng.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Alex Kostrewa, alexko256 at googlemail dot com
 # Depends on: texinfo gperf
 
 name=crosstool-ng
-version=1.15.2
+version=1.16.0
 release=1
-source=(http://ymorin.is-a-geek.org/download/$name/$name-$version.tar.bz2)
+source=(http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-$version.tar.bz2)
 
 build() {
 	cd $name-$version
