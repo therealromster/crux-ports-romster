@@ -2,7 +2,7 @@
 # URL: http://pypi.python.org/pypi/w3lib
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on setuptools
+# Depends on distribute
 
 name=w3lib
 version=1.2

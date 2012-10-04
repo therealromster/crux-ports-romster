@@ -2,7 +2,7 @@
 # URL: http://code.google.com/p/protobuf/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: setuptools
+# Depends on: distribute
 
 name=protobuf
 version=2.3.0

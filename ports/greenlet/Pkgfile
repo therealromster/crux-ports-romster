@@ -2,7 +2,7 @@
 # URL: http://codespeak.net/py/0.9.2/greenlet.html
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: setuptools
+# Depends on: distribute
 
 name=greenlet
 version=0.3.3

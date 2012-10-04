@@ -2,7 +2,7 @@
 # URL: http://fuse.sourceforge.net/wiki/index.php/FusePython
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: James Mills, prologic at shortcircuit dot net dot au
-# Depends on: setuptools fuse
+# Depends on: distribute fuse
 
 name=fuse-python
 version=0.2.1
