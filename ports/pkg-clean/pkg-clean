@@ -39,7 +39,7 @@ pkg_clean() {
 		REQUIRED=(${REQUIRED[@]} `ls --color=never /usr/ports/core-multilib | xargs`)
 	fi
 
-	LIST=(${REQUIRED[@]} ccache ${KEEP[@]})
+	LIST=(${REQUIRED[@]} ccache prt-utils pkg-clean ${KEEP[@]})
 
 	pkginfo -i | awk '{print $1}' > $PKG_CLEAN_FILE
 
