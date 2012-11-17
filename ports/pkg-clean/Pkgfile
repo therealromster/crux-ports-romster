@@ -1,0 +1,14 @@
+# Description: Remove ports to a clean state.
+# URL: http://hvlinux.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=pkg-clean
+version=0.0.1
+release=1
+source=($name)
+
+build() {
+	mkdir -p $PKG/usr/sbin
+	install -m 0750 $SRC/$name $PKG/usr/sbin/
+}
