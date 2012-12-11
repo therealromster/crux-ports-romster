@@ -5,9 +5,9 @@
 # Depends on: pygtk
 
 name=mirage
-version=0.9.2
+version=0.9.5.2
 release=1
-source=(http://download.berlios.de/mirageiv/mirage-$version.tar.bz2 \
+source=(http://download.berlios.de/mirageiv/mirage-$version.tar.bz2
 	mirage.desktop)
 
 build() {
