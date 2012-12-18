@@ -1,11 +1,11 @@
-# Description: A GTK2 based scientific calculator.
+# Description: GTK+ based scientific calculator.
 # URL: http://galculator.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: acrux, acrux at linuxmail dot org
-# Depends on: gtk libglade p5-xml-parser
+# Depends on: desktop-file-utils gtk3
 
 name=galculator
-version=1.3.4
+version=2.0.1
 release=1
 source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.bz2)
 
@@ -20,6 +20,6 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	rm -rf $PKG/usr/share/locale
-}
 
+	rm -r $PKG/usr/share/locale
+}
