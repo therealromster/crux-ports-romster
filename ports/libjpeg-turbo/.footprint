@@ -1,0 +1,33 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/cjpeg-turbo
+-rwxr-xr-x	root/root	usr/bin/djpeg-turbo
+-rwxr-xr-x	root/root	usr/bin/jpegtran-turbo
+-rwxr-xr-x	root/root	usr/bin/rdjpgcom-turbo
+-rwxr-xr-x	root/root	usr/bin/tjbench-turbo
+-rwxr-xr-x	root/root	usr/bin/wrjpgcom-turbo
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libjpeg-turbo/
+-rw-r--r--	root/root	usr/include/libjpeg-turbo/jconfig.h
+-rw-r--r--	root/root	usr/include/libjpeg-turbo/jerror.h
+-rw-r--r--	root/root	usr/include/libjpeg-turbo/jmorecfg.h
+-rw-r--r--	root/root	usr/include/libjpeg-turbo/jpeglib.h
+-rw-r--r--	root/root	usr/include/libjpeg-turbo/turbojpeg.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/libjpeg-turbo/
+-rw-r--r--	root/root	usr/lib/libjpeg-turbo/libjpeg.a
+-rwxr-xr-x	root/root	usr/lib/libjpeg-turbo/libjpeg.la
+lrwxrwxrwx	root/root	usr/lib/libjpeg-turbo/libjpeg.so -> libjpeg.so.8.0.2
+lrwxrwxrwx	root/root	usr/lib/libjpeg-turbo/libjpeg.so.8 -> libjpeg.so.8.0.2
+-rwxr-xr-x	root/root	usr/lib/libjpeg-turbo/libjpeg.so.8.0.2
+-rw-r--r--	root/root	usr/lib/libjpeg-turbo/libturbojpeg.a
+-rwxr-xr-x	root/root	usr/lib/libjpeg-turbo/libturbojpeg.la
+-rwxr-xr-x	root/root	usr/lib/libjpeg-turbo/libturbojpeg.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/cjpeg-turbo.1.gz
+-rw-r--r--	root/root	usr/man/man1/djpeg-turbo.1.gz
+-rw-r--r--	root/root	usr/man/man1/jpegtran-turbo.1.gz
+-rw-r--r--	root/root	usr/man/man1/rdjpgcom-turbo.1.gz
+-rw-r--r--	root/root	usr/man/man1/wrjpgcom-turbo.1.gz
+drwxr-xr-x	root/root	usr/share/
