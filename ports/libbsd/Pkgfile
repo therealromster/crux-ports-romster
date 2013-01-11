@@ -1,0 +1,19 @@
+# Description: libbsd provides useful functions commonly found on BSD systems.
+# URL: http://libbsd.freedesktop.org/wiki
+# Packager: Ryan Mullen, rmmullen at gmail dot com
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+
+name=libbsd
+version=0.4.2
+release=1
+source=(http://libbsd.freedesktop.org/releases/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make DESTDIR=$PKG install
+}
