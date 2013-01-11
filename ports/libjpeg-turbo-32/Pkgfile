@@ -1,0 +1,30 @@
+# Description: libjpeg derivative with accelerated baseline JPEG compression and decompression.
+# URL: http://libjpeg-turbo.virtualgl.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=libjpeg-turbo-32
+version=1.2.1
+release=1
+source=(http://sourceforge.net/projects/libjpeg-turbo/files/$version/libjpeg-turbo-$version.tar.gz)
+
+build() {
+	cd libjpeg-turbo-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--with-jpeg8 \
+		--includedir=/usr/include/$name \
+		--libdir=/usr/lib32/$name \
+		--program-suffix=-turbo \
+		--host=i686-pc-linux-gnu
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r \
+		$PKG/usr/bin \
+		$PKG/usr/man \
+		$PKG/usr/share/doc
+}
