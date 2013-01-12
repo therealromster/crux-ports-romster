@@ -1,0 +1,37 @@
+# Description: Run remote OpenGL applications with full 3D hardware acceleration
+# URL: http://www.virtualgl.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: openssl-32 xorg-libx11-32 cmake mesa3d-32 libjpeg-turbo-32 virtualgl
+
+name=virtualgl-32
+version=2.3.2
+release=1
+source=(http://downloads.sourceforge.net/project/virtualgl/VirtualGL/$version/VirtualGL-$version.tar.gz
+	)
+
+build() {
+	cd VirtualGL-$version
+
+	# ccmake semms to break this compile
+	unset CC CXX
+	
+	install -d build
+	cd build
+	
+	cmake ../ \
+		-DCMAKE_INSTALL_PREFIX=/opt/VirtualGL \
+		-DMANDIR=/usr/man \
+		-DTJPEG_INCLUDE_DIR=/usr/include/libjpeg-turbo/ \
+		-DTJPEG_LIBRARY=/usr/lib32/libjpeg-turbo/libturbojpeg.so \
+		-DVGL_LIBDIR=/usr/lib32 \
+		-DVGL_BINDIR=/usr/bin
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r \
+		$PKG/opt/VirtualGL/include \
+		$PKG/usr/bin \
+		$PKG/opt/VirtualGL/doc
+}
