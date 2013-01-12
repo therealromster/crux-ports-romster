@@ -1,0 +1,40 @@
+# Description: 
+# URL: http://www.Bumblebee-Project.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: virtualgl libbsd glib2
+
+name=bumblebee
+version=3.0.1
+release=1
+source=(https://github.com/downloads/Bumblebee-Project/Bumblebee/$name-$version.tar.gz
+	bumblebeed.rc
+	99-remove-nvidia-dev.rules
+	remove_rmmod_wait_option.fix.patch)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		CONF_DRIVER_MODULE_NVIDIA=nvidia \
+		CONF_LDPATH_NVIDIA=/usr/lib/nvidia-bumblebee:/usr/lib32/nvidia-bumblebee \
+		CONF_MODPATH_NVIDIA=/usr/lib/nvidia-bumblebee/xorg/,/usr/lib/xorg/modules \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	patch -p 1 -i $SRC/remove_rmmod_wait_option.fix.patch
+
+	make
+	make DESTDIR=$PKG install
+
+	# Install init script
+	install -m 0755 -D $SRC/bumblebeed.rc $PKG/etc/rc.d/bumblebeed
+
+	# Make bash_completion work
+	mv -v $PKG/etc/bash_completion.d/bumblebee $PKG/etc/bash_completion.d/optirun
+
+	# Install udev rule to prevent GH-#144
+	install -m 0644 -D $SRC/99-remove-nvidia-dev.rules $PKG/lib/udev/rules.d/99-remove-nvidia-dev.rules
+}
