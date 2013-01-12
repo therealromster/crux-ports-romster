@@ -1,19 +1,11 @@
 drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/include/
-drwxr-xr-x	root/root	usr/include/libjpeg-turbo-32/
--rw-r--r--	root/root	usr/include/libjpeg-turbo-32/jconfig.h
--rw-r--r--	root/root	usr/include/libjpeg-turbo-32/jerror.h
--rw-r--r--	root/root	usr/include/libjpeg-turbo-32/jmorecfg.h
--rw-r--r--	root/root	usr/include/libjpeg-turbo-32/jpeglib.h
--rw-r--r--	root/root	usr/include/libjpeg-turbo-32/turbojpeg.h
 drwxr-xr-x	root/root	usr/lib32/
-drwxr-xr-x	root/root	usr/lib32/libjpeg-turbo-32/
--rw-r--r--	root/root	usr/lib32/libjpeg-turbo-32/libjpeg.a
--rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo-32/libjpeg.la
-lrwxrwxrwx	root/root	usr/lib32/libjpeg-turbo-32/libjpeg.so -> libjpeg.so.8.0.2
-lrwxrwxrwx	root/root	usr/lib32/libjpeg-turbo-32/libjpeg.so.8 -> libjpeg.so.8.0.2
--rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo-32/libjpeg.so.8.0.2
--rw-r--r--	root/root	usr/lib32/libjpeg-turbo-32/libturbojpeg.a
--rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo-32/libturbojpeg.la
--rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo-32/libturbojpeg.so
-drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/lib32/libjpeg-turbo/
+-rw-r--r--	root/root	usr/lib32/libjpeg-turbo/libjpeg.a
+-rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo/libjpeg.la
+lrwxrwxrwx	root/root	usr/lib32/libjpeg-turbo/libjpeg.so -> libjpeg.so.8.0.2
+lrwxrwxrwx	root/root	usr/lib32/libjpeg-turbo/libjpeg.so.8 -> libjpeg.so.8.0.2
+-rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo/libjpeg.so.8.0.2
+-rw-r--r--	root/root	usr/lib32/libjpeg-turbo/libturbojpeg.a
+-rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo/libturbojpeg.la
+-rwxr-xr-x	root/root	usr/lib32/libjpeg-turbo/libturbojpeg.so

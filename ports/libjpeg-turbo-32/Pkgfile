@@ -15,8 +15,8 @@ build() {
 		--prefix=/usr \
 		--mandir=/usr/man \
 		--with-jpeg8 \
-		--includedir=/usr/include/$name \
-		--libdir=/usr/lib32/$name \
+		--includedir=/usr/include/libjpeg-turbo \
+		--libdir=/usr/lib32/libjpeg-turbo \
 		--program-suffix=-turbo \
 		--host=i686-pc-linux-gnu
 
@@ -26,5 +26,9 @@ build() {
 	rm -r \
 		$PKG/usr/bin \
 		$PKG/usr/man \
-		$PKG/usr/share/doc
+		$PKG/usr/share/doc \
+		$PKG/usr/include/libjpeg-turbo
+
+	rmdir $PKG/usr/include
+	rmdir $PKG/usr/share
 }
