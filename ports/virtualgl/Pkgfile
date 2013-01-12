@@ -1,40 +1,35 @@
-# Description: Run remote OpenGL applications with full 3D hardware acceleration.
+# Description: Run remote OpenGL applications with full 3D hardware acceleration
 # URL: http://www.virtualgl.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: openssl xorg-libx11
+# Depends on: openssl xorg-libx11 cmake mesa3d libjpeg-turbo
 
 # turbojpeg
 
 name=virtualgl
-sname=VirtualGL
-version=2.1.2
+version=2.3.2
 release=1
-source=(http://dl.sourceforge.net/sourceforge/$name/$sname-$version.tar.gz)
-
-_filter="grep -v '2.1beta1' | "
-_up2date_timeout='--connect-timeout 10 --max-time 20 '
-up2date="curl --silent $_up2date_timeout \
-	'http://sourceforge.net/project/showfiles.php?group_id=117509&package_id=127953' | \
-	sed -ne 's/.*<a.*href=\"\([^\"]*\).*\".*/\1/p' | \
-	sed -ne 's|^.*-\(.*\)\.t.*$|\1|p' | $_filter \
-	sort | uniq | tail -n 1"
+source=(http://downloads.sourceforge.net/project/virtualgl/VirtualGL/$version/VirtualGL-$version.tar.gz
+	)
 
 build() {
-	cd vgl
+	cd VirtualGL-$version
+
+	unset CC CXX
 	
-	# build
-	make prefix=/usr DEBUG=no JPEGLIB=libjpeg M32=yes CC=gcc USESSL=yes
+	install -d build
+	cd build
+	
+	cmake ../ \
+		-DCMAKE_INSTALL_PREFIX=/opt/VirtualGL \
+		-DMANDIR=/usr/man \
+		-DTJPEG_INCLUDE_DIR=/usr/include/libjpeg-turbo/ \
+		-DTJPEG_LIBRARY=/usr/lib/libjpeg-turbo/libturbojpeg.so \
+		-DVGL_LIBDIR=/usr/lib \
+		-DVGL_BINDIR=/usr/bin
 
-	# install
-	install -d $PKG/usr/bin
-	make prefix=$PKG/usr JPEGLIB=libjpeg USESSL=yes install
+	make
+	make DESTDIR=$PKG install
 
-	# fix doc location
-	install -d $PKG/usr/share/doc/virtualgl
-	mv $PKG/usr/doc/* $PKG/usr/share/doc/virtualgl/
-	rmdir $PKG/usr/doc
-
-	# fix file conflict with mesa3d
-	mv $PKG/usr/bin/glxinfo $PKG/usr/bin/glxinfo-virtualgl
+	rm -r $PKG/opt/VirtualGL/doc
 }
