@@ -50,19 +50,19 @@ drwxr-xr-x	root/root	usr/include/google/protobuf/stubs/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libprotobuf-lite.a
 -rwxr-xr-x	root/root	usr/lib/libprotobuf-lite.la
-lrwxrwxrwx	root/root	usr/lib/libprotobuf-lite.so -> libprotobuf-lite.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/libprotobuf-lite.so.6 -> libprotobuf-lite.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/libprotobuf-lite.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libprotobuf-lite.so -> libprotobuf-lite.so.7.0.0
+lrwxrwxrwx	root/root	usr/lib/libprotobuf-lite.so.7 -> libprotobuf-lite.so.7.0.0
+-rwxr-xr-x	root/root	usr/lib/libprotobuf-lite.so.7.0.0
 -rw-r--r--	root/root	usr/lib/libprotobuf.a
 -rwxr-xr-x	root/root	usr/lib/libprotobuf.la
-lrwxrwxrwx	root/root	usr/lib/libprotobuf.so -> libprotobuf.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/libprotobuf.so.6 -> libprotobuf.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/libprotobuf.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libprotobuf.so -> libprotobuf.so.7.0.0
+lrwxrwxrwx	root/root	usr/lib/libprotobuf.so.7 -> libprotobuf.so.7.0.0
+-rwxr-xr-x	root/root	usr/lib/libprotobuf.so.7.0.0
 -rw-r--r--	root/root	usr/lib/libprotoc.a
 -rwxr-xr-x	root/root	usr/lib/libprotoc.la
-lrwxrwxrwx	root/root	usr/lib/libprotoc.so -> libprotoc.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/libprotoc.so.6 -> libprotoc.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/libprotoc.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/libprotoc.so -> libprotoc.so.7.0.0
+lrwxrwxrwx	root/root	usr/lib/libprotoc.so.7 -> libprotoc.so.7.0.0
+-rwxr-xr-x	root/root	usr/lib/libprotoc.so.7.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/protobuf-lite.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/protobuf.pc
@@ -72,6 +72,9 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/google/
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/google/protobuf/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/__init__.py (EMPTY)
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/__init__.pyc
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/google/protobuf/compiler/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/compiler/plugin_pb2.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/compiler/plugin_pb2.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/descriptor.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/descriptor.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/descriptor_pb2.py
@@ -79,14 +82,20 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/google/protobuf/
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/__init__.py (EMPTY)
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/__init__.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/api_implementation.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/api_implementation.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/containers.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/containers.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/cpp_message.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/cpp_message.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/decoder.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/decoder.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/encoder.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/encoder.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/message_listener.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/message_listener.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/python_message.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/python_message.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/type_checkers.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/type_checkers.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/wire_format.py
@@ -101,10 +110,10 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/google/protobuf/internal/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/service_reflection.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/text_format.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/google/protobuf/text_format.pyc
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.3.0-py2.7-nspkg.pth
-drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/protobuf-2.3.0-py2.7.egg-info/
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.3.0-py2.7.egg-info/PKG-INFO
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.3.0-py2.7.egg-info/SOURCES.txt
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.3.0-py2.7.egg-info/dependency_links.txt
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.3.0-py2.7.egg-info/namespace_packages.txt
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.3.0-py2.7.egg-info/top_level.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.4.1-py2.7-nspkg.pth
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/protobuf-2.4.1-py2.7.egg-info/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.4.1-py2.7.egg-info/PKG-INFO
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.4.1-py2.7.egg-info/SOURCES.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.4.1-py2.7.egg-info/dependency_links.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.4.1-py2.7.egg-info/namespace_packages.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/protobuf-2.4.1-py2.7.egg-info/top_level.txt
