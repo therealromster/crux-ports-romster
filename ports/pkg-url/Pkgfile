@@ -1,0 +1,14 @@
+# Description: List urls of soruce arrays in Pkgfiles.
+# URL: http://hvlinux.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=pkg-url
+version=0.0.1
+release=1
+source=($name)
+
+build() {
+	mkdir -p $PKG/usr/bin
+	install -m 0750 $SRC/$name $PKG/usr/bin/
+}
