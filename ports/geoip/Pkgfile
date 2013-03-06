@@ -1,31 +1,37 @@
-# Description: A free GeoIP Country database.
+# Description: Non-DNS IP-to-country resolver C library & utils.
 # URL: http://www.maxmind.com/app/c
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Younes Hafri, ycrux at club-internet dot fr
 
 name=geoip
-version=1.4.4
+version=1.5.0
 release=1
-source=(http://www.maxmind.com/download/geoip/api/c/GeoIP-$version.tar.gz \
-	http://www.maxmind.com/download/geoip/database/GeoIP.dat.gz \
-	geoip-$version-make-sbin.patch)
+source=(http://www.maxmind.com/download/geoip/api/c/GeoIP-$version.tar.gz
+	http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+	http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.xz
+	#http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz
+	)
 
 build() {
 	cd GeoIP-$version
 
-	patch -p 1 -i $SRC/geoip-$version-make-sbin.patch
-
 	./configure \
 		--prefix=/usr \
-		--with-city=yes \
-		--disable-static
+		--sysconfdir=/usr/etc \
+		--mandir=/usr/man
 
-	make -j 1
+	make
 	make DESTDIR=$PKG install
 
-	rm $PKG/usr/etc/GeoIP.conf.default
-	rm $PKG/usr/share/GeoIP/GeoIP.dat # out with the old
-	gzip -d ../GeoIP.dat.gz
-	install -m 0644 ../GeoIP.dat $PKG/usr/share/GeoIP/ # in with the new
-}
+	install -d $PKG/usr/sbin
+	mv $PKG/usr/bin/geoipupdate $PKG/usr/sbin/geoipupdate
 
+	rm $PKG/usr/etc/GeoIP.conf.default
+	rm $PKG/usr/share/GeoIP/GeoIP.dat
+
+	xzcat $SRC/GeoLiteCity.dat.xz > $PKG/usr/share/GeoIP/GeoIPCity.dat
+	#zcat $SRC/GeoLiteCityv6.dat.gz > $PKG/usr/share/GeoIP/GeoIPCityv6.dat
+        zcat $SRC/GeoIP.dat.gz > $PKG/usr/share/GeoIP/GeoIP.dat
+        zcat $SRC/GeoIPv6.dat.gz > $PKG/usr/share/GeoIP/GeoIPv6.dat
+}
