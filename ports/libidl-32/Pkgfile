@@ -1,0 +1,21 @@
+# Description: A library for creating trees of CORBA Interface Definition Language (IDL) files
+# URL: http://freecode.com/projects/libidl
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: glib-32
+
+name=libidl-32
+version=0.8.14
+release=1
+source=(http://download.gnome.org/sources/libIDL/${version%.*}/libIDL-$version.tar.bz2)
+
+build() {
+	cd libIDL-$version
+	./configure --prefix=/usr --libdir=/usr/lib32
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share
+
+	mv $PKG/usr/bin/libIDL-config-2 $PKG/usr/bin/libIDL-config-2-32
+	rm -r $PKG/usr/include
+}
