@@ -1,0 +1,13 @@
+# Description: Defragment and clean database files from firefox and chromium based browsers.
+# URL: https://github.com/skydrome/random/blob/master/shell/browser-vacuum.sh
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=browser-vacuum
+version=20130309
+release=1
+source=(https://raw.github.com/skydrome/random/master/shell/browser-vacuum.sh)
+
+build() {
+	install -D -m 0755 $name.sh $PKG/usr/bin/$name
+}
