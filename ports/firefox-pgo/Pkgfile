@@ -1,0 +1,49 @@
+# Description: PGO optimised Firefox browser.
+# URL: http://www.mozilla.com/firefox/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Fredrik Rinnestam, fredrik at crux dot nu
+# Depends on: nss, libidl, gtk, python, alsa-lib, yasm, mesa3d
+
+name=firefox-pgo
+version=19.0.2
+release=1
+source=(ftp://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.bz2
+        mozconfig)
+
+build() {
+    export MOZ_CO_PROJECT=browser
+    export BUILD_OFFICIAL=1
+    export MOZILLA_OFFICIAL=1
+    export MOZILLA_FIVE_HOME=/usr/lib/firefox
+    export MOZ_MAKE_FLAGS="$MAKEFLAGS"
+    export MOZ_PGO=1
+    export DISPLAY=:99
+
+    cd mozilla-release
+    export CFLAGS="$CFLAGS -mno-avx"
+    sed -e "s/#CFLAGS#/$CFLAGS/" $SRC/mozconfig > .mozconfig
+    ./configure
+
+    #mozilla sucks: BZ #824381
+    mkdir $SRC/mozilla-release/js/src/.deps
+
+    Xvfb -nolisten tcp -extension GLX -screen 0 1280x1024x24 $DISPLAY &
+    make
+    kill $! || true
+
+    install -d \
+        $PKG$MOZILLA_FIVE_HOME \
+        $PKG/usr/bin \
+        $PKG/usr/share/idl/firefox \
+        $PKG/usr/include/firefox
+
+    cp -rL dist/bin/* $PKG$MOZILLA_FIVE_HOME
+    ln -s /usr/lib/firefox/firefox $PKG/usr/bin/firefox
+
+    # devel stuff
+    cp -frL dist/idl/* $PKG/usr/share/idl/firefox/
+    cp -frL dist/include/* $PKG/usr/include/firefox/
+
+    install -d $PKG/etc/ld.so.conf.d
+    echo "/usr/lib/firefox" > $PKG/etc/ld.so.conf.d/firefox.conf
+}
