@@ -3,15 +3,22 @@
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Vitaly Sinilin, vs at kp4 dot ru
 # Depends on: alsa-lib
+# Nice to have: ffmpeg speex jack libsamplerate
 
 name=alsa-plugins
 version=1.0.26
-release=1
-source=(ftp://ftp.alsa-project.org/pub/plugins/$name-$version.tar.bz2)
+release=2
+source=(ftp://ftp.alsa-project.org/pub/plugins/$name-$version.tar.bz2
+	a52-1.patch a52-2.patch)
 
 build() {
 	cd $name-$version
+
+	patch -p 1 -i $SRC/a52-1.patch
+	patch -p 1 -i $SRC/a52-2.patch
+
 	./configure --prefix=/usr
+
 	make
 	make DESTDIR=$PKG install
 	#install -m 0755 -d $PKG/usr/share/doc/alsa-plugins-$version
