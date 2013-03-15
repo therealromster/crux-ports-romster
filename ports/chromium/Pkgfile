@@ -11,7 +11,7 @@ release=1
 source=(http://build.chromium.org/official/$name-$version_start.tar.bz2
 	chromium.sh)
 
-vcdiff="$(curl -s http://www.hvlinux.net/crux/distfiles/chromium/ | html2 | grep @href= | sed -e 's|.*@href=||' | grep vcdiff$)"
+vcdiff="$(curl -s http://crux.ster.so/distfiles/chromium/ | html2 | grep @href= | sed -e 's|.*@href=||' | grep vcdiff$)"
 found_line=false
 
 for file in $vcdiff; do
@@ -22,7 +22,7 @@ for file in $vcdiff; do
 	fi
 
 	if [ "$found_line" = true ]; then
-		source=("${source[@]}" "http://www.hvlinux.net/crux/distfiles/$name/$name-$vold-$vnew.tar.bz2.vcdiff")
+		source=("${source[@]}" "http://crux.ster.so/distfiles/$name/$name-$vold-$vnew.tar.bz2.vcdiff")
 	fi
 done
 

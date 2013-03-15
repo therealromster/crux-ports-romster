@@ -8,7 +8,7 @@ name=fusd-kor
 version=20100806
 release=1
 source="
-	http://www.hvlinux.net/crux/distfiles/$name/$name-$version-r17362.tar.bz2
+	http://crux.ster.so/distfiles/$name/$name-$version-r17362.tar.bz2
 	fusd-kor-2.6.33-kernel.patch
 	kfusd.rules
 "

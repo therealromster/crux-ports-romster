@@ -7,7 +7,7 @@
 name=youtube-dl
 version=2012.10.09
 release=1
-source=(http://www.hvlinux.net/crux/distfiles/$name/$name-$version)
+source=(http://crux.ster.so/distfiles/$name/$name-$version)
 #source=(https://github.com/rg3/$name/raw/$version/$name)
 # https://github.com/rg3/youtube-dl/blob/master/LATEST_VERSION
 
