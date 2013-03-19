@@ -5,7 +5,7 @@
 # Depends on: c-ares openssl libxml2 zlib
 
 name=aria2
-version=1.15.2
+version=1.16.4
 release=1
 source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.xz)
 
@@ -20,6 +20,6 @@ build() {
 
 	make
 	make prefix=$PKG/usr install
-	rm -r $PKG/usr/share/doc $PKG/usr/man/ru
+	rm -r $PKG/usr/share/doc $PKG/usr/man/{ru,pt}
 	rmdir $PKG/usr/share
 }
