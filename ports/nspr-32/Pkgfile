@@ -4,7 +4,7 @@
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
 
 name=nspr-32
-version=4.9.5
+version=4.9.6
 release=1
 source=(http://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v$version/src/nspr-$version.tar.gz
         nspr.pc.in)
