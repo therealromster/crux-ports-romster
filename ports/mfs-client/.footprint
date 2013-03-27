@@ -1,0 +1,51 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/mfs/
+-rw-r--r--	root/root	etc/mfs/mfsmount.cfg.dist
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/mfsappendchunks -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfscheckfile -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsdeleattr -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsdirinfo -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsfileinfo -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsfilerepair -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsgeteattr -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsgetgoal -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsgettrashtime -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsmakesnapshot -> mfstools
+-rwxr-xr-x	root/root	usr/bin/mfsmount
+lrwxrwxrwx	root/root	usr/bin/mfsrgetgoal -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsrgettrashtime -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsrsetgoal -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsrsettrashtime -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfsseteattr -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfssetgoal -> mfstools
+lrwxrwxrwx	root/root	usr/bin/mfssettrashtime -> mfstools
+-rwxr-xr-x	root/root	usr/bin/mfssnapshot
+-rwxr-xr-x	root/root	usr/bin/mfstools
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/mfsappendchunks.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfscheckfile.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsdeleattr.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsdirinfo.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsfileinfo.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsfilerepair.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsgeteattr.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsgetgoal.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsgettrashtime.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsmakesnapshot.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsrgetgoal.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsrgettrashtime.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsrsetgoal.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsrsettrashtime.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfsseteattr.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfssetgoal.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfssettrashtime.1.gz
+-rw-r--r--	root/root	usr/man/man1/mfstools.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+drwxr-xr-x	root/root	usr/man/man7/
+-rw-r--r--	root/root	usr/man/man7/mfs.7.gz
+-rw-r--r--	root/root	usr/man/man7/moosefs.7.gz
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/mfsmount.8.gz
