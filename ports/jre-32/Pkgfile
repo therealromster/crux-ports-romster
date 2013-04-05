@@ -1,0 +1,31 @@
+# Description: Java 2 Runtime Kit 32bit.
+# URL:         http://www.oracle.com/technetwork/java/index.html
+# Maintainer:  Danny Rawlins, monster dot romster at gmail dot com
+# Packager:    Simone Rota, sip at crux dot nu
+# Depends on: xorg-libxtst-32 xorg-libxi-32
+
+##export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"  "${pkgdir}/etc/profile.d/"
+ 
+
+name=jre-32
+version=1.6.0_43
+release=1
+source=(file:///jre-6u43-linux-i586.bin)
+
+build() {
+	sh $SRC/jre-*.bin --accept-license --unpack
+   
+	cd jre$version
+
+	 #rm -r $SRC/jre*/{man/ja,lib/{locale,deploy/messages_}}*
+    #rm -r $SRC/jre*/lib/fontconfig.{RedHat,SuSE,Turbo}.*
+
+    install -d $PKG/usr/{bin,man,lib32/jre$version}
+    #mv man/man1 $PKG/usr/man
+    mv bin lib plugin $PKG/usr/lib32/jre$version
+    
+    ln -s jre$version $PKG/usr/lib32/java
+#    ln -s ../lib/java/bin/java $PKG/usr/bin/java
+#    ln -s ../lib/java/bin/javaws $PKG/usr/bin/javaws
+#    ln -s ../lib/java/bin/keytool $PKG/usr/bin/keytool
+}
