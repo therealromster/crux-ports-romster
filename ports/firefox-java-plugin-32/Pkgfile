@@ -12,9 +12,9 @@ source=()
 build(){
   plugins=(
     # jre
-    /usr/lib/java/lib/i386/libnpjp2.so \
+    /usr/lib32/java/lib/i386/libnpjp2.so \
     # jdk
-    /usr/lib/java/jre/lib/i386/libnpjp2.so
+    /usr/lib32/java/jre/lib/i386/libnpjp2.so
 	 )
   
   for p in ${plugins[@]}; do
