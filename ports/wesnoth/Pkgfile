@@ -1,0 +1,38 @@
+# Description: The Battle for Wesnoth is a turn-based strategy game with a fantasy theme.
+# URL: http://www.wesnoth.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: boost cmake pango sdl_image sdl_mixer sdl_net sdl_ttf lua libidn
+
+name=wesnoth
+version=1.10.1
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name-${version%.*}/$name-$version/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	mkdir build
+	cd build
+
+	cmake ../ \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DMANDIR=/usr/man \
+		-DENABLE_NLS=FALSE \
+		-DENABLE_DESKTOP_ENTRY=TRUE \
+		-DENABLE_CAMPAIGN_SERVER=FALSE \
+		-DENABLE_SERVER=FALSE
+
+	make
+	make DESTDIR=$PKG install
+
+	# wont run if you reamove README and COPYING
+#	find $PKG/usr/share/wesnoth -type f \( \
+#		-name 'README' -o \
+#		-name 'COPYING.txt' -o \
+#		-name 'COPYING' \
+#	\) -exec rm {} +
+
+	find $PKG -type d -exec chmod -c go-w {} +
+	rm -r $PKG/usr/share/doc
+}
