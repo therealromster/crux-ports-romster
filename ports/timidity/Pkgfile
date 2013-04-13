@@ -1,0 +1,23 @@
+# Description: MIDI-to-WAVE converter and player.
+# URL: http://timidity.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Vincenzo Colosimo vico at bicisport dot de
+# Depends on: alsa-lib libao libvorbis
+
+name=timidity
+version=2.14.0
+release=1
+source=(http://downloads.sourceforge.net/timidity/TiMidity++-$version.tar.xz)
+
+build() {
+	cd TiMidity++-$version
+
+	./configure \
+		--prefix=/usr \
+		--enable-server \
+		--enable-alsaseq \
+		--enable-audio=alsa,oss,ao,vorbis
+
+	make
+	make DESTDIR=$PKG install
+}
