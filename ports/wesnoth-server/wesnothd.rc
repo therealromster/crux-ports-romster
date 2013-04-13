@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# /etc/rc.d/wesnoth: start/stop wesnothd daemon
+#
+
+# User settings here
+DAEMON=wesnothd
+RUN_AS_USER=wesnothd
+
+RETVAL=0
+
+case $1 in
+start)
+	echo -n "Starting $DAEMON..."
+	su $RUN_AS_USER -c /usr/bin/$DAEMON > /dev/null & RETVAL=$?
+	if [ $RETVAL = 0 ]; then
+		echo " done."
+	fi
+	;;
+stop)
+	echo -n "Shutting down $DAEMON..."
+	killall -q /usr/bin/$DAEMON
+	RETVAL=$?
+	echo " done."
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	RETVAL=$?
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	exit 1
+	;;
+esac
+
+exit $RETVAL
+
+# End of file

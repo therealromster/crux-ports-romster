@@ -1,0 +1,48 @@
+# Description: Server for Wesnoth.
+# URL: http://www.wesnoth.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: boost cmake pango sdl_image sdl_mixer sdl_net sdl_ttf lua libidn
+
+name=wesnoth-server
+version=1.10.1
+release=1
+source=(http://downloads.sourceforge.net/project/wesnoth/wesnoth-${version%.*}/wesnoth-$version/wesnoth-$version.tar.bz2
+	wesnothd.rc)
+
+build() {
+	cd wesnoth-$version
+
+	mkdir build
+	cd build
+
+	cmake ../ \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DMANDIR=/usr/man \
+		-DENABLE_NLS=FALSE \
+		-DENABLE_CAMPAIGN_SERVER=TRUE \
+		-DENABLE_SERVER=TRUE \
+		-DSERVER_UID=root \
+		-DSERVER_GID=wesnothd \
+		-DFIFO_DIR=/var/run/wesnothd
+
+	make campaignd wesnothd
+	make DESTDIR=$PKG install
+	install -m 0755 -D $SRC/wesnothd.rc $PKG/etc/rc.d/wesnoth
+	chown root:wesnothd $PKG/usr/bin/{wesnothd,campaignd}
+	chmod 0740 -c $PKG/usr/bin/{wesnothd,campaignd}
+	chmod 0770 -c $PKG/var/run/wesnothd
+
+	rm \
+		$PKG/usr/bin/wesnoth \
+		$PKG/usr/man/man6/wesnoth.6 \
+		$PKG/usr/share/applications/{wesnoth,wesnoth_editor}.desktop
+
+	rm -r \
+		$PKG/usr/share/doc \
+		$PKG/usr/share/pixmaps \
+		$PKG/usr/share/wesnoth/data \
+		$PKG/usr/share/wesnoth
+
+	rmdir $PKG/usr/share/applications $PKG/usr/share
+}
