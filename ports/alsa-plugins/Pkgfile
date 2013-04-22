@@ -6,16 +6,12 @@
 # Nice to have: ffmpeg speex jack libsamplerate
 
 name=alsa-plugins
-version=1.0.26
-release=2
-source=(ftp://ftp.alsa-project.org/pub/plugins/$name-$version.tar.bz2
-	a52-1.patch a52-2.patch)
+version=1.0.27
+release=1
+source=(ftp://ftp.alsa-project.org/pub/plugins/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
-
-	patch -p 1 -i $SRC/a52-1.patch
-	patch -p 1 -i $SRC/a52-2.patch
 
 	./configure --prefix=/usr
 
