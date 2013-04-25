@@ -1,0 +1,25 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gdk-pixbuf-config
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gdk-pixbuf-1.0/
+drwxr-xr-x	root/root	usr/include/gdk-pixbuf-1.0/gdk-pixbuf/
+-rw-r--r--	root/root	usr/include/gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf-features.h
+-rw-r--r--	root/root	usr/include/gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf-loader.h
+-rw-r--r--	root/root	usr/include/gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf-xlib.h
+-rw-r--r--	root/root	usr/include/gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf-xlibrgb.h
+-rw-r--r--	root/root	usr/include/gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gdk-pixbuf/
+drwxr-xr-x	root/root	usr/lib/gdk-pixbuf/loaders/
+-rw-r--r--	root/root	usr/lib/gdk_pixbufConf.sh
+-rw-r--r--	root/root	usr/lib/gdk_pixbuf_xlibConf.sh
+-rw-r--r--	root/root	usr/lib/gnomecanvaspixbufConf.sh
+-rw-r--r--	root/root	usr/lib/libgdk_pixbuf.a
+-rwxr-xr-x	root/root	usr/lib/libgdk_pixbuf.la
+lrwxrwxrwx	root/root	usr/lib/libgdk_pixbuf.so -> libgdk_pixbuf.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libgdk_pixbuf.so.2 -> libgdk_pixbuf.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libgdk_pixbuf.so.2.0.0
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/gdk-pixbuf.m4

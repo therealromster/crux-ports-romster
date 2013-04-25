@@ -1,0 +1,24 @@
+# Description: GdkPixbuf uses Libart to apply generalized affine transformations to images.
+# URL: http://developer.gnome.org/arch/imaging/gdkpixbuf.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk1 libpng libtiff
+
+name=gdk-pixbuf1
+version=0.22.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/${version%.*}/gdk-pixbuf-$version.tar.bz2)
+
+build() {
+	cd gdk-pixbuf-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-gnome
+
+	make
+	make DESTDIR=$PKG install
+	sed -i -e "s|-L$PKG/usr/lib||g" $PKG/usr/lib/*.la
+	rm -r $PKG/usr/share/gnome
+}
