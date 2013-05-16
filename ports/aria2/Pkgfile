@@ -5,7 +5,7 @@
 # Depends on: c-ares openssl libxml2 zlib
 
 name=aria2
-version=1.16.4
+version=1.17.0
 release=1
 source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.xz)
 
