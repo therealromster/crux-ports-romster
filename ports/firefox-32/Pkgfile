@@ -5,7 +5,7 @@
 # Depends on: nss-32 libidl-32 gtk-32 python-32 alsa-lib-32 yasm mesa3d-32
 
 name=firefox-32
-version=20.0
+version=21.0
 release=1
 source=(ftp://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.bz2
         mozconfig)
@@ -48,4 +48,7 @@ build() {
 
     install -d $PKG/etc/ld.so.conf.d
     echo "/usr/lib32/firefox" > $PKG/etc/ld.so.conf.d/$name.conf
+
+    # cleanup
+    find $PKG -name .mkdir.done -delete
 }
