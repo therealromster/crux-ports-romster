@@ -1,0 +1,59 @@
+# Description: Advanced general-purpose media player. A fork of the original MPlayer project.
+# URL: http://www.mplayer2.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: e2fsprogs faad2 fribidi harfbuzz libbluray libbsd libcap libcdio libdca libdv libdvdnav libmad libmng libtheora libvdpau libxvid openldap tdb xz
+
+name=mplayer2
+version=git-cf2fb74
+sversion=cf2fb74acd4052f7e89fbf17126471259cdab2d6
+release=1
+source=()
+
+build() {
+	cd $PKGMK_SOURCE_DIR
+	if cd $name; then
+		git pull --rebase git://git.mplayer2.org/$name-build.git master
+		git checkout $sversion
+	else
+		git clone git://git.mplayer2.org/$name-build.git $name
+		cd $name
+		git checkout $sversion
+	fi
+	cp -r $PKGMK_SOURCE_DIR/$name $SRC
+
+	cd $SRC/$name
+
+	# Make Mplayer2 build flags
+	echo "\
+--confdir=/etc/mplayer
+--disable-lirc
+--disable-lircc
+--disable-vstream
+--disable-xinerama
+--disable-caca
+--disable-rsound
+--disable-pulse
+--disable-jack
+--disable-mpg123
+--disable-liba52
+--disable-speex
+--disable-xss
+--language=all
+--prefix=/usr
+--mandir=/usr/man
+" > mplayer_options
+
+	./init --shallow
+
+	make CC="$CC"
+	make DESTDIR=$PKG install
+
+	install -Dm664 mplayer/etc/{codecs,input,example}.conf ${PKG}/etc/mplayer/
+	install -d ${PKG}/usr/share/{mplayer,applications}
+	#ln -s /usr/share/fonts/TTF/DejaVuSans.ttf ${PKG}/usr/share/mplayer/subfont.ttf
+	install -Dm644 mplayer/etc/mplayer.{desktop,xpm} ${PKG}/usr/share/applications/
+
+	#mv $PKG/usr/bin/mplayer $PKG/usr/bin/mplayer2
+	#mv $PKG/usr/man/man1/mplayer.1 $PKG/usr/man/man1/mplayer2.1
+}
