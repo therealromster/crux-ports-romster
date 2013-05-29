@@ -1,0 +1,19 @@
+# Description: Easily build and distribute Python packages.
+# URL: http://pypi.python.org/pypi/distribute
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: python3
+
+name=python3-distribute
+version=0.6.40
+release=1
+source=(http://pypi.python.org/packages/source/d/distribute/distribute-$version.tar.gz)
+
+build() {
+	cd distribute-$version
+
+	python3 setup.py install --root=$PKG
+	mv $PKG/usr/bin/easy_install $PKG/usr/bin/easy_install3
+
+	chmod -R og-w $PKG
+}
