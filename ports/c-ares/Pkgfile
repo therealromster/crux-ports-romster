@@ -4,7 +4,7 @@
 # Packager: Han Boetes, han at mijncomputer dot nl
 
 name=c-ares
-version=1.9.1
+version=1.10.0
 release=1
 source=(http://daniel.haxx.se/projects/$name/download/$name-$version.tar.gz)
 
