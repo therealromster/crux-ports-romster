@@ -2,7 +2,7 @@
 # URL: http://www.mplayer2.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: e2fsprogs faad2 fribidi harfbuzz libbluray libbsd libcap libcdio libdca libdv libdvdnav libmad libmng libtheora libvdpau libxvid openldap tdb xz
+# Depends on: e2fsprogs faad2 fribidi harfbuzz libbluray libbsd libcap libcdio libdca libdv libdvdnav libmad libmng libtheora libvdpau libxvid openldap tdb xz libass
 
 name=mplayer2
 version=git-cf2fb74
