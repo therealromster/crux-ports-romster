@@ -1,0 +1,17 @@
+# Description: Masquerade directory to use ccache with gcj.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gcj ccache
+
+name=gcj-ccache-bindings
+version=1
+release=1
+source=()
+
+build() {
+	install -d $PKG/usr/lib/ccache
+	ln -s ../../bin/ccache $PKG/usr/lib/ccache/gcj
+	ln -s ../../bin/ccache $PKG/usr/lib/ccache/jc1
+}
+
