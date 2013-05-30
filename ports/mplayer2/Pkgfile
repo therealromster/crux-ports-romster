@@ -2,7 +2,7 @@
 # URL: http://www.mplayer2.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: e2fsprogs faad2 fribidi harfbuzz libbluray libbsd libcap libcdio libdca libdv libdvdnav libmad libmng libtheora libvdpau libxvid openldap tdb xz libass python3 docutils git
+# Depends on: docutils e2fsprogs faad2 git libass libbluray libbsd libcap libcdio libdca libdv libdvdnav libmad libmng libtheora libvdpau libxvid openldap python3 tdb xz
 
 name=mplayer2
 version=git-cf2fb74
@@ -46,7 +46,11 @@ build() {
 
 	./init --shallow
 
-	make CC="$CC"
+	if [ -z $CC ]; then
+		make
+	else
+		make CC="$CC"
+	fi
 	make DESTDIR=$PKG install
 
 	install -Dm664 mplayer/etc/{codecs,input,example}.conf ${PKG}/etc/mplayer/
