@@ -1,0 +1,80 @@
+# Description: GNU Java Compiler.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Aaron Marks, nymacro at gmail dot com
+# Depends on: alsa-lib gtk libart_lgpl libmpc util-linux-ng xorg-libxtst
+
+name=gcj
+version=4.5.3
+release=2
+source=(ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$version/gcc-{core,g++,java}-$version.tar.bz2
+	ftp://sourceware.org/pub/java/ecj-4.5.jar
+	gcc-nocheck-fixincludes.patch)
+
+build() {
+	patch -d gcc-$version -p 1 -i $SRC/gcc-nocheck-fixincludes.patch
+	mv $SRC/ecj-4.5.jar $SRC/gcc-$version/ecj.jar
+
+	mkdir build
+	cd build
+	../gcc-$version/configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--libexecdir=/usr/lib \
+		--enable-languages=java \
+		--enable-threads=posix \
+		--enable-__cxa_atexit \
+		--enable-clocale=gnu \
+		--enable-shared \
+		--enable-java-awt=gtk \
+		--disable-nls \
+		--with-system-zlib \
+		--with-ecj-jar \
+		--with-pkgversion="CRUX"
+
+	if [ -n "$(pkginfo -i | grep '^distcc ')" ]; then
+		CC="/usr/bin/distcc"
+	elif [ -n "$(pkginfo -i | grep '^ccache ')" ]; then
+		CC="/usr/bin/ccache"
+	fi
+
+	make \
+		LD_LIBRARY_PATH="/usr/lib" \
+		STAGE_CC_WRAPPER="$CC" \
+		STAGE1_CFLAGS="-g -O2"
+		BOOT_CFLAGS="$CFLAGS" \
+		GCJFLAGS="$CFLAGS" \
+		STAGE1_MAKEFLAGS="$MAKEFLAGS" \
+		STAGE2_MAKEFLAGS="$MAKEFLAGS"
+
+	make -j 1 DESTDIR=$PKG install
+
+	rm -rf \
+		$PKG/usr/share/info \
+		$PKG/usr/lib*/{libiberty.a,*-gdb.py} \
+		$PKG/usr/lib/nof/*-gdb.py \
+		$PKG/usr/bin/*-linux-gnu-* \
+		$PKG/usr/lib/gcc/*/$version/{install-tools,include-fixed} \
+		$PKG/usr/lib/gcc/*/$version/include/README \
+		$PKG/usr/man/man1/{cpp,gcc,gcov,g++}.1 \
+		$PKG/usr/man/man7
+
+	python -mcompileall $PKG
+
+	# remove files already on the system out of the port
+	for i in $(pkginfo -l gcc |sed -e "s|^|/|"); do
+		if [ -e "$i" ] && [ ! -d "$i" ]; then
+			if [ -e "$PKG$i" ]; then
+				rm "$PKG$i"
+			fi
+		fi
+	done
+
+	# remove empty directories
+	find $PKG -depth -empty -delete
+
+	# remove build links from *.la files
+	for i in `find $PKG -name '*.la' | sed -e "s|$PKG|/|"`; do
+		sed -i "s|-L$SRC[^ ]* ||g" $PKG/$i
+	done
+}
