@@ -1,0 +1,17 @@
+# Description: Masquerade directory to use distcc with gcj.
+# URL: http://gcc.gnu.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gcj distcc
+
+name=gcj-distcc-bindings
+version=1
+release=1
+source=()
+
+build() {
+	install -d $PKG/usr/lib/distcc
+	ln -s ../../bin/distcc $PKG/usr/lib/distcc/gcj
+	ln -s ../../bin/distcc $PKG/usr/lib/distcc/jc1
+}
+
