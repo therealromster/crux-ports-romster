@@ -1,0 +1,15 @@
+# Description: Japanese TrueType fonts from Vine Linux.
+# URL: http://vlgothic.dicey.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: xorg-mkfontdir xorg-mkfontscale fontconfig
+
+name=xorg-font-ttf-vlgothic
+version=20130607
+release=1
+source=(http://jaist.dl.sourceforge.jp/vlgothic/58961/VLGothic-$version.tar.xz)
+
+build() {
+	install -d $PKG/usr/share/fonts/TTF
+  	install -m 0644 $SRC/VLGothic/*.ttf $PKG/usr/share/fonts/TTF
+}
