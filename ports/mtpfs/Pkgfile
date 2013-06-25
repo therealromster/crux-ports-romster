@@ -2,19 +2,18 @@
 # URL: http://www.adebenham.com/mtpfs/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: fuse glib libid3tag libmad libmtp libusb
+# Depends on: fuse glib libid3tag libmad libmtp
 
 name=mtpfs
-version=0.9
+version=1.1
 release=1
-source=(http://www.adebenham.com/debian/${name}_$version.orig.tar.gz)
+source=(http://www.adebenham.com/files/mtp/$name-$version.tar.gz)
 
 build() {
-	cd $name-$version.orig
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
-		--disable-static \
 		--disable-dependency-tracking \
 
 	make
