@@ -5,7 +5,7 @@
 # Depends on: distribute
 
 name=youtube-dl
-version=2013.07.12
+version=2013.07.17.1
 release=1
 source=(http://youtube-dl.org/downloads/$version/$name-$version.tar.gz)
 

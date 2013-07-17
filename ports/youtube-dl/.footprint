@@ -7,11 +7,11 @@ drwxr-xr-x	root/root	usr/etc/bash_completion.d/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/python2.7/
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/
-drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.12-py2.7.egg-info/
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.12-py2.7.egg-info/PKG-INFO
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.12-py2.7.egg-info/SOURCES.txt
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.12-py2.7.egg-info/dependency_links.txt
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.12-py2.7.egg-info/top_level.txt
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.17.1-py2.7.egg-info/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.17.1-py2.7.egg-info/PKG-INFO
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.17.1-py2.7.egg-info/SOURCES.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.17.1-py2.7.egg-info/dependency_links.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl-2013.07.17.1-py2.7.egg-info/top_level.txt
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/FileDownloader.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/FileDownloader.pyc
@@ -59,6 +59,9 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/brightcove.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/brightcove.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/brightcove.pyo
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/canalplus.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/canalplus.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/canalplus.pyo
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/collegehumor.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/collegehumor.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/collegehumor.pyo
@@ -68,6 +71,9 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/common.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/common.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/common.pyo
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/criterion.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/criterion.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/criterion.pyo
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/cspan.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/cspan.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/cspan.pyo
@@ -98,6 +104,9 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/flickr.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/flickr.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/flickr.pyo
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/freesound.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/freesound.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/freesound.pyo
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/funnyordie.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/funnyordie.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/funnyordie.pyo
@@ -125,6 +134,9 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/hypem.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/hypem.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/hypem.pyo
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/ign.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/ign.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/ign.pyo
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/ina.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/ina.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/ina.pyo
@@ -146,6 +158,9 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/liveleak.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/liveleak.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/liveleak.pyo
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/livestream.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/livestream.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/livestream.pyo
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/metacafe.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/metacafe.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/metacafe.pyo
@@ -203,6 +218,9 @@ drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/tf1.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/tf1.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/tf1.pyo
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/thisav.py
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/thisav.pyc
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/thisav.pyo
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/traileraddict.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/traileraddict.pyc
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/youtube_dl/extractor/traileraddict.pyo
