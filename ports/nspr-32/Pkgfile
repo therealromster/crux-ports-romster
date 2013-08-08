@@ -4,7 +4,7 @@
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
 
 name=nspr-32
-version=4.9.6
+version=4.10
 release=1
 source=(http://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v$version/src/nspr-$version.tar.gz
         nspr.pc.in)
@@ -12,9 +12,9 @@ source=(http://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v$version/src/nspr-
 build() {
     local NSPR_LIBS NSPR_CFLAGS NSPR_VERSION
 
-    cd nspr-$version
+    cd nspr-$version/nspr
 
-    ./mozilla/nsprpub/configure \
+    ./configure \
         --prefix=/usr \
         --libdir=/usr/lib32 \
         --includedir=/usr/include/nspr \
