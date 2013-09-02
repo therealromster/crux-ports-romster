@@ -6,10 +6,10 @@
 
 name=xorg-font-ttf-vlgothic
 version=20130607
-release=1
+release=2
 source=(http://jaist.dl.sourceforge.jp/vlgothic/58961/VLGothic-$version.tar.xz)
 
 build() {
-	install -d $PKG/usr/share/fonts/TTF
-  	install -m 0644 $SRC/VLGothic/*.ttf $PKG/usr/share/fonts/TTF
+	install -d $PKG/usr/share/fonts/X11/TTF
+  	install -m 0644 $SRC/VLGothic/*.ttf $PKG/usr/share/fonts/X11/TTF
 }
