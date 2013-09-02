@@ -1,0 +1,15 @@
+# Description: Japanese outline fonts by Information-technology Promotion Agency, Japan (IPA).
+# URL: http://ipafont.ipa.go.jp/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: xorg-mkfontdir xorg-mkfontscale fontconfig
+
+name=xorg-font-otf-ipafont
+version=003.03
+release=1
+source=(http://info.openlab.ipa.go.jp/ipafont/fontdata/IPAfont${version/./}.zip)
+
+build() {
+	install -d $PKG/usr/share/fonts/OTF
+  	install -m 0644 $SRC/IPAfont${version/./}/*.ttf $PKG/usr/share/fonts/OTF
+}
