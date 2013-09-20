@@ -6,16 +6,15 @@
 
 ##export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"  "${pkgdir}/etc/profile.d/"
  
-
 name=jre-32
-version=1.7.0_25
+version=1.7.0_40
 release=1
-source=(file:///jre-7u25-linux-i586.tar.gz)
+source=(file:///jre-7u40-linux-i586.tar.gz)
 
 build() {
 	cd jre$version
 
-	install -d $PKG/usr/{bin,man,lib32/jre$version}
-	mv bin lib plugin $PKG/usr/lib32/jre$version
-	ln -s jre$version $PKG/usr/lib32/java
+	install -d $PKG/usr/{bin,man,lib32/jre}
+	mv bin lib plugin $PKG/usr/lib32/jre
+	ln -s jre $PKG/usr/lib32/java
 }
