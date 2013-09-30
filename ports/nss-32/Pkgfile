@@ -2,12 +2,12 @@
 # URL: http://www.mozilla.org/projects/security/pki/nss/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: nspr-32 sqlite3-32
+# Depends on: nspr-32 sqlite3-32 zlib-32
 
 name=nss-32
-version=3.15.1
+version=3.15.2
 release=1
-source=(ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_13_6_RTM/src/nss-$version.tar.gz
+source=(ftp://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_15_2_RTM/src/nss-$version.tar.gz
         nss-config.in nss.pc.in)
 
 build() {
@@ -22,6 +22,7 @@ build() {
     export NSPR_INCLUDE_DIR=/usr/include/nspr
     export NSPR_LIB_DIR=/usr/lib32
     export NSS_USE_SYSTEM_SQLITE=1
+    export NSS_ENABLE_ECC=1
     export BUILD_OPT=1
     export XCFLAGS="${CFLAGS}"
 
