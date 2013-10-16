@@ -7,9 +7,9 @@
 ##export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"  "${pkgdir}/etc/profile.d/"
  
 name=jre-32
-version=1.7.0_40
+version=1.7.0_45
 release=1
-source=(file:///jre-7u40-linux-i586.tar.gz)
+source=(file:///jre-7u${version##*_}-linux-i586.tar.gz)
 
 build() {
 	cd jre$version
