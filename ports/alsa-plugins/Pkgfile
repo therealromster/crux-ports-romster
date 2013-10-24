@@ -7,18 +7,15 @@
 
 name=alsa-plugins
 version=1.0.27
-release=1
+release=2
 source=(ftp://ftp.alsa-project.org/pub/plugins/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
+	sed -i 's/ && LIBAVCODEC_VERSION_MINOR >= 34//' a52/pcm_a52.c
 
 	./configure --prefix=/usr
 
 	make
 	make DESTDIR=$PKG install
-	#install -m 0755 -d $PKG/usr/share/doc/alsa-plugins-$version
-	#install -m 0644 doc/{README*,*.txt} \
-	#	$PKG/usr/share/doc/alsa-plugins-$version
-
 }
