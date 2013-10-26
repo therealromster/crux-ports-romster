@@ -1,0 +1,39 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/qcatool2
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/QtCrypto/
+-rw-r--r--	root/root	usr/include/QtCrypto/QtCrypto
+-rw-r--r--	root/root	usr/include/QtCrypto/qca.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_basic.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_cert.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_core.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_export.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_keystore.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_publickey.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_securelayer.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_securemessage.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_support.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_textfilter.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qca_tools.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qcaprovider.h
+-rw-r--r--	root/root	usr/include/QtCrypto/qpipe.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libqca.prl
+lrwxrwxrwx	root/root	usr/lib/libqca.so -> libqca.so.2.0.3
+lrwxrwxrwx	root/root	usr/lib/libqca.so.2 -> libqca.so.2.0.3
+lrwxrwxrwx	root/root	usr/lib/libqca.so.2.0 -> libqca.so.2.0.3
+-rwxr-xr-x	root/root	usr/lib/libqca.so.2.0.3
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/qca2.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/qcatool2.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/qca/
+drwxr-xr-x	root/root	usr/share/qca/certs/
+-rw-r--r--	root/root	usr/share/qca/certs/rootcerts.pem
+drwxr-xr-x	root/root	usr/share/qt4/
+drwxr-xr-x	root/root	usr/share/qt4/mkspecs/
+drwxr-xr-x	root/root	usr/share/qt4/mkspecs/features/
+-rw-r--r--	root/root	usr/share/qt4/mkspecs/features/crypto.prf
