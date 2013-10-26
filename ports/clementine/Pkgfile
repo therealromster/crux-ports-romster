@@ -1,0 +1,17 @@
+# Description: A music player and library organizer.
+# URL: http://www.clementine-player.org/
+# Packager: Chris Farrell, timcowchip at gmail dot com
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: boost gettext glew gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly protobuf qt4 qjson taglib qca-ossl
+
+name=clementine
+version=1.2.0
+release=1
+source=(http://clementine-player.googlecode.com/files/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_WERROR=OFF
+	make
+	make DESTDIR=$PKG install
+}
