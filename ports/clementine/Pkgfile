@@ -2,7 +2,7 @@
 # URL: http://www.clementine-player.org/
 # Packager: Chris Farrell, timcowchip at gmail dot com
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: boost gettext glew gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly protobuf qt4 qjson taglib qca-ossl
+# Depends on: boost glew gst-plugins-bad gst-plugins-good gst-plugins-ugly protobuf qca-ossl qjson glu
 
 name=clementine
 version=1.2.0
