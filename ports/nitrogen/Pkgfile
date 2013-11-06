@@ -1,16 +1,18 @@
 # Description: A background browser and setter for X windows.
-# URL: http://ff-extractor.sourceforge.net/
+# URL: http://projects.l3ib.org/nitrogen/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: gtkmm
+# Depends on: gtkmm librsvg
 
 name=nitrogen
-version=1.3
+version=1.5.2
 release=1
 source=(http://projects.l3ib.org/nitrogen/files/nitrogen-$version.tar.gz)
 
 build() {
 	cd nitrogen-$version
+
+	export LDFLAGS="$LDFLAGS -lX11"
 
 	./configure \
 		--prefix=/usr \
@@ -19,4 +21,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
