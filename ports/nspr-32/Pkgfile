@@ -5,7 +5,7 @@
 # Depends on: nspr
 
 name=nspr-32
-version=4.10.1
+version=4.10.2
 release=1
 source=(http://ftp.mozilla.org/pub/mozilla.org/nspr/releases/v$version/src/nspr-$version.tar.gz
         nspr.pc.in)
