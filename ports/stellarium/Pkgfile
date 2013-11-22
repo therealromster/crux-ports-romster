@@ -5,10 +5,9 @@
 # Depends on: cmake freeglut libsdl qt4
 
 name=stellarium
-version=0.10.6
+version=0.12.4
 release=1
-source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz"
-up2date_url="http://sourceforge.net/projects/$name/files/"
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
