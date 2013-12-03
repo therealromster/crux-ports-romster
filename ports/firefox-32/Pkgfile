@@ -6,57 +6,36 @@
 
 name=firefox-32
 version=25.0.1
-release=1
+release=2
 source=(ftp://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.bz2
-        mozconfig)
+        mozconfig
+	vendor.js
+	firefox-install-dir.patch)
 
 build() {
-	sed -i -e 's:nss-config:nss-config-32:g' $(grep -lr 'nss-config' *)
-	sed -i -e 's:nspr-config:nspr-config-32:g' $(grep -lr 'nspr-config' *)
+	cd mozilla-release
 
-	#sed -i -e 's/gre\.d/&-32/g' $(grep -lr 'gre\.d' *)
-	
-	#unset CCACHE_PREFIX
-	#export MAKEFLAGS="-j $(/usr/bin/getconf _NPROCESSORS_ONLN)"
+	# Adjust some hardwired paths for arch-dependent config files
+	sed -i -e 's/gre\.d/&-32/g' $(grep -lr 'gre\.d' *)
 
-    #unset LD_PRELOAD
-    export MOZ_CO_PROJECT=browser
-    export BUILD_OFFICIAL=1
-    export MOZILLA_OFFICIAL=1
-    export MOZILLA_FIVE_HOME=/usr/lib32/firefox
-    #export CC="gcc"
-    #export CXX="g++"
-    #export MOZ_MAKE_FLAGS="$(sed -e 's/.*\(-j *[0-9]\+\).*/\1/' <<< $MAKEFLAGS)"
-	export MOZ_MAKE_FLAGS="$MAKEFLAGS"
+	patch -p 1 -i $SRC/firefox-install-dir.patch
+	export CFLAGS="$CFLAGS -mno-avx"
 
-    cd mozilla-release
-
-	touch configure
-    export CFLAGS="$CFLAGS -mno-avx"
+	sed \
+		-e "s/#CFLAGS#/$CFLAGS/" \
+		-e "s|#MAKEFLAGS#|$MAKEFLAGS|" \
+		$SRC/mozconfig > .mozconfig
  
-    sed -e "s/#CFLAGS#/$CFLAGS/" $SRC/mozconfig > .mozconfig
-    ./configure
+	make -f client.mk build
+	make -f client.mk DESTDIR=$PKG install
 
-	#mozilla sucks: BZ #824381
-	mkdir $SRC/mozilla-release/js/src/.deps
-	make
+	mv -v $PKG/usr/bin/firefox $PKG/usr/bin/firefox-32
 
-    install -d \
-        $PKG$MOZILLA_FIVE_HOME \
-        $PKG/usr/bin \
-        $PKG/usr/share/idl/firefox
+	install -m 0644 -D $SRC/vendor.js \
+		$PKG/usr/lib32/firefox/browser/defaults/preferences/vendor.js
 
-    cp -rL dist/bin/* $PKG$MOZILLA_FIVE_HOME
-    ln -s /usr/lib32/firefox/firefox $PKG/usr/bin/firefox-32
+	install -d $PKG/etc/ld.so.conf.d
+	echo "/usr/lib32/firefox" > $PKG/etc/ld.so.conf.d/$name.conf
 
-    install -d $PKG/etc/ld.so.conf.d
-    echo "/usr/lib32/firefox" > $PKG/etc/ld.so.conf.d/$name.conf
-
-    # cleanup
-	 find $PKG -type f -empty -delete
-
-	 # desktop stuff
-	#mkdir -p $PKG/usr/share/pixmaps
-	#ln -s /usr/lib32/firefox/browser/chrome/browser/content/branding/icon48.png $PKG/usr/share/pixmaps/firefox_default48.png
-	#install -D -m 0644 $SRC/firefox.desktop $PKG/usr/share/applications/firefox-32.desktop
+	rm -r $PKG/usr/share/idl $PKG/usr/include/firefox
 }
