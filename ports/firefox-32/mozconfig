@@ -5,7 +5,7 @@
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-shared
 
 # inherit possible makeflags from pkgmk.
-mk_add_options MOZ_MAKE_FLAGS="#MAKEFLAGS#"
+mk_add_options MOZ_MAKE_FLAGS="#MAKEFLAGS# -s"
 
 # crux options
 
