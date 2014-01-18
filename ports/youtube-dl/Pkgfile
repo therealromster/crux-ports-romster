@@ -2,10 +2,10 @@
 # URL: http://rg3.github.com/youtube-dl/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: distribute
+# Depends on: python-setuptools
 
 name=youtube-dl
-version=2013.07.17.1
+version=2014.01.17.2
 release=1
 source=(http://youtube-dl.org/downloads/$version/$name-$version.tar.gz)
 
