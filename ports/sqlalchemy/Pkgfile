@@ -1,0 +1,17 @@
+# Description: Python SQL toolkit and Object Relational Mapper.
+# URL: http://www.sqlalchemy.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Alexander Chernyavksy, nickp102 at gmail dot com
+# Depends on: setuptools
+
+name=sqlalchemy
+version=0.9.1
+release=1
+source=(http://pypi.python.org/packages/source/S/SQLAlchemy/SQLAlchemy-$version.tar.gz)
+
+build() {
+	cd SQLAlchemy-$version
+
+	/usr/bin/python setup.py build
+	/usr/bin/python setup.py install --root=$PKG
+}
