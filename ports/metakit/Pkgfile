@@ -1,0 +1,25 @@
+# Description: Metakit is an efficient embedded database library with a small footprint.
+# URL: http://www.equi4.com/metakit.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Jose V Beneyto, sepen at crux dot nu
+# Depends on: tcl python
+
+name=metakit
+version=2.4.9.7
+release=1
+source=(http://www.equi4.com/pub/mk/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version/builds
+
+	sed -i \
+		-e 's|"${prefix}/include/python2.5"|"${prefix}/include/python2.7"|' \
+		-e 's|"${prefix}/lib/python2.5/site-packages"|"${prefix}/lib/python2.7/site-packages"|' \
+		../unix/configure
+
+	../unix/configure --prefix=/usr --with-python --with-tcl=/usr/include
+
+	make
+	install -d $PKG/usr/lib/python2.7/site-packages
+	make DESTDIR=$PKG install
+}

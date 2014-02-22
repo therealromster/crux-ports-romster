@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/mk4.h
+-rw-r--r--	root/root	usr/include/mk4.inl
+-rw-r--r--	root/root	usr/include/mk4str.h
+-rw-r--r--	root/root	usr/include/mk4str.inl
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/Mk4tcl/
+-rwxr-xr-x	root/root	usr/lib/Mk4tcl/Mk4tcl.so
+-rw-r--r--	root/root	usr/lib/Mk4tcl/pkgIndex.tcl
+-rwxr-xr-x	root/root	usr/lib/libmk4.so
+drwxr-xr-x	root/root	usr/lib/python2.7/
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/
+-rwxr-xr-x	root/root	usr/lib/python2.7/site-packages/Mk4py.so
+-rwxr-xr-x	root/root	usr/lib/python2.7/site-packages/metakit.py
