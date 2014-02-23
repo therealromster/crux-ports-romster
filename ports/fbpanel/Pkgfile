@@ -2,17 +2,26 @@
 # URL: http://fbpanel.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Han Boetes, han at mijncomputer dot nl
-# Depends on: gtk
+# Depends on: gtk xorg-libxdamage
 
 name=fbpanel
 version=6.1
-release=1
-source="http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tbz2"
+release=2
+source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tbz2
+	taskbar_unicode.patch battery_fix.patch)
 
 build() {
-	tar -C $SRC --use-compress-program=bzip2 -xf $name-$version.tbz2
 	cd $name-$version
-	./configure --prefix=/usr --libexecdir=/usr/lib
+
+	patch -p 1 -i $SRC/battery_fix.patch
+	patch -p 1 -i $SRC/taskbar_unicode.patch
+
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib
+
+	echo "LDFLAGSX += -lX11 -lm" >>config.mk
+
 	make
 	make DESTDIR=$PKG install
 }
