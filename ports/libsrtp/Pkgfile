@@ -1,0 +1,20 @@
+# Description:	Secure Realtime transport protocol library
+# URL:		http://srtp.sourceforge.net/srtp.html
+# Maintainer:	Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on:	
+
+name=libsrtp
+version=1.4.4-git20131224
+release=1
+source=(http://www.mizrahi.com.ve/crux/dist/srtp-$version.tar.xz)
+#source=(http://prdownloads.sf.net/srtp/srtp-$version.tgz)
+
+build() {
+	cd srtp
+	autoconf
+	./configure \
+		--prefix=/usr \
+		--disable-debug
+	make
+	make DESTDIR=$PKG install
+}
