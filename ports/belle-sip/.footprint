@@ -1,0 +1,36 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/belle-sip/
+-rw-r--r--	root/root	usr/include/belle-sip/auth-helper.h
+-rw-r--r--	root/root	usr/include/belle-sip/belle-sdp.h
+-rw-r--r--	root/root	usr/include/belle-sip/belle-sip.h
+-rw-r--r--	root/root	usr/include/belle-sip/defs.h
+-rw-r--r--	root/root	usr/include/belle-sip/dialog.h
+-rw-r--r--	root/root	usr/include/belle-sip/dict.h
+-rw-r--r--	root/root	usr/include/belle-sip/generic-uri.h
+-rw-r--r--	root/root	usr/include/belle-sip/headers.h
+-rw-r--r--	root/root	usr/include/belle-sip/http-listener.h
+-rw-r--r--	root/root	usr/include/belle-sip/http-message.h
+-rw-r--r--	root/root	usr/include/belle-sip/http-provider.h
+-rw-r--r--	root/root	usr/include/belle-sip/list.h
+-rw-r--r--	root/root	usr/include/belle-sip/listener.h
+-rw-r--r--	root/root	usr/include/belle-sip/listeningpoint.h
+-rw-r--r--	root/root	usr/include/belle-sip/mainloop.h
+-rw-r--r--	root/root	usr/include/belle-sip/message.h
+-rw-r--r--	root/root	usr/include/belle-sip/object.h
+-rw-r--r--	root/root	usr/include/belle-sip/parameters.h
+-rw-r--r--	root/root	usr/include/belle-sip/provider.h
+-rw-r--r--	root/root	usr/include/belle-sip/refresher.h
+-rw-r--r--	root/root	usr/include/belle-sip/resolver.h
+-rw-r--r--	root/root	usr/include/belle-sip/sip-uri.h
+-rw-r--r--	root/root	usr/include/belle-sip/sipstack.h
+-rw-r--r--	root/root	usr/include/belle-sip/transaction.h
+-rw-r--r--	root/root	usr/include/belle-sip/types.h
+-rw-r--r--	root/root	usr/include/belle-sip/utils.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libbellesip.la
+lrwxrwxrwx	root/root	usr/lib/libbellesip.so -> libbellesip.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libbellesip.so.0 -> libbellesip.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libbellesip.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/belle-sip.pc
