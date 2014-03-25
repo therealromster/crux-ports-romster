@@ -1,0 +1,21 @@
+# Description: g729 codec.
+# URL: http://www.linphone.org/eng/documentation/dev/bcg729.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: mediastreamer
+
+name=bcg729
+version=1.0.0
+release=1
+source=(http://download-mirror.savannah.gnu.org/releases/linphone/plugins/sources/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
