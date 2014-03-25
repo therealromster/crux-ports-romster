@@ -1,0 +1,21 @@
+# Description: C runtime for the ANTLR parsing library.
+# URL: http://www.antlr.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=libantlr3c
+version=3.4
+release=1
+source=(http://www.antlr3.org/download/C/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-64bit
+
+	make
+	make DESTDIR=$PKG install
+}
