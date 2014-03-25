@@ -1,0 +1,25 @@
+# Description: A library written in C that allows you to create and run audio and video streams.
+# URL: http://www.linphone.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on: ffmpeg xorg-libxv ortp libupnp intltool vim-tools v4l-utils
+
+name=mediastreamer
+version=2.10.0
+release=1
+source=(http://download-mirror.savannah.gnu.org/releases/linphone/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-nls \
+		--disable-glx \
+		--enable-xv
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+}

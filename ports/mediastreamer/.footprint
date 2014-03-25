@@ -1,0 +1,54 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/mediastream
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/mediastreamer2/
+-rw-r--r--	root/root	usr/include/mediastreamer2/allfilters.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/bitratecontrol.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/dsptools.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/dtmfgen.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/ice.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mediastream.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msaudiomixer.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mschanadapter.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mscodecutils.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mscommon.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msconference.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msequalizer.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mseventqueue.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msextdisplay.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msfileplayer.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msfilerec.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msfilter.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msinterfaces.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msitc.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msjava.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msjpegwriter.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msqueue.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msrtp.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mssndcard.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mstee.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msticker.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mstonedetector.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msv4l.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msvideo.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msvideoout.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/msvolume.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/mswebcam.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/qualityindicator.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/rfc3984.h
+-rw-r--r--	root/root	usr/include/mediastreamer2/upnp_igd.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libmediastreamer_base.la
+lrwxrwxrwx	root/root	usr/lib/libmediastreamer_base.so -> libmediastreamer_base.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libmediastreamer_base.so.3 -> libmediastreamer_base.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libmediastreamer_base.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libmediastreamer_voip.la
+lrwxrwxrwx	root/root	usr/lib/libmediastreamer_voip.so -> libmediastreamer_voip.so.3.0.0
+lrwxrwxrwx	root/root	usr/lib/libmediastreamer_voip.so.3 -> libmediastreamer_voip.so.3.0.0
+-rwxr-xr-x	root/root	usr/lib/libmediastreamer_voip.so.3.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/mediastreamer.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/images/
+-rw-r--r--	root/root	usr/share/images/nowebcamCIF.jpg
