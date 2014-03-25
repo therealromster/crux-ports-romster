@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/ortp/
+-rw-r--r--	root/root	usr/include/ortp/b64.h
+-rw-r--r--	root/root	usr/include/ortp/event.h
+-rw-r--r--	root/root	usr/include/ortp/logging.h
+-rw-r--r--	root/root	usr/include/ortp/ortp.h
+-rw-r--r--	root/root	usr/include/ortp/ortp_srtp.h
+-rw-r--r--	root/root	usr/include/ortp/payloadtype.h
+-rw-r--r--	root/root	usr/include/ortp/port.h
+-rw-r--r--	root/root	usr/include/ortp/rtcp.h
+-rw-r--r--	root/root	usr/include/ortp/rtp.h
+-rw-r--r--	root/root	usr/include/ortp/rtpprofile.h
+-rw-r--r--	root/root	usr/include/ortp/rtpsession.h
+-rw-r--r--	root/root	usr/include/ortp/rtpsignaltable.h
+-rw-r--r--	root/root	usr/include/ortp/sessionset.h
+-rw-r--r--	root/root	usr/include/ortp/str_utils.h
+-rw-r--r--	root/root	usr/include/ortp/stun.h
+-rw-r--r--	root/root	usr/include/ortp/stun_udp.h
+-rw-r--r--	root/root	usr/include/ortp/telephonyevents.h
+-rw-r--r--	root/root	usr/include/ortp/zrtp.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libortp.la
+lrwxrwxrwx	root/root	usr/lib/libortp.so -> libortp.so.9.0.0
+lrwxrwxrwx	root/root	usr/lib/libortp.so.9 -> libortp.so.9.0.0
+-rwxr-xr-x	root/root	usr/lib/libortp.so.9.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/ortp.pc

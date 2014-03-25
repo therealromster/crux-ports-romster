@@ -1,0 +1,25 @@
+# Description: A Real-time Transport Protocol (RTP) library.
+# URL: http://www.linphone.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on: libsrtp libzrtpcpp
+
+name=ortp
+version=0.23.0
+release=1
+source=(http://download-mirror.savannah.gnu.org/releases/linphone/ortp/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	# Reference: http://lists.gnu.org/archive/html/linphone-users/2014-02/msg00008.html
+	sed -i 's|libzrtpcppcore|libzrtpcpp|g' configure{,.ac}
+
+	./configure \
+		--prefix=/usr \
+		--enable-zrtp \
+		--disable-strict
+
+	make
+	make DESTDIR=$PKG install
+}
