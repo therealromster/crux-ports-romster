@@ -1,0 +1,24 @@
+# Description: C++ implementation of Phil Zimmermann's ZRTP specification.
+# URL: http://www.gnutelephony.org/index.php/GNU_ZRTP
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on: ccrtp cmake
+
+name=libzrtpcpp
+version=4.2.0
+release=1
+source=(https://github.com/wernerd/ZRTPCPP/archive/V$version.tar.gz)
+
+build() {
+	install -d build
+	cd build
+
+	sed 's/lib64/lib/g' -i ../ZRTPCPP-$version/CMakeLists.txt
+
+	cmake ../ZRTPCPP-$version \
+		-DCMAKE_BUILD_TYPE=RELEASE \
+		-DCMAKE_INSTALL_PREFIX=/usr
+
+	make
+	make DESTDIR=$PKG install
+}
