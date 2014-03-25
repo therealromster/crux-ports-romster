@@ -1,0 +1,21 @@
+# Description: A light-weight C++ library to facilitate using C++ design patterns.
+# URL: http://www.gnu.org/software/commoncpp/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on: openssl zlib
+
+name=ucommon
+version=6.1.0
+release=1
+source=(http://ftp.gnu.org/pub/gnu/commoncpp/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
