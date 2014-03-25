@@ -1,11 +1,11 @@
-# Description:	eXosip2 - the eXtended osip library.
+# Description: eXosip2 - the eXtended osip library.
 # URL: http://savannah.gnu.org/projects/exosip
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager:	Ivan Rodionov, jean at mosk ru
+# Packager: Ivan Rodionov, jean at mosk ru
 # Depends on: libosip2
 
 name=libexosip2
-version=3.6.0
+version=4.1.0
 release=1
 source=(http://download.savannah.gnu.org/releases/exosip/libeXosip2-$version.tar.gz)
 
