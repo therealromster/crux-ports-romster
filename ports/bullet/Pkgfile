@@ -5,13 +5,13 @@
 # Depends on: cmake freeglut
 
 name=bullet
-version=2.78
-sversion=$version-r2387
+version=2.82
+sversion=$version-r2704
 release=1
 source=(http://bullet.googlecode.com/files/$name-$sversion.tgz)
 
 build() {
-	cd $name-$version
+	cd $name-$sversion
 
 	cmake \
 		-DCMAKE_INSTALL_PREFIX=/usr \
