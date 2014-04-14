@@ -1,0 +1,16 @@
+# Description: Complete Humanity theme for Xubuntu desktop.
+# URL: http://xfce-look.org/content/show.php/Humanity-Xubuntu?content=163318
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# # Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on:
+
+name=humanity-xfce-icon-theme
+version=1.0
+release=1
+source=(http://xfce-look.org/CONTENT/content-files/163318-Humanity-Xubuntu.tar.gz)
+
+build() {
+	install -d $PKG/usr/share/icons/humanity
+	cd Humanity-Xubuntu
+	cp -R * $PKG/usr/share/icons/humanity/
+}

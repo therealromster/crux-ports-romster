@@ -1,0 +1,2148 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/icons/
+drwxr-xr-x	root/root	usr/share/icons/humanity/
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/128/
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/16/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/back.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/bottom.svg -> go-bottom.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/fileopen.svg -> document-open.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/folder_new.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/forward.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gnome-log-out.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gnome-logout.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gnome-session-logout.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gnome-stock-mail-rpl.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gnome-stock-mail-snd.svg -> mail-send.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-bottom.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-down.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-first.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/go-left.svg -> go-previous.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/go-right.svg -> go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-top.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gohome.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-go-back-ltr.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-go-back-rtl.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-go-down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-go-forward-ltr.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-go-forward-rtl.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-go-up.svg -> go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-goto-bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-goto-first-ltr.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-goto-first-rtl.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-goto-last-ltr.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-goto-last-rtl.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-goto-top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/gtk-open.svg -> document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/kfm_home.svg -> go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/mail-replied.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/mail-reply-all.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/mail-reply-sender.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/mail-send-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/mail-send.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/mail_reply.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/mail_replyall.svg -> mail-reply-all.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/next.svg -> go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/object-flip-horizontal.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/object-flip-vertical.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/object-rotate-left.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/object-rotate-right.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/package-supported.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/previous.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/redhat-home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/start.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_first.svg -> go-first.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/stock_folder_properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_last.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_left.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_mail-reply-to-all.svg -> mail-reply-all.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_mail-reply.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_mail-send-receive.svg -> mail-send-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_mail-send.svg -> mail-send.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_new-dir.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_right.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/stock_up.svg -> go-up.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/system-log-out.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/system-restart-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/system-shutdown-panel-restart.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/16/system-shutdown-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/system-upgrade.svg -> ../../apps/16/system-upgrade.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/up.svg -> go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/16/xfsm-logout.svg -> system-log-out.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/22/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/back.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/down.svg -> go-down.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/finish.svg -> go-last.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/folder-copy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/folder-move.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/folder_new.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/forward.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gnome-stock-mail-rpl.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gnome-stock-mail-snd.svg -> mail-send.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-bottom.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-down.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-first.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-jump.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-last.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-previous.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-top.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gohome.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-go-back-ltr.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-go-back-rtl.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-go-down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-go-forward-ltr.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-go-forward-rtl.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-go-up.svg -> go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-goto-bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-goto-first-ltr.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-goto-first-rtl.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-goto-last-ltr.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-goto-last-rtl.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-goto-top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-jump-to-ltr.svg -> go-jump.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-jump-to-rtl.svg -> go-jump.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/gtk-undo-ltr.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/kfm_home.svg -> go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/mail-replied.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/mail-reply-all.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/mail-reply-sender.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/mail-send-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/mail-send.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/mail_reply.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/mail_replyall.svg -> mail-reply-all.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/next.svg -> go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/package-supported.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/previous.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/redhat-home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/start.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_first.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_folder-copy.svg -> folder-copy.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_folder-move.svg -> folder-move.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_last.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_left.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_mail-reply-to-all.svg -> mail-reply-all.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_mail-reply.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_mail-send-receive.svg -> mail-send-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_mail-send.svg -> mail-send.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_new-dir.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_right.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_undo.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/stock_up.svg -> go-up.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/system-restart-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/system-shutdown-panel-restart.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/22/system-shutdown-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/system-upgrade.svg -> ../../apps/22/system-upgrade.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/undo.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/22/up.svg -> go-up.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/24/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/add-folder-to-archive.svg -> archive-insert-directory.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/archive-insert-directory.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/back.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/bottom.svg -> go-bottom.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/down.svg -> go-down.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/fileopen.svg -> document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/finish.svg -> go-last.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/folder-copy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/folder-move.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/folder_new.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/forward.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gnome-log-out.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gnome-logout.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gnome-session-logout.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gnome-stock-mail-rpl.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gnome-stock-mail-snd.svg -> mail-send.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-bottom.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-down.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-first.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-jump.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-last.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-previous.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-top.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gohome.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-go-back-ltr.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-go-back-rtl.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-go-down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-go-forward-ltr.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-go-forward-rtl.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-go-up.svg -> go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-goto-bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-goto-first-ltr.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-goto-first-rtl.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-goto-last-ltr.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-goto-last-rtl.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-goto-top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-jump-to-ltr.svg -> go-jump.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-jump-to-rtl.svg -> go-jump.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-open.svg -> document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/gtk-undo-ltr.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/kfm_home.svg -> go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/mail-replied.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/mail-reply-all.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/mail-reply-sender.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/mail-send-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/mail-send.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/mail_reply.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/mail_replyall.svg -> mail-reply-all.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/next.svg -> go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/object-flip-horizontal.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/object-flip-vertical.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/object-rotate-left.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/object-rotate-right.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/package-supported.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/previous.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/redhat-home.svg -> go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/rotate.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/start.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_first.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_folder-copy.svg -> folder-copy.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_folder-move.svg -> folder-move.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_folder-properties.svg -> ../../places/24/folder-system.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_folder_properties.svg -> ../../places/24/folder-system.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_last.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_left.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_mail-reply-to-all.svg -> mail-reply-all.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_mail-reply.svg -> mail-reply-sender.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_mail-send-receive.svg -> mail-send-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_mail-send.svg -> mail-send.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_new-dir.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_right.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_undo.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/stock_up.svg -> go-up.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/system-log-out.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/system-restart-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/system-shutdown-panel-restart.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/24/system-shutdown-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/system-upgrade.svg -> ../../apps/24/system-upgrade.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/undo.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/up.svg -> go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/24/xfsm-logout.svg -> system-log-out.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/32/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/32/gnome-log-out.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/32/gnome-logout.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/32/gnome-session-logout.svg -> system-log-out.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/32/system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/32/system-upgrade.svg -> ../../apps/32/system-upgrade.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/32/xfsm-logout.svg -> system-log-out.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/48/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/add-folder-to-archive.svg -> archive-insert-directory.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/archive-insert-directory.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/back.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/bottom.svg -> go-bottom.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/down.svg -> go-down.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/fileopen.svg -> document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/finish.svg -> go-last.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/folder-copy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/folder-move.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/folder_new.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/forward.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gnome-log-out.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gnome-logout.svg -> system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gnome-session-logout.svg -> system-log-out.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-bottom.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-down.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-first.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-jump.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-last.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-previous.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-top.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gohome.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-go-back-ltr.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-go-back-rtl.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-go-down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-go-forward-ltr.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-go-forward-rtl.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-go-up.svg -> go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-goto-bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-goto-first-ltr.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-goto-first-rtl.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-goto-last-ltr.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-goto-last-rtl.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-goto-top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-jump-to-ltr.svg -> go-jump.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-jump-to-rtl.svg -> go-jump.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-open.svg -> document-open.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/gtk-undo-ltr.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/kfm_home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/next.svg -> go-next.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/object-rotate-left.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/object-rotate-right.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/previous.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/redhat-home.svg -> go-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/rotate.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/start.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_bottom.svg -> go-bottom.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_down.svg -> go-down.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_first.svg -> go-first.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_folder-copy.svg -> folder-copy.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_folder-move.svg -> folder-move.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_folder-properties.svg -> ../../places/48/folder-system.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_home.svg -> go-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_last.svg -> go-last.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_left.svg -> go-previous.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_new-dir.svg -> folder-new.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_right.svg -> go-next.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_undo.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/stock_up.svg -> go-up.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/actions/48/system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/system-upgrade.svg -> ../../apps/48/system-upgrade.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/top.svg -> go-top.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/undo.svg -> edit-undo.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/up.svg -> go-up.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/actions/48/xfsm-logout.svg -> system-log-out.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/actions/64/
+drwxr-xr-x	root/root	usr/share/icons/humanity/animations/
+drwxr-xr-x	root/root	usr/share/icons/humanity/animations/22/
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-00.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-05.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-10.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-15.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-20.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-25.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-30.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-35.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-40.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-45.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-50.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-55.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-60.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-65.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-70.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-75.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-80.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-85.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-90.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/brasero-disc-95.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting01.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting02.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting03.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting04.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting05.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting06.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting07.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting08.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting09.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting10.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-stage01-connecting11.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting01.svg -> nm-stage01-connecting01.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting02.svg -> nm-stage01-connecting02.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting03.svg -> nm-stage01-connecting03.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting04.svg -> nm-stage01-connecting04.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting05.svg -> nm-stage01-connecting05.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting06.svg -> nm-stage01-connecting06.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting07.svg -> nm-stage01-connecting07.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting08.svg -> nm-stage01-connecting08.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting09.svg -> nm-stage01-connecting09.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting10.svg -> nm-stage01-connecting10.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage02-connecting11.svg -> nm-stage01-connecting11.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting01.svg -> nm-stage01-connecting01.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting02.svg -> nm-stage01-connecting02.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting04.svg -> nm-stage01-connecting04.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting05.svg -> nm-stage01-connecting05.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting06.svg -> nm-stage01-connecting06.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting07.svg -> nm-stage01-connecting07.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting08.svg -> nm-stage01-connecting08.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting09.svg -> nm-stage01-connecting09.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting10.svg -> nm-stage01-connecting10.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-stage03-connecting11.svg -> nm-stage01-connecting11.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting01.svg -> nm-stage01-connecting01.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting02.svg -> nm-stage01-connecting02.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting03.svg -> nm-stage01-connecting03.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting04.svg -> nm-stage01-connecting04.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting05.svg -> nm-stage01-connecting05.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting06.svg -> nm-stage01-connecting06.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting07.svg -> nm-stage01-connecting07.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting08.svg -> nm-stage01-connecting08.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting09.svg -> nm-stage01-connecting09.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting10.svg -> nm-stage01-connecting10.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting11.svg -> nm-stage01-connecting11.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting12.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting13.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/22/nm-vpn-connecting14.svg -> nm-stage01-connecting01.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/animations/24/
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-00.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-05.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-10.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-15.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-20.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-25.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-30.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-35.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-40.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-45.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-50.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-55.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-60.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-65.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-70.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-75.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-80.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-85.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-90.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/brasero-disc-95.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting01.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting02.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting03.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting04.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting05.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting06.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting07.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting08.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting09.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting10.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-stage01-connecting11.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting01.svg -> nm-stage01-connecting01.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting02.svg -> nm-stage01-connecting02.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting03.svg -> nm-stage01-connecting03.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting04.svg -> nm-stage01-connecting04.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting05.svg -> nm-stage01-connecting05.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting06.svg -> nm-stage01-connecting06.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting07.svg -> nm-stage01-connecting07.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting08.svg -> nm-stage01-connecting08.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting09.svg -> nm-stage01-connecting09.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting10.svg -> nm-stage01-connecting10.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage02-connecting11.svg -> nm-stage01-connecting11.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting01.svg -> nm-stage01-connecting01.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting02.svg -> nm-stage01-connecting02.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting04.svg -> nm-stage01-connecting04.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting05.svg -> nm-stage01-connecting05.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting06.svg -> nm-stage01-connecting06.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting07.svg -> nm-stage01-connecting07.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting08.svg -> nm-stage01-connecting08.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting09.svg -> nm-stage01-connecting09.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting10.svg -> nm-stage01-connecting10.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-stage03-connecting11.svg -> nm-stage01-connecting11.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting01.svg -> nm-stage01-connecting01.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting02.svg -> nm-stage01-connecting02.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting03.svg -> nm-stage01-connecting03.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting04.svg -> nm-stage01-connecting04.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting05.svg -> nm-stage01-connecting05.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting06.svg -> nm-stage01-connecting06.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting07.svg -> nm-stage01-connecting07.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting08.svg -> nm-stage01-connecting08.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting09.svg -> nm-stage01-connecting09.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting10.svg -> nm-stage01-connecting10.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting11.svg -> nm-stage01-connecting11.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting12.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting13.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/animations/24/nm-vpn-connecting14.svg -> nm-stage01-connecting01.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/128/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/128/background.svg -> preferences-desktop-wallpaper.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/128/gksu-root-terminal.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/128/gnome-settings-background.svg -> preferences-desktop-wallpaper.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/128/preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/128/preferences-wallpaper.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/128/wallpaper.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/128/xfce4-backdrop.svg -> preferences-desktop-wallpaper.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/16/
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/distributor-logo.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/gksu-root-terminal.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/gnome-control-centre.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/gnome-do-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/gnome-session-properties.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/gnome-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/gnome-settings-theme.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/gtg-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/preferences-system-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/preferences-theme.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/style.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/system-file-manager-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/system-file-manager.svg -> ../../places/16/folder-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/system-upgrade.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/16/transmission-tray-icon.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/xfce4-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/16/xfce4-ui.svg -> preferences-desktop-theme.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/192/
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/22/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/22/alacarte.svg -> menu-editor.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/apport.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/audacious-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/banshee-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/distributor-logo.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/dropboxstatus-busy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/dropboxstatus-busy2.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/dropboxstatus-idle.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/dropboxstatus-logo.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/dropboxstatus-x.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/gdm-setup.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/gksu-root-terminal.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/gnome-do-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/22/gnome-settings-theme.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/gsd-xrandr.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/gtg-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/menu-editor.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/22/preferences-theme.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/rhythmbox-notplaying.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/rhythmbox-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/start-here.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/22/style.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/system-file-manager-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/22/system-file-manager.svg -> ../../places/22/folder-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/system-upgrade.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/tomboy-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/transmission-tray-icon.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/22/xchat-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/22/xfce4-ui.svg -> preferences-desktop-theme.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/24/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/alacarte.svg -> menu-editor.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/application-x-remote-connection.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/application-x-vnc.svg -> vinagre.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/apport.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/audacious-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/background.svg -> preferences-desktop-wallpaper.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/banshee-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/clementine-panel-grey.png
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/clementine-panel.png
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/dropboxstatus-busy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/dropboxstatus-busy2.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/dropboxstatus-idle.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/dropboxstatus-logo.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/dropboxstatus-x.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/gdm-setup.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/gksu-root-terminal.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/gnome-control-centre.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/gnome-do-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-logout.svg -> ../../actions/24/system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-mime-application-x-remote-connection.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-mime-application-x-vnc.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-remote-desktop.svg -> preferences-desktop-remote-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-session-properties.svg -> session-properties.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/gnome-session-switch.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-settings-background.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-settings-keybindings.svg -> preferences-desktop-keyboard-shortcuts.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/gnome-settings-theme.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/gsd-xrandr.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/gtg-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/key_bindings.svg -> preferences-desktop-keyboard-shortcuts.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/krfb.svg -> preferences-desktop-remote-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/mandrivaupdate.svg -> system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/menu-editor.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/ooo-web.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/preferences-desktop-keyboard-shortcuts.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/preferences-desktop-remote-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/preferences-system-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/preferences-theme.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/preferences-wallpaper.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/pup.svg -> system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/rhythmbox-notplaying.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/rhythmbox-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/shares.svg -> ../../places/24/folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/style.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/system-file-manager-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/system-file-manager.svg -> ../../places/24/folder-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/system-software-update.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/system-switch-user.svg -> gnome-session-switch.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/system-upgrade.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/tomboy-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/transmission-tray-icon.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/update-manager.svg -> system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/wallpaper.svg -> preferences-desktop-wallpaper.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/24/xchat-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/xfce4-backdrop.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/xfce4-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/xfce4-ui.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/xfsm-switch.svg -> gnome-session-switch.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/24/zen-icon.svg -> system-software-update.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/32/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/application-x-remote-connection.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/application-x-vnc.svg -> vinagre.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/32/gksu-root-terminal.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/gnome-mime-application-x-remote-connection.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/gnome-mime-application-x-vnc.svg -> vinagre.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/32/gnome-panel-workspace-switcher.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/gnome-settings-theme.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/32/preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/preferences-theme.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/pup.svg -> system-software-update.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/style.svg -> preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/32/system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/32/system-upgrade.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/update-manager.svg -> system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/32/vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/xfce4-ui.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/32/zen-icon.svg -> system-software-update.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/48/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/alacarte.svg -> menu-editor.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/application-x-remote-connection.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/application-x-vnc.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/background.svg -> preferences-desktop-wallpaper.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/gdm-setup.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gdmsetup.svg -> gdm-setup.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/gksu-root-terminal.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/gnome-control-centre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-logout.svg -> ../../actions/48/system-log-out.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-mime-application-x-remote-connection.svg -> vinagre.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-mime-application-x-vnc.svg -> vinagre.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/gnome-panel-workspace-switcher.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-remote-desktop.svg -> preferences-desktop-remote-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-session-properties.svg -> session-properties.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/gnome-session-switch.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-settings-background.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-settings-keybindings.svg -> preferences-desktop-keyboard-shortcuts.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/gnome-settings-theme.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/key_bindings.svg -> preferences-desktop-keyboard-shortcuts.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/krfb.svg -> preferences-desktop-remote-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/mandrivaupdate.svg -> system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/menu-editor.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/ooo-web.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/preferences-desktop-keyboard-shortcuts.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/preferences-desktop-remote-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/preferences-desktop-theme.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/preferences-system-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/preferences-theme.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/preferences-wallpaper.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/pup.svg -> system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/shares.svg -> ../../places/48/folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/style.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/system-file-manager.svg -> ../../places/48/folder-home.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/system-software-update.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/system-switch-user.svg -> gnome-session-switch.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/system-upgrade.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/update-manager.svg -> system-software-update.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/vinagre.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/48/workspace-switcher.png
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/workspace-switcher.svg -> gnome-panel-workspace-switcher.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/xfce4-backdrop.svg -> preferences-desktop-wallpaper.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/xfce4-session.svg -> session-properties.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/xfce4-ui.svg -> preferences-desktop-theme.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/xfsm-switch.svg -> gnome-session-switch.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/apps/48/zen-icon.svg -> system-software-update.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/apps/64/
+-rw-r--r--	root/root	usr/share/icons/humanity/apps/64/gksu-root-terminal.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/128/
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/16/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/16/configuration_section.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/16/gnome-control-center.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/16/gnome-settings.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/16/kcontrol.svg -> preferences-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/16/preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/16/redhat-preferences.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/16/xfce4-settings.svg -> preferences-desktop.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/22/
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/22/applications-microblogging-panel.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/24/
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/24/applications-microblogging-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/24/applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/configuration_section.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/gnome-control-center.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/gnome-multimedia.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/gnome-settings.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/kcontrol.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/multimedia_section.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/package_multimedia.svg -> applications-multimedia.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/24/preferences-desktop-peripherals-directory.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/24/preferences-desktop-personal-directory.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/24/preferences-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/24/preferences-system-directory.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/24/preferences-system-network.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/redhat-preferences.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/redhat-sound_video.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/xfce-multimedia.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/24/xfce4-settings.svg -> preferences-desktop.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/32/
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/32/applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/configuration_section.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/gnome-control-center.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/gnome-multimedia.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/gnome-settings.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/kcontrol.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/multimedia_section.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/package_multimedia.svg -> applications-multimedia.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/32/preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/redhat-preferences.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/redhat-sound_video.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/xfce-multimedia.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/32/xfce4-settings.svg -> preferences-desktop.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/48/
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/48/applications-filesharing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/48/applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/configuration_section.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/gnome-control-center.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/gnome-multimedia.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/gnome-settings.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/kcontrol.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/multimedia_section.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/package_multimedia.svg -> applications-multimedia.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/48/preferences-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/48/preferences-system-network.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/redhat-preferences.svg -> preferences-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/redhat-sound_video.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/xfce-multimedia.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/48/xfce4-settings.svg -> preferences-desktop.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/categories/64/
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/64/applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/64/gnome-multimedia.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/64/multimedia_section.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/64/package_multimedia.svg -> applications-multimedia.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/categories/64/preferences-system-network.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/64/redhat-sound_video.svg -> applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/categories/64/xfce-multimedia.svg -> applications-multimedia.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/128/
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/16/
+-rw-r--r--	root/root	usr/share/icons/humanity/devices/16/computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/16/gnome-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/16/gnome-dev-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/16/gnome-fs-client.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/16/system.svg -> computer.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/22/
+-rw-r--r--	root/root	usr/share/icons/humanity/devices/22/computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/22/gnome-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/22/gnome-dev-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/22/gnome-fs-client.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/22/system.svg -> computer.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/24/
+-rw-r--r--	root/root	usr/share/icons/humanity/devices/24/computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/24/gnome-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/24/gnome-dev-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/24/gnome-fs-client.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/24/network-workgroup.svg -> ../../places/24/folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/24/system.svg -> computer.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/32/
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/48/
+-rw-r--r--	root/root	usr/share/icons/humanity/devices/48/computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/48/gnome-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/48/gnome-dev-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/48/gnome-fs-client.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/48/network-workgroup.svg -> ../../places/48/folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/48/system.svg -> computer.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/devices/64/
+-rw-r--r--	root/root	usr/share/icons/humanity/devices/64/computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/64/gnome-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/64/gnome-dev-computer.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/64/gnome-fs-client.svg -> computer.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/devices/64/system.svg -> computer.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/emblems/
+drwxr-xr-x	root/root	usr/share/icons/humanity/emblems/16/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/16/emblem-desktop.svg -> ../../places/16/user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/16/emblem-videos.svg -> ../../mimes/16/video-x-generic.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/emblems/22/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/22/emblem-desktop.svg -> ../../places/22/user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/22/emblem-documents.svg -> ../../mimes/22/x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/22/emblem-videos.svg -> ../../mimes/22/video-x-generic.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/emblems/24/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/24/emblem-desktop.svg -> ../../places/24/user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/24/emblem-documents.svg -> ../../mimes/24/x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/24/emblem-multimedia.svg -> ../../categories/24/applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/24/emblem-shared.svg -> ../../apps/24/gnome-session-switch.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/24/emblem-videos.svg -> ../../mimes/24/video-x-generic.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/emblems/32/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/32/emblem-desktop.svg -> ../../places/32/user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/32/emblem-documents.svg -> ../../mimes/32/x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/32/emblem-videos.svg -> ../../mimes/32/video-x-generic.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/emblems/48/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/48/emblem-desktop.svg -> ../../places/48/user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/48/emblem-documents.svg -> ../../mimes/48/x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/48/emblem-multimedia.svg -> ../../categories/48/applications-multimedia.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/48/emblem-shared.svg -> ../../apps/48/gnome-session-switch.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/emblems/48/emblem-videos.svg -> ../../mimes/48/video-x-generic.svg
+-rwxr-xr-x	root/root	usr/share/icons/humanity/index.theme
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/128/
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/16/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/application-x-matroska.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/gnome-mime-application-vnd.rn-realmedia-secure.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/gnome-mime-application-vnd.rn-realmedia-vbr.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/gnome-mime-application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/gnome-mime-application-x-shockwave-flash.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/gnome-mime-video-x-ms-asf.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/gnome-mime-video-x-ms-wmv.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/gnome-mime-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/media-video.svg -> video-x-generic.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/16/playlist-automatic-symbolic.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/16/playlist-symbolic.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/16/video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/16/video.svg -> video-x-generic.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/22/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-illustrator.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-vnd.oasis.opendocument.graphics.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-vnd.sun.xml.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-vnd.sun.xml.draw.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-vnd.wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-x-gnumeric.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-x-m4.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/application-x-matroska.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/document.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-postscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.lotus-1-2-3.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.oasis.opendocument.graphics.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.oasis.opendocument.image.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.oasis.opendocument.spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.oasis.opendocument.text.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.rn-realmedia-secure.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.rn-realmedia-vbr.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.stardivision.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.stardivision.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.sun.xml.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.sun.xml.draw.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-abiword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-applix-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-applix-word.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-dvi.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-gnumeric.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-gzpostscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-kspread.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-kword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-scribus.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-shockwave-flash.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-application-x-tex.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-video-x-ms-asf.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-video-x-ms-wmv.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/gnome-mime-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/image-x-svg+xml.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/media-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/office-document.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/office-illustration.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/office-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/openofficeorg3-drawing.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/openofficeorg3-oasis-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/package_wordprocessing.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/22/playlist-automatic-symbolic.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/22/playlist-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/svg.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/text-enriched.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/text-richtext.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/text-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/text-x-sql.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/22/video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/vnd.oasis.opendocument.drawing.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/22/wordprocessing.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/22/x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/22/x-office-drawing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/22/x-office-spreadsheet.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/24/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-illustrator.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-vnd.oasis.opendocument.graphics.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-vnd.sun.xml.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-vnd.sun.xml.draw.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-vnd.wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-x-gnumeric.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-x-m4.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/application-x-matroska.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/document.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-postscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.lotus-1-2-3.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.oasis.opendocument.graphics.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.oasis.opendocument.image.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.oasis.opendocument.spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.oasis.opendocument.text.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.rn-realmedia-secure.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.rn-realmedia-vbr.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.stardivision.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.stardivision.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.sun.xml.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.sun.xml.draw.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-abiword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-applix-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-applix-word.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-dvi.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-gnumeric.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-gzpostscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-kspread.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-kword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-scribus.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-shockwave-flash.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-application-x-tex.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-video-x-ms-asf.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-video-x-ms-wmv.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/gnome-mime-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/image-x-svg+xml.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/media-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/office-document.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/office-illustration.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/office-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/openofficeorg3-drawing.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/openofficeorg3-oasis-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/package_wordprocessing.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/24/playlist-automatic-symbolic.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/24/playlist-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/svg.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/text-enriched.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/text-richtext.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/text-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/text-x-sql.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/24/video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/vnd.oasis.opendocument.drawing.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/24/wordprocessing.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/24/x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/24/x-office-drawing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/24/x-office-spreadsheet.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/256/
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/32/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/application-vnd.wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/application-x-m4.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/application-x-matroska.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-postscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-vnd.oasis.opendocument.text.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-vnd.rn-realmedia-secure.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-vnd.rn-realmedia-vbr.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-vnd.stardivision.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-abiword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-applix-word.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-dvi.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-gzpostscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-kword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-scribus.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-shockwave-flash.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-application-x-tex.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-video-x-ms-asf.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-video-x-ms-wmv.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/gnome-mime-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/media-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/office-document.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/package_wordprocessing.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/text-enriched.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/text-richtext.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/32/video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/32/wordprocessing.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/32/x-office-document.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/48/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-illustrator.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-vnd.oasis.opendocument.graphics.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-vnd.sun.xml.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-vnd.sun.xml.draw.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-vnd.wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-x-gnumeric.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-x-m4.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/application-x-matroska.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/document.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-postscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-rtf.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.lotus-1-2-3.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.oasis.opendocument.graphics.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.oasis.opendocument.image.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.oasis.opendocument.spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.oasis.opendocument.text.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.rn-realmedia-secure.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.rn-realmedia-vbr.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.rn-realmedia.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.stardivision.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.stardivision.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.sun.xml.calc.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.sun.xml.draw.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-vnd.sun.xml.writer.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-wordperfect.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-abiword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-applix-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-applix-word.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-dvi.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-gnumeric.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-gzpostscript.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-kspread.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-kword.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-scribus.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-shockwave-flash.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-application-x-tex.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-video-x-ms-asf.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-video-x-ms-wmv.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/gnome-mime-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/image-x-svg+xml.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/media-video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/office-document.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/office-illustration.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/office-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/openofficeorg3-drawing.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/openofficeorg3-oasis-spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/package_wordprocessing.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/spreadsheet.svg -> x-office-spreadsheet.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/svg.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/text-enriched.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/text-richtext.svg -> x-office-document.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/text-spreadsheet.svg -> x-office-spreadsheet.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/48/video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/video.svg -> video-x-generic.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/vnd.oasis.opendocument.drawing.svg -> x-office-drawing.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/mimes/48/wordprocessing.svg -> x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/48/x-office-document.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/48/x-office-drawing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/mimes/48/x-office-spreadsheet.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/mimes/64/
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/128/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/128/desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/128/gnome-ccdesktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/128/gnome-desktop-config.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/128/gnome-fs-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/128/other-desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/128/user-desktop.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/16/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/application-x-gnome-saved-search.svg -> folder-saved-search.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-documents.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-downloads.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-images.svg -> folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-music.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-remote-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-remote-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-remote-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-remote-ssh.svg -> folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-saved-search.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-templates.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder-video.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder-videos.svg -> folder-video.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder_download.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder_home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder_images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/folder_pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-ccdesktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-desktop-config.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-folder.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-blockdev.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-fs-ssh.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-mime-x-directory-smb-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gnome-mime-x-directory-smb-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gtk-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/gtk-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/inode-directory.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/mail-sent.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/network-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/network_local.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/other-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/stock_folder.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/16/user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/user-images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/user-pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/16/user-share.svg -> folder-remote.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/22/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/application-x-gnome-saved-search.svg -> folder-saved-search.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-documents.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-downloads.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-images.svg -> folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-music.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-remote-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-remote-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-remote-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-remote-ssh.svg -> folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-saved-search.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-system.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-templates.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder-video.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder-videos.svg -> folder-video.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder_download.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder_home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder_images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folder_pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folders-documents.svg -> folder-documents.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folders-downloads.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folders-music.svg -> folder-music.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/folders-publicshare.svg -> folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-ccdesktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-desktop-config.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-folder.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-blockdev.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-fs-ssh.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-mime-x-directory-smb-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gnome-mime-x-directory-smb-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gtk-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/gtk-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/inode-directory.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/mail-outbox.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/mail-sent.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/network-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/network_local.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/other-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/stock_folder.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/22/user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/user-images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/user-pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/22/user-share.svg -> folder-remote.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/24/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/application-x-gnome-saved-search.svg -> folder-saved-search.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-documents.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-downloads.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-images.svg -> folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-music.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-remote-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-remote-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-remote-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-remote-ssh.svg -> folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-saved-search.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-system.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-templates.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder-video.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder-videos.svg -> folder-video.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder_download.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder_home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder_images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folder_pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folders-documents.svg -> folder-documents.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folders-downloads.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folders-music.svg -> folder-music.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/folders-publicshare.svg -> folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-ccdesktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-desktop-config.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-folder.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-blockdev.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/gnome-fs-directory-accept.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-fs-ssh.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-mime-x-directory-smb-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gnome-mime-x-directory-smb-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gtk-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/gtk-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/inode-directory.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/mail-outbox.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/mail-sent.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/network-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/network_local.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/other-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/stock_folder.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/24/user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/user-images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/user-pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/24/user-share.svg -> folder-remote.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/32/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-documents.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-downloads.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-images.svg -> folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-music.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-remote-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-remote-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-remote-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-remote-ssh.svg -> folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-system.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-templates.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder-video.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder-videos.svg -> folder-video.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder_download.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder_home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder_images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folder_pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folders-documents.svg -> folder-documents.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folders-downloads.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folders-music.svg -> folder-music.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/folders-publicshare.svg -> folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-ccdesktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-desktop-config.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-folder.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-blockdev.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-fs-ssh.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-mime-x-directory-smb-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gnome-mime-x-directory-smb-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gtk-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/gtk-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/inode-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/network-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/network_local.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/other-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/stock_folder.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/32/user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/user-images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/user-pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/32/user-share.svg -> folder-remote.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/48/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/application-x-gnome-saved-search.svg -> folder-saved-search.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-documents.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder-downloads.svg -> folder-download.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder-images.svg -> folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-music.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-publicshare.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-recent.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder-remote-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder-remote-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder-remote-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder-remote-ssh.svg -> folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-saved-search.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-system.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-templates.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-ubuntu.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder-video.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder-videos.svg -> folder-video.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder_download.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder_home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder_images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/folder_pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-ccdesktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-desktop-config.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-folder.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-blockdev.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-dav.svg -> gnome-fs-web.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/gnome-fs-directory-accept.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-fs-ssh.svg -> folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/gnome-fs-web.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-mime-x-directory-smb-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gnome-mime-x-directory-smb-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gtk-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/gtk-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/inode-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/network-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/network_local.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/other-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/stock_folder.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/48/user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/user-home.svg -> folder-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/user-images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/user-pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/48/user-share.svg -> folder-remote.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/places/64/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/application-x-gnome-saved-search.svg -> folder-saved-search.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-documents.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder-downloads.svg -> folder-download.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder-images.svg -> folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-music.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-pictures.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-publicshare.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder-remote-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder-remote-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder-remote-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder-remote-ssh.svg -> folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-remote.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-saved-search.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-system.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-templates.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder-video.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder-videos.svg -> folder-video.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder_download.svg -> folder-download.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder_home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder_images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/folder_pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-ccdesktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-desktop-config.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-folder.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-blockdev.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-desktop.svg -> user-desktop.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/gnome-fs-directory-accept.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-ftp.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-nfs.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-smb.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-fs-ssh.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-home.svg -> user-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-mime-x-directory-smb-share.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gnome-mime-x-directory-smb-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gtk-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/gtk-network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/inode-directory.svg -> folder.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/network-workgroup.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/network.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/network_local.svg -> folder-remote.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/other-desktop.svg -> user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/stock_folder.svg -> folder.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/places/64/user-desktop.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/user-home.svg -> folder-home.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/user-images.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/user-pictures.svg -> folder-pictures.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/places/64/user-share.svg -> folder-remote.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/128/
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/16/
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/account-logged-in.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/application-running.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/applications-chat-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/applications-email-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-caution.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-charged.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery-low.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery_charged.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery_empty.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/battery_full.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/connect_no.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/empathy-available.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/empathy-away.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/empathy-busy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/empathy-extended-away.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/empathy-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gnome-netstatus-0-24.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gnome-netstatus-25-49.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gnome-netstatus-50-74.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gnome-netstatus-75-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gnome-netstatus-disconn.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gnome-netstatus-error.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-charged.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-empty.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-battery-missing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-primary-charged.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/gpm-ups-missing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/im-message-new.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/indicator-messages-new.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/indicator-messages.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/network-error.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/network-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/new-messages-red.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-mb-roam.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-no-connection.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-secure-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-signal-0.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/16/nm-signal-00.svg -> nm-signal-0.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-signal-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-signal-25.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-signal-50.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-signal-75.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-tech-3g.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-tech-cdma-1x.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-tech-edge.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-tech-evdo.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-tech-gprs.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-tech-hspa.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-tech-umts.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-vpn-active-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-vpn-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/nm-wwan-tower.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_disconnect.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-cloudy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-few-clouds.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-fog.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-night-clear.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-night-few-clouds.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-showers.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-snow.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/stock_weather-storm.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/tray-away.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/tray-busy.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/tray-extended-away.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/tray-message.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/tray-new-im.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/tray-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/tray-online.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/ubuntuone-client-error.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/ubuntuone-client-idle.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/ubuntuone-client-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/ubuntuone-client-updating.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/user-available-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/user-away-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/user-busy-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/user-idle-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/user-indeterminate-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/user-invisible-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/user-offline-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-010.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-030.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-050.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-070.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-090.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-110.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-120.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-130.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-140.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-150.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-160.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-170.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-180.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-190.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-200.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-210.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-220.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-230.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-240.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-250.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-260.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-270.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-280.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-290.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-300.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-310.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-320.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-330.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-340.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night-350.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clear-night.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clouds-night.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-clouds.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-010.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-030.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-050.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-070.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-090.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-110.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-120.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-130.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-140.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-150.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-160.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-170.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-180.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-190.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-200.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-210.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-220.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-230.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-240.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-250.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-260.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-270.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-280.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-290.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-300.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-310.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-320.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-330.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-340.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night-350.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds-night.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-few-clouds.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-fog.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-overcast.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-severe-alert.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-showers-scattered.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-showers.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-snow.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/weather-storm.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-charged.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-primary-missing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-charged.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/16/xfpm-ups-missing.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/22/
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/account-logged-in.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/application-running.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/applications-chat-panel.svg -> user-available-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/applications-email-panel.svg -> indicator-messages.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-input-microphone-high-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-input-microphone-low-zero-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-output-none-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-volume-high-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-volume-low-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-volume-low-zero-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-volume-medium-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-volume-muted-blocking-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/audio-volume-muted-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/battery-caution.svg -> battery-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/battery-low.svg -> gpm-primary-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/battery_charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/battery_empty.svg -> battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/battery_full.svg -> battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/battery_plugged.svg -> gpm-ac-adapter.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/blueman-tray.svg -> bluetooth-active.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/bluetooth-active.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/bluetooth-disabled.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/bluetooth-paired.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/connect_creating.svg -> network-transmit-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/connect_established.svg -> network-idle.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/connect_no.svg -> network-offline.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/empathy-available.svg -> user-available-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/empathy-away.svg -> user-away-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/empathy-busy.svg -> user-busy-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/empathy-extended-away.svg -> user-idle-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/empathy-offline.svg -> user-offline-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-0-24.svg -> nm-signal-25.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-25-49.svg -> nm-signal-50.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-50-74.svg -> nm-signal-75.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-75-100.svg -> nm-signal-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-disconn.svg -> network-offline.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-error.svg -> network-error.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-idle.svg -> network-idle.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-rx.svg -> network-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-tx.svg -> network-transmit.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gnome-netstatus-txrx.svg -> network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-ac-adapter.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-000-charging.svg -> battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-000.svg -> battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-020-charging.svg -> battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-020.svg -> battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-040-charging.svg -> battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-040.svg -> battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-060-charging.svg -> battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-060.svg -> battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-080-charging.svg -> battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-080.svg -> battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-100-charging.svg -> battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-100.svg -> battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-charged.svg -> battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-empty.svg -> battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-battery-missing.svg -> battery-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-keyboard-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-keyboard-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-keyboard-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-keyboard-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-keyboard-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-keyboard-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-mouse-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-mouse-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-mouse-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-mouse-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-mouse-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-mouse-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-phone-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-phone-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-phone-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-phone-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-phone-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gpm-phone-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-000-charging.svg -> gpm-battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-020-charging.svg -> gpm-battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-020.svg -> gpm-battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-040-charging.svg -> gpm-battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-040.svg -> gpm-battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-060-charging.svg -> gpm-battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-060.svg -> gpm-battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-080-charging.svg -> gpm-battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-080.svg -> gpm-battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-100-charging.svg -> gpm-battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-100.svg -> gpm-battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-primary-charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-000-charging.svg -> gpm-battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-020-charging.svg -> gpm-battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-020.svg -> gpm-battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-040-charging.svg -> gpm-battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-040.svg -> gpm-battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-060-charging.svg -> gpm-battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-060.svg -> gpm-battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-080-charging.svg -> gpm-battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-080.svg -> gpm-battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-100-charging.svg -> gpm-battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-100.svg -> gpm-battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/gpm-ups-missing.svg -> gpm-battery-missing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-full-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-full.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-high-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-high.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-low-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-low.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-medium-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-medium.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-none-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gsm-3g-none.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/gtk-dialog-authentication-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/ibus-keyboard.svg -> input-keyboard.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/im-message-new.svg -> tray-new-im.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/indicator-cpufreq-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/indicator-cpufreq-25.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/indicator-cpufreq-50.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/indicator-cpufreq-75.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/indicator-cpufreq.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/indicator-messages-new.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/indicator-messages.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/input-keyboard.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/keyboard.svg -> input-keyboard.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/krb-expiring-ticket.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/krb-no-valid-ticket.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/krb-valid-ticket.svg -> gtk-dialog-authentication-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/network-error.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/network-idle.svg -> network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/network-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/network-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/network-transmit.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/network-wired.svg -> network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/new-messages-red.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-adhoc.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-device-wired-autoip.svg -> nm-device-wired.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-device-wired-secure.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-device-wired.svg -> network-transmit-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-device-wwan.svg -> gsm-3g-full.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-mb-roam.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-no-connection.svg -> network-offline.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-secure-lock.svg -> nm-vpn-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-0.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-00-secure.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-signal-00.svg -> nm-signal-0.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-100-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-25-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-25.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-50-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-50.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-75-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-signal-75.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-tech-3g.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-tech-cdma-1x.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-tech-edge.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-tech-evdo.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-tech-gprs.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-tech-hspa.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-tech-umts.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/nm-vpn-active-lock.svg -> nm-vpn-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-vpn-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-vpn-standalone-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/stock_disconnect.svg -> network-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/system-devices-panel-alert.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/system-devices-panel-information.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/system-devices-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/tray-away.svg -> user-away-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/tray-busy.svg -> user-busy-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/tray-extended-away.svg -> user-idle-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/tray-message.svg -> tray-new-im.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/tray-new-im.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/tray-offline.svg -> user-offline-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/tray-online.svg -> user-available-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/ubuntuone-client-error.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/ubuntuone-client-idle.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/ubuntuone-client-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/ubuntuone-client-updating.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/user-available-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/user-away-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/user-busy-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/user-idle-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/user-indeterminate-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/user-invisible-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/user-offline-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfce4-mixer-muted.svg -> audio-volume-muted-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/xfce4-mixer-no-record.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/xfce4-mixer-record.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfce4-mixer-volume-muted.svg -> audio-volume-muted-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ac-adapter.svg -> gpm-ac-adapter.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-keyboard-000.svg -> gpm-keyboard-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/xfpm-keyboard-030.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-keyboard-060.svg -> gpm-keyboard-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-keyboard-100.svg -> gpm-keyboard-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-mouse-000.svg -> gpm-mouse-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/xfpm-mouse-030.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-mouse-060.svg -> gpm-mouse-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-mouse-100.svg -> gpm-mouse-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-phone-000.svg -> gpm-phone-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/22/xfpm-phone-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-phone-060.svg -> gpm-phone-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-phone-100.svg -> gpm-phone-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-000-charging.svg -> gpm-primary-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-020-charging.svg -> gpm-primary-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-020.svg -> gpm-primary-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-040-charging.svg -> gpm-primary-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-040.svg -> gpm-primary-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-060-charging.svg -> gpm-primary-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-060.svg -> gpm-primary-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-080-charging.svg -> gpm-primary-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-080.svg -> gpm-primary-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-100-charging.svg -> gpm-primary-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-100.svg -> gpm-primary-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-primary-missing.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-000-charging.svg -> gpm-battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-020-charging.svg -> gpm-battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-020.svg -> gpm-battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-040-charging.svg -> gpm-battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-040.svg -> gpm-battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-060-charging.svg -> gpm-battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-060.svg -> gpm-battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-080-charging.svg -> gpm-battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-080.svg -> gpm-battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-100-charging.svg -> gpm-battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-100.svg -> gpm-battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/22/xfpm-ups-missing.svg -> gpm-battery-missing.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/24/
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/account-logged-in.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/application-running.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/applications-chat-panel.svg -> user-available-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/applications-email-panel.svg -> indicator-messages.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-input-microphone-high-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-input-microphone-low-zero-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-output-none-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-volume-high-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-volume-low-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-volume-low-zero-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-volume-medium-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-volume-muted-blocking-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/audio-volume-muted-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-000-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-020-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-040-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-060-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-080-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-100-charging.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/battery-caution.svg -> battery-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/battery-low.svg -> gpm-primary-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/battery_charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/battery_empty.svg -> battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/battery_full.svg -> battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/battery_plugged.svg -> gpm-ac-adapter.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/blueman-tray.svg -> bluetooth-active.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/bluetooth-active.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/bluetooth-disabled.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/bluetooth-paired.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/connect_creating.svg -> network-transmit-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/connect_established.svg -> network-idle.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/connect_no.svg -> network-offline.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/empathy-available.svg -> user-available-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/empathy-away.svg -> user-away-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/empathy-busy.svg -> user-busy-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/empathy-extended-away.svg -> user-idle-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/empathy-offline.svg -> user-offline-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/folder-drag-accept.svg -> ../../places/24/gnome-fs-directory-accept.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-0-24.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-25-49.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-50-74.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-75-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-disconn.svg -> network-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-error.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-idle.svg -> network-idle.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-rx.svg -> network-receive.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-tx.svg -> network-transmit.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gnome-netstatus-txrx.svg -> network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-ac-adapter.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-000-charging.svg -> battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-000.svg -> battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-020-charging.svg -> battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-020.svg -> battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-040-charging.svg -> battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-040.svg -> battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-060-charging.svg -> battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-060.svg -> battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-080-charging.svg -> battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-080.svg -> battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-100-charging.svg -> battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-100.svg -> battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-charged.svg -> battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-empty.svg -> battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-battery-missing.svg -> battery-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-keyboard-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-keyboard-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-keyboard-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-keyboard-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-keyboard-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-keyboard-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-mouse-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-mouse-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-mouse-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-mouse-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-mouse-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-mouse-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-phone-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-phone-020.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-phone-040.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-phone-060.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-phone-080.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gpm-phone-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-000-charging.svg -> gpm-battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-020-charging.svg -> gpm-battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-020.svg -> gpm-battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-040-charging.svg -> gpm-battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-040.svg -> gpm-battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-060-charging.svg -> gpm-battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-060.svg -> gpm-battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-080-charging.svg -> gpm-battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-080.svg -> gpm-battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-100-charging.svg -> gpm-battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-100.svg -> gpm-battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-primary-charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-000-charging.svg -> gpm-battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-020-charging.svg -> gpm-battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-020.svg -> gpm-battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-040-charging.svg -> gpm-battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-040.svg -> gpm-battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-060-charging.svg -> gpm-battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-060.svg -> gpm-battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-080-charging.svg -> gpm-battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-080.svg -> gpm-battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-100-charging.svg -> gpm-battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-100.svg -> gpm-battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/gpm-ups-missing.svg -> gpm-battery-missing.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-full-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-full.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-high-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-high.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-low-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-low.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-medium-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-medium.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-none-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gsm-3g-none.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/gtk-dialog-authentication-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/im-message-new.svg -> tray-new-im.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/indicator-messages-new.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/indicator-messages.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/krb-expiring-ticket.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/krb-no-valid-ticket.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/krb-valid-ticket.svg -> gtk-dialog-authentication-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/network-error.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/network-idle.svg -> network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/network-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/network-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/network-transmit.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/network-wired.svg -> network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/new-messages-red.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-adhoc.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-device-wired-autoip.svg -> nm-device-wired.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-device-wired-secure.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-device-wired.svg -> network-transmit-receive.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-device-wireless.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-device-wwan.svg -> gsm-3g-full.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-mb-roam.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-no-connection.svg -> network-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-secure-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-0.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-00-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-00.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-100-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-100.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-25-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-25.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-50-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-50.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-75-secure.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-signal-75.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-tech-3g.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-tech-cdma-1x.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-tech-edge.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-tech-evdo.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-tech-gprs.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-tech-hspa.svg -> nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/nm-tech-umts.svg -> nm-wwan-tower.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-vpn-active-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-vpn-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-vpn-standalone-lock.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/nm-wwan-tower.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/stock_disconnect.svg -> network-offline.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/tray-away.svg -> user-away-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/tray-busy.svg -> user-busy-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/tray-extended-away.svg -> user-idle-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/tray-message.svg -> tray-new-im.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/tray-new-im.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/tray-offline.svg -> user-offline-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/tray-online.svg -> user-available-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/ubuntuone-client-error.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/ubuntuone-client-idle.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/ubuntuone-client-offline.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/ubuntuone-client-updating.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/user-available-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/user-away-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/user-busy-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/user-idle-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/user-indeterminate-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/user-invisible-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/user-offline-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfce4-mixer-muted.svg -> audio-volume-muted-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/xfce4-mixer-no-record.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/xfce4-mixer-record.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfce4-mixer-volume-muted.svg -> audio-volume-muted-panel.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ac-adapter.svg -> gpm-ac-adapter.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-keyboard-000.svg -> gpm-keyboard-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/xfpm-keyboard-030.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-keyboard-060.svg -> gpm-keyboard-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-keyboard-100.svg -> gpm-keyboard-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-mouse-000.svg -> gpm-mouse-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/xfpm-mouse-030.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-mouse-060.svg -> gpm-mouse-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-mouse-100.svg -> gpm-mouse-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-phone-000.svg -> gpm-phone-000.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/status/24/xfpm-phone-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-phone-060.svg -> gpm-phone-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-phone-100.svg -> gpm-phone-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-000-charging.svg -> gpm-primary-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-020-charging.svg -> gpm-primary-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-020.svg -> gpm-primary-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-040-charging.svg -> gpm-primary-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-040.svg -> gpm-primary-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-060-charging.svg -> gpm-primary-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-060.svg -> gpm-primary-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-080-charging.svg -> gpm-primary-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-080.svg -> gpm-primary-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-100-charging.svg -> gpm-primary-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-100.svg -> gpm-primary-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-primary-missing.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-000-charging.svg -> gpm-battery-000-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-000.svg -> gpm-battery-000.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-020-charging.svg -> gpm-battery-020-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-020.svg -> gpm-battery-020.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-040-charging.svg -> gpm-battery-040-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-040.svg -> gpm-battery-040.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-060-charging.svg -> gpm-battery-060-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-060.svg -> gpm-battery-060.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-080-charging.svg -> gpm-battery-080-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-080.svg -> gpm-battery-080.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-100-charging.svg -> gpm-battery-100-charging.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-100.svg -> gpm-battery-100.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-charged.svg -> gpm-battery-charged.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/24/xfpm-ups-missing.svg -> gpm-battery-missing.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/32/
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/48/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/48/aptdaemon-upgrade.svg -> ../../apps/48/system-software-update.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/48/folder-drag-accept.svg -> ../../places/48/gnome-fs-directory-accept.svg
+lrwxrwxrwx	root/root	usr/share/icons/humanity/status/48/gnome-fs-directory-accept.svg -> ../../places/48/gnome-fs-directory-accept.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/status/64/
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/128/
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/16/
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/22/
+lrwxrwxrwx	root/root	usr/share/icons/humanity/stock/22/avatar-default.svg -> stock_person-panel.svg
+-rw-r--r--	root/root	usr/share/icons/humanity/stock/22/stock_person-panel.svg
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/24/
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/32/
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/48/
+drwxr-xr-x	root/root	usr/share/icons/humanity/stock/64/
+-rw-r--r--	root/root	usr/share/icons/humanity/stock/64/album_artwork.png
