@@ -1,0 +1,17 @@
+# Description: A tool to configure GTK theme colors.
+# URL: https://github.com/satya164/gtk-theme-config
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk3 vala
+
+name=gtk-theme-config
+version=1.0
+release=1
+source=(https://github.com/satya164/$name/archive/v$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	make
+	make DESTDIR=$PKG install
+}
