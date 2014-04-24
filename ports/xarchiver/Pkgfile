@@ -1,20 +1,27 @@
 # Description: A lightweight GTK archive manager.
-# URL: http://xarchiver.xfce.org/
+# URL: http://xarchiver.sourceforge.net/
 # Packager: Mark Rosenstand, mark at borkware dot net
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: gtk
+# Depends on: gtk xorg-libxdamage
 
-# Recommended:	
-# Optional:		
-# Category:	archiver, 7z, zip, rar, tar, bzip2, gzip, arj, rpm
+# Optional: zip unzip p7zip arj lzop cpio unrar
 
 name=xarchiver
-version=0.4.6
+version=0.5.3
 release=1
-source=(http://dl.sourceforge.net/sourceforge/xarchiver/xarchiver-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/project/$name/$name-$version.tar.bz2
+	xarchiver-0.5.3-add-mime-types.patch
+	xarchiver-0.5.3-fix-double-escaping.patch
+	xarchiver-0.5.3-fix-password-protected.patch
+	xarchiver-0.5.3-fix-rpm-support.patch)
 
 build() {
-	cd xarchiver-$version
+	cd $name-$version
+
+	patch -p1 -i $SRC/xarchiver-0.5.3-add-mime-types.patch
+	patch -p1 -i $SRC/xarchiver-0.5.3-fix-double-escaping.patch
+	patch -p1 -i $SRC/xarchiver-0.5.3-fix-password-protected.patch
+	patch -p1 -i $SRC/xarchiver-0.5.3-fix-rpm-support.patch
 
 	./configure \
 		--prefix=/usr \
