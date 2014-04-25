@@ -1,0 +1,20 @@
+# Description: A lightweight C library for storing RDF data in memory.
+# URL: http://drobilla.net/software/sord/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: serd
+
+name=sord
+version=0.12.0
+release=1
+source=(http://download.drobilla.net/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	sed -i "/ldconfig/d" wscript
+
+	/usr/bin/python waf configure --prefix=/usr --mandir=/usr/man
+	/usr/bin/python waf build $MAKEFLAGS
+	/usr/bin/python waf --destdir="$PKG" install
+}
