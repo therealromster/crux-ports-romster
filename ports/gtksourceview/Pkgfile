@@ -1,0 +1,26 @@
+# Description: A text widget adding syntax highlighting.
+# URL: http://www.gnome.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: glade3 gtk3
+
+name=gtksourceview
+version=3.12.1
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version:0:4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-glade-catalog \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+	
+	rm -r $PKG/usr/share/locale
+	rm -r $PKG/usr/share/gtk-doc
+}
