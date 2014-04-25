@@ -2,7 +2,7 @@
 # URL: http://www.gnome.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: gsettings-desktop-schemas gtksourceview libpeas yelp-xsl enchant iso-codes 
+# Depends on: gsettings-desktop-schemas gtksourceview libpeas yelp-xsl enchant iso-codes gnome-icon-theme
 
 name=gedit
 version=3.12.1
