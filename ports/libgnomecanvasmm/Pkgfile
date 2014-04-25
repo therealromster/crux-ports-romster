@@ -1,0 +1,21 @@
+# Description: A C++ wrapper for libgnomecanvas.
+# URL: http://www.gtkmm.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtkmm libgnomecanvas
+
+name=libgnomecanvasmm
+version=2.26.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/${version%.*}/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man
+
+	make
+	make DESTDIR=$PKG install
+}
