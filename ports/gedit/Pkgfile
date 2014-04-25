@@ -1,0 +1,26 @@
+# Description: A text editor for GNOME.
+# URL: http://www.gnome.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gsettings-desktop-schemas gtksourceview libpeas yelp-xsl enchant iso-codes 
+
+name=gedit
+version=3.12.1
+release=1
+source=(http://ftp.gnome.org/pub/gnome/sources/$name/${version%.*}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--libexecdir=/usr/lib \
+		--disable-updater \
+		--disable-schemas-compile \
+		--enable-python
+
+	make
+	make DESTDIR=$PKG install
+	#rm -r $PKG/usr/share
+}
