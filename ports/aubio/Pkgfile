@@ -1,23 +1,23 @@
-# Description: Library for audio labelling.
+# Description: A tool for extracting annotations from audio signals.
 # URL: http://aubio.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: libsndfile libsamplerate fftw
-# Optional: alsa jack-audio-connection-kit
+# Depends on: ffmpeg fftw jack numpy
 
 name=aubio
-version=0.3.2
+version=0.4.1
 release=1
-source="http://aubio.org/pub/$name-$version.tar.gz"
+source=(http://aubio.org/pub/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
-	./configure \
-		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-dependency-tracking
+	/usr/bin/python waf configure --prefix=/usr --enable-fftw3f
+	/usr/bin/python waf build $MAKEFLAGS
+	/usr/bin/python waf --destdir="$PKG" install
 
-	make
-	make DESTDIR=$PKG install
+	# python interface
+	cd python
+	/usr/bin/python setup.py build
+	/usr/bin/python setup.py install --root="$PKG" --optimize=1
 }
