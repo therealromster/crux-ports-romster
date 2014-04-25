@@ -1,0 +1,23 @@
+# Description: A C library interface to the LV2 plug-in standard,
+# URL: http://drobilla.net/software/lilv/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: numpy sratom jack swig
+
+name=lilv
+version=0.18.0
+release=1
+source=(http://download.drobilla.net/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	sed -i "/ldconfig/d" wscript
+
+	# fatal error: numpy/arrayobject.h: No such file or directory
+	export CXXFLAGS+=' -I/usr/lib/python2.7/site-packages/numpy/core/include/'
+
+	/usr/bin/python waf configure --prefix=/usr --mandir=/usr/man --dyn-manifest --bindings
+	/usr/bin/python waf build $MAKEFLAGS
+	/usr/bin/python waf --destdir="$PKG" install
+}
