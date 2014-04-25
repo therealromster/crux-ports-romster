@@ -2,17 +2,24 @@
 # URL: http://ardour.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Vincenzo Colosimo, vico at bicisport dot de
-# Depends on: libgnomecanvas boost gtk jack-audio-connection-kit libart_lgpl liblrdf scons aubio
+# Depends on: aubio boost graphviz libgnomecanvasmm liblo liblrdf lilv
 
 name=ardour
-version=2.8
+version=3.5.357
 release=1
-source=(http://ardour.org/files/releases/$name-$version.tar.bz2)
+source=(http://crux.ster.so/distfiles/$name/Ardour3-$version.tar.bz2
+	$name.desktop)
 
 build() {
-	unset CFLAGS
-	cd $name-$version
-	sed -i -e 's|/etc|/usr/etc|' SConstruct
-	scons PREFIX=/usr DESTDIR=$PKG install
-	rm -rf $PKG/usr/share/locale
+	cd Ardour3-$version
+
+	/usr/bin/python waf configure --prefix=/usr \
+		--mandir=/usr/man \
+		--no-nls
+
+	/usr/bin/python waf build $MAKEFLAGS
+	/usr/bin/python waf install --destdir="$PKG"
+
+	install -D -m 0644 $SRC/$name.desktop \
+		$PKG/usr/share/applications/$name.desktop
 }

@@ -1,149 +1,422 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/ardour2
+-rwxr-xr-x	root/root	usr/bin/ardour3
 drwxr-xr-x	root/root	usr/etc/
-drwxr-xr-x	root/root	usr/etc/ardour2/
--rw-r--r--	root/root	usr/etc/ardour2/SAE-de-keypad.bindings
--rw-r--r--	root/root	usr/etc/ardour2/SAE-de-nokeypad.bindings
--rw-r--r--	root/root	usr/etc/ardour2/SAE-us-keypad.bindings
--rw-r--r--	root/root	usr/etc/ardour2/SAE-us-nokeypad.bindings
--rw-r--r--	root/root	usr/etc/ardour2/ardour-sae.menus
--rw-r--r--	root/root	usr/etc/ardour2/ardour.menus
--rw-r--r--	root/root	usr/etc/ardour2/ardour2_ui_dark.rc
--rw-r--r--	root/root	usr/etc/ardour2/ardour2_ui_dark_sae.rc
--rw-r--r--	root/root	usr/etc/ardour2/ardour2_ui_default.conf
--rw-r--r--	root/root	usr/etc/ardour2/ardour2_ui_light.rc
--rw-r--r--	root/root	usr/etc/ardour2/ardour2_ui_light_sae.rc
--rw-r--r--	root/root	usr/etc/ardour2/ardour_system.rc
--rw-r--r--	root/root	usr/etc/ardour2/ergonomic-us.bindings
--rw-r--r--	root/root	usr/etc/ardour2/mnemonic-us.bindings
+drwxr-xr-x	root/root	usr/etc/ardour3/
+-rw-r--r--	root/root	usr/etc/ardour3/ardour.menus
+-rw-r--r--	root/root	usr/etc/ardour3/ardour3_ui_dark.rc
+-rw-r--r--	root/root	usr/etc/ardour3/ardour3_ui_default.conf
+-rw-r--r--	root/root	usr/etc/ardour3/ardour3_ui_light.rc
+-rw-r--r--	root/root	usr/etc/ardour3/ardour_system.rc
+drwxr-xr-x	root/root	usr/etc/ardour3/export/
+-rw-r--r--	root/root	usr/etc/ardour3/export/CD.format
+-rw-r--r--	root/root	usr/etc/ardour3/mixer.bindings
+-rw-r--r--	root/root	usr/etc/ardour3/mnemonic-us.bindings
+-rw-r--r--	root/root	usr/etc/ardour3/step_editing.bindings
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/ardour2/
--rwxr-xr-x	root/root	usr/lib/ardour2/ardour-2.8
-drwxr-xr-x	root/root	usr/lib/ardour2/engines/
--rwxr-xr-x	root/root	usr/lib/ardour2/engines/libclearlooks.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libardour.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libardour_cp.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libatkmm.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libgdkmm2.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libglibmm2.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libgnomecanvasmm.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libgtkmm2.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libgtkmm2ext.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libmidi++.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libpangomm.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libpbd.so
--rwxr-xr-x	root/root	usr/lib/ardour2/librubberband.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libsigc++2.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libsndfile-ardour.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libsoundtouch.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libvamphostsdk.so
--rwxr-xr-x	root/root	usr/lib/ardour2/libvampsdk.so
-drwxr-xr-x	root/root	usr/lib/ardour2/surfaces/
--rwxr-xr-x	root/root	usr/lib/ardour2/surfaces/libardour_genericmidi.so
--rwxr-xr-x	root/root	usr/lib/ardour2/surfaces/libardour_mackie.so
--rwxr-xr-x	root/root	usr/lib/ardour2/surfaces/libardour_powermate.so
--rwxr-xr-x	root/root	usr/lib/ardour2/surfaces/libardour_tranzport.so
-drwxr-xr-x	root/root	usr/lib/ardour2/vamp/
--rwxr-xr-x	root/root	usr/lib/ardour2/vamp/libardourvampplugins.so
+drwxr-xr-x	root/root	usr/lib/ardour3/
+-rwxr-xr-x	root/root	usr/lib/ardour3/ardour-3.5.357
+drwxr-xr-x	root/root	usr/lib/ardour3/backends/
+lrwxrwxrwx	root/root	usr/lib/ardour3/backends/libjack_audiobackend.so -> libjack_audiobackend.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/backends/libjack_audiobackend.so.1 -> libjack_audiobackend.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/backends/libjack_audiobackend.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/ardour3/engines/
+-rwxr-xr-x	root/root	usr/lib/ardour3/engines/libclearlooks.so
+lrwxrwxrwx	root/root	usr/lib/ardour3/libardour.so -> libardour.so.3.0.0.
+lrwxrwxrwx	root/root	usr/lib/ardour3/libardour.so.3 -> libardour.so.3.0.0.
+-rwxr-xr-x	root/root	usr/lib/ardour3/libardour.so.3.0.0.
+lrwxrwxrwx	root/root	usr/lib/ardour3/libardourcp.so -> libardourcp.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libardourcp.so.4 -> libardourcp.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libardourcp.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libaudiographer.so -> libaudiographer.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libaudiographer.so.0 -> libaudiographer.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libaudiographer.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libevoral.so -> libevoral.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libevoral.so.0 -> libevoral.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libevoral.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libgtkmm2ext.so -> libgtkmm2ext.so.0.8.3
+lrwxrwxrwx	root/root	usr/lib/ardour3/libgtkmm2ext.so.0 -> libgtkmm2ext.so.0.8.3
+-rwxr-xr-x	root/root	usr/lib/ardour3/libgtkmm2ext.so.0.8.3
+lrwxrwxrwx	root/root	usr/lib/ardour3/libltc.so -> libltc.so.1.1.1
+lrwxrwxrwx	root/root	usr/lib/ardour3/libltc.so.1 -> libltc.so.1.1.1
+-rwxr-xr-x	root/root	usr/lib/ardour3/libltc.so.1.1.1
+lrwxrwxrwx	root/root	usr/lib/ardour3/libmidipp.so -> libmidipp.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libmidipp.so.4 -> libmidipp.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libmidipp.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libpbd.so -> libpbd.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libpbd.so.4 -> libpbd.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libpbd.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libqmdsp.so -> libqmdsp.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libqmdsp.so.0 -> libqmdsp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libqmdsp.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/librubberband.so -> librubberband.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/librubberband.so.4 -> librubberband.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/librubberband.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libsmf.so
+lrwxrwxrwx	root/root	usr/lib/ardour3/libtaglib.so -> libtaglib.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libtaglib.so.0 -> libtaglib.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libtaglib.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libtimecode.so -> libtimecode.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libtimecode.so.0 -> libtimecode.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libtimecode.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libvamphost.so -> libvamphost.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libvamphost.so.0 -> libvamphost.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libvamphost.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libvampplugin.so -> libvampplugin.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/libvampplugin.so.0 -> libvampplugin.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/libvampplugin.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/ardour3/panners/
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpan1in2out.so -> libpan1in2out.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpan1in2out.so.1 -> libpan1in2out.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/panners/libpan1in2out.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpan2in2out.so -> libpan2in2out.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpan2in2out.so.1 -> libpan2in2out.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/panners/libpan2in2out.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpanbalance.so -> libpanbalance.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpanbalance.so.1 -> libpanbalance.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/panners/libpanbalance.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpanvbap.so -> libpanvbap.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/panners/libpanvbap.so.1 -> libpanvbap.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/panners/libpanvbap.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/sanityCheck
+drwxr-xr-x	root/root	usr/lib/ardour3/surfaces/
+lrwxrwxrwx	root/root	usr/lib/ardour3/surfaces/libardour_generic_midi.so -> libardour_generic_midi.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/surfaces/libardour_generic_midi.so.4 -> libardour_generic_midi.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/surfaces/libardour_generic_midi.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/surfaces/libardour_mcp.so -> libardour_mcp.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/surfaces/libardour_mcp.so.4 -> libardour_mcp.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/surfaces/libardour_mcp.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/surfaces/libardour_osc.so -> libardour_osc.so.4.1.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/surfaces/libardour_osc.so.4 -> libardour_osc.so.4.1.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/surfaces/libardour_osc.so.4.1.0
+drwxr-xr-x	root/root	usr/lib/ardour3/vamp/
+lrwxrwxrwx	root/root	usr/lib/ardour3/vamp/libardourvampplugins.so -> libardourvampplugins.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/ardour3/vamp/libardourvampplugins.so.0 -> libardourvampplugins.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/ardour3/vamp/libardourvampplugins.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/lv2/
+drwxr-xr-x	root/root	usr/lib/lv2/reasonablesynth.lv2/
+-rw-r--r--	root/root	usr/lib/lv2/reasonablesynth.lv2/manifest.ttl
+-rwxr-xr-x	root/root	usr/lib/lv2/reasonablesynth.lv2/reasonablesynth.so
+-rw-r--r--	root/root	usr/lib/lv2/reasonablesynth.lv2/reasonablesynth.ttl
 drwxr-xr-x	root/root	usr/share/
-drwxr-xr-x	root/root	usr/share/ardour2/
-drwxr-xr-x	root/root	usr/share/ardour2/icons/
--rw-r--r--	root/root	usr/share/ardour2/icons/application-x-ardour_16px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/application-x-ardour_22px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/application-x-ardour_32px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/application-x-ardour_48px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/ardour_icon_16px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/ardour_icon_22px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/ardour_icon_32px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/ardour_icon_48px.png
--rw-r--r--	root/root	usr/share/ardour2/icons/computer_keyboard.png
--rw-r--r--	root/root	usr/share/ardour2/icons/computer_keyboard_active.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-S1.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-S2.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-constant-power.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-fast-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-linear.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-long-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-short-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-in-slow-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-S1.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-S2.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-constant-power.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-fast-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-linear.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-long-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-short-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/crossfade-out-slow-cut.png
--rw-r--r--	root/root	usr/share/ardour2/icons/fader_belt.png
--rw-r--r--	root/root	usr/share/ardour2/icons/fader_belt_h.png
--rw-r--r--	root/root	usr/share/ardour2/icons/ferret_02.png
--rw-r--r--	root/root	usr/share/ardour2/icons/grabber_edit_point.png
--rw-r--r--	root/root	usr/share/ardour2/icons/hide.png
--rw-r--r--	root/root	usr/share/ardour2/icons/nudge_left.png
--rw-r--r--	root/root	usr/share/ardour2/icons/nudge_right.png
--rw-r--r--	root/root	usr/share/ardour2/icons/record_normal_red.png
--rw-r--r--	root/root	usr/share/ardour2/icons/record_tape_red.png
--rw-r--r--	root/root	usr/share/ardour2/icons/sae.png
--rw-r--r--	root/root	usr/share/ardour2/icons/saelogo.png
--rw-r--r--	root/root	usr/share/ardour2/icons/strip_width.png
--rw-r--r--	root/root	usr/share/ardour2/icons/tool_audition.png
--rw-r--r--	root/root	usr/share/ardour2/icons/tool_gain.png
--rw-r--r--	root/root	usr/share/ardour2/icons/tool_object.png
--rw-r--r--	root/root	usr/share/ardour2/icons/tool_stretch.png
--rw-r--r--	root/root	usr/share/ardour2/icons/tool_zoom.png
--rw-r--r--	root/root	usr/share/ardour2/icons/transport_end.png
--rw-r--r--	root/root	usr/share/ardour2/icons/transport_loop.png
--rw-r--r--	root/root	usr/share/ardour2/icons/transport_play.png
--rw-r--r--	root/root	usr/share/ardour2/icons/transport_range.png
--rw-r--r--	root/root	usr/share/ardour2/icons/transport_record.png
--rw-r--r--	root/root	usr/share/ardour2/icons/transport_start.png
--rw-r--r--	root/root	usr/share/ardour2/icons/transport_stop.png
--rw-r--r--	root/root	usr/share/ardour2/icons/zoom_full.png
--rw-r--r--	root/root	usr/share/ardour2/icons/zoom_in.png
--rw-r--r--	root/root	usr/share/ardour2/icons/zoom_out.png
-drwxr-xr-x	root/root	usr/share/ardour2/pixmaps/
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/forwardblarrow.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/hiin.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/hiout.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/hslider00.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/hslider01.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/left_arrow.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/linin.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/linout.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/loin.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/loop.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/loout.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/lr.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/regin.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/regin2.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/regout.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/regout2.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/revdblarrow.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/right_arrow.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/set-next-button.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/small-round-button-01.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/small_x.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/toggle-button-00.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/toggle-button-01.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/tool_audition.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/tool_gain.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/tool_object.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/tool_range.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/tool_stretch.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/tool_zoom.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/vslider00.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/vslider01.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/vslider02_rail.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/vslider02_slider.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/vslider_slider_16wide.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/zoom_full.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/zoom_in.xpm
--rw-r--r--	root/root	usr/share/ardour2/pixmaps/zoom_out.xpm
--rw-r--r--	root/root	usr/share/ardour2/splash.png
-drwxr-xr-x	root/root	usr/share/ardour2/templates/
--rw-r--r--	root/root	usr/share/ardour2/templates/16 Tracks.template
--rw-r--r--	root/root	usr/share/ardour2/templates/2 Track.template
--rw-r--r--	root/root	usr/share/ardour2/templates/32 Tracks.template
--rw-r--r--	root/root	usr/share/ardour2/templates/4 Tracks.template
--rw-r--r--	root/root	usr/share/ardour2/templates/8 Tracks.template
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/ardour.desktop
+drwxr-xr-x	root/root	usr/share/ardour3/
+-rw-r--r--	root/root	usr/share/ardour3/ArdourMono.ttf
+drwxr-xr-x	root/root	usr/share/ardour3/export/
+-rw-r--r--	root/root	usr/share/ardour3/export/CD (Red Book).format
+-rw-r--r--	root/root	usr/share/ardour3/export/CD + DVD-A.preset
+-rw-r--r--	root/root	usr/share/ardour3/export/CD + FLAC (tagged).preset
+-rw-r--r--	root/root	usr/share/ardour3/export/CD + FLAC.preset
+-rw-r--r--	root/root	usr/share/ardour3/export/CD + Ogg_Vorbis (tagged).preset
+-rw-r--r--	root/root	usr/share/ardour3/export/CD + Ogg_Vorbis + FLAC (tagged).preset
+-rw-r--r--	root/root	usr/share/ardour3/export/CD + Ogg_Vorbis.preset
+-rw-r--r--	root/root	usr/share/ardour3/export/CD only.preset
+-rw-r--r--	root/root	usr/share/ardour3/export/DVD-A only.preset
+-rw-r--r--	root/root	usr/share/ardour3/export/DVD-A.format
+-rw-r--r--	root/root	usr/share/ardour3/export/FLAC (tagged).preset
+-rw-r--r--	root/root	usr/share/ardour3/export/FLAC 24 bit (tagged).format
+-rw-r--r--	root/root	usr/share/ardour3/export/FLAC 24 bit .format
+-rw-r--r--	root/root	usr/share/ardour3/export/FLAC.preset
+-rw-r--r--	root/root	usr/share/ardour3/export/Ogg_Vorbis (tagged).format
+-rw-r--r--	root/root	usr/share/ardour3/export/Ogg_Vorbis (tagged).preset
+-rw-r--r--	root/root	usr/share/ardour3/export/Ogg_Vorbis + FLAC (tagged).preset
+-rw-r--r--	root/root	usr/share/ardour3/export/Ogg_Vorbis + FLAC.preset
+-rw-r--r--	root/root	usr/share/ardour3/export/Ogg_Vorbis .preset
+-rw-r--r--	root/root	usr/share/ardour3/export/Ogg_Vorbis.format
+-rw-r--r--	root/root	usr/share/ardour3/export/Ring Tone.format
+drwxr-xr-x	root/root	usr/share/ardour3/icons/
+-rw-r--r--	root/root	usr/share/ardour3/icons/act-disabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/add.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/application-x-ardour_16px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/application-x-ardour_22px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/application-x-ardour_32px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/application-x-ardour_48px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ardour-app-icon_osx.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ardour-app-icon_osx_mask.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ardour_icon_16px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ardour_icon_22px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ardour_icon_256px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ardour_icon_32px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ardour_icon_48px.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/chord.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/close.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/computer_keyboard.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/computer_keyboard_active.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/eighthnote.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/expand_left_right_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/expand_up_down_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fade_in_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fade_out_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-S1.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-S2.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-constant-power.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-fast-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-linear.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-long-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-short-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadein-slow-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-S1.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-S2.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-constant-power.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-fast-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-linear.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-long-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-short-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fadeout-slow-cut.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt_desensitised.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt_h.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt_h_desensitised.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt_h_medium.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt_h_medium_desensitised.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt_h_thin.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fader_belt_h_thin_desensitised.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/ferret_02.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/forte.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fortissimo.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/fortississimo.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/grabber.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/grabber_edit_point.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/grabber_note.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/halfnote.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/hide.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/i_beam_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/join_tools.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/knob.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/metronome.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/mezzforte.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/mezzoforte.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/mezzopiano.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi-input-active.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi-input-inactive.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi_panic.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi_socket_small.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi_sound_notes.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi_tool_erase.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi_tool_pencil.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/midi_tool_select.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/move_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/mute-disabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/mute-enabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/muted-by-others.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/nudge_left.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/nudge_right.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/pianissimo.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/pianississimo.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/piano.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/quarternote.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/rec-enabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/rec-in-progress.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/record-normal-disabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/record-normal-enabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/record-normal-in-progress.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/record-step.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/record_disabled_grey.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/record_normal_red.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/record_tape_red.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_bottom_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_bottom_left_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_bottom_right_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_left_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_right_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_top_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_top_left_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/resize_top_right_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/sae.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/sixteenthnote.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/sixtyfourthnote.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-disabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-enabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-isolate-disabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-isolate-enabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-isolated.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-safe-disabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-safe-enabled.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/solo-safe-icon.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/soloed-by-others.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/step-editing.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/strip_width.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tav_exp.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tav_shrink.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/thirtysecondnote.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_audition.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_gain.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_note.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_object.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_object_range.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_range.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_stretch.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/tool_zoom.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/transport_end.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/transport_loop.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/transport_play.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/transport_range.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/transport_record.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/transport_start.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/transport_stop.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_bottom_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_left_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_left_cursor_5.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_left_cursor_right_only.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_right_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_right_cursor_5.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_right_cursor_left_only.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/trim_top_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/wholenote.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/zoom_full.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/zoom_in.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/zoom_in_cursor.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/zoom_out.png
+-rw-r--r--	root/root	usr/share/ardour3/icons/zoom_out_cursor.png
+drwxr-xr-x	root/root	usr/share/ardour3/mcp/
+-rw-r--r--	root/root	usr/share/ardour3/mcp/bcf2000.device
+-rw-r--r--	root/root	usr/share/ardour3/mcp/bcf2000_basic_edit_mix.profile
+-rw-r--r--	root/root	usr/share/ardour3/mcp/cmc.device
+-rw-r--r--	root/root	usr/share/ardour3/mcp/mcpro.device
+-rw-r--r--	root/root	usr/share/ardour3/mcp/mcproxt.device
+-rw-r--r--	root/root	usr/share/ardour3/mcp/nucleus.device
+-rw-r--r--	root/root	usr/share/ardour3/mcp/paul-nucleus.profile
+-rw-r--r--	root/root	usr/share/ardour3/mcp/qcon.device
+drwxr-xr-x	root/root	usr/share/ardour3/midi_maps/
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/DDX3216.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/Korg_nanoKONTROL.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/Korg_nanoKONTROL2.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/Korg_nanoKONTROL2_With_Master.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/Korg_nanoKONTROL_Master.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/M-Audio_Axiom25.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/Novation_Impulse61.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/Roland_SI-24.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/Roland_V_Studio_20.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/bcf2000.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/bcf2000_mackie.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/k5000.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/m-audio_oxygen25.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/m-audio_oxygen8v2.map
+-rw-r--r--	root/root	usr/share/ardour3/midi_maps/xboard-61.map
+drwxr-xr-x	root/root	usr/share/ardour3/patchfiles/
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Alesis_DM5.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Alesis_NanoBass.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Alesis_NanoPiano.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Alesis_QS78.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Casio_CZ-1.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Clavia_Nord_Lead_II.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/DSI_Evolver.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/DSI_Mopho.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/DSI_Tetra.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Digidesign_MP1.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Dynacord_DRP-20X.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/E-mu_Mo_Phatt.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/E-mu_Orbit-3.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/E-mu_Proteus_2000.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Eventide_Eclipse.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Gotharmoon_deMoon.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Jomox_MBase_11.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_ER-1.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_Karma.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_MS2000R.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_MicroKORG.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_NX5R.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_Radias.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_TR_Workstation.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_Trinity_Track.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_Triton.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Korg_Triton_Rack.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Kurzweil_Mark-12-152.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Kurzweil_PX_Plus.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Kurzweil_SP88x.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Lexicon_MX300.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Line_6_EchoPro.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Line_6_FilterPro.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Line_6_ModPro.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Line_6_POD.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/MFB_503.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/MIDI.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Moog_MF-104M_Analog_Delay.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Moog_MF-108M_Cluster_Flux.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Moog_Minitaur.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Nord_Modular.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Novation_A-Station.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Novation_DrumStation.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Novation_Nova.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Novation_Super_BassStation.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Peavey_DPM-V3.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_Fantom-Xa.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_Fantom.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_FantomX8.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_FantomXR.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_GR-1.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_GR-33.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_JP-8080.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_JV-1010.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_JV-1080.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_JV-2080.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_Juno-106.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_M-BD1.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_RD-250s.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_RD-600.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_RD-700sx.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_RS-9.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_SC-88_Pro.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_SH-32.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_V-Synth-GT.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_XV-2020.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_XV-3080.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_XV-5080.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Roland_XV-88.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Sequential_Circuits_Prophet_600.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/TC_Electronic_M3000.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Waldorf_Blofeld.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Waldorf_Micro_Q.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_DX-7.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_EX-5.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_MM6.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_MOTIF-RACK_ES.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_MOTIF_XS.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_MU10XG.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_PSR-275.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_PSR-S900.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_PSR540.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_S90.midnam
+-rw-r--r--	root/root	usr/share/ardour3/patchfiles/Yamaha_Tyros2.midnam
+drwxr-xr-x	root/root	usr/share/ardour3/pixmaps/
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/forwardblarrow.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/h_meter_strip.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/hiin.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/hiout.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/hslider00.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/hslider01.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/left_arrow.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/linin.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/linout.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/loin.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/loop.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/loout.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/lr.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/regin.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/regin2.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/regout.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/regout2.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/revdblarrow.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/right_arrow.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/set-next-button.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/small-round-button-01.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/small_x.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/toggle-button-00.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/toggle-button-01.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/tool_audition.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/tool_gain.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/tool_object.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/tool_range.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/tool_stretch.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/tool_zoom.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/v_meter_strip.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/vslider00.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/vslider01.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/vslider02_rail.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/vslider02_slider.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/vslider_slider_16wide.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/zoom_full.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/zoom_in.xpm
+-rw-r--r--	root/root	usr/share/ardour3/pixmaps/zoom_out.xpm
+-rw-r--r--	root/root	usr/share/ardour3/splash.png
