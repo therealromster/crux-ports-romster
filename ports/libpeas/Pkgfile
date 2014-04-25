@@ -2,7 +2,7 @@
 # URL: http://www.gnome.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: gtk3 hicolor-icon-theme gobject-introspection intltool pygobject pygobject3 seed glade xorg-libxdamage
+# Depends on: gtk3 hicolor-icon-theme gobject-introspection intltool pygobject pygobject3 glade xorg-libxdamage
 
 name=libpeas
 version=1.10.0
