@@ -2,25 +2,16 @@
 # URL: http://liblo.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Diederick de Vries, diederick at diederickdevries dot net
-# Depends on:
-
-# Recommended:	
-# Optional:	
-# Category:	audio
 
 name=liblo
-version=0.26
+version=0.28
 release=1
-source="http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz"
-up2date_url="http://sourceforge.net/project/showfiles.php?group_id=116064&package_id=177607"
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
 	
-	./configure \
-		--prefix=/usr \
-		--enable-ipv6
-	
+	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 }
