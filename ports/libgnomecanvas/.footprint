@@ -19,6 +19,9 @@ drwxr-xr-x	root/root	usr/include/libgnomecanvas-2.0/libgnomecanvas/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/libglade/
 drwxr-xr-x	root/root	usr/lib/libglade/2.0/
+-rw-r--r--	root/root	usr/lib/libglade/2.0/libcanvas.a
+-rwxr-xr-x	root/root	usr/lib/libglade/2.0/libcanvas.la
+-rwxr-xr-x	root/root	usr/lib/libglade/2.0/libcanvas.so
 -rw-r--r--	root/root	usr/lib/libgnomecanvas-2.a
 -rwxr-xr-x	root/root	usr/lib/libgnomecanvas-2.la
 lrwxrwxrwx	root/root	usr/lib/libgnomecanvas-2.so -> libgnomecanvas-2.so.0.3000.3
@@ -26,3 +29,4 @@ lrwxrwxrwx	root/root	usr/lib/libgnomecanvas-2.so.0 -> libgnomecanvas-2.so.0.3000
 -rwxr-xr-x	root/root	usr/lib/libgnomecanvas-2.so.0.3000.3
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgnomecanvas-2.0.pc
+drwxr-xr-x	root/root	usr/share/
