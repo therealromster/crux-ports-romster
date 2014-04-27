@@ -1,0 +1,26 @@
+# Description: A gtk2 text editor with syntax highlighting.
+# URL: http://www.geany.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Hannes Mayer, kontakt at ecarux dot de
+# Depends on: gtk intltool
+# Nice to have: vte
+
+name=geany
+version=1.24
+release=1
+source=(http://download.geany.org/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-nls \
+		--enable-plugins
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/{doc,locale}
+}
