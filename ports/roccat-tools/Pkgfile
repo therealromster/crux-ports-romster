@@ -1,0 +1,25 @@
+# Description: Userland applications to configure and make extended use of ROCCAT devices
+# URL: http://roccat.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: libcanberra libgaminggear libnotify libusb gudev
+
+name=roccat-tools
+version=1.5.0
+release=1
+source=(http://downloads.sourceforge.net/project/roccat/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	
+	cmake . \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DUDEVDIR=/usr/lib/udev/rules.d
+
+	make
+	make DESTDIR=$PKG install
+
+	mv $PKG/usr/share/man/en $PKG/usr/man/
+	rm -r $PKG/usr/share/man/de
+	rm -r $PKG/usr/share/man
+}

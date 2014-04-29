@@ -1,0 +1,291 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/ld.so.conf.d/
+-rw-r--r--	root/root	etc/ld.so.conf.d/roccat.conf
+drwxr-xr-x	root/root	etc/xdg/
+drwxr-xr-x	root/root	etc/xdg/autostart/
+-rw-r--r--	root/root	etc/xdg/autostart/roccateventhandler.desktop
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/arvoconfig
+-rwxr-xr-x	root/root	usr/bin/arvocontrol
+-rwxr-xr-x	root/root	usr/bin/iskuconfig
+-rwxr-xr-x	root/root	usr/bin/iskucontrol
+-rwxr-xr-x	root/root	usr/bin/iskufxconfig
+-rwxr-xr-x	root/root	usr/bin/iskufxcontrol
+-rwxr-xr-x	root/root	usr/bin/iskufxupdate
+-rwxr-xr-x	root/root	usr/bin/iskuupdate
+-rwxr-xr-x	root/root	usr/bin/koneconfig
+-rwxr-xr-x	root/root	usr/bin/konecontrol
+-rwxr-xr-x	root/root	usr/bin/koneplusconfig
+-rwxr-xr-x	root/root	usr/bin/konepluscontrol
+-rwxr-xr-x	root/root	usr/bin/koneplusupdate
+-rwxr-xr-x	root/root	usr/bin/konepureconfig
+-rwxr-xr-x	root/root	usr/bin/konepurecontrol
+-rwxr-xr-x	root/root	usr/bin/konepureopticalconfig
+-rwxr-xr-x	root/root	usr/bin/konepureopticalcontrol
+-rwxr-xr-x	root/root	usr/bin/konepureupdate
+-rwxr-xr-x	root/root	usr/bin/konextdconfig
+-rwxr-xr-x	root/root	usr/bin/konextdcontrol
+-rwxr-xr-x	root/root	usr/bin/konextdupdate
+-rwxr-xr-x	root/root	usr/bin/kovaplusconfig
+-rwxr-xr-x	root/root	usr/bin/kovapluscontrol
+-rwxr-xr-x	root/root	usr/bin/luaconfig
+-rwxr-xr-x	root/root	usr/bin/luacontrol
+-rwxr-xr-x	root/root	usr/bin/pyraconfig
+-rwxr-xr-x	root/root	usr/bin/pyracontrol
+-rwxr-xr-x	root/root	usr/bin/roccateventhandler
+-rwxr-xr-x	root/root	usr/bin/ryosconfig
+-rwxr-xr-x	root/root	usr/bin/ryoscontrol
+-rwxr-xr-x	root/root	usr/bin/savuconfig
+-rwxr-xr-x	root/root	usr/bin/savucontrol
+-rwxr-xr-x	root/root	usr/bin/savuupdate
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/roccat/
+lrwxrwxrwx	root/root	usr/lib/roccat/libarvo.so -> libarvo.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libarvo.so.1 -> libarvo.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libarvo.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libarvoeventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libisku.so -> libisku.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libisku.so.1 -> libisku.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libisku.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libiskueventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libiskufx.so -> libiskufx.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libiskufx.so.1 -> libiskufx.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libiskufx.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libiskufxeventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libiskuwidget.so -> libiskuwidget.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libiskuwidget.so.1 -> libiskuwidget.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libiskuwidget.so.1.5.0
+lrwxrwxrwx	root/root	usr/lib/roccat/libkone.so -> libkone.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkone.so.1 -> libkone.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkone.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkoneeventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libkoneplus.so -> libkoneplus.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkoneplus.so.1 -> libkoneplus.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkoneplus.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonepluseventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepluswidget.so -> libkonepluswidget.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepluswidget.so.1 -> libkonepluswidget.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonepluswidget.so.1.5.0
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepure.so -> libkonepure.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepure.so.1 -> libkonepure.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonepure.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonepureeventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepureoptical.so -> libkonepureoptical.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepureoptical.so.1 -> libkonepureoptical.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonepureoptical.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonepureopticaleventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepurewidget.so -> libkonepurewidget.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonepurewidget.so.1 -> libkonepurewidget.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonepurewidget.so.1.5.0
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonextd.so -> libkonextd.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonextd.so.1 -> libkonextd.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonextd.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonextdeventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonextdwidget.so -> libkonextdwidget.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkonextdwidget.so.1 -> libkonextdwidget.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkonextdwidget.so.1.5.0
+lrwxrwxrwx	root/root	usr/lib/roccat/libkovaplus.so -> libkovaplus.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libkovaplus.so.1 -> libkovaplus.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkovaplus.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libkovapluseventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/liblua.so -> liblua.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/liblua.so.1 -> liblua.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/liblua.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libluaeventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libpyra.so -> libpyra.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libpyra.so.1 -> libpyra.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libpyra.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libpyraeventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libroccat.so -> libroccat.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libroccat.so.1 -> libroccat.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libroccat.so.1.5.0
+lrwxrwxrwx	root/root	usr/lib/roccat/libroccatwidget.so -> libroccatwidget.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libroccatwidget.so.1 -> libroccatwidget.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libroccatwidget.so.1.5.0
+lrwxrwxrwx	root/root	usr/lib/roccat/libryos.so -> libryos.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libryos.so.1 -> libryos.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libryos.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libryoseventhandler.so
+lrwxrwxrwx	root/root	usr/lib/roccat/libsavu.so -> libsavu.so.1
+lrwxrwxrwx	root/root	usr/lib/roccat/libsavu.so.1 -> libsavu.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libsavu.so.1.5.0
+-rwxr-xr-x	root/root	usr/lib/roccat/libsavueventhandler.so
+drwxr-xr-x	root/root	usr/lib/udev/
+drwxr-xr-x	root/root	usr/lib/udev/rules.d/
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-arvo.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-isku.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-iskufx.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-kone.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-koneplus.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-konepure.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-konepureoptical.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-konextd.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-kovaplus.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-lua.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-pyra.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-ryos.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/90-roccat-savu.rules
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/arvocontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/iskucontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/iskufxcontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/iskufxupdate.1.gz
+-rw-r--r--	root/root	usr/man/man1/iskuupdate.1.gz
+-rw-r--r--	root/root	usr/man/man1/konecontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/konepluscontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/koneplusupdate.1.gz
+-rw-r--r--	root/root	usr/man/man1/konepurecontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/konepureopticalcontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/konepureupdate.1.gz
+-rw-r--r--	root/root	usr/man/man1/konextdcontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/konextdupdate.1.gz
+-rw-r--r--	root/root	usr/man/man1/kovapluscontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/luacontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/pyracontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/ryoscontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/savucontrol.1.gz
+-rw-r--r--	root/root	usr/man/man1/savuupdate.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/arvoconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/iskuconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/iskufxconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/koneconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/koneplusconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/konepureconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/konepureopticalconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/konextdconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/kovaplusconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/luaconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/pyraconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/ryosconfig.desktop
+-rw-r--r--	root/root	usr/share/applications/savuconfig.desktop
+drwxr-xr-x	root/root	usr/share/icons/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/128x128/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/128x128/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/16x16/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/16x16/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/24x24/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/24x24/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/24x24/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/32x32/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/32x32/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/64x64/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/64x64/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/72x72/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/72x72/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/72x72/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/icons/hicolor/96x96/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/96x96/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/96x96/apps/roccat.png
+drwxr-xr-x	root/root	usr/share/roccat/
+drwxr-xr-x	root/root	usr/share/roccat/sounds/
+drwxr-xr-x	root/root	usr/share/roccat/sounds/cpi/
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-100.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1100.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1300.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1500.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1700.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-1900.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2100.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2300.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2500.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2700.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-2900.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-300.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3100.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3300.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3500.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3700.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-3900.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4100.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4300.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4500.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4700.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-4900.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-500.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5100.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5300.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5500.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5700.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-5900.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-6000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-6200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-6400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-6600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-6800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-700.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-7000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-7200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-7400.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-7600.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-7800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-800.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-8000.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-8200.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-900.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-down.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/cpi/cpi-up.oga
+drwxr-xr-x	root/root	usr/share/roccat/sounds/live_recording/
+-rw-r--r--	root/root	usr/share/roccat/sounds/live_recording/end-abort.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/live_recording/end-success.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/live_recording/invalid-key.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/live_recording/record-macro.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/live_recording/select-macro-key.oga
+drwxr-xr-x	root/root	usr/share/roccat/sounds/profile/
+-rw-r--r--	root/root	usr/share/roccat/sounds/profile/profile-1.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/profile/profile-2.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/profile/profile-3.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/profile/profile-4.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/profile/profile-5.oga
+drwxr-xr-x	root/root	usr/share/roccat/sounds/sensitivity/
+-rw-r--r--	root/root	usr/share/roccat/sounds/sensitivity/sensitivity-down.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/sensitivity/sensitivity-up.oga
+drwxr-xr-x	root/root	usr/share/roccat/sounds/timer/
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-0.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-1.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-10.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-2.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-3.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-4.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-5.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-activated.oga
+-rw-r--r--	root/root	usr/share/roccat/sounds/timer/timer-stopped.oga
