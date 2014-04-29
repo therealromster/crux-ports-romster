@@ -1,0 +1,21 @@
+# Description: Provides functionality for gaming input devices.
+# URL: http://sourceforge.net/projects/libgaminggear/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: cmake doxygen gtk
+
+name=libgaminggear
+version=0.1.0
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	cmake . \
+		-DCMAKE_INSTALL_PREFIX="/usr" \
+		-DINSTALL_CMAKE_MODULESDIR="/usr/share/cmake-2.8/Modules/"
+
+	make
+	make DESTDIR=$PKG install
+}
