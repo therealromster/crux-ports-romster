@@ -1,0 +1,21 @@
+# Description: Kernel modules for ROCCAT devices.
+# URL: http://roccat.sourceforge.net/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Optional: roccat-tools
+
+name=kmod-roccat
+version=0.11.0
+release=1
+source=(http://downloads.sourceforge.net/project/roccat/linux/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $SRC/$name-$version/3.11_and_up
+
+	make modules
+	
+	install -D ../override-roccat.conf $PKG/usr/lib/depmod.d/override-roccat.conf
+
+	install -d $PKG/lib/modules/$(uname -r)/extra/
+	install -m 0755 -t $PKG/lib/modules/$(uname -r)/extra/ *.ko
+}
