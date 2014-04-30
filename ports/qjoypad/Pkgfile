@@ -5,13 +5,25 @@
 # Depends on: qt4 xorg-libxtst
 
 name=qjoypad
-version=4.0.0
+version=4.1.0
 release=1
 source=(http://downloads.sourceforge.net/$name/$name-$version.tar.gz
-	$name.desktop)
+	$name.desktop
+	qjoypad-4.1.0-underlink.patch)
 
 build() {
 	cd $name-$version/src
+
+	# fixup the icon tray support
+	sed -i \
+		-e '/^icons.extra/d' \
+		-e '/^icons/s:/qjoypad::' \
+		-e 's/icon24.png/qjoypad4-24x24.png/' \
+		-e 's/icon64.png/qjoypad4-64x64.png/' \
+		qjoypad.pro
+
+	patch -p0 -i $SRC/qjoypad-4.1.0-underlink.patch
+
 	qmake qjoypad.pro PREFIX=/usr DEVDIR=/dev/input
 	make QTDIR=/usr
 
