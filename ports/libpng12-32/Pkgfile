@@ -1,0 +1,25 @@
+# Description: Library of PNG support functions for steam.
+# URL:         http://www.libpng.org
+# Maintainer: CRUX compat-32 Team, compat-32-ports at crux dot nu
+# Depends on:  zlib-32 libpng
+
+name=libpng12-32
+version=1.2.51
+release=1
+source=(http://downloads.sourceforge.net/project/libpng/libpng12/$version/libpng-$version.tar.bz2
+	http://downloads.sourceforge.net/project/libpng-apng/libpng12/$version/libpng-$version-apng.patch.gz)
+
+build() {
+	cd libpng-$version
+	zcat $SRC/libpng-$version-apng.patch.gz | patch -p1
+	./configure --prefix=/usr --mandir=/usr/man --libdir=/usr/lib32 --disable-static
+	make
+	make DESTDIR=$PKG install
+
+	rm -r \
+		$PKG/usr/{bin,include,man} \
+		$PKG/usr/lib32/libpng.so \
+		$PKG/usr/lib32/libpng.la \
+		$PKG/usr/lib32/libpng12.la \
+		$PKG/usr/lib32/pkgconfig
+}
