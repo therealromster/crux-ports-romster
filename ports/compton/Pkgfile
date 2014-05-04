@@ -1,0 +1,18 @@
+# Description: A compositor for X, and a fork of xcompmgr-dana.
+# URL: http://github.com/chjj/compton
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: dbus libconfig libpcre mesa3d xorg-libxcomposite xorg-libxinerama xorg-libxrandr
+
+name=compton
+version=0.1_beta2
+release=1
+source=(https://github.com/chjj/compton/releases/download/v$version/compton-git-v$version-2013-10-21.tar.xz)
+
+build() {
+	cd compton-git-v0.1_beta2-2013-10-21
+
+	CFG='-DCONFIG_LIBCONFIG' make
+	make DESTDIR=$PKG install
+	mv $PKG/usr/share/man $PKG/usr/man
+}
