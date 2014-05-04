@@ -1,5 +1,6 @@
 # Description: A rounded Metacity theme for Murrine.
-# URL: http://www.cimitan.com/murrine/
+## URL: http://www.cimitan.com/murrine/
+# URL: https://twitter.com/cimi
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 # Depends on: gtk-engine-murrine
@@ -7,7 +8,7 @@
 name=gtk-theme-murrine-rounded
 version=20080730
 release=1
-source=(http://www.cimitan.com/murrine/files/MurrineRounded.tar.bz2)
+source=(http://crux.ster.so/distfiles/$name/MurrineRounded.tar.bz2)
 
 build() {
 	install -d $PKG/usr/share/themes
