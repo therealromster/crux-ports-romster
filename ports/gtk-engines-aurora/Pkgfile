@@ -1,0 +1,22 @@
+# Description: Latest member of the clearlooks family of gtk engines
+# URL: http://www.xfce-look.org/content/show.php/Aurora+Gtk+Engine?content=56438
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Vincenzo Colosimo, vico at bicisport dot de
+# Depends on: gtk
+
+name=gtk-engines-aurora
+version=1.5.1
+release=1
+source=(http://www.xfce-look.org/CONTENT/content-files/56438-aurora-$version.tar.bz2)
+
+build() {
+	bsdtar -xf aurora-gtk-engine-1.5.tar.gz
+	cd aurora-1.5
+	./configure --prefix=/usr --enable-animation
+	make
+	make DESTDIR=$PKG install
+#	install -d $PKG/usr/share/themes
+#	cd $PKG/usr/share/themes
+#	bsdtar -xf $SRC/Aurora.tar.bz2
+#	chmod 0644 Aurora*/*/gtkrc
+}
