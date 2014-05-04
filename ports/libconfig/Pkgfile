@@ -1,0 +1,21 @@
+# Description: C/C++ configuration file library.
+# URL: http://www.hyperrealm.com/libconfig/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+
+name=libconfig
+version=1.4.9
+release=1
+source=(http://www.hyperrealm.com/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+
+	rm $PKG/usr/share/info/libconfig.info
+	rmdir $PKG/usr/share/{info,}
+}
