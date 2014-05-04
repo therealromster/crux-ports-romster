@@ -4,7 +4,7 @@
 # Packager: Vincenzo Colosimo, vico at bicisport dot de
 # Depends on: gtk
 
-name=gtk-engines-aurora
+name=gtk-engine-aurora
 version=1.5.1
 release=1
 source=(http://www.xfce-look.org/CONTENT/content-files/56438-aurora-$version.tar.bz2)
@@ -12,9 +12,14 @@ source=(http://www.xfce-look.org/CONTENT/content-files/56438-aurora-$version.tar
 build() {
 	bsdtar -xf aurora-gtk-engine-1.5.tar.gz
 	cd aurora-1.5
-	./configure --prefix=/usr --enable-animation
+
+	./configure \
+		--prefix=/usr \
+		--enable-animation
+
 	make
 	make DESTDIR=$PKG install
+
 #	install -d $PKG/usr/share/themes
 #	cd $PKG/usr/share/themes
 #	bsdtar -xf $SRC/Aurora.tar.bz2
