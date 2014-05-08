@@ -6,11 +6,18 @@
 
 name=alsaequal
 version=0.6
-release=1
-source=(http://www.thedigitalmachine.net/tools/$name-$version.tar.bz2)
+release=2
+source=(http://www.thedigitalmachine.net/tools/$name-$version.tar.bz2
+	alsaequal.patch
+	false_error.patch
+	alsaequal_caps_9.x.patch)
 
 build() {
 	cd $name
+
+	patch -p0 -i $SRC/alsaequal.patch
+	patch -p0 -i $SRC/false_error.patch
+	patch -p0 -i $SRC/alsaequal_caps_9.x.patch
 
 	make \
 		Q='' \
