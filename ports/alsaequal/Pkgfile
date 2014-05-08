@@ -1,0 +1,23 @@
+# Description: Alsaequal is a real-time adjustable equalizer plugin for ALSA.
+# URL: http://www.thedigitalmachine.net/alsaequal.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Till Biedermann, tillbiedermann at yahoo dot de
+# Depends on: alsa-lib caps
+
+name=alsaequal
+version=0.6
+release=1
+source=(http://www.thedigitalmachine.net/tools/$name-$version.tar.bz2)
+
+build() {
+	cd $name
+
+	make \
+		Q='' \
+		CC="${CC:-gcc}" \
+		CFLAGS="$CXXFLAGS -funroll-loops -ffast-math -fPIC -DPIC" \
+		$MAKEFLAGS
+
+	install -d $PKG/usr/lib/alsa-lib
+	make DESTDIR=$PKG install
+}
