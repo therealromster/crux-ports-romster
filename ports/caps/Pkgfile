@@ -1,0 +1,16 @@
+# Description: C* Audio Plugin Suite.
+# URL: http://www.quitte.de/dsp/caps.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Till Biedermann, tillbiedermann at yahoo dot de
+# Depends on: ladspa
+
+name=caps
+version=0.9.23
+release=1
+source=(http://www.quitte.de/dsp/${name}_$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	make CC="${CXX:-g++}" _CFLAGS="$CXXFLAGS" $MAKEFLAGS
+	make PREFIX=$PKG/usr install
+}
