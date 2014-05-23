@@ -1,0 +1,29 @@
+# Description: Quake PAK archiving utility.
+# URL: ftp://ibiblio.org/pub/linux/games/quake/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+
+name=quake-par
+version=0.03.01
+release=1
+source=(ftp://ibiblio.org/pub/linux/games/quake/par-$version.tar.gz)
+
+build() {
+	cd par-$version
+
+	./configure
+
+	[ "$CC" ] || CC=gcc
+	make CC="$CC" $MAKEFLAGS
+
+	# Modify Prefix Directory in Makefile
+	/bin/sed -i "s:/usr/local:$PKG/usr:" Makefile.Linux
+
+	# Modify man page Directory in Makefile
+	/bin/sed -i "s:\${prefix}/man:$PKG/usr/man:" Makefile.Linux
+
+	# Create Destination Directories
+	install -d $PKG/usr/{bin,man/man1}
+	
+	make install
+}
