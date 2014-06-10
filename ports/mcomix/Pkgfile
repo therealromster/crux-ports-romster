@@ -1,0 +1,26 @@
+# Description: A user-friendly, customizable image viewer specifically designed to handle comic books.
+# URL: http://sourceforge.net/projects/mcomix/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: pygtk xdg-utils desktop-file-utils hicolor-icon-theme setuptools unrar
+
+name=mcomix
+version=1.00
+release=1
+source=(http://downloads.sourceforge.net/project/$name/MComix-$version/$name-$version.tar.bz2
+	zoom.patch)
+
+build() {
+	cd $name-$version
+
+	# Fix zoom in, zoom out keyboard shortcuts:
+	# https://sourceforge.net/p/mcomix/bugs/62/
+	patch -p 1 -i $SRC/zoom.patch
+
+	export PYTHONPATH=$PKG/usr/lib/python2.7/site-packages/
+	install -d $PYTHONPATH
+
+	/usr/bin/python setup.py install --prefix=/usr --optimize=1 --root=$PKG
+
+	mv /$PKG/usr/share/man $PKG/usr/man
+}
