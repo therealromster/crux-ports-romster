@@ -2,8 +2,9 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/xarchiver
 drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/thunar-archive-plugin/
--rwxr-xr-x	root/root	usr/lib/thunar-archive-plugin/xarchiver.tap
+drwxr-xr-x	root/root	usr/lib/thunar/
+drwxr-xr-x	root/root	usr/lib/thunar/thunar-archive-plugin/
+-rwxr-xr-x	root/root	usr/lib/thunar/thunar-archive-plugin/xarchiver.tap
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/applications/
 -rw-r--r--	root/root	usr/share/applications/xarchiver.desktop
