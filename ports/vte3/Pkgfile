@@ -1,0 +1,31 @@
+# Description: Virtual Terminal Emulator widget for use with GTK3.
+# URL: http://developer.gnome.org/arch/gnome/widgets/vte.html
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: gtk3 util-linux xorg-libxdamage
+
+name=vte3
+version=0.36.3
+release=1
+source=(http://download.gnome.org/sources/vte/${version::4}/vte-$version.tar.xz
+	vte-0.30.1-alt-meta.patch)
+
+build() {
+	cd vte-$version
+
+	# https://bugzilla.gnome.org/show_bug.cgi?id=663779
+	patch -p1 -i $SRC/vte-0.30.1-alt-meta.patch
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--libexecdir=/usr/lib/vte \
+		--enable-introspection=yes \
+		--disable-nls \
+		--disable-gtk-doc-html
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/{gtk-doc,locale}
+}
