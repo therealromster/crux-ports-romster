@@ -15,10 +15,10 @@ build() {
 	cd $PKGMK_SOURCE_DIR
  
 	if cd $name; then
-		git pull --rebase https://github.com/mozilla/rust.git master
+		git pull --rebase https://github.com/rust-lang/rust.git master
 		git checkout $sversion
 	else
-		git clone https://github.com/mozilla/rust.git ${name}
+		git clone https://github.com/rust-lang/rust.git ${name}
 		#cd $name
 		#git checkout $sversion
 	fi
