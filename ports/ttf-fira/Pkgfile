@@ -1,0 +1,27 @@
+# Description: A monospace and sans-serif typeface designed for Firefox OS.
+# URL: https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/
+
+## http://www.carrois.com/fira-3-1/
+
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: xorg-mkfontdir xorg-mkfontscale
+
+name=ttf-fira
+version=3.110
+release=1
+source=(http://www.carrois.com/wordpress/downloads/fira_3_1/FiraFonts${version/./}.zip)
+
+build() {
+	cd FiraFonts3110
+
+	install -d $PKG/usr/share/fonts/TTF/
+
+	cd FiraMono${version/./}/WEB
+	install -m 0644 *.ttf $PKG/usr/share/fonts/TTF/
+
+	cd -
+
+	cd FiraSans${version/./}/WEB
+	install -m 0644 *.ttf $PKG/usr/share/fonts/TTF/
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mkfontdir /usr/share/fonts/TTF
+mkfontscale /usr/share/fonts/TTF
+
