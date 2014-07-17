@@ -1,13 +1,13 @@
-# Description: An open standard that bundles the various ways (FTP/HTTP/P2P) to get files into one format for easier downloads.
+# Description: Commandline metalink generator.
 # URL: http://metalinks.sourceforge.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Younes Hafri, ycrux at club dash internet dot fr
-# Depends on: boost libgcrypt
+# Depends on: boost libgcrypt glibmm
 
 name=metalink
-version=0.3.3
+version=0.3.6
 release=1
-source=(http://dl.sourceforge.net/sourceforge/metalinks/$name-$version.tar.gz)
+source=(http://sourceforge.net/projects/metalinks/files/Metalink%20commandline/$version/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
@@ -20,4 +20,3 @@ build() {
 	make
 	make DESTDIR=$PKG install
 }
-
