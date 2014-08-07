@@ -7,10 +7,12 @@
 name=fusesmb
 version=0.8.7
 release=1
-source=(http://www.ricardis.tudelft.nl/~vincent/fusesmb/download/fusesmb-$version.tar.gz)
+source=(http://pkgs.fedoraproject.org/repo/pkgs/fuse-smb/$name-$version.tar.gz/ff5adc291b18fd452fe4694cbe45dabd/$name-$version.tar.gz)
 
 build() {
 	cd fusesmb-$version
+
+	export CFLAGS+=" -I/usr/include/samba-4.0"
 
 	./configure \
 		--prefix=/usr \
