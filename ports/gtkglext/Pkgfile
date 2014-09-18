@@ -1,16 +1,16 @@
 # Description: OpenGL extension to GTK 2.0.
-# URL: http://gtkglext.sf.net
+# URL: https://projects.gnome.org/gtkglext/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: gtk
+# Depends on: gtk pangox-compat xorg-libxmu mesa3d glu
 
 name=gtkglext
 version=1.2.0
 release=1
-source=(http://dl.sourceforge.net/sourceforge/gtkglext/gtkglext-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
 
 build() {
-	cd gtkglext-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
@@ -18,6 +18,7 @@ build() {
 
 	make
 	make DESTDIR=$PKG install
-	rm -rf $PKG/usr/share
+
+	rm -r $PKG/usr/share
 }
 
