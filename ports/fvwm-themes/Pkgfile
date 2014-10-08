@@ -23,4 +23,6 @@ build() {
 	make DESTDIR=$PKG install
 	find $PKG/usr/share/fvwm/locale/* ! -wholename "*locale/en*" -delete
 	find $PKG/usr/share/fvwm/themes -name 'README' -delete
+
+	find $PKG -type d -perm -g=s -exec chmod g-s {} +
 }
