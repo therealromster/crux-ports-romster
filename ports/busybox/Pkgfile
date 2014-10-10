@@ -4,19 +4,32 @@
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
 
 name=busybox
-version=1.19.4
-release=4
-source=(http://busybox.net/downloads/$name-$version.tar.bz2)
+version=1.22.1
+release=1
+source=(http://busybox.net/downloads/$name-$version.tar.bz2
+	http://busybox.net/downloads/fixes-$version/busybox-$version-{ash,date,iplink,nc}.patch)
 
 build() {
 	cd $name-$version
+
+	# https://bugs.gentoo.org/show_bug.cgi?id=310413
+	export CFLAGS+=' -fno-strict-aliasing'
+
+	[ "$CC" ] || CC=gcc
+
+	for i in $SRC/*.patch; do
+		patch -p1 -i $i
+	done
+
+	sed '1,1i#include <sys/resource.h>' -i include/libbb.h
+
 	make defconfig
-	make
+	make CC="$CC"
 	install -m 0755 -D busybox $PKG/sbin/busybox
 
 	make clean
 	export LDFLAGS+=' -static'
 	make defconfig
-	make
+	make CC="$CC"
 	install -m 0755 -D busybox $PKG/sbin/busybox.static
 }
