@@ -1,0 +1,46 @@
+# Description: A schema-free document-oriented database.
+# URL: http://www.mongodb.org/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: scons
+
+name=mongodb
+version=2.6.5
+release=1
+source=(http://downloads.mongodb.org/src/$name-src-r$version.tar.gz
+	mongodb-2.6.2-fix-scons.patch
+	mongodb-2.4-fix-v8-pythonpath.patch
+	mongodb.conf mongodb.rc)
+
+build() {
+	cd $name-src-r$version
+
+	MAKEFLAGS="-j$(/usr/bin/getconf _NPROCESSORS_ONLN)"
+        export SCONSFLAGS="$MAKEFLAGS"
+        [ "$LDFLAGS" ] || LDFLAGS=""
+
+        export LDFLAGS
+        export CC="gcc"
+        export CXX="g++"
+
+	patch -p1 -i $SRC/mongodb-2.6.2-fix-scons.patch
+	patch -p1 -i $SRC/mongodb-2.4-fix-v8-pythonpath.patch
+
+	sed -i -e "/-Werror/d" src/third_party/v8/SConscript
+
+	scons_opts="--variant-dir=build"
+	scons_opts+=" --cc=$CC --cxx=$CXX"
+	scons_opts+=" --disable-warnings-as-errors"
+	scons_opts+=" --cpppath=$PKG/usr/include"
+	scons_opts+=" --libpath=$PKG/usr/lib"
+	scons_opts+=" --ssl"
+
+	scons ${scons_opts} all
+	scons ${scons_opts} --full --nostrip --prefix=$PKG/usr install
+
+	find $PKG/usr -type f -name "*.a" -delete
+
+	install -d $PKG/var/lib/mongodb
+	install -m 0755 -D $SRC/mongodb.rc $PKG/etc/rc.d/mongodb
+	install -m 0600 $SRC/mongodb.conf $PKG/etc
+}

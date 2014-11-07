@@ -1,0 +1,23 @@
+Binary files mongodb-src-r2.6.5.orig/.SConstruct.un~ and mongodb-src-r2.6.5/.SConstruct.un~ differ
+diff -pruN mongodb-src-r2.6.5.orig/SConstruct mongodb-src-r2.6.5/SConstruct
+--- mongodb-src-r2.6.5.orig/SConstruct	2014-11-07 00:58:08.633643184 +0000
++++ mongodb-src-r2.6.5/SConstruct	2014-11-07 01:04:09.907632764 +0000
+@@ -814,7 +814,6 @@ if nix:
+     # -Winvalid-pch Warn if a precompiled header (see Precompiled Headers) is found in the search path but can't be used.
+     env.Append( CCFLAGS=["-fPIC",
+                          "-fno-strict-aliasing",
+-                         "-ggdb",
+                          "-pthread",
+                          "-Wall",
+                          "-Wsign-compare",
+@@ -827,8 +826,9 @@ if nix:
+             env.Append( CCFLAGS=["-Werror"] )
+ 
+     env.Append( CPPDEFINES=["_FILE_OFFSET_BITS=64"] )
+-    env.Append( CXXFLAGS=["-Wnon-virtual-dtor", "-Woverloaded-virtual"] )
+     env.Append( LINKFLAGS=["-fPIC", "-pthread"] )
++    env.Append( CXXFLAGS=os.environ['CXXFLAGS'] )
++    env.Append( LINKFLAGS=os.environ['LDFLAGS'] )
+ 
+     # SERVER-9761: Ensure early detection of missing symbols in dependent libraries at program
+     # startup.
