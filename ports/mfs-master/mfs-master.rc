@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# /etc/rc.d/mfs-master: start/stop/reload mfs-master daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/mfsmaster start
+	/usr/sbin/mfscgiserv
+	;;
+stop)
+	killall -q /usr/sbin/mfsmaster
+	killall -q /usr/sbin/mfscgiserv
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "Usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

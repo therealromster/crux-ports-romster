@@ -1,0 +1,51 @@
+Initial setup:
+
+Sample configuration files will be created in /etc/mfs with the extension
+.dist.
+
+cd /etc/mfs
+cp mfsmaster.cfg.dist mfsmaster.cfg
+cp mfsmetalogger.cfg.dist mfsmetalogger.cfg
+cp mfsexports.cfg.dist mfsexports.cfg 
+
+File mfsmaster.cfg contains master server settings, here we leave it
+unchanged. You can find out more information about this file in the man 
+pages (man mfsmaster.cfg).
+
+File mfsexports.cfg specifies which users’ computers can mount the file 
+system and with what privileges. For our example we’ll specify that only
+machines addressed as 192.168.2.x can use the whole structure of MooseFS 
+resources (/) in read/write mode. In the first line which is not commented 
+out we change an asterisk (*) to 192.168.2.0/24 so that we have:
+
+192.168.2.0/24 / rw,alldirs,maproot=0
+
+Binary metadata file and changelog text files are kept in a folder set
+during compilation as localstatedir – in our example the folder is:
+/var/lib/mfs. At the first installation an empty metadata file is created 
+with a name of metadata.mfs.empty, which we change to metadata.mfs: 
+
+cd /var/lib/mfs
+cp metadata.mfs.empty metadata.mfs
+
+We alse need to specify in /etc/hosts that name mfsmaster refers to the
+machine of 192.168.1.1 address:
+
+192.168.1.1 mfsmaster
+
+At this moment it is possible to run the master server (server would
+be run as a user given in the install configuration, in our case it is mfs):
+
+/usr/sbin/mfsmaster start
+
+In a production environment it would be necessary to set up automatic
+start of mfsmaster process at system start by adding mfs-master to SERVICES
+array in /etc/rc.conf
+
+We can now also run CGI monitor which shows current system status in
+a browser:
+
+#/usr/sbin/mfscgiserv
+
+Information should now be available under http://192.168.1.1:9425/
+(for the moment there would be no data about chunk servers).

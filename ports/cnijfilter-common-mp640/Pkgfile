@@ -1,0 +1,26 @@
+# Description: Canon IJ Printer Driver (common package)
+# URL: http://software.canon-europe.com/products/0010757.asp
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: 
+
+name=cnijfilter-common-mp640
+version=3.20
+release=1
+source=(http://files.canon-europe.com/files/soft37273/software/MP640_rpm_driver_pack.tar)
+
+build() {
+	tar -xf MP640_rpm_driver_pack.tar
+	tar -xf cnijfilter-mp640series-$version-1-i386-rpm.tar.gz
+	cd cnijfilter-mp640series-$version-1-i386-rpm/packages
+	bsdtar -xf cnijfilter-common-$version-1.i386.rpm
+	bsdtar -xf cnijfilter-mp640series-$version-1.i386.rpm
+
+	chmod -R a+rX usr/
+
+	install -d $PKG/usr
+	mv usr/lib $PKG/usr/
+	mv usr/local/* $PKG/usr/
+
+	rm -r $PKG/usr/share/locale
+}

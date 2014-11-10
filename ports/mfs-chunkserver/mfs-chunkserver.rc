@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# /etc/rc.d/mfs-chunkserver: start/stop/reload mfs-chunkserver daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/mfsmetalogger start
+	;;
+stop)
+	killall -q /usr/sbin/mfsmetalogger
+	;;
+restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+*)
+	echo "Usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

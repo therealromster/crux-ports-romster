@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/colorgcc/
+-rw-r--r--	root/root	etc/colorgcc/colorgccrc
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/colorgcc
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/colorgcc/
+lrwxrwxrwx	root/root	usr/lib/colorgcc/c++ -> /usr/bin/colorgcc
+lrwxrwxrwx	root/root	usr/lib/colorgcc/cc -> /usr/bin/colorgcc
+lrwxrwxrwx	root/root	usr/lib/colorgcc/g++ -> /usr/bin/colorgcc
+lrwxrwxrwx	root/root	usr/lib/colorgcc/gcc -> /usr/bin/colorgcc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/colorgcc.1.gz
+drwxr-xr-x	root/root	usr/man/man5/
+-rw-r--r--	root/root	usr/man/man5/colorgccrc.5.gz
