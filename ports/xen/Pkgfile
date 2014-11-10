@@ -1,7 +1,7 @@
 # Description: a Virtual Machine Monitor
 # URL: http://www.xen.org/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: zlib ncurses xorg-libx11 bridge-utils iproute2 libsdl gettext pyopenssl libxml2-python
 
 name=xen

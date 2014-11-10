@@ -1,7 +1,7 @@
 # Description: A compression program that can achieve very high compression ratios and speed when used with large files.
 # URL: http://ck.kolivas.org/apps/lrzip/README
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: lzo zlib bzip2 xz
 
 name=lrzip

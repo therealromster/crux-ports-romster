@@ -1,7 +1,7 @@
 # Description: A Linux framework for proxying device file callbacks into user-space, allowing device files to be implemented by daemons instead of kernel code.
 # URL: http://www.circlemud.org/~jelson/software/fusd/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 
 name=fusd-kor
 #version=1.10-11

@@ -1,7 +1,7 @@
 # Description: The Network Audio System is a network transparent, client/server audio transport system.
 # URL: http://radscan.com/nas.html
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: xorg-imake xorg-libx11 libxp
 
 name=nas

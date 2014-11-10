@@ -1,7 +1,7 @@
 # Description: Infrastructure to simplify the gathering of information about the running Linux system.
 # URL: http://sourceware.org/systemtap/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: elfutils bzip2 xz zlib
 
 name=systemtap

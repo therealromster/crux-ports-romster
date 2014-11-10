@@ -1,7 +1,7 @@
 # Description: A GObject-based plugins engine.
 # URL: http://www.gnome.org/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: gtk3 hicolor-icon-theme gobject-introspection intltool pygobject pygobject3 glade xorg-libxdamage
 
 name=libpeas

@@ -1,7 +1,7 @@
 # Description: Scans a block device for file types it knows how to recover and calls an external program to extract them.
 # URL: http://jbj.rapanden.dk/magicrescue/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: perl
 
 name=magicrescue

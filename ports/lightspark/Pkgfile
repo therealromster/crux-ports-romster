@@ -1,7 +1,7 @@
 # Description: High performance flash player designed from scratch to be efficient on modern hardware.
 # URL: https://launchpad.net/lightspark
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: cmake llvm libxml++ pulseaudio ftgl ffmpeg glew curl boost desktop-file-utils hicolor-icon-theme fontconfig xorg-glproto
 
 name=lightspark

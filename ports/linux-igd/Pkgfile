@@ -1,7 +1,7 @@
 # Description: Deamon that emulates Microsoft's Internet Connection Sharing (ICS) for UPnP-aware clients.
 # URL: http://linux-igd.sourceforge.net/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # depends on: libupnp
 
 name=linux-igd

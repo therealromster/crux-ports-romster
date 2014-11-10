@@ -1,7 +1,7 @@
 # Description: Cross platform access to statistics about the system, CPU usage, memory utilisation, disk usage, process counts, network traffic, disk I/O, and more.
 # URL: http://www.i-scream.org/libstatgrab/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, romster at shortcircuit dot net dot au
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: ncurses
 
 name=libstatgrab

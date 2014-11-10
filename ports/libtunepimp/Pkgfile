@@ -1,7 +1,7 @@
 # Description: Library for creating MusicBrainz enabled tagging apps.
 # URL: http://www.musicbrainz.org/
 # Packager: Antonio SJ Musumeci, bile at landofbile dot com
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
 # Depends on: libofa python taglib libmpcdec libmp4v2 libmad libvorbis flac libmusicbrainz
 
 name=libtunepimp

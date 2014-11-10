@@ -1,7 +1,7 @@
 # Description: A coroutine-based Python networking library that uses greenlet to provide a high-level synchronous API on top of the libevent event loop.
 # URL: http://www.gevent.org/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: greenlet libevent
 
 name=gevent

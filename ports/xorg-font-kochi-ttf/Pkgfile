@@ -1,7 +1,7 @@
 # Description: xorg font font-kochi-ttf.
 # URL: http://pkgsrc.se/fonts/kochi-ttf
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, <romster@shortcircuit.net.au>
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: xorg-libx11-mkfontdir, xorg-mkfontscale, fontconfig
 
 name=xorg-font-kochi-ttf

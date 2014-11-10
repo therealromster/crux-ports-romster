@@ -1,7 +1,7 @@
 # Description: Contains programs for plotting scientific data and a device-independent function library "libplot" for exporting 2-D vector graphics in many raster and vector file formats.
 # URL: http://www.gnu.org/software/plotutils/plotutils.html
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: libpng
 
 name=plotutils

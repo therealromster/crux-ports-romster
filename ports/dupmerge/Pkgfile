@@ -1,7 +1,7 @@
 # Description: Reclaim disk space by linking identical files together. It can also expand all hard links and reads the list of files from standard input.
 # URL: http://freshmeat.net/projects/dupmerge/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: zlib
 
 name=dupmerge

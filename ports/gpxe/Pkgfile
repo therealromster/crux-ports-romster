@@ -1,7 +1,7 @@
 # Description: Network bootloader, it provides a direct replacement for proprietary PXE ROMs, with many extra features such as DNS, HTTP, iSCSI, etc.
 # URL: http://etherboot.org/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: syslinux mtools
 
 name=gpxe

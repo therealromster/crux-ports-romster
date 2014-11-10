@@ -1,7 +1,7 @@
 # Description: Translate gamepad/joystick input into key strokes/mouse actions in X.
 # URL: http://qjoypad.sourceforge.net/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: qt4 xorg-libxtst
 
 name=qjoypad

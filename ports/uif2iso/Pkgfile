@@ -1,7 +1,7 @@
 # Description: Convert UIF files (Universal Image Format, used by MagicISO) to uncompressed images depending by the input file: ISO, BIN/CUE, MDS/MDF, CCD/IMG/SUB, NRG.
 # URL: http://aluigi.org/mytoolz.htm#uif2iso
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: zlib
 
 name=uif2iso

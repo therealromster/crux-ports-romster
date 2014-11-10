@@ -1,7 +1,7 @@
 # Description: A cross-platform, open source driving simulation made with drift racing in mind. 
 # URL: http://vdrift.net/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: scons asio libsdl glew openal sdl_gfx sdl_image sdl_net libvorbis
 
 name=vdrift

@@ -1,7 +1,7 @@
 # Description: A RAM based block device which acts as swap disk. Pages swapped to this disk are compressed and stored in memory itself.
 # URL: http://compcache.googlecode.com/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: lzo
 
 name=compcache

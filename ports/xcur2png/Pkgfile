@@ -1,7 +1,7 @@
 # Description: A program which let you take PNG image from X cursor, and generate config-file which is reusable by xcursorgen.
 # URL: http://linux.softpedia.com/progDownload/Xcur2png-Download-42642.html
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depens on: libpng xorg-libxcursor
 
 name=xcur2png
