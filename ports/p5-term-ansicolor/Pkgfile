@@ -5,12 +5,12 @@
 # Depends on:
 
 name=p5-term-ansicolor
-version=1.12
+version=4.02
 release=1
-source=(http://www.cpan.org/modules/by-module/Term/ANSIColor-$version.tar.gz)
+source=(http://www.cpan.org/modules/by-module/Term/Term-ANSIColor-$version.tar.gz)
 
 build() {
-	cd ANSIColor-$version
+	cd Term-ANSIColor-$version
 	perl Makefile.PL
 	make OPTIMIZE="$CFLAGS"
 	make DESTDIR=$PKG install

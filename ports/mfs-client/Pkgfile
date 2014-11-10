@@ -1,4 +1,4 @@
-# Description: MooseFS, fault tolerant, network distributed file system.
+# Description: MooseFS, chunk servers, fault tolerant, network distributed file system.
 # URL: http://www.moosefs.com/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
@@ -17,10 +17,13 @@ build() {
 		--mandir=/usr/man \
 		--sysconfdir=/etc/mfs \
 		--localstatedir=/var/lib \
-		--disable-mfschunkserver \
-		--disable-mfsmaster \
-      --disable-mfscgi \
-      --disable-mfscgiserv
+		--with-default-user=mfs \
+		--with-default-group=mfs \
+		--disable-mfsmaster
+		#--disable-mfschunkserver \
+		#--disable-mfsmaster \
+      #--disable-mfscgi \
+      #--disable-mfscgiserv
 
 	make
 	make DESTDIR=$PKG install

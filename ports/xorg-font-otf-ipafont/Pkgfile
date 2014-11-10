@@ -10,6 +10,6 @@ release=1
 source=(http://info.openlab.ipa.go.jp/ipafont/fontdata/IPAfont${version/./}.zip)
 
 build() {
-	install -d $PKG/usr/share/fonts/OTF
-  	install -m 0644 $SRC/IPAfont${version/./}/*.ttf $PKG/usr/share/fonts/OTF
+	install -d $PKG/usr/share/fonts/X11/OTF
+  	install -m 0644 $SRC/IPAfont${version/./}/*.ttf $PKG/usr/share/fonts/X11/OTF
 }

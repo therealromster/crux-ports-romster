@@ -5,9 +5,9 @@
 # Depends on: lzo
 
 name=compcache
-version=0.5.3
+version=0.6.2
 release=1
-source="http://$name.googlecode.com/files/$name-$version.tar.gz"
+source=(http://$name.googlecode.com/files/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version

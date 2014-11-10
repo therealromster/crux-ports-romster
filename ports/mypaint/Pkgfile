@@ -5,7 +5,7 @@
 # Depends on: scons numpy protobuf pygtk
 
 name=mypaint
-version=0.9.0
+version=0.9.1
 release=1
 source=(http://download.gna.org/$name/$name-$version.tar.bz2)
 

@@ -2,7 +2,7 @@
 # URL: https://github.com/satya164/gtk-theme-config
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
-# Depends on: gtk3 vala
+# Depends on: gtk3 vala gconf gsettings-desktop-schemas
 
 name=gtk-theme-config
 version=1.0

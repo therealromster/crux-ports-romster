@@ -5,18 +5,18 @@
 # Depends on: 
 
 name=bashish
-version=2.0.7
+version=2.2.4
 release=1
-source=(http://dl.sourceforge.net/sourceforge/bashish/bashish-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
 
 build() {
-	cd bashish-$version
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
 		--mandir=/usr/man
+
 	make
 	make DESTDIR=$PKG install
 	rm -r $PKG/usr/share/doc
 }
-

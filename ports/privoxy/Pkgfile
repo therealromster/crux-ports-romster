@@ -5,13 +5,13 @@
 # Depends on: libpcre
 
 name=privoxy
-version=3.0.8
+version=3.0.19
 release=1
-source=(http://dl.sourceforge.net/sourceforge/ijbswa/privoxy-$version-stable-src.tar.gz \
+source=(http://downloads.sourceforge.net/project/ijbswa/Sources/${version}%20%28stable%29/$name-$version-stable-src.tar.gz
 	privoxy.rc)
 
 build() {
-	cd privoxy-$version-stable
+	cd $name-$version-stable
 	autoheader
 	autoconf
 

@@ -5,14 +5,13 @@
 # Depends on: xpdf gcc34
 
 name=pdftohtml
-version=0.36
+version=0.39
 release=1
 
-source=(http://dl.sourceforge.net/sourceforge/pdftohtml/pdftohtml-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/$name/$name/$name-$version/$name-$version.tar.gz)
 
 build() {
 	cd pdftohtml-$version
-	make CXX=g++-3.4
+	make CXXFLAGS='-O2 -march=i686' CXX=g++-3.4
 	install -D -m 0755 pdftohtml $PKG/usr/bin/pdftohtml
 }
-

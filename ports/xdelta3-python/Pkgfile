@@ -2,28 +2,19 @@
 # URL: http://xdelta.org/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, romster at shortcircuit dot net dot au
-# Depends on: swig python
+
+# Optional: swig python
 
 name=xdelta3-python
 version=3.0.0
-release=1
-source=(http://xdelta.googlecode.com/files/xdelta$version.tar.gz)
+release=2
+source=(http://xdelta.googlecode.com/files/xdelta$version.tar.gz
+	xdelta3.0.0-install.patch)
 
 build() {
 	cd xdelta$version
-
-	local swig_version python_version
-	swig_version="$(swig -version | grep Version | cut -d ' ' -f 3)"
-	python_version="$(python -c "import sys; print \"%s.%s\" % (sys.version_info[0], sys.version_info[1]);")"
-
-	sed -i \
-		-e "s/^PYVER = .*/PYVER = $python_version/" \
-		-e "s|	\$(PYTHON) setup.py install --verbose --compile --force|	\$(PYTHON) setup.py install --root=$PKG --verbose --compile --force|" Makefile
-
-	make all-py
-	python -mcompileall $SRC
-	install -m 0755 -d $PKG/usr/share/swig/$swig_version/python
-	install -m 0644 -t $PKG/usr/lib/python$python_version/site-packages/ xdelta3.py xdelta3.pyc
-	install -m 0644 -t $PKG/usr/share/swig/$swig_version/python/ xdelta3.swig
-	find $PKG -name '*.egg-info' | xargs rm -rf
+	patch -p 1 -i $SRC/xdelta3.0.0-install.patch
+	make xdelta3 all-py
+	make DESTDIR=$PKG install
+	python -mcompileall $PKG
 }

@@ -6,7 +6,7 @@
 
 name=firefox-java-plugin-32
 version=1.7.0
-release=1
+release=2
 source=()
 
 build(){
@@ -15,7 +15,7 @@ build(){
     /usr/lib32/java/lib/i386/libnpjp2.so \
     # jdk
     /usr/lib32/java/jre/lib/i386/libnpjp2.so
-	 )
+    )
   
   for p in ${plugins[@]}; do
     test -f $p && break
@@ -26,8 +26,8 @@ build(){
     return
   fi
   
-  mkdir -p $PKG/usr/lib32/firefox/plugins
-  ln -s $p $PKG/usr/lib32/firefox/plugins
   #mkdir -p $PKG/usr/lib32/mozilla/plugins
   #ln -s $p $PKG/usr/lib32/mozilla/plugins
+  mkdir -p $PKG/usr/lib/mozilla/plugins
+  ln -s $p $PKG/usr/lib/mozilla/plugins
 }

@@ -4,6 +4,8 @@ drwxr-xr-x	root/root	etc/mfs/
 -rw-r--r--	root/root	etc/mfs/mfsmaster.cfg.dist
 -rw-r--r--	root/root	etc/mfs/mfsmetalogger.cfg.dist
 -rw-r--r--	root/root	etc/mfs/mfstopology.cfg.dist
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-x---	root/root	etc/rc.d/mfs-master
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
@@ -37,5 +39,5 @@ drwxr-xr-x	root/root	usr/share/mfscgi/
 -rw-r--r--	root/root	usr/share/mfscgi/mfs.css
 drwxr-xr-x	root/root	var/
 drwxr-xr-x	root/root	var/lib/
-drwxr-xr-x	nobody/nobody	var/lib/mfs/
+drwxr-xr-x	mfs/mfs	var/lib/mfs/
 -rw-r--r--	root/root	var/lib/mfs/metadata.mfs.empty

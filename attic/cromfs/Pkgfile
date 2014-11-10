@@ -6,12 +6,12 @@
 # Optional: upx
 
 name=cromfs
-version=1.5.4
+version=1.5.10
 release=1
-source=(http://bisqwit.iki.fi/src/arch/cromfs-$version.tar.bz2)
+source=(http://bisqwit.iki.fi/src/arch/$name-$version.tar.bz2)
 
 build() {
-	cd cromfs-$version
+	cd $name-$version
 	./configure
 	make
 	make install #only installs into src/install
@@ -22,4 +22,3 @@ build() {
 	install -m 0755 install/progs/* -t $PKG/usr/bin/
 	install -m 0644 install/docs/*.txt -t $PKG/share/cromfs/
 }
-

@@ -1,4 +1,4 @@
-# Description: MooseFS, fault tolerant, network distributed file system.
+# Description: MooseFS, master server, fault tolerant, network distributed file system.
 # URL: http://www.moosefs.com/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
@@ -7,7 +7,8 @@
 name=mfs-master
 version=1.6.26
 release=1
-source=(http://www.moosefs.org/tl_files/mfscode/mfs-$version.tar.gz)
+source=(http://www.moosefs.org/tl_files/mfscode/mfs-$version.tar.gz
+	mfs-master.rc)
 
 build() {
 	cd mfs-$version
@@ -17,9 +18,13 @@ build() {
 		--mandir=/usr/man \
 		--sysconfdir=/etc/mfs \
 		--localstatedir=/var/lib \
+		--with-default-user=mfs \
+		--with-default-group=mfs \
 		--disable-mfschunkserver \
 		--disable-mfsmount
 
 	make
 	make DESTDIR=$PKG install
+
+	install -m 0750 -D $SRC/mfs-master.rc $PKG/etc/rc.d/mfs-master
 }

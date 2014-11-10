@@ -1,22 +1,43 @@
-# Description: An open-source implementation of the Java Platform, Standard Edition.
+# Description: Open-source Java Development Kit implementation.
 # URL: http://openjdk.java.net/
 # Maintainer: Danny Rawlins, monster dot romster at gmail dot com
 # Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Depends on: xorg-libx11 ant zip unzip freetype cups xorg-libxrender alsa-lib 
 
 name=openjdk
-version=1.7.0_b100
+version=6.24
 release=1
-source=(http://www.java.net/download/openjdk/jdk7/promoted/b100/$name-7-ea-src-b100-09_jul_2010.zip)
+source=(http://icedtea.classpath.org/download/source/icedtea6-1.11.1.tar.gz
+	http://download.java.net/openjdk/jdk6/promoted/b24/openjdk-6-src-b24-14_nov_2011.tar.gz
+	http://icedtea.classpath.org/download/drops/jaxp144_03.zip
+	http://icedtea.classpath.org/download/drops/jdk6-jaf-b20.zip
+	http://icedtea.classpath.org/download/drops/jdk6-jaxws2_1_6-2011_06_13.zip)
 
 build() {
-	cd $name-$version
+	cd icedtea6-1.11.1
 
-	./configure \
-		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-dependency-tracking
+	# see http://hiroshiyamauchi.blogspot.com/2009/12/building-openjdk-faster.html
+	export HOTSPOT_BUILD_JOBS="${MAKEFLAGS/-j }"
+	export PARALLEL_COMPILE_JOBS="${MAKEFLAGS/-j }"
+	unset MAKEFLAGS
 
-	make
-	make DESTDIR=$PKG install
-	rm -r $PKG/usr/share
+	install -d $PKG/usr/lib/$name
+
+	./configure --prefix=/usr --with-jdk-home=$PKG/usr/lib/$name/ --disable-docs
+
+#	./configure \
+#		--with-jdk-home=$PKG/usr/lib/jvm/java-1.5.0-gcj-1.5.0.0 \
+#		--with-jaxp-drop-zip=$SRC/jaxp144_03.zip \
+#		--with-jaf-drop-zip=$SRC/jdk6-jaf-b20.zip \
+#		--with-jaxws-drop-zip=$SRC/jdk6-jaxws2_1_6-2011_06_13.zip \
+#		--with-openjdk-src-zip=$SRC/openjdk-6-src-b24-14_nov_2011.tar.gz
+
+	make ARCH_DATA_MODEL=64 ALT_OUTPUTDIR=$PKG/usr/lib/openjdk
+
+	#make stamps/patch-ecj.stamp
+	#make
+	#install -d $PKG/usr/lib/jvm
+
+#	cd openjdk.build
+#	cp j2sdk-image $PKG/usr/lib/jvm/java-6
 }

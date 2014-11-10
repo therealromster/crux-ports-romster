@@ -5,9 +5,9 @@
 # Depends on: fftw mplayer plotutils pearl
 
 name=fdmf
-version=0.0.9r
+version=0.0.9s
 release=1
-source=(http://w140.com/audio/fdmf-$version.tar.gz\
+source=(http://w140.com/audio/fdmf-$version.tar.gz
 	fdmf.patch)
 
 build() {
@@ -21,7 +21,7 @@ build() {
 	install -m 0755 cleanup_dups fdmf fdmf_bench optparam -t $PKG/usr/bin/
 
 	# install headers
-	install -m 0644 -D common/common.h $PKG/usr/include/fdmf/common/common.h
+	install -m 0644 -D common.h $PKG/usr/include/fdmf/common/common.h
 	install -m 0644 sonic_reducer.h vector_pairs.h -t $PKG/usr/include/fdmf/
 	
 	# install librarys

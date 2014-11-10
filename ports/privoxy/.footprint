@@ -3,8 +3,8 @@ drwxr-xr-x	root/root	etc/privoxy/
 -rw-r--r--	root/root	etc/privoxy/config
 -rw-r--r--	root/root	etc/privoxy/default.action
 -rw-r--r--	root/root	etc/privoxy/default.filter
+-rw-r--r--	root/root	etc/privoxy/match-all.action
 -rw-r--r--	root/root	etc/privoxy/regression-tests.action
--rw-r--r--	root/root	etc/privoxy/standard.action
 drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/blocked
 -rw-r--r--	root/root	etc/privoxy/templates/cgi-error-404
@@ -16,6 +16,7 @@ drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/cgi-error-parse
 -rw-r--r--	root/root	etc/privoxy/templates/cgi-style.css
 -rw-r--r--	root/root	etc/privoxy/templates/connect-failed
+-rw-r--r--	root/root	etc/privoxy/templates/connection-timeout
 -rw-r--r--	root/root	etc/privoxy/templates/default
 -rw-r--r--	root/root	etc/privoxy/templates/edit-actions-add-url-form
 -rw-r--r--	root/root	etc/privoxy/templates/edit-actions-for-url
@@ -31,6 +32,7 @@ drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/mod-support-and-service
 -rw-r--r--	root/root	etc/privoxy/templates/mod-title
 -rw-r--r--	root/root	etc/privoxy/templates/mod-unstable-warning
+-rw-r--r--	root/root	etc/privoxy/templates/no-server-data
 -rw-r--r--	root/root	etc/privoxy/templates/no-such-domain
 -rw-r--r--	root/root	etc/privoxy/templates/show-request
 -rw-r--r--	root/root	etc/privoxy/templates/show-status
@@ -40,6 +42,7 @@ drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/toggle
 -rw-r--r--	root/root	etc/privoxy/templates/toggle-mini
 -rw-r--r--	root/root	etc/privoxy/templates/untrusted
+-rw-r--r--	root/root	etc/privoxy/templates/url-info-osd.xml
 -rw-r--r--	root/root	etc/privoxy/user.action
 drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/privoxy

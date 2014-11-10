@@ -5,9 +5,9 @@
 # Depends on: fuse rlog openssl
 
 name=encfs
-version=1.4.1.1
+version=1.7.4
 release=1
-source=(http://encfs.googlecode.com/files/encfs-$version.tar.gz)
+source=(http://encfs.googlecode.com/files/encfs-$version.tgz)
 
 build() {
 	cd encfs-$version

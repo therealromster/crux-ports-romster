@@ -6,7 +6,7 @@
 
 name=roccat-tools
 version=1.5.0
-release=1
+release=2
 source=(http://downloads.sourceforge.net/project/roccat/$name/$name-$version.tar.bz2)
 
 build() {
@@ -14,7 +14,7 @@ build() {
 	
 	cmake . \
 		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DUDEVDIR=/usr/lib/udev/rules.d
+		-DUDEVDIR=/lib/udev/rules.d
 
 	make
 	make DESTDIR=$PKG install
