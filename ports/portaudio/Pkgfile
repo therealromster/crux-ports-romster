@@ -5,9 +5,9 @@
 # Depends on: alsa-lib
 
 name=portaudio
-version=v19-snapshot
-release=2
-source=(http://portaudio.com/archives/pa_snapshot_v19.tar.gz)
+version=20140130
+release=1
+source=(http://portaudio.com/archives/pa_stable_v19_$version.tgz)
 
 build(){
 	cd portaudio
