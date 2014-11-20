@@ -1,4 +1,4 @@
-# Description: xorg font font-kochi-ttf.
+# Description: High quality Japanese TrueType fonts.
 # URL: http://pkgsrc.se/fonts/kochi-ttf
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
@@ -10,7 +10,11 @@ release=1
 source=(http://dl.sourceforge.jp/efont/5411/kochi-substitute-$version.tar.bz2)
 
 build() {
-	install -D -oroot -groot -m644 kochi-substitute-$version/kochi-gothic-subst.ttf $PKG/usr/lib/X11/fonts/TTF/kochi-gothic-subst.ttf
-	install -D -oroot -groot -m644 kochi-substitute-$version/kochi-mincho-subst.ttf $PKG/usr/lib/X11/fonts/TTF/kochi-mincho-subst.ttf
+	cd kochi-substitute-$version
+
+	install -d $PKG/usr/share/fonts/X11/TTF/
+
+	install -m 0644 -t $PKG/usr/share/fonts/X11/TTF/ \
+		kochi-gothic-subst.ttf kochi-mincho-subst.ttf 
 }
 
