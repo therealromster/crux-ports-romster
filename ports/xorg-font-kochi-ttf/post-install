@@ -1,5 +1,5 @@
 #!/bin/sh
 
-mkfontdir /usr/lib/X11/fonts/TTF
-mkfontscale /usr/lib/X11/fonts/TTF
+mkfontdir /usr/share/fonts/X11/TTF/
+mkfontscale /usr/share/fonts/X11/TTF/
 fc-cache
