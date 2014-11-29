@@ -1,0 +1,21 @@
+# Description: A general-purpose preprocessor with customizable syntax.
+# URL: http://en.nothingisreal.com/wiki/GPP
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
+
+name=gpp
+version=2.24
+release=1
+source=(http://files.nothingisreal.com/software/$name/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--disable-dependency-tracking
+
+	make
+	make DESTDIR=$PKG install
+}
