@@ -2,7 +2,7 @@
 # URL: http://xarchiver.sourceforge.net/
 # Packager: Mark Rosenstand, mark at borkware dot net
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: gtk xorg-libxdamage
+# Depends on: desktop-file-utils gtk xorg-libxdamage
 
 # Optional: zip unzip p7zip arj lzop cpio unrar
 
