@@ -5,15 +5,15 @@
 # Depends on: docbook-xsl
 
 name=xmlto
-version=0.0.26
+version=#exec lsurl.py --common-ext https://fedorahosted.org/releases/x/m/xmlto/ | filter-tool.py --show-ranking --show-failed --print-sorted --head 1 | awk 'NF {print $3}'
 release=1
 source=(https://fedorahosted.org/releases/x/m/xmlto/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
-	./configure \
-		--prefix=/usr \
+	./configure \\
+		--prefix=/usr \\
 		--mandir=/usr/man
 
 	make
