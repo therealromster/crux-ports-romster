@@ -8,20 +8,20 @@
 # Depends on: xorg-mkfontdir xorg-mkfontscale
 
 name=ttf-fira
-version=3.111
+version=#exec lsurl.py --common-ext http://www.carrois.com/wordpress/downloads/fira_3_1/ | grep '/FiraFonts' | filter-tool.py --show-ranking --show-failed --print-sorted --head 1 | awk 'NF {print $3}'
 release=1
 source=(http://www.carrois.com/wordpress/downloads/fira_3_1/FiraFonts${version/./}.zip)
 
 build() {
-	cd FiraFonts${version/./}
+	cd FiraFonts3110
 
 	install -d $PKG/usr/share/fonts/TTF
 
-	cd FiraMono${version/./}/WEB
-	install -m 0644 -t $PKG/usr/share/fonts/TTF *.ttf
+	cd FiraMono${version/./}/WEBfira_3_1
+	install -m 0644 -t $PKG/usr/share/fonts/TTF *.ttf 
 
 	cd -
 
 	cd FiraSans${version/./}/WEB
-	install -m 0644 -t $PKG/usr/share/fonts/TTF *.ttf
+	install -m 0644 -t $PKG/usr/share/fonts/TTF *.ttf 
 }
