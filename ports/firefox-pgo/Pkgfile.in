@@ -2,7 +2,7 @@
 # URL: http://www.mozilla.com/firefox/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: gst-plugins-bad-compat gst-plugins-good-compat gst-plugins-ugly-compat libidl nss
+# Depends on: gst-ffmpeg gst-plugins-good-compat gst-plugins-ugly-compat gstreamer-vaapi-compat libidl nss
 
 name=firefox-pgo
 version=#exec for url in $(lsurl.py ftp://ftp.mozilla.org/pub/firefox/releases/ | egrep '/[3-9]{1}[0-9]+[0-9.]+$' | xargs); do lsurl.py --common-ext $url/source/; done | filter-tool.py --show-ranking --show-failed --print-sorted --head 1 | awk 'NF {print $3}'
