@@ -1,0 +1,13 @@
+# Description: List untracked files from package database.
+# URL: http://hvlinux.net/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
+
+name=pkg-not
+version=0.0.1
+release=1
+source=($name)
+
+build() {
+	install -m 0755 -D $SRC/$name $PKG/usr/bin/$name
+}
