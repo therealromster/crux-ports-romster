@@ -2,7 +2,7 @@
 # URL: http://www.mozilla.com/firefox/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: bzip2 libpcre util-linux zlib alsa-lib atk cairo expat fontconfig freetype gdk-pixbuf glib gtk harfbuzz libffi libjpeg-turbo libpng nspr nss pango sqlite3 libbsd xorg-libice xorg-libpixman xorg-libsm xorg-libx11 xorg-libxau xorg-libxcb xorg-libxcomposite xorg-libxcursor xorg-libxdamage xorg-libxdmcp xorg-libxext xorg-libxfixes xorg-libxinerama xorg-libxrandr xorg-libxrender xorg-libxt yasm python
+# Depends on: gst-plugins-bad gst-plugins-good gst-plugins-ugly libbsd nss
 
 name=firefox-pgo
 version=35.0
