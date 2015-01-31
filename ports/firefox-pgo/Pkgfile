@@ -1,8 +1,8 @@
-# Description: PGO optimised Firefox browser.
+# Description: A PGO optimised and gstreamer enabled firefox browser.
 # URL: http://www.mozilla.com/firefox/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: gst-plugins-bad gst-plugins-good gst-plugins-ugly libbsd nss
+# Depends on: gst-plugins-bad-compat gst-plugins-good-compat gst-plugins-ugly-compat libidl nss
 
 name=firefox-pgo
 version=35.0

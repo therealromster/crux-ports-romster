@@ -1,8 +1,8 @@
-# Description: PGO optimised Firefox browser.
+# Description: A PGO optimised and gstreamer enabled firefox browser.
 # URL: http://www.mozilla.com/firefox/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: bzip2 libpcre util-linux zlib alsa-lib atk cairo expat fontconfig freetype gdk-pixbuf glib gtk harfbuzz libffi libjpeg-turbo libpng nspr nss pango sqlite3 libbsd xorg-libice xorg-libpixman xorg-libsm xorg-libx11 xorg-libxau xorg-libxcb xorg-libxcomposite xorg-libxcursor xorg-libxdamage xorg-libxdmcp xorg-libxext xorg-libxfixes xorg-libxinerama xorg-libxrandr xorg-libxrender xorg-libxt yasm python
+# Depends on: gst-plugins-bad-compat gst-plugins-good-compat gst-plugins-ugly-compat libidl nss
 
 name=firefox-pgo
 version=#exec for url in $(lsurl.py ftp://ftp.mozilla.org/pub/firefox/releases/ | egrep '/[3-9]{1}[0-9]+[0-9.]+$' | xargs); do lsurl.py --common-ext $url/source/; done | filter-tool.py --show-ranking --show-failed --print-sorted --head 1 | awk 'NF {print $3}'
