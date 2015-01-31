@@ -2,7 +2,7 @@
 # URL: http://www.mozilla.com/firefox/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: gst-plugins-bad-compat gst-plugins-good-compat gst-plugins-ugly-compat libidl nss
+# Depends on: gst-ffmpeg gst-plugins-bad-compat gst-plugins-good-compat gst-plugins-ugly-compat libidl nss
 
 name=firefox-gst
 version=35.0
