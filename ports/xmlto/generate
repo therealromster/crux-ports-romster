@@ -1,6 +1,0 @@
-#!/bin/sh
-
-set -e
-
-gpp -x -o Pkgfile Pkgfile.in
-
