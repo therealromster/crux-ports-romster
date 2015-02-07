@@ -1,0 +1,13 @@
+# Description: Track versions of compat-32 ports with there 64bit counterparts.
+# URL: http://crux.ster.zone/projects/check-32-versions
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
+
+name=check-32-versions
+version=0.0.1
+release=1
+source=($name)
+
+build() {
+	install -m 0755 -D $SRC/$name $PKG/usr/bin/$name
+}
