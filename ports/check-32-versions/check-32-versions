@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Copyright (c) 2012 by Matt Housh, jaeger at morpheus dot net
+# Copyright (c) 2015 by Daniel K Rawlins, contact at romster dot me
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,20 +21,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-PORTS32="`prt-get listinst | grep -- -32$`"
+PORTS32="`prt-get search 32 | grep -- -32$`"
 
 for P in $PORTS32
 do
 	if [ "`prt-get info $P 2>&1`" != "Package '$P' not found" ]
 	then
+		unset PV PV32 NAME
 		PORT="`echo $P | sed 's/-32$//'`"
-		. $(prt-get path $PORT)/Pkgfile
-		PV=$version
-		. $(prt-get path $P)/Pkgfile
-		PV32=$version
+		if [ -e "$(prt-get path $PORT 2> /dev/null)/Pkgfile" ]
+		then
+			. $(prt-get path $PORT)/Pkgfile
+			PV=$version
+			NAME=$PORT
+		fi
+		if [ -e "$(prt-get path $P 2> /dev/null)/Pkgfile" ]
+		then
+			. $(prt-get path $P)/Pkgfile
+			PV32=$version
+		fi
 		if [ "$PV" != "$PV32" ]
 		then
-			echo "$P $PV32 - $PORT $PV"
+			echo "$P $PV32 - $NAME $PV"
 		fi
 	fi
 done
