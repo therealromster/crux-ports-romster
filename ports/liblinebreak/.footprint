@@ -1,5 +1,10 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/linebreak.h
+-rw-r--r--	root/root	usr/include/linebreakdef.h
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/liblinebreak.a
+-rwxr-xr-x	root/root	usr/lib/liblinebreak.la
+lrwxrwxrwx	root/root	usr/lib/liblinebreak.so -> liblinebreak.so.2.0.1
+lrwxrwxrwx	root/root	usr/lib/liblinebreak.so.2 -> liblinebreak.so.2.0.1
+-rwxr-xr-x	root/root	usr/lib/liblinebreak.so.2.0.1

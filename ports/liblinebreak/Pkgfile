@@ -1,18 +1,17 @@
 # Description: A Unicode line-breaking library.
-# URL: http://vimgadgets.cvs.sourceforge.net/vimgadgets/common/tools/linebreak
+# URL: http://vimgadgets.sourceforge.net/liblinebreak/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
 # Depends on:
 
 name=liblinebreak
-version=0.9.1
+version=2.1
 release=1
-source=(http://www.dcaf-security.org/distfiles/$name-$version-20080922.tar.bz2)
+source=(http://downloads.sourceforge.net/project/vimgadgets/$name/$version/$name-$version.tar.gz)
 
 build() {
-	cd linebreak
-	make CFLAGS="$CFLAGS -fPIC" release
-	install -m 0644 -D linebreak.h $PKG/usr/include/linebreak.h
-	install -m 0644 -D ReleaseDir/liblinebreak.a $PKG/usr/lib/liblinebreak.a
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
 }
-
