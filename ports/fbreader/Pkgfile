@@ -2,21 +2,34 @@
 # URL: http://www.fbreader.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: expat zlib bzip2 liblinebreak fribidi
-# Optional: gtk qt4
+# Depends on: fribidi liblinebreak qt4
 
 name=fbreader
-sname="$name-sources"
-version=0.10.1
+version=0.99.4
 release=1
-url='http://www.fbreader.org'
-up2date="curl -s '$url/downloads.php' |grep '.tgz' |sed -e 's/.*$sname-\(.*\)\.t.*/\1/' -e 'q'"
-source=($url/$sname-$version.tgz)
+source=(http://fbreader.org/files/desktop/fbreader_$version-1.tar.gz)
 
 build() {
 	cd $name-$version
-	TARGET_ARCH='i686-pc-linux-gnu'
-	sed -i -e 's/-mthumb //' makefiles/arch/maemo.mk
+
+	# Still use linebreak instead of new unibreak
+	sed -e "s:-lunibreak:-llinebreak:" \
+		-i makefiles/config.mk zlibrary/text/Makefile
+
+	# Respect *FLAGS
+	sed -e "s/^CFLAGS = -pipe/CFLAGS +=/" \
+		-i makefiles/arch/desktop.mk
+	sed -e "/^ CFLAGS +=/ d" \
+		-i makefiles/config.mk
+	sed -e "/^ LDFLAGS += -s$/ d" \
+		-i makefiles/config.mk
+	sed -e "/^LDFLAGS =$/ d" \
+		-i makefiles/arch/desktop.mk
+
+	echo "TARGET_ARCH = desktop" > makefiles/target.mk
+	echo "UI_TYPE = qt4" >> makefiles/target.mk
+	echo "TARGET_STATUS = release" >> makefiles/target.mk
+
 	make
 	make DESTDIR=$PKG do_install
 }
