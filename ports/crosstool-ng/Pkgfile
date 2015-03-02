@@ -5,9 +5,9 @@
 # Depends on: texinfo gperf
 
 name=crosstool-ng
-version=1.19.0
+version=1.20.0
 release=1
-source=(http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-$version.tar.bz2)
+source=(http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-$version.tar.xz)
 
 build() {
 	cd $name-$version
