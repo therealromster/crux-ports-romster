@@ -1,0 +1,24 @@
+# Description: A SysV init replacement with process supervision similar to that of daemontools and runit.
+# URL: http://troglobit.com/finit.html
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
+
+name=finit-static
+version=1.11
+release=1
+source=(ftp://troglobit.com/finit/finit-$version.tar.xz
+	finit-1.11-static.patch)
+
+build() {
+	cd finit-$version
+
+	patch -p1 -i $SRC/finit-1.11-static.patch
+
+	[ "$CC" ] || CC=gcc
+
+	make CC="$CC"
+	make DESTDIR=$PKG install
+	mv $PKG/usr/share/man $PKG/usr/man
+	rm -r $PKG/usr/share/doc
+	rmdir $PKG/usr/share
+}
