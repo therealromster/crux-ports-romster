@@ -1,19 +1,15 @@
-# $Id: $
-# Description: A hash library implemented in C
-# URL: http://uthash.sourceforge.net/
-# Maintainer: Younes Hafri <ycrux@club-internet.fr>
-# Packager: Younes Hafri <ycrux@club-internet.fr>
-# Depends on:
+# Description: A hash library implemented in C.
+# URL: http://troydhanson.github.io/uthash/index.html
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Younes Hafri, ycrux at club-internet dot fr
 
 name=uthash
-version=1.2
+version=1.9.9
 release=1
-source=(http://kent.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+source=(https://github.com/troydhanson/uthash/archive/v$version.tar.gz)
 
-build () {
+build() {
 	cd $name-$version/src
-
-	install -D -m 644 $name.h $PKG/usr/include/$name.h
-
-	chown -R root:root $PKG
+	install -d $PKG/usr/include/
+	install -m 0644 -t $PKG/usr/include/ *.h
 }
