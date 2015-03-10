@@ -1,0 +1,27 @@
+# Description: Modular FPGA/GPU miner written in C.
+# URL: http://bfgminer.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: LexsZero, lexszero at gmail dot com
+# Depends on: uthash jansson ncurses yasm opencl-headers
+
+name=bfgminer
+version=5.1.0
+release=1
+source=(http://luke.dashjr.org/programs/bitcoin/files/bfgminer/$version/$name-$version.zip)
+
+build() {
+	#https://github.com/luke-jr/bfgminer
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--enable-cpumining \
+		--enable-scrypt \
+		--enable-opencl
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/doc
+}

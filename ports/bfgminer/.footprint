@@ -1,0 +1,43 @@
+drwxr-xr-x	root/root	lib/
+drwxr-xr-x	root/root	lib/udev/
+drwxr-xr-x	root/root	lib/udev/rules.d/
+-rw-r--r--	root/root	lib/udev/rules.d/70-bfgminer.rules
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/bfgminer
+-rwxr-xr-x	root/root	usr/bin/bfgminer-rpc
+-rwxr-xr-x	root/root	usr/bin/start-bfgminer.sh
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/libbase58.h
+drwxr-xr-x	root/root	usr/include/libblkmaker-0.1/
+-rw-r--r--	root/root	usr/include/libblkmaker-0.1/blkmaker.h
+-rw-r--r--	root/root	usr/include/libblkmaker-0.1/blkmaker_jansson.h
+-rw-r--r--	root/root	usr/include/libblkmaker-0.1/blktemplate.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libbase58.la
+lrwxrwxrwx	root/root	usr/lib/libbase58.so -> libbase58.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libbase58.so.0 -> libbase58.so.0.0.1
+-rwxr-xr-x	root/root	usr/lib/libbase58.so.0.0.1
+-rwxr-xr-x	root/root	usr/lib/libblkmaker-0.1.la
+lrwxrwxrwx	root/root	usr/lib/libblkmaker-0.1.so -> libblkmaker-0.1.so.6.0.1
+lrwxrwxrwx	root/root	usr/lib/libblkmaker-0.1.so.6 -> libblkmaker-0.1.so.6.0.1
+-rwxr-xr-x	root/root	usr/lib/libblkmaker-0.1.so.6.0.1
+-rwxr-xr-x	root/root	usr/lib/libblkmaker_jansson-0.1.la
+lrwxrwxrwx	root/root	usr/lib/libblkmaker_jansson-0.1.so -> libblkmaker_jansson-0.1.so.6.0.1
+lrwxrwxrwx	root/root	usr/lib/libblkmaker_jansson-0.1.so.6 -> libblkmaker_jansson-0.1.so.6.0.1
+-rwxr-xr-x	root/root	usr/lib/libblkmaker_jansson-0.1.so.6.0.1
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libbase58.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/libblkmaker_jansson-0.1.pc
+drwxr-xr-x	root/root	usr/sbin/
+-rwxr-xr-x	root/root	usr/sbin/setup-vfio
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/bfgminer/
+drwxr-xr-x	root/root	usr/share/bfgminer/opencl/
+-rw-r--r--	root/root	usr/share/bfgminer/opencl/diablo.cl
+-rw-r--r--	root/root	usr/share/bfgminer/opencl/diakgcn.cl
+-rw-r--r--	root/root	usr/share/bfgminer/opencl/phatk.cl
+-rw-r--r--	root/root	usr/share/bfgminer/opencl/poclbm.cl
+-rw-r--r--	root/root	usr/share/bfgminer/opencl/psw.cl
+-rw-r--r--	root/root	usr/share/bfgminer/opencl/scrypt.cl
+-rw-r--r--	root/root	usr/share/bfgminer/opencl/zuikkis.cl
