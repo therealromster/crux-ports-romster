@@ -1,0 +1,15 @@
+# Description: Converts flat text file to man pages.
+# URL: http://mvertes.free.fr/
+# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
+# Packager: Simone Rota, sip at crux dot nu
+
+name=txt2man
+version=1.5.6
+release=1
+source=(http://mvertes.free.fr/$name/$name
+	http://mvertes.free.fr/$name/$name.man)
+
+build() {
+	install -m 0755 -D $name $PKG/usr/bin/$name
+	install -m 0644 -D $name.man $PKG/usr/man/man1/$name.1
+}
