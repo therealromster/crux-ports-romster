@@ -5,7 +5,7 @@
 # Depends on: gst-ffmpeg gst-plugins-good-compat gst-plugins-ugly-compat gstreamer-vaapi-compat libidl nss
 
 name=firefox-pgo
-version=36.0
+version=36.0.1
 release=1
 source=(ftp://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.bz2
 	firefox-install-dir.patch firefox.desktop)
@@ -64,9 +64,6 @@ EOF
 
 	make -f client.mk build profiledbuild
 	make -f client.mk DESTDIR=$PKG install
-
-	install -d $PKG/etc/ld.so.conf.d
-	echo "/usr/lib/firefox" > $PKG/etc/ld.so.conf.d/firefox.conf
 
 	install -d $PKG/usr/share/pixmaps
 	ln -s /usr/lib/firefox/browser/chrome/icons/default/default48.png \
