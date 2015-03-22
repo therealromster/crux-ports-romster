@@ -2,12 +2,13 @@
 # URL: http://collectd.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Andreas Baumann, abaumann at yahoo dot com
-# Depends on: iptables
+# Depends on: curl flex iptables libtool perl
 
 name=collectd
-version=5.0.3
+version=5.4.2
 release=1
-source=(http://collectd.org/files/$name-$version.tar.bz2)
+source=(http://collectd.org/files/$name-$version.tar.bz2
+	collectdmon.rc)
 
 build() {
 	cd $name-$version
@@ -16,10 +17,14 @@ build() {
 
 	./configure \
 		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
 		--mandir=/usr/man \
 		--disable-nls \
 		--disable-debug
 
 	make
 	make DESTDIR=$PKG install
+
+	install -m 0755 -D $SRC/collectdmon.rc $PKG/etc/rc.d/collectdmon
 }
