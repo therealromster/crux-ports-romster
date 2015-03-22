@@ -1,20 +1,20 @@
 # Description: Ping multiple hosts in parallel using IPv4 or IPv6 transparently.
-# URL: http://verplant.org/liboping/
+# URL: http://noping.cc/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Mark Rosenstand, mark at borkware dot net
+# Depends on: ncurses
 
 name=liboping
-version=1.4.0
+version=1.8.0
 release=1
-source="http://verplant.org/liboping/files/liboping-$version.tar.bz2"
+source=(http://noping.cc/files/$name-$version.tar.bz2)
 
 build() {
 	cd liboping-$version
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-static
+		--mandir=/usr/man
 
 	make
 	make DESTDIR=$PKG install
