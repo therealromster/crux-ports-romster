@@ -1,17 +1,15 @@
 # Description: A library for processing UTF-8 encoded Unicode strings.
-# URL: http://www.flexiguided.de/publications.utf8proc.en.html
+# URL: http://julialang.org/utf8proc/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on:
 
 name=utf8proc
-sname=$name-v
-version=1.1.3
+version=1.1.6
 release=1
-source=(http://www.flexiguided.de/pub/$name-v$version.tar.gz)
+source=(https://github.com/JuliaLang/utf8proc/archive/v$version.tar.gz)
 
 build() {
-	cd $name
+	cd $name-$version
 	make c-library
 	install -d 0755 $PKG/usr/lib
 	install -m 0644 -t $PKG/usr/lib/ libutf8proc.a libutf8proc.so
