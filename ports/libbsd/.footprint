@@ -14,6 +14,7 @@ drwxr-xr-x	root/root	usr/include/bsd/netinet/
 -rw-r--r--	root/root	usr/include/bsd/stdio.h
 -rw-r--r--	root/root	usr/include/bsd/stdlib.h
 -rw-r--r--	root/root	usr/include/bsd/string.h
+-rw-r--r--	root/root	usr/include/bsd/stringlist.h
 drwxr-xr-x	root/root	usr/include/bsd/sys/
 -rw-r--r--	root/root	usr/include/bsd/sys/bitstring.h
 -rw-r--r--	root/root	usr/include/bsd/sys/cdefs.h
@@ -21,15 +22,19 @@ drwxr-xr-x	root/root	usr/include/bsd/sys/
 -rw-r--r--	root/root	usr/include/bsd/sys/poll.h
 -rw-r--r--	root/root	usr/include/bsd/sys/queue.h
 -rw-r--r--	root/root	usr/include/bsd/sys/tree.h
+-rw-r--r--	root/root	usr/include/bsd/timeconv.h
 -rw-r--r--	root/root	usr/include/bsd/unistd.h
 -rw-r--r--	root/root	usr/include/bsd/vis.h
+-rw-r--r--	root/root	usr/include/bsd/wchar.h
 drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libbsd-ctor.a
 -rw-r--r--	root/root	usr/lib/libbsd.a
 -rwxr-xr-x	root/root	usr/lib/libbsd.la
-lrwxrwxrwx	root/root	usr/lib/libbsd.so -> libbsd.so.0.4.2
-lrwxrwxrwx	root/root	usr/lib/libbsd.so.0 -> libbsd.so.0.4.2
--rwxr-xr-x	root/root	usr/lib/libbsd.so.0.4.2
+lrwxrwxrwx	root/root	usr/lib/libbsd.so -> libbsd.so.0.7.0
+lrwxrwxrwx	root/root	usr/lib/libbsd.so.0 -> libbsd.so.0.7.0
+-rwxr-xr-x	root/root	usr/lib/libbsd.so.0.7.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libbsd-ctor.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libbsd-overlay.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libbsd.pc
 drwxr-xr-x	root/root	usr/man/
@@ -44,8 +49,12 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/dehumanize_number.3.gz
 -rw-r--r--	root/root	usr/man/man3/expand_number.3.gz
 -rw-r--r--	root/root	usr/man/man3/fgetln.3.gz
+-rw-r--r--	root/root	usr/man/man3/fgetwln.3.gz
 -rw-r--r--	root/root	usr/man/man3/flopen.3.gz
 -rw-r--r--	root/root	usr/man/man3/fmtcheck.3.gz
+-rw-r--r--	root/root	usr/man/man3/fparseln.3.gz
+-rw-r--r--	root/root	usr/man/man3/funopen.3.gz
+-rw-r--r--	root/root	usr/man/man3/getbsize.3.gz
 -rw-r--r--	root/root	usr/man/man3/getmode.3.gz
 -rw-r--r--	root/root	usr/man/man3/getpeereid.3.gz
 -rw-r--r--	root/root	usr/man/man3/getprogname.3.gz
@@ -63,10 +72,14 @@ drwxr-xr-x	root/root	usr/man/man3/
 -rw-r--r--	root/root	usr/man/man3/setproctitle.3.gz
 -rw-r--r--	root/root	usr/man/man3/setprogname.3.gz
 -rw-r--r--	root/root	usr/man/man3/sradixsort.3.gz
+-rw-r--r--	root/root	usr/man/man3/stringlist.3.gz
 -rw-r--r--	root/root	usr/man/man3/strlcat.3.gz
 -rw-r--r--	root/root	usr/man/man3/strlcpy.3.gz
 -rw-r--r--	root/root	usr/man/man3/strmode.3.gz
+-rw-r--r--	root/root	usr/man/man3/strnstr.3.gz
 -rw-r--r--	root/root	usr/man/man3/strtonum.3.gz
 -rw-r--r--	root/root	usr/man/man3/tree.3.gz
 -rw-r--r--	root/root	usr/man/man3/unvis.3.gz
 -rw-r--r--	root/root	usr/man/man3/vis.3.gz
+-rw-r--r--	root/root	usr/man/man3/wcslcat.3.gz
+-rw-r--r--	root/root	usr/man/man3/wcslcpy.3.gz
