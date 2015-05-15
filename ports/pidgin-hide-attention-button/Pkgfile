@@ -1,0 +1,15 @@
+# Description: Hide the attention button in pidgin,
+# URL: https://www.flynsarmy.com/2012/02/hide-the-attention-button-in-pidgin/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: pidgin
+
+name=pidgin-hide-attention-button
+version=1.0
+release=1
+source=(hide_attention_button.c Makefile)
+
+build() {
+	make
+	make DESTDIR=$PKG install
+}
