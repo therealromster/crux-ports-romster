@@ -1,0 +1,20 @@
+# Description: A set of monospaced OpenType and TrueType fonts designed for coding environments.
+# URL: https://github.com/adobe-fonts/source-sans-pro
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Fredrik Rinnestam, fredrik at crux dot nu
+# Depends on: xorg-mkfontdir xorg-mkfontscale fontconfig
+
+name=xorg-font-sourcesanspro
+version=2.010
+release=1
+source=(https://github.com/adobe-fonts/source-sans-pro/archive/${version}R-ro/1.065R-it.tar.gz)
+#source=(https://github.com/adobe-fonts/source-code-pro/archive/${version}R.tar.gz)
+
+build() {
+	cd source-sans-pro-${version}R-ro-1.065R-it/
+	#cd source-code-pro-${version}R
+
+	install -m 0755 -d $PKG/usr/share/fonts/X11/{OTF,TTF}
+	install -m 0644 -t $PKG/usr/share/fonts/X11/OTF  OTF/*.otf
+	install -m 0644 -t $PKG/usr/share/fonts/X11/TTF  TTF/*.ttf
+}
