@@ -7,7 +7,7 @@
 name=xorg-font-sourceserifpro
 version=1.017
 release=1
-source=(https://github.com/adobe-fonts/source-code-pro/archive/${version}R.tar.gz)
+source=(https://github.com/adobe-fonts/source-serif-pro/archive/${version}R.tar.gz)
 
 build() {
 	cd source-code-pro-${version}R
