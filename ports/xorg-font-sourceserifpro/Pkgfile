@@ -10,7 +10,7 @@ release=1
 source=(https://github.com/adobe-fonts/source-serif-pro/archive/${version}R.tar.gz)
 
 build() {
-	cd source-code-pro-${version}R
+	cd source-serif-pro-${version}R
 
 	install -m 0755 -d $PKG/usr/share/fonts/X11/{OTF,TTF}
 	install -m 0644 -t $PKG/usr/share/fonts/X11/OTF  OTF/*.otf
