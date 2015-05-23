@@ -1,6 +1,7 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/FBReader
+lrwxrwxrwx	root/root	usr/bin/fbreader -> FBReader
 drwxr-xr-x	root/root	usr/lib/
 lrwxrwxrwx	root/root	usr/lib/libzlcore.so -> libzlcore.so.0.99.4
 lrwxrwxrwx	root/root	usr/lib/libzlcore.so.0.99 -> libzlcore.so.0.99.4
