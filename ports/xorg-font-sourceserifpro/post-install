@@ -1,0 +1,10 @@
+#!/bin/sh
+
+fc-cache /usr/share/fonts/X11/OTFF
+mkfontscale /usr/share/fonts/X11/OTF
+mkfontdir /usr/share/fonts/X11/OTF
+
+fc-cache /usr/share/fonts/X11/TTF
+mkfontscale /usr/share/fonts/X11/TTF
+mkfontdir /usr/share/fonts/X11/TTF
+

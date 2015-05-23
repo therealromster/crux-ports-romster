@@ -1,0 +1,18 @@
+# Description: Source Serif Pro is a set of OpenType and TrueType fonts to complement the Source Sans Pro family.
+# URL: https://github.com/adobe-fonts/source-serif-pro
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Fredrik Rinnestam, fredrik at crux dot nu
+# Depends on: xorg-mkfontdir xorg-mkfontscale fontconfig
+
+name=xorg-font-sourceserifpro
+version=1.017
+release=1
+source=(https://github.com/adobe-fonts/source-code-pro/archive/${version}R.tar.gz)
+
+build() {
+	cd source-code-pro-${version}R
+
+	install -m 0755 -d $PKG/usr/share/fonts/X11/{OTF,TTF}
+	install -m 0644 -t $PKG/usr/share/fonts/X11/OTF  OTF/*.otf
+	install -m 0644 -t $PKG/usr/share/fonts/X11/TTF  TTF/*.ttf
+}
