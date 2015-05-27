@@ -1,9 +1,11 @@
 # Description: A free and portable TrueType font rendering engine with subpixel-rendering and auto-hinter.
-
 # URL: http://www.freetype.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Tilman Sauerbeck, tilman at crux dot nu
-# Depends on: bzip2 libpcre zlib glib harfbuzz libpng
+# Depends on: bzip2 libpcre zlib glib libpng
+
+## adding harfbuzz for improved OpenType features auto-hinting 
+## introduces a cycle dep to harfbuzz depending on freetype wanted by upstream
 
 name=freetype
 version=2.5.5
