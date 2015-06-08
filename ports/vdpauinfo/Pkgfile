@@ -1,0 +1,17 @@
+# Description: Command line utility for querying VDPAU capabilities.
+# URL: http://people.freedesktop.org/~aplattner/vdpau/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Fredrik Rinnestam, fredrik at rinnestam dot se
+# Depends on: libvdpau
+
+name=vdpauinfo
+version=1.0
+release=1
+source=(http://people.freedesktop.org/~aplattner/vdpau/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
