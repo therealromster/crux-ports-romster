@@ -1,13 +1,13 @@
 # Description: Array processing for numbers, strings, records, and objects with Python.
-# URL: http://numeric.scipy.org/
+# URL: http://numpy.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: setuptools lapack gcc-fortran nose
+# Depends on: lapack setuptools
 
 name=numpy
-version=1.8.1
+version=1.9.1
 release=1
-source=(http://downloads.sourceforge.net/project/$name/NumPy/$version/$name-$version.tar.gz)
+source=(http://pypi.python.org/packages/source/n/$name/$name-$version.tar.gz)
 
 build() {
 	export CFLAGS+=' -fno-strict-aliasing'
@@ -20,8 +20,4 @@ build() {
 
 	/usr/bin/python setup.py config_fc --fcompiler=gnu95 install \
 		--prefix=/usr --root="$PKG" --optimize=1
-
-	rm -r \
-		$PKG/usr/lib/python2.?/site-packages/numpy/doc \
-		$PKG/usr/lib/python2.?/site-packages/numpy/f2py/docs
 }
