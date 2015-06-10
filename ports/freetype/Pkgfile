@@ -8,7 +8,7 @@
 ## introduces a cycle dep to harfbuzz depending on freetype wanted by upstream
 
 name=freetype
-version=2.5.5
+version=2.6
 release=1
 source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.bz2)
 
