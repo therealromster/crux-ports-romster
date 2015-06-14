@@ -1,12 +1,12 @@
 # Description: Lightweight panel/taskbar w/launchers
-# URL: http://code.google.com/p/tint2/source/checkout
+# URL: https://gitlab.com/o9000/tint2
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Depends on: cmake gtk imlib2 startup-notification xorg-libxdamage
 
 name=tint2
 version=20140504
 release=1
-source=(http://crux.ster.so/distfiles/$name/$name-$version-r652.tar.xz)
+source=(http://crux.ster.zone/downloads/$name/$name-$version-r652.tar.xz)
 
 build() {
 	cd $name
