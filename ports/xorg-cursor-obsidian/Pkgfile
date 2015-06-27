@@ -1,4 +1,4 @@
-# Description: A shiny and clean cursor set created in Inkscape based upon my previous Polar Cursor Theme.
+# Description: A shiny and clean cursor set created in inkscape based upon my previous Polar Cursor Theme.
 # URL: http://www.kde-look.org/content/show.php/Obsidian+Cursors?content=73135
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
@@ -7,17 +7,15 @@
 name=xorg-cursor-obsidian
 version=1.1
 release=1
-source=(http://www.kde-look.org/content/download.php?content=73135\&id=1\&tan=85627895)
+source=(http://kde-look.org/CONTENT/content-files/73135-Obsidian.tar.bz2)
 
 build() {
-	mv download.php?content=73135\&id=1\&tan=85627895 obsidian-cursors.tar.bz2
-	tar --use-compress-program=bzip2 -xf obsidian-cursors.tar.bz2
-	install -d $PKG/usr/share/icons/obsidian
 	cd Obsidian
-	pushd Source
-	./Build.sh
-	popd
-	cp -R cursors $PKG/usr/share/icons/obsidian/
+
+	install -d $PKG/usr/share/icons/obsidian
+
+	( cd Source ; ./Build.sh )
+
+	cp -r cursors $PKG/usr/share/icons/obsidian/
 	install -m 0644 index.theme $PKG/usr/share/icons/obsidian/
 }
-
