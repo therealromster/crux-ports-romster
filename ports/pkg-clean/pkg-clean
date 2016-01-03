@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2012 by Daniel K Rawlins, monster dot romster at gmail dot com
+# Copyright (c) 2012,2016 by Daniel K Rawlins, contact at romster dot me
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -22,34 +22,35 @@
 #
 
 pkg_clean() {
-	local LIST PKG TOTAL COUNT LINE I REQUIRED
+	local LIST PKG TOTAL COUNT LINE I CORE
 
-	if [ ! -e '/var/lock/.pkg-clean-in-chroot' ]; then
-		echo 'Error not in chroot!'
+	if [ ! -f $PKG_CLEAN_CONFFILE ]; then
+		echo "File '$PKG_CLEAN_CONFFILE' not found."
+		exit 1
+	fi
+	. $PKG_CLEAN_CONFFILE
+
+	if [ $PKG_CLEAN_RUN = 'no' ]; then
+		echo 'Error please read /etc/pkg-clean.conf carefully!'
 		exit 1
 	fi
 
-	REQUIRED=(`ls --color=never /usr/ports/core | xargs`)
+	# keep /usr/ports/core
+	CORE=(`find /usr/ports/core -maxdepth 1 -type d -exec basename {} \; | xargs`)
 
-	if [ -e /usr/ports/core-x86_64 ]; then
-		REQUIRED=(${REQUIRED[@]} `ls --color=never /usr/ports/core-x86_64 | xargs`)
-	fi
-
-	if [ -e /usr/ports/core-multilib ]; then
-		REQUIRED=(${REQUIRED[@]} `ls --color=never /usr/ports/core-multilib | xargs`)
-	fi
-
-	LIST=(${REQUIRED[@]} ccache prt-utils pkg-clean ${KEEP[@]})
-
+	# populate file
 	pkginfo -i | awk '{print $1}' > $PKG_CLEAN_FILE
 
+	LIST=(${CORE[@]} ${PKG_CLEAN_KEEP[@]})
+
+	# remove packages to keep from file
 	for PKG in "${LIST[@]}"; do
-		sed -i -e "/^$PKG$/d" $PKG_CLEAN_FILE
+		sed -i -e "/^$PKG$/d" "${PKG_CLEAN_FILE}"
 	done
 
-	TOTAL=`cat $PKG_CLEAN_FILE | wc -w`
+	TOTAL=`cat "${PKG_CLEAN_FILE}" | wc -w`
 	COUNT=1
-	cat $PKG_CLEAN_FILE | while read LINE; do
+	cat "${PKG_CLEAN_FILE}" | while read LINE; do
 		I=`printf  "%.0f\n" $(bc -l <<< "($COUNT / $TOTAL) * 100")`
 
 		if (( $I < 10 )); then
@@ -60,9 +61,11 @@ pkg_clean() {
 			echo "[$I%] Removing: $LINE"
 		fi
 		(( COUNT++ ))
-		pkgrm "$LINE"
+		if [ "${PKG_CLEAN_DRYRUN}" = 'no' ]; then
+			pkgrm "$LINE"
+		fi
 	done
-	rm $PKG_CLEAN_FILE
+	rm "${PKG_CLEAN_FILE}"
 }
 
 print_help() {
@@ -82,12 +85,18 @@ main() {
 		;;
 		*)
 		echo "pkg-clean: invalid option $1"
+		print_help
 		exit 1
 		;;
 	esac
 }
 
-PKG_CLEAN_FILE='/tmp/.pkg-clean.log'
+set -e
+
+PKG_CLEAN_FILE="$(mktemp -p /tmp --suffix=-pkg-clean.log)"
+PKG_CLEAN_CONFFILE='/etc/pkg-clean.conf'
+PKG_CLEAN_RUN='no'
+PKG_CLEAN_DRYRUN='no'
 
 main $@
 
