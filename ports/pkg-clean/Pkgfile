@@ -1,14 +1,14 @@
 # Description: Remove ports to a clean state.
-# URL: http://hvlinux.net/
+# URL: http://crux.ster.zone/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
 
 name=pkg-clean
-version=0.0.1
+version=0.0.2
 release=1
-source=($name)
+source=($name $name.conf)
 
 build() {
-	mkdir -p $PKG/usr/sbin
-	install -m 0750 $SRC/$name $PKG/usr/sbin/
+	install -m 0750 -D $SRC/$name $PKG/usr/sbin/$name
+	install -m 0640 -D $SRC/$name.conf $PKG/etc/$name.conf
 }
