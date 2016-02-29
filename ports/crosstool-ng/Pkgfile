@@ -2,27 +2,22 @@
 # URL: http://crosstool-ng.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Alex Kostrewa, alexko256 at googlemail dot com
-# Depends on: texinfo gperf
+# Depends on: gperf help2man texinfo
 
 name=crosstool-ng
-version=1.20.0
+version=1.22.0
 release=1
 source=(http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-$version.tar.xz)
 
 build() {
-	cd $name-$version
+	cd $name
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
 		--libdir=/usr/lib/ct-ng
-
-	#--libdir is not honnored workaround
-#	sed -i -e '/^export libdir\s/s|:=|:= /usr/lib/ct-ng/|' Makefile
 
 	make
 	make -j 1 DESTDIR=$PKG install
 
 	rm -r $PKG/usr/share/doc
-	rmdir $PKG/usr/share
 }
