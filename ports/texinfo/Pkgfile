@@ -5,19 +5,15 @@
 # Depends on: ncurses
 
 name=texinfo
-version=5.2
+version=6.1
 release=1
-source=(ftp://ftp.gnu.org/gnu/texinfo/$name-$version.tar.xz
-	texinfo-5.2-C-n-fix.patch)
+source=(ftp://ftp.gnu.org/gnu/texinfo/$name-$version.tar.xz)
 
 build() {
 	cd $name-$version
 
-	patch -p0 -i $SRC/texinfo-5.2-C-n-fix.patch
-
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
 		--disable-nls
 
 	make
