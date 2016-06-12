@@ -1,23 +1,21 @@
 # Description: A compression program that can achieve very high compression ratios and speed when used with large files.
-# URL: http://ck.kolivas.org/apps/lrzip/README
+# URL: https://github.com/ckolivas/lrzip
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
 # Depends on: lzo zlib bzip2 xz
 
 name=lrzip
-version=0.621
+version=0.630
 release=1
 source=(http://ck.kolivas.org/apps/$name/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
-	./configure \
-		--prefix=/usr \
-		--mandir=/usr/man
+	./configure --prefix=/usr
 
 	make
 	make DESTDIR=$PKG install
+
 	rm -r $PKG/usr/share/doc
-	rmdir $PKG/usr/share
 }
