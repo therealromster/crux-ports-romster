@@ -1,0 +1,32 @@
+# Description: XSL Transformations library.
+# URL: http://xmlsoft.org/XSLT/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: libxml2 python
+
+name=libxslt-python
+version=1.1.29
+release=1
+source=(http://xmlsoft.org/sources/libxslt-$version.tar.gz)
+
+build() {
+	cd libxslt-$version
+
+	./configure \
+		--prefix=/usr \
+		--without-crypto
+
+	sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+
+	make
+
+	install -d build $PKG/usr/lib/python2.7
+	
+	make python DESTDIR=$SRC/build install
+	
+	mv \
+		$SRC/build/usr/lib/python2.7/site-packages \
+		$PKG/usr/lib/python2.7/
+
+	/usr/bin/python -mcompileall $PKG
+}
