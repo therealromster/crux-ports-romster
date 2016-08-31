@@ -5,7 +5,7 @@
 # Depends on: ffmpeg fftw jack numpy
 
 name=aubio
-version=0.4.1
+version=0.4.3
 release=1
 source=(http://aubio.org/pub/$name-$version.tar.bz2)
 
@@ -17,7 +17,6 @@ build() {
 	/usr/bin/python waf --destdir="$PKG" install
 
 	# python interface
-	cd python
 	/usr/bin/python setup.py build
 	/usr/bin/python setup.py install --root="$PKG" --optimize=1
 }

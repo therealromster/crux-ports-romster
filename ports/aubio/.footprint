@@ -27,6 +27,8 @@ drwxr-xr-x	root/root	usr/include/aubio/io/
 -rw-r--r--	root/root	usr/include/aubio/lvec.h
 -rw-r--r--	root/root	usr/include/aubio/mathutils.h
 -rw-r--r--	root/root	usr/include/aubio/musicutils.h
+drwxr-xr-x	root/root	usr/include/aubio/notes/
+-rw-r--r--	root/root	usr/include/aubio/notes/notes.h
 drwxr-xr-x	root/root	usr/include/aubio/onset/
 -rw-r--r--	root/root	usr/include/aubio/onset/onset.h
 -rw-r--r--	root/root	usr/include/aubio/onset/peakpicker.h
@@ -65,15 +67,19 @@ drwxr-xr-x	root/root	usr/include/aubio/utils/
 -rw-r--r--	root/root	usr/include/aubio/utils/scale.h
 -rw-r--r--	root/root	usr/include/aubio/vecutils.h
 drwxr-xr-x	root/root	usr/lib/
--rwxr-xr-x	root/root	usr/lib/libaubio.a
-lrwxrwxrwx	root/root	usr/lib/libaubio.so -> libaubio.so.4.1.1
-lrwxrwxrwx	root/root	usr/lib/libaubio.so.4 -> libaubio.so.4.1.1
--rwxr-xr-x	root/root	usr/lib/libaubio.so.4.1.1
+lrwxrwxrwx	root/root	usr/lib/libaubio.so -> libaubio.so.5.0.4
+lrwxrwxrwx	root/root	usr/lib/libaubio.so.5 -> libaubio.so.5.0.4
+-rwxr-xr-x	root/root	usr/lib/libaubio.so.5.0.4
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/aubio.pc
 drwxr-xr-x	root/root	usr/lib/python2.7/
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/
--rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio-0.4.1-py2.7.egg-info
+drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/aubio-0.4.3-py2.7.egg-info/
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio-0.4.3-py2.7.egg-info/PKG-INFO
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio-0.4.3-py2.7.egg-info/SOURCES.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio-0.4.3-py2.7.egg-info/dependency_links.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio-0.4.3-py2.7.egg-info/requires.txt
+-rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio-0.4.3-py2.7.egg-info/top_level.txt
 drwxr-xr-x	root/root	usr/lib/python2.7/site-packages/aubio/
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio/__init__.py
 -rw-r--r--	root/root	usr/lib/python2.7/site-packages/aubio/__init__.pyc
