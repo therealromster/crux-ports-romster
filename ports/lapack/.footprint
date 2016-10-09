@@ -1,21 +1,40 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/cblas.h
+-rw-r--r--	root/root	usr/include/cblas_f77.h
+-rw-r--r--	root/root	usr/include/cblas_mangling.h
+-rw-r--r--	root/root	usr/include/cblas_test.h
 -rw-r--r--	root/root	usr/include/lapacke.h
 -rw-r--r--	root/root	usr/include/lapacke_config.h
 -rw-r--r--	root/root	usr/include/lapacke_mangling.h
 -rw-r--r--	root/root	usr/include/lapacke_utils.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/cmake/
-drwxr-xr-x	root/root	usr/lib/cmake/lapack-3.4.2/
--rw-r--r--	root/root	usr/lib/cmake/lapack-3.4.2/lapack-config-version.cmake
--rw-r--r--	root/root	usr/lib/cmake/lapack-3.4.2/lapack-config.cmake
--rw-r--r--	root/root	usr/lib/cmake/lapack-3.4.2/lapack-targets-release.cmake
--rw-r--r--	root/root	usr/lib/cmake/lapack-3.4.2/lapack-targets.cmake
--rwxr-xr-x	root/root	usr/lib/libblas.so
--rwxr-xr-x	root/root	usr/lib/liblapack.so
+drwxr-xr-x	root/root	usr/lib/cmake/cblas-3.6.1/
+-rw-r--r--	root/root	usr/lib/cmake/cblas-3.6.1/cblas-config-version.cmake
+-rw-r--r--	root/root	usr/lib/cmake/cblas-3.6.1/cblas-config.cmake
+-rw-r--r--	root/root	usr/lib/cmake/cblas-3.6.1/cblas-targets-release.cmake
+-rw-r--r--	root/root	usr/lib/cmake/cblas-3.6.1/cblas-targets.cmake
+drwxr-xr-x	root/root	usr/lib/cmake/lapack-3.6.1/
+-rw-r--r--	root/root	usr/lib/cmake/lapack-3.6.1/lapack-config-version.cmake
+-rw-r--r--	root/root	usr/lib/cmake/lapack-3.6.1/lapack-config.cmake
+-rw-r--r--	root/root	usr/lib/cmake/lapack-3.6.1/lapack-targets-release.cmake
+-rw-r--r--	root/root	usr/lib/cmake/lapack-3.6.1/lapack-targets.cmake
+drwxr-xr-x	root/root	usr/lib/cmake/lapacke-3.6.1/
+-rw-r--r--	root/root	usr/lib/cmake/lapacke-3.6.1/lapacke-config-version.cmake
+-rw-r--r--	root/root	usr/lib/cmake/lapacke-3.6.1/lapacke-config.cmake
+-rw-r--r--	root/root	usr/lib/cmake/lapacke-3.6.1/lapacke-targets-release.cmake
+-rw-r--r--	root/root	usr/lib/cmake/lapacke-3.6.1/lapacke-targets.cmake
+lrwxrwxrwx	root/root	usr/lib/libblas.so -> libblas.so.3
+lrwxrwxrwx	root/root	usr/lib/libblas.so.3 -> libblas.so.3.6.1
+-rwxr-xr-x	root/root	usr/lib/libblas.so.3.6.1
+-rwxr-xr-x	root/root	usr/lib/libcblas.so
+lrwxrwxrwx	root/root	usr/lib/liblapack.so -> liblapack.so.3
+lrwxrwxrwx	root/root	usr/lib/liblapack.so.3 -> liblapack.so.3.6.1
+-rwxr-xr-x	root/root	usr/lib/liblapack.so.3.6.1
 -rwxr-xr-x	root/root	usr/lib/liblapacke.so
--rwxr-xr-x	root/root	usr/lib/libtmglib.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/blas.pc
+-rw-r--r--	root/root	usr/lib/pkgconfig/cblas.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/lapack.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/lapacke.pc

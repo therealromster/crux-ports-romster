@@ -5,11 +5,15 @@
 # Depends on: gcc-fortran cmake
 
 name=lapack
-version=3.5.0
+version=3.6.1
 release=1
-source=(http://www.netlib.org/$name/$name-$version.tgz)
+source=(http://www.netlib.org/$name/$name-$version.tgz
+	fix-pkgconfig.patch)
 
 build() {
+	# https://github.com/Reference-LAPACK/lapack/commit/e0975e7b.patch
+	patch -d $name-$version -p1 -i $SRC/fix-pkgconfig.patch
+
 	install -d build
 	cd build
 
@@ -17,12 +21,14 @@ build() {
 		-DCMAKE_BUILD_TYPE=Release \
 		-DCMAKE_SKIP_RPATH=ON \
 		-DBUILD_SHARED_LIBS=ON \
+		-DBUILD_TESTING=OFF \
 		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib \
 		-DCMAKE_Fortran_COMPILER=gfortran \
-		-DLAPACKE=ON
+		-DLAPACKE=ON \
+		-DCBLAS=ON \
+		-DBUILD_DEPRECATED=ON
 
 	make
 	make DESTDIR=$PKG install
-
-
 }
