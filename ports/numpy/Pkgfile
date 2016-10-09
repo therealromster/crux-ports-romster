@@ -5,9 +5,11 @@
 # Depends on: lapack setuptools
 
 name=numpy
-version=1.9.2
+version=1.11.2
 release=1
-source=(http://pypi.python.org/packages/source/n/$name/$name-$version.tar.gz)
+#source=(http://pypi.python.org/packages/source/n/$name/$name-$version.tar.gz)
+source=(https://pypi.python.org/packages/16/f5/b432f028134dd30cfbf6f21b8264a9938e5e0f75204e72453af08d67eb0b/numpy-1.11.2.tar.gz)
+# https://github.com/numpy/numpy/archive/v1.11.2.tar.gz
 
 build() {
 	export CFLAGS+=' -fno-strict-aliasing'
