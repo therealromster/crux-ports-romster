@@ -2,10 +2,10 @@
 # URL: http://lv2plug.in/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python libsndfile libsndfile
+# Depends on: python libsndfile
 
 name=lv2
-version=1.8.0
+version=1.14.0
 release=1
 source=(http://lv2plug.in/spec/$name-$version.tar.bz2)
 
@@ -14,5 +14,5 @@ build() {
 
 	/usr/bin/python waf configure --prefix=/usr
 	/usr/bin/python waf build $MAKEFLAGS
-	/usr/bin/python waf --destdir="$PKG" install
+	/usr/bin/python waf install --destdir="$PKG"
 }
