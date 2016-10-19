@@ -1,23 +1,23 @@
 # Description: Renders 3D photo-realistic skies in real time with OpenGL.
-# URL: http://stellarium.sourceforge.net/
+# URL: http://stellarium.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Vincenzo Colosimo, vico at bicisport dot de
-# Depends on: cmake freeglut libsdl qt4
+# Depends on: boost cmake qt5
 
 name=stellarium
-version=0.12.4
+version=0.15.0
 release=1
 source=(http://downloads.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
+
 	sed -i -e 's/ENABLE_NLS 1/ENABLE_NLS 0/' CMakeLists.txt
 
-	mkdir build
+	install -d build
 	cd build
 
-	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RELEASE
 	make
 	make DESTDIR=$PKG install
-	mv $PKG/usr/share/man $PKG/usr
 }
