@@ -1,22 +1,25 @@
 # Description: ECM (Error Code Modeler) lets you prepare CD image files (such as BIN, CDI, NRG, CCD, or similar) so that they'll compress far better.
-# URL: http://www.neillcorlett.com/ecm/
+# URL: https://github.com/RDCH106/ECM
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: 
+# Depends on: txt2man
 
 name=ecm
-version=1.0
-release=2
-source=(http://www.neillcorlett.com/downloads/ecm100.zip)
+version=1.03
+release=1
+source=(https://github.com/RDCH106/ECM/archive/v$version.tar.gz
+	ecm.man)
 
 build() {
-	if [ -z $CC ]; then
-		export CC=gcc
-	fi
+	cd ECM-$version/src
+
+	[ "$CC" ] || CC=gcc
 
 	$CC $CFLAGS -D_FILE_OFFSET_BITS=64 ecm.c -o ecm
-	$CC $CFLAGS -D_FILE_OFFSET_BITS=64 unecm.c -o unecm
-	install -d $PKG/usr/bin
-	install -m 0755 -t $PKG/usr/bin/ ecm unecm 
-}
 
+	txt2man -r ecm-$version -s 1 -t ecm $SRC/ecm.man > ecm.1
+
+	install -d $PKG/usr/bin $PKG/usr/share/man/man1
+	install -m 0755 -t $PKG/usr/bin/ ecm
+	install -m 0644 -t $PKG/usr/share/man/man1/ ecm.1
+}
