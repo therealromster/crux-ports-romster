@@ -1,0 +1,11 @@
+untrusted comment: verify with /etc/ports/romster.pub
+RWTkjLW3Pe2RUNKIIuv3OTTYnwGMUpAexU1pnPdWdDU4Iaq6Hirg5qxm6DkXzyrQjKmTRtOsQWv+59fEoJm6fPhucjpd1cY1VAU=
+SHA256 (Pkgfile) = b22f8c35e7a7b6a94766821b60ed744b59430410daa7a66009cf8a2175db44d2
+SHA256 (.footprint) = 06869861f68107b8f6a92781c118e3e93d0755f1d87832ba672d4536044b63ac
+SHA256 (imlib-1.9.15.tar.bz2) = 4e6a270308a9ae16586bfc133c1a3dfb2e56f431edb66aaa3a80e36e5ed84ce0
+SHA256 (imlib-1.9.15-configure.patch) = 892cb8bbd0bc2817d831c2f7e69badbbd2e238bc0b5c966aa9e1ca0b0d136457
+SHA256 (imlib-1.9.15-security.patch) = f85a523b4a67654f290381a496aa558faf07f840461d5a876e5b54b17cbd5374
+SHA256 (imlib-1.9.15-bpp16-CVE-2007-3568.patch) = 208102f3f2de2b1eb7ad603161f97bb9564caf5e8bb1f32b5fe02d51e26f9399
+SHA256 (imlib-1.9.15-fix-rendering.patch) = 7f5f8967ec52658e776a0a60a3a3c93d367ccf877d92569a9313e78bbd510604
+SHA256 (imlib-1.9.15-asneeded.patch) = 7e8c105d4f097ee9b04ebdc42edd4c9d90eb0c93987b35fd120caa3d9b0f907e
+SHA256 (gtk-1-for-imlib.m4.bz2) = e024d822d64819e23f7ad7c8283086ffd1e112b859b4669f1624dda1c56d8c47
