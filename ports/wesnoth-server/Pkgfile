@@ -5,7 +5,7 @@
 # Depends on: boost cmake pango sdl_image sdl_mixer sdl_net sdl_ttf lua libidn
 
 name=wesnoth-server
-version=1.12.1
+version=1.12.6
 release=1
 source=(http://downloads.sourceforge.net/project/wesnoth/wesnoth-${version%.*}/wesnoth-$version/wesnoth-$version.tar.bz2
 	wesnothd.rc)
