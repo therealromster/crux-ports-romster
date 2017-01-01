@@ -5,7 +5,7 @@
 # Depends on: 
 
 name=dmd
-version=2.071.2
+version=2.072.2
 release=1
 source=(http://crux.ster.zone/downloads/$name/$name-$version.tar.gz
 	http://crux.ster.zone/downloads/$name/druntime-$version.tar.gz

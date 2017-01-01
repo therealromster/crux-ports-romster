@@ -59,10 +59,28 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sync/
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sync/rwmutex.di
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sync/semaphore.di
 drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/
+drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/darwin/
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/execinfo.d
+drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/dyld.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/getsect.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/kern_return.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/loader.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/port.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/semaphore.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/mach/thread_act.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/pthread.d
+drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/darwin/sys/
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/sys/cdefs.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/sys/event.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/darwin/sys/mman.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/freebsd/
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/dlfcn.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/execinfo.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/pthread_np.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/freebsd/sys/
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/sys/_bitset.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/sys/_cpuset.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/sys/cdefs.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/sys/elf.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/freebsd/sys/elf32.d
@@ -82,6 +100,7 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/linux/
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/fcntl.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/link.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/linux/sys/
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/sys/auxv.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/sys/inotify.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/sys/mman.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/sys/signalfd.d
@@ -93,6 +112,8 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/linux/sys/
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/timerfd.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/tipc.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/linux/unistd.d
+drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/openbsd/
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/openbsd/dlfcn.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/osx/
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/osx/execinfo.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/osx/mach/
@@ -132,6 +153,8 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/posix/netinet/
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/stdio.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/stdlib.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/posix/sys/
+-rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/filio.d
+-rwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/posix/sys/ioccom.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/ioctl.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/ipc.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/mman.d
@@ -142,6 +165,7 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/posix/sys/
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/stat.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/statvfs.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/time.d
+-rwxr-xr-x	root/root	usr/include/dlang/dmd/core/sys/posix/sys/ttycom.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/types.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/uio.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/core/sys/posix/sys/un.d
@@ -447,7 +471,6 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/std/container/
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/container/slist.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/container/util.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/conv.d
--rw-r--r--	root/root	usr/include/dlang/dmd/std/cstream.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/csv.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/datetime.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/demangle.d
@@ -456,6 +479,7 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/std/digest/
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/digest/digest.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/digest/hmac.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/digest/md.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/std/digest/murmurhash.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/digest/ripemd.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/digest/sha.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/encoding.d
@@ -498,6 +522,7 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/std/experimental/ndslice/
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/experimental/ndslice/selection.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/experimental/ndslice/slice.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/experimental/note.md
+-rw-r--r--	root/root	usr/include/dlang/dmd/std/experimental/typecons.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/file.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/format.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/functional.d
@@ -506,6 +531,7 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/std/internal/
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/internal/cstring.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/std/internal/digest/
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/internal/digest/sha_SSSE3.d
+-rw-r--r--	root/root	usr/include/dlang/dmd/std/internal/encodinginit.d
 drwxr-xr-x	root/root	usr/include/dlang/dmd/std/internal/math/
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/internal/math/biguintcore.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/internal/math/biguintnoasm.d
@@ -554,11 +580,9 @@ drwxr-xr-x	root/root	usr/include/dlang/dmd/std/regex/internal/
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/regex/package.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/signals.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/socket.d
--rw-r--r--	root/root	usr/include/dlang/dmd/std/socketstream.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/stdint.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/stdio.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/stdiobase.d
--rw-r--r--	root/root	usr/include/dlang/dmd/std/stream.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/string.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/system.d
 -rw-r--r--	root/root	usr/include/dlang/dmd/std/traits.d
