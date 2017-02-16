@@ -11,7 +11,7 @@
 name=tsocks
 version=1.8beta5
 release=1
-source=(http://ftp1.sourceforge.net/$name/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-1.8
