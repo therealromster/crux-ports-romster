@@ -1,23 +1,26 @@
 # Description: Encrypting filesystem for FUSE.
-# URL: http://arg0.net/users/vgough/encfs.html
+# URL: https://github.com/vgough/encfs
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Jukka Heino, jukka dot heino at gmail dot com
-# Depends on: fuse rlog openssl
+# Depends on: cmake fuse openssl tinyxml2
 
 name=encfs
-version=1.7.4
+version=1.9.1
 release=1
-source=(http://encfs.googlecode.com/files/encfs-$version.tgz)
+source=(https://github.com/vgough/$name/releases/download/v$version/$name-$version.tar.gz)
 
 build() {
-	cd encfs-$version
-
-	./configure \
-		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-nls
-
+	cd $name-$version
+	mkdir build
+	cd build
+	cmake .. \
+		-DINSTALL_LIBENCFS=ON \
+		-DBUILD_SHARED_LIBS=ON \
+		-DENABLE_NLS=OFF \
+		-DCMAKE_INSTALL_PREFIX=/usr
 	make
 	make DESTDIR=$PKG install
+	mv $PKG/usr/share/man $PKG/usr/
+	rmdir $PKG/usr/share
+	chmod +x $PKG/usr/bin/encfssh
 }
-
