@@ -1,10 +1,11 @@
 # Description: The Mozilla Firefox browser
 # URL: https://www.mozilla.com/firefox/
-# Maintainer: Fredrik Rinnestam, fredrik at crux dot nu
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Fredrik Rinnestam, fredrik at crux dot nu
 # Depends on: nss autoconf-2.13 unzip zip libidl gtk gtk3 python alsa-lib xorg-libxt yasm mesa3d cargo
  
 name=firefox-rust
-version=54.0
+version=54.0.1
 release=1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.xz
 	firefox-install-dir.patch firefox.desktop)
@@ -56,6 +57,6 @@ EOF
 	# Remove crap
 	rm $PKG/usr/lib/firefox/browser/features/{firefox@getpocket.com.xpi,webcompat@mozilla.org.xpi}
 
-	mkdir -p $PKG/etc/revdep.d
-	echo "/usr/lib/firefox" > $PKG/etc/revdep.d/firefox
+	install -d $PKG/etc/revdep.d
+	echo "/usr/lib/firefox" > $PKG/etc/revdep.d/firefox-rust
 }
