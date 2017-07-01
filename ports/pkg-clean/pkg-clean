@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2012,2016 by Daniel K Rawlins, contact at romster dot me
+# Copyright (c) 2012-2017 by Daniel K Rawlins, contact at romster dot me
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 #
 
 pkg_clean() {
-	local LIST PKG TOTAL COUNT LINE I CORE
+	local LIST PKG TOTAL COUNT LINE I CORE KEEP
 
 	if [ ! -f $PKG_CLEAN_CONFFILE ]; then
 		echo "File '$PKG_CLEAN_CONFFILE' not found."
@@ -30,7 +30,7 @@ pkg_clean() {
 	fi
 	. $PKG_CLEAN_CONFFILE
 
-	if [ $PKG_CLEAN_RUN = 'no' ]; then
+	if [ "$PKG_CLEAN_RUN" = 'no' ]; then
 		echo 'Error please read /etc/pkg-clean.conf carefully!'
 		exit 1
 	fi
@@ -38,10 +38,16 @@ pkg_clean() {
 	# keep /usr/ports/core
 	CORE=(`find /usr/ports/core -maxdepth 1 -type d -exec basename {} \; | xargs`)
 
+	# keep dependency tree of package
+	if [ -n "$PKG_CLEAN_TREE" ]; then
+		KEEP=(`prt-get quickdep ${PKG_CLEAN_TREE}`)
+		echo "pkg-clean: Keeping dependency tree ${PKG_CLEAN_TREE}"
+	fi
+
 	# populate file
 	pkginfo -i | awk '{print $1}' > $PKG_CLEAN_FILE
 
-	LIST=(${CORE[@]} ${PKG_CLEAN_KEEP[@]})
+	LIST=(${CORE[@]} ${PKG_CLEAN_KEEP[@]} ${KEEP[@]})
 
 	# remove packages to keep from file
 	for PKG in "${LIST[@]}"; do
@@ -71,24 +77,43 @@ pkg_clean() {
 print_help() {
 	echo "usage: pkg-clean [options]"
 	echo "options:"
-	echo "  -r,   --run                 remove ports to a clean state"
-	echo "  -h,   --help                print help and exit"
+	echo "  -r,           --run           remove ports to a clean state"
+	echo "  -k PACKAGE,   --keep PACKAGE  keep dependency tree of package"
+	echo "  -h,           --help          print help and exit"
+}
+
+parse_options() {
+	while [ "$1" ]; do
+		case $1 in
+			-k|--keep)
+			if [ ! "$2" ]; then
+				echo "pkg-clean: option $1 requires an argument"
+				exit 1
+			fi
+			PKG_CLEAN_TREE="$2"
+			shift ;;
+			-r|--run)
+			PKG_CLEAN_CLEAN='yes'
+			;;
+			-h|--help)
+			print_help
+			exit 0 ;;
+			*)
+			echo "pkg-clean: invalid option $1"
+			print_help
+			exit 1;;
+		esac
+		shift
+	done
 }
 
 main() {
-	case $1 in
-		-r|--run)
+	parse_options "$@"
+
+	if [ "$PKG_CLEAN_CLEAN" = 'yes' ]; then
 		pkg_clean
-		;;
-		-h|--help)
-		print_help
-		;;
-		*)
-		echo "pkg-clean: invalid option $1"
-		print_help
-		exit 1
-		;;
-	esac
+		exit
+	fi
 }
 
 set -e
@@ -97,7 +122,9 @@ PKG_CLEAN_FILE="$(mktemp -p /tmp --suffix=-pkg-clean.log)"
 PKG_CLEAN_CONFFILE='/etc/pkg-clean.conf'
 PKG_CLEAN_RUN='no'
 PKG_CLEAN_DRYRUN='no'
+PKG_CLEAN_CLEAN='no'
+PKG_CLEAN_TREE=''
 
-main $@
+main "$@"
 
 # End of File
