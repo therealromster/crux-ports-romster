@@ -1,5 +1,8 @@
 untrusted comment: verify with /etc/ports/romster.pub
-RWTkjLW3Pe2RUDlBon7hChwvnxPMtbHzHTs/MOw107muIOjne0GYo6F1Lj9PORczsewpEPI+XjDkybq03xJIiXXfhgGnm2z29wE=
-SHA256 (Pkgfile) = 80848b6dabbf1c443d9a71002ccb028d3b8100b3b9736f5f07273cc7bc1007b8
+RWTkjLW3Pe2RUIJydL8Qjeb/O5uaJQkfL2GrGPjFBR9M2O/KbBr/t1t9YoL7QbHm0UbYwDXWRj83kIgJlRwjzreq6m0Zgo3mVw4=
+SHA256 (Pkgfile) = c51a6866f36bb73d33e482dcd2028b57dec0d2c106ac66e1f71b3317c926afc1
 SHA256 (.footprint) = b85eb5eb5ce92e286dc7f9f10e250b35b11b985c09c97c9ea0e58346cacb9c0f
-SHA256 (jemalloc-4.5.0.tar.bz2) = 9409d85664b4f135b77518b0b118c549009dc10f6cba14557d170476611f6780
+SHA256 (jemalloc-5.0.0.tar.bz2) = 9e4a9efba7dc4a7696f247c90c3fe89696de5f910f7deacf7e22ec521b1fa810
+SHA256 (0001-only-abort-on-dlsym-when-necessary.patch) = ef8b3afd9f7e8ee871bf6b228b0f9288881f6cc0243478bab727ba02eb2776e0
+SHA256 (0002-clear-tcache_ql-after-fork-in-child.patch) = d627e0cf2b540bdeea3a4cd15c28b949faa30064eb7f53da11aa9a428732bb63
+SHA256 (0003-Add-minimal-initialized-tsd.patch) = bb36a2802e5f78fc0a1f3c0ddf334d01bb04116ba712f1fd05eb47231af094c6

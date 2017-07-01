@@ -1,1 +1,4 @@
-a5624318fbf5bf653697306642683a11  jemalloc-4.5.0.tar.bz2
+f328ad3f18639438d2c9611785562118  0001-only-abort-on-dlsym-when-necessary.patch
+cb535543486157eb3e2904c355bc5960  0002-clear-tcache_ql-after-fork-in-child.patch
+b892b630d2d0d85aa75bda4f4c01c237  0003-Add-minimal-initialized-tsd.patch
+3ac3e404ecea514c686f3e337ec98332  jemalloc-5.0.0.tar.bz2

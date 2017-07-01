@@ -2,15 +2,21 @@
 # URL: http://jemalloc.net/
 # Packager: Danny Rawlins, crux at romster dot me
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: 
  
 name=jemalloc
-version=4.5.0
+version=5.0.0
 release=1
-source=(https://github.com/$name/$name/releases/download/$version/$name-$version.tar.bz2)
+source=(https://github.com/$name/$name/releases/download/$version/$name-$version.tar.bz2
+	0001-only-abort-on-dlsym-when-necessary.patch
+	0002-clear-tcache_ql-after-fork-in-child.patch
+	0003-Add-minimal-initialized-tsd.patch)
  
 build() {
 	cd $name-$version
+
+	patch -p1 -i $SRC/0001-only-abort-on-dlsym-when-necessary.patch
+	patch -p1 -i $SRC/0002-clear-tcache_ql-after-fork-in-child.patch
+	patch -p1 -i $SRC/0003-Add-minimal-initialized-tsd.patch
 
 	./configure --prefix=/usr
 
