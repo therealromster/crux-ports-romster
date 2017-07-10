@@ -1,19 +1,14 @@
 # Description: Linear Algebra PACKage - F77 routines for Linear Algebra.
 # URL: http://www.netlib.org/lapack/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: acrux, acrux at linuxmail dot org
-# Depends on: gcc-fortran cmake
+# Depends on: gcc-fortran cmake python
 
 name=lapack
-version=3.6.1
+version=3.7.1
 release=1
-source=(http://www.netlib.org/$name/$name-$version.tgz
-	fix-pkgconfig.patch)
+source=(http://www.netlib.org/$name/$name-$version.tgz)
 
 build() {
-	# https://github.com/Reference-LAPACK/lapack/commit/e0975e7b.patch
-	patch -d $name-$version -p1 -i $SRC/fix-pkgconfig.patch
-
 	install -d build
 	cd build
 
@@ -24,10 +19,12 @@ build() {
 		-DBUILD_TESTING=OFF \
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DCMAKE_INSTALL_LIBDIR=lib \
+		-DUSE_OPTIMIZED_BLAS=ON \
 		-DCMAKE_Fortran_COMPILER=gfortran \
 		-DLAPACKE=ON \
 		-DCBLAS=ON \
-		-DBUILD_DEPRECATED=ON
+		-DBUILD_DEPRECATED=ON \
+		-Wno-dev
 
 	make
 	make DESTDIR=$PKG install
