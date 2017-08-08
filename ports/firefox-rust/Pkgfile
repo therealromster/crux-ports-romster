@@ -5,7 +5,7 @@
 # Depends on: nss autoconf-2.13 unzip zip libidl gtk gtk3 python alsa-lib xorg-libxt yasm mesa3d cargo
  
 name=firefox-rust
-version=54.0.1
+version=55.0
 release=1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.xz
 	firefox-install-dir.patch firefox.desktop)
@@ -41,7 +41,6 @@ cat <<- EOF > .mozconfig
 	ac_add_options --disable-dbus
 	ac_add_options --disable-debug
 	ac_add_options --disable-updater
-	ac_add_options --disable-gnomeui
 	ac_add_options --disable-crashreporter
 	ac_add_options --disable-necko-wifi
 	ac_add_options --disable-pulseaudio
