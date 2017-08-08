@@ -1,5 +1,7 @@
 untrusted comment: verify with /etc/ports/romster.pub
-RWTkjLW3Pe2RUAA+9FeoL+j+Zm0YaAheR+VJ+ScSE95gRmQESAzehf17xPuhnO/Pk3L3YvR1AwlRt+hkNY+4Bo8l19euZfOeSQY=
-SHA256 (Pkgfile) = 757f345cd61e45400de476a4ca9094f8a7750a1145f15e2c58f0b93d88385dcd
-SHA256 (.footprint) = 93bd5d3bb99711ed82efb969abae9f3721cb16d3aaadeb148fecaccb15d210bc
-SHA256 (rustc-1.18.0-src.tar.gz) = d2dc36e99b9e2269488b2bcddde43c234e6bde03edf70cba82a027ff49c36111
+RWTkjLW3Pe2RUJiidRsC/NDDTNrGI4jVJrClhPO6xvnXK+0cjtRSIb2q8OgcH3L4A7Eqbfen5fWGa7L+Nju+4vYASADZqN9bUA4=
+SHA256 (Pkgfile) = 7d9dcb9859489ec10bea6fbc7831269fdf74f8377ad8a1defd555ff0c9e7f2c9
+SHA256 (.footprint) = a02ab8d58e41e09e6a0dcff6b9c0565fc2bb8335294073a4e230c046304bb9c2
+SHA256 (rustc-1.19.0-src.tar.gz) = 15231f5053fb72ad82be91f5abfd6aa60cb7898c5089e4f1ac5910a731090c51
+SHA256 (0001-librustc_llvm-build-Force-link-against-libffi.patch) = 563529da8e02f575ddde7247d5fc5350d74031daa54743b86d075f3c45ae2713
+SHA256 (bootstrap-config.toml) = 4d1d00afbf3fca6f8b609638f321b97723fd3b9c1cf7c66f1b89c7d98255fd51

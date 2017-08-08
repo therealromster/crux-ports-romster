@@ -2,32 +2,23 @@
 # URL: http://www.rust-lang.org/
 # Packager: Danny Rawlins, crux at romster dot me
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: jemalloc libffi llvm
-# Optional: ccache
+# Depends on: llvm
 
 name=rust
-version=1.18.0
+version=1.19.0
 release=1
-source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.gz)
+source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.gz
+	0001-librustc_llvm-build-Force-link-against-libffi.patch
+	bootstrap-config.toml)
  
 build() {
 	cd ${name}c-$version-src
 
-[ -e '/usr/bin/ccache' ] && PKGMK_RUST+=' --enable-ccache'
-#[ -e '/usr/bin/rustc' ] && PKGMK_RUST+=' --enable-local-rust'
-[ "$(lvm-config --shared-mode)"  = 'dynamic' ] && PKGMK_RUST+=' --enable-llvm-link-shared'
+	patch -p1 -i $SRC/0001-librustc_llvm-build-Force-link-against-libffi.patch
+	cp $SRC/bootstrap-config.toml config.toml
 
-	./configure ${PKGMK_RUST} \
-		--prefix=/usr \
-		--release-channel=stable \
-		--llvm-root=/usr \
-		--disable-codegen-tests \
-		--disable-docs \
-		--jemalloc-root=/usr/lib
-
-	export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi"
 	/usr/bin/python ./x.py build --verbose
-	make DESTDIR=$PKG install
+	DESTDIR=$PKG /usr/bin/python ./x.py install
 
 	rm -r $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version}
 	rm -r $PKG/usr/share/doc
