@@ -1,0 +1,17 @@
+# Description: Not Quite Perl compiler
+# Url: http://rakudo.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: moarvm
+
+name=nqp
+version=2017.07
+release=1
+source=(http://rakudo.org/downloads/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	perl Configure.pl --prefix=/usr --backends=moar
+	make
+	make test
+	make DESTDIR=$PKG install
+}
