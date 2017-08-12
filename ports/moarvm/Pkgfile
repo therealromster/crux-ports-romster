@@ -1,0 +1,19 @@
+# Description: A virtual machine for NQP And Rakudo Perl 6
+# Url: http://moarvm.com/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: perl
+
+name=moarvm
+version=2017.07
+release=1
+source=(https://moarvm.com/releases/MoarVM-$version.tar.gz)
+
+build() {
+	cd MoarVM-$version
+	sed -i -e '/PKGCONFIGDIR *=/c\PKGCONFIGDIR = @prefix@/lib/pkgconfig' build/Makefile.in
+	perl Configure.pl --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	pod2man --name=MOAR docs/moar.pod moar.1
+	install -D -m 0755 moar.1 $PKG/usr/share/man/man1/moar.1
+}
