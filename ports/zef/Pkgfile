@@ -1,0 +1,43 @@
+# Description: Perl 6 Module Management 
+# URL: https://github.com/ugexe/zef
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: rakudo git
+
+name=zef
+version=0.1.26
+release=1
+source=(https://github.com/ugexe/$name/archive/v$version.tar.gz)
+
+make_footprint() {
+	# Needed to correct for part of the footprint varying by when NQP was built
+	pkginfo --footprint $TARGET | sed -r 's|(usr/share/perl6/vendor/precomp/)[^/]+/|\1|' | sort -k 3
+}
+
+build() {
+	cd $name-$version
+
+	local VENDOR_DIR="$PKG/usr/share/perl6/vendor"
+	local BINARY_DIR="$PKG/bin"
+	local IFS=$'\n'
+	local i
+
+	# Run tests first, but note that some modules may fail
+	# their tests if network access is not available at
+	# build time.
+	PERL6LIB=lib prove -r -e perl6
+
+	# Use upstream script to install the files
+	# to the distribution vendor directory. 
+	RAKUDO_LOG_PRECOMP=1 \
+	RAKUDO_RERESOLVE_DEPENDENCIES=0 \
+	perl6-install-dist --to="$VENDOR_DIR" --for='vendor' --from='.'
+
+	# Remove JVM backend binary script files.
+	find "$VENDOR_DIR/bin" -type f -name '*-j' -delete
+
+	# Symlink any binary scripts to main binary directory.
+	install -d -m 0755 "$BINARY_DIR"
+	for i in $(find "$VENDOR_DIR/bin" -type f); do
+		ln -s "${i#$PKG*}" "$BINARY_DIR/"
+	done
+}
