@@ -40,11 +40,14 @@ drwxr-xr-x	root/root	usr/share/stellarium/data/
 -rw-r--r--	root/root	usr/share/stellarium/data/DejaVuSansMono.ttf
 -rw-r--r--	root/root	usr/share/stellarium/data/base_locations.bin.gz
 -rw-r--r--	root/root	usr/share/stellarium/data/constellations_boundaries.dat
+-rw-r--r--	root/root	usr/share/stellarium/data/constellations_spans.dat
 -rw-r--r--	root/root	usr/share/stellarium/data/countryCodes.dat
 -rw-r--r--	root/root	usr/share/stellarium/data/default_config.ini
--rw-r--r--	root/root	usr/share/stellarium/data/iso3166-1-alpha-2.utf8
+-rw-r--r--	root/root	usr/share/stellarium/data/iso3166.tab
 -rw-r--r--	root/root	usr/share/stellarium/data/iso639-1.utf8
 drwxr-xr-x	root/root	usr/share/stellarium/data/shaders/
+-rw-r--r--	root/root	usr/share/stellarium/data/shaders/planet.frag
+-rw-r--r--	root/root	usr/share/stellarium/data/shaders/planet.vert
 -rw-r--r--	root/root	usr/share/stellarium/data/shaders/s3d_cube.frag
 -rw-r--r--	root/root	usr/share/stellarium/data/shaders/s3d_cube.vert
 -rw-r--r--	root/root	usr/share/stellarium/data/shaders/s3d_debug.frag
@@ -61,8 +64,9 @@ drwxr-xr-x	root/root	usr/share/stellarium/data/shaders/
 -rw-r--r--	root/root	usr/share/stellarium/data/shaders/s3d_vertexlit.geom
 -rw-r--r--	root/root	usr/share/stellarium/data/shaders/s3d_vertexlit.vert
 -rw-r--r--	root/root	usr/share/stellarium/data/splash.png
--rw-r--r--	root/root	usr/share/stellarium/data/ssystem.ini
 -rw-r--r--	root/root	usr/share/stellarium/data/ssystem_1000comets.ini
+-rw-r--r--	root/root	usr/share/stellarium/data/ssystem_major.ini
+-rw-r--r--	root/root	usr/share/stellarium/data/ssystem_minor.ini
 -rw-r--r--	root/root	usr/share/stellarium/data/stellarium.ico
 drwxr-xr-x	root/root	usr/share/stellarium/landscapes/
 drwxr-xr-x	root/root	usr/share/stellarium/landscapes/garching/
@@ -73,6 +77,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/garching/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/garching/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/garching/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/garching/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/garching/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/garching/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/garching/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/garching/description.pt_BR.utf8
@@ -92,6 +97,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/geneva/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/geneva/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/geneva/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/geneva/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/geneva/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/geneva/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/geneva/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/geneva/description.ru.utf8
@@ -105,6 +111,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/grossmugl/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/grossmugl/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/grossmugl/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/grossmugl/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/grossmugl/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/grossmugl/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/grossmugl/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/grossmugl/description.ru.utf8
@@ -126,6 +133,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/guereins/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/guereins/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/guereins/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/guereins/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/guereins/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/guereins/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/guereins/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/guereins/description.pt_BR.utf8
@@ -151,6 +159,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/hurricane/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/hurricane/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/hurricane/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/hurricane/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/hurricane/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/hurricane/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/hurricane/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/hurricane/description.pt_BR.utf8
@@ -173,6 +182,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/jupiter/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/jupiter/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/jupiter/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/jupiter/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/jupiter/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/jupiter/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/jupiter/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/jupiter/description.ru.utf8
@@ -187,6 +197,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/mars/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/mars/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/mars/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/mars/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/mars/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/mars/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/mars/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/mars/description.pt_BR.utf8
@@ -203,6 +214,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/moon/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/moon/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/moon/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/moon/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/moon/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/moon/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/moon/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/moon/description.pt_BR.utf8
@@ -215,6 +227,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/neptune/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/neptune/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/neptune/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/neptune/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/neptune/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/neptune/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/neptune/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/neptune/description.ru.utf8
@@ -229,6 +242,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/ocean/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/ocean/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/ocean/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/ocean/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/ocean/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/ocean/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/ocean/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/ocean/description.pt_BR.utf8
@@ -253,6 +267,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/saturn/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/saturn/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/saturn/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/saturn/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/saturn/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/saturn/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/saturn/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/saturn/description.pt_BR.utf8
@@ -268,6 +283,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/trees/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/trees/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/trees/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/trees/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/trees/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/trees/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/trees/description.nb.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/trees/description.pt_BR.utf8
@@ -283,6 +299,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/uranus/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/uranus/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/uranus/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/uranus/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/uranus/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/uranus/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/uranus/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/uranus/description.ru.utf8
@@ -296,12 +313,58 @@ drwxr-xr-x	root/root	usr/share/stellarium/landscapes/zero/
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.hu.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.ru.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/description.uk.utf8
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/landscape.ini
 -rw-r--r--	root/root	usr/share/stellarium/landscapes/zero/zero_horizon.txt
+drwxr-xr-x	root/root	usr/share/stellarium/models/
+-rw-r--r--	root/root	usr/share/stellarium/models/1682q1halley_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/243ida.png
+-rw-r--r--	root/root	usr/share/stellarium/models/243ida_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/243ida_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/4vesta.png
+-rw-r--r--	root/root	usr/share/stellarium/models/4vesta_21_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/4vesta_21_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/67P_lowres.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/951gaspra.png
+-rw-r--r--	root/root	usr/share/stellarium/models/951gaspra_21_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/951gaspra_21_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/951gaspra_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/951gaspra_MLfix.obj.mtl
+drwxr-xr-x	root/root	usr/share/stellarium/models/blender/
+-rw-r--r--	root/root	usr/share/stellarium/models/blender/m1phobos.blend
+-rw-r--r--	root/root	usr/share/stellarium/models/blender/m2deimos.blend
+-rw-r--r--	root/root	usr/share/stellarium/models/hyperion.png
+-rw-r--r--	root/root	usr/share/stellarium/models/j5amalthea.png
+-rw-r--r--	root/root	usr/share/stellarium/models/j5amalthea_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/j5amalthea_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/m1phobos.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/m1phobos.obj.gz
+-rw-r--r--	root/root	usr/share/stellarium/models/m1phobos.png
+-rw-r--r--	root/root	usr/share/stellarium/models/m2deimos.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/m2deimos.obj.gz
+-rw-r--r--	root/root	usr/share/stellarium/models/m2deimos.png
+-rw-r--r--	root/root	usr/share/stellarium/models/n7larissa_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/n7larissa_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/n8proteus.png
+-rw-r--r--	root/root	usr/share/stellarium/models/n8proteus_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/n8proteus_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/s10janus.png
+-rw-r--r--	root/root	usr/share/stellarium/models/s10janus_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/s10janus_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/s11epimetheus.png
+-rw-r--r--	root/root	usr/share/stellarium/models/s11epimetheus_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/s11epimetheus_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/s16prometheus.png
+-rw-r--r--	root/root	usr/share/stellarium/models/s16prometheus_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/s16prometheus_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/s17pandora_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/s17pandora_MLfix.obj.mtl
+-rw-r--r--	root/root	usr/share/stellarium/models/s7hyperion_21_MLfix.obj
+-rw-r--r--	root/root	usr/share/stellarium/models/s7hyperion_21_MLfix.obj.mtl
 drwxr-xr-x	root/root	usr/share/stellarium/nebulae/
 drwxr-xr-x	root/root	usr/share/stellarium/nebulae/default/
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/barnard142-vasey.png
@@ -323,6 +386,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/nebulae/default/
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/ic4601-virgo.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/ic4628-trev.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/ic5146.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/ic883h.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/lmc_moshdr-1.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/lmc_moshdr-2.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/lmc_moshdr-3.png
@@ -456,17 +520,23 @@ drwxr-xr-x	root/root	usr/share/stellarium/nebulae/default/
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n3310-vasey.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n3324-n3293-trev.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n3628.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n3690h.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n3718oleg.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n3938-vasey.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n40.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n4038-9-dss.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n4438-mtod.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n4490oleg.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n4559-vasey.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n4631-4627.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n4656-4657.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n4945.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n5128.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n5139kepler.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n5257h.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n55.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n5982oleg.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n6050h.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n6543kepler.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n6726.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/n6744.png
@@ -501,6 +571,8 @@ drwxr-xr-x	root/root	usr/share/stellarium/nebulae/default/
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/smc29-3.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/smc29-4.png
 -rw-r--r--	root/root	usr/share/stellarium/nebulae/default/textures.json
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/u8335h.png
+-rw-r--r--	root/root	usr/share/stellarium/nebulae/default/u9618h.png
 drwxr-xr-x	root/root	usr/share/stellarium/scenery3d/
 drwxr-xr-x	root/root	usr/share/stellarium/scenery3d/Sterngarten/
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/Sterngarten_20100320.png
@@ -529,6 +601,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/scenery3d/Sterngarten/Sterngarten_Wien
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/description.de.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/description.ru.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Sterngarten/scenery3d.ini
@@ -550,6 +623,8 @@ drwxr-xr-x	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Test
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene/Stein_Mauerwerk_mehrfarbig.jpg
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene/Stein_Platte_Quaderstein.jpg
 drwxr-xr-x	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_ground/
+-rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_ground/Bodenbelag_Schotter_Indisch.jpg
+-rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_ground/Bodenbelag_Stein_Schotter_5cm.jpg
 drwxr-xr-x	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_withGrid/
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_withGrid/Bodenbelag_Stein_Schotter_5cm.png
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_withGrid/Bodenbelag_Stein_Schotter_5cm_bump.png
@@ -567,11 +642,12 @@ drwxr-xr-x	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Test
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_withGrid/Stein_Platte_Quaderstein_bump.png
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_withGrid/Stein_Platte_Quaderstein_bump_dontUse.jpg
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/TX_Stellarium-Testscene_withGrid/Stein_Platte_Quaderstein_dontUse.jpg
+-rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/description.en.utf8
+-rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/description.gd.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/description.ru.utf8
 -rw-r--r--	root/root	usr/share/stellarium/scenery3d/Testscene/scenery3d.ini
 drwxr-xr-x	root/root	usr/share/stellarium/scripts/
--rw-r--r--	root/root	usr/share/stellarium/scripts/analemma.ssc
 -rw-r--r--	root/root	usr/share/stellarium/scripts/bennett.ssc
 -rw-r--r--	root/root	usr/share/stellarium/scripts/best_ngc.ssc
 -rw-r--r--	root/root	usr/share/stellarium/scripts/binocular_highlights.ssc
@@ -661,7 +737,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/arabic/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/al_sufi_altre_006_copia.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/constellation_names.eng.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/constellation_names.exp.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/description.ar.utf8
@@ -678,9 +753,9 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/arabic/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/description.ar.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/arabic_moon_stations/description.ru.utf8
@@ -698,7 +773,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/aztec/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/colotlixayac_t.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/constellation_names.eng.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/constellation_names.esp.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/description.ar.utf8
@@ -725,12 +799,41 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/aztec/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/xonecuilli_Glifo.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/xonecuilli_crop.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/aztec/xonecuilli_t.png
+drwxr-xr-x	root/root	usr/share/stellarium/skycultures/belarusian/
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/constellation_names.eng.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/constellationsart.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/description.be.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/description.bn.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/description.en.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/description.uk.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/elias_s-cart.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/info.ini
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/poland-and-lithuania.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/star_names.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-bride.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-chicks.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-cross.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-crown.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-goat.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-goose_s-way.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-grass-snakes.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-mowers.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-nail.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-ploughman.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-rake.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-ram.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-serpent.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-sieve.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-small-cart.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-throne.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-twins.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/belarusian/the-wild-goat.png
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/boorong/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/berm.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/bunya.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/collenbit.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/cwar.png
@@ -770,7 +873,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/boorong/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/boorong/yurree.png
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/chinese/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/chinese/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/chinese/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/chinese/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/chinese/description.ar.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/chinese/description.be.utf8
@@ -790,9 +892,9 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/dakota/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/agleska.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/bluewoman.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/description.uk.utf8
@@ -812,7 +914,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/dakota/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/dakota/zuzeca.png
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/egyptian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/description.ar.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/description.be.utf8
@@ -830,6 +931,25 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/egyptian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/info.ini
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/planet_names.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/egyptian/star_names.fab
+drwxr-xr-x	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/constellation_names.eng.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/constellationsart.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/description.en.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/description.uk.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/info.ini
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/kekaa1c.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/kekaa1d.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/kua1g.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/kuamoo.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/kuamoobig.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/lu1d.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/lu2c.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/manaia.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/manaia1c.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/star_names.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/waa.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/hawaiian_starlines/waa2.png
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/indian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/aquarius.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/aries.png
@@ -837,7 +957,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/indian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/canis-major.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/capricornus.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/indian/description.ar.utf8
@@ -868,7 +987,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/inuit/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/inuit/caribou.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/inuit/collarbones.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/inuit/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/inuit/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/inuit/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/inuit/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/inuit/description.ar.utf8
@@ -894,8 +1012,8 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/inuit/
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/chart.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/japanese_moon_stations/description.uk.utf8
@@ -944,17 +1062,17 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/kamilaroi/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/Warrawilbaarru.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/Yarran.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/description.en.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/description.uk.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/info.ini
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/kamilaroi/seasonal_rules.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/korean/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/korean/constellation_names.eng.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/korean/constellation_names.exp.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/korean/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/korean/constellationsart.fab (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/korean/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/korean/description.ar.utf8
@@ -971,9 +1089,9 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/korean/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/korean/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/macedonian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/description.uk.utf8
@@ -999,7 +1117,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/macedonian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/macedonian/volovi.png
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/maori/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/maori/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/maori/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/maori/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/maori/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/maori/description.ar.utf8
@@ -1019,8 +1136,8 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/maori/
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/mongolian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/constellation_names.eng.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/constellation_names.fr.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/description.fr.utf8
@@ -1032,7 +1149,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/mongolian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/mongolian/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/navajo/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/navajo/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/navajo/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/navajo/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/navajo/description.ar.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/navajo/description.be.utf8
@@ -1049,7 +1165,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/navajo/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/navajo/star_names.fab (EMPTY)
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/norse/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/norse/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/norse/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/norse/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/norse/description.ar.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/norse/description.be.utf8
@@ -1067,10 +1182,10 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/norse/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/norse/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/ojibwe/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/crane.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/description.bn.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/description.en.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/description.uk.utf8
@@ -1086,23 +1201,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/ojibwe/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/star_names.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/sweatlodge.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/ojibwe/wintermaker.png
-drwxr-xr-x	root/root	usr/share/stellarium/skycultures/polynesian/
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/constellations_boundaries.dat (EMPTY)
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/constellationsart.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/constellationship.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.ar.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.be.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.bn.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.de.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.en.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.fr.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.it.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.pt_BR.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.ru.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/description.uk.utf8
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/info.ini
--rw-r--r--	root/root	usr/share/stellarium/skycultures/polynesian/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/romanian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/CapraCuTreiIezi.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/CarulMare.png
@@ -1124,7 +1222,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/romanian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/chitul.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/constellation_names.eng.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/constellation_names.ro.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/corbul.png
@@ -1160,7 +1257,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/romanian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/romanian/vierii.png
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/sami/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/description.ar.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/description.be.utf8
@@ -1174,9 +1270,26 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/sami/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/description.uk.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/info.ini
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/sami/star_names.fab (EMPTY)
+drwxr-xr-x	root/root	usr/share/stellarium/skycultures/sardinian/
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/constellation_names.eng.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/constellationsart.fab (EMPTY)
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/constellationship.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.ar.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.be.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.bn.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.de.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.en.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.fr.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.it.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.pt_BR.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.ru.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.sc.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/description.uk.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/info.ini
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/planet_names.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/sardinian/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/siberian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/siberian/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/siberian/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/siberian/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/siberian/description.be.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/siberian/description.bn.utf8
@@ -1190,7 +1303,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/siberian/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/siberian/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/tongan/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tongan/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/tongan/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tongan/constellationsart.fab (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tongan/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tongan/description.ar.utf8
@@ -1208,7 +1320,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/tongan/
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/tukano/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tukano/Calendario_Tukano.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tukano/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/tukano/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tukano/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tukano/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tukano/description.be.utf8
@@ -1219,7 +1330,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/tukano/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tukano/star_names.fab
 drwxr-xr-x	root/root	usr/share/stellarium/skycultures/tupi/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tupi/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/tupi/constellations_boundaries.dat (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tupi/constellationsart.fab (EMPTY)
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tupi/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/tupi/description.ar.utf8
@@ -1243,6 +1353,8 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/western/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/ara.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/argonavis.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/aries.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/western/asterism_names.eng.fab
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/western/asterismship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/auriga.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/bootes.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/caelum.png
@@ -1261,7 +1373,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/western/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/columba.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/coma-berenices.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/constellation_names.eng.fab
--rw-r--r--	root/root	usr/share/stellarium/skycultures/western/constellations_boundaries.dat
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/constellationsart.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/constellationship.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/corona-australis.png
@@ -1283,6 +1394,9 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/western/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/description.pt_BR.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/description.ru.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/description.uk.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/western/description.zh_CN.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/western/description.zh_HK.utf8
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/western/description.zh_TW.utf8
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/dorado.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/draco.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/equuleus.png
@@ -1320,6 +1434,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/skycultures/western/
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/pisces.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/piscis-austrinus.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/pyxis.png
+-rw-r--r--	root/root	usr/share/stellarium/skycultures/western/reference.fab
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/reticulum.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/sagitta.png
 -rw-r--r--	root/root	usr/share/stellarium/skycultures/western/sagittarius.png
@@ -1356,14 +1471,15 @@ drwxr-xr-x	root/root	usr/share/stellarium/stars/default/
 -rw-r--r--	root/root	usr/share/stellarium/stars/default/defaultStarsConfig.json
 -rw-r--r--	root/root	usr/share/stellarium/stars/default/gcvs_hip_part.dat
 -rw-r--r--	root/root	usr/share/stellarium/stars/default/name.fab
--rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_0_0v0_6.cat
--rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_1_0v0_6.cat
--rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_2_0v0_6.cat
--rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_3_1v0_3.cat
+-rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_0_0v0_7.cat
+-rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_1_0v0_7.cat
+-rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_2_0v0_7.cat
+-rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_3_1v0_4.cat
 -rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_hip_cids_0v0_0.cat
--rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_hip_sp_0v0_2.cat
+-rw-r--r--	root/root	usr/share/stellarium/stars/default/stars_hip_sp_0v0_3.cat
 -rw-r--r--	root/root	usr/share/stellarium/stars/default/wds_hip_part.dat
 drwxr-xr-x	root/root	usr/share/stellarium/textures/
+-rw-r--r--	root/root	usr/share/stellarium/textures/TestSquare.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/amalthea.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/ariel.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/bianca.png
@@ -1374,6 +1490,7 @@ drwxr-xr-x	root/root	usr/share/stellarium/textures/
 -rw-r--r--	root/root	usr/share/stellarium/textures/cometComa.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/cometTail.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/corona.png
+-rw-r--r--	root/root	usr/share/stellarium/textures/cross.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/deimos.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/dione.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/earth-clouds.png
@@ -1388,6 +1505,8 @@ drwxr-xr-x	root/root	usr/share/stellarium/textures/
 -rw-r--r--	root/root	usr/share/stellarium/textures/fogridge.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/ganymede.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/gaspra.png
+-rw-r--r--	root/root	usr/share/stellarium/textures/gray10.png
+-rw-r--r--	root/root	usr/share/stellarium/textures/gray25.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/halo.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/haloLune.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/hyperion.png
@@ -1442,7 +1561,6 @@ drwxr-xr-x	root/root	usr/share/stellarium/textures/
 -rw-r--r--	root/root	usr/share/stellarium/textures/vesta.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/zenith.png
 -rw-r--r--	root/root	usr/share/stellarium/textures/zodiacallight_2004.png
--rw-r--r--	root/root	usr/share/stellarium/textures/zodiacallight_painted.png
 drwxr-xr-x	root/root	usr/share/stellarium/webroot/
 -rw-r--r--	root/root	usr/share/stellarium/webroot/dejavusans-webfont.eot
 -rw-r--r--	root/root	usr/share/stellarium/webroot/dejavusans-webfont.svg
@@ -1473,6 +1591,9 @@ drwxr-xr-x	root/root	usr/share/stellarium/webroot/images/
 -rw-r--r--	root/root	usr/share/stellarium/webroot/images/ajax-loader.gif
 -rw-r--r--	root/root	usr/share/stellarium/webroot/images/icons-active.png
 -rw-r--r--	root/root	usr/share/stellarium/webroot/images/icons.png
+-rw-r--r--	root/root	usr/share/stellarium/webroot/images/joypad-active.png
+-rw-r--r--	root/root	usr/share/stellarium/webroot/images/joypad-hover.png
+-rw-r--r--	root/root	usr/share/stellarium/webroot/images/joypad.png
 -rw-r--r--	root/root	usr/share/stellarium/webroot/images/joystick.png
 -rw-r--r--	root/root	usr/share/stellarium/webroot/images/map-pointeur.png
 -rw-r--r--	root/root	usr/share/stellarium/webroot/images/stars.png
@@ -1500,13 +1621,14 @@ drwxr-xr-x	root/root	usr/share/stellarium/webroot/js/api/
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/jquery.ui.touch-punch.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/main.js
 drwxr-xr-x	root/root	usr/share/stellarium/webroot/js/plugins/
--rw-r--r--	root/root	usr/share/stellarium/webroot/js/plugins/archaeolines.js
+-rw-r--r--	root/root	usr/share/stellarium/webroot/js/plugins/scenery3d.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/require.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/settings.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/translationdata.js
 drwxr-xr-x	root/root	usr/share/stellarium/webroot/js/ui/
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/ui/actions.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/ui/combobox.js
+-rw-r--r--	root/root	usr/share/stellarium/webroot/js/ui/joystickqueue.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/ui/jqueryuifixes.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/ui/location.js
 -rw-r--r--	root/root	usr/share/stellarium/webroot/js/ui/mainui.js
