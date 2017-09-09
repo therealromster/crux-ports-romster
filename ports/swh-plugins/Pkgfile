@@ -2,17 +2,19 @@
 # URL: http://plugin.org.uk/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Vincenzo Colosimo, vico at bicisport dot de
-# Depends on: fftw
+# Depends on: fftw p5-xml-parser
 
 name=swh-plugins
-version=0.4.15
+version=0.4.17
 release=1
-source="http://plugin.org.uk/releases/$version/$name-$version.tar.gz"
-up2date_url="http://plugin.org.uk/releases/"
+source=(https://github.com/swh/ladspa/archive/v$version/$name-v$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd ladspa-$version
 
+	autoreconf -fi
+
+	CFLAGS+=' -fPIC' \
 	./configure \
 		--prefix=/usr \
 		--enable-3dnow \
