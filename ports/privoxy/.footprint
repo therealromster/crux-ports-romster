@@ -15,6 +15,7 @@ drwxr-xr-x	root/root	etc/privoxy/templates/
 -rw-r--r--	root/root	etc/privoxy/templates/cgi-error-modified
 -rw-r--r--	root/root	etc/privoxy/templates/cgi-error-parse
 -rw-r--r--	root/root	etc/privoxy/templates/cgi-style.css
+-rw-r--r--	root/root	etc/privoxy/templates/client-tags
 -rw-r--r--	root/root	etc/privoxy/templates/connect-failed
 -rw-r--r--	root/root	etc/privoxy/templates/connection-timeout
 -rw-r--r--	root/root	etc/privoxy/templates/default
@@ -47,12 +48,12 @@ drwxr-xr-x	root/root	etc/privoxy/templates/
 drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/privoxy
 drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/man/
-drwxr-xr-x	root/root	usr/man/man1/
--rw-r--r--	root/root	usr/man/man1/privoxy.1.gz
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/privoxy
 drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/privoxy.1.gz
 drwxr-xr-x	root/root	var/
 drwxr-xr-x	root/root	var/log/
 drwxr-xr-x	root/root	var/log/privoxy/

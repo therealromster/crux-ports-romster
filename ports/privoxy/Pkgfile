@@ -5,9 +5,9 @@
 # Depends on: libpcre
 
 name=privoxy
-version=3.0.19
+version=3.0.26
 release=1
-source=(http://downloads.sourceforge.net/project/ijbswa/Sources/${version}%20%28stable%29/$name-$version-stable-src.tar.gz
+source=(https://downloads.sourceforge.net/project/ijbswa/Sources/${version}%20%28stable%29/$name-$version-stable-src.tar.gz
 	privoxy.rc)
 
 build() {
@@ -17,7 +17,8 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--enable-no-gifs
+		--sysconfdir=/etc/privoxy \
+		--enable-compression
 
 	make
 
@@ -31,7 +32,7 @@ build() {
 		$PKG/var/log/privoxy
 
 	install -D -m 0755 privoxy $PKG/usr/sbin/privoxy
-	install -D -m 0644 privoxy.1 $PKG/usr/man/man1/privoxy.1
+	install -D -m 0644 privoxy.1 $PKG/usr/share/man/man1/privoxy.1
 	install -D -m 0755 $SRC/privoxy.rc $PKG/etc/rc.d/privoxy
 	install -m 0644 -t $PKG/etc/privoxy/ *.action config default.filter
 	install -m 0644 -t $PKG/etc/privoxy/templates/ templates/* 
