@@ -20,6 +20,9 @@ build() {
 	/usr/bin/python ./x.py build --verbose
 	DESTDIR=$PKG /usr/bin/python ./x.py install
 
-	rm -r $PKG/usr/lib/rustlib/{components,manifest-rustc,rust-installer-version}
 	rm -r $PKG/usr/share/doc
+
+	cd $PKG/usr/lib
+	rm rustlib/{components,manifest-rustc,rust-installer-version}
+	ln -sf rustlib/x86_64-unknown-linux-gnu/lib/*.so .
 }
