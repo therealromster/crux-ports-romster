@@ -2,26 +2,41 @@
 # URL: https://www.mozilla.com/firefox/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: nss autoconf-2.13 unzip zip libidl gtk gtk3 python alsa-lib xorg-libxt yasm mesa3d cargo
- 
+# Depends on: alsa-lib autoconf-2.13 gtk gtk3 libidl libvpx nss rust unzip xorg-libxt zip libevent
+
 name=firefox-rust
-version=55.0.3
+version=56.0.1
 release=1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.xz
-	firefox-install-dir.patch firefox.desktop)
+	firefox-install-dir.patch firefox.desktop
+	0001-Bug-1384062-Make-SystemResourceMonitor.stop-more-res.patch
+	plugin-crash.diff
+	glibc-2.26-fix.diff)
  
 build() {
 	cd firefox-$version
 
-	sed -i '/^ftfntfmt.h/ i freetype/ftfntfmt.h' config/system-headers
+	# https://bugzilla.mozilla.org/show_bug.cgi?id=1384062
+	patch -p1 -i $SRC/0001-Bug-1384062-Make-SystemResourceMonitor.stop-more-res.patch
+
+	# https://bugzilla.mozilla.org/show_bug.cgi?id=1400175
+	patch -p1 -i $SRC/plugin-crash.diff
+
+	# https://bugzilla.mozilla.org/show_bug.cgi?id=1385667
+	# https://bugzilla.mozilla.org/show_bug.cgi?id=1394149
+	patch -p1 -i $SRC/glibc-2.26-fix.diff
+
+
+#	sed -i '/^ftfntfmt.h/ i freetype/ftfntfmt.h' config/system-headers
 	# stupid workaround
-	sed -i '2,7d' js/src/configure
+#	sed -i '2,7d' js/src/configure
 	patch -p1 -i $SRC/firefox-install-dir.patch
 
 cat <<- EOF > .mozconfig
 	mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-shared
 	mk_add_options MOZ_MAKE_FLAGS="$MAKEFLAGS -s"
 	ac_add_options --prefix=/usr
+	ac_add_options --enable-application=browser
 	ac_add_options --enable-default-toolkit=cairo-gtk3
 	ac_add_options --with-system-jpeg
 	ac_add_options --with-system-zlib
@@ -29,12 +44,16 @@ cat <<- EOF > .mozconfig
 	ac_add_options --with-system-nspr
 	ac_add_options --with-system-nss
 	ac_add_options --with-system-cairo
+	ac_add_options --with-system-libevent
+	ac_add_options --with-system-libvpx
 	ac_add_options --enable-system-ffi
 	ac_add_options --enable-system-pixman
 	ac_add_options --enable-system-sqlite
 	ac_add_options --enable-alsa
 	ac_add_options --with-pthreads
 	ac_add_options --enable-official-branding
+	ac_add_options --enable-safe-browsing
+	ac_add_options --enable-url-classifier
 	ac_add_options --with-distribution-id=nu.crux
 	ac_add_options --enable-extensions=default,-gnomevfs
 	ac_add_options --disable-tests
@@ -45,6 +64,7 @@ cat <<- EOF > .mozconfig
 	ac_add_options --disable-necko-wifi
 	ac_add_options --disable-pulseaudio
 	ac_add_options --disable-gconf
+	ac_add_options --disable-stylo
 EOF
 
 	make -f client.mk build
