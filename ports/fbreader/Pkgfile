@@ -6,11 +6,12 @@
 
 name=fbreader
 version=0.99.4
-release=2
+release=3
 source=(http://fbreader.org/files/desktop/fbreader_$version-1.tar.gz
 	fbreader-0.99.4.patch
 	fbreader-0.99.4-qreal-cast.patch
-	fbreader-0.99.4-mimetypes.patch)
+	fbreader-0.99.4-mimetypes.patch
+	fbreader-0.99.4-unsigned-char.patch)
 
 build() {
 	cd $name-$version
@@ -36,6 +37,7 @@ build() {
 	patch -p1 -i $SRC/fbreader-0.99.4.patch
 	patch -p1 -i $SRC/fbreader-0.99.4-qreal-cast.patch
 	patch -p1 -i $SRC/fbreader-0.99.4-mimetypes.patch
+	patch -p1 -i $SRC/fbreader-0.99.4-unsigned-char.patch
 
 	make -j1
 	make DESTDIR=$PKG do_install
