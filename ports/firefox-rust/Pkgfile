@@ -5,7 +5,7 @@
 # Depends on: alsa-lib autoconf-2.13 gtk gtk3 libidl libvpx nss rust unzip xorg-libxt zip libevent
 
 name=firefox-rust
-version=56.0.1
+version=56.0.2
 release=1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.xz
 	firefox-install-dir.patch firefox.desktop
