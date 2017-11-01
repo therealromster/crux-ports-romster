@@ -2,7 +2,7 @@
 # URL: http://coin3d.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: libpng libsndfile libtiff giflib libvorbis xorg-libx11
+# Depends on: giflib libpng libsndfile libtiff xorg-libx11
 
 name=simage
 version=1.7.0

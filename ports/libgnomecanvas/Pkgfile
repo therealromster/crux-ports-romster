@@ -2,7 +2,7 @@
 # URL: http://developer.gnome.org/doc/API/2.0/libgnomecanvas/index.html
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: libart_lgpl libglade intltool
+# Depends on: libart_lgpl libglade
 
 name=libgnomecanvas
 version=2.30.3

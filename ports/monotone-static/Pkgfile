@@ -2,7 +2,7 @@
 # URL: http://www.monotone.ca/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: boost libpcre lua texi2man glibc zlib upx
+# Depends on: boost glibc libpcre lua texi2man upx
 
 # NOTE built with safe-build crux-2.4 sysup
 

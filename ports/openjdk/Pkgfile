@@ -2,7 +2,7 @@
 # URL: http://openjdk.java.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: xorg-libx11 ant zip unzip freetype cups xorg-libxrender alsa-lib 
+# Depends on: alsa-lib ant cups freetype unzip xorg-libxrender zip
 
 name=openjdk
 version=6.24

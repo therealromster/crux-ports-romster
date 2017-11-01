@@ -2,7 +2,7 @@
 # URL: http://etherboot.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: syslinux mtools
+# Depends on: syslinux
 
 name=gpxe
 version=0.9.9

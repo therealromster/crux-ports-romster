@@ -2,7 +2,7 @@
 # URL: http://www.pytables.org/
 # Packager: Danny Rawlins, crux at romster dot me
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: hdf5 pyrex numpy numarray bzip2
+# Depends on: hdf5 numarray numpy pyrex
 
 # Recommended:	ucl, lzo
 # Optional	

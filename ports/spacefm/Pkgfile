@@ -2,7 +2,7 @@
 # URL: http://ignorantguru.github.io/spacefm/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Maximilian Dietrich, dxm at openmailbox dot org
-# Depends on: gtk udev shared-mime-info desktop-file-utils xorg-libxdamage ffmpegthumbnailer
+# Depends on: desktop-file-utils ffmpegthumbnailer gtk udev xorg-libxdamage
 
 name=spacefm
 version=1.0.5

@@ -2,7 +2,7 @@
 # URL: http://www.mozilla.com/firefox/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Fredrik Rinnestam, fredrik at crux dot nu
-# Depends on: nss autoconf-2.13 unzip zip libidl gtk gtk3 python alsa-lib xorg-libxt yasm mesa3d
+# Depends on: alsa-lib autoconf-2.13 gtk gtk3 libidl nss unzip xorg-libxt yasm zip
 
 name=firefox-pgo
 version=50.0

@@ -2,7 +2,7 @@
 # URL: http://freshmeat.net/projects/libgsf/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: sten, nick dot steeves at shaw dot ca
-# Depends on: p5-xml-parser pygtk bzip2 zlib intltool
+# Depends on: pygtk
 
 name=libgsf
 version=1.14.11

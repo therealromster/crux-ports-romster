@@ -2,7 +2,7 @@
 # URL: http://sourceforge.net/projects/mcomix/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: pygtk pillow xdg-utils desktop-file-utils hicolor-icon-theme unrar
+# Depends on: desktop-file-utils pillow pygtk unrar xdg-utils
 
 name=mcomix
 version=1.00

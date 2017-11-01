@@ -2,7 +2,7 @@
 # URL: http://fceultra.sourceforge.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: xorg-libx11 mesa3d libsdl
+# Depends on: libsdl
 # Optional: upx
 
 name=fceultra

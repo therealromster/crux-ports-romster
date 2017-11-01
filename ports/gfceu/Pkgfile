@@ -2,7 +2,7 @@
 # URL: http://dietschnitzel.com/gfceu/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python gtk fceultra
+# Depends on: fceultra gtk
 
 name=gfceu
 version=0.6.0

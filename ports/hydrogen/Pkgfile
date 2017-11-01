@@ -2,7 +2,7 @@
 # URL: http://www.hydrogen-music.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Jay Dolan, jdolan at jdolan dot dyndns dot org
-# Depends on: qt3 libsndfile liblrdf flac jack-audio-connection-kit alsa-lib
+# Depends on: jack-audio-connection-kit liblrdf qt3
 
 name=hydrogen
 version=0.9.3

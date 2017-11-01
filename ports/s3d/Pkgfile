@@ -2,7 +2,7 @@
 # URL: http://s3d.berlios.de/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: libg3d cmake simage libsdl
+# Depends on: libg3d libsdl simage
 
 name=s3d
 version=0.2

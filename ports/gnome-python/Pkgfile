@@ -2,7 +2,7 @@
 # URL: http://www.gnome.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: glib gtk python pygtk pyorbit libgnome libgnomeui libgnomecanvas gnome-vfs gconf libbonobo libbonoboui libgnomeprintui
+# Depends on: gconf gnome-vfs libbonobo libbonoboui libgnome libgnomecanvas libgnomeprintui libgnomeui pygtk pyorbit
 
 name=gnome-python
 version=2.28.1

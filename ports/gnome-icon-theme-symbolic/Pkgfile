@@ -2,7 +2,7 @@
 # URL: http://www.gnome.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: intltool icon-naming-utils hicolor-icon-theme librsvg
+# Depends on: hicolor-icon-theme icon-naming-utils librsvg
 
 name=gnome-icon-theme-symbolic
 version=3.12.0

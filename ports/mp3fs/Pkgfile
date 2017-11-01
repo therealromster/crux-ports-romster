@@ -2,7 +2,7 @@
 # URL: http://mp3fs.sourceforge.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: fuse flac lame libid3tag libogg
+# Depends on: flac fuse lame libid3tag
 
 name=mp3fs
 version=0.30

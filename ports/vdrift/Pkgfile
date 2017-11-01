@@ -2,7 +2,7 @@
 # URL: http://vdrift.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: scons asio libsdl glew openal sdl_gfx sdl_image sdl_net libvorbis
+# Depends on: asio glew libvorbis openal scons sdl_gfx sdl_image sdl_net
 
 name=vdrift
 version=20100630

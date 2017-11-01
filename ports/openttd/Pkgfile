@@ -2,7 +2,7 @@
 # URL: http://www.openttd.org
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Lennart Sauerbeck, devel at lennart dot sauerbeck dot org
-# Depends on: libsdl libpng fontconfig lzo
+# Depends on: fontconfig libsdl
 
 name=openttd
 version=1.1.5

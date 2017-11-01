@@ -2,7 +2,7 @@
 # URL: http://radscan.com/nas.html
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: xorg-imake xorg-libx11 libxp
+# Depends on: libxp xorg-imake
 
 name=nas
 version=1.9.2

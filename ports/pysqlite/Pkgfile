@@ -2,7 +2,7 @@
 # URL: http://code.google.com/p/pysqlite/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packagerr: Alan Mizrahi, alan at mizrahi dot com dot ve
-# Depends on: sqlite3 python
+# Depends on: python
 
 name=pysqlite
 version=2.6.0

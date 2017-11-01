@@ -2,7 +2,7 @@
 # URL: http://gige.xdv.org/soft/libjackasyn
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: jack libsamplerate
+# Depends on: jack
 
 name=libjackasyn
 version=0.13

@@ -2,7 +2,7 @@
 # URL: http://www.gnome.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: glib pygtk
+# Depends on: pygtk
 
 name=gnome-python-extras
 version=2.14.3

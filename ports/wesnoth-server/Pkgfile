@@ -2,7 +2,7 @@
 # URL: http://www.wesnoth.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: boost cmake pango sdl_image sdl_mixer sdl_net sdl_ttf lua libidn
+# Depends on: boost libidn lua pango sdl_image sdl_mixer sdl_net sdl_ttf
 
 name=wesnoth-server
 version=1.12.6

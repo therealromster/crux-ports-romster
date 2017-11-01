@@ -2,7 +2,7 @@
 # URL: http://www.virtualgl.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: openssl-32 xorg-libx11-32 cmake mesa3d-32 libjpeg-turbo-32 virtualgl
+# Depends on: libjpeg-turbo-32 mesa3d-32 virtualgl
 
 name=virtualgl-32
 version=2.3.2

@@ -2,7 +2,7 @@
 # URL: http://asio.sourceforge.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Younes Hafri, ycrux at club dash internet dot fr
-# Depends on: boost openssl
+# Depends on: boost
 
 name=asio
 version=1.4.8

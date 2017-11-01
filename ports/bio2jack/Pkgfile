@@ -2,7 +2,7 @@
 # URL: http://bio2jack.sourceforge.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: libsamplerate jack-audio-connection-kit
+# Depends on: jack-audio-connection-kit
 
 name=bio2jack
 version=0.9

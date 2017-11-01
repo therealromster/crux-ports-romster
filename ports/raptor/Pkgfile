@@ -2,7 +2,7 @@
 # URL: http://librdf.org/raptor/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Diederick de Vries, diederick at diederickdevries dot net
-# Depends on: curl libxslt libxml2
+# Depends on: curl libxslt
 
 name=raptor
 version=2.0.7

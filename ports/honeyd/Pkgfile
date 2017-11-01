@@ -2,7 +2,7 @@
 # URL: http://www.honeyd.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Younes Hafri, ycrux at club dash internet dot fr
-# Depends on: libpcap libevent libdnet
+# Depends on: libdnet libevent
 
 name=honeyd
 version=1.5c

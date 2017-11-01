@@ -2,7 +2,7 @@
 # URL: http://sourceware.org/systemtap/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: elfutils bzip2 xz zlib
+# Depends on: elfutils
 
 name=systemtap
 version=1.7

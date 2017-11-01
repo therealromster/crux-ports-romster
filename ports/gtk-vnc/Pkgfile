@@ -2,7 +2,7 @@
 # URL: http://gtk-vnc.sourceforge.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Matt Housh, jaeger at morpheus dot net
-# Depends on: pygtk xorg-libxdmcp xorg-libxau freetype2 gnutls libgcrypt xorg-libxdamage xorg-libxext libxml2 cyrus-sasl libffi
+# Depends on: cyrus-sasl freetype2 gnutls libgcrypt pygtk
 
 name=gtk-vnc
 version=0.4.2

@@ -2,7 +2,7 @@
 # URL: http://www.xen.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: zlib ncurses xorg-libx11 bridge-utils iproute2 libsdl gettext pyopenssl libxml2-python
+# Depends on: bridge-utils gettext iproute2 libsdl libxml2-python pyopenssl
 
 name=xen
 version=3.2.1

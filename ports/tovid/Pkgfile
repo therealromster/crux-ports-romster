@@ -2,7 +2,7 @@
 # URL: http://tovid.wikia.com/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: dvdauthor imagemagick libdvdcss lsdvd mplayer sox transcode txt2tags wxpython
+# Depends on: dvdauthor lsdvd mplayer sox transcode txt2tags wxpython
 
 name=tovid
 version=0.33

@@ -2,7 +2,7 @@
 # URL: http://openarena.ws
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: libsdl speex libjpeg libvorbis xorg-libxext xorg-libxdamage openal curl mesa3d openal
+# Depends on: libjpeg libsdl libvorbis openal speex
 
 name=openarena
 vold=0.8.1

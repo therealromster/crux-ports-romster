@@ -2,7 +2,7 @@
 # URL: http://dssi.sourceforge.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Diederick de Vries, diederick at diederickdevries.net
-# Depends on: qt4 liblo ladspa jack-audio-connection-kit libsamplerate
+# Depends on: jack-audio-connection-kit ladspa liblo qt4
 
 name=dssi
 version=1.1.1

@@ -2,7 +2,7 @@
 # URL: http://www.freeorion.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: graphviz boost cmake python freetype libalut libvorbis ogre3d 
+# Depends on: boost cmake graphviz libalut libvorbis ogre3d
 
 name=freeorion
 sname=FreeOrion

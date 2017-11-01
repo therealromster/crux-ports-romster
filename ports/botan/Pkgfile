@@ -2,7 +2,7 @@
 # URL: http://botan.randombit.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: bzip2 zlib gmp openssl python
+# Depends on: gmp python
 
 name=botan
 sname=Botan

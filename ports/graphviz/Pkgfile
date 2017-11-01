@@ -2,7 +2,7 @@
 # URL: http://www.graphviz.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Daryl Fonsecq-Holt, wyatt at prairieturtle dot ca
-# Depends on: pango cairo libgd zlib
+# Depends on: libgd pango
 
 name=graphviz
 version=2.40.1

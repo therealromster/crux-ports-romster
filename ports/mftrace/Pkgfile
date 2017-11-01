@@ -2,7 +2,7 @@
 # URL: http://lilypond.org/mftrace/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: fontforge python t1utils tetex
+# Depends on: fontforge t1utils tetex
 
 name=mftrace
 version=1.2.16
