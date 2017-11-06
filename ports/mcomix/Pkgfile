@@ -2,25 +2,24 @@
 # URL: http://sourceforge.net/projects/mcomix/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: desktop-file-utils pillow pygtk unrar xdg-utils
+# Depends on: desktop-file-utils python-pillow pygtk unrar xdg-utils hicolor-icon-theme
+# Optional: libunrar mupdf-tools p7zip
 
 name=mcomix
-version=1.00
+version=1.2.1
 release=1
-source=(http://downloads.sourceforge.net/project/$name/MComix-$version/$name-$version.tar.bz2
-	zoom.patch)
+source=(http://downloads.sourceforge.net/project/$name/MComix-$version/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
-	# Fix zoom in, zoom out keyboard shortcuts:
-	# https://sourceforge.net/p/mcomix/bugs/62/
-	patch -p 1 -i $SRC/zoom.patch
-
 	export PYTHONPATH=$PKG/usr/lib/python2.7/site-packages/
 	install -d $PYTHONPATH
 
-	/usr/bin/python setup.py install --prefix=/usr --optimize=1 --root=$PKG
+	/usr/bin/python setup.py install --prefix=/usr --optimize=1 \
+		--single-version-externally-managed --root=$PKG
 
-	mv /$PKG/usr/share/man $PKG/usr/man
+	install -D -m 0755 mime/comicthumb $PKG/usr/bin/comicthumb
+	install -D -m 0644 mime/comicthumb.1.gz $PKG/usr/share/man/man1/comicthumb.1.gz
+	install -D -m 0644 mime/comicthumb.thumbnailer $PKG/usr/share/thumbnailers/comicthumb.thumbnailer
 }
