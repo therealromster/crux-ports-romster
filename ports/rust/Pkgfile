@@ -1,23 +1,62 @@
 # Description: A safe, concurrent, practical language by Mozilla.
 # URL: http://www.rust-lang.org/
 # Packager: Danny Rawlins, crux at romster dot me
-# Maintainer: Danny Rawlins, crux at romster dot me
 # Depends on: llvm
 
 name=rust
 version=1.21.0
-release=1
+release=2
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.gz
-	0001-librustc_llvm-build-Force-link-against-libffi.patch
-	bootstrap-config.toml)
+	https://static.rust-lang.org/dist/2017-08-31/rust-std-1.20.0-x86_64-unknown-linux-gnu.tar.gz
+	https://static.rust-lang.org/dist/2017-08-31/rustc-1.20.0-x86_64-unknown-linux-gnu.tar.gz
+	https://static.rust-lang.org/dist/2017-08-31/cargo-0.21.0-x86_64-unknown-linux-gnu.tar.gz
+	0001-librustc_llvm-build-Force-link-against-libffi.patch)
  
 build() {
 	cd ${name}c-$version-src
 
-	patch -p1 -i $SRC/0001-librustc_llvm-build-Force-link-against-libffi.patch
-	cp $SRC/bootstrap-config.toml config.toml
+	mkdir -p build/cache/2017-08-31
+	cp $PKGMK_SOURCE_DIR/rust-std-1.20.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-08-31/
+	cp $PKGMK_SOURCE_DIR/rustc-1.20.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-08-31/
+	cp $PKGMK_SOURCE_DIR/cargo-0.21.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-08-31/
 
-	/usr/bin/python ./x.py build --verbose
+	#patch -p1 -i $SRC/0001-librustc_llvm-build-Force-link-against-libffi.patch
+
+	/usr/bin/python ./x.py build -j ${JOBS-1} --stage 1 src/libtest
+
+cat <<- EOF > config.toml
+	[build]
+	#cargo = "/usr/bin/cargo"
+	#rustc = "/usr/bin/rustc"
+	cargo = "build/x86_64-unknown-linux-gnu/stage0/bin/cargo"
+	rustc = "build/x86_64-unknown-linux-gnu/stage0/bin/rustc"
+	python = "python2.7"
+	extended = true
+	# Verbosity level: 0 == not verbose, 1 == verbose, 2 == very verbose
+	verbose = 0
+	# Build the sanitizer runtimes
+	#sanitizers = false
+
+	[install]
+	prefix = "/usr"
+
+	[rust]
+	codegen-units = 0
+	debuginfo = true
+
+	# Whether or not line number debug information is emitted
+	#debuginfo-lines = false
+
+	channel = "stable"
+EOF
+#	[target.x86_64-unknown-linux-gnu]
+#	llvm-config = "/usr/bin/llvm-config"
+#
+#	[target.i686-unknown-linux-gnu]
+#	llvm-config = "/usr/bin/llvm-config"
+#EOF
+
+	/usr/bin/python ./x.py build -j ${JOBS-1}
 	DESTDIR=$PKG /usr/bin/python ./x.py install
 
 	rm -r $PKG/usr/share/doc
