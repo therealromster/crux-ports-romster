@@ -4,7 +4,7 @@
 # Depends on: alsa-lib autoconf-2.13 clang gtk gtk3 icu libevent libvpx nss rust unzip util-linux xorg-libxt zip
 
 name=firefox-rust
-version=57.0.1
+version=57.0.2
 release=1
 source=(https://ftp.mozilla.org/pub/firefox/releases/$version/source/firefox-$version.source.tar.xz
 	firefox-install-dir.patch firefox-symbolic.svg firefox.desktop)
