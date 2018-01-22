@@ -1,24 +1,25 @@
 # Description: A safe, concurrent, practical language by Mozilla.
 # URL: http://www.rust-lang.org/
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: llvm
+# Depends on: python cmake
+#llvm
 
 name=rust
-version=1.21.0
-release=2
+version=1.23.0
+release=1
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.gz
-	https://static.rust-lang.org/dist/2017-08-31/rust-std-1.20.0-x86_64-unknown-linux-gnu.tar.gz
-	https://static.rust-lang.org/dist/2017-08-31/rustc-1.20.0-x86_64-unknown-linux-gnu.tar.gz
-	https://static.rust-lang.org/dist/2017-08-31/cargo-0.21.0-x86_64-unknown-linux-gnu.tar.gz
+	https://dev-static.rust-lang.org/dist/2017-11-20/rust-std-1.22.0-x86_64-unknown-linux-gnu.tar.gz
+	https://dev-static.rust-lang.org/dist/2017-11-20/rustc-1.22.0-x86_64-unknown-linux-gnu.tar.gz
+	https://dev-static.rust-lang.org/dist/2017-11-20/cargo-0.23.0-x86_64-unknown-linux-gnu.tar.gz
 	0001-librustc_llvm-build-Force-link-against-libffi.patch)
  
 build() {
 	cd ${name}c-$version-src
 
-	mkdir -p build/cache/2017-08-31
-	cp $PKGMK_SOURCE_DIR/rust-std-1.20.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-08-31/
-	cp $PKGMK_SOURCE_DIR/rustc-1.20.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-08-31/
-	cp $PKGMK_SOURCE_DIR/cargo-0.21.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-08-31/
+	mkdir -p build/cache/2017-11-20
+	cp $PKGMK_SOURCE_DIR/rust-std-1.22.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-11-20/
+	cp $PKGMK_SOURCE_DIR/rustc-1.22.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-11-20/
+	cp $PKGMK_SOURCE_DIR/cargo-0.23.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-11-20/
 
 	#patch -p1 -i $SRC/0001-librustc_llvm-build-Force-link-against-libffi.patch
 
@@ -51,7 +52,7 @@ cat <<- EOF > config.toml
 EOF
 #	[target.x86_64-unknown-linux-gnu]
 #	llvm-config = "/usr/bin/llvm-config"
-#
+
 #	[target.i686-unknown-linux-gnu]
 #	llvm-config = "/usr/bin/llvm-config"
 #EOF
