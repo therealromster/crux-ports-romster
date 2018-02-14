@@ -1,0 +1,17 @@
+Only in b/config: .hiawatha.conf.in.un~
+diff -ur a/config/hiawatha.conf.in b/config/hiawatha.conf.in
+--- a/config/hiawatha.conf.in	2016-10-06 14:55:13.000000000 +0000
++++ b/config/hiawatha.conf.in	2018-02-10 11:42:42.551364338 +0000
+@@ -11,9 +11,10 @@
+ 
+ # GENERAL SETTINGS
+ #
+-#ServerId = www-data
++ServerId = www:www
+ ConnectionsTotal = 1000
+ ConnectionsPerIP = 25
++ExploitLogfile = @LOG_DIR@/exploit.log
+ SystemLogfile = @LOG_DIR@/system.log
+ GarbageLogfile = @LOG_DIR@/garbage.log
+ 
+Only in b/config: hiawatha.conf.in~
