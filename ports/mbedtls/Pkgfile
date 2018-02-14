@@ -1,0 +1,19 @@
+# Description: Portable cryptographic and SSL/TLS library
+# URL:         https://tls.mbed.org/
+# Maintainer:  Danny Rawlins, crux at romster dot me
+
+name=mbedtls
+version=2.7.0
+release=1
+source=(https://tls.mbed.org/download/$name-$version-gpl.tgz mbedtls-config.patch mbedtls-2.7.0-fix-api.patch)
+
+build() {
+    cd $name-$version
+
+    patch -Np1 < ../mbedtls-config.patch
+    patch -Np1 < ../mbedtls-2.7.0-fix-api.patch
+
+    make SHARED=1
+
+    make DESTDIR="$PKG/usr" install
+}
