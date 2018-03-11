@@ -5,21 +5,26 @@
 #llvm
 
 name=rust
-version=1.23.0
+version=1.24.1
+##cat src/stage0.txt
+_date=2018-01-04
+_rustc=1.23.0
+_cargo=0.24.0
+##
 release=1
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.gz
-	https://dev-static.rust-lang.org/dist/2017-11-20/rust-std-1.22.0-x86_64-unknown-linux-gnu.tar.gz
-	https://dev-static.rust-lang.org/dist/2017-11-20/rustc-1.22.0-x86_64-unknown-linux-gnu.tar.gz
-	https://dev-static.rust-lang.org/dist/2017-11-20/cargo-0.23.0-x86_64-unknown-linux-gnu.tar.gz
+	https://static.rust-lang.org/dist/$_date/rust-std-$_rustc-x86_64-unknown-linux-gnu.tar.gz
+	https://static.rust-lang.org/dist/$_date/rustc-$_rustc-x86_64-unknown-linux-gnu.tar.gz
+	https://static.rust-lang.org/dist/$_date/cargo-$_cargo-x86_64-unknown-linux-gnu.tar.gz
 	0001-librustc_llvm-build-Force-link-against-libffi.patch)
  
 build() {
 	cd ${name}c-$version-src
 
-	mkdir -p build/cache/2017-11-20
-	cp $PKGMK_SOURCE_DIR/rust-std-1.22.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-11-20/
-	cp $PKGMK_SOURCE_DIR/rustc-1.22.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-11-20/
-	cp $PKGMK_SOURCE_DIR/cargo-0.23.0-x86_64-unknown-linux-gnu.tar.gz build/cache/2017-11-20/
+	mkdir -p build/cache/$_date
+	cp $PKGMK_SOURCE_DIR/rust-std-$_rustc-x86_64-unknown-linux-gnu.tar.gz build/cache/$_date/
+	cp $PKGMK_SOURCE_DIR/rustc-$_rustc-x86_64-unknown-linux-gnu.tar.gz build/cache/$_date/
+	cp $PKGMK_SOURCE_DIR/cargo-$_cargo-x86_64-unknown-linux-gnu.tar.gz build/cache/$_date/
 
 	#patch -p1 -i $SRC/0001-librustc_llvm-build-Force-link-against-libffi.patch
 

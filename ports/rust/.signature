@@ -1,9 +1,9 @@
 untrusted comment: verify with /etc/ports/romster.pub
-RWTkjLW3Pe2RUFLdAFsSzVW6siTDMYeBUNnNmbcr3T5v88rtu75x8bfmzrFSGWV5eT8y3/7D6Jmagm+7J2uQkxzeILPRqzb8MAw=
-SHA256 (Pkgfile) = a93d6040998cf7903091ec4f4e237ad1f3d3d8c248ff5a100545f08a9f4c3e18
-SHA256 (.footprint) = 9beb37ffb25ffbd98ac757d12315f080fbe32f6e043eecc63ff4b6d99d14a551
-SHA256 (rustc-1.23.0-src.tar.gz) = 7464953871dcfdfa8afcc536916a686dd156a83339d8ec4d5cb4eb2fe146cb91
-SHA256 (rust-std-1.22.0-x86_64-unknown-linux-gnu.tar.gz) = c065c4958444955968aae60a3724bea177ddabf364c5b8cf29a08dd5d1e7df6f
-SHA256 (rustc-1.22.0-x86_64-unknown-linux-gnu.tar.gz) = a54835b06f960cb04507136a6491e561271374701bc38a8e8fd085f9e78e12e6
-SHA256 (cargo-0.23.0-x86_64-unknown-linux-gnu.tar.gz) = 0540d18adbe45d922d54a581c3766abacafddf08a059abf101cd4a528e45fe74
+RWTkjLW3Pe2RUEuM0y89XHJ7RaGGYzER4ItAFstL0uDCBkO6ydZjN1FbA7gdeGVtRkwgwUNqqE3d7Fii2lot63mh3CvcXD+S9Qk=
+SHA256 (Pkgfile) = 4660c302c02d081e62faec5c40bbb54fb90f7f297de74c4d630bf6efbef62534
+SHA256 (.footprint) = 0918cb1472276c18677535c22572eeb27c3cb073cbf6e0ca4a9b9b92c97a13f9
+SHA256 (rustc-1.24.1-src.tar.gz) = 3ea53d45e8d2e9a41afb3340cf54b9745f845b552d802d607707cf04450761ef
+SHA256 (rust-std-1.23.0-x86_64-unknown-linux-gnu.tar.gz) = 83c7351bdc4326caf785c208cff86682825dad4a89ccee705fa05f55ce7bd25b
+SHA256 (rustc-1.23.0-x86_64-unknown-linux-gnu.tar.gz) = 27b124fd0d94c082978ff81e45f7b7c37e91d64714587829bf828d64d76524ee
+SHA256 (cargo-0.24.0-x86_64-unknown-linux-gnu.tar.gz) = ff8a454104aba20426ea898ed7515ec5da7de07d11733cdda17462455beb76e8
 SHA256 (0001-librustc_llvm-build-Force-link-against-libffi.patch) = 563529da8e02f575ddde7247d5fc5350d74031daa54743b86d075f3c45ae2713
