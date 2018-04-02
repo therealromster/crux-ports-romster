@@ -5,18 +5,17 @@
 #llvm
 
 name=rust
-version=1.24.1
+version=1.25.0
 ##cat src/stage0.txt
-_date=2018-01-04
-_rustc=1.23.0
-_cargo=0.24.0
+_date=2018-02-15
+_rustc=1.24.0
+_cargo=0.25.0
 ##
 release=1
 source=(https://static.rust-lang.org/dist/${name}c-$version-src.tar.gz
 	https://static.rust-lang.org/dist/$_date/rust-std-$_rustc-x86_64-unknown-linux-gnu.tar.gz
 	https://static.rust-lang.org/dist/$_date/rustc-$_rustc-x86_64-unknown-linux-gnu.tar.gz
-	https://static.rust-lang.org/dist/$_date/cargo-$_cargo-x86_64-unknown-linux-gnu.tar.gz
-	0001-librustc_llvm-build-Force-link-against-libffi.patch)
+	https://static.rust-lang.org/dist/$_date/cargo-$_cargo-x86_64-unknown-linux-gnu.tar.gz)
  
 build() {
 	cd ${name}c-$version-src
@@ -26,41 +25,46 @@ build() {
 	cp $PKGMK_SOURCE_DIR/rustc-$_rustc-x86_64-unknown-linux-gnu.tar.gz build/cache/$_date/
 	cp $PKGMK_SOURCE_DIR/cargo-$_cargo-x86_64-unknown-linux-gnu.tar.gz build/cache/$_date/
 
-	#patch -p1 -i $SRC/0001-librustc_llvm-build-Force-link-against-libffi.patch
+	if [ ! -e '/usr/bin/rustc' ]; then
+		/usr/bin/python ./x.py build -j ${JOBS-1} --stage 1 src/libtest
+	fi
 
-	/usr/bin/python ./x.py build -j ${JOBS-1} --stage 1 src/libtest
+	echo '[build]' > config.toml
 
-cat <<- EOF > config.toml
-	[build]
-	#cargo = "/usr/bin/cargo"
-	#rustc = "/usr/bin/rustc"
-	cargo = "build/x86_64-unknown-linux-gnu/stage0/bin/cargo"
-	rustc = "build/x86_64-unknown-linux-gnu/stage0/bin/rustc"
-	python = "python2.7"
-	extended = true
-	# Verbosity level: 0 == not verbose, 1 == verbose, 2 == very verbose
-	verbose = 0
-	# Build the sanitizer runtimes
-	#sanitizers = false
+	if [ -e '/usr/bin/rustc' ]; then
+		echo 'cargo = "/usr/bin/cargo"' >> config.toml
+		echo 'rustc = "/usr/bin/rustc"' >> config.toml
+	else
+		echo 'cargo = "build/x86_64-unknown-linux-gnu/stage0/bin/cargo"' >> config.toml
+		echo 'rustc = "build/x86_64-unknown-linux-gnu/stage0/bin/rustc"' >> config.toml
+	fi
 
-	[install]
-	prefix = "/usr"
+	echo 'python = "python2.7"
+extended = true
+# Verbosity level: 0 == not verbose, 1 == verbose, 2 == very verbose
+verbose = 0
+# Build the sanitizer runtimes
+#sanitizers = false
 
-	[rust]
-	codegen-units = 0
-	debuginfo = true
+[install]
+prefix = "/usr"
 
-	# Whether or not line number debug information is emitted
-	#debuginfo-lines = false
+[rust]
+codegen-units = 0
+debuginfo = true
 
-	channel = "stable"
-EOF
+# Whether or not line number debug information is emitted
+#debuginfo-lines = false
+
+channel = "stable"' >> config.toml
+
+cat config.toml
+
 #	[target.x86_64-unknown-linux-gnu]
 #	llvm-config = "/usr/bin/llvm-config"
 
 #	[target.i686-unknown-linux-gnu]
 #	llvm-config = "/usr/bin/llvm-config"
-#EOF
 
 	/usr/bin/python ./x.py build -j ${JOBS-1}
 	DESTDIR=$PKG /usr/bin/python ./x.py install
