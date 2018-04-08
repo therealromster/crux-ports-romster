@@ -4,27 +4,29 @@
 # Depends on: gcc-fortran cmake python
 
 name=lapack
-version=3.7.1
+version=3.8.0
 release=1
-source=(http://www.netlib.org/$name/$name-$version.tgz)
+source=(http://www.netlib.org/$name/$name-$version.tar.gz)
 
 build() {
-	install -d build
+	mkdir build
 	cd build
 
+	export CFLAGS+=' -fPIC'
+
 	cmake ../$name-$version \
-		-DCMAKE_BUILD_TYPE=Release \
-		-DCMAKE_SKIP_RPATH=ON \
-		-DBUILD_SHARED_LIBS=ON \
-		-DBUILD_TESTING=OFF \
+		-DCMAKE_Fortran_FLAGS:STRING="$CFLAGS" \
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DCMAKE_INSTALL_LIBDIR=lib \
-		-DUSE_OPTIMIZED_BLAS=ON \
 		-DCMAKE_Fortran_COMPILER=gfortran \
-		-DLAPACKE=ON \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_SKIP_RPATH=YES \
+		-DUSE_OPTIMIZED_BLAS=ON \
 		-DCBLAS=ON \
-		-DBUILD_DEPRECATED=ON \
-		-Wno-dev
+		-DLAPACKE_WITH_TMG=ON \
+		-DBUILD_SHARED_LIBS=ON \
+		-DBUILD_DEPRECATED=ON
+		#-DCMAKE_VERBOSE_MAKEFILE=TRUE
 
 	make
 	make DESTDIR=$PKG install
