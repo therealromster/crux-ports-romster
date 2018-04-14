@@ -4,7 +4,7 @@
 # Depends:     libxml2 libxslt zlib mbedtls cmake xz zlib libxml2 libxslt mbedtls
 
 name=hiawatha
-version=10.7
+version=10.8.1
 release=1
 source=(https://www.hiawatha-webserver.org/files/$name-$version.tar.gz hiawatha.rc hiawatha-config.patch)
 
