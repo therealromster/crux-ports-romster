@@ -1,0 +1,29 @@
+# Description: SVG rendering library
+# URL: https://wiki.gnome.org/Projects/LibRsvg
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: gdk-pixbuf libcroco rust
+# Optional: gtk-doc gtk3 vala
+
+name=librsvg
+version=2.42.3
+release=1
+source=(https://download.gnome.org/sources/$name/${version:0:4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	[ -e '/usr/lib/pkgconfig/libvala-0.36.pc' ] && PKGMK_LIBRSVG+='--enable-vala '
+	[ -e '/usr/share/pkgconfig/gtk-doc.pc' ] && PKGMK_LIBRSVG+='--enable-gtk-doc '
+
+	CONFIG_SHELL=/bin/bash \
+	./configure $PKGMK_LIBRSVG \
+		--prefix=/usr
+
+	sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' libtool
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/doc
+	[ -e '/usr/share/pkgconfig/gtk-doc.pc' ] || rm -r $PKG/usr/share/gtk-doc
+}
