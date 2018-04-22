@@ -1,7 +1,5 @@
 untrusted comment: verify with /etc/ports/romster.pub
-RWTkjLW3Pe2RUAEpvzFO5ehWwUEwjXJE8qeaAhMdAE4nA2CR5Avyo9khfop3rG3S25tgZ3Moi20r4RByhfxkrF5ehlDXrVN9pwg=
-SHA256 (Pkgfile) = 425ef120a99dfabc87ed188ab8369de0aa9256148c59f54d40c0ed5323660fb2
+RWTkjLW3Pe2RUEQuzh6rsLw/dgZIB4myEGaT1zIdTI2Pn+17t0UAGeRtvxT7Y/cwQ5zUcZ5QGEQN3cxnwZrjDgU9pBZ6HdtXYQQ=
+SHA256 (Pkgfile) = c6c7484ba7d789d3e66f0209b76ab7174be9356dbc1a80ebcbd3a719c68ac00c
 SHA256 (.footprint) = 960ff370b5790ee4bb4b64635626c5512ba9f39ec914834c29d0a39dd050dd0f
-SHA256 (mbedtls-2.7.0-gpl.tgz) = 2c6fe289b4b50bf67b4839e81b07fcf52a19f5129d0241d2aa4d49cb1ef11e4f
-SHA256 (mbedtls-config.patch) = 95a9fbb0950faa465078c12ff54cf5b8209fb03944e65e32e6b516ff456c06ae
-SHA256 (mbedtls-2.7.0-fix-api.patch) = b07cf86d939402e41805fbd1897125d53ce01fd70ee9452da4e2bf5b12a8c6fa
+SHA256 (mbedtls-2.8.0-gpl.tgz) = 649eb27187154590edda52943a7f468e740ec08807e5bf68ff45f4e8ffd68923
