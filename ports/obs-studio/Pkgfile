@@ -4,7 +4,7 @@
 # Depends on: ffmpeg qt5 x264
 
 name=obs-studio
-version=20.1.3
+version=21.1.1
 release=1
 source=(https://github.com/jp9000/$name/archive/$version/$name-$version.tar.gz)
 
