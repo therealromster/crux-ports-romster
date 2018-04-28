@@ -1,7 +1,7 @@
 # Description: Open Broadcaster Software Studio
 # URL: https://obsproject.com/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: ffmpeg qt5 x264
+# Depends on: faac ffmpeg jack-audio-connection-kit jansson qt5 rtmpdump x264
 
 name=obs-studio
 version=21.1.1
@@ -9,16 +9,27 @@ release=1
 source=(https://github.com/jp9000/$name/archive/$version/$name-$version.tar.gz)
 
 build() {
-    cd $name-$version
+	cd $name-$version
 
-    mkdir build
-    cd build
+	chown -R root:root .
+	find -L . \
+		\( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+		-o -perm 511 \) -exec chmod 755 {} \; -o \
+		\( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+		-o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-    cmake .. \
-        -DCMAKE_INSTALL_PREFIX="/usr" \
-        -DUNIX_STRUCTURE=1 \
-        -DOBS_VERSION_OVERRIDE="$version-$release"
+	mkdir build
+	cd build
 
-    make
-    make DESTDIR="$PKG" install
+	cmake .. \
+		-DCMAKE_C_FLAGS:STRING="$CFLAGS" \
+		-DCMAKE_CXX_FLAGS:STRING="$CXXFLAGS" \
+		-DCMAKE_INSTALL_PREFIX='/usr' \
+		-DOBS_VERSION_OVERRIDE="$version-$release" \
+		-DUNIX_STRUCTURE=ON \
+		-DUSE_SSL=ON \
+		-DCMAKE_BUILD_TYPE=Release
+
+	make
+	make DESTDIR="$PKG" install
 }
