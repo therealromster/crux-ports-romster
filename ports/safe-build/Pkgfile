@@ -1,15 +1,11 @@
 # Description: Chroot wrapper, to build ports in a safe environment.
 # URL: http://romster.shortcircuit.net.au/crux/projects/safe-build/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on:
-
-# Core: coreutils pkgutils sed
 
 name=safe-build
 version=0.0.1b4
 release=1
-source=(http://romster.dyndns.org/distfiles/safe_build-$version.tar.bz2)
+source=(https://crux.ster.zone/downloads/safe_build/safe_build-$version.tar.bz2)
 
 build() {
 	cd safe_build-$version

@@ -1,25 +1,26 @@
 # Description: Array processing for numbers, strings, records, and objects with Python.
 # URL: http://numpy.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: lapack setuptools
 
-name=numpy
-version=1.11.2
+name=python-numpy
+version=1.14.4
 release=1
-#source=(http://pypi.python.org/packages/source/n/$name/$name-$version.tar.gz)
-source=(https://pypi.python.org/packages/16/f5/b432f028134dd30cfbf6f21b8264a9938e5e0f75204e72453af08d67eb0b/numpy-1.11.2.tar.gz)
-# https://github.com/numpy/numpy/archive/v1.11.2.tar.gz
+source=(https://github.com/numpy/numpy/releases/download/v$version/numpy-$version.tar.gz)
 
 build() {
 	export CFLAGS+=' -fno-strict-aliasing'
 	export ATLAS=None
 	export LDFLAGS="$LDFLAGS -shared"
 
-	cd $name-$version
+	cd numpy-$version
 
 	/usr/bin/python setup.py config_fc --fcompiler=gnu95 build
 
 	/usr/bin/python setup.py config_fc --fcompiler=gnu95 install \
 		--prefix=/usr --root="$PKG" --optimize=1
+
+	rm $PKG/usr/lib/python2.7/site-packages/numpy/LICENSE.txt
+
+	chmod -R g-w $PKG
 }
