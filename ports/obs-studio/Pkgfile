@@ -4,7 +4,7 @@
 # Depends on: faac ffmpeg jack-audio-connection-kit jansson qt5 rtmpdump x264
 
 name=obs-studio
-version=21.1.1
+version=23.0.1
 release=1
 source=(https://github.com/jp9000/$name/archive/$version/$name-$version.tar.gz)
 
