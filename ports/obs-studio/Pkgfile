@@ -1,7 +1,10 @@
 # Description: Open Broadcaster Software Studio
 # URL: https://obsproject.com/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: faac ffmpeg jack-audio-connection-kit jansson qt5 rtmpdump x264
+# Depends on: fdk-aac ffmpeg jansson libgmp qt5 x264
+# Optional: jack-audio-connection-kit ffnvcodec-headers vlc luajit speexdsp x265 pulseaudio
+
+## ffmpeg deps: fdk-aac ffnvcodec-headers x264
 
 name=obs-studio
 version=23.0.1
@@ -25,11 +28,18 @@ build() {
 		-DCMAKE_C_FLAGS:STRING="$CFLAGS" \
 		-DCMAKE_CXX_FLAGS:STRING="$CXXFLAGS" \
 		-DCMAKE_INSTALL_PREFIX='/usr' \
-		-DOBS_VERSION_OVERRIDE="$version-$release" \
+		-DOBS_VERSION_OVERRIDE="$version" \
 		-DUNIX_STRUCTURE=ON \
-		-DUSE_SSL=ON \
 		-DCMAKE_BUILD_TYPE=Release
 
 	make
 	make DESTDIR="$PKG" install
+
+	rm -r $PKG/usr/share/obs/obs-studio/authors/AUTHORS
+
+	find $PKG/usr/share/obs \
+		-iname '*ini' \
+		! -iname 'en-*.ini' \
+		! -iname 'locale.ini' \
+		-exec rm '{}' \+
 }
