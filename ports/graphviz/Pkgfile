@@ -1,16 +1,18 @@
 # Description: Graphviz is open source graph visualization software.
 # URL: http://www.graphviz.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Daryl Fonsecq-Holt, wyatt at prairieturtle dot ca
 # Depends on: libgd pango
 
 name=graphviz
 version=2.40.1
 release=1
-source=(https://www.graphviz.org/pub/$name/stable/SOURCES/$name-$version.tar.gz)
+source=(https://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
+	ghostscript918.patch)
 
 build() {
 	cd $name-$version
+
+	patch -p1 -i $SRC/ghostscript918.patch
 
 	./configure --prefix=/usr
 	make
