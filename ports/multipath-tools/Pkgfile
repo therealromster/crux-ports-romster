@@ -1,34 +1,37 @@
 # Description: A device-mapper autoconfig for creating and accessing LU (Logical Units).
 # URL: http://christophe.varoqui.free.fr/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Mattias Hedenskog, mattias at hedenskog dot se
-# Depends on: udev libdevmapper libaio
+# Depends on: liburcu libdevmapper libaio json-c
 
 name=multipath-tools
-version=0.4.8
-release=2
-up2date_url="http://christophe.varoqui.free.fr/$name/"
-source=(http://christophe.varoqui.free.fr/$name/$name-$version.tar.bz2)
+version=0.8.0
+release=1
+source=("https://git.opensvc.com/?p=multipath-tools/.git;a=snapshot;h=${version};sf=tgz")
 
-_filter="egrep -v '(sw|start|tools.20080109)' | "
-_up2date_timeout='--connect-timeout 10 --max-time 20 '
-up2date="curl --silent $_up2date_timeout \
-	'$up2date_url' | \
-	sed -ne 's/.*<[A|a].*[HREF|href]=\"\([^\"]*\).*\".*/\1/p' | \
-	sed -ne 's|^.*[-_]\(.*\).*\.t.*$|\1|p' | $_filter \
-	sort | uniq | tail -n 1"
+unpack_source() {
+	for file in ${source[@]}; do
+		case ${file##*/} in
+			*)
+			bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+		esac
+	done
+}
 
 build() { 
-	cd $name-$version
+	cd $name-$version-*
 
-	sed -i \
-		-e 's|/usr/share/man|/usr/man|' \
-		-e '/^OPTFLAGS.*=.*$/s/$/ -D_FILE_OFFSET_BITS=64/' \
-		Makefile.inc
+	sed \
+		-e "s/libcheckrbd.so/# libcheckrbd.so/" \
+		-e "s/-lrados//" \
+		-i libmultipath/checkers/Makefile
 
-	install -d $PKG/sbin
-	make -j 1
-	make DESTDIR=$PKG install
-	mv $PKG/etc/udev/rules.d $PKG/lib/udev/rules.d
-	rmdir $PKG/etc/init.d
+	make
+
+	make \
+		DESTDIR=$PKG \
+		exec_prefix=/usr \
+		LIB=/usr/lib \
+		libudevdir=/lib/udev \
+		udevrulesdir=/lib/udev/rules.d  \
+		install
 }
