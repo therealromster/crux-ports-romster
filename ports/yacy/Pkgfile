@@ -1,13 +1,12 @@
 # Description: P2P application for web searching.
-# URL: http://yacy.net/
+# URL: https://yacy.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: ant
 
 name=yacy
-version=0.99
+version=1.92
 release=1
-source=(http://www.yacy.net/release/${name}_v${version}_20101105_7309.tar.gz
+source=(https://yacy.net/release/yacy_v1.92_20161226_9000.tar.gz
 	yacy-start.sh yacy-stop.sh yacy.rc)
 
 build() {
@@ -31,13 +30,12 @@ build() {
 	rm $PKG/usr/lib/yacy/addon/Notepad++/Readme.txt \
 		$PKG/usr/lib/yacy/defaults/yacy.network.readme \
 		$PKG/usr/lib/yacy/gpl.txt \
-		$PKG/usr/lib/yacy/readme.txt \
 		$PKG/usr/lib/yacy/addon/yacyInit.readme \
 		$PKG/usr/lib/yacy/startYACY.bat \
 		$PKG/usr/lib/yacy/startYACY_debug.bat \
 		$PKG/usr/lib/yacy/stopYACY.bat \
 		$PKG/usr/lib/yacy/addon/YaCy-Search.bat \
-		$PKG/usr/lib/yacy/{AUTHORS,COPYRIGHT,ChangeLog,NOTICE}
+		$PKG/usr/lib/yacy/{AUTHORS,COPYRIGHT,NOTICE}
 
 	# move cache directory
 	install -d $PKG/var/cache/yacy
@@ -49,10 +47,10 @@ build() {
 
 	# move configuration files
 	install -d $PKG/etc/yacy
-	local files='yacy.logging yacy.stopwords yacy.yellow'
+	local files='yacy.logging yacy.stopwords'
 
 	for file in $files; do
-		mv $PKG/usr/lib/yacy/$file $PKG/etc/yacy/$file
+		mv $PKG/usr/lib/yacy/defaults/$file $PKG/etc/yacy/$file
 		chown root:yacy $PKG/etc/yacy/$file
 		chmod 0640 $PKG/etc/yacy/$file
 		ln -s /etc/yacy/$file $PKG/usr/lib/yacy/$file
