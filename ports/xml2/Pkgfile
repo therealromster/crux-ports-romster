@@ -1,29 +1,25 @@
 # Description: These tools are used to convert XML and HTML to and from a line-oriented format.
 # URL: http://dan.egnor.name/xml2/
-# Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
 # Depends on: libxml2
 
 name=xml2
 version=0.5
 release=1
-source="http://download.ofb.net/gale/$name-$version.tar.gz"
+source=(http://http.debian.net/debian/pool/main/x/$name/${name}_$version.orig.tar.gz)
 
 build() {
 	cd $name-$version
 
-	./configure \
-		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-dependency-tracking
+	./configure --prefix=/usr
 
 	make
 	make DESTDIR=$PKG install
 
-	rm \
-		$PKG/usr/bin/2html \
-		$PKG/usr/bin/html2
-
-	ln -sf /usr/bin/xml2 $PKG/usr/bin/html2
-	ln -sf /usr/bin/2xml $PKG/usr/bin/2html
+	(
+		cd $PKG/usr/bin
+		rm 2html html2
+		ln -s xml2 html2
+		ln -s 2xml 2html
+	)
 }
