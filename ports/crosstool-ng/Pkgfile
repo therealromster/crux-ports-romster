@@ -1,23 +1,23 @@
 # Description: crosstool-NG aims at building toolchains.
-# URL: http://crosstool-ng.org/
+# URL: https://crosstool-ng.github.io/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Alex Kostrewa, alexko256 at googlemail dot com
 # Depends on: gperf help2man texinfo
 
 name=crosstool-ng
-version=1.22.0
+version=1.24.0
 release=1
 source=(http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-$version.tar.xz)
 
 build() {
-	cd $name
+	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
-		--libdir=/usr/lib/ct-ng
+		--libexecdir=/usr/lib
 
 	make
-	make -j 1 DESTDIR=$PKG install
+	make DESTDIR=$PKG install
 
 	rm -r $PKG/usr/share/doc
+	rm $PKG/usr/share/crosstool-ng/{COPYING,/contrib/gcc-test-suite/README,/scripts/upgrade/README}
 }
