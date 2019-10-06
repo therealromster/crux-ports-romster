@@ -1,0 +1,26 @@
+# Description: Utility to flash firmwares on Samsung Galaxy S devices
+# URL: https://gitlab.com/BenjaminDobell/Heimdall
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: cmake
+# Optional: qt5
+
+name=heimdall
+version=1.4.2
+release=1
+source=(https://gitlab.com/BenjaminDobell/Heimdall/-/archive/v$version/Heimdall-v$version.tar.bz2)
+
+build() {
+	cd Heimdall-v$version
+	mkdir build
+	cd build
+	cmake .. \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DDISABLE_FRONTEND="$(prt-get isinst qt5 >/dev/null && echo OFF || echo ON)"
+
+	make
+
+	install -d $PKG/usr/bin
+	install -Dm755 bin/* $PKG/usr/bin/
+	install -Dm644 ../heimdall/60-heimdall.rules $PKG/usr/lib/udev/rules.d/60-heimdall.rules
+}
