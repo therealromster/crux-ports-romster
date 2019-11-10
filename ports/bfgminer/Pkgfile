@@ -3,7 +3,7 @@
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: LexsZero, lexszero at gmail dot com
 # Depends on: jansson libevent lm_sensors uthash yasm libmicrohttpd
-# Optional: opencl-nvidia
+# Optional: opencl-headers nvidia
 
 name=bfgminer
 version=5.5.0
