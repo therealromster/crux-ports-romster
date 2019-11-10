@@ -2,20 +2,22 @@
 # URL: http://bfgminer.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: LexsZero, lexszero at gmail dot com
-# Depends on: uthash jansson ncurses yasm opencl-headers
+# Depends on: jansson libevent lm_sensors uthash yasm libmicrohttpd
+# Optional: opencl-nvidia
 
 name=bfgminer
-version=5.1.0
+version=5.5.0
 release=1
-source=(http://luke.dashjr.org/programs/bitcoin/files/bfgminer/$version/$name-$version.zip)
+source=(https://luke.dashjr.org/programs/bitcoin/files/$name/$version/$name-$version.txz
+	remove-dangerous-rpath.patch)
 
 build() {
-	#https://github.com/luke-jr/bfgminer
 	cd $name-$version
+
+	patch -p1 -i $SRC/remove-dangerous-rpath.patch
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
 		--enable-cpumining \
 		--enable-scrypt \
 		--enable-opencl

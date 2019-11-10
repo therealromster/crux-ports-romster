@@ -15,17 +15,17 @@ drwxr-xr-x	root/root	usr/include/libblkmaker-0.1/
 -rw-r--r--	root/root	usr/include/libblkmaker-0.1/blktemplate.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libbase58.la
-lrwxrwxrwx	root/root	usr/lib/libbase58.so -> libbase58.so.0.0.1
-lrwxrwxrwx	root/root	usr/lib/libbase58.so.0 -> libbase58.so.0.0.1
--rwxr-xr-x	root/root	usr/lib/libbase58.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libbase58.so -> libbase58.so.0.0.2
+lrwxrwxrwx	root/root	usr/lib/libbase58.so.0 -> libbase58.so.0.0.2
+-rwxr-xr-x	root/root	usr/lib/libbase58.so.0.0.2
 -rwxr-xr-x	root/root	usr/lib/libblkmaker-0.1.la
-lrwxrwxrwx	root/root	usr/lib/libblkmaker-0.1.so -> libblkmaker-0.1.so.6.0.1
-lrwxrwxrwx	root/root	usr/lib/libblkmaker-0.1.so.6 -> libblkmaker-0.1.so.6.0.1
--rwxr-xr-x	root/root	usr/lib/libblkmaker-0.1.so.6.0.1
+lrwxrwxrwx	root/root	usr/lib/libblkmaker-0.1.so -> libblkmaker-0.1.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/libblkmaker-0.1.so.8 -> libblkmaker-0.1.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/libblkmaker-0.1.so.8.0.0
 -rwxr-xr-x	root/root	usr/lib/libblkmaker_jansson-0.1.la
-lrwxrwxrwx	root/root	usr/lib/libblkmaker_jansson-0.1.so -> libblkmaker_jansson-0.1.so.6.0.1
-lrwxrwxrwx	root/root	usr/lib/libblkmaker_jansson-0.1.so.6 -> libblkmaker_jansson-0.1.so.6.0.1
--rwxr-xr-x	root/root	usr/lib/libblkmaker_jansson-0.1.so.6.0.1
+lrwxrwxrwx	root/root	usr/lib/libblkmaker_jansson-0.1.so -> libblkmaker_jansson-0.1.so.8.0.0
+lrwxrwxrwx	root/root	usr/lib/libblkmaker_jansson-0.1.so.8 -> libblkmaker_jansson-0.1.so.8.0.0
+-rwxr-xr-x	root/root	usr/lib/libblkmaker_jansson-0.1.so.8.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libbase58.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libblkmaker_jansson-0.1.pc
