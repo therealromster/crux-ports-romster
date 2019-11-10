@@ -1,0 +1,28 @@
+# Description: A library for creating an embedded HTTP server
+# URL: https://www.gnu.org/software/libmicrohttpd/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: gnutls
+
+name=libmicrohttpd
+version=0.9.68
+release=1
+source=(https://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--disable-dependency-tracking \
+		--disable-examples \
+		--enable-curl \
+		--enable-https \
+		--enable-largefile \
+		--enable-messages \
+		--with-pic
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/info
+}
