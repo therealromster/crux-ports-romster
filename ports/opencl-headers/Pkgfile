@@ -1,0 +1,29 @@
+# Description: OpenCL (Open Computing Language) header files
+# URL: https://www.khronos.org/registry/cl/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: python3
+
+name=opencl-headers
+version=2.2.20170516
+release=1
+source=(https://github.com/KhronosGroup/OpenCL-Headers/archive/ec2566b59dbd907e8ce223ed2b931d42e703c05b.zip
+	https://github.com/KhronosGroup/OpenCL-CLHPP/archive/e250e2e83bfdeb330ae9a9a9bb82eebf31c11df2.zip)
+
+build() {
+	cd OpenCL-Headers-ec2566b59dbd907e8ce223ed2b931d42e703c05b/opencl22/CL
+
+	install -dm755 $PKG/usr/include/CL
+
+	for h in *.h; do
+		install -m 644 $h $PKG/usr/include/CL/
+	done
+
+	# remove useless headers
+	rm $PKG/usr/include/CL/{cl_d3d,cl_dx9}*.h
+
+	cd $SRC/OpenCL-CLHPP-e250e2e83bfdeb330ae9a9a9bb82eebf31c11df2
+
+	/usr/bin/python3 gen_cl_hpp.py -i input_cl.hpp -o cl.hpp
+	install -m 644 cl.hpp $PKG/usr/include/CL/
+	install -m 644 input_cl2.hpp $PKG/usr/include/CL/cl2.hpp
+}
