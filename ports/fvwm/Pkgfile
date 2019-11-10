@@ -2,24 +2,25 @@
 # URL: http://www.fvwm.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Evgeny Kozhemyakin, evg at net21 dot ru
-# Depends on: imlib2
+# Depends on: librsvg python3-pyxdg xorg-libxcursor xorg-libxinerama xorg-libxpm
 
 name=fvwm
-version=2.6.4
+version=2.6.9
 release=1
-source=(ftp://ftp.fvwm.org/pub/fvwm/version-2/$name-$version.tar.bz2)
+source=(https://github.com/fvwmorg/fvwm/releases/download/$version/$name-$version.tar.gz
+	fvwm.desktop)
 
 build() {
 	cd $name-$version
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
 		--libexecdir=/usr/lib \
 		--disable-gtk \
 		--disable-nls
 
 	make
 	make DESTDIR=$PKG install
-	rm -r $PKG/usr/share/doc
+
+	install -D -m644 $SRC/fvwm.desktop $PKG/usr/share/xsessions/fvwm.desktop
 }
