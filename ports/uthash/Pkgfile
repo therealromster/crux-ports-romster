@@ -1,12 +1,12 @@
-# Description: A hash library implemented in C.
+# Description: C preprocessor implementations of a hash table and a linked list
 # URL: http://troydhanson.github.io/uthash/index.html
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Younes Hafri, ycrux at club-internet dot fr
 
 name=uthash
-version=1.9.9
+version=2.1.0
 release=1
-source=(https://github.com/troydhanson/uthash/archive/v$version.tar.gz)
+source=(https://github.com/troydhanson/$name/archive/v$version/$name-v$version.tar.gz)
 
 build() {
 	cd $name-$version/src
