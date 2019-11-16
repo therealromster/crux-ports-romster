@@ -1,6 +1,8 @@
 drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/oidentd.conf
 -rw-r--r--	root/root	etc/oidentd_masq.conf
+drwxr-xr-x	root/root	etc/rc.d/
+-rwxr-xr--	root/root	etc/rc.d/oidentd
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/oidentd

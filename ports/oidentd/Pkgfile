@@ -19,5 +19,5 @@ build() {
 	make
 	make DESTDIR=$PKG install
 
-	install -m 0754 -D $SRC/identd.rc $PKG/etc/rc.d/identd
+	install -m 0754 -D $SRC/oidentd.rc $PKG/etc/rc.d/oidentd
 }
