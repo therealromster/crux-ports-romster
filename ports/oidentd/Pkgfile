@@ -1,0 +1,23 @@
+# Description: An RFC1413 compliant ident daemon
+# URL: https://oidentd.janikrabe.com/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: libnetfilter_conntrack
+
+name=oidentd
+version=2.4.0
+release=1
+source=(https://files.janikrabe.com/pub/oidentd/releases/$version/$name-$version.tar.xz
+	oidentd.rc)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+
+	make
+	make DESTDIR=$PKG install
+
+	install -m 0754 -D $SRC/identd.rc $PKG/etc/rc.d/identd
+}
