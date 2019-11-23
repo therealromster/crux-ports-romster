@@ -1,0 +1,23 @@
+# Description: Colored command-line hex viewer
+# URL: https://github.com/sharkdp/hexyl
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: rust
+# Optional: sccache
+
+name=hexyl
+version=0.6.0
+release=1
+source=(https://github.com/sharkdp/$name/archive/v$version/$name-v$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	prt-get isinst sccache && export RUSTC_WRAPPER=/usr/bin/sccache
+	mkdir "$PKGMK_SOURCE_DIR/rust" || true
+	export CARGO_HOME="$PKGMK_SOURCE_DIR/rust"
+
+	cargo fetch
+	cargo build --release --locked
+	cargo install --locked --path . --root $PKG/usr
+	rm $PKG/usr/.crates.toml
+}
