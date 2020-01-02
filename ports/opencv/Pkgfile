@@ -1,0 +1,64 @@
+# Description: Open Source Computer Vision Library
+# URL: https://opencv.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: ffmpeg gst-plugins-base gtk3 jasper libwebp v41-utils
+
+name=opencv
+version=4.2.0
+release=1
+source=(https://github.com/$name/$name/archive/$version/$name-$version.tar.gz
+	https://github.com/$name/opencv_contrib/archive/$version/opencv_contrib-$version.tar.gz
+
+	# src/opencv-4.2.0/3rdparty/ippicv/ippicv.cmake
+	https://raw.githubusercontent.com/opencv/opencv_3rdparty/32e315a5b106a7b89dbed51c28f8120a48b368b4/ippicv/ippicv_2019_lnx_intel64_general_20180723.tgz
+
+	opencv-includedir.patch)
+
+unpack_source() {
+	for file in ${source[@]}; do
+		case ${file##*/} in
+			opencv-$version.tar.gz|\
+			opencv_contrib-$version.tar.gz)
+				bsdtar -p -o -C $SRC -xf $(get_filename $file) ;;
+			*)
+				cp $(get_filename $file) $SRC ;;
+		esac
+	done
+}
+
+build() {
+	local ipp_dir="$name-$version/.cache/ippicv"
+	local ipp_file='ippicv_2019_lnx_intel64_general_20180723.tgz'
+	local ipp_hash="$(md5sum $SRC/$ipp_file | cut -d' ' -f1)"
+	
+	mkdir -p $ipp_dir
+	cp $SRC/$ipp_file $name-$version/.cache/ippicv/$ipp_hash-$ipp_file
+
+	# Fix wrong include patch in pkgconfig file
+        patch -d $name-$version -p1 -i $SRC/opencv-includedir.patch
+
+	mkdir build
+        cd build
+
+	cmake ../$name-$version \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib \
+		-DOPENCV_EXTRA_MODULES_PATH=$SRC/opencv_contrib-$version/modules \
+		-DOPENCV_GENERATE_PKGCONFIG=ON \
+		-DOPENCV_GENERATE_SETUPVARS=OFF \
+		-DBUILD_PERF_TESTS=OFF \
+		-DBUILD_TESTS=OFF \
+		-DENABLE_PRECOMPILED_HEADERS=OFF \
+		-DBUILD_WITH_DEBUG_INFO=OFF \
+		-DBUILD_EXAMPLES=OFF \
+		-DINSTALL_C_EXAMPLES=OFF \
+		-DINSTALL_PYTHON_EXAMPLES=OFF \
+		-DWITH_XINE=OFF \
+		-Wno-dev
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/licenses
+}
