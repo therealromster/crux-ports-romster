@@ -4,16 +4,18 @@
 # Depends on: libgd pango
 
 name=graphviz
-version=2.40.1
+version=2.42.3
 release=1
 source=(https://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
 	ghostscript918.patch)
 
 build() {
-	cd $name-$version
+#	cd $name-$version
+	cd graphviz-2.40.1
 
 	patch -p1 -i $SRC/ghostscript918.patch
-
+	./autogen.sh
+	export CXXFLAGS+=' -fPIC -fpermissive'
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
