@@ -1,31 +1,24 @@
 # Description: Window manager: speed, simplicity, and not getting in the user's way.
-# URL: http://www.icewm.org/
+# URL: http://www.ice-wm.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Han Boetes, han at mijncomputer dot nl
-# Depends on: gdk-pixbuf util-linux xorg-libsm xorg-libxft xorg-libxinerama xorg-libxrandr
+# Depends on: libao librsvg libsndfile xorg-libxcomposite xorg-libxdamage xorg-libxinerama xorg-libxpm xorg-libxrandr xorg-mkfontscale
 
 name=icewm
-version=1.3.8
+version=1.6.4
 release=1
-source=(http://downloads.sourceforge.net/project/icewm/icewm-1.3/$version/$name-$version.tar.gz
-	ignore_workarea_hints.patch
-	icewm-cpustatus.patch
-	icewm-1.3.8-shutdown-reboot-command.patch
-	icewm-1.3.8-remain_power.patch)
+source=(https://github.com/ice-wm/icewm/releases/download/$version/$name-$version.tar.lz)
 
 build() {
 	cd $name-$version
 
-	patch -p1 -i $SRC/ignore_workarea_hints.patch
-	patch -p2 -i $SRC/icewm-cpustatus.patch
-	patch -p1 -i $SRC/icewm-1.3.8-shutdown-reboot-command.patch
-	patch -p1 -i $SRC/icewm-1.3.8-remain_power.patch
-
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
+		--sysconfdir=/etc \
 		--disable-nls
 
 	make
 	make DESTDIR=$PKG install
+
+	# asciidoctor
+	rm -rf $PKG/usr/share/doc
 }
