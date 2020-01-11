@@ -1,0 +1,18 @@
+# Description: Adwaita Icon Theme
+# URL:         https://git.gnome.org/browse/adwaita-icon-theme/
+# Maintainer:  Danny Rawlins, crux at romster dot me
+# Depends On:  librsvg
+
+name=adwaita-icon-theme
+version=3.34.3
+release=1
+source=(https://ftp.gnome.org/pub/gnome/sources/$name/${version:0:4}/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	make
+	make install DESTDIR=$PKG
+}
