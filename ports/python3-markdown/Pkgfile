@@ -1,0 +1,16 @@
+# Description: Python implementation of John Gruber's Markdown.
+# URL: https://python-markdown.github.io/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: python3-yaml
+
+name=python3-markdown
+_name=Markdown
+version=3.1.1
+release=1
+source=(https://files.pythonhosted.org/packages/source/${_name:0:1}/$_name/$_name-$version.tar.gz)
+
+build() {
+	cd $_name-$version
+	/usr/bin/python3 setup.py build
+	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}
