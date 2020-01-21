@@ -1,0 +1,20 @@
+# Description:  Bittorrent client programmed in C++ / Qt that uses libtorrent
+# URL:          https://www.qbittorrent.org/
+# Maintainer:   Danny Rawlins, crux at romster dot me
+# Depends on:   qt5 libtorrent-rasterbar xdg-utils
+
+name=qbittorrent
+version=4.2.1
+release=1
+source=(https://github.com/qbittorrent/qBittorrent/archive/release-${version}.tar.gz)
+
+build() {
+        cd qBittorrent-release-${version}
+
+        ./configure --prefix=/usr
+        make
+        make INSTALL_ROOT=${PKG} install
+
+        # remove group write permissions
+        #find ${PKG} -type f -a -perm -g+w | xargs chmod g-w
+}
