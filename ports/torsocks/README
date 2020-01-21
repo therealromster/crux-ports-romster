@@ -1,0 +1,13 @@
+README for torsocks
+
+REQUIREMENTS
+    We do not depend on tor which might be running on a different box.
+    But if we do not have running tor instance on a different box, then
+    we must install it.
+
+PRECAUTION
+    If you have added some specific settings to /etc/tor/torsocks.conf
+    and want to prevent the loss of your data upon update, make sure
+    you edited /etc/pkgadd.conf and added the following line:
+
+    UPGRADE         ^etc/tor/torsocks.conf$         NO
