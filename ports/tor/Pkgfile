@@ -1,0 +1,66 @@
+# Description: Tor is a anonymous network and proxy
+# URL: http://www.torproject.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: libevent openssl zlib
+
+name=tor
+version=0.4.2.5
+release=1
+source=(https://www.torproject.org/dist/tor-$version.tar.gz
+        tor.rc)
+
+build() {
+        cd $name-$version
+
+        # fix for find: The relative path `~/bin' is included in the PATH
+        # environment variable, which is insecure in combination with the
+        # -execdir action of find. Please remove that entry from $PATH
+        PATH=$(echo ${PATH} | awk -v RS=: -v ORS=: '/~/ {next} {print}' | sed 's/:*$//')
+
+        ./configure                 \
+            --prefix=/usr           \
+            --sysconfdir=/etc       \
+            --localstatedir="/var"  \
+            --enable-system-torrc   \
+            --disable-libfuzzer     \
+            --disable-rust
+
+        make
+        make DESTDIR=$PKG install
+
+        # data
+        install -d $PKG/var/lib/tor
+        chown tor:tor $PKG/var/lib/tor
+        touch \
+            $PKG/var/lib/tor/cached-certs \
+            $PKG/var/lib/tor/cached-consensus \
+            $PKG/var/lib/tor/cached-descriptors \
+            $PKG/var/lib/tor/cached-descriptors.new \
+            $PKG/var/lib/tor/cached-routers.new \
+            $PKG/var/lib/tor/state
+        find $PKG/var/lib/tor/ -type f -execdir chown tor:tor {} \; -execdir chmod 0600 {} \;
+
+        # configuration
+        mv $PKG/etc/tor/torrc.sample $PKG/etc/tor/torrc
+        sed -i -e 's|^#RunAsDaemon 1$|RunAsDaemon 1|'           \
+               -e 's|^#Log notice file /|Log notice file /|'    \
+               -e 's|^#DataDirectory /|DataDirectory /|'        \
+               $PKG/etc/tor/torrc
+
+        find $PKG/etc/tor/ -type f -exec chown root:tor {} \; -execdir chmod 0640 {} \;
+
+        # programs
+        find $PKG/usr/bin -type f -execdir chown root:tor {} \; -execdir chmod 0750 {} \;
+
+        # logs
+        install -d $PKG/var/log/tor
+        chown tor:tor $PKG/var/log/tor
+        touch $PKG/var/log/tor/notices.log
+        find $PKG/var/log/tor/ -type f -exec chown tor:tor {} \; -execdir chmod 0640 {} \;
+
+        # service
+        install -m 0750 -D $SRC/tor.rc $PKG/etc/rc.d/tor
+
+        # docs
+        rm -r $PKG/usr/share/doc
+}
