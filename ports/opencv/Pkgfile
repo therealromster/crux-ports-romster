@@ -1,7 +1,7 @@
 # Description: Open Source Computer Vision Library
 # URL: https://opencv.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: ffmpeg gst-plugins-base gtk3 jasper libwebp v41-utils
+# Depends on: ffmpeg gst-plugins-base gtk3 jasper libwebp
 
 name=opencv
 version=4.2.0
