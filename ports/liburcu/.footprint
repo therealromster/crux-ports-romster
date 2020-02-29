@@ -11,18 +11,26 @@ drwxr-xr-x	root/root	usr/include/urcu/
 -rw-r--r--	root/root	usr/include/urcu/arch.h
 drwxr-xr-x	root/root	usr/include/urcu/arch/
 -rw-r--r--	root/root	usr/include/urcu/arch/generic.h
+-rw-r--r--	root/root	usr/include/urcu/call-rcu.h
 -rw-r--r--	root/root	usr/include/urcu/cds.h
 -rw-r--r--	root/root	usr/include/urcu/compiler.h
 -rw-r--r--	root/root	usr/include/urcu/config.h
 -rw-r--r--	root/root	usr/include/urcu/debug.h
+-rw-r--r--	root/root	usr/include/urcu/defer.h
+-rw-r--r--	root/root	usr/include/urcu/flavor.h
 -rw-r--r--	root/root	usr/include/urcu/futex.h
 -rw-r--r--	root/root	usr/include/urcu/hlist.h
 -rw-r--r--	root/root	usr/include/urcu/lfstack.h
 -rw-r--r--	root/root	usr/include/urcu/list.h
 drwxr-xr-x	root/root	usr/include/urcu/map/
+-rw-r--r--	root/root	usr/include/urcu/map/clear.h
 -rw-r--r--	root/root	usr/include/urcu/map/urcu-bp.h
+-rw-r--r--	root/root	usr/include/urcu/map/urcu-mb.h
+-rw-r--r--	root/root	usr/include/urcu/map/urcu-memb.h
 -rw-r--r--	root/root	usr/include/urcu/map/urcu-qsbr.h
+-rw-r--r--	root/root	usr/include/urcu/map/urcu-signal.h
 -rw-r--r--	root/root	usr/include/urcu/map/urcu.h
+-rw-r--r--	root/root	usr/include/urcu/pointer.h
 -rw-r--r--	root/root	usr/include/urcu/rcuhlist.h
 -rw-r--r--	root/root	usr/include/urcu/rculfhash.h
 -rw-r--r--	root/root	usr/include/urcu/rculfqueue.h
@@ -31,11 +39,15 @@ drwxr-xr-x	root/root	usr/include/urcu/map/
 -rw-r--r--	root/root	usr/include/urcu/ref.h
 drwxr-xr-x	root/root	usr/include/urcu/static/
 -rw-r--r--	root/root	usr/include/urcu/static/lfstack.h
+-rw-r--r--	root/root	usr/include/urcu/static/pointer.h
 -rw-r--r--	root/root	usr/include/urcu/static/rculfqueue.h
 -rw-r--r--	root/root	usr/include/urcu/static/rculfstack.h
 -rw-r--r--	root/root	usr/include/urcu/static/urcu-bp.h
--rw-r--r--	root/root	usr/include/urcu/static/urcu-pointer.h
+-rw-r--r--	root/root	usr/include/urcu/static/urcu-common.h
+-rw-r--r--	root/root	usr/include/urcu/static/urcu-mb.h
+-rw-r--r--	root/root	usr/include/urcu/static/urcu-memb.h
 -rw-r--r--	root/root	usr/include/urcu/static/urcu-qsbr.h
+-rw-r--r--	root/root	usr/include/urcu/static/urcu-signal.h
 -rw-r--r--	root/root	usr/include/urcu/static/urcu.h
 -rw-r--r--	root/root	usr/include/urcu/static/wfcqueue.h
 -rw-r--r--	root/root	usr/include/urcu/static/wfqueue.h
@@ -47,7 +59,13 @@ drwxr-xr-x	root/root	usr/include/urcu/static/
 drwxr-xr-x	root/root	usr/include/urcu/uatomic/
 -rw-r--r--	root/root	usr/include/urcu/uatomic/generic.h
 -rw-r--r--	root/root	usr/include/urcu/uatomic_arch.h
+-rw-r--r--	root/root	usr/include/urcu/urcu-bp.h
 -rw-r--r--	root/root	usr/include/urcu/urcu-futex.h
+-rw-r--r--	root/root	usr/include/urcu/urcu-mb.h
+-rw-r--r--	root/root	usr/include/urcu/urcu-memb.h
+-rw-r--r--	root/root	usr/include/urcu/urcu-qsbr.h
+-rw-r--r--	root/root	usr/include/urcu/urcu-signal.h
+-rw-r--r--	root/root	usr/include/urcu/urcu.h
 -rw-r--r--	root/root	usr/include/urcu/urcu_ref.h
 -rw-r--r--	root/root	usr/include/urcu/wfcqueue.h
 -rw-r--r--	root/root	usr/include/urcu/wfqueue.h
@@ -55,39 +73,44 @@ drwxr-xr-x	root/root	usr/include/urcu/uatomic/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/liburcu-bp.a
 -rwxr-xr-x	root/root	usr/lib/liburcu-bp.la
-lrwxrwxrwx	root/root	usr/lib/liburcu-bp.so -> liburcu-bp.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/liburcu-bp.so.6 -> liburcu-bp.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/liburcu-bp.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-bp.so -> liburcu-bp.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-bp.so.5 -> liburcu-bp.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu-bp.so.5.1.0
 -rw-r--r--	root/root	usr/lib/liburcu-cds.a
 -rwxr-xr-x	root/root	usr/lib/liburcu-cds.la
-lrwxrwxrwx	root/root	usr/lib/liburcu-cds.so -> liburcu-cds.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/liburcu-cds.so.6 -> liburcu-cds.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/liburcu-cds.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-cds.so -> liburcu-cds.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-cds.so.5 -> liburcu-cds.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu-cds.so.5.1.0
 -rw-r--r--	root/root	usr/lib/liburcu-common.a
 -rwxr-xr-x	root/root	usr/lib/liburcu-common.la
-lrwxrwxrwx	root/root	usr/lib/liburcu-common.so -> liburcu-common.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/liburcu-common.so.6 -> liburcu-common.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/liburcu-common.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-common.so -> liburcu-common.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-common.so.5 -> liburcu-common.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu-common.so.5.1.0
 -rw-r--r--	root/root	usr/lib/liburcu-mb.a
 -rwxr-xr-x	root/root	usr/lib/liburcu-mb.la
-lrwxrwxrwx	root/root	usr/lib/liburcu-mb.so -> liburcu-mb.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/liburcu-mb.so.6 -> liburcu-mb.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/liburcu-mb.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-mb.so -> liburcu-mb.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-mb.so.5 -> liburcu-mb.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu-mb.so.5.1.0
+-rw-r--r--	root/root	usr/lib/liburcu-memb.a
+-rwxr-xr-x	root/root	usr/lib/liburcu-memb.la
+lrwxrwxrwx	root/root	usr/lib/liburcu-memb.so -> liburcu-memb.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-memb.so.5 -> liburcu-memb.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu-memb.so.5.1.0
 -rw-r--r--	root/root	usr/lib/liburcu-qsbr.a
 -rwxr-xr-x	root/root	usr/lib/liburcu-qsbr.la
-lrwxrwxrwx	root/root	usr/lib/liburcu-qsbr.so -> liburcu-qsbr.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/liburcu-qsbr.so.6 -> liburcu-qsbr.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/liburcu-qsbr.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-qsbr.so -> liburcu-qsbr.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-qsbr.so.5 -> liburcu-qsbr.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu-qsbr.so.5.1.0
 -rw-r--r--	root/root	usr/lib/liburcu-signal.a
 -rwxr-xr-x	root/root	usr/lib/liburcu-signal.la
-lrwxrwxrwx	root/root	usr/lib/liburcu-signal.so -> liburcu-signal.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/liburcu-signal.so.6 -> liburcu-signal.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/liburcu-signal.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-signal.so -> liburcu-signal.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu-signal.so.5 -> liburcu-signal.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu-signal.so.5.1.0
 -rw-r--r--	root/root	usr/lib/liburcu.a
 -rwxr-xr-x	root/root	usr/lib/liburcu.la
-lrwxrwxrwx	root/root	usr/lib/liburcu.so -> liburcu.so.6.0.0
-lrwxrwxrwx	root/root	usr/lib/liburcu.so.6 -> liburcu.so.6.0.0
--rwxr-xr-x	root/root	usr/lib/liburcu.so.6.0.0
+lrwxrwxrwx	root/root	usr/lib/liburcu.so -> liburcu.so.5.1.0
+lrwxrwxrwx	root/root	usr/lib/liburcu.so.5 -> liburcu.so.5.1.0
+-rwxr-xr-x	root/root	usr/lib/liburcu.so.5.1.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/liburcu-bp.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/liburcu-cds.pc
