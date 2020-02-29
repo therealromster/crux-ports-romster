@@ -1,0 +1,99 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/lttng-gen-tp
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/lttng/
+-rw-r--r--	root/root	usr/include/lttng/align.h
+-rw-r--r--	root/root	usr/include/lttng/bug.h
+-rw-r--r--	root/root	usr/include/lttng/lttng-ust-tracef.h
+-rw-r--r--	root/root	usr/include/lttng/lttng-ust-tracelog.h
+-rw-r--r--	root/root	usr/include/lttng/ringbuffer-abi.h
+-rw-r--r--	root/root	usr/include/lttng/ringbuffer-config.h
+-rw-r--r--	root/root	usr/include/lttng/tracef.h
+-rw-r--r--	root/root	usr/include/lttng/tracelog.h
+-rw-r--r--	root/root	usr/include/lttng/tracepoint-event.h
+-rw-r--r--	root/root	usr/include/lttng/tracepoint-rcu.h
+-rw-r--r--	root/root	usr/include/lttng/tracepoint-types.h
+-rw-r--r--	root/root	usr/include/lttng/tracepoint.h
+-rw-r--r--	root/root	usr/include/lttng/ust-abi.h
+-rw-r--r--	root/root	usr/include/lttng/ust-clock.h
+-rw-r--r--	root/root	usr/include/lttng/ust-compiler.h
+-rw-r--r--	root/root	usr/include/lttng/ust-config.h
+-rw-r--r--	root/root	usr/include/lttng/ust-ctl.h
+-rw-r--r--	root/root	usr/include/lttng/ust-elf.h
+-rw-r--r--	root/root	usr/include/lttng/ust-endian.h
+-rw-r--r--	root/root	usr/include/lttng/ust-error.h
+-rw-r--r--	root/root	usr/include/lttng/ust-events.h
+-rw-r--r--	root/root	usr/include/lttng/ust-getcpu.h
+-rw-r--r--	root/root	usr/include/lttng/ust-tracepoint-event-nowrite.h
+-rw-r--r--	root/root	usr/include/lttng/ust-tracepoint-event-reset.h
+-rw-r--r--	root/root	usr/include/lttng/ust-tracepoint-event-write.h
+-rw-r--r--	root/root	usr/include/lttng/ust-tracepoint-event.h
+-rw-r--r--	root/root	usr/include/lttng/ust-tracer.h
+-rw-r--r--	root/root	usr/include/lttng/ust-version.h
+-rw-r--r--	root/root	usr/include/lttng/ust.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-ctl.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-ctl.so -> liblttng-ust-ctl.so.4.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-ctl.so.4 -> liblttng-ust-ctl.so.4.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-ctl.so.4.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-cyg-profile-fast.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-cyg-profile-fast.so -> liblttng-ust-cyg-profile-fast.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-cyg-profile-fast.so.0 -> liblttng-ust-cyg-profile-fast.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-cyg-profile-fast.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-cyg-profile.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-cyg-profile.so -> liblttng-ust-cyg-profile.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-cyg-profile.so.0 -> liblttng-ust-cyg-profile.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-cyg-profile.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-dl.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-dl.so -> liblttng-ust-dl.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-dl.so.0 -> liblttng-ust-dl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-dl.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-fd.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-fd.so -> liblttng-ust-fd.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-fd.so.0 -> liblttng-ust-fd.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-fd.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-fork.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-fork.so -> liblttng-ust-fork.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-fork.so.0 -> liblttng-ust-fork.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-fork.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-libc-wrapper.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-libc-wrapper.so -> liblttng-ust-libc-wrapper.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-libc-wrapper.so.0 -> liblttng-ust-libc-wrapper.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-libc-wrapper.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-pthread-wrapper.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-pthread-wrapper.so -> liblttng-ust-pthread-wrapper.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-pthread-wrapper.so.0 -> liblttng-ust-pthread-wrapper.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-pthread-wrapper.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-tracepoint.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-tracepoint.so -> liblttng-ust-tracepoint.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust-tracepoint.so.0 -> liblttng-ust-tracepoint.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust-tracepoint.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust.la
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust.so -> liblttng-ust.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/liblttng-ust.so.0 -> liblttng-ust.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/liblttng-ust.so.0.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/lttng-ust.pc
+drwxr-xr-x	root/root	usr/lib/python3.7/
+drwxr-xr-x	root/root	usr/lib/python3.7/site-packages/
+-rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust-2.11.0-py3.7.egg-info
+drwxr-xr-x	root/root	usr/lib/python3.7/site-packages/lttngust/
+-rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/__init__.py
+-rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/agent.py
+-rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/cmd.py
+-rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/debug.py
+-rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/loghandler.py
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/lttng-gen-tp.1.gz
+drwxr-xr-x	root/root	usr/share/man/man3/
+-rw-r--r--	root/root	usr/share/man/man3/do_tracepoint.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/lttng-ust-cyg-profile.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/lttng-ust-dl.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/lttng-ust.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/tracef.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/tracelog.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/tracepoint.3.gz
+-rw-r--r--	root/root	usr/share/man/man3/tracepoint_enabled.3.gz

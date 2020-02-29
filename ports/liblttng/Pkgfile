@@ -1,0 +1,26 @@
+# Description: LTTng user space tracing libraries for LTTng
+# URL: https://lttng.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: python3 liburcu
+# Optional: libnuma
+
+name=liblttng
+version=2.11.0
+release=1
+source=(https://lttng.org/files/lttng-ust/lttng-ust-${version}.tar.bz2)
+
+build() {
+	cd lttng-ust-${version}
+
+	prt-get isinst libnuma || PKGMK_LIBLTTNG+=' --disable-numa'
+
+	PYTHON='/usr/bin/python3' ./configure ${PKGMK_LIBLTTNG} \
+		--prefix='/usr' \
+		--enable-man-pages
+
+	make
+	make DESTDIR="${PKG}" install
+	make -C python-lttngust DESTDIR="${PKG}" PYTHON='/usr/bin/python3' install
+
+	rm -r "${PKG}"/usr/share/doc
+}
