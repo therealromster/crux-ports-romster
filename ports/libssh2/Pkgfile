@@ -1,0 +1,16 @@
+# Description: A library implementing the SSH2 protocol as defined by Internet Drafts
+# URL: https://libssh2.org/
+# Maintainer:Danny Rawlins, crux at romster dot me
+# Depends on: cmake
+
+name=libssh2
+version=1.9.0
+release=1
+source=(https://www.libssh2.org/download/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
