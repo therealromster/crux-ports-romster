@@ -4,7 +4,7 @@
 # Depends on: libao librsvg libsndfile xorg-libxcomposite xorg-libxdamage xorg-libxinerama xorg-libxpm xorg-libxrandr xorg-mkfontscale
 
 name=icewm
-version=1.6.4
+version=1.6.5
 release=1
 source=(https://github.com/ice-wm/icewm/releases/download/$version/$name-$version.tar.lz)
 
