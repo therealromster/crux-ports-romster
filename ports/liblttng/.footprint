@@ -74,16 +74,17 @@ lrwxrwxrwx	root/root	usr/lib/liblttng-ust.so -> liblttng-ust.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/liblttng-ust.so.0 -> liblttng-ust.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/liblttng-ust.so.0.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/lttng-ust-ctl.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/lttng-ust.pc
-drwxr-xr-x	root/root	usr/lib/python3.7/
-drwxr-xr-x	root/root	usr/lib/python3.7/site-packages/
--rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust-2.11.0-py3.7.egg-info
-drwxr-xr-x	root/root	usr/lib/python3.7/site-packages/lttngust/
--rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/__init__.py
--rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/agent.py
--rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/cmd.py
--rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/debug.py
--rw-r--r--	root/root	usr/lib/python3.7/site-packages/lttngust/loghandler.py
+drwxr-xr-x	root/root	usr/lib/python3.9/
+drwxr-xr-x	root/root	usr/lib/python3.9/site-packages/
+-rw-r--r--	root/root	usr/lib/python3.9/site-packages/lttngust-2.12.0-py3.9.egg-info
+drwxr-xr-x	root/root	usr/lib/python3.9/site-packages/lttngust/
+-rw-r--r--	root/root	usr/lib/python3.9/site-packages/lttngust/__init__.py
+-rw-r--r--	root/root	usr/lib/python3.9/site-packages/lttngust/agent.py
+-rw-r--r--	root/root	usr/lib/python3.9/site-packages/lttngust/cmd.py
+-rw-r--r--	root/root	usr/lib/python3.9/site-packages/lttngust/debug.py
+-rw-r--r--	root/root	usr/lib/python3.9/site-packages/lttngust/loghandler.py
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/

@@ -2,17 +2,17 @@
 # URL: https://lttng.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Depends on: python3 liburcu
-# Optional: libnuma
+# Optional: numactl
 
 name=liblttng
-version=2.11.0
+version=2.12.0
 release=1
 source=(https://lttng.org/files/lttng-ust/lttng-ust-${version}.tar.bz2)
 
 build() {
 	cd lttng-ust-${version}
 
-	prt-get isinst libnuma || PKGMK_LIBLTTNG+=' --disable-numa'
+	prt-get isinst numactl || PKGMK_LIBLTTNG+=' --disable-numa'
 
 	PYTHON='/usr/bin/python3' ./configure ${PKGMK_LIBLTTNG} \
 		--prefix='/usr' \
