@@ -1,0 +1,7 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rwxr-xr-x	root/root	usr/include/http_parser.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libhttp_parser.so -> libhttp_parser.so.2.9.4
+lrwxrwxrwx	root/root	usr/lib/libhttp_parser.so.2.9 -> libhttp_parser.so.2.9.4
+-rwxr-xr-x	root/root	usr/lib/libhttp_parser.so.2.9.4

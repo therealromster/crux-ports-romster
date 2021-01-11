@@ -1,0 +1,15 @@
+# Description: Parser for HTTP Request/Response written in C
+# URL: https://github.com/nodejs/http-parser
+# Maintainer: Danny Rawlins, crux at romster dot me
+
+name=http-parser
+version=2.9.4
+release=1
+source=(https://github.com/nodejs/http-parser/archive/v$version/$name-v$version.tar.gz)
+
+build() {
+	cd $name-$version
+	sed -e 's|-Werror||' -i Makefile
+	make library
+	make PREFIX="$PKG/usr" install
+}
