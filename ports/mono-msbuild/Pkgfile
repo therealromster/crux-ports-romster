@@ -1,0 +1,29 @@
+# Description: Xamarin implementation of the Microsoft build system
+# URL: https://github.com/mono/linux-packaging-msbuild
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: mono dotnet-sdk unzip
+
+name=mono-msbuild
+version=16.8.xamarinxplat.2020.07.30.15.02
+release=1
+source=(https://github.com/mono/linux-packaging-msbuild/archive/upstream/$version/linux-packaging-msbuild-$version.tar.gz
+	https://github.com/mono/msbuild/releases/download/0.08/mono_msbuild_6.4.0.208.zip
+	mono-msbuild-use-bash.patch)
+
+build() {
+	cd linux-packaging-msbuild-upstream*
+
+	patch -p1 -i $SRC/mono-msbuild-license-case.patch
+	patch -p1 -i $SRC/mono-msbuild-use-bash.patch
+
+	export DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR='/opt/dotnet'
+	./eng/cibuild_bootstrapped_msbuild.sh --host_type mono --configuration Release --skip_tests /p:DisableNerdbankVersioning=true
+	./stage1/mono-msbuild/msbuild mono/build/install.proj /p:MonoInstallPrefix="${SRC}"/target/usr /p:Configuration=Release-MONO /p:IgnoreDiffFailure=true
+	sed "s@${SRC}/target@@g" -i "${SRC}"/target/usr/bin/msbuild
+	find "${SRC}"/target/usr/lib/mono/ -name Microsoft.DiaSymReader.Native.*dll -delete
+	find "${SRC}"/target/usr/lib/mono/ -name *.dylib -delete
+	find "${SRC}"/target/usr/lib/mono/ -name *.so -delete
+
+	cp -dr --no-preserve=ownership target/usr "${PKG}"/
+	find "${PKG}" -name '*.pdb' -delete
+}
