@@ -1,14 +1,13 @@
-# Description: List urls of soruce arrays in Pkgfiles.
-# URL: http://hvlinux.net/
+# Description: List urls of source arrays in Pkgfiles.
+# URL: https://crux.ster.zone/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Danny Rawlins, crux at romster dot me
+
 
 name=pkg-url
 version=0.0.1
-release=1
+release=2
 source=($name)
 
 build() {
-	mkdir -p $PKG/usr/bin
-	install -m 0750 $SRC/$name $PKG/usr/bin/
+	install -m 0755 -D $SRC/$name $PKG/usr/bin/$name
 }
