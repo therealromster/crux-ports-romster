@@ -1,24 +1,22 @@
 # Description: A linkable library for Git
 # URL: https://libgit2.github.com/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: libssh2 python3
+# Depends on: python3 http-parser
 
 name=libgit2
-version=0.28.4
+version=1.1.0
 release=1
 source=(https://github.com/$name/$name/archive/v$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cmake -S $name-$version -B build -G Ninja \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_INSTALL_LIBDIR=lib \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D USE_HTTP_PARSER=system \
+		-D THREADSAFE=ON \
+		-Wno-dev
 
-	cmake \
-		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DCMAKE_BUILD_TYPE=Release \
-		-DUSE_HTTP_PARSER=system \
-		-DTHREADSAFE=ON \
-		-B build \
-		-S .
-
-	make -C build VERBOSE=1
-	make -C build DESTDIR="$PKG" install
+	cmake --build build
+	DESTDIR=$PKG cmake --install build
 }

@@ -9,6 +9,7 @@ drwxr-xr-x	root/root	usr/include/git2/
 -rw-r--r--	root/root	usr/include/git2/blob.h
 -rw-r--r--	root/root	usr/include/git2/branch.h
 -rw-r--r--	root/root	usr/include/git2/buffer.h
+-rw-r--r--	root/root	usr/include/git2/cert.h
 -rw-r--r--	root/root	usr/include/git2/checkout.h
 -rw-r--r--	root/root	usr/include/git2/cherrypick.h
 -rw-r--r--	root/root	usr/include/git2/clone.h
@@ -16,6 +17,8 @@ drwxr-xr-x	root/root	usr/include/git2/
 -rw-r--r--	root/root	usr/include/git2/common.h
 -rw-r--r--	root/root	usr/include/git2/config.h
 -rw-r--r--	root/root	usr/include/git2/cred_helpers.h
+-rw-r--r--	root/root	usr/include/git2/credential.h
+-rw-r--r--	root/root	usr/include/git2/credential_helpers.h
 -rw-r--r--	root/root	usr/include/git2/deprecated.h
 -rw-r--r--	root/root	usr/include/git2/describe.h
 -rw-r--r--	root/root	usr/include/git2/diff.h
@@ -26,7 +29,6 @@ drwxr-xr-x	root/root	usr/include/git2/
 -rw-r--r--	root/root	usr/include/git2/ignore.h
 -rw-r--r--	root/root	usr/include/git2/index.h
 -rw-r--r--	root/root	usr/include/git2/indexer.h
--rw-r--r--	root/root	usr/include/git2/inttypes.h
 -rw-r--r--	root/root	usr/include/git2/mailmap.h
 -rw-r--r--	root/root	usr/include/git2/merge.h
 -rw-r--r--	root/root	usr/include/git2/message.h
@@ -62,6 +64,8 @@ drwxr-xr-x	root/root	usr/include/git2/sys/
 -rw-r--r--	root/root	usr/include/git2/sys/alloc.h
 -rw-r--r--	root/root	usr/include/git2/sys/commit.h
 -rw-r--r--	root/root	usr/include/git2/sys/config.h
+-rw-r--r--	root/root	usr/include/git2/sys/cred.h
+-rw-r--r--	root/root	usr/include/git2/sys/credential.h
 -rw-r--r--	root/root	usr/include/git2/sys/diff.h
 -rw-r--r--	root/root	usr/include/git2/sys/filter.h
 -rw-r--r--	root/root	usr/include/git2/sys/hashsig.h
@@ -76,7 +80,6 @@ drwxr-xr-x	root/root	usr/include/git2/sys/
 -rw-r--r--	root/root	usr/include/git2/sys/refs.h
 -rw-r--r--	root/root	usr/include/git2/sys/repository.h
 -rw-r--r--	root/root	usr/include/git2/sys/stream.h
--rw-r--r--	root/root	usr/include/git2/sys/time.h
 -rw-r--r--	root/root	usr/include/git2/sys/transport.h
 -rw-r--r--	root/root	usr/include/git2/tag.h
 -rw-r--r--	root/root	usr/include/git2/trace.h
@@ -87,8 +90,8 @@ drwxr-xr-x	root/root	usr/include/git2/sys/
 -rw-r--r--	root/root	usr/include/git2/version.h
 -rw-r--r--	root/root	usr/include/git2/worktree.h
 drwxr-xr-x	root/root	usr/lib/
-lrwxrwxrwx	root/root	usr/lib/libgit2.so -> libgit2.so.28
--rwxr-xr-x	root/root	usr/lib/libgit2.so.0.28.4
-lrwxrwxrwx	root/root	usr/lib/libgit2.so.28 -> libgit2.so.0.28.4
+lrwxrwxrwx	root/root	usr/lib/libgit2.so -> libgit2.so.1.1
+lrwxrwxrwx	root/root	usr/lib/libgit2.so.1.1 -> libgit2.so.1.1.0
+-rwxr-xr-x	root/root	usr/lib/libgit2.so.1.1.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgit2.pc
