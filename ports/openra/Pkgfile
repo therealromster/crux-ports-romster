@@ -1,0 +1,24 @@
+# Description: An open-source implementation of the Red Alert engine using .NET/Mono and OpenGL
+# URL: http://www.openra.net/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: mono-msbuild openal freetype2 libsdl2 lua51 hicolor-icon-theme desktop-file-utils xdg-utils zenity
+
+name=openra
+version=20200503
+release=1
+source=(https://github.com/OpenRA/OpenRA/archive/release-$version.tar.gz)
+
+build() {
+	cd OpenRA-release-$version
+
+	make version VERSION="release-$version"
+	make dependencies
+	make core
+
+	make prefix=/usr DESTDIR="$PKG" install-core
+	make prefix=/usr DESTDIR="$PKG" install-linux-shortcuts
+	make prefix=/usr DESTDIR="$PKG" install-linux-mime
+	make prefix=/usr DESTDIR="$PKG" install-linux-appdata
+	make prefix=/usr DESTDIR="$PKG" install-man-page
+
+}
