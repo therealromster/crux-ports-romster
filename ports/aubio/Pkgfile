@@ -2,21 +2,24 @@
 # URL: http://aubio.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: ffmpeg fftw jack numpy
+# Depends on: ffmpeg fftw jack python3-numpy libsamplerate libsndfile python3-setuptools txt2man
 
 name=aubio
-version=0.4.3
+version=0.4.7
 release=1
 source=(http://aubio.org/pub/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
 
-	/usr/bin/python waf configure --prefix=/usr --enable-fftw3f
-	/usr/bin/python waf build $MAKEFLAGS
-	/usr/bin/python waf --destdir="$PKG" install
+	/usr/bin/python3 waf configure --prefix=/usr --enable-fftw3f
+	/usr/bin/python3 waf build $MAKEFLAGS
+	/usr/bin/python3 waf --destdir="$PKG" install
 
 	# python interface
-	/usr/bin/python setup.py build
-	/usr/bin/python setup.py install --root="$PKG" --optimize=1
+	export PYTHONHASHSEED=0
+	/usr/bin/python3 setup.py build
+	/usr/bin/python3 setup.py install --root="$PKG" --optimize=1
+
+	rm -r $PKG/usr/share/doc
 }
