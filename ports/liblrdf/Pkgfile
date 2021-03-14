@@ -1,18 +1,19 @@
 # Description: A lightweight RDF library with special support for LADSPA plugins.
 # URL: https://github.com/swh/LRDF
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: Diederick de Vries, diederick at diederickdevries dot net
 # Depends on: raptor ladspa
 
 name=liblrdf
-version=0.5.0
+version=0.6.1
 release=1
-source=(https://github.com/swh/LRDF/tarball/$version/$name-$version.tar.gz)
+source=(https://github.com/swh/LRDF/archive/v$version/$name-$version.tar.gz)
 
 build() {
-	cd *-LRDF-*
-	aclocal
-	automake --add-missing
+	mv LRDF-$version $name-$version
+	cd $name-$version
+	autoreconf -vfi
+
+	export CXXFLAGS="$(pkg-config --cflags raptor2) ${CXXFLAGS}"
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
