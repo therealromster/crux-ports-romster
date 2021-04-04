@@ -1,21 +1,21 @@
 # Description: GTK+ based scientific calculator.
 # URL: http://galculator.sourceforge.net/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Packager: acrux, acrux at linuxmail dot org
 # Depends on: desktop-file-utils gtk3
 
 name=galculator
-version=2.1.2
+version=2.1.4
 release=1
-source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.bz2)
+source=(http://galculator.mnim.org/downloads/$name-$version.tar.bz2)
 
 
 build() { 
 	cd $name-$version
 
+	CFLAGS+=' -fcommon'
+
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
 		--disable-nls
 
 	make
