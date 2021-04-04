@@ -1,0 +1,16 @@
+# Description: Wallpaper setting utility for X 
+# URL: https://github.com/stoeckmann/xwallpaper
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: libjpeg-turbo libpng libseccomp xorg-libpixman xorg-libxpm xorg-xcb-util-image
+
+name=xwallpaper
+version=0.6.6
+release=1
+source=(https://github.com/stoeckmann/$name/releases/download/v$version/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
