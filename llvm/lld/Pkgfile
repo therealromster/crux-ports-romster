@@ -1,0 +1,25 @@
+# Description: Linker from the LLVM project
+# URL: https:lld.//llvm.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: llvm
+
+name=lld
+version=12.0.0
+release=1
+source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/$name-$version.src.tar.xz
+	0002-PATCH-lld-Import-compact_unwind_encoding.h-from-libu.patch)
+
+build() {
+	patch -d $name-$version.src -p2 -i $SRC/0002-PATCH-lld-Import-compact_unwind_encoding.h-from-libu.patch
+
+	cmake -S $name-$version.src -B build -G Ninja \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D LLVM_LINK_LLVM_DYLIB=ON \
+		-D LLVM_PARALLEL_COMPILE_JOBS="${JOBS:-1}" \
+		-D LLVM_MAIN_SRC_DIR=/usr/lib/llvm/src \
+		-Wno-dev
+
+	cmake --build build
+	DESTDIR=$PKG cmake --install build
+}

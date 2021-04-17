@@ -1,0 +1,49 @@
+# Description: LLVM
+# URL: https://llvm.org
+# Maintainer: CRUX compat-32 Team, compat-32-ports at crux dot nu
+# Depends on: libffi-32 libxml2-32 llvm
+
+name=llvm-32
+version=12.0.0
+release=1
+source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-$version.src.tar.xz)
+
+build() {
+	export CC=gcc
+	export CXX=g++
+
+	mkdir -p $SRC/keep
+
+	cmake -S llvm-$version.src -B build -G Ninja \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D LLVM_LIBDIR_SUFFIX=32 \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D CMAKE_C_FLAGS_RELEASE="${CFLAGS}" \
+		-D CMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS}" \
+		-D LLVM_TARGETS_TO_BUILD='X86;AMDGPU;BPF;NVPTX' \
+		-D LLVM_BUILD_LLVM_DYLIB=1 \
+		-D LLVM_LINK_LLVM_DYLIB=1 \
+		-D LLVM_PARALLEL_COMPILE_JOBS="${JOBS:-1}" \
+		-D LLVM_INCLUDE_EXAMPLES=0 \
+		-D LLVM_ENABLE_OCAMLDOC=0 \
+		-D LLVM_INCLUDE_TESTS=0 \
+		-D LLVM_ENABLE_FFI=1 \
+		-D LLVM_ENABLE_RTTI=1 \
+		-D LLVM_ENABLE_OCAMLDOC=0 \
+		-D LLVM_INSTALL_UTILS=1 \
+		-D LLVM_DEFAULT_TARGET_TRIPLE="i686-pc-linux-gnu" \
+		-Wno-dev
+
+	cmake --build build
+	DESTDIR=$PKG cmake --install build
+
+	# keep 32bit header and config
+	install -t $SRC/keep $PKG/usr/bin/llvm-config $PKG/usr/include/llvm/Config/llvm-config.h
+
+	# remove unneeded files
+	rm -r $PKG/usr/{bin,include,share/opt-viewer}
+
+	# install 32bit header and config
+	install -m 0755 -D $SRC/keep/llvm-config $PKG/usr/bin/llvm-config-32
+	install -m 0644 -D $SRC/keep/llvm-config.h $PKG/usr/include/llvm/Config/llvm-config-32.h
+}
