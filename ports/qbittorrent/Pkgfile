@@ -4,7 +4,7 @@
 # Depends on:   qt5 libtorrent-rasterbar xdg-utils
 
 name=qbittorrent
-version=4.2.5
+version=4.3.3
 release=1
 source=(https://github.com/qbittorrent/qBittorrent/archive/release-${version}.tar.gz)
 
