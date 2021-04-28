@@ -1,21 +1,23 @@
 # Description: Renders 3D photo-realistic skies in real time with OpenGL.
-# URL: http://stellarium.org/
+# URL: https://stellarium.org/
 # Maintainer: Danny Rawlins, crux at romster dot me
-# Depends on: qt5
+# Depends on: brotli double-conversion graphite2 keyutils krb5 libpcre2 qt5
 
 name=stellarium
-version=0.19.3
+version=0.21.0
 release=1
 source=(https://github.com/Stellarium/stellarium/releases/download/v$version/$name-$version.tar.gz)
 
 build() {
-	cd $name-$version
-
-	install -d build
-	cd build
-
+	prt-get isinst ninja && PKGMK_STELLARIUM+=' -G Ninja'
 	PATH="$(echo ${PATH} | awk -v RS=: -v ORS=: '/ccache/ {next} {print}' | sed 's/:*$//')"
-	cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RELEASE
-	make
-	make DESTDIR=$PKG install
+
+	cmake -S $name-$version -B build $PKGMK_STELLARIUM \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_BUILD_TYPE=RELEASE \
+		-D CMAKE_C_FLAGS_RELEASE="${CFLAGS}" \
+		-D CMAKE_CXX_FLAGS_RELEASE="${CXXFLAGS}" \
+		
+	cmake --build build
+	DESTDIR=$PKG cmake --install build
 }

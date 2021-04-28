@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+PROJECT=4891
+
+unset VERSION
+
+VERSION="$(curl -s https://release-monitoring.org/project/$PROJECT/ |html2 |grep '/html/body/div/div/div/div/span/table/tr/td=' |awk 'NR>3' |awk '{split($0,a,"="); print a[2]}' |awk 'NR%4==1' |sed '/[a-z]/d' |head -n1)"
+
+sed -i -e "s|^\(version=\).*|\1$VERSION|" Pkgfile
+
+unset VERSION
