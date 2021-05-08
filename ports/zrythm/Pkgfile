@@ -1,0 +1,20 @@
+# Description: A digital audio workstation designed to be featureful and easy to use. 
+# URL: https://www.zrythm.org
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: boehm-gc breeze-icons brotli graphite2 graphviz gtksourceview4 guile jack libpcre2 libunistring libyaml lilv rubberband xorg-libxcomposite xorg-libxcursor xorg-libxinerama
+
+name=zrythm
+version=alpha.16.0.37
+release=1
+source=(https://www.zrythm.org/releases/$name-1.0.0-$version.tar.xz)
+
+build() {
+	meson setup build $name-1.0.0-$version \
+		--prefix=/usr \
+		--buildtype=plain
+
+	meson compile -C build -j ${JOBS:-1}
+	DESTDIR=$PKG meson install -C build
+
+	rm -r $PKG/usr/share/locale
+}
