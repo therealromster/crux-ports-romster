@@ -1,0 +1,22 @@
+# Description: GNU Guile interpreter for Scheme
+# URL: https://www.gnu.org/software/guile/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: libffi libgmp libtool ncurses readline boehm-gc libunistring
+
+name=guile
+version=2.2.7
+release=1
+source=(https://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+
+	sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/info
+}
