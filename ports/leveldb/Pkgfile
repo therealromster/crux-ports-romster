@@ -1,0 +1,32 @@
+# Description: A fast and lightweight key/value database library
+# URL: https://github.com/google/leveldb
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: cmake
+
+name=leveldb
+version=1.22
+release=1
+source=(https://github.com/google/leveldb/archive/$version/$name-$version.tar.gz
+	0001-Allow-leveldbjni-build.patch
+	0002-Added-a-DB-SuspendCompations-and-DB-ResumeCompaction.patch
+	0003-allow-Get-calls-to-avoid-copies-into-std-string.patch
+	0004-bloom_test-failure-on-big-endian-archs.patch)
+
+build() {
+	patch -d $name-$version -p1 -i $SRC/0001-Allow-leveldbjni-build.patch
+	patch -d $name-$version -p1 -i $SRC/0002-Added-a-DB-SuspendCompations-and-DB-ResumeCompaction.patch
+	patch -d $name-$version -p1 -i $SRC/0003-allow-Get-calls-to-avoid-copies-into-std-string.patch
+	patch -d $name-$version -p1 -i $SRC/0004-bloom_test-failure-on-big-endian-archs.patch
+
+	prt-get isinst ninja && PKGMK_CEPH+=' -G Ninja'
+	cmake -S $name-$version -B build $PKGMK_CEPH \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_INSTALL_LIBDIR=lib \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS" \
+		-D CMAKE_C_FLAGS_RELEASE="$CFLAGS"  \
+		-D BUILD_SHARED_LIBS=ON
+
+	cmake --build build
+	DESTDIR=$PKG cmake --install build
+}

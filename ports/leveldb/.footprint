@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/leveldb/
+-rw-r--r--	root/root	usr/include/leveldb/c.h
+-rw-r--r--	root/root	usr/include/leveldb/cache.h
+-rw-r--r--	root/root	usr/include/leveldb/comparator.h
+-rw-r--r--	root/root	usr/include/leveldb/db.h
+-rw-r--r--	root/root	usr/include/leveldb/dumpfile.h
+-rw-r--r--	root/root	usr/include/leveldb/env.h
+-rw-r--r--	root/root	usr/include/leveldb/export.h
+-rw-r--r--	root/root	usr/include/leveldb/filter_policy.h
+-rw-r--r--	root/root	usr/include/leveldb/iterator.h
+-rw-r--r--	root/root	usr/include/leveldb/options.h
+-rw-r--r--	root/root	usr/include/leveldb/slice.h
+-rw-r--r--	root/root	usr/include/leveldb/status.h
+-rw-r--r--	root/root	usr/include/leveldb/table.h
+-rw-r--r--	root/root	usr/include/leveldb/table_builder.h
+-rw-r--r--	root/root	usr/include/leveldb/write_batch.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/cmake/
+drwxr-xr-x	root/root	usr/lib/cmake/leveldb/
+-rw-r--r--	root/root	usr/lib/cmake/leveldb/leveldbConfig.cmake
+-rw-r--r--	root/root	usr/lib/cmake/leveldb/leveldbConfigVersion.cmake
+-rw-r--r--	root/root	usr/lib/cmake/leveldb/leveldbTargets-release.cmake
+-rw-r--r--	root/root	usr/lib/cmake/leveldb/leveldbTargets.cmake
+lrwxrwxrwx	root/root	usr/lib/libleveldb.so -> libleveldb.so.1
+lrwxrwxrwx	root/root	usr/lib/libleveldb.so.1 -> libleveldb.so.1.22.0
+-rwxr-xr-x	root/root	usr/lib/libleveldb.so.1.22.0

@@ -1,0 +1,9 @@
+untrusted comment: verify with /etc/ports/romster.pub
+RWTkjLW3Pe2RUKnmyEXKon6NYKUA0/8oHjkyvRBm4eBkFhqGmr2XB4fS9ZUOERLVFitqOfNOa4Y7bcVb0FY1WTz1QhJ0nQeC7QA=
+SHA256 (Pkgfile) = 159a87221f429d20fb31c09dd1adc7e9f3a8fffce0938027086ba56fd99a9778
+SHA256 (.footprint) = 1588f6213f307735702e46ddca5051ead201ab6cc49573cf5a97ed5240f5a50e
+SHA256 (leveldb-1.22.tar.gz) = 55423cac9e3306f4a9502c738a001e4a339d1a38ffbee7572d4a07d5d63949b2
+SHA256 (0001-Allow-leveldbjni-build.patch) = b4d2ac085822d1ba1bc0c741aab880f98422befa0294718446683526407218b1
+SHA256 (0002-Added-a-DB-SuspendCompations-and-DB-ResumeCompaction.patch) = 04022e67e71181b5d56b59b1c086ff75642b4da01f8034986a5899177c8ae4df
+SHA256 (0003-allow-Get-calls-to-avoid-copies-into-std-string.patch) = d247ac2833be24e0a2dca99d93bf24fa782dc52d3c95bd199b069f9179c34271
+SHA256 (0004-bloom_test-failure-on-big-endian-archs.patch) = 7bfc21a83f87b1c96700fe4890c63c66d97f1941521d8389d937b1e2e17f7f01
