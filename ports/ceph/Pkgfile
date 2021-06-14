@@ -1,0 +1,64 @@
+# Description: Distributed, fault-tolerant storage platform delivering object, block, and file system
+# URL: https://ceph.io/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: librdmacm leveldb oath-toolkit libcap-ng libaio doxygen boost fmt
+
+name=ceph
+version=16.2.4
+release=1
+source=(https://download.ceph.com/tarballs/$name-$version.tar.gz
+	0001-src-common-crc32c_intel_fast.patch
+	0002-src-common-CMakeLists.txt.patch
+	0003-src-common-bitstr.h.patch
+	0006-src-blk-CMakeLists.txt.patch
+	0007-src-test-neorados-CMakeLists.txt.patch
+	0008-cmake-modules-Finduring.cmake.patch
+	0009-librgw-notifications-initialize-kafka-and-amqp.patch
+	0010-os-bluestore-strip-trailing-slash-for-directory-list.patch
+	0011-src-test-rgw-amqp_mock.cc.patch
+	0012-src-compressor-snappy-SnappyCompressor.h.patch
+)
+
+build() {
+	patch -d $name-$version -p1 -i $SRC/0001-src-common-crc32c_intel_fast.patch
+	patch -d $name-$version -p1 -i $SRC/0002-src-common-CMakeLists.txt.patch
+	patch -d $name-$version -p1 -i $SRC/0003-src-common-bitstr.h.patch
+	patch -d $name-$version -p1 -i $SRC/0006-src-blk-CMakeLists.txt.patch
+	patch -d $name-$version -p1 -i $SRC/0007-src-test-neorados-CMakeLists.txt.patch
+	patch -d $name-$version -p1 -i $SRC/0008-cmake-modules-Finduring.cmake.patch
+	patch -d $name-$version -p1 -i $SRC/0009-librgw-notifications-initialize-kafka-and-amqp.patch
+	patch -d $name-$version -p1 -i $SRC/0010-os-bluestore-strip-trailing-slash-for-directory-list.patch
+	patch -d $name-$version -p1 -i $SRC/0011-src-test-rgw-amqp_mock.cc.patch
+	patch -d $name-$version -p1 -i $SRC/0012-src-compressor-snappy-SnappyCompressor.h.patch
+
+	prt-get isinst ninja && PKGMK_CEPH+=' -G Ninja'
+
+	[[ -e /usr/lib/ccache ]] && PATH="$(echo ${PATH} | awk -v RS=: -v ORS=: '/ccache/ {next} {print}' | sed 's/:*$//')"
+	[[ -e /usr/lib/ccache ]] && PKGMK_CEPH+=' -D WITH_CCACHE=ON'
+
+	export PYTHON=/usr/bin/python3
+
+	mkdir "$PKGMK_SOURCE_DIR/cypress_cache" || true
+	export CYPRESS_CACHE_FOLDER="$PKGMK_SOURCE_DIR/cypress_cache"
+
+	cmake -S $name-$version -B build $PKGMK_CEPH \
+		-D CMAKE_INSTALL_PREFIX=/usr \
+		-D CMAKE_INSTALL_LIBDIR=lib \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D CMAKE_CXX_FLAGS_RELEASE="$CXXFLAGS -fPIC -std=c++11" \
+		-D CMAKE_C_FLAGS_RELEASE="$CFLAGS -fPIC" \
+		-D WITH_LTTNG=False \
+		-D WITH_BABELTRACE=False \
+		-D WITH_RADOSGW_AMQP_ENDPOINT=OFF \
+		-D WITH_RADOSGW_KAFKA_ENDPOINT=OFF \
+		-D WITH_SYSTEM_BOOST=ON \
+		-D WITH_CEPHFS_JAVA=OFF \
+		-D WITH_MGR_DASHBOARD_FRONTEND=OFF \
+		-D WITH_SEASTAR=OFF \
+		-D WITH_RBD=OFF \
+		-D WITH_KRBD=OFF \
+		-Wno-dev
+
+	cmake --build build
+	DESTDIR=$PKG cmake --install build
+}

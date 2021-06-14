@@ -1,0 +1,11 @@
+--- ceph-16.2.4/src/compressor/snappy/SnappyCompressor.h.orig	2021-05-26 08:30:26.205447315 -0400
++++ ceph-16.2.4/src/compressor/snappy/SnappyCompressor.h	2021-05-26 08:31:22.570443033 -0400
+@@ -97,7 +97,7 @@
+     if (qat_enabled)
+       return qat_accel.decompress(p, compressed_len, dst, compressor_message);
+ #endif
+-    snappy::uint32 res_len = 0;
++    std::uint32_t res_len = 0;
+     BufferlistSource source_1(p, compressed_len);
+     if (!snappy::GetUncompressedLength(&source_1, &res_len)) {
+       return -1;

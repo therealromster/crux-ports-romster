@@ -1,0 +1,14 @@
+untrusted comment: verify with /etc/ports/romster.pub
+RWTkjLW3Pe2RUCbpAdU2V9HXq4fYgmastGDnaGU6+/WcEkg56He27lmmNNpel3A2A5nLlh6tkjpcrwiLSPgurFX7k86r0ORhRws=
+SHA256 (Pkgfile) = 6fe2b55858e0f14fd8c8a5f8a7c09d2478220b08f650f0965b0a59ed8157db72
+SHA256 (ceph-16.2.4.tar.gz) = 27a1552bb7de34df1c18ee4148395f446002033721991512591f9ae1981e5b2d
+SHA256 (0001-src-common-crc32c_intel_fast.patch) = 9d79caa39a217bad7d2356f5278e796a8f6548a2e8d12fcaafe7ded896ee8827
+SHA256 (0002-src-common-CMakeLists.txt.patch) = 9f71a7f2142c6e9b10713c665c137db816ac9e3661d7d5521331cb80addfef77
+SHA256 (0003-src-common-bitstr.h.patch) = a0f4eb6aa8039bfea51e0165822dc64ccd79088c63a86b646838accdd22ee0ac
+SHA256 (0006-src-blk-CMakeLists.txt.patch) = fcdb83016bc0dc9ad6e458f490a7642db0df28142b483e63ddaf8e4b42ab9091
+SHA256 (0007-src-test-neorados-CMakeLists.txt.patch) = c3fd1ee199134b2020fe8b0981d59e8f98550cc9df3869a8123370504bcae0d8
+SHA256 (0008-cmake-modules-Finduring.cmake.patch) = 3d4526c82d043803be0b7150a9740bd903f4c5c7c0498544ff9a0dd7ee934989
+SHA256 (0009-librgw-notifications-initialize-kafka-and-amqp.patch) = 0d750ebe1cb8e49006d3a546bd592c6a42cece6d910b8d07085bdd25c08061c4
+SHA256 (0010-os-bluestore-strip-trailing-slash-for-directory-list.patch) = 228b257ca3f9adbf52bce938964cddb5b4822b1fe965a9bd27fb883d3cf37736
+SHA256 (0011-src-test-rgw-amqp_mock.cc.patch) = 3c0f593d3d93a250dda373e38806274e37ca37c0f5b032ec6b03851514441efd
+SHA256 (0012-src-compressor-snappy-SnappyCompressor.h.patch) = c388504bb77e25124259e9e2a9e440404a67a4c747500acd4ca2a39319ee422c

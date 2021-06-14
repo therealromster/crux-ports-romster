@@ -1,0 +1,57 @@
+From 3aa31813980d22719277a04797df48310acdff66 Mon Sep 17 00:00:00 2001
+From: Jonas Jelten <jj@sft.lol>
+Date: Mon, 15 Mar 2021 23:21:07 +0100
+Subject: [PATCH] os/bluestore: strip trailing slash for directory listings
+
+Calls to BlueRocksEnv::GetChildren may contain a trailing / in the
+queried directory, which is stripped away with this patch.
+
+If it's not stripped, the directory entry is not found in BlueFS:
+```
+10 bluefs readdir db/
+20 bluefs readdir dir db/ not found
+ 3 rocksdb: [db/db_impl/db_impl_open.cc:1785] Persisting Option File error: OK
+```
+
+Fixes: https://tracker.ceph.com/issues/49815
+Signed-off-by: Jonas Jelten <jj@sft.lol>
+---
+ src/os/bluestore/BlueFS.cc | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/os/bluestore/BlueFS.cc b/src/os/bluestore/BlueFS.cc
+index ea39626aef..62b9d27f58 100644
+--- a/src/os/bluestore/BlueFS.cc
++++ b/src/os/bluestore/BlueFS.cc
+@@ -3493,9 +3493,14 @@
+ 
+ int BlueFS::readdir(const string& dirname, vector<string> *ls)
+ {
++  std::string dname = dirname;
++  // dirname may contain a trailing /
++  if (!dname.empty() && dname.back() == '/') {
++    dname.pop_back();
++  }
+   std::lock_guard l(lock);
+-  dout(10) << __func__ << " " << dirname << dendl;
+-  if (dirname.empty()) {
++  dout(10) << __func__ << " " << dname << dendl;
++  if (dname.empty()) {
+     // list dirs
+     ls->reserve(dir_map.size() + 2);
+     for (auto& q : dir_map) {
+@@ -3503,9 +3508,9 @@
+     }
+   } else {
+     // list files in dir
+-    map<string,DirRef>::iterator p = dir_map.find(dirname);
++    map<string,DirRef>::iterator p = dir_map.find(dname);
+     if (p == dir_map.end()) {
+-      dout(20) << __func__ << " dir " << dirname << " not found" << dendl;
++      dout(20) << __func__ << " dir " << dname << " not found" << dendl;
+       return -ENOENT;
+     }
+     DirRef dir = p->second;
+-- 
+2.26.2
+

@@ -1,0 +1,11 @@
+--- ceph-16.1.0-43-g6b74fb5c/src/blk/CMakeLists.txt.orig	2021-02-01 08:16:26.719517641 -0500
++++ ceph-16.1.0-43-g6b74fb5c/src/blk/CMakeLists.txt	2021-02-01 08:16:47.810092341 -0500
+@@ -25,7 +25,7 @@
+     zoned/HMSMRDevice.cc)
+ endif()
+ 
+-add_library(blk ${libblk_srcs})
++add_library(blk STATIC ${libblk_srcs})
+ target_include_directories(blk PRIVATE "./")
+ 
+ if(HAVE_LIBAIO)

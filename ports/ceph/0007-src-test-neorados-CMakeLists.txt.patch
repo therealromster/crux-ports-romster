@@ -1,0 +1,11 @@
+--- ceph-16.1.0-43-g6b74fb5c/src/test/neorados/CMakeLists.txt.orig	2021-02-01 08:25:18.006965821 -0500
++++ ceph-16.1.0-43-g6b74fb5c/src/test/neorados/CMakeLists.txt	2021-02-01 08:25:34.244407147 -0500
+@@ -19,7 +19,7 @@
+ target_link_libraries(ceph_test_neorados_op_speed
+   libneorados fmt::fmt ${unittest_libs})
+ 
+-add_library(neoradostest-support common_tests.cc)
++add_library(neoradostest-support STATIC common_tests.cc)
+ target_link_libraries(neoradostest-support
+   libneorados fmt::fmt)
+ 
