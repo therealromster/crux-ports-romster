@@ -1,0 +1,17 @@
+# Description: A library to use InfiniBand 'verbs' for direct access to IB hardware
+# URL: https://www.openfabrics.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: libnl
+
+name=libibverbs
+version=1.2.1
+release=1
+source=(https://www.openfabrics.org/downloads/verbs/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
