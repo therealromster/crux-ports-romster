@@ -1,0 +1,24 @@
+# Description: Userspace RDMA Connection Manager
+# URL: http://www.openfabrics.org/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Depends on: libibverbs
+
+name=librdmacm
+version=1.1.0
+release=1
+source=(http://www.openfabrics.org/downloads/rdmacm/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	export LDFLAGS+=' -lpthread'
+	export CFLAGS+=' -fno-strict-aliasing'
+
+	./configure --prefix=/usr
+
+	sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool
+	sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+
+	make
+	make DESTDIR=$PKG install
+}
