@@ -1,0 +1,17 @@
+# Description: C library implementing the OAuth secure authentication protocol
+# URL: https://www.nongnu.org/oath-toolkit/
+# Maintainer: Danny Rawlins, crux at romster dot me
+
+name=oath-toolkit
+version=2.6.7
+release=1
+source=(https://download.savannah.nongnu.org/releases/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+
+	rm -r $PKG/usr/share/gtk-doc
+}
