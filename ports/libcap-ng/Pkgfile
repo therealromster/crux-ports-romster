@@ -1,0 +1,21 @@
+# Description: Alternate posix capabilities library
+# URL:https://people.redhat.com/sgrubb/libcap-ng/
+# Maintainer: Danny Rawlins, crux at romster dot me
+
+name=libcap-ng
+version=0.8.2
+release=1
+source=(https://people.redhat.com/sgrubb/libcap-ng/$name-$version.tar.gz
+	libcap-ng-0.8.2-apply-disable.patch)
+
+build() {
+	cd $name-$version
+
+	patch -p1 -i $SRC/libcap-ng-0.8.2-apply-disable.patch
+
+	./configure --prefix=/usr --disable-static
+	make
+	make DESTDIR=$PKG install
+
+	find $PKG -name '*.la' -delete
+}
